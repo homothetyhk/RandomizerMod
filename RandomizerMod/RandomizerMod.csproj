@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B1AB441-2E8A-49EB-87BD-8E1C9729AD00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RandomizerMod</RootNamespace>
+    <AssemblyName>RandomizerMod</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MenuChanger">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\MenuChanger.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_PlayMaker">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayMaker">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SpriteManager.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extensions\RandomExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="LogHelper.cs" />
+    <Compile Include="Logic\LogicCost.cs" />
+    <Compile Include="Logic\LogicDef.cs" />
+    <Compile Include="Logic\LogicItem.cs" />
+    <Compile Include="Logic\LogicManager.cs" />
+    <Compile Include="Logic\LogicProcessor.cs" />
+    <Compile Include="Logic\LogicWaypoint.cs" />
+    <Compile Include="Logic\PrePlacedManager.cs" />
+    <Compile Include="Logic\ProgressionManager.cs" />
+    <Compile Include="Logic\RandoLocation.cs" />
+    <Compile Include="Logic\Randomizer.cs" />
+    <Compile Include="Menu\RandomizerMenu.cs" />
+    <Compile Include="Menu\RandomizerSettings.cs" />
+    <Compile Include="MiniPM.cs" />
+    <Compile Include="RandomizerData\Data.cs" />
+    <Compile Include="RandomizerData\ItemDef.cs" />
+    <Compile Include="RandomizerData\JsonUtil.cs" />
+    <Compile Include="RandomizerData\LocationDef.cs" />
+    <Compile Include="RandomizerData\PoolDef.cs" />
+    <Compile Include="RandomizerData\RawLogicDef.cs" />
+    <Compile Include="RandomizerData\StartDef.cs" />
+    <Compile Include="RandomizerData\TransitionDef.cs" />
+    <Compile Include="RandomizerMod.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\BinaryFormatting.cs" />
+    <Compile Include="Settings\CursedSettings.cs" />
+    <Compile Include="Settings\EssenceCostRandomizerSettings.cs" />
+    <Compile Include="Settings\GenerationSettings.cs" />
+    <Compile Include="Settings\GrubCostRandomizerSettings.cs" />
+    <Compile Include="Settings\LongLocationSettings.cs" />
+    <Compile Include="Settings\MiscSettings.cs" />
+    <Compile Include="Settings\PoolSettings.cs" />
+    <Compile Include="Settings\Presets\Captions.cs" />
+    <Compile Include="Settings\Presets\CursePresetData.cs" />
+    <Compile Include="Settings\Presets\EssenceCostPresetData.cs" />
+    <Compile Include="Settings\Presets\GrubCostPresetData.cs" />
+    <Compile Include="Settings\Presets\Hash.cs" />
+    <Compile Include="Settings\Presets\LongLocationPresetData.cs" />
+    <Compile Include="Settings\Presets\MiscPresetData.cs" />
+    <Compile Include="Settings\Presets\PoolPresetData.cs" />
+    <Compile Include="Settings\Presets\SkipPresetData.cs" />
+    <Compile Include="Settings\Presets\StartItemPresetData.cs" />
+    <Compile Include="Settings\Presets\StartLocationPresetData.cs" />
+    <Compile Include="Settings\Presets\TransitionPresetData.cs" />
+    <Compile Include="Settings\RandomizerSettings.cs" />
+    <Compile Include="Settings\GlobalSettings.cs" />
+    <Compile Include="Settings\SkipSettings.cs" />
+    <Compile Include="Settings\StartItemSettings.cs" />
+    <Compile Include="Settings\StartLocationSettings.cs" />
+    <Compile Include="Settings\TransitionSettings.cs" />
+    <Compile Include="Settings\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\items.json" />
+    <EmbeddedResource Include="Resources\locations.json" />
+    <EmbeddedResource Include="Resources\logic_settings.json" />
+    <EmbeddedResource Include="Resources\macros.json" />
+    <EmbeddedResource Include="Resources\pools.json" />
+    <EmbeddedResource Include="Resources\waypoints.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\entries.txt" />
+    <EmbeddedResource Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\starts.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\RandomizerMod"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

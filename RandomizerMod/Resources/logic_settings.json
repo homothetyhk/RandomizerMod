@@ -1,0 +1,14 @@
+{
+  "MILDSKIPS": "SkipSettings.MildSkips",
+  "SHADESKIPS": "SkipSettings.ShadeSkips",
+  "FIREBALLSKIPS": "SkipSettings.FireballSkips",
+  "ACIDSKIPS": "SkipSettings.AcidSkips",
+  "SPIKETUNNELS": "SkipSettings.SpikeTunnels",
+  "DARKROOMS": "SkipSettings.DarkRooms",
+  "SPICYSKIPS": "SkipSettings.SpicySkips",
+  "RANDOMNAIL": "CursedSettings.RandomizeNail",
+  "CURSED": "CursedSettings.RemoveSpellUpgrades",
+  "RANDOMFOCUS": "CursedSettings.RandomizeFocus",
+  "CURSEDMASKS": "CursedSettings.CursedMasks",
+  "CURSEDNOTCHES": "CursedSettings.CursedNotches"
+}
