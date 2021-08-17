@@ -6,54 +6,80 @@ using RandomizerMod.Settings;
 
 namespace RandomizerMod.Logic
 {
-    public class LogicCost
+    public abstract class LogicCost
     {
         public static LogicCost NewGrubCost(LogicManager lm, int cost)
         {
-            return new LogicCost
-            {
-                logic = lm.FromString($"GRUBS>{cost - 1}", "Grub_Cost") 
-            };
+            return new GrubCost(lm, cost);
         }
 
         public static LogicCost NewEssenceCost(LogicManager lm, int cost)
         {
-            return new LogicCost
-            {
-                logic = lm.FromString($"ESSENCE>{cost - 1}", "Grub_Cost")
-            };
+            return new EssenceCost(lm, cost);
         }
 
-        public LogicDef logic;
-
-        /*
-        public ItemChanger.Cost ToRealCost()
-        {
-            throw new NotImplementedException();
-        }
-        */
-
+        public abstract bool CanGet(int[] obtained);
     }
 
-    public class RandomizableGrubCost
+    public class GrubCost : LogicCost
     {
-        public int value;
+        public readonly int cost;
+        public readonly int index;
 
-        public void Initialize(GenerationSettings gs, Random rng)
+        public GrubCost(LogicManager lm, GenerationSettings gs, Random rng)
         {
-            value = rng.Next(gs.GrubCostRandomizerSettings.MinimumGrubCost, gs.GrubCostRandomizerSettings.MaximumGrubCost + 1);
+            cost = rng.Next(gs.GrubCostRandomizerSettings.MinimumGrubCost, gs.GrubCostRandomizerSettings.MaximumGrubCost + 1);
+            index = lm.GetIndex("GRUBS");
+        }
+
+        public GrubCost(LogicManager lm, int cost)
+        {
+            this.cost = cost;
+            this.index = lm.GetIndex("GRUBS");
+        }
+
+        public override bool CanGet(int[] obtained)
+        {
+            return obtained[index] > cost - 1;
+        }
+
+        public override string ToString()
+        {
+            return $"Grub Cost: {cost}";
         }
     }
 
-    public class RandomizableEssenceCost
+    public class EssenceCost : LogicCost
     {
-        public int value;
+        public readonly int cost;
+        public readonly int index;
 
-        public void Initialize(GenerationSettings gs, Random rng)
+        public EssenceCost(LogicManager lm, GenerationSettings gs, Random rng)
         {
-            value = rng.Next(gs.EssenceCostRandomizerSettings.MinimumEssenceCost, gs.EssenceCostRandomizerSettings.MaximumEssenceCost + 1);
+            cost = rng.Next(gs.EssenceCostRandomizerSettings.MinimumEssenceCost, gs.EssenceCostRandomizerSettings.MaximumEssenceCost + 1);
+            index = lm.GetIndex("ESSENCE");
+        }
+
+        public EssenceCost(LogicManager lm, int cost)
+        {
+            this.cost = cost;
+            this.index = lm.GetIndex("ESSENCE");
+        }
+
+
+        public override bool CanGet(int[] obtained)
+        {
+            return obtained[index] > cost - 1;
+        }
+
+        public override string ToString()
+        {
+            return $"Essence Cost: {cost}";
         }
     }
+
+
+
 
     public class LateRandomizableGeoCost
     {

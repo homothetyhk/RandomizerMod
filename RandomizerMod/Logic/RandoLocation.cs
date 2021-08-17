@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.Logic
 {
@@ -55,7 +56,7 @@ namespace RandomizerMod.Logic
         {
             if (costs != null)
             {
-                if (costs.Any(l => !l.logic.CanGet(pm.obtained))) return false;
+                if (costs.Any(l => !l.CanGet(pm.obtained))) return false;
             }
             return logic.CanGet(pm.obtained);
         }
@@ -64,6 +65,7 @@ namespace RandomizerMod.Logic
         {
             if (costs == null) costs = new List<LogicCost>();
             costs.Add(cost);
+            Log($"Added cost {cost} to location {name}");
         }
 
         public RandoLocation Clone()

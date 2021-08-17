@@ -28,6 +28,7 @@ namespace RandomizerMod.Menu
 
         public override void OnEnterMainMenu(MenuPage modeMenu)
         {
+            Log("Building Randomizer Menu");
             menu = new RandomizerMenu(modeMenu);
         }
 
@@ -278,7 +279,7 @@ namespace RandomizerMod.Menu
         private void MakeMenuElements()
         {
             Log("Mode Page? " + (ModePage != null));
-            EntryButton = new BigButton(ModePage, MenuChanger.SpriteManager.GetSprite("logo"), "Randomizer");
+            EntryButton = new BigButton(ModePage, SpriteManager.GetSprite("logo"), "Randomizer");
             Log("Made EntryButton");
             // Start Page
 
@@ -372,7 +373,7 @@ namespace RandomizerMod.Menu
             OutputLabel = new MenuLabel(FinalPage, "", new Vector2(800, 800));
             OutputLabel.Hide();
 
-            StartButton = new BigButton(FinalPage, MenuChanger.SpriteManager.GetSprite("logo"), "Start Game");
+            StartButton = new BigButton(FinalPage, SpriteManager.GetSprite("logo"), "Start Game");
             StartButton.Hide();
 
             int hashLength = 1 + 4;
@@ -600,9 +601,8 @@ namespace RandomizerMod.Menu
                 }
             };
 
-            StartButton.Button.AddHideAllMenuPagesEvent();
             StartButton.Button.AddSetResumeKeyEvent("Randomizer");
-            StartButton.Button.AddEvent(() => GameManager.instance.ContinueGame());
+            StartButton.Button.AddEvent(StartRandomizerGame);
         }
 
         private void AddMiniPMEvents()
@@ -709,6 +709,7 @@ namespace RandomizerMod.Menu
 
 
         Thread RandomizerThread;
+        Logic.Randomizer randomizer;
         private void Randomize()
         {
             AttemptCounter.Set(0);
@@ -719,14 +720,15 @@ namespace RandomizerMod.Menu
             {
                 try
                 {
+                    SelectStart(new Random(Settings.Seed + 4));
                     Logic.LogicManager lm = RandomizerMod.ItemLogicManager;
                     var items = Data.GetRandomizedItems(Settings, lm);
                     var locations = Data.GetRandomizedLocations(Settings, lm).Select(ld => new Logic.RandoLocation { logic = ld, multi = Data.GetLocationDef(ld.name).multi }).ToArray();
                     Data.PoolTest(Settings, lm);
-                    Logic.Randomizer r = new Logic.Randomizer(items, locations, lm, Settings);
+                    randomizer = new Logic.Randomizer(items, locations, lm, Settings);
 
                     ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
-                    r.Randomize(Settings.Seed);
+                    randomizer.Randomize(Settings.Seed);
 
                     ThreadSupport.BeginInvoke(() =>
                     {
@@ -739,7 +741,7 @@ namespace RandomizerMod.Menu
                         int hashSeed = 0;
                         unchecked
                         {
-                            foreach (var (item, location) in r.placements)
+                            foreach (var (item, location) in randomizer.placements)
                             {
                                 hashSeed += item.name.GetStableHashCode() * location.name.GetStableHashCode();
                             }
@@ -767,6 +769,46 @@ namespace RandomizerMod.Menu
                 }
             });
             RandomizerThread.Start();
+        }
+
+        private void SelectStart(Random rng)
+        {
+            List<string> startNames = new List<string>();
+            var type = Settings.StartLocationSettings.StartLocationType;
+            switch (type)
+            {
+                case StartLocationSettings.RandomizeStartLocationType.Fixed:
+                    string startName = Settings.StartLocationSettings.StartLocation;
+                    if (!string.IsNullOrEmpty(startName) || !(Data.GetStartDef(startName) is StartDef def) || !pm.Evaluate(def.logic))
+                    {
+                        throw new InvalidOperationException("Invalid start name selected with \"Fixed\" start location type.");
+                    }
+                    return;
+                default:
+                    startNames.AddRange(StartDefs.Where(s => pm.Evaluate(s.logic)).Select(s => s.name));
+                    break;
+            }
+            if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
+            Settings.StartLocationSettings.StartLocation = rng.Next(startNames);
+        }
+
+        private void StartRandomizerGame()
+        {
+            try
+            {
+                Interop.Export(Settings, randomizer.placements);
+                MenuChangerMod.HideAllMenuPages();
+                UIManager.instance.StartNewGame();
+            }
+            catch (Exception e)
+            {
+                Log("Start Game terminated due to error:\n" + e);
+                FinalPage.Show();
+                OutputLabel.Text.color = Color.red;
+                OutputLabel.Text.text = "Start Game terminated due to error:\n" + e;
+                OutputLabel.Text.alignment = TextAnchor.UpperLeft;
+                OutputLabel.Show();
+            }
         }
 
         private void Abort()

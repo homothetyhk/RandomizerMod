@@ -100,22 +100,6 @@ namespace RandomizerMod.Logic
             }
 
             locations = singleLocations.Select((l, i) => new PriorityLocation(l, i)).ToList();
-            foreach (var loc in locations)
-            {
-                switch (loc.name)
-                {
-                    case "Grubfather":
-                        loc.location.AddCost(LogicCost.NewGrubCost(
-                            _lm,
-                            rng.Next(_gs.GrubCostRandomizerSettings.MinimumGrubCost, _gs.GrubCostRandomizerSettings.MaximumGrubCost + 1)));
-                        break;
-                    case "Seer":
-                        loc.location.AddCost(LogicCost.NewEssenceCost(
-                            _lm,
-                            rng.Next(_gs.EssenceCostRandomizerSettings.MinimumEssenceCost, _gs.EssenceCostRandomizerSettings.MaximumEssenceCost + 1)));
-                        break;
-                }
-            }
         }
 
         public RandoLocation NewVendorLocation(RandoLocation template)
@@ -154,7 +138,8 @@ namespace RandomizerMod.Logic
 
             rng = new Random(seed);
             pm = new ProgressionManager(_lm, _gs);
-            pm.Add(_lm.Waypoints[0].item);
+            AddStart();
+
             items = rng.Permute((IEnumerable<LogicItem>)_baseItems);
             SortLocations();
 
@@ -195,6 +180,18 @@ namespace RandomizerMod.Logic
             Log($"Logic evaluations: {LogicDef.logicEvaluations}");
             Log($"PM flag reads: {LogicDef.flagReads}");
             Log($"Logic time: {LogicDef.stopwatch.Elapsed}");
+        }
+
+        public void AddStart()
+        {
+            string startName = _gs.StartLocationSettings.StartLocation;
+            if (string.IsNullOrEmpty(startName))
+            {
+                throw new InvalidOperationException($"Invalid start name {startName} passed to randomizer");
+            }
+
+            pm.Add(_lm.Waypoints.Select(w => w.item).First(i => i.name == RandomizerData.Data.GetStartDef(startName).waypoint));
+            Log($"Set Start as {startName}");
         }
 
 

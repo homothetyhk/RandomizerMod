@@ -9,12 +9,15 @@ using RandomizerMod.Settings;
 
 namespace RandomizerMod
 {
-    public class RandomizerMod : Mod, IGlobalSettings<GlobalSettings>
+    public class RandomizerMod : Mod, IGlobalSettings<GlobalSettings>, IMenuMod
     {
         private readonly string _version = $"PRERELEASE: {GetSHA1()}";
         public override string GetVersion() => _version;
 
         public static GlobalSettings GS { get; private set; } = new GlobalSettings();
+
+        public bool ToggleButtonInsideMenu => true;
+
         public static Logic.LogicManager ItemLogicManager; // TODO: move to data
 
 
@@ -25,8 +28,18 @@ namespace RandomizerMod
             base.Initialize();
             LogHelper.OnLog += Log;
             SpriteManager.LoadEmbeddedPngs("RandomizerMod.Resources.");
-            ItemLogicManager = RandomizerData.Data.Load();
+
+            try
+            {
+                ItemLogicManager = RandomizerData.Data.Load();
+            }
+            catch (Exception e)
+            {
+                LogError($"Error loading RandomizerData!\n{e}");
+            }
+
             MenuChanger.ModeMenu.AddMode(new Menu.RandomizerMenuConstructor());
+            Log("Initialization complete.");
         }
 
 
@@ -48,6 +61,11 @@ namespace RandomizerMod
         public GlobalSettings OnSaveGlobal()
         {
             return GS;
+        }
+
+        public List<IMenuMod.MenuEntry> GetMenuData(IMenuMod.MenuEntry? toggleButtonEntry)
+        {
+            return new List<IMenuMod.MenuEntry> { new IMenuMod.MenuEntry("Hello", new string[] { "a", "b" }, "World", (i) => { }, () => 0) };
         }
     }
 }

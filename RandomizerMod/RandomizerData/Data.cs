@@ -200,8 +200,18 @@ namespace RandomizerMod.RandomizerData
 
         public static LogicItem[] GetRandomizedItems(GenerationSettings gs, LogicManager lm)
         {
+            LogicItem GetItem(PoolDef def, string name)
+            {
+                var item = GetItemDef(name).itemTemplate.ToLogicItem(lm);
+                if (string.IsNullOrEmpty(item.name))
+                {
+                    Log($"Item {name} in pool {def.name} led to null LogicItem!");
+                }
+                return item;
+            }
+
             return __pools.Where(p => p.IsIncluded(gs))
-                .SelectMany(p => p.includeItems.Select(i => GetItemDef(i).itemTemplate.ToLogicItem(lm)))
+                .SelectMany(p => p.includeItems.Select(i => GetItem(p, i)))
                 .ToArray();
         }
 
