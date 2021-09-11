@@ -9,9 +9,7 @@ namespace RandomizerMod.Settings.Presets
     {
         public static string Caption(this GrubCostRandomizerSettings gc)
         {
-            return !gc.RandomizeGrubItemCosts ?
-            "Grub reward items will have vanilla costs."
-            : $"Grub reward items will be randomized to costs between " +
+            return $"Grub reward items will be randomized to costs between " +
             $"{gc.MinimumGrubCost} and {gc.MaximumGrubCost}. For each item, the randomizer will guarantee " +
             $"{gc.GrubTolerance} grub(s) beyond the listed cost are accessible before " +
             $"the item is expected in logic.";
@@ -19,9 +17,7 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this EssenceCostRandomizerSettings ec)
         {
-            return !ec.RandomizeEssenceItemCosts ?
-            "Seer reward items will have vanilla costs."
-            : $"Seer reward items will be randomized to costs between " +
+            return $"Seer reward items will be randomized to costs between " +
             $"{ec.MinimumEssenceCost} and {ec.MaximumEssenceCost}. For each item, the randomizer will guarantee " +
             $"{ec.EssenceTolerance} essence beyond the listed cost is accessible before " +
             $"the item is expected in logic.";
@@ -220,21 +216,39 @@ namespace RandomizerMod.Settings.Presets
                     return $"The randomizer will start at a random location. " +
                         $"It will not start at King's Pass or any location that requires additional items.";
                 case StartLocationSettings.RandomizeStartLocationType.Random:
-                    return $"The randomizer will start at a random location. " +
-                        $"It will not start at any location that requires additional items.";
-                case StartLocationSettings.RandomizeStartLocationType.RandomWithMinorForcedStartItems:
-                    return $"The randomizer will start at a random location. " +
-                        $"Some starting items may be given to allow progress from the location. " +
-                        $"These items may include keys, stags, or skills, but not vertical movement. ";
-                case StartLocationSettings.RandomizeStartLocationType.RandomWithAnyForcedStartItems:
-                    return $"The randomizer will start at a random location. " +
-                        $"Many starting items may be given to allow progress from the location. ";
+                    return $"The randomizer will start at a random location.";
             }
         }
 
         public static string Caption(this TransitionSettings ts)
         {
-            return "";
+            switch (ts.Mode)
+            {
+                default:
+                case TransitionSettings.TransitionMode.None:
+                    return "";
+                case TransitionSettings.TransitionMode.AreaRandomizer:
+                    {
+                        StringBuilder sb = new();
+                        sb.Append("Transitions between areas will be randomized. ");
+                        if (ts.Matched) sb.Append("Transition directions will be preserved. ");
+                        else sb.Append("Transition directions will be randomized. ");
+                        if (ts.Coupled) sb.Append("Transitions will be reversible.");
+                        else sb.Append("Transitions may not be reversible.");
+                        return sb.ToString();
+                    }
+                case TransitionSettings.TransitionMode.RoomRandomizer:
+                    {
+                        StringBuilder sb = new();
+                        sb.Append("Transitions between rooms will be randomized. ");
+                        if (ts.ConnectAreas) sb.Append("Where possible, transitions will connect to the same area. ");
+                        if (ts.Matched) sb.Append("Transition directions will be preserved. ");
+                        else sb.Append("Transition directions will be randomized. ");
+                        if (ts.Coupled) sb.Append("Transitions will be reversible.");
+                        else sb.Append("Transitions may not be reversible.");
+                        return sb.ToString();
+                    }
+            }
         }
     }
 }

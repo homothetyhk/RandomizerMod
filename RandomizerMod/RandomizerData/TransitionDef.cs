@@ -7,15 +7,29 @@ namespace RandomizerMod.RandomizerData
 {
     public class TransitionDef
     {
+        [Newtonsoft.Json.JsonIgnore]
+        public string Name => $"{sceneName}[{doorName}]";
+
         public string sceneName;
         public string doorName;
         public string areaName;
 
-        public string destinationScene;
-        public string destinationGate;
-
+        public bool isAreaTransition;
         public bool isolated;
         public bool deadEnd;
-        public int oneWay; // 0 == 2-way, 1 == can only go in, 2 == can only come out
+        public TransitionSides sides;
+    }
+
+    public enum TransitionSides
+    {
+        Both = 0,
+        /// <summary>
+        /// A one way transition exiting a scene.
+        /// </summary>
+        OneWayIn = 1,
+        /// <summary>
+        /// A one way transition entering a scene.
+        /// </summary>
+        OneWayOut = 2,
     }
 }

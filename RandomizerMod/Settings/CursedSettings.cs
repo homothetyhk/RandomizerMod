@@ -8,7 +8,7 @@ using RandomizerMod.Extensions;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class CursedSettings : ICloneable
+    public class CursedSettings : SettingsModule
     {
         public bool RandomCurses;
         public bool RandomizeFocus;
@@ -23,15 +23,12 @@ namespace RandomizerMod.Settings
 
         public bool RandomizeSwim;
 
-
-        public void HandleRandomCurses(Random rng)
+        public override void Randomize(Random rng)
         {
-            if (RandomCurses)
+            foreach (var field in Util.GetFieldNames(typeof(CursedSettings)))
             {
-                foreach (var field in Util.GetFieldNames(typeof(CursedSettings)))
-                {
-                    if ((bool)Util.Get(this, field) && rng.Next(0, 2) == 0) Util.Set(this, field, false);
-                }
+                if (field == nameof(RandomCurses)) continue;
+                if ((bool)Util.Get(this, field) && rng.Next(0, 2) == 0) Util.Set(this, field, false);
             }
         }
 
@@ -44,12 +41,6 @@ namespace RandomizerMod.Settings
             }
 
             return sb.ToString();
-        }
-
-
-        public object Clone()
-        {
-            return MemberwiseClone();
         }
     }
 }

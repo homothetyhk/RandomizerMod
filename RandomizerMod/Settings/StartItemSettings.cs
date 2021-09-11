@@ -6,7 +6,7 @@ using System.Text;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class StartItemSettings : ICloneable
+    public class StartItemSettings : SettingsModule
     {
         public int MinimumStartGeo;
         public int MaximumStartGeo;
@@ -61,11 +61,5 @@ namespace RandomizerMod.Settings
             DreamNailAndMore,
         }
         public StartMiscItems MiscItems;
-
-
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
     }
 }

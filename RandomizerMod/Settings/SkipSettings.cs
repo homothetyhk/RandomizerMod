@@ -8,7 +8,7 @@ using RandomizerMod.Extensions;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class SkipSettings : ICloneable
+    public class SkipSettings : SettingsModule
     {
         public bool MildSkips;
         public bool ShadeSkips;
@@ -47,12 +47,6 @@ namespace RandomizerMod.Settings
             }
 
             return sb.ToString();
-        }
-
-
-        public object Clone()
-        {
-            return MemberwiseClone();
         }
     }
 }

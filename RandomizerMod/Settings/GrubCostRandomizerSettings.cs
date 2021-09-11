@@ -6,16 +6,22 @@ using System.Text;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class GrubCostRandomizerSettings : ICloneable
+    public class GrubCostRandomizerSettings : SettingsModule
     {
-        public bool RandomizeGrubItemCosts;
+        [MinValue(0)]
+        [MaxValue(46)]
         public int MinimumGrubCost;
+        [MinValue(0)]
+        [MaxValue(46)]
         public int MaximumGrubCost;
+        [MinValue(0)]
+        [MaxValue(46)]
         public int GrubTolerance;
 
-        public object Clone()
+        public override void Clamp(GenerationSettings gs)
         {
-            return MemberwiseClone();
+            if (MaximumGrubCost < MinimumGrubCost) MaximumGrubCost = MinimumGrubCost;
+            if (GrubTolerance + MaximumGrubCost > 46) GrubTolerance = 46 - MaximumGrubCost;
         }
     }
 }

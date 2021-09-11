@@ -245,21 +245,21 @@ namespace RandomizerMod.Menu
             StartDefs = Data.GetStartNames().Select(s => Data.GetStartDef(s)).ToArray();
 
             MakeMenuPages();
-            Log("Made Randomizer menu pages");
+            //Log("Made Randomizer menu pages");
             MakeMenuElements();
-            Log("Made Randomizer menu elements");
+            //Log("Made Randomizer menu elements");
             MakePanels();
-            Log("Made Randomizer menu panels");
+            //Log("Made Randomizer menu panels");
             AddEvents();
             AddMiniPMEvents();
-            Log("Made Randomizer menu events");
+            //Log("Made Randomizer menu events");
             Arrange();
-            Log("Arranged Randomizer menu");
+            //Log("Arranged Randomizer menu");
 
             ResumeMenu.AddResumePage("Randomizer", ResumePage);
             SeedEntryField.InputValue = new System.Random().Next(0, 999999999);
             ApplySettingsToMenu(Settings);
-            Log("Constructed Randomizer menu successfully");
+            //Log("Constructed Randomizer menu successfully");
         }
 
         private void MakeMenuPages()
@@ -278,9 +278,9 @@ namespace RandomizerMod.Menu
 
         private void MakeMenuElements()
         {
-            Log("Mode Page? " + (ModePage != null));
+            //Log("Mode Page? " + (ModePage != null));
             EntryButton = new BigButton(ModePage, SpriteManager.GetSprite("logo"), "Randomizer");
-            Log("Made EntryButton");
+            //Log("Made EntryButton");
             // Start Page
 
             JumpToJumpPageButton = new SmallButton(StartPage, "More Randomizer Settings");
@@ -626,7 +626,7 @@ namespace RandomizerMod.Menu
             cursedMEF.BoolFields[nameof(CursedSettings.CursedMasks)].Changed += b => pm.SetBool("2MASKS", !b.CurrentSelection);
 
             pm.SetBool("VERTICAL", false);
-
+            pm.Changed += UpdateStartLocationSwitch;
         }
 
         private void Arrange()
@@ -643,7 +643,6 @@ namespace RandomizerMod.Menu
 
         private void UpdateStartLocationSwitch(StartLocationSettings.RandomizeStartLocationType type, string loc)
         {
-            Log("UpdateStartLocationSwitch called");
             switch (type)
             {
                 default:
@@ -709,10 +708,30 @@ namespace RandomizerMod.Menu
 
 
         Thread RandomizerThread;
-        Logic.Randomizer randomizer;
+        RandoController rc;
+        //Logic.Randomizer randomizer;
         private void Randomize()
         {
             AttemptCounter.Set(0);
+
+            RandomizerCore.RandoMonitor rm = new();
+            rm.OnSendEvent += (t, m) =>
+            {
+                Log($"[{t}]  {m}");
+                if (t == RandomizerCore.RandoEventType.NewAttempt) ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
+                else if (t == RandomizerCore.RandoEventType.Finished)
+                {
+
+                }
+                if (!string.IsNullOrEmpty(m))
+                {
+                    ThreadSupport.BeginInvoke(() =>
+                    {
+                        OutputLabel.Text.text = m;
+                    });
+                }
+            };
+
             RandomizationTimer.Reset();
             RandomizationTimer.Start();
 
@@ -720,16 +739,19 @@ namespace RandomizerMod.Menu
             {
                 try
                 {
+                    rc = new(Settings, pm, rm);
+                    rc.Run();
+                    /*
                     SelectStart(new Random(Settings.Seed + 4));
-                    Logic.LogicManager lm = RandomizerMod.ItemLogicManager;
+                    Logic.LogicManager lm = Data.GetLogicManager(LogicMode.Item);
                     var items = Data.GetRandomizedItems(Settings, lm);
-                    var locations = Data.GetRandomizedLocations(Settings, lm).Select(ld => new Logic.RandoLocation { logic = ld, multi = Data.GetLocationDef(ld.name).multi }).ToArray();
+                    var locations = Data.GetRandomizedLocations(Settings, lm);
                     Data.PoolTest(Settings, lm);
                     randomizer = new Logic.Randomizer(items, locations, lm, Settings);
 
                     ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
                     randomizer.Randomize(Settings.Seed);
-
+                    */
                     ThreadSupport.BeginInvoke(() =>
                     {
                         RandomizationTimer.Stop();
@@ -738,15 +760,7 @@ namespace RandomizerMod.Menu
                         OutputLabel.Text.alignment = TextAnchor.UpperCenter;
                         OutputLabel.Show();
 
-                        int hashSeed = 0;
-                        unchecked
-                        {
-                            foreach (var (item, location) in randomizer.placements)
-                            {
-                                hashSeed += item.name.GetStableHashCode() * location.name.GetStableHashCode();
-                            }
-                        }
-                        string[] hash = Hash.GetHash(hashSeed);
+                        string[] hash = Hash.GetHash(rc.Hash());
                         for (int i = 0; i < Hash.Length; i++)
                         {
                             HashLabels[1 + i].Text.text = hash[i];
@@ -779,10 +793,19 @@ namespace RandomizerMod.Menu
             {
                 case StartLocationSettings.RandomizeStartLocationType.Fixed:
                     string startName = Settings.StartLocationSettings.StartLocation;
-                    if (!string.IsNullOrEmpty(startName) || !(Data.GetStartDef(startName) is StartDef def) || !pm.Evaluate(def.logic))
+                    if (string.IsNullOrEmpty(startName))
                     {
-                        throw new InvalidOperationException("Invalid start name selected with \"Fixed\" start location type.");
+                        throw new InvalidOperationException($"Null or empty start name {startName} selected with \"Fixed\" start location type.");
                     }
+                    else if (!(Data.GetStartDef(startName) is StartDef def))
+                    {
+                        throw new InvalidOperationException($"Could not find StartDef corresponding to {startName}.");
+                    }
+                    else if (!pm.Evaluate(def.logic))
+                    {
+                        throw new InvalidOperationException($"Start {startName} failed logic validation.");
+                    }
+
                     return;
                 default:
                     startNames.AddRange(StartDefs.Where(s => pm.Evaluate(s.logic)).Select(s => s.name));
@@ -796,7 +819,7 @@ namespace RandomizerMod.Menu
         {
             try
             {
-                Interop.Export(Settings, randomizer.placements);
+                rc.Save();
                 MenuChangerMod.HideAllMenuPages();
                 UIManager.instance.StartNewGame();
             }

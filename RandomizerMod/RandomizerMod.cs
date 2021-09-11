@@ -9,16 +9,12 @@ using RandomizerMod.Settings;
 
 namespace RandomizerMod
 {
-    public class RandomizerMod : Mod, IGlobalSettings<GlobalSettings>, IMenuMod
+    public class RandomizerMod : Mod, IGlobalSettings<GlobalSettings>
     {
         private readonly string _version = $"PRERELEASE: {GetSHA1()}";
         public override string GetVersion() => _version;
 
-        public static GlobalSettings GS { get; private set; } = new GlobalSettings();
-
-        public bool ToggleButtonInsideMenu => true;
-
-        public static Logic.LogicManager ItemLogicManager; // TODO: move to data
+        public static GlobalSettings GS { get; private set; } = new();
 
 
         public RandomizerMod() : base("Randomizer 4") { }
@@ -27,15 +23,29 @@ namespace RandomizerMod
         {
             base.Initialize();
             LogHelper.OnLog += Log;
+            RandomizerCore.LogHelper.OnLog += Log;
             SpriteManager.LoadEmbeddedPngs("RandomizerMod.Resources.");
+
+            foreach (var s in typeof(RandomizerMod).Assembly.GetManifestResourceNames()) Log(s);
 
             try
             {
-                ItemLogicManager = RandomizerData.Data.Load();
+                RandomizerData.Data.Load();
             }
             catch (Exception e)
             {
                 LogError($"Error loading RandomizerData!\n{e}");
+                throw;
+            }
+
+            try
+            {
+                RCData.Load();
+            }
+            catch (Exception e)
+            {
+                LogError($"Error loading RCData!\n{e}");
+                throw;
             }
 
             MenuChanger.ModeMenu.AddMode(new Menu.RandomizerMenuConstructor());
@@ -45,9 +55,8 @@ namespace RandomizerMod
 
         public static string GetSHA1()
         {
-            Assembly a = typeof(RandomizerMod).Assembly;
             using (var sha1 = System.Security.Cryptography.SHA1.Create())
-            using (var sr = File.OpenRead(a.Location))
+            using (var sr = File.OpenRead(Location))
             {
                 return Convert.ToBase64String(sha1.ComputeHash(sr));
             }
@@ -63,9 +72,15 @@ namespace RandomizerMod
             return GS;
         }
 
-        public List<IMenuMod.MenuEntry> GetMenuData(IMenuMod.MenuEntry? toggleButtonEntry)
+        public static string Folder { get; }
+        public static string Location { get; }
+        public static Assembly Assembly { get; }
+
+        static RandomizerMod()
         {
-            return new List<IMenuMod.MenuEntry> { new IMenuMod.MenuEntry("Hello", new string[] { "a", "b" }, "World", (i) => { }, () => 0) };
+            Assembly = typeof(RandomizerMod).Assembly;
+            Location = Assembly.Location;
+            Folder = Path.GetDirectoryName(Location);
         }
     }
 }

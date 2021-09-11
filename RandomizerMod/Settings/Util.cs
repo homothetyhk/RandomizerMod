@@ -27,6 +27,17 @@ namespace RandomizerMod.Settings
                 .ToDictionary(f => f.Name, f => f);
         }
 
+        public static IEnumerable<FieldInfo> GetOrderedFields(Type T)
+        {
+            if (!TypeSortedFields.TryGetValue(T, out Dictionary<string, FieldInfo> Fields))
+            {
+                Cache(T);
+                Fields = TypeSortedFields[T];
+            }
+
+            return Fields.Values.OrderBy(f => f.Name);
+        }
+
         public static FieldInfo GetField(Type T, string fieldName)
         {
             if (!TypeSortedFields.TryGetValue(T, out Dictionary<string, FieldInfo> Fields))

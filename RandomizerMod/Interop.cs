@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RandomizerMod.Logic;
 using ItemChanger;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
@@ -13,20 +12,55 @@ namespace RandomizerMod
 {
     public static class Interop
     {
-        public static void Export(GenerationSettings gs, IEnumerable<RandoPlacement> randoPlacements)
+        public static void ExportStart(GenerationSettings gs)
+        {
+            string startName = gs.StartLocationSettings.StartLocation;
+            if (!string.IsNullOrEmpty(startName) && Data.GetStartDef(startName) is RandomizerData.StartDef def)
+            {
+                ItemChangerMod.ChangeStartGame(new ItemChanger.StartDef
+                {
+                    startSceneName = def.sceneName,
+                    startX = def.x,
+                    startY = def.y,
+                    mapZone = (int)def.zone,
+                });
+            }
+        }
+
+        public static void ExportSettings(GenerationSettings gs)
+        {
+            if (gs.CursedSettings.RandomizeFocus)
+            {
+                ItemChanger.Internal.Ref.Settings.CustomSkills.canFocus = false;
+            }
+
+            if (gs.CursedSettings.RandomizeNail)
+            {
+                ItemChanger.Internal.Ref.Settings.CustomSkills.canSideslashLeft = false;
+                ItemChanger.Internal.Ref.Settings.CustomSkills.canSideslashRight = false;
+                ItemChanger.Internal.Ref.Settings.CustomSkills.canUpslash = false;
+            }
+
+            if (gs.CursedSettings.RandomizeSwim)
+            {
+                ItemChanger.Internal.Ref.Settings.CustomSkills.canSwim = false;
+            }
+        }
+
+        public static void ExportItemPlacements(GenerationSettings gs, IEnumerable<RandomizerCore.ItemPlacement> randoPlacements)
         {
             DefaultShopItems defaultShopItems = GetDefaultShopItems(gs);
             Dictionary<string, AbstractPlacement> export = new Dictionary<string, AbstractPlacement>();
             foreach (var (item, location) in randoPlacements)
             {
-                if (!export.TryGetValue(location.name, out AbstractPlacement p))
+                if (!export.TryGetValue(location.Name, out AbstractPlacement p))
                 {
-                    var l = Finder.GetLocation(location.name);
+                    var l = Finder.GetLocation(location.Name);
                     if (l != null)
                     {
                         p = l.Wrap();
                     }
-                    else if (location.name == "Grubfather")
+                    else if (location.Name == "Grubfather")
                     {
                         var chest = Finder.GetLocation(LocationNames.Grubberflys_Elegy) as ItemChanger.Locations.ContainerLocation;
                         var tablet = Finder.GetLocation(LocationNames.Mask_Shard_5_Grubs) as ItemChanger.Locations.PlaceableLocation;
@@ -43,7 +77,7 @@ namespace RandomizerMod
                             tabletLocation = tablet,
                         };
                     }
-                    else if (location.name == "Seer")
+                    else if (location.Name == "Seer")
                     {
                         var chest = Finder.GetLocation(LocationNames.Awoken_Dream_Nail) as ItemChanger.Locations.ContainerLocation;
                         var tablet = Finder.GetLocation(LocationNames.Hallownest_Seal_Seer) as ItemChanger.Locations.PlaceableLocation;
@@ -62,7 +96,7 @@ namespace RandomizerMod
                     }
                     else
                     {
-                        Log($"Location {location.name} did not correspond to any ItemChanger location!");
+                        Log($"Location {location.Name} did not correspond to any ItemChanger location!");
                         continue;
                     }
 
@@ -70,49 +104,59 @@ namespace RandomizerMod
                     export.Add(p.Name, p);
                 }
 
-                var i = Finder.GetItem(item.name);
+                var i = Finder.GetItem(item.Name);
                 if (i == null)
                 {
-                    Log($"Item {item.name} did not correspond to any ItemChanger item!");
+                    Log($"Item {item.Name} did not correspond to any ItemChanger item!");
                     continue;
                 }
                 if (location.costs != null)
                 {
-                    Cost c = location.costs.Aggregate<LogicCost, Cost>(null, (d, e) => d + GetCost(e));
-                    if (location.multi) i.AddTag<CostTag>().Cost = c;
-                    else if (p is ItemChanger.Placements.ISingleCostPlacement iscp) iscp.Cost += c;
-                    else i.AddTag<CostTag>().Cost = c;
+                    Cost c = null;
+                    foreach (var lc in location.costs)
+                    {
+                        // TODO: move cost resolution to method
+                        if (lc is RandomizerCore.Logic.SimpleCost sc)
+                        {
+                            switch (sc.term)
+                            {
+                                case "GRUBS":
+                                    c += Cost.NewGrubCost(sc.threshold);
+                                    break;
+                                case "ESSENCE":
+                                    c += Cost.NewEssenceCost(sc.threshold);
+                                    break;
+                                case "GEO":
+                                    c += Cost.NewGeoCost(sc.threshold);
+                                    break;
+                                // TODO:
+                                //case "SIMPLE":
+                                //case "Spore_Shroom":
+                                default:
+                                    throw new ArgumentException($"Unknown term {sc.term} found in simple cost on location {location.Name} during Export.");
+                            }
+                        }
+                        else
+                        {
+                            throw new ArgumentException($"Unknown cost {lc.GetType().Name} found on location {location.Name} during Export.");
+                        }
+                    }
+
+                    i.GetOrAddTag<CostTag>().Cost += c;
                 }
                 p.AddItem(i);
-                Log($"Exported item {i.name} at placement {p.Name}");
             }
 
             ItemChangerMod.AddPlacements(export.Select(kvp => kvp.Value));
-            Log("Exported all placements");
-
-            string startName = gs.StartLocationSettings.StartLocation;
-            if (!string.IsNullOrEmpty(startName) && Data.GetStartDef(startName) is RandomizerData.StartDef def)
-            {
-                ItemChangerMod.ChangeStartGame(new ItemChanger.StartDef
-                {
-                    startSceneName = def.sceneName,
-                    startX = def.x,
-                    startY = def.y,
-                    mapZone = (int)def.zone,
-                });
-                Log($"Exported start location {def.name}");
-            }
         }
 
-        public static ItemChanger.Cost GetCost(LogicCost lc)
+        public static void ExportTransitionPlacements(IEnumerable<RandomizerCore.TransitionPlacement> ps)
         {
-            if (lc is GrubCost gc) return Cost.NewGrubCost(gc.cost);
-            else if (lc is EssenceCost ec) return Cost.NewEssenceCost(ec.cost);
-
-            throw new NotImplementedException($"Unknown LogicCost {lc}");
+            foreach (var p in ps) ItemChangerMod.AddTransitionOverride(new Transition(p.source.lt.sceneName, p.source.lt.gateName), new Transition(p.target.lt.sceneName, p.target.lt.gateName));
         }
 
-        public static ItemChanger.DefaultShopItems GetDefaultShopItems(GenerationSettings gs)
+
+        public static DefaultShopItems GetDefaultShopItems(GenerationSettings gs)
         {
             DefaultShopItems items = DefaultShopItems.None;
 

@@ -6,7 +6,7 @@ using System.Text;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class MiscSettings : ICloneable
+    public class MiscSettings : SettingsModule
     {
         public bool AddDuplicateItems;
 
@@ -31,10 +31,5 @@ namespace RandomizerMod.Settings
 
         //public bool RandomizeShopLocations;
         //shhh
-
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
     }
 }

@@ -6,16 +6,21 @@ using System.Text;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class EssenceCostRandomizerSettings : ICloneable
+    public class EssenceCostRandomizerSettings : SettingsModule
     {
-        public bool RandomizeEssenceItemCosts;
+        [MinValue(0)]
+        [MaxValue(2800)]
         public int MinimumEssenceCost;
+        [MinValue(0)]
+        [MaxValue(2800)]
         public int MaximumEssenceCost;
+        [MinValue(0)]
+        [MaxValue(250)]
         public int EssenceTolerance;
 
-        public object Clone()
+        public override void Clamp(GenerationSettings gs)
         {
-            return MemberwiseClone();
+            if (MaximumEssenceCost < MinimumEssenceCost) MaximumEssenceCost = MinimumEssenceCost;
         }
     }
 }

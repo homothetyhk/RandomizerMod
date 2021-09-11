@@ -8,14 +8,57 @@ using System.IO;
 
 namespace RandomizerMod.Settings
 {
+    public class MinValueAttribute : Attribute
+    {
+        public MinValueAttribute(int value) { Value = value; }
+        public readonly int Value;
+    }
+
+    public class MaxValueAttribute : Attribute
+    {
+        public MaxValueAttribute(int value) { Value = value; }
+        public readonly int Value;
+    }
+
+    public readonly struct ConstrainedIntField
+    {
+        public ConstrainedIntField(FieldInfo field)
+        {
+            this.field = field;
+            if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MinValueAttribute min)
+            {
+                this.minValue = min.Value;
+            }
+            else if (field.FieldType.IsEnum)
+            {
+                this.minValue = Enum.GetValues(field.FieldType).Cast<int>().Min();
+            }
+            else this.minValue = int.MinValue;
+
+            if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MaxValueAttribute max)
+            {
+                this.maxValue = max.Value;
+            }
+            else if (field.FieldType.IsEnum)
+            {
+                this.maxValue = Enum.GetValues(field.FieldType).Cast<int>().Max();
+            }
+            else this.maxValue = int.MaxValue;
+        }
+
+        public readonly FieldInfo field;
+        public readonly int minValue;
+        public readonly int maxValue;
+    }
+
     public static class BinaryFormatting
     {
         public const char CLASS_SEPARATOR = ';';
         public const char STRING_SEPARATOR = '`';
 
 
-        static Dictionary<Type, (FieldInfo[] numerics, FieldInfo[] bools)> FieldCache = 
-            new Dictionary<Type, (FieldInfo[] numerics, FieldInfo[] bools)>();
+        static readonly Dictionary<Type, (FieldInfo[] numerics, FieldInfo[] bools)> FieldCache =
+            new();
 
         public class ReflectionData
         {
@@ -34,63 +77,15 @@ namespace RandomizerMod.Settings
             public FieldInfo[] numericFields;
             public FieldInfo[] boolFields;
             public FieldInfo[] stringFields;
+            public ConstrainedIntField[] intFields;
 
             public ReflectionData(Type T)
             {
                 FieldInfo[] fields = T.GetFields(BindingFlags.Public | BindingFlags.Instance);
-                numericFields = fields.Where(f => NumericTypes.Contains(f.FieldType) || f.FieldType.IsEnum).OrderBy(f => f.Name).ToArray();
                 boolFields = fields.Where(f => f.FieldType == typeof(bool)).OrderBy(f => f.Name).ToArray();
                 stringFields = fields.Where(f => f.FieldType == typeof(string)).OrderBy(f => f.Name).ToArray();
+                intFields = fields.Where(f => f.FieldType == typeof(int) || f.FieldType.IsEnum).OrderBy(f => f.Name).Select(f => new ConstrainedIntField(f)).ToArray();
             }
-        }
-
-        static Type[] NumericTypes = new Type[]
-        {
-            typeof(int),
-            typeof(long),
-            typeof(short),
-            typeof(byte),
-        };
-
-        public static void WriteNumeric(this BinaryWriter writer, Type F, object box)
-        {
-            if (F == typeof(int))
-            {
-                writer.Write((int)box);
-            }
-            else if (F == typeof(long))
-            {
-                writer.Write((long)box);
-            }
-            else if (F == typeof(short))
-            {
-                writer.Write((short)box);
-            }
-            else if (F == typeof(byte))
-            {
-                writer.Write((byte)box);
-            }
-        }
-
-        public static object ReadNumeric(this BinaryReader reader, Type F)
-        {
-            if (F == typeof(int))
-            {
-                return reader.ReadInt32();
-            }
-            else if (F == typeof(long))
-            {
-                return reader.ReadInt64();
-            }
-            else if (F == typeof(short))
-            {
-                return reader.ReadInt16();
-            }
-            else if (F == typeof(byte))
-            {
-                return reader.ReadByte();
-            }
-            return null;
         }
 
         public static string Serialize(object o)
@@ -98,34 +93,43 @@ namespace RandomizerMod.Settings
             Type T = o.GetType();
             ReflectionData rd = ReflectionData.GetReflectionData(T);
 
-            using (MemoryStream stream = new MemoryStream())
+            using MemoryStream stream = new();
+            BinaryWriter writer = new(stream);
+            foreach (ConstrainedIntField f in rd.intFields)
             {
-                BinaryWriter writer = new BinaryWriter(stream);
-                foreach (FieldInfo f in rd.numericFields)
+                int range = f.maxValue - f.maxValue;
+                int value = (int)f.field.GetValue(o);
+                if (range < 0)
                 {
-                    Type F = f.FieldType;
-                    if (F.IsEnum)
-                    {
-                        F = Enum.GetUnderlyingType(F);
-                    }
-                    object box = f.GetValue(o);
-                    writer.WriteNumeric(F, box);
+                    writer.Write(value);
                 }
-
-                bool[] boolValues = rd.boolFields.Select(f => (bool)f.GetValue(o)).ToArray();
-                foreach (byte b in ConvertBoolArrayToByteArray(boolValues))
+                else if (range <= byte.MaxValue)
                 {
-                    writer.Write(b);
+                    writer.Write((byte)(value - f.minValue));
                 }
-
-                writer.Close();
-                StringBuilder sb = new StringBuilder(Convert.ToBase64String(stream.ToArray()));
-                foreach (FieldInfo f in rd.stringFields)
+                else if (range <= ushort.MaxValue)
                 {
-                    sb.Append($"{STRING_SEPARATOR}{(string)f.GetValue(o)}");
+                    writer.Write((ushort)(value - f.minValue));
                 }
-                return sb.ToString();
+                else
+                {
+                    writer.Write(value);
+                }
             }
+
+            bool[] boolValues = rd.boolFields.Select(f => (bool)f.GetValue(o)).ToArray();
+            foreach (byte b in ConvertBoolArrayToByteArray(boolValues))
+            {
+                writer.Write(b);
+            }
+
+            writer.Close();
+            StringBuilder sb = new StringBuilder(Convert.ToBase64String(stream.ToArray()));
+            foreach (FieldInfo f in rd.stringFields)
+            {
+                sb.Append($"{STRING_SEPARATOR}{(string)f.GetValue(o)}");
+            }
+            return sb.ToString();
         }
 
         public static void Deserialize(string code, object o)
@@ -148,38 +152,47 @@ namespace RandomizerMod.Settings
             }
 
 
-            using (MemoryStream stream = new MemoryStream(bytes))
-            using (BinaryReader reader = new BinaryReader(stream))
+            using MemoryStream stream = new(bytes);
+            using BinaryReader reader = new(stream);
+            try
             {
-                try
+                foreach (ConstrainedIntField field in rd.intFields)
                 {
-                    foreach (FieldInfo field in rd.numericFields)
+                    int range = field.maxValue - field.maxValue;
+                    if (range < 0)
                     {
-                        Type F = field.FieldType;
-                        if (F.IsEnum)
-                        {
-                            F = Enum.GetUnderlyingType(F);
-                        }
-                        field.SetValue(o, reader.ReadNumeric(F));
+                        field.field.SetValue(o, reader.ReadInt32());
                     }
-
-                    bool[] boolValues = ConvertByteArrayToBoolArray(reader.ReadBytes(bytes.Length - (int)stream.Position));
-                    int cap = Math.Min(boolValues.Length, rd.boolFields.Length);
-                    for (int i = 0; i < cap; i++)
+                    else if (range <= byte.MaxValue)
                     {
-                        rd.boolFields[i].SetValue(o, boolValues[i]);
+                        field.field.SetValue(o, field.minValue + reader.ReadByte());
                     }
-
-                    cap = Math.Min(rd.stringFields.Length, pieces.Length - 1);
-                    for (int i = 0; i < cap; i++)
+                    else if (range <= ushort.MaxValue)
                     {
-                        rd.stringFields[i].SetValue(o, pieces[i + 1]);
+                        field.field.SetValue(o, field.minValue + reader.ReadUInt16());
+                    }
+                    else
+                    {
+                        field.field.SetValue(o, reader.ReadInt32());
                     }
                 }
-                catch (Exception e)
+
+                bool[] boolValues = ConvertByteArrayToBoolArray(reader.ReadBytes(bytes.Length - (int)stream.Position));
+                int cap = Math.Min(boolValues.Length, rd.boolFields.Length);
+                for (int i = 0; i < cap; i++)
                 {
-                    LogHelper.LogError($"Error in deserializing {T.Name}:\n{e}");
+                    rd.boolFields[i].SetValue(o, boolValues[i]);
                 }
+
+                cap = Math.Min(rd.stringFields.Length, pieces.Length - 1);
+                for (int i = 0; i < cap; i++)
+                {
+                    rd.stringFields[i].SetValue(o, pieces[i + 1]);
+                }
+            }
+            catch (Exception e)
+            {
+                LogHelper.LogError($"Error in deserializing {T.Name}:\n{e}");
             }
         }
 

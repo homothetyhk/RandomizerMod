@@ -1,0 +1,2677 @@
+[
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItemTemplate, RandomizerCore",
+    "logic": "DREAMER>2",
+    "trueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+      "effect": {
+        "id": "Lurien",
+        "incr": 1
+      },
+      "name": "Lurien"
+    },
+    "falseItem": {
+      "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "DREAMER",
+          "incr": 1
+        },
+        {
+          "id": "Lurien",
+          "incr": 1
+        }
+      ],
+      "name": "Lurien"
+    },
+    "name": "Lurien"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItemTemplate, RandomizerCore",
+    "logic": "DREAMER>2",
+    "trueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+      "effect": {
+        "id": "Monomon",
+        "incr": 1
+      },
+      "name": "Monomon"
+    },
+    "falseItem": {
+      "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "DREAMER",
+          "incr": 1
+        },
+        {
+          "id": "Monomon",
+          "incr": 1
+        }
+      ],
+      "name": "Monomon"
+    },
+    "name": "Monomon"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItemTemplate, RandomizerCore",
+    "logic": "DREAMER>2",
+    "trueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+      "effect": {
+        "id": "Herrah",
+        "incr": 1
+      },
+      "name": "Herrah"
+    },
+    "falseItem": {
+      "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "DREAMER",
+          "incr": 1
+        },
+        {
+          "id": "Herrah",
+          "incr": 1
+        }
+      ],
+      "name": "Herrah"
+    },
+    "name": "Herrah"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "World_Sense",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "World_Sense",
+      "incr": 1
+    },
+    "name": "World_Sense"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "DREAMER",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "DREAMER",
+      "incr": 3
+    },
+    "name": "Dreamer"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTDASH",
+        "incr": 1
+      },
+      {
+        "id": "RIGHTDASH",
+        "incr": 1
+      }
+    ],
+    "name": "Mothwing_Cloak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTCLAW",
+        "incr": 1
+      },
+      {
+        "id": "RIGHTCLAW",
+        "incr": 1
+      }
+    ],
+    "name": "Mantis_Claw"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTSUPERDASH",
+        "incr": 1
+      },
+      {
+        "id": "RIGHTSUPERDASH",
+        "incr": 1
+      }
+    ],
+    "name": "Crystal_Heart"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "WINGS",
+        "incr": 1
+      }
+    ],
+    "name": "Monarch_Wings"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTDASH",
+        "incr": 1
+      },
+      {
+        "id": "RIGHTDASH",
+        "incr": 1
+      }
+    ],
+    "name": "Shade_Cloak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ACID",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "ACID",
+      "incr": 1
+    },
+    "name": "Isma's_Tear"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "DREAMNAIL",
+      "incr": 1
+    },
+    "name": "Dream_Nail"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "DREAMNAIL",
+      "incr": 1
+    },
+    "name": "Dream_Gate"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "DREAMNAIL",
+      "incr": 1
+    },
+    "name": "Awoken_Dream_Nail"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "FIREBALL",
+        "incr": 1
+      },
+      {
+        "id": "SPELLS",
+        "incr": 1
+      }
+    ],
+    "name": "Vengeful_Spirit"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "FIREBALL",
+        "incr": 1
+      },
+      {
+        "id": "SPELLS",
+        "incr": 1
+      }
+    ],
+    "name": "Shade_Soul"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "QUAKE",
+        "incr": 1
+      },
+      {
+        "id": "SPELLS",
+        "incr": 1
+      }
+    ],
+    "name": "Desolate_Dive"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "QUAKE",
+        "incr": 1
+      },
+      {
+        "id": "SPELLS",
+        "incr": 1
+      }
+    ],
+    "name": "Descending_Dark"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "SCREAM",
+        "incr": 1
+      },
+      {
+        "id": "SPELLS",
+        "incr": 1
+      }
+    ],
+    "name": "Howling_Wraiths"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "SCREAM",
+        "incr": 1
+      },
+      {
+        "id": "SPELLS",
+        "incr": 1
+      }
+    ],
+    "name": "Abyss_Shriek"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "CYCLONE",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "CYCLONE",
+      "incr": 1
+    },
+    "name": "Cyclone_Slash"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Dash_Slash",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Dash_Slash",
+      "incr": 1
+    },
+    "name": "Dash_Slash"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Great_Slash",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Great_Slash",
+      "incr": 1
+    },
+    "name": "Great_Slash"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "FOCUS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "FOCUS",
+      "incr": 1
+    },
+    "name": "Focus"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "SWIM",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "SWIM",
+      "incr": 1
+    },
+    "name": "Swim"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Gathering_Swarm",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Gathering_Swarm",
+      "incr": 1
+    },
+    "name": "Gathering_Swarm"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Wayward_Compass",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Wayward_Compass",
+      "incr": 1
+    },
+    "name": "Wayward_Compass"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Grubsong",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Grubsong",
+      "incr": 1
+    },
+    "name": "Grubsong"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Stalwart_Shell",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Stalwart_Shell",
+      "incr": 1
+    },
+    "name": "Stalwart_Shell"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Baldur_Shell",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Baldur_Shell",
+      "incr": 1
+    },
+    "name": "Baldur_Shell"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Fury_of_the_Fallen",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Fury_of_the_Fallen",
+      "incr": 1
+    },
+    "name": "Fury_of_the_Fallen"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Quick_Focus",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Quick_Focus",
+      "incr": 1
+    },
+    "name": "Quick_Focus"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Lifeblood_Heart",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Lifeblood_Heart",
+      "incr": 1
+    },
+    "name": "Lifeblood_Heart"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Lifeblood_Core",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Lifeblood_Core",
+      "incr": 1
+    },
+    "name": "Lifeblood_Core"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Defender's_Crest",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Defender's_Crest",
+      "incr": 1
+    },
+    "name": "Defender's_Crest"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Flukenest",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Flukenest",
+      "incr": 1
+    },
+    "name": "Flukenest"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Thorns_of_Agony",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Thorns_of_Agony",
+      "incr": 1
+    },
+    "name": "Thorns_of_Agony"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Mark_of_Pride",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Mark_of_Pride",
+      "incr": 1
+    },
+    "name": "Mark_of_Pride"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Steady_Body",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Steady_Body",
+      "incr": 1
+    },
+    "name": "Steady_Body"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Heavy_Blow",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Heavy_Blow",
+      "incr": 1
+    },
+    "name": "Heavy_Blow"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Sharp_Shadow",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Sharp_Shadow",
+      "incr": 1
+    },
+    "name": "Sharp_Shadow"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Spore_Shroom",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Spore_Shroom",
+      "incr": 1
+    },
+    "name": "Spore_Shroom"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Longnail",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Longnail",
+      "incr": 1
+    },
+    "name": "Longnail"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Shaman_Stone",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Shaman_Stone",
+      "incr": 1
+    },
+    "name": "Shaman_Stone"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Soul_Catcher",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Soul_Catcher",
+      "incr": 1
+    },
+    "name": "Soul_Catcher"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Soul_Eater",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Soul_Eater",
+      "incr": 1
+    },
+    "name": "Soul_Eater"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Glowing_Womb",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Glowing_Womb",
+      "incr": 1
+    },
+    "name": "Glowing_Womb"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Fragile_Heart",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Fragile_Heart",
+      "incr": 1
+    },
+    "name": "Fragile_Heart"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Fragile_Greed",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Fragile_Greed",
+      "incr": 1
+    },
+    "name": "Fragile_Greed"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Fragile_Strength",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Fragile_Strength",
+      "incr": 1
+    },
+    "name": "Fragile_Strength"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Nailmaster's_Glory",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Nailmaster's_Glory",
+      "incr": 1
+    },
+    "name": "Nailmaster's_Glory"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Joni's_Blessing",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Joni's_Blessing",
+      "incr": 1
+    },
+    "name": "Joni's_Blessing"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Shape_of_Unn",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Shape_of_Unn",
+      "incr": 1
+    },
+    "name": "Shape_of_Unn"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Hiveblood",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Hiveblood",
+      "incr": 1
+    },
+    "name": "Hiveblood"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Dream_Wielder",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Dream_Wielder",
+      "incr": 1
+    },
+    "name": "Dream_Wielder"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Dashmaster",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Dashmaster",
+      "incr": 1
+    },
+    "name": "Dashmaster"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Quick_Slash",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Quick_Slash",
+      "incr": 1
+    },
+    "name": "Quick_Slash"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Spell_Twister",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Spell_Twister",
+      "incr": 1
+    },
+    "name": "Spell_Twister"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Deep_Focus",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Deep_Focus",
+      "incr": 1
+    },
+    "name": "Deep_Focus"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Grubberfly's_Elegy",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Grubberfly's_Elegy",
+      "incr": 1
+    },
+    "name": "Grubberfly's_Elegy"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItemTemplate, RandomizerCore",
+    "logic": "WHITEFRAGMENT=1",
+    "trueItem": {
+      "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "WHITEFRAGMENT",
+          "incr": 1
+        },
+        {
+          "id": "CHARMS",
+          "incr": 1
+        }
+      ],
+      "name": "Queen_Fragment"
+    },
+    "falseItem": {
+      "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "WHITEFRAGMENT",
+          "incr": 1
+        }
+      ],
+      "cap": {
+        "id": "WHITEFRAGMENT",
+        "incr": 3
+      },
+      "name": "Queen_Fragment"
+    },
+    "name": "Queen_Fragment"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItemTemplate, RandomizerCore",
+    "logic": "WHITEFRAGMENT=1",
+    "trueItem": {
+      "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "WHITEFRAGMENT",
+          "incr": 1
+        },
+        {
+          "id": "CHARMS",
+          "incr": 1
+        }
+      ],
+      "name": "King_Fragment"
+    },
+    "falseItem": {
+      "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "WHITEFRAGMENT",
+          "incr": 1
+        }
+      ],
+      "cap": {
+        "id": "WHITEFRAGMENT",
+        "incr": 3
+      },
+      "name": "King_Fragment"
+    },
+    "name": "King_Fragment"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItemTemplate, RandomizerCore",
+    "logic": "WHITEFRAGMENT=1",
+    "trueItem": {
+      "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "WHITEFRAGMENT",
+          "incr": 1
+        },
+        {
+          "id": "CHARMS",
+          "incr": 1
+        }
+      ],
+      "name": "Void_Heart"
+    },
+    "falseItem": {
+      "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+      "effects": [
+        {
+          "id": "WHITEFRAGMENT",
+          "incr": 1
+        }
+      ],
+      "cap": {
+        "id": "WHITEFRAGMENT",
+        "incr": 3
+      },
+      "name": "Void_Heart"
+    },
+    "name": "Void_Heart"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Sprintmaster",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Sprintmaster",
+      "incr": 1
+    },
+    "name": "Sprintmaster"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Dreamshield",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Dreamshield",
+      "incr": 1
+    },
+    "name": "Dreamshield"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Weaversong",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Weaversong",
+      "incr": 1
+    },
+    "name": "Weaversong"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GRIMMCHILD",
+        "incr": 1
+      },
+      {
+        "id": "CHARMS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "GRIMMCHILD",
+      "incr": 1
+    },
+    "name": "Grimmchild2"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "CREST",
+      "incr": 1
+    },
+    "name": "City_Crest"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LANTERN",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "LANTERN",
+      "incr": 1
+    },
+    "name": "Lumafly_Lantern"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "TRAM",
+      "incr": 1
+    },
+    "name": "Tram_Pass"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "SIMPLE",
+      "incr": 1
+    },
+    "name": "Simple_Key"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "SHOPKEY",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "SHOPKEY",
+      "incr": 1
+    },
+    "name": "Shopkeeper's_Key"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "ELEGANT",
+      "incr": 1
+    },
+    "name": "Elegant_Key"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LOVE",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "LOVE",
+      "incr": 1
+    },
+    "name": "Love_Key"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "BRAND",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "BRAND",
+      "incr": 1
+    },
+    "name": "King's_Brand"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Godtuner",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Godtuner",
+      "incr": 1
+    },
+    "name": "Godtuner"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Collector's_Map",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Collector's_Map",
+      "incr": 1
+    },
+    "name": "Collector's_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "MASKSHARDS",
+      "incr": 1
+    },
+    "name": "Mask_Shard"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "VESSELFRAGMENTS",
+      "incr": 1
+    },
+    "name": "Vessel_Fragment"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "NOTCHES",
+      "incr": 1
+    },
+    "name": "Charm_Notch"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "PALEORE",
+      "incr": 1
+    },
+    "name": "Pale_Ore"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 200
+      }
+    ],
+    "name": "Geo_Chest-False_Knight"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 380
+      }
+    ],
+    "name": "Geo_Chest-Soul_Master"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 655
+      }
+    ],
+    "name": "Geo_Chest-Watcher_Knights"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 85
+      }
+    ],
+    "name": "Geo_Chest-Greenpath"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 620
+      }
+    ],
+    "name": "Geo_Chest-Mantis_Lords"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 150
+      }
+    ],
+    "name": "Geo_Chest-Resting_Grounds"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 80
+      }
+    ],
+    "name": "Geo_Chest-Crystal_Peak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 160
+      }
+    ],
+    "name": "Geo_Chest-Weavers_Den"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "One_Geo"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "RANCIDEGGS",
+      "incr": 1
+    },
+    "name": "Rancid_Egg"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "WANDERERSJOURNALS",
+      "incr": 1
+    },
+    "name": "Wanderer's_Journal"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "HALLOWNESTSEALS",
+      "incr": 1
+    },
+    "name": "Hallownest_Seal"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "KINGSIDOLS",
+      "incr": 1
+    },
+    "name": "King's_Idol"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "ARCANEEGGS",
+      "incr": 1
+    },
+    "name": "Arcane_Egg"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 29
+      }
+    ],
+    "name": "Whispering_Root-Crossroads"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 44
+      }
+    ],
+    "name": "Whispering_Root-Greenpath"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 20
+      }
+    ],
+    "name": "Whispering_Root-Leg_Eater"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 18
+      }
+    ],
+    "name": "Whispering_Root-Mantis_Village"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 45
+      }
+    ],
+    "name": "Whispering_Root-Deepnest"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 29
+      }
+    ],
+    "name": "Whispering_Root-Queens_Gardens"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 51
+      }
+    ],
+    "name": "Whispering_Root-Kingdoms_Edge"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 35
+      }
+    ],
+    "name": "Whispering_Root-Waterways"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 28
+      }
+    ],
+    "name": "Whispering_Root-City"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 20
+      }
+    ],
+    "name": "Whispering_Root-Resting_Grounds"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 34
+      }
+    ],
+    "name": "Whispering_Root-Spirits_Glade"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 21
+      }
+    ],
+    "name": "Whispering_Root-Crystal_Peak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 46
+      }
+    ],
+    "name": "Whispering_Root-Howling_Cliffs"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 42
+      }
+    ],
+    "name": "Whispering_Root-Ancestral_Mound"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 20
+      }
+    ],
+    "name": "Whispering_Root-Hive"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 100
+      }
+    ],
+    "name": "Boss_Essence-Elder_Hu"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 100
+      }
+    ],
+    "name": "Boss_Essence-Xero"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 100
+      }
+    ],
+    "name": "Boss_Essence-Gorb"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 150
+      }
+    ],
+    "name": "Boss_Essence-Marmu"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 200
+      }
+    ],
+    "name": "Boss_Essence-No_Eyes"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 200
+      }
+    ],
+    "name": "Boss_Essence-Galien"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 250
+      }
+    ],
+    "name": "Boss_Essence-Markoth"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 300
+      }
+    ],
+    "name": "Boss_Essence-Failed_Champion"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 300
+      }
+    ],
+    "name": "Boss_Essence-Soul_Tyrant"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 400
+      }
+    ],
+    "name": "Boss_Essence-Lost_Kin"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 300
+      }
+    ],
+    "name": "Boss_Essence-White_Defender"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "ESSENCE",
+        "incr": 300
+      }
+    ],
+    "name": "Boss_Essence-Grey_Prince_Zote"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "GRUBS",
+      "incr": 1
+    },
+    "name": "Grub"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "QUILL",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "QUILL",
+      "incr": 1
+    },
+    "name": "Quill"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Crossroads_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Crossroads_Map",
+      "incr": 1
+    },
+    "name": "Crossroads_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Greenpath_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Greenpath_Map",
+      "incr": 1
+    },
+    "name": "Greenpath_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Fog_Canyon_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Fog_Canyon_Map",
+      "incr": 1
+    },
+    "name": "Fog_Canyon_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Fungal_Wastes_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Fungal_Wastes_Map",
+      "incr": 1
+    },
+    "name": "Fungal_Wastes_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Deepnest_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Deepnest_Map",
+      "incr": 1
+    },
+    "name": "Deepnest_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Ancient_Basin_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Ancient_Basin_Map",
+      "incr": 1
+    },
+    "name": "Ancient_Basin_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Kingdom's_Edge_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Kingdom's_Edge_Map",
+      "incr": 1
+    },
+    "name": "Kingdom's_Edge_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "City_of_Tears_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "City_of_Tears_Map",
+      "incr": 1
+    },
+    "name": "City_of_Tears_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Royal_Waterways_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Royal_Waterways_Map",
+      "incr": 1
+    },
+    "name": "Royal_Waterways_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Howling_Cliffs_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Howling_Cliffs_Map",
+      "incr": 1
+    },
+    "name": "Howling_Cliffs_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Crystal_Peak_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Crystal_Peak_Map",
+      "incr": 1
+    },
+    "name": "Crystal_Peak_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Queen's_Gardens_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Queen's_Gardens_Map",
+      "incr": 1
+    },
+    "name": "Queen's_Gardens_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Resting_Grounds_Map",
+        "incr": 1
+      },
+      {
+        "id": "MAPS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Resting_Grounds_Map",
+      "incr": 1
+    },
+    "name": "Resting_Grounds_Map"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Dirtmouth_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Dirtmouth_Stag",
+      "incr": 1
+    },
+    "name": "Dirtmouth_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Crossroads_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Crossroads_Stag",
+      "incr": 1
+    },
+    "name": "Crossroads_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Greenpath_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Greenpath_Stag",
+      "incr": 1
+    },
+    "name": "Greenpath_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Queen's_Station_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Queen's_Station_Stag",
+      "incr": 1
+    },
+    "name": "Queen's_Station_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Queen's_Gardens_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Queen's_Gardens_Stag",
+      "incr": 1
+    },
+    "name": "Queen's_Gardens_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "City_Storerooms_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "City_Storerooms_Stag",
+      "incr": 1
+    },
+    "name": "City_Storerooms_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "King's_Station_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "King's_Station_Stag",
+      "incr": 1
+    },
+    "name": "King's_Station_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Resting_Grounds_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Resting_Grounds_Stag",
+      "incr": 1
+    },
+    "name": "Resting_Grounds_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Distant_Village_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Distant_Village_Stag",
+      "incr": 1
+    },
+    "name": "Distant_Village_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Hidden_Station_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Hidden_Station_Stag",
+      "incr": 1
+    },
+    "name": "Hidden_Station_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "Stag_Nest_Stag",
+        "incr": 1
+      },
+      {
+        "id": "STAGS",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "Stag_Nest_Stag",
+      "incr": 1
+    },
+    "name": "Stag_Nest_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lifeblood_Cocoon_Small"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lifeblood_Cocoon_Large"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "FLAMES",
+      "incr": 1
+    },
+    "name": "Grimmkin_Flame"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTDASH",
+        "incr": 1
+      }
+    ],
+    "name": "Left_Mothwing_Cloak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "RIGHTDASH",
+        "incr": 1
+      }
+    ],
+    "name": "Right_Mothwing_Cloak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTDASH",
+        "incr": 1
+      }
+    ],
+    "name": "Left_Shade_Cloak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "RIGHTDASH",
+        "incr": 1
+      }
+    ],
+    "name": "Right_Shade_Cloak"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTCLAW",
+        "incr": 1
+      }
+    ],
+    "name": "Left_Mantis_Claw"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "RIGHTCLAW",
+        "incr": 1
+      }
+    ],
+    "name": "Right_Mantis_Claw"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "LEFTSLASH",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "LEFTSLASH",
+      "incr": 1
+    },
+    "name": "Leftslash"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "RIGHTSLASH",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "RIGHTSLASH",
+      "incr": 1
+    },
+    "name": "Rightslash"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "UPSLASH",
+        "incr": 1
+      }
+    ],
+    "cap": {
+      "id": "UPSLASH",
+      "incr": 1
+    },
+    "name": "Upslash"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 15
+      }
+    ],
+    "name": "Geo_Rock-Default"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 15
+      }
+    ],
+    "name": "Geo_Rock-Deepnest"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 35
+      }
+    ],
+    "name": "Geo_Rock-Abyss"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 26
+      }
+    ],
+    "name": "Geo_Rock-GreenPath01"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 44
+      }
+    ],
+    "name": "Geo_Rock-Outskirts"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 420
+      }
+    ],
+    "name": "Geo_Rock-Outskirts420"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 30
+      }
+    ],
+    "name": "Geo_Rock-GreenPath02"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 22
+      }
+    ],
+    "name": "Geo_Rock-Fung01"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 17
+      }
+    ],
+    "name": "Geo_Rock-Fung02"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 30
+      }
+    ],
+    "name": "Geo_Rock-City"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 56
+      }
+    ],
+    "name": "Geo_Rock-Hive"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 24
+      }
+    ],
+    "name": "Geo_Rock-Mine"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 25
+      }
+    ],
+    "name": "Geo_Rock-Grave02"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 25
+      }
+    ],
+    "name": "Geo_Rock-Grave01"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 300
+      }
+    ],
+    "name": "Boss_Geo-Massive_Moss_Charger"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 420
+      }
+    ],
+    "name": "Boss_Geo-Gorgeous_Husk"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 200
+      }
+    ],
+    "name": "Boss_Geo-Sanctum_Soul_Warrior"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 200
+      }
+    ],
+    "name": "Boss_Geo-Elegant_Soul_Warrior"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 385
+      }
+    ],
+    "name": "Boss_Geo-Crystal_Guardian"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 550
+      }
+    ],
+    "name": "Boss_Geo-Enraged_Guardian"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 50
+      }
+    ],
+    "name": "Boss_Geo-Gruz_Mother"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 65
+      }
+    ],
+    "name": "Boss_Geo-Vengefly_King"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Soul_Totem"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-City_Entrance"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Pleasure_House"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Sanctum_Entrance"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Sanctum_Past_Soul_Master"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Watcher's_Spire"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Archives_Upper"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Archives_Left"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Archives_Right"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Pilgrim's_Way_1"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Pilgrim's_Way_2"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Mantis_Outskirts"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Mantis_Village"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Greenpath_Upper_Hidden"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Greenpath_Below_Toll"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Greenpath_Lifeblood"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Greenpath_Stag"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Greenpath_QG"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Greenpath_Lower_Hidden"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Dung_Defender"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Spore_Shroom"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Fungal_Wastes_Hidden"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Fungal_Core"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Ancient_Basin"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-King's_Pass_Focus"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-King's_Pass_Fury"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-King's_Pass_Exit"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-World_Sense"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Howling_Cliffs"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Kingdom's_Edge"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Palace_Workshop"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Palace_Throne"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [],
+    "name": "Lore_Tablet-Path_of_Pain_Entrance"
+  }
+]

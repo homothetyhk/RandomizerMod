@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace RandomizerMod.Settings
@@ -20,30 +21,24 @@ namespace RandomizerMod.Settings
         public StartItemSettings StartItemSettings = new StartItemSettings();
         public MiscSettings MiscSettings = new MiscSettings();
 
-        private object[] serializationFields => new object[]
+        public GenerationSettings()
         {
-            TransitionSettings,
-            SkipSettings,
-            PoolSettings,
-            CursedSettings,
-            GrubCostRandomizerSettings,
-            EssenceCostRandomizerSettings,
-            LongLocationSettings,
-            StartLocationSettings,
-            StartItemSettings,
-            MiscSettings
-        };
+        }
+
+        private SettingsModule[] modules => moduleFields.Select(f => f.GetValue(this) as SettingsModule).ToArray();
+        private static readonly FieldInfo[] moduleFields = typeof(GenerationSettings).GetFields().Where(f => f.FieldType.IsSubclassOf(typeof(SettingsModule)))
+            .OrderBy(f => f.Name).ToArray();
 
         public string Serialize()
         {
-            return string.Join(BinaryFormatting.CLASS_SEPARATOR.ToString(), serializationFields.Select(o => BinaryFormatting.Serialize(o)).ToArray());
+            return string.Join(BinaryFormatting.CLASS_SEPARATOR.ToString(), modules.Select(o => BinaryFormatting.Serialize(o)).ToArray());
         }
 
         public static GenerationSettings Deserialize(string code)
         {
             GenerationSettings gs = new GenerationSettings();
             string[] pieces = code.Split(BinaryFormatting.CLASS_SEPARATOR);
-            object[] fields = gs.serializationFields;
+            object[] fields = gs.modules;
 
             if (pieces.Length != fields.Length)
             {
@@ -59,22 +54,23 @@ namespace RandomizerMod.Settings
             return gs;
         }
 
+        public void Randomize(Random rng)
+        {
+            Seed = rng.Next(1000000000);
+            foreach (SettingsModule m in modules) m.Randomize(rng);
+            Clamp();
+        }
+
+        public void Clamp()
+        {
+            foreach (SettingsModule m in modules) m.Clamp(this);
+        }
+
         public object Clone()
         {
-            return new GenerationSettings
-            {
-                Seed = Seed,
-                TransitionSettings = TransitionSettings.Clone() as TransitionSettings,
-                SkipSettings = SkipSettings.Clone() as SkipSettings,
-                PoolSettings = PoolSettings.Clone() as PoolSettings,
-                GrubCostRandomizerSettings = GrubCostRandomizerSettings.Clone() as GrubCostRandomizerSettings,
-                EssenceCostRandomizerSettings = EssenceCostRandomizerSettings.Clone() as EssenceCostRandomizerSettings,
-                LongLocationSettings = LongLocationSettings.Clone() as LongLocationSettings,
-                CursedSettings = CursedSettings.Clone() as CursedSettings,
-                StartLocationSettings = StartLocationSettings.Clone() as StartLocationSettings,
-                StartItemSettings = StartItemSettings.Clone() as StartItemSettings,
-                MiscSettings = MiscSettings.Clone() as MiscSettings,
-            };
+            GenerationSettings gs = MemberwiseClone() as GenerationSettings;
+            foreach (FieldInfo f in moduleFields) f.SetValue(gs, (f.GetValue(this) as SettingsModule).Clone());
+            return gs;
         }
     }
 }

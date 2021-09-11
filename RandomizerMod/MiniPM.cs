@@ -14,9 +14,13 @@ namespace RandomizerMod
         private Dictionary<string, bool> logicFlags = new Dictionary<string, bool>();
         private Dictionary<string, string[]> macros = null; // disabled in MiniPM
 
+        public event Action Changed;
+
         public void SetBool(string name, bool value)
         {
+            if (logicFlags.TryGetValue(name, out bool orig) && orig == value) return;
             logicFlags[name] = value;
+            Changed?.Invoke();
         }
 
         public bool Evaluate(string infixLogic) => Evaluate(Shunt(infixLogic).ToArray());
@@ -57,7 +61,7 @@ namespace RandomizerMod
                         if (logicFlags.TryGetValue(logic[i], out bool value)) stack.Push(value);
                         else
                         {
-                            LogWarn($"Unknown MiniPM key {logic[i]}!");
+                            //LogDebug($"Unknown MiniPM key {logic[i]}!");
                             return false;
                         }
                         break;

@@ -6,9 +6,9 @@ using System.Text;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class TransitionSettings : ICloneable
+    public class TransitionSettings : SettingsModule
     {
-        public enum TransitionMode : byte
+        public enum TransitionMode
         {
             None,
             AreaRandomizer,
@@ -16,39 +16,31 @@ namespace RandomizerMod.Settings
         }
         public TransitionMode Mode;
 
-        public enum MapRuleSetting : byte
-        {
-            None,
-            InternallyConnectedAreas,
-            // Vanilla area transitions?
-        }
-        public MapRuleSetting MapRules;
+        public bool ConnectAreas;
 
-        public enum RemoveRoomsSetting : byte
+        /*
+        // This will likely be difficult to implement -- not many rooms which don't have items or npcs or events
+        // and then even fewer combinations which give matching transition counts
+        public enum RemoveRoomsSetting
         {
             None,
             RemoveEmptyHallways,
             AggressivelyRemoveRooms,
         }
         public RemoveRoomsSetting Remove;
+        */
+
+        public bool Matched = true;
+        public bool Coupled = true;
 
         public LogicMode GetLogicMode()
         {
-            switch (Mode)
+            return Mode switch
             {
-                default:
-                case TransitionMode.None:
-                    return LogicMode.Item;
-                case TransitionMode.AreaRandomizer:
-                    return LogicMode.Area;
-                case TransitionMode.RoomRandomizer:
-                    return LogicMode.Room;
-            }
-        }
-
-        public object Clone()
-        {
-            return MemberwiseClone();
+                TransitionMode.AreaRandomizer => LogicMode.Area,
+                TransitionMode.RoomRandomizer => LogicMode.Room,
+                _ => LogicMode.Item,
+            };
         }
     }
 }

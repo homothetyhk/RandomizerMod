@@ -8,7 +8,7 @@ using RandomizerMod.Extensions;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class PoolSettings : ICloneable
+    public class PoolSettings : SettingsModule
     {
         public bool Dreamers;
         public bool Skills;
@@ -34,7 +34,7 @@ namespace RandomizerMod.Settings
         public bool LoreTablets;
 
         // TODO: replace?
-        public bool PalaceTotems;
+        public bool PalaceSoul;
         public bool PalaceLore;
 
 
@@ -70,11 +70,6 @@ namespace RandomizerMod.Settings
             }
 
             return sb.ToString();
-        }
-
-        public object Clone()
-        {
-            return MemberwiseClone();
         }
     }
 }

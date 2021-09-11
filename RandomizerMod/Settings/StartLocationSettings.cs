@@ -6,15 +6,13 @@ using System.Text;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class StartLocationSettings : ICloneable
+    public class StartLocationSettings : SettingsModule
     {
         public enum RandomizeStartLocationType : byte
         {
             Fixed,
             RandomExcludingKP,
             Random,
-            RandomWithMinorForcedStartItems,
-            RandomWithAnyForcedStartItems
         }
 
         public RandomizeStartLocationType StartLocationType;
@@ -22,10 +20,5 @@ namespace RandomizerMod.Settings
         public string StartLocation;
 
         public void SetStartLocation(string start) => StartLocation = start;
-
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
     }
 }

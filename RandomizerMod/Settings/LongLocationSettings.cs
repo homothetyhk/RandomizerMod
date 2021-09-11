@@ -6,16 +6,16 @@ using System.Text;
 namespace RandomizerMod.Settings
 {
     [Serializable]
-    public class LongLocationSettings : ICloneable
+    public class LongLocationSettings : SettingsModule
     {
-        public enum WPSetting : byte
+        public enum WPSetting
         {
             Allowed,
             ExcludePathOfPain,
             ExcludeWhitePalace
         }
 
-        public enum BossEssenceSetting : byte
+        public enum BossEssenceSetting
         {
             All,
             ExcludeGreyPrinceZoteAndWhiteDefender,
@@ -23,7 +23,7 @@ namespace RandomizerMod.Settings
             ExcludeAllDreamWarriors
         }
 
-        public enum CostItemHintSettings : byte
+        public enum CostItemHintSettings
         {
             CostAndName,
             CostOnly,
@@ -31,7 +31,7 @@ namespace RandomizerMod.Settings
             None
         }
 
-        public enum LongLocationHintSetting : byte
+        public enum LongLocationHintSetting
         {
             Standard,
             MoreHints,
@@ -42,10 +42,5 @@ namespace RandomizerMod.Settings
         public BossEssenceSetting BossEssenceRandomization;
         public CostItemHintSettings CostItemHints;
         public LongLocationHintSetting LongLocationHints;
-
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
     }
 }

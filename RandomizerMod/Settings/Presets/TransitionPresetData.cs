@@ -12,7 +12,7 @@ namespace RandomizerMod.Settings.Presets
         public static TransitionSettings Area;
         public static TransitionSettings Room;
         public static TransitionSettings ConnectedAreaRoom;
-        public static TransitionSettings ReducedRoom;
+        public static TransitionSettings Chaos;
         public static Dictionary<string, TransitionSettings> TransitionPresets;
 
         static TransitionPresetData()
@@ -20,45 +20,50 @@ namespace RandomizerMod.Settings.Presets
             None = new TransitionSettings
             {
                 Mode = TransitionMode.None,
-                MapRules = MapRuleSetting.None,
-                Remove = RemoveRoomsSetting.None,
+                ConnectAreas = false,
+                Matched = true,
+                Coupled = true,
             };
 
             Area = new TransitionSettings
             {
                 Mode = TransitionMode.AreaRandomizer,
-                MapRules = MapRuleSetting.None,
-                Remove = RemoveRoomsSetting.None,
-            }; 
-
-            Room = new TransitionSettings
-            {
-                Mode = TransitionMode.RoomRandomizer,
-                MapRules = MapRuleSetting.None,
-                Remove = RemoveRoomsSetting.None,
+                ConnectAreas = false,
+                Matched = true,
+                Coupled = true,
             };
 
             ConnectedAreaRoom = new TransitionSettings
             {
                 Mode = TransitionMode.RoomRandomizer,
-                MapRules = MapRuleSetting.InternallyConnectedAreas,
-                Remove = RemoveRoomsSetting.None,
+                ConnectAreas = true,
+                Matched = true,
+                Coupled = true,
             };
 
-            ReducedRoom = new TransitionSettings
+            Room = new TransitionSettings
             {
                 Mode = TransitionMode.RoomRandomizer,
-                MapRules = MapRuleSetting.None,
-                Remove = RemoveRoomsSetting.RemoveEmptyHallways,
+                ConnectAreas = false,
+                Matched = true,
+                Coupled = true,
+            };
+
+            Chaos = new TransitionSettings
+            {
+                Mode = TransitionMode.RoomRandomizer,
+                ConnectAreas = false,
+                Matched = false,
+                Coupled = false,
             };
 
             TransitionPresets = new Dictionary<string, TransitionSettings>
             {
                 { "None", None },
                 { "Area Rando", Area },
-                { "Room Rando", Room },
                 { "Connected-Area Room Rando", ConnectedAreaRoom },
-                { "Reduced Room Rando", ReducedRoom },
+                { "Room Rando", Room },
+                { "Chaos Room Rando", Chaos },
             };
         }
     }

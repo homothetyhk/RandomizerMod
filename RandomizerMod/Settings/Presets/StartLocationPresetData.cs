@@ -10,8 +10,6 @@ namespace RandomizerMod.Settings.Presets
         public static StartLocationSettings KingsPass;
         public static StartLocationSettings RandomNoKP;
         public static StartLocationSettings RandomWithKP;
-        public static StartLocationSettings MoreRandom;
-        public static StartLocationSettings MostRandom;
 
         public static Dictionary<string, StartLocationSettings> StartLocationPresets;
 
@@ -35,25 +33,11 @@ namespace RandomizerMod.Settings.Presets
                 StartLocation = null,
             };
 
-            MoreRandom = new StartLocationSettings
-            {
-                StartLocationType = StartLocationSettings.RandomizeStartLocationType.RandomWithMinorForcedStartItems,
-                StartLocation = null,
-            };
-
-            MostRandom = new StartLocationSettings
-            {
-                StartLocationType = StartLocationSettings.RandomizeStartLocationType.RandomWithAnyForcedStartItems,
-                StartLocation = null,
-            };
-
             StartLocationPresets = new Dictionary<string, StartLocationSettings>
             {
                 { "King's Pass", KingsPass },
                 { "Random (no King's Pass)", RandomNoKP },
                 { "Random (allow King's Pass)", RandomWithKP },
-                { "Random (More Starts)", MoreRandom },
-                { "Random (All Starts)", MostRandom },
             };
         }
     }
