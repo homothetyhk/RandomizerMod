@@ -11,56 +11,14 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Resources\Area\items.json" />
-    <None Remove="Resources\Area\locations.json" />
-    <None Remove="Resources\Area\macros.json" />
-    <None Remove="Resources\Area\terms.json" />
-    <None Remove="Resources\Area\transitions.json" />
-    <None Remove="Resources\Area\waypoints.json" />
-    <None Remove="Resources\entries.txt" />
-    <None Remove="Resources\items.json" />
-    <None Remove="Resources\Item\items.json" />
-    <None Remove="Resources\Item\locations.json" />
-    <None Remove="Resources\Item\macros.json" />
-    <None Remove="Resources\Item\terms.json" />
-    <None Remove="Resources\Item\waypoints.json" />
-    <None Remove="Resources\locations.json" />
-    <None Remove="Resources\logic_settings.json" />
-    <None Remove="Resources\logo.png" />
-    <None Remove="Resources\pools.json" />
-    <None Remove="Resources\Room\items.json" />
-    <None Remove="Resources\Room\locations.json" />
-    <None Remove="Resources\Room\macros.json" />
-    <None Remove="Resources\Room\terms.json" />
-    <None Remove="Resources\Room\transitions.json" />
-    <None Remove="Resources\starts.json" />
-    <None Remove="Resources\transitions.json" />
+    <None Remove="**\*.json" />
+    <None Remove="**\*.xml" />
+    <None Remove="**\*.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Area\items.json" />
-    <EmbeddedResource Include="Resources\Area\locations.json" />
-    <EmbeddedResource Include="Resources\Area\macros.json" />
-    <EmbeddedResource Include="Resources\Area\terms.json" />
-    <EmbeddedResource Include="Resources\Area\transitions.json" />
-    <EmbeddedResource Include="Resources\Area\waypoints.json" />
-    <EmbeddedResource Include="Resources\entries.txt" />
-    <EmbeddedResource Include="Resources\items.json" />
-    <EmbeddedResource Include="Resources\Item\items.json" />
-    <EmbeddedResource Include="Resources\Item\locations.json" />
-    <EmbeddedResource Include="Resources\Item\macros.json" />
-    <EmbeddedResource Include="Resources\Item\terms.json" />
-    <EmbeddedResource Include="Resources\Item\waypoints.json" />
-    <EmbeddedResource Include="Resources\locations.json" />
-    <EmbeddedResource Include="Resources\logic_settings.json" />
-    <EmbeddedResource Include="Resources\logo.png" />
-    <EmbeddedResource Include="Resources\pools.json" />
-    <EmbeddedResource Include="Resources\Room\items.json" />
-    <EmbeddedResource Include="Resources\Room\locations.json" />
-    <EmbeddedResource Include="Resources\Room\macros.json" />
-    <EmbeddedResource Include="Resources\Room\terms.json" />
-    <EmbeddedResource Include="Resources\Room\transitions.json" />
-    <EmbeddedResource Include="Resources\starts.json" />
-    <EmbeddedResource Include="Resources\transitions.json" />
+    <EmbeddedResource Include="**\*.json" />
+    <EmbeddedResource Include="**\*.xml" />
+    <EmbeddedResource Include="**\*.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">

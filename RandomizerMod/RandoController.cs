@@ -99,6 +99,7 @@ namespace RandomizerMod
 
         public void Save()
         {
+            Interop.BeginExport();
             Interop.ExportStart(gs);
             Interop.ExportSettings(gs);
             if (ctx.itemPlacements != null) Interop.ExportItemPlacements(gs, ctx.itemPlacements);
@@ -123,12 +124,14 @@ namespace RandomizerMod
         private void SelectStart()
         {
             var type = gs.StartLocationSettings.StartLocationType;
-            if (type == StartLocationSettings.RandomizeStartLocationType.Fixed) return;
+            if (type != StartLocationSettings.RandomizeStartLocationType.Fixed)
+            {
+                List<string> startNames = new(Data.GetStartNames().Where(s => mpm.Evaluate(Data.GetStartDef(s).logic)));
+                if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
+                gs.StartLocationSettings.StartLocation = rng.Next(startNames);
+            }
 
-            List<string> startNames = new(Data.GetStartNames().Where(s => mpm.Evaluate(Data.GetStartDef(s).logic)));
-            if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
-
-            gs.StartLocationSettings.StartLocation = rng.Next(startNames);
+            LogHelper.LogDebug(gs.StartLocationSettings.StartLocation);
         }
 
         private void AssignNotchCosts()

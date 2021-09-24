@@ -12,6 +12,8 @@ namespace RandomizerMod
 {
     public static class Interop
     {
+        public static void BeginExport() => ItemChangerMod.CreateSettingsProfile(overwrite: true);
+
         public static void ExportStart(GenerationSettings gs)
         {
             string startName = gs.StartLocationSettings.StartLocation;
@@ -19,10 +21,10 @@ namespace RandomizerMod
             {
                 ItemChangerMod.ChangeStartGame(new ItemChanger.StartDef
                 {
-                    startSceneName = def.sceneName,
-                    startX = def.x,
-                    startY = def.y,
-                    mapZone = (int)def.zone,
+                    SceneName = def.sceneName,
+                    X = def.x,
+                    Y = def.y,
+                    MapZone = (int)def.zone,
                 });
             }
         }
@@ -71,7 +73,7 @@ namespace RandomizerMod
                         }
 
                         chest.name = tablet.name = "Grubfather";
-                        p = new ItemChanger.Placements.CostChestPlacement
+                        p = new ItemChanger.Placements.CostChestPlacement("Grubfather")
                         {
                             chestLocation = chest,
                             tabletLocation = tablet,
@@ -88,7 +90,7 @@ namespace RandomizerMod
                         }
 
                         chest.name = tablet.name = "Seer";
-                        p = new ItemChanger.Placements.CostChestPlacement
+                        p = new ItemChanger.Placements.CostChestPlacement("Seer")
                         {
                             chestLocation = chest,
                             tabletLocation = tablet,
