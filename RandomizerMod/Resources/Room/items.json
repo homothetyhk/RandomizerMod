@@ -1294,10 +1294,42 @@
   {
     "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
     "effect": {
+      "id": "MASKSHARDS",
+      "incr": 2
+    },
+    "name": "Double_Mask_Shard"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "MASKSHARDS",
+      "incr": 4
+    },
+    "name": "Full_Mask"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
       "id": "VESSELFRAGMENTS",
       "incr": 1
     },
     "name": "Vessel_Fragment"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "VESSELFRAGMENTS",
+      "incr": 2
+    },
+    "name": "Double_Vessel_Fragment"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "VESSELFRAGMENTS",
+      "incr": 3
+    },
+    "name": "Full_Soul_Vessel"
   },
   {
     "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
@@ -1397,7 +1429,56 @@
   },
   {
     "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
-    "effects": [],
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 8
+      }
+    ],
+    "name": "Geo_Chest-Junk_Pit_1"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 8
+      }
+    ],
+    "name": "Geo_Chest-Junk_Pit_2"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 25
+      }
+    ],
+    "name": "Geo_Chest-Junk_Pit_3"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 10
+      }
+    ],
+    "name": "Geo_Chest-Junk_Pit_5"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItemTemplate, RandomizerCore",
+    "name": "Lumafly_Escape"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
+    "effects": [
+      {
+        "id": "GEO",
+        "incr": 1
+      }
+    ],
     "name": "One_Geo"
   },
   {
@@ -1717,6 +1798,10 @@
       "incr": 1
     },
     "name": "Grub"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItemTemplate, RandomizerCore",
+    "name": "Mimic_Grub"
   },
   {
     "$type": "RandomizerCore.LogicItems.CappedItemTemplate, RandomizerCore",
@@ -2183,44 +2268,55 @@
     "name": "Grimmkin_Flame"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
-    "effects": [
-      {
-        "id": "LEFTDASH",
-        "incr": 1
-      }
-    ],
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "JOURNAL",
+      "incr": 1
+    },
+    "name": "Hunter's_Journal"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItemTemplate, RandomizerCore",
+    "name": "Journal_Entry-Void_Tendrils"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItemTemplate, RandomizerCore",
+    "name": "Journal_Entry-Charged_Lumafly"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItemTemplate, RandomizerCore",
+    "name": "Journal_Entry-Goam"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItemTemplate, RandomizerCore",
+    "name": "Journal_Entry-Garpede"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItemTemplate, RandomizerCore",
+    "name": "Journal_Entry-Seal_of_Binding"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItemTemplate, RandomizerCore",
+    "effect": {
+      "id": "Elevator_Pass",
+      "incr": 1
+    },
+    "name": "Elevator_Pass"
+  },
+  {
+    "$type": "RandomizerMod.RC.SplitCloakItemTemplate, RandomizerMod",
+    "leftBiased": true,
     "name": "Left_Mothwing_Cloak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
-    "effects": [
-      {
-        "id": "RIGHTDASH",
-        "incr": 1
-      }
-    ],
+    "$type": "RandomizerMod.RC.SplitCloakItemTemplate, RandomizerMod",
+    "leftBiased": false,
     "name": "Right_Mothwing_Cloak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
-    "effects": [
-      {
-        "id": "LEFTDASH",
-        "incr": 1
-      }
-    ],
-    "name": "Left_Shade_Cloak"
-  },
-  {
-    "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",
-    "effects": [
-      {
-        "id": "RIGHTDASH",
-        "incr": 1
-      }
-    ],
-    "name": "Right_Shade_Cloak"
+    "$type": "RandomizerMod.RC.SplitCloakItemTemplate, RandomizerMod",
+    "leftBiased": true,
+    "name": "Split_Shade_Cloak"
   },
   {
     "$type": "RandomizerCore.LogicItems.MassItemTemplate, RandomizerCore",

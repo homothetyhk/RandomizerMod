@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RandomizerMod.Settings;
-using RandomizerCore.Extensions;
-using RandomizerCore;
-using RandomizerCore.Logic;
-using RandomizerMod.RandomizerData;
 using System.IO;
-using static RandomizerMod.LogHelper;
+using System.Text;
+using RandomizerMod.RandomizerData;
+using RandomizerMod.Settings;
+using RandomizerCore;
+using RandomizerCore.Extensions;
+using RandomizerCore.Logic;
 using RandomizerCore.Randomizers;
+using static RandomizerMod.LogHelper;
 
-namespace RandomizerMod
+namespace RandomizerMod.RC
 {
     // cursed settings manipulation code
     // some settings are implemented through RandoController instead
@@ -34,7 +33,6 @@ namespace RandomizerMod
         List<RandoItem> items;
         List<RandoLocation> locations;
 
-
         void IRandomizerSettings.Initialize(Random rng)
         {
             SetRandomizedItems(rng);
@@ -49,7 +47,6 @@ namespace RandomizerMod
 
         readonly GenerationSettings gs;
 
-        // TODO: fix LogicManager loading
         public LogicManager LM { get; }
 
         int IRandomizerSettings.Seed => gs.Seed;
@@ -98,14 +95,98 @@ namespace RandomizerMod
                 removeItems.Add("Descending_Dark");
             }
 
-            if (gs.CursedSettings.SplitClaw)
+            if (gs.NoveltySettings.SplitClaw)
             {
                 removeItems.Add("Mantis_Claw");
             }
 
-            if (gs.CursedSettings.SplitCloak)
+            if (gs.NoveltySettings.SplitCloak)
             {
                 removeItems.Add("Mothwing_Cloak");
+                removeItems.Add("Shade_Cloak");
+                bool leftBiased = rng.NextBool();
+                if (!leftBiased) // the serialized Split Shade Cloak template is left biased.
+                {
+                    int index = items.FindIndex(i => i.Name == "Split_Shade_Cloak");
+                    items[index].item = ((SplitCloakItem)items[index].item) with { LeftBiased = false };
+                }
+            }
+
+            if (gs.MiscSettings.AddDuplicateItems)
+            {
+                // TODO: better dupe settings
+                List<string> dupes = new()
+                {
+                    "Vengeful_Spirit",
+                    "Howling_Wraiths",
+                    "Desolate_Dive",
+                    "Mothwing_Cloak",
+                    "Mantis_Claw",
+                    "Crystal_Heart",
+                    "Isma's_Tear",
+                    "Monarch_Wings",
+                    "Shade_Cloak",
+                    "Dreamer",
+                    "Void_Heart",
+                    "Dream_Nail",
+                };
+
+                if (gs.NoveltySettings.SplitClaw) dupes.Remove("Mantis_Claw");
+                if (gs.NoveltySettings.SplitCloak)
+                {
+                    dupes.Remove("Mothwing_Cloak");
+                    dupes.Remove("Shade_Cloak");
+                }
+                if (gs.CursedSettings.RemoveSpellUpgrades)
+                {
+                    dupes.Remove("Vengeful_Spirit");
+                    dupes.Remove("Howling_Wraiths");
+                    dupes.Remove("Desolate_Dive");
+                }
+
+                foreach (string dupe in dupes) items.Add(new PlaceholderItem(new RandoItem { item = LM.GetItem(dupe) }));
+
+                // dupe simple keys which are logic readable to increase odds of 4 keys waterways
+                items.Add(new RandoItem { item = LM.GetItem("Simple_Key") });
+                items.Add(new RandoItem { item = LM.GetItem("Simple_Key") });
+            }
+
+            if (gs.MiscSettings.MaskShards != MiscSettings.MaskShardType.FourShardsPerMask)
+            {
+                int maskShards = items.RemoveAll(i => i.Name == "Mask_Shard");
+                if (gs.MiscSettings.MaskShards == MiscSettings.MaskShardType.TwoShardsPerMask)
+                {
+                    int doubleShards = maskShards / 2;
+                    int singleShards = maskShards - 2 * doubleShards;
+                    for (int i = 0; i < doubleShards; i++) items.Add(new RandoItem { item = LM.GetItem("Double_Mask_Shard") });
+                    for (int i = 0; i < singleShards; i++) items.Add(new RandoItem { item = LM.GetItem("Mask_Shard") });
+                }
+                else if (gs.MiscSettings.MaskShards == MiscSettings.MaskShardType.OneShardPerMask)
+                {
+                    int fullmasks = maskShards / 4;
+                    int singleShards = maskShards - 4 * fullmasks;
+                    for (int i = 0; i < fullmasks; i++) items.Add(new RandoItem { item = LM.GetItem("Full_Mask") });
+                    for (int i = 0; i < singleShards; i++) items.Add(new RandoItem { item = LM.GetItem("Mask_Shard") });
+                }
+            }
+
+            if (gs.MiscSettings.VesselFragments != MiscSettings.VesselFragmentType.ThreeFragmentsPerVessel)
+            {
+                int vesselFragments = items.RemoveAll(i => i.Name == "Vessel_Fragment");
+                if (gs.MiscSettings.VesselFragments == MiscSettings.VesselFragmentType.TwoFragmentsPerVessel)
+                {
+                    int doubleFragments = vesselFragments / 2;
+                    int singleFragments = vesselFragments - 2 * doubleFragments;
+                    for (int i = 0; i < doubleFragments; i++) items.Add(new RandoItem { item = LM.GetItem("Double_Vessel_Fragment") });
+                    for (int i = 0; i < singleFragments; i++) items.Add(new RandoItem { item = LM.GetItem("Vessel_Fragment") });
+                }
+                else if (gs.MiscSettings.VesselFragments == MiscSettings.VesselFragmentType.OneFragmentPerVessel)
+                {
+                    int fullVessels = vesselFragments / 3;
+                    int singleFragments = vesselFragments - 3 * fullVessels;
+                    for (int i = 0; i < fullVessels; i++) items.Add(new RandoItem { item = LM.GetItem("Full_Soul_Vessel") });
+                    for (int i = 0; i < singleFragments; i++) items.Add(new RandoItem { item = LM.GetItem("Vessel_Fragment") });
+                }
             }
 
             if (gs.CursedSettings.ReplaceJunkWithOneGeo)
@@ -141,13 +222,47 @@ namespace RandomizerMod
         {
             for (int i = 0; i < count; i++)
             {
-                items.Add(new RandoItem { item = LM.GetItem("One_Geo") });
+                if (rng.Next(4) == 0) items.Add(new RandoItem { item = LM.GetItem("Lumafly_Escape") });
+                else items.Add(new RandoItem { item = LM.GetItem("One_Geo") });
             }
         }
 
         List<RandoItem> IItemRandomizerSettings.GetRandomizedItems() => items ?? throw new InvalidOperationException("Randomized items were not initialized.");
 
         List<RandoLocation> multiLocationPrefabs;
+
+        private RandoLocation GetLocation(string name)
+        {
+            RandoLocation rl = new()
+            {
+                logic = LM.GetLogicDef(name) ?? throw new ArgumentException($"No logic found for location {name}!")
+            };
+
+            if (Data.TryGetCost(name, out CostDef def))
+            {
+                switch (def.term)
+                {
+                    case "ESSENCE":
+                    case "GRUBS":
+                    case "SIMPLE": // Godtuner now has an inherent key cost
+                    case "Spore_Shroom": // spore shroom tablets now have an inherent spore shroom requirement
+                        break;
+                    case "GEO":
+                        rl.AddCost(new LogicGeoCost(LM, def.amount));
+                        break;
+                    default:
+                        rl.AddCost(new SimpleCost(LM, def.term, def.amount));
+                        break;
+                }
+            }
+
+            return rl;
+        }
+
+        private RandoLocation Clone(RandoLocation rl)
+        {
+            return new RandoLocation { logic = rl.logic, costs = rl.costs };
+        }
 
         void SetRandomizedLocations(Random rng)
         {
@@ -157,9 +272,11 @@ namespace RandomizerMod
             {
                 if (pool.IsIncluded(gs))
                 {
-                    locations.AddRange(pool.includeLocations.Select(l => new RandoLocation { logic = LM.GetLogicDef(l) }));
+                    locations.AddRange(pool.includeLocations.Select(l => GetLocation(l)));
                 }
             }
+
+            if (gs.NoveltySettings.SplitClaw) locations.RemoveAll(l => l.Name == "Mantis_Claw");
 
             multiLocationPrefabs = locations.Where(l => Data.GetLocationDef(l.Name).multi).GroupBy(l => l.Name).Select(g => g.First()).ToList();
             HashSet<string> multiNames = new HashSet<string>(multiLocationPrefabs.Select(l => l.Name));
@@ -173,7 +290,8 @@ namespace RandomizerMod
 
             for (int i = 0; i < multiCount; i++)
             {
-                locations.Add(new RandoLocation { logic = rng.Next(multiLocationPrefabs).logic });
+                RandoLocation prefab = rng.Next(multiLocationPrefabs);
+                locations.Add(Clone(prefab));
             }
         }
 
@@ -185,14 +303,72 @@ namespace RandomizerMod
                 {
                     case "Grubfather":
                         loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM, "GRUBS", rng.Next(gs.GrubCostRandomizerSettings.MinimumGrubCost, gs.GrubCostRandomizerSettings.MaximumGrubCost + 1)));
+                        loc.AddCost(new SimpleCost(LM, "GRUBS", rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
                         LogDebug("Set Grubfather grub cost to " + ((SimpleCost)loc.costs[0]).threshold);
                         break;
                     case "Seer":
                         loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM, "ESSENCE", rng.Next(gs.EssenceCostRandomizerSettings.MinimumEssenceCost, gs.EssenceCostRandomizerSettings.MaximumEssenceCost + 1)));
+                        loc.AddCost(new SimpleCost(LM, "ESSENCE", rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
                         LogDebug("Set Seer essence cost to " + ((SimpleCost)loc.costs[0]).threshold);
                         break;
+                    case "Egg_Shop":
+                        loc.costs?.Clear();
+                        loc.AddCost(new SimpleCost(LM, "RANCIDEGGS", rng.Next(1, 15)));
+                        break;
+                    case "Sly":
+                    case "Sly_(Key)":
+                    case "Iselda":
+                    case "Salubra":
+                    case "Leg_Eater":
+                        loc.costs?.Clear();
+                        loc.AddCost(new LogicGeoCost(LM, -1));
+                        LogDebug($"Added incomplete geo cost to shop {loc.Name}.");
+                        break;
+                }
+            }
+        }
+
+        private int GetShopCost(Random rng, string itemName, bool required)
+        {
+            double pow = 1.2; // setting?
+
+            int cap = Data.GetItemDef(itemName).priceCap;
+            if (cap <= 100) return cap;
+            if (required) return rng.PowerLaw(pow, 100, Math.Min(cap, 500)).ClampToMultipleOf(5);
+            return rng.PowerLaw(pow, 100, cap).ClampToMultipleOf(5);
+        }
+
+        public void Finalize(Random rng, RandoContext ctx)
+        {
+            UnwrapPlaceholders(ctx);
+            FinalizeLocationCosts(rng, ctx);
+        }
+
+        private void FinalizeLocationCosts(Random rng, RandoContext ctx)
+        {
+            int nonrequiredCount = spheredPlacements[spheredPlacements.Count - 1].Item2.Count;
+            int threshold = ctx.itemPlacements.Count - nonrequiredCount;
+
+            for (int i = 0; i < ctx.itemPlacements.Count; i++)
+            {
+                (RandoItem ri, RandoLocation rl) = ctx.itemPlacements[i];
+                if (rl.costs == null) continue;
+                bool required = i < threshold;
+                foreach (LogicGeoCost gc in rl.costs.OfType<LogicGeoCost>())
+                {
+                    if (gc.geoAmount < 0) gc.geoAmount = GetShopCost(rng, ri.Name, required);
+                }
+            }
+        }
+
+        private void UnwrapPlaceholders(RandoContext ctx)
+        {
+            for (int i = 0; i < ctx.itemPlacements.Count; i++)
+            {
+                (RandoItem item, RandoLocation loc) = ctx.itemPlacements[i];
+                if (item is PlaceholderItem pi)
+                {
+                    ctx.itemPlacements[i] = new(pi.Unwrap(), loc);
                 }
             }
         }
@@ -213,13 +389,14 @@ namespace RandomizerMod
 
             for (int i = 0; i < count; i++)
             {
-                locations.Add(new RandoLocation { logic = rng.Next(multi).prefab.logic });
+                RandoLocation prefab = rng.Next(multi).prefab;
+                locations.Add(Clone(prefab));
             }
         }
 
         List<RandoLocation> IItemRandomizerSettings.GetRandomizedLocations() => locations ?? throw new InvalidOperationException("Randomized locations were not initialized.");
 
-        
+
 
         List<RandoTransition> ITransitionRandomizerSettings.GetRandomizedTransitions()
         {
@@ -244,14 +421,18 @@ namespace RandomizerMod
             return placements;
         }
 
+
+        public List<(ItemSphere sphere, IReadOnlyList<ItemPlacement>)> spheredPlacements = new();
         ItemPlacementStrategy IItemRandomizerSettings.GetItemPlacementStrategy()
         {
             return new DefaultItemPlacementStrategy
             {
                 depthPriorityTransform = (depth, location) => location.priority - 5 * depth,
-                placementRecorder = (depth, ps) =>
+                placementRecorder = (sphere, ps) =>
                 {
-                    LogDebug("SPHERE " + depth);
+                    LogDebug("SPHERE " + sphere.index);
+                    if (sphere.index == 0) spheredPlacements.Clear();
+                    spheredPlacements.Add((sphere, ps));
                     foreach (var (item, location) in ps)
                     {
                         LogDebug($"{item} at {location}");
@@ -264,8 +445,9 @@ namespace RandomizerMod
         void IItemRandomizerSettings.PostPermuteItems(Random rng, IReadOnlyList<RandoItem> items)
         {
             bool majorPenalty = gs.CursedSettings.LongerProgressionChains;
+            bool dupePenalty = true;
 
-            if (!majorPenalty) return;
+            if (!majorPenalty && !dupePenalty) return;
 
             for (int i = 0; i < items.Count; i++)
             {
@@ -273,13 +455,25 @@ namespace RandomizerMod
                 {
                     try
                     {
-                        checked { items[i].priority += rng.Next(items.Count - i); }
+                        checked { items[i].priority += rng.Next(items.Count - i); } // makes major items more likely to be selected late in progression
                     }
                     catch (OverflowException)
                     {
                         items[i].priority = int.MaxValue;
                     }
                 }
+
+                if (dupePenalty && items[i] is PlaceholderItem)
+                {
+                    try
+                    {
+                        checked { items[i].priority -= 1000; } // makes dupes more likely to be placed immediately after progression, into late locations
+                    }
+                    catch (OverflowException)
+                    {
+                        items[i].priority = int.MinValue;
+                    }
+                } 
             }
         }
 
@@ -315,9 +509,9 @@ namespace RandomizerMod
             return t.priority - depth;
         }
 
-        private void PlacementRecorder(int depth, List<TransitionPlacement> ps)
+        private void PlacementRecorder(TransitionSphere sphere, List<TransitionPlacement> ps)
         {
-            LogDebug("SPHERE " + depth);
+            LogDebug(sphere != null ? "SPHERE " + sphere.index : "OVERFLOW");
             foreach (var (source, target) in ps)
             {
                 LogDebug($"{source.Name}-->{target.Name}");
@@ -399,7 +593,7 @@ namespace RandomizerMod
                         }
                     }
 
-                    placementRecorder?.Invoke(i, current);
+                    placementRecorder?.Invoke(spheres[i], current);
                     placements.AddRange(current);
                     current.Clear();
                 }
@@ -421,7 +615,15 @@ namespace RandomizerMod
 
                 if (placementRecorder != null)
                 {
-                    placementRecorder.Invoke(spheres.Count, current);
+                    TransitionSphere fakeSphere = new()
+                    {
+                        index = spheres.Count,
+                        directionCounts = spheres[spheres.Count - 1].directionCounts,
+                        placedTransitions = new(),
+                        reachableTransitions = new(),
+                        snapshot = spheres[spheres.Count - 1].snapshot,
+                    };
+                    placementRecorder.Invoke(fakeSphere, current);
                 }
 
                 placements.AddRange(current);
@@ -442,7 +644,7 @@ namespace RandomizerMod
                 {
                     string area = Data.GetTransitionDef(transitions[i].Name).areaName ?? string.Empty;
                     if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
-                    transitions[i].priority += modifier * 10; 
+                    transitions[i].priority += modifier * 10;
                     // weakly group transitions by area in the order
                     // so that selector eliminates one area before moving onto the next
                     // "weakly", since we ideally do not want to prevent bottlenecked layouts like vanilla city

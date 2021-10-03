@@ -108,5 +108,24 @@ namespace RandomizerMod.Settings
                 LogError($"Error retrieving field at {path}:\n{e}");
             }
         }
+
+        /// <summary>
+        /// Returns the first path to a field with the matching name, for a GenerationSettings object.
+        /// <br/> e.g. GetPath("MildSkips") => "SkipSettings.MildSkips"
+        /// </summary>
+        public static string GetPath(string fieldName)
+        {
+            StringBuilder sb = new();
+            Type T = typeof(GenerationSettings);
+            foreach (FieldInfo settings in GetOrderedFields(T).Where(f => f.FieldType.IsSubclassOf(typeof(SettingsModule))))
+            {
+                foreach (FieldInfo fi in GetOrderedFields(settings.FieldType))
+                {
+                    if (fi.Name == fieldName) return $"{settings.Name}.{fieldName}";
+                }
+            }
+
+            throw new ArgumentException("No corresponding field found.", nameof(fieldName));
+        }
     }
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using RandomizerCore;
 using RandomizerCore.Randomizers;
 using RandomizerMod.Extensions;
+using RandomizerMod.IC;
+using RandomizerMod.Logging;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
 
-namespace RandomizerMod
+namespace RandomizerMod.RC
 {
     public class RandoController
     {
@@ -25,13 +27,12 @@ namespace RandomizerMod
             this.gs = gs;
             this.rm = rm;
             this.mpm = mpm;
-            this.rng = new Random(gs.Seed + 4);
+            rng = new Random(gs.Seed + 4);
         }
 
         public void Run()
         {
             gs.Clamp();
-            if (gs.CursedSettings.RandomCurses) gs.CursedSettings.Randomize(rng);
 
             SelectStart();
             AssignNotchCosts();
@@ -47,6 +48,7 @@ namespace RandomizerMod
                     gs = gs,
                     randomizer = r,
                 };
+                ws.Finalize(r.rng, ctx);
             }
             else
             {
@@ -59,6 +61,7 @@ namespace RandomizerMod
                     gs = gs,
                     randomizer = r,
                 };
+                ws.Finalize(r.rng, ctx);
             }
         }
 
@@ -93,17 +96,16 @@ namespace RandomizerMod
             byte[] sha = sHA256.ComputeHash(Encoding.UTF8.GetBytes(sb.ToString()));
 
             int seed = 17;
-            for (int i = 0; i < sha.Length; i++) seed = (31 * seed) ^ sha[i];
+            for (int i = 0; i < sha.Length; i++) seed = 31 * seed ^ sha[i];
             return seed;
         }
 
         public void Save()
         {
-            Interop.BeginExport();
-            Interop.ExportStart(gs);
-            Interop.ExportSettings(gs);
-            if (ctx.itemPlacements != null) Interop.ExportItemPlacements(gs, ctx.itemPlacements);
-            if (ctx.transitionPlacements != null) Interop.ExportTransitionPlacements(ctx.transitionPlacements);
+            Export.BeginExport();
+            Export.ExportStart(gs);
+            if (ctx.itemPlacements != null) Export.ExportItemPlacements(gs, ctx.itemPlacements);
+            if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(ctx.transitionPlacements);
             if (ctx.notchCosts != null)
             {
                 for (int i = 0; i < ctx.notchCosts.Count; i++) PlayerData.instance.SetInt($"charmCost_{i + 1}", ctx.notchCosts[i]);

@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using RandomizerCore;
 using RandomizerMod.Settings;
-using RandomizerMod.Logging;
 using static RandomizerMod.LogHelper;
 
-namespace RandomizerMod
+namespace RandomizerMod.Logging
 {
     public abstract class RandoLogger
     {

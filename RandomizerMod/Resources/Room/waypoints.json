@@ -1,0 +1,6 @@
+﻿[
+  {
+    "name": "Can_Replenish_Geo",
+    "logic": "Tutorial_01 | Crossroads_01[top1] | Crossroads_ShamanTemple[left1] | Fungus1_01[right1] | Fungus2_03[left1] | Fungus2_06[top1] | Fungus2_12[left1] | Fungus2_14[top1] | Ruins1_01[left1] | Ruins1_17[right1] | Ruins2_04[right2] | Ruins2_06[right2] | Abyss_04[left1] | Abyss_12[right1] | Fungus3_40[top1] | Mines_02[left1] | Cliffs_02[left1] | Deepnest_East_01[bot1] | Deepnest_East_03[left1] | Deepnest_East_07[left2] | Deepnest_East_08[top1] | Waterways_02[top1] | Waterways_01[right1] | Waterways_04b[left1]"
+  }
+]

@@ -47,6 +47,12 @@
     "areaName": "Resting_Grounds",
     "multi": true
   },
+  "Egg_Shop": {
+    "name": "Egg_Shop",
+    "sceneName": "Room_Ouiji[left1]",
+    "areaName": "UNKNOWN",
+    "multi": true
+  },
   "Lurien": {
     "name": "Lurien",
     "sceneName": "Ruins2_Watcher_Room",
@@ -1361,6 +1367,30 @@
     "areaName": "Tower_of_Love",
     "multi": false
   },
+  "Mimic_Grub-Deepnest_1": {
+    "name": "Mimic_Grub-Deepnest_1",
+    "sceneName": "Deepnest_36",
+    "areaName": "Deepnest",
+    "multi": false
+  },
+  "Mimic_Grub-Deepnest_2": {
+    "name": "Mimic_Grub-Deepnest_2",
+    "sceneName": "Deepnest_36",
+    "areaName": "Deepnest",
+    "multi": false
+  },
+  "Mimic_Grub-Deepnest_3": {
+    "name": "Mimic_Grub-Deepnest_3",
+    "sceneName": "Deepnest_36",
+    "areaName": "Deepnest",
+    "multi": false
+  },
+  "Mimic_Grub-Crystal_Peak": {
+    "name": "Mimic_Grub-Crystal_Peak",
+    "sceneName": "Deepnest_36",
+    "areaName": "Deepnest",
+    "multi": false
+  },
   "Crossroads_Map": {
     "name": "Crossroads_Map",
     "sceneName": "Crossroads_33",
@@ -1617,6 +1647,48 @@
     "name": "Grimmkin_Flame-Brumm",
     "sceneName": "Room_spider_small",
     "areaName": "Distant_Village",
+    "multi": false
+  },
+  "Hunter's_Journal": {
+    "name": "Hunter's_Journal",
+    "sceneName": "Fungus1_08",
+    "areaName": "Greenpath",
+    "multi": false
+  },
+  "Journal_Entry-Void_Tendrils": {
+    "name": "Journal_Entry-Void_Tendrils",
+    "sceneName": "Abyss_09",
+    "areaName": "Abyss",
+    "multi": false
+  },
+  "Journal_Entry-Charged_Lumafly": {
+    "name": "Journal_Entry-Charged_Lumafly",
+    "sceneName": "Fungus3_archive_02",
+    "areaName": "Teacher's_Archives",
+    "multi": false
+  },
+  "Journal_Entry-Goam": {
+    "name": "Journal_Entry-Goam",
+    "sceneName": "Crossroads_52",
+    "areaName": "Forgotten_Crossroads",
+    "multi": false
+  },
+  "Journal_Entry-Garpede": {
+    "name": "Journal_Entry-Garpede",
+    "sceneName": "Deepnest_44",
+    "areaName": "Deepnest",
+    "multi": false
+  },
+  "Journal_Entry-Seal_of_Binding": {
+    "name": "Journal_Entry-Seal_of_Binding",
+    "sceneName": "White_Palace_20",
+    "areaName": "Palace_Grounds",
+    "multi": false
+  },
+  "Elevator_Pass": {
+    "name": "Elevator_Pass",
+    "sceneName": "Crossroads_49b",
+    "areanName": "City_of_Tears",
     "multi": false
   },
   "Split_Mothwing_Cloak": {

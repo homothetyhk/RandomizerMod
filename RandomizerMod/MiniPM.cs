@@ -23,14 +23,14 @@ namespace RandomizerMod
             Changed?.Invoke();
         }
 
-        public bool Evaluate(string infixLogic) => Evaluate(Shunt(infixLogic).ToArray());
+        public bool Evaluate(string infixLogic) => Evaluate(Shunt(infixLogic, macros));
 
-        private bool Evaluate(string[] logic)
+        private bool Evaluate(IReadOnlyList<string> logic)
         {
-            if (logic == null || logic.Length == 0) return true;
+            if (logic == null || logic.Count == 0) return true;
 
             Stack<bool> stack = new Stack<bool>();
-            for (int i = 0; i < logic.Length; i++)
+            for (int i = 0; i < logic.Count; i++)
             {
                 switch (logic[i])
                 {
@@ -82,7 +82,62 @@ namespace RandomizerMod
             return stack.Pop();
         }
 
-        private IEnumerable<string> Shunt(string infix)
+        public static bool Evaluate(string logic, Func<string, bool> termEvaluator) => Evaluate(Shunt(logic), termEvaluator);
+
+        private static bool Evaluate(IReadOnlyList<string> logic, Func<string, bool> termEvaluator)
+        {
+            if (logic == null || logic.Count == 0) return true;
+
+            Stack<bool> stack = new();
+
+            for (int i = 0; i < logic.Count; i++)
+            {
+                switch (logic[i])
+                {
+                    case "+":
+                        if (stack.Count < 2)
+                        {
+                            LogWarn($"Failed to parse logic: {string.Join(" ", logic)}");
+                            return false;
+                        }
+
+                        stack.Push(stack.Pop() & stack.Pop());
+                        break;
+                    case "|":
+                        if (stack.Count < 2)
+                        {
+                            LogWarn($"Failed to parse logic: {string.Join(" ", logic)}");
+                            return false;
+                        }
+                        stack.Push(stack.Pop() | stack.Pop());
+                        break;
+                    case "NONE":
+                        stack.Push(false);
+                        break;
+                    case "ANY":
+                        stack.Push(true);
+                        break;
+                    default:
+                        stack.Push(termEvaluator(logic[i]));
+                        break;
+                }
+            }
+
+            if (stack.Count == 0)
+            {
+                LogWarn($"Failed to parse logic: {string.Join(" ", logic)}");
+                return false;
+            }
+
+            if (stack.Count != 1)
+            {
+                LogWarn($"Failed to parse logic: {string.Join(" ", logic)}");
+            }
+
+            return stack.Pop();
+        }
+
+        private static IReadOnlyList<string> Shunt(string infix, Dictionary<string, string[]> macros = null)
         {
             if (string.IsNullOrEmpty(infix)) return new string[0];
 

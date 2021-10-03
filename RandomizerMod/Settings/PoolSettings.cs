@@ -33,6 +33,9 @@ namespace RandomizerMod.Settings
         public bool BossGeo;
         public bool LoreTablets;
 
+        public bool JournalEntries;
+        public bool JunkPitChests;
+
         // TODO: replace?
         public bool PalaceSoul;
         public bool PalaceLore;

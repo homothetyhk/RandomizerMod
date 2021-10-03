@@ -7,20 +7,15 @@ namespace RandomizerMod.Settings.Presets
 {
     public static class Captions
     {
-        public static string Caption(this GrubCostRandomizerSettings gc)
+        public static string Caption(this CostSettings cs)
         {
-            return $"Grub reward items will be randomized to costs between " +
-            $"{gc.MinimumGrubCost} and {gc.MaximumGrubCost}. For each item, the randomizer will guarantee " +
-            $"{gc.GrubTolerance} grub(s) beyond the listed cost are accessible before " +
-            $"the item is expected in logic.";
-        }
-
-        public static string Caption(this EssenceCostRandomizerSettings ec)
-        {
-            return $"Seer reward items will be randomized to costs between " +
-            $"{ec.MinimumEssenceCost} and {ec.MaximumEssenceCost}. For each item, the randomizer will guarantee " +
-            $"{ec.EssenceTolerance} essence beyond the listed cost is accessible before " +
-            $"the item is expected in logic.";
+            return $"Grub reward location costs will be randomized between " +
+            $"{cs.MinimumGrubCost} and {cs.MaximumGrubCost}. The randomizer will guarantee " +
+            $"{cs.GrubTolerance} additional grub(s) are accessible before " +
+            $"any cost is expected in logic. " + $"Seer reward location costs will be randomized between " +
+            $"{cs.MinimumEssenceCost} and {cs.MaximumEssenceCost}. The randomizer will guarantee " +
+            $"{cs.EssenceTolerance} additional essence is accessible before " +
+            $"any cost is expected in logic.";
         }
 
         public static string Caption(this LongLocationSettings ll, GenerationSettings Settings)
@@ -77,17 +72,46 @@ namespace RandomizerMod.Settings.Presets
             return sb.ToString();
         }
 
+        public static string Caption(this NoveltySettings ns)
+        {
+            StringBuilder sb = new();
+            List<string> terms = new();
+
+            if (ns.RandomizeSwim) terms.Add("swim");
+            if (ns.RandomizeElevatorPass) terms.Add("ride elevators");
+            if (ns.RandomizeFocus) terms.Add("heal");
+            if (ns.RandomizeNail) terms.Add("attack left or right or up");
+            if (terms.Count > 0)
+            {
+                string ability = terms.Count > 1 ? "abilities" : "ability";
+                sb.Append($"The {ability} to ");
+                for (int i = 0; i < terms.Count - 1; i++)
+                {
+                    sb.Append(terms[i]);
+                    sb.Append(", ");
+                }
+                if (terms.Count == 2) sb.Remove(sb.Length - 2, 1);
+                if (terms.Count > 1) sb.Append("and ");
+                sb.Append(terms[terms.Count - 1]);
+                sb.Append(" will be removed and randomized.");
+            }
+            terms.Clear();
+            if (ns.SplitClaw) sb.Append("The abilities to walljump from left and right slopes will be separated. ");
+            if (ns.SplitCloak) sb.Append("The abilities to dash left and right will be separated. ");
+            if (ns.EggShop) sb.Append("Jiji will trade items for rancid eggs. ");
+
+            return sb.ToString();
+        }
+
         public static string Caption(this CursedSettings cs)
         {
             StringBuilder sb = new StringBuilder();
-            if (cs.RandomCurses) sb.Append("A random assortment of curses. ");
-            if (cs.RandomizeFocus) sb.Append("The ability to heal is randomized. ");
             if (cs.ReplaceJunkWithOneGeo) sb.Append("Luxury items like mask shards and pale ore and the like are replaced with 1 geo pickups. ");
             if (cs.RemoveSpellUpgrades) sb.Append("Spell upgrades are completely removed. ");
             if (cs.LongerProgressionChains) sb.Append("Progression items are harder to find on average. ");
-            if (cs.SplitClaw) sb.Append("The abilities to walljump from left and right slopes are separated. ");
-            if (cs.SplitCloak) sb.Append("The abilities to dash left and right are separated. ");
-            if (cs.RandomizeNail) sb.Append("The abilities to swing the nail in each direction are randomized. ");
+            if (cs.CursedMasks) sb.Append("Start with only 1 mask. ");
+            if (cs.CursedNotches) sb.Append("Start with only 1 charm notch. ");
+            if (cs.RandomizeMimics) sb.Append("Some grub bottles may contain a surprise...");
 
             return sb.ToString();
         }

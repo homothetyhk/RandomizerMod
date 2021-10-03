@@ -13,9 +13,9 @@ namespace RandomizerMod.Settings
         public TransitionSettings TransitionSettings = new TransitionSettings();
         public SkipSettings SkipSettings = new SkipSettings();
         public PoolSettings PoolSettings = new PoolSettings();
+        public NoveltySettings NoveltySettings = new();
+        public CostSettings CostSettings = new();
         public CursedSettings CursedSettings = new CursedSettings();
-        public GrubCostRandomizerSettings GrubCostRandomizerSettings = new GrubCostRandomizerSettings();
-        public EssenceCostRandomizerSettings EssenceCostRandomizerSettings = new EssenceCostRandomizerSettings();
         public LongLocationSettings LongLocationSettings = new LongLocationSettings();
         public StartLocationSettings StartLocationSettings = new StartLocationSettings();
         public StartItemSettings StartItemSettings = new StartItemSettings();

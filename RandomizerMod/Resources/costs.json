@@ -1,0 +1,186 @@
+{
+  "Dream_Gate": {
+    "term": "ESSENCE",
+    "amount": 900
+  },
+  "Awoken_Dream_Nail": {
+    "term": "ESSENCE",
+    "amount": 1800
+  },
+  "Dash_Slash": {
+    "term": "GEO",
+    "amount": 800
+  },
+  "Grubsong": {
+    "term": "GRUBS",
+    "amount": 10
+  },
+  "Dream_Wielder": {
+    "term": "ESSENCE",
+    "amount": 500
+  },
+  "Grubberfly's_Elegy": {
+    "term": "GRUBS",
+    "amount": 46
+  },
+  "Godtuner": {
+    "term": "SIMPLE",
+    "amount": 1
+  },
+  "Mask_Shard-Seer": {
+    "term": "ESSENCE",
+    "amount": 1500
+  },
+  "Mask_Shard-5_Grubs": {
+    "term": "GRUBS",
+    "amount": 5
+  },
+  "Vessel_Fragment-Seer": {
+    "term": "ESSENCE",
+    "amount": 700
+  },
+  "Vessel_Fragment-Basin": {
+    "term": "GEO",
+    "amount": 3000
+  },
+  "Pale_Ore-Seer": {
+    "term": "ESSENCE",
+    "amount": 300
+  },
+  "Pale_Ore-Grubs": {
+    "term": "GRUBS",
+    "amount": 31
+  },
+  "Rancid_Egg-Grubs": {
+    "term": "GRUBS",
+    "amount": 16
+  },
+  "Hallownest_Seal-Grubs": {
+    "term": "GRUBS",
+    "amount": 23
+  },
+  "Hallownest_Seal-Seer": {
+    "term": "ESSENCE",
+    "amount": 100
+  },
+  "King's_Idol-Grubs": {
+    "term": "GRUBS",
+    "amount": 38
+  },
+  "Arcane_Egg-Seer": {
+    "term": "ESSENCE",
+    "amount": 1200
+  },
+  "Crossroads_Map": {
+    "term": "GEO",
+    "amount": 30
+  },
+  "Greenpath_Map": {
+    "term": "GEO",
+    "amount": 60
+  },
+  "Fog_Canyon_Map": {
+    "term": "GEO",
+    "amount": 150
+  },
+  "Fungal_Wastes_Map": {
+    "term": "GEO",
+    "amount": 75
+  },
+  "Deepnest_Map-Upper": {
+    "term": "GEO",
+    "amount": 38
+  },
+  "Deepnest_Map-Right": {
+    "term": "GEO",
+    "amount": 38
+  },
+  "Ancient_Basin_Map": {
+    "term": "GEO",
+    "amount": 112
+  },
+  "Kingdom's_Edge_Map": {
+    "term": "GEO",
+    "amount": 112
+  },
+  "City_of_Tears_Map": {
+    "term": "GEO",
+    "amount": 90
+  },
+  "Royal_Waterways_Map": {
+    "term": "GEO",
+    "amount": 75
+  },
+  "Howling_Cliffs_Map": {
+    "term": "GEO",
+    "amount": 75
+  },
+  "Crystal_Peak_Map": {
+    "term": "GEO",
+    "amount": 112
+  },
+  "Queen's_Gardens_Map": {
+    "term": "GEO",
+    "amount": 150
+  },
+  "Resting_Grounds_Map": {
+    "term": "GEO",
+    "amount": 56
+  },
+  "Crossroads_Stag": {
+    "term": "GEO",
+    "amount": 50
+  },
+  "Greenpath_Stag": {
+    "term": "GEO",
+    "amount": 140
+  },
+  "Queen's_Station_Stag": {
+    "term": "GEO",
+    "amount": 120
+  },
+  "Queen's_Gardens_Stag": {
+    "term": "GEO",
+    "amount": 200
+  },
+  "City_Storerooms_Stag": {
+    "term": "GEO",
+    "amount": 200
+  },
+  "King's_Station_Stag": {
+    "term": "GEO",
+    "amount": 300
+  },
+  "Distant_Village_Stag": {
+    "term": "GEO",
+    "amount": 250
+  },
+  "Hidden_Station_Stag": {
+    "term": "GEO",
+    "amount": 300
+  },
+  "Stag_Nest_Stag": {
+    "term": "GEO",
+    "amount": 300
+  },
+  "Lore_Tablet-Spore_Shroom": {
+    "term": "Spore_Shroom",
+    "amount": 1
+  },
+  "Lore_Tablet-Fungal_Wastes_Hidden": {
+    "term": "Spore_Shroom",
+    "amount": 1
+  },
+  "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
+    "term": "Spore_Shroom",
+    "amount": 1
+  },
+  "Lore_Tablet-Fungal_Core": {
+    "term": "Spore_Shroom",
+    "amount": 1
+  },
+  "Lore_Tablet-Kingdom's_Edge": {
+    "term": "Spore_Shroom",
+    "amount": 1
+  }
+}

@@ -14,6 +14,8 @@ using RandomizerMod.Settings;
 using RandomizerMod.Settings.Presets;
 using static RandomizerMod.LogHelper;
 using RandomizerMod.RandomizerData;
+using RandomizerMod.RC;
+using System.Reflection;
 
 namespace RandomizerMod.Menu
 {
@@ -45,7 +47,7 @@ namespace RandomizerMod.Menu
         List<MenuProfile> Profiles => RandomizerMod.GS.Profiles;
         readonly StartDef[] StartDefs;
 
-        GameSettings GameSettings = new GameSettings();
+        QoLSettings GameSettings = new QoLSettings();
 
         readonly MenuPage ModePage;
         MenuPage ResumePage;
@@ -62,8 +64,8 @@ namespace RandomizerMod.Menu
 
         MenuPreset<PoolSettings> PoolPreset;
         MenuPreset<SkipSettings> SkipPreset;
-        MenuPreset<GrubCostRandomizerSettings> GrubCostPreset;
-        MenuPreset<EssenceCostRandomizerSettings> EssenceCostPreset;
+        MenuPreset<NoveltySettings> NoveltyPreset;
+        MenuPreset<CostSettings> CostPreset;
         MenuPreset<StartItemSettings> StartItemPreset;
         MenuPreset<StartLocationSettings> StartLocationPreset;
         MenuPreset<LongLocationSettings> LongLocationPreset;
@@ -74,8 +76,8 @@ namespace RandomizerMod.Menu
         {
             PoolPreset,
             SkipPreset,
-            GrubCostPreset,
-            EssenceCostPreset,
+            NoveltyPreset,
+            CostPreset,
             StartItemPreset,
             StartLocationPreset,
             LongLocationPreset,
@@ -154,6 +156,7 @@ namespace RandomizerMod.Menu
         {
             PoolSubpage,
             SkipSubpage,
+            NoveltySubpage,
             CostSubpage,
             LongLocationSubpage,
             StartLocationSubpage,
@@ -171,9 +174,12 @@ namespace RandomizerMod.Menu
         MenuElementFactory<SkipSettings> skipMEF;
         VerticalItemPanel skipVIP;
 
+        Subpage NoveltySubpage;
+        MenuElementFactory<NoveltySettings> novMEF;
+        VerticalItemPanel novVIP;
+
         Subpage CostSubpage;
-        MenuElementFactory<GrubCostRandomizerSettings> grubCostMEF;
-        MenuElementFactory<EssenceCostRandomizerSettings> essenceCostMEF;
+        MenuElementFactory<CostSettings> costMEF;
         GridItemPanel costGIP;
 
         Subpage LongLocationSubpage;
@@ -206,7 +212,7 @@ namespace RandomizerMod.Menu
         #region Game Settings
 
         MenuPage GameSettingsPage;
-        MenuElementFactory<GameSettings> gameSettingsMEF;
+        MenuElementFactory<QoLSettings> gameSettingsMEF;
         MenuLabel preloadExplanationLabel;
 
         GridItemPanel gameSettingsPanel;
@@ -274,6 +280,12 @@ namespace RandomizerMod.Menu
             FinalPage.backButton.AddEvent(Abort);
 
             ResumePage = new MenuPage("Randomizer Resume Page");
+            new BigButton(ResumePage, "Resume").OnClick += () =>
+            {
+                MenuChangerMod.HideAllMenuPages();
+                UIManager.instance.ContinueGame();
+                GameManager.instance.ContinueGame();
+            };
         }
 
         private void MakeMenuElements()
@@ -287,7 +299,7 @@ namespace RandomizerMod.Menu
             JumpToGameSettingsButton = new SmallButton(StartPage, "Game Settings");
             ToggleCaptionsButton = new ToggleButton(StartPage, "Toggle Menu Captions");
 
-            GenerateButton = new BigButton(StartPage, "Begin Randomization"); // TODO: constructor for default sprite, custom text
+            GenerateButton = new BigButton(StartPage, "Begin Randomization");
             SeedEntryField = new IntEntryField(StartPage, "Seed");
 
             RandomSeedButton = new SmallButton(StartPage, "Random");
@@ -295,8 +307,8 @@ namespace RandomizerMod.Menu
             // The AdvancedSettingsPage Elements must be constructed before the StartPage preset buttons.
             poolMEF = new MenuElementFactory<PoolSettings>(AdvancedSettingsPage, Settings.PoolSettings);
             skipMEF = new MenuElementFactory<SkipSettings>(AdvancedSettingsPage, Settings.SkipSettings);
-            grubCostMEF = new MenuElementFactory<GrubCostRandomizerSettings>(AdvancedSettingsPage, Settings.GrubCostRandomizerSettings);
-            essenceCostMEF = new MenuElementFactory<EssenceCostRandomizerSettings>(AdvancedSettingsPage, Settings.EssenceCostRandomizerSettings);
+            novMEF = new MenuElementFactory<NoveltySettings>(AdvancedSettingsPage, Settings.NoveltySettings);
+            costMEF = new MenuElementFactory<CostSettings>(AdvancedSettingsPage, Settings.CostSettings);
             longLocationMEF = new MenuElementFactory<LongLocationSettings>(AdvancedSettingsPage, Settings.LongLocationSettings);
             
             startLocationTypeSwitch = new MenuItem<StartLocationSettings.RandomizeStartLocationType>(AdvancedSettingsPage,
@@ -321,18 +333,12 @@ namespace RandomizerMod.Menu
                 SkipPresetData.SkipPresets, Settings.SkipSettings,
                 (sk) => string.Join(", ", typeof(SkipSettings).GetFields().Where(f => (bool)f.GetValue(sk)).Select(f => f.Name.FromCamelCase()).ToArray()),
                 skipMEF);
-            GrubCostPreset = new MenuPreset<GrubCostRandomizerSettings>(StartPage, "Grub Cost Randomization",
-                GrubCostPresetData.GrubCostPresets, Settings.GrubCostRandomizerSettings,
-                gc => gc.Caption(),
-                grubCostMEF);
-            EssenceCostPreset = new MenuPreset<EssenceCostRandomizerSettings>(StartPage, "Essence Cost Randomization",
-                EssenceCostPresetData.EssencePresets, Settings.EssenceCostRandomizerSettings,
-                ec => ec.Caption(),
-                essenceCostMEF);
+            NoveltyPreset = new MenuPreset<NoveltySettings>(StartPage, "Novelties", NoveltyPresetData.NoveltyPresets, Settings.NoveltySettings, Captions.Caption, novMEF);
+            CostPreset = new MenuPreset<CostSettings>(StartPage, "Cost Randomization", CostPresetData.CostPresets, Settings.CostSettings, Captions.Caption, costMEF);
             StartItemPreset = new MenuPreset<StartItemSettings>(StartPage, "Start Items",
                 StartItemPresetData.StartItemPresets, Settings.StartItemSettings, si => si.Caption(), startItemMEF);
             StartLocationPreset = new MenuPreset<StartLocationSettings>(StartPage, "Start Location",
-                StartLocationPresetData.StartLocationPresets, Settings.StartLocationSettings, sl => sl.Caption());
+                StartLocationPresetData.StartLocationPresets, Settings.StartLocationSettings, Captions.Caption);
             StartLocationPreset.Pair(startLocationTypeSwitch, typeof(StartLocationSettings).GetField(nameof(StartLocationSettings.StartLocationType)));
 
             LongLocationPreset = new MenuPreset<LongLocationSettings>(StartPage, "Long Locations",
@@ -364,7 +370,7 @@ namespace RandomizerMod.Menu
             ApplyProfileButton = new SmallButton(ManageSettingsPage, "Apply Profile");
             ProfileNameField = new TextEntryField(ManageSettingsPage, "Profile Name");
 
-            gameSettingsMEF = new MenuElementFactory<GameSettings>(GameSettingsPage, GameSettings);
+            gameSettingsMEF = new MenuElementFactory<QoLSettings>(GameSettingsPage, GameSettings);
 
             // Final Page
             InfoPanelTitle = new MenuLabel(FinalPage, "Randomizer Progress");
@@ -399,8 +405,12 @@ namespace RandomizerMod.Menu
             skipVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, skipMEF.Elements);
             SkipSubpage.Add(skipVIP);
 
+            NoveltySubpage = new Subpage(AdvancedSettingsPage, "Novelties");
+            novVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, novMEF.Elements.ToArray());
+            NoveltySubpage.Add(novVIP);
+
             CostSubpage = new Subpage(AdvancedSettingsPage, "Cost Randomization");
-            costGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 4, 200f, 400f, grubCostMEF.Elements.Concat(essenceCostMEF.Elements).ToArray());
+            costGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 3, 200f, 400f, costMEF.Elements.ToArray());
             CostSubpage.Add(costGIP);
 
             LongLocationSubpage = new Subpage(AdvancedSettingsPage, "Long Location Options");
@@ -488,39 +498,40 @@ namespace RandomizerMod.Menu
             };
 
             // terrible interaction code
-            grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.MinimumGrubCost)].SetClamp(0, 46);
-            grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.MaximumGrubCost)].SetClamp(0, 46);
-            grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.GrubTolerance)].SetClamp(-46, 46);
-            grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.MinimumGrubCost)].Modify +=
-                (s) => Math.Min(s, Settings.GrubCostRandomizerSettings.MaximumGrubCost);
-            grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.MaximumGrubCost)].Modify +=
-                (s) => Math.Max(s, Settings.GrubCostRandomizerSettings.MinimumGrubCost);
-            grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.GrubTolerance)].Modify +=
-                (s) => Math.Min(s, 46 - Settings.GrubCostRandomizerSettings.MaximumGrubCost);
-            grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.MaximumGrubCost)].Changed +=
+            // TODO: move to MenuChanger and handle via attributes
+            costMEF.IntFields[nameof(CostSettings.MinimumGrubCost)].SetClamp(0, 46);
+            costMEF.IntFields[nameof(CostSettings.MaximumGrubCost)].SetClamp(0, 46);
+            costMEF.IntFields[nameof(CostSettings.GrubTolerance)].SetClamp(-46, 46);
+            costMEF.IntFields[nameof(CostSettings.MinimumGrubCost)].Modify +=
+                (s) => Math.Min(s, Settings.CostSettings.MaximumGrubCost);
+            costMEF.IntFields[nameof(CostSettings.MaximumGrubCost)].Modify +=
+                (s) => Math.Max(s, Settings.CostSettings.MinimumGrubCost);
+            costMEF.IntFields[nameof(CostSettings.GrubTolerance)].Modify +=
+                (s) => Math.Min(s, 46 - Settings.CostSettings.MaximumGrubCost);
+            costMEF.IntFields[nameof(CostSettings.MaximumGrubCost)].Changed +=
                 (s) =>
                 {
-                    if (46 - Settings.GrubCostRandomizerSettings.GrubTolerance < s)
+                    if (46 - Settings.CostSettings.GrubTolerance < s)
                     {
-                        grubCostMEF.IntFields[nameof(GrubCostRandomizerSettings.GrubTolerance)].InputValue = 46 - s;
+                        costMEF.IntFields[nameof(CostSettings.GrubTolerance)].InputValue = 46 - s;
                     }
                 };
 
-            essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.MinimumEssenceCost)].SetClamp(0, 3100);
-            essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.MaximumEssenceCost)].SetClamp(0, 3100);
-            essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.EssenceTolerance)].SetClamp(-3100, 3100);
-            essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.MinimumEssenceCost)].Modify +=
-                (s) => Math.Min(s, Settings.EssenceCostRandomizerSettings.MaximumEssenceCost);
-            essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.MaximumEssenceCost)].Modify +=
-                (s) => Math.Max(s, Settings.EssenceCostRandomizerSettings.MinimumEssenceCost);
-            essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.EssenceTolerance)].Modify +=
-                (s) => Math.Min(s, 3100 - Settings.EssenceCostRandomizerSettings.MaximumEssenceCost);
-            essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.MaximumEssenceCost)].Changed +=
+            costMEF.IntFields[nameof(CostSettings.MinimumEssenceCost)].SetClamp(0, 3100);
+            costMEF.IntFields[nameof(CostSettings.MaximumEssenceCost)].SetClamp(0, 3100);
+            costMEF.IntFields[nameof(CostSettings.EssenceTolerance)].SetClamp(-3100, 3100);
+            costMEF.IntFields[nameof(CostSettings.MinimumEssenceCost)].Modify +=
+                (s) => Math.Min(s, Settings.CostSettings.MaximumEssenceCost);
+            costMEF.IntFields[nameof(CostSettings.MaximumEssenceCost)].Modify +=
+                (s) => Math.Max(s, Settings.CostSettings.MinimumEssenceCost);
+            costMEF.IntFields[nameof(CostSettings.EssenceTolerance)].Modify +=
+                (s) => Math.Min(s, 3100 - Settings.CostSettings.MaximumEssenceCost);
+            costMEF.IntFields[nameof(CostSettings.MaximumEssenceCost)].Changed +=
                 (s) =>
                 {
-                    if (3100 - Settings.EssenceCostRandomizerSettings.EssenceTolerance < s)
+                    if (3100 - Settings.CostSettings.EssenceTolerance < s)
                     {
-                        essenceCostMEF.IntFields[nameof(EssenceCostRandomizerSettings.EssenceTolerance)].InputValue = 3100 - s;
+                        costMEF.IntFields[nameof(CostSettings.EssenceTolerance)].InputValue = 3100 - s;
                     }
                 };
 
@@ -622,7 +633,7 @@ namespace RandomizerMod.Menu
                 pm.SetBool("ROOMRANDO", Equals(b.CurrentSelection, TransitionSettings.TransitionMode.RoomRandomizer));
             };
 
-            cursedMEF.BoolFields[nameof(CursedSettings.RandomizeSwim)].Changed += b => pm.SetBool("SWIM", !b.CurrentSelection);
+            novMEF.BoolFields[nameof(NoveltySettings.RandomizeSwim)].Changed += b => pm.SetBool("SWIM", !b.CurrentSelection);
             cursedMEF.BoolFields[nameof(CursedSettings.CursedMasks)].Changed += b => pm.SetBool("2MASKS", !b.CurrentSelection);
 
             pm.SetBool("VERTICAL", false);
@@ -690,8 +701,7 @@ namespace RandomizerMod.Menu
         {
             poolMEF.SetMenuValues(settings.PoolSettings, Settings.PoolSettings);
             skipMEF.SetMenuValues(settings.SkipSettings, Settings.SkipSettings);
-            grubCostMEF.SetMenuValues(settings.GrubCostRandomizerSettings, Settings.GrubCostRandomizerSettings);
-            essenceCostMEF.SetMenuValues(settings.EssenceCostRandomizerSettings, Settings.EssenceCostRandomizerSettings);
+            costMEF.SetMenuValues(settings.CostSettings, Settings.CostSettings);
             longLocationMEF.SetMenuValues(settings.LongLocationSettings, Settings.LongLocationSettings);
             startLocationTypeSwitch.SetSelection(settings.StartLocationSettings.StartLocationType);
             if (settings.StartLocationSettings.StartLocationType == StartLocationSettings.RandomizeStartLocationType.Fixed)
@@ -819,6 +829,12 @@ namespace RandomizerMod.Menu
         {
             try
             {
+                RandomizerMod.RS = new()
+                {
+                    GenerationSettings = Settings,
+                    Randomizer = true,
+                    GameSettings = GameSettings,
+                };
                 rc.Save();
                 MenuChangerMod.HideAllMenuPages();
                 UIManager.instance.StartNewGame();

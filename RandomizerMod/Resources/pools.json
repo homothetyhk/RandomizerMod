@@ -167,7 +167,7 @@
   },
   {
     "name": "Focus",
-    "path": "CursedSettings.RandomizeFocus",
+    "path": "NoveltySettings.RandomizeFocus",
     "includeItems": [
       "Focus"
     ],
@@ -183,7 +183,7 @@
   },
   {
     "name": "Swim",
-    "path": "CursedSettings.RandomizeSwim",
+    "path": "NoveltySettings.RandomizeSwim",
     "includeItems": [
       "Swim"
     ],
@@ -893,6 +893,46 @@
       {
         "item": "Geo_Chest-Weavers_Den",
         "location": "Geo_Chest-Weavers_Den"
+      }
+    ]
+  },
+  {
+    "name": "JunkPitChest",
+    "path": "PoolSettings.JunkPitChests",
+    "includeItems": [
+      "Geo_Chest-Junk_Pit_1",
+      "Geo_Chest-Junk_Pit_2",
+      "Geo_Chest-Junk_Pit_3",
+      "Geo_Chest-Junk_Pit_5",
+      "Lumafly_Escape"
+    ],
+    "includeLocations": [
+      "Geo_Chest-Junk_Pit_1",
+      "Geo_Chest-Junk_Pit_2",
+      "Geo_Chest-Junk_Pit_3",
+      "Geo_Chest-Junk_Pit_5",
+      "Lumafly_Escape-Junk_Pit_Chest_4"
+    ],
+    "vanilla": [
+      {
+        "item": "Geo_Chest-Junk_Pit_1",
+        "location": "Geo_Chest-Junk_Pit_1"
+      },
+      {
+        "item": "Geo_Chest-Junk_Pit_2",
+        "location": "Geo_Chest-Junk_Pit_2"
+      },
+      {
+        "item": "Geo_Chest-Junk_Pit_3",
+        "location": "Geo_Chest-Junk_Pit_3"
+      },
+      {
+        "item": "Geo_Chest-Junk_Pit_5",
+        "location": "Geo_Chest-Junk_Pit_5"
+      },
+      {
+        "item": "Lumafly_Escape",
+        "location": "Lumafly_Escape-Junk_Pit_Chest_4"
       }
     ]
   },
@@ -1763,6 +1803,40 @@
     ]
   },
   {
+    "name": "Mimic",
+    "path": "CursedSettings.RandomizeMimics",
+    "includeItems": [
+      "Mimic_Grub",
+      "Mimic_Grub",
+      "Mimic_Grub",
+      "Mimic_Grub"
+    ],
+    "includeLocations": [
+      "Mimic_Grub-Deepnest_1",
+      "Mimic_Grub-Deepnest_2",
+      "Mimic_Grub-Deepnest_3",
+      "Mimic_Grub-Crystal_Peak"
+    ],
+    "vanilla": [
+      {
+        "item": "Mimic_Grub",
+        "location": "Mimic_Grub-Deepnest_1"
+      },
+      {
+        "item": "Mimic_Grub",
+        "location": "Mimic_Grub-Deepnest_2"
+      },
+      {
+        "item": "Mimic_Grub",
+        "location": "Mimic_Grub-Deepnest_3"
+      },
+      {
+        "item": "Mimic_Grub",
+        "location": "Mimic_Grub-Crystal_Peak"
+      }
+    ]
+  },
+  {
     "name": "Map",
     "path": "PoolSettings.Maps",
     "includeItems": [
@@ -2065,21 +2139,75 @@
     ]
   },
   {
+    "name": "Journal",
+    "path": "PoolSettings.JournalEntries",
+    "includeItems": [
+      "Hunter's_Journal",
+      "Journal_Entry-Void_Tendrils",
+      "Journal_Entry-Charged_Lumafly",
+      "Journal_Entry-Goam",
+      "Journal_Entry-Garpede",
+      "Journal_Entry-Seal_of_Binding"
+    ],
+    "includeLocations": [
+      "Hunter's_Journal",
+      "Journal_Entry-Void_Tendrils",
+      "Journal_Entry-Charged_Lumafly",
+      "Journal_Entry-Goam",
+      "Journal_Entry-Garpede",
+      "Journal_Entry-Seal_of_Binding"
+    ],
+    "vanilla": [
+      {
+        "item": "Hunter's_Journal",
+        "location": "Hunter's_Journal"
+      },
+      {
+        "item": "Journal_Entry-Void_Tendrils",
+        "location": "Journal_Entry-Void_Tendrils"
+      },
+      {
+        "item": "Journal_Entry-Charged_Lumafly",
+        "location": "Journal_Entry-Charged_Lumafly"
+      },
+      {
+        "item": "Journal_Entry-Goam",
+        "location": "Journal_Entry-Goam"
+      },
+      {
+        "item": "Journal_Entry-Garpede",
+        "location": "Journal_Entry-Garpede"
+      },
+      {
+        "item": "Journal_Entry-Seal_of_Binding",
+        "location": "Journal_Entry-Seal_of_Binding"
+      }
+    ]
+  },
+  {
+    "name": "ElevatorPass",
+    "path": "NoveltySettings.RandomizeElevatorPass",
+    "includeItems": [
+      "Elevator_Pass"
+    ],
+    "includeLocations": [
+      "Elevator_Pass"
+    ],
+    "vanilla": [
+      {
+        "item": "Elevator_Pass",
+        "location": "Start"
+      }
+    ]
+  },
+  {
     "name": "SplitCloak",
-    "path": "CursedSettings.SplitCloak",
+    "path": "NoveltySettings.SplitCloak",
     "includeItems": [
       "Left_Mothwing_Cloak",
       "Right_Mothwing_Cloak",
-      "Left_Shade_Cloak",
-      "Right_Shade_Cloak"
+      "Split_Shade_Cloak"
     ],
-    "includeLocations": [],
-    "vanilla": []
-  },
-  {
-    "name": "SplitCloakLocation",
-    "path": "CursedSettings.SplitCloak",
-    "includeItems": [],
     "includeLocations": [
       "Split_Mothwing_Cloak"
     ],
@@ -2087,7 +2215,7 @@
   },
   {
     "name": "SplitClaw",
-    "path": "CursedSettings.SplitClaw",
+    "path": "NoveltySettings.SplitClaw",
     "includeItems": [
       "Left_Mantis_Claw",
       "Right_Mantis_Claw"
@@ -2100,17 +2228,13 @@
   },
   {
     "name": "CursedNail",
-    "path": "CursedSettings.RandomizeNail",
+    "path": "NoveltySettings.RandomizeNail",
     "includeItems": [
       "Leftslash",
       "Rightslash",
       "Upslash"
     ],
-    "includeLocations": [
-      "Leftslash",
-      "Rightslash",
-      "Upslash"
-    ],
+    "includeLocations": [],
     "vanilla": [
       {
         "item": "Leftslash",
@@ -2125,6 +2249,15 @@
         "location": "Start"
       }
     ]
+  },
+  {
+    "name": "EggShop",
+    "path": "NoveltySettings.EggShop",
+    "includeItems": [],
+    "includeLocations": [
+      "Egg_Shop"
+    ],
+    "vanilla": []
   },
   {
     "name": "Rock",

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ItemChanger;
+using SD = ItemChanger.Util.SceneDataUtil;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
 using static RandomizerMod.LogHelper;
 
-namespace RandomizerMod
+namespace RandomizerMod.IC
 {
-    public static class Interop
+    public static class Export
     {
         public static void BeginExport() => ItemChangerMod.CreateSettingsProfile(overwrite: true);
 
@@ -27,25 +28,30 @@ namespace RandomizerMod
                     MapZone = (int)def.zone,
                 });
             }
-        }
 
-        public static void ExportSettings(GenerationSettings gs)
-        {
-            if (gs.CursedSettings.RandomizeFocus)
-            {
-                ItemChanger.Internal.Ref.Settings.CustomSkills.canFocus = false;
-            }
+            foreach (SmallPlatform p in PlatformList.GetPlatformList(gs)) ItemChangerMod.AddDeployer(p); 
 
-            if (gs.CursedSettings.RandomizeNail)
+            switch (startName)
             {
-                ItemChanger.Internal.Ref.Settings.CustomSkills.canSideslashLeft = false;
-                ItemChanger.Internal.Ref.Settings.CustomSkills.canSideslashRight = false;
-                ItemChanger.Internal.Ref.Settings.CustomSkills.canUpslash = false;
-            }
+                // Platforms to allow escaping the Hive start regardless of difficulty or initial items
+                case "Hive":
+                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Hive_03, X = 58.5f, Y = 134f, });
+                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Hive_03, X = 58.5f, Y = 138.5f, });
+                    break;
 
-            if (gs.CursedSettings.RandomizeSwim)
-            {
-                ItemChanger.Internal.Ref.Settings.CustomSkills.canSwim = false;
+                // Drop the vine platforms and add small platforms for jumping up.
+                case "Far Greenpath":
+                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Fungus1_13, X = 45f, Y = 16.5f });
+                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Fungus1_13, X = 64f, Y = 16.5f });
+                    SD.Save(SceneNames.Fungus1_13, "Vine Platform (1)");
+                    SD.Save(SceneNames.Fungus1_13, "Vine Platform (2)");
+                    break;
+
+                // With the Lower Greenpath start, getting to the rest of Greenpath requires
+                // cutting the vine to the right of the vessel fragment.
+                case "Lower Greenpath":
+                    if (gs.NoveltySettings.RandomizeNail) SD.Save(SceneNames.Fungus1_13, "Vine Platform");
+                    break;
             }
         }
 
@@ -98,10 +104,13 @@ namespace RandomizerMod
                     }
                     else
                     {
-                        Log($"Location {location.Name} did not correspond to any ItemChanger location!");
-                        continue;
+                        throw new ArgumentException($"Location {location.Name} did not correspond to any ItemChanger location!");
                     }
 
+                    if (location.costs != null && p is ItemChanger.Placements.ISingleCostPlacement scp)
+                    {
+                        scp.Cost = CostConversion.Convert(location.costs); // we assume all items for the scp have the same cost, and only apply it once.
+                    }
                     if (p is ItemChanger.Placements.ShopPlacement sp) sp.defaultShopItems = defaultShopItems;
                     export.Add(p.Name, p);
                 }
@@ -109,44 +118,28 @@ namespace RandomizerMod
                 var i = Finder.GetItem(item.Name);
                 if (i == null)
                 {
-                    Log($"Item {item.Name} did not correspond to any ItemChanger item!");
-                    continue;
+                    throw new ArgumentException($"Item {item.Name} did not correspond to any ItemChanger item!");
                 }
+                if (item.Name == "Split_Shade_Cloak" && !((RC.SplitCloakItem)item.item).LeftBiased) // default is left biased
+                {
+                    i.GetTag<ItemChanger.Tags.ItemTreeTag>().predecessors = new string[] { ItemNames.Right_Mothwing_Cloak, ItemNames.Left_Mothwing_Cloak };
+                }
+
                 if (location.costs != null)
                 {
-                    Cost c = null;
-                    foreach (var lc in location.costs)
+                    if (p is ItemChanger.Placements.IMultiCostPlacement)
                     {
-                        // TODO: move cost resolution to method
-                        if (lc is RandomizerCore.Logic.SimpleCost sc)
-                        {
-                            switch (sc.term)
-                            {
-                                case "GRUBS":
-                                    c += Cost.NewGrubCost(sc.threshold);
-                                    break;
-                                case "ESSENCE":
-                                    c += Cost.NewEssenceCost(sc.threshold);
-                                    break;
-                                case "GEO":
-                                    c += Cost.NewGeoCost(sc.threshold);
-                                    break;
-                                // TODO:
-                                //case "SIMPLE":
-                                //case "Spore_Shroom":
-                                default:
-                                    throw new ArgumentException($"Unknown term {sc.term} found in simple cost on location {location.Name} during Export.");
-                            }
-                        }
-                        else
-                        {
-                            throw new ArgumentException($"Unknown cost {lc.GetType().Name} found on location {location.Name} during Export.");
-                        }
+                        i.GetOrAddTag<CostTag>().Cost += CostConversion.Convert(location.costs);
                     }
-
-                    i.GetOrAddTag<CostTag>().Cost += c;
+                    else if (p is not ItemChanger.Placements.ISingleCostPlacement)
+                    {
+                        if (p.Name == "Dash_Slash") { }
+                        else if (p.Name.Contains("Map")) { }
+                        else throw new InvalidOperationException($"Attached cost {location.costs[0]} to placement {p.Name} which does not support costs!");
+                    }
                 }
-                p.AddItem(i);
+                
+                p.Add(i);
             }
 
             ItemChangerMod.AddPlacements(export.Select(kvp => kvp.Value));
@@ -156,7 +149,6 @@ namespace RandomizerMod
         {
             foreach (var p in ps) ItemChangerMod.AddTransitionOverride(new Transition(p.source.lt.sceneName, p.source.lt.gateName), new Transition(p.target.lt.sceneName, p.target.lt.gateName));
         }
-
 
         public static DefaultShopItems GetDefaultShopItems(GenerationSettings gs)
         {

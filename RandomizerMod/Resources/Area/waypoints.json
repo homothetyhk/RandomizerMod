@@ -9,11 +9,11 @@
   },
   {
     "name": "Can_Stag",
-    "logic": "(Dirtmouth + Dirtmouth_Stag) | Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Lower_King's_Station + (RIGHTCLAW | WINGS)) | Ruins2_06[left1] | Upper_Resting_Grounds | (Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Deepnest_10[door1] + (RIGHTDASH | SUPERDASH)))) | Palace_Grounds"
+    "logic": "(Dirtmouth + Dirtmouth_Stag) | Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Upper_Storerooms | Upper_King's_Station | (Lower_King's_Station + (RIGHTCLAW | WINGS)) | Ruins2_06[left1] | Upper_Resting_Grounds | (Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Deepnest_10[door1] + (RIGHTDASH | RIGHTSUPERDASH)))) | Palace_Grounds"
   },
   {
     "name": "Crossroads",
-    "logic": "Crossroads_01[top1] | (Crossroads_35[bot1] + (RIGHTCLAW + (ACID | (((SUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS)))) | Crossroads_18[bot1] | Crossroads_04[right1] | (LANTERN + Mines_33[right1]) | Crossroads_45[right1] | Crossroads_06[door1] | Crossroads_02[door1] | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator"
+    "logic": "Crossroads_01[top1] | (Crossroads_35[bot1] + (RIGHTCLAW + (ACID | (((LEFTSUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS)))) | Crossroads_18[bot1] | Crossroads_04[right1] | (LANTERN + Mines_33[right1]) | Crossroads_45[right1] | Crossroads_06[door1] | Crossroads_02[door1] | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator"
   },
   {
     "name": "Ancestral_Mound",
@@ -21,7 +21,7 @@
   },
   {
     "name": "Greenpath",
-    "logic": "Fungus1_01[right1] | Fungus1_20_v02[right1] | Fungus1_11[bot1] | Fungus1_34[door1] | (Fungus1_25[left1] + (FULLDASH | WINGS | (ACID + RIGHTCLAW) | (SUPERDASH + FULLCLAW) | (RIGHTDASH + LEFTCLAW))) | (Greenpath-QG + (ANYCLAW | WINGS)) | (Greenpath_Stag + Can_Stag)"
+    "logic": "Fungus1_01[right1] | Fungus1_20_v02[right1] | Fungus1_11[bot1] | Fungus1_34[door1] | (Fungus1_25[left1] + (FULLDASH | WINGS | (ACID + RIGHTCLAW) | (FULLSUPERDASH + FULLCLAW) | (RIGHTDASH + LEFTCLAW))) | (Greenpath-QG + (ANYCLAW | WINGS)) | (Greenpath_Stag + Can_Stag)"
   },
   {
     "name": "Lake_of_Unn",
@@ -37,11 +37,11 @@
   },
   {
     "name": "Greenpath-MMC",
-    "logic": "Greenpath + (LEFTCLAW | (SPICYSKIPS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))"
+    "logic": "Greenpath + (LEFTCLAW | (SPICYSKIPS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)))"
   },
   {
     "name": "Left_Fog_Canyon",
-    "logic": "Fungus3_01[top1] | Fungus3_02[right2] | ((RIGHTCLAW | WINGS) + Fungus3_44[bot1]) | Fungus3_44[door1] | ((ACID | SKIPACID) + Fungus3_03[left1]) | Right_Fog_Canyon"
+    "logic": "Fungus3_01[top1] | Fungus3_02[right2] | ((RIGHTCLAW | WINGS) + Fungus3_44[bot1]) | Fungus3_44[door1] | ((ACID | RIGHTSKIPACID) + Fungus3_03[left1]) | Right_Fog_Canyon"
   },
   {
     "name": "Overgrown_Mound",
@@ -61,11 +61,11 @@
   },
   {
     "name": "Left_Fungal_Wastes",
-    "logic": "(Main_Fungal_Wastes + (LEFTDASH | WINGS | LEFTCLAW | (RIGHTCLAW + SUPERDASH) | MILDSKIPS | SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)) | Fungus2_03[left1] | (Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS))"
+    "logic": "(Main_Fungal_Wastes + (LEFTDASH | WINGS | LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | MILDSKIPS | SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)) | Fungus2_03[left1] | (Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS))"
   },
   {
     "name": "Main_Fungal_Wastes",
-    "logic": "(Left_Fungal_Wastes + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)) | (ACID + Fungus2_33[left1]) | Fungus2_06[top1] | (((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE + Fungus2_21[right1]) | Fungus2_11[right1] | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | SUPERDASH))) + (Fungus2_17[left1] | Fungus2_17[bot1]))"
+    "logic": "(Left_Fungal_Wastes + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)) | (ACID + Fungus2_33[left1]) | Fungus2_06[top1] | (((FULLCLAW + (LEFTDASH | LEFTSUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE + Fungus2_21[right1]) | Fungus2_11[right1] | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH))) + (Fungus2_17[left1] | Fungus2_17[bot1]))"
   },
   {
     "name": "Bottom_Left_Fungal_Wastes",
@@ -77,7 +77,7 @@
   },
   {
     "name": "Mantis_Outskirts",
-    "logic": "Fungus2_12[left1] | Right_Mantis_Village | (((Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))) | (Waterways_09[left1] + (RIGHTDASH | WINGS | LEFTCLAW | ACID))) + Fungus2_23[right2]) | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (RIGHTDASH + MILDSKIPS)))"
+    "logic": "Fungus2_12[left1] | Right_Mantis_Village | Fungus2_23[right2] + ((Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH + (RIGHTDASH | ACID)))) | (Waterways_09[left1] + (RIGHTDASH | WINGS | LEFTCLAW | ACID))) | Mantis_Village + (RIGHTCLAW | WINGS | ACID | RIGHTSUPERDASH | (RIGHTDASH + MILDSKIPS))"
   },
   {
     "name": "Right_Mantis_Village",
@@ -85,19 +85,23 @@
   },
   {
     "name": "Mantis_Village",
-    "logic": "Fungus2_14[top1] | Lower_Mantis_Village | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | ACID)) | Right_Mantis_Village"
+    "logic": "Fungus2_14[top1] | Lower_Mantis_Village | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS | LEFTSUPERDASH | ACID)) | Right_Mantis_Village"
   },
   {
     "name": "Lower_Mantis_Village",
-    "logic": "(((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (MILDSKIPS | RIGHTDASH | SUPERDASH)))) | (Fungus2_15[left1] + ((RIGHTCLAW + (LEFTCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (LEFTCLAW + SUPERDASH + WINGS)))"
+    "logic": "(((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (MILDSKIPS | RIGHTDASH | RIGHTSUPERDASH)))) | (Fungus2_15[left1] + ((RIGHTCLAW + (LEFTCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (LEFTCLAW + RIGHTSUPERDASH + WINGS)))"
   },
   {
     "name": "Left_City",
-    "logic": "Ruins1_01[left1] | Ruins1_04[bot1] | Ruins1_05b[bot1] | Ruins1_31[right1] | Ruins1_05[right1] | Right_City | Watcher's_Spire | Left_Elevator"
+    "logic": "Ruins1_01[left1] | Ruins1_04[bot1] | Ruins1_05b[bot1] | Ruins1_31[right1] | Ruins1_05[right1] | Right_City | Watcher's_Spire | Upper_Storerooms"
+  },
+  {
+    "name": "Upper_Storerooms",
+    "logic": "(Left_City + ((FULLCLAW + (FULLDASH | FULLSUPERDASH | WINGS | MILDSKIPS)) | (WINGS + ((SHADESKIPS + 4MASKS) | ANYCLAW)))) | (Ruins1_05[right1] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag) | Left_Elevator"
   },
   {
     "name": "Left_Elevator",
-    "logic": "(Left_City + ((FULLCLAW + (FULLDASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + ((SHADESKIPS + 4MASKS) | ANYCLAW)))) | (Ruins1_05[right1] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)"
+    "logic": "(Upper_Storerooms | Crossroads) + LEFTELEVATOR"
   },
   {
     "name": "Soul_Sanctum",
@@ -105,7 +109,7 @@
   },
   {
     "name": "Right_City",
-    "logic": "\r\n      Left_City + RIGHTCLAW + WINGS \r\n      | Ruins2_04[left2] \r\n      | Ruins2_04[right1] \r\n      | Ruins2_04[right2] \r\n      | Ruins2_04[door_Ruin_Elevator] \r\n      | Emilitia \r\n      | Watcher's_Spire\r\n    "
+    "logic": "Left_City + RIGHTCLAW + WINGS | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia | Watcher's_Spire"
   },
   {
     "name": "Watcher's_Spire",
@@ -113,15 +117,15 @@
   },
   {
     "name": "Lower_King's_Station",
-    "logic": "\r\n      Ruins2_06[left1]\r\n      | Ruins2_06[left2] + (WINGS | RIGHTSUPERDASH | SWIM | (RIGHTCLAW + RIGHTDASH + MILDSKIPS))\r\n      | Upper_King's_Station\r\n      | Ruins2_07[top1] + (SWIM | SKIPACID)\r\n      | Ruins2_07[right1] + (SWIM | SKIPACID)\r\n      | (King's_Station_Stag + Can_Stag)\r\n    "
+    "logic": "Ruins2_06[left1] | Ruins2_06[left2] + (WINGS | RIGHTSUPERDASH | SWIM | (RIGHTCLAW + RIGHTDASH + MILDSKIPS)) | Upper_King's_Station | Ruins2_07[top1] + (SWIM | LEFTSKIPACID) | Ruins2_07[right1] + (SWIM | LEFTSKIPACID) | (King's_Station_Stag + Can_Stag)"
   },
   {
     "name": "Upper_King's_Station",
-    "logic": "\r\n      Ruins2_06[left1] + (LEFTCLAW | WINGS | MILDSKIPS)\r\n      | Lower_King's_Station + (FULLCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))\r\n      | Right_Elevator \r\n      | King's_Station_Stag + Can_Stag + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS) | SPICYSKIPS)\r\n    "
+    "logic": "Ruins2_06[left1] + (LEFTCLAW | WINGS | MILDSKIPS) | Lower_King's_Station + (FULLCLAW | WINGS | (RIGHTCLAW + MILDSKIPS)) | Right_Elevator | King's_Station_Stag + Can_Stag + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS) | SPICYSKIPS) | Ruins2_10b[left1] | Ruins2_10b[right1]"
   },
   {
     "name": "Right_Elevator",
-    "logic": "Lower_Resting_Grounds | Ruins2_10b[left1] | Ruins2_10b[right1] | Upper_King's_Station"
+    "logic": "(Lower_Resting_Grounds | Upper_Resting_Grounds + QUAKE | Upper_King's_Station) + RIGHTELEVATOR"
   },
   {
     "name": "Pleasure_House",
@@ -133,43 +137,43 @@
   },
   {
     "name": "Upper_Left_Waterways",
-    "logic": "\r\n      Waterways_01[top1]\r\n      | Far_Left_Waterways + ((WINGS + (ANYCLAW | SPICYSKIPS)) | (SWIM + ((RIGHTCLAW + (LEFTCLAW | LEFTDASH | SUPERDASH | MILDSKIPS)) | WINGS)) | SKIPACID)\r\n      | Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))\r\n    "
+    "logic": "Waterways_01[top1] | Far_Left_Waterways + ((WINGS + (ANYCLAW | SPICYSKIPS)) | (SWIM + ((RIGHTCLAW + (LEFTCLAW | LEFTDASH | LEFTSUPERDASH | MILDSKIPS)) | WINGS)) | RIGHTSKIPACID) | Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))"
   },
   {
     "name": "Central_Left_Waterways",
-    "logic": "\r\n      Upper_Left_Waterways \r\n      | Far_Left_Waterways + RIGHTCLAW\r\n      | Lower_Left_Waterways + (ANYCLAW | WINGS)\r\n      | Waterways_Shaft + ((LEFTTUNNEL | (RIGHTTUNNEL + SUPERDASH)) | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)\r\n      | Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH\r\n    "
+    "logic": "Upper_Left_Waterways | Far_Left_Waterways + RIGHTCLAW | Lower_Left_Waterways + (ANYCLAW | WINGS) | Waterways_Shaft + ((LEFTTUNNEL | (RIGHTTUNNEL + LEFTSUPERDASH)) | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (LEFTSUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS) | Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + (WINGS | MILDSKIPS)) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS)) + LEFTSUPERDASH"
   },
   {
     "name": "Far_Left_Waterways",
-    "logic": "\r\n      Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)) | WINGS) + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH))\r\n      | Upper_Left_Waterways + (SWIM | SKIPACID) + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))\r\n      | Far_Upper_Left_Waterways\r\n    "
+    "logic": "Upper_Left_Waterways + (LEFTCLAW |(RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | WINGS)) | (WINGS + MILDSKIPS)) + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) | Upper_Left_Waterways + (SWIM | LEFTSKIPACID) + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW)) | Far_Upper_Left_Waterways"
   },
   {
     "name": "Far_Upper_Left_Waterways",
-    "logic": "Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | SUPERDASH) + RIGHTCLAW) | WINGS)"
+    "logic": "Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | LEFTSUPERDASH) + RIGHTCLAW) | WINGS)"
   },
   {
     "name": "Lower_Left_Waterways",
-    "logic": "\r\n      Central_Left_Waterways + (SWIM | ANYCLAW | WINGS) + QUAKE\r\n      | Upper_Left_Waterways + QUAKE\r\n      | GG_Pipeway[left1] + (ANYCLAW | WINGS)\r\n    "
+    "logic": "Central_Left_Waterways + (SWIM | ANYCLAW | WINGS) + QUAKE | Upper_Left_Waterways + QUAKE | GG_Pipeway[left1] + (ANYCLAW | WINGS)"
   },
   {
     "name": "Waterways_Shaft",
-    "logic": "Abyss_01[right1] | (Abyss_01[left3] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | (Central_Left_Waterways + (((RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + SPICYSKIPS)) + BOSS) | SUPERDASH | (ACID + RIGHTTUNNEL))) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH | SUPERDASH))) + (SUPERDASH | (ACID + WINGS + LEFTTUNNEL)))"
+    "logic": "Abyss_01[right1] | Abyss_01[left3] + (RIGHTCLAW | (WINGS + LEFTCLAW)) | Central_Left_Waterways + (((RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + SPICYSKIPS)) + BOSS) | RIGHTSUPERDASH | (ACID + RIGHTTUNNEL)) | Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH | LEFTSUPERDASH))) + (LEFTSUPERDASH | (ACID + WINGS + LEFTTUNNEL))"
   },
   {
     "name": "Right_Waterways",
-    "logic": "(Central_Left_Waterways + SUPERDASH + (FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + (RIGHTTUNNEL | (LEFTTUNNEL + SUPERDASH)) + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + RIGHTDASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (SUPERDASH | ACID)) | (Waterways_07[right2] + ACID) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | Waterways_07[door1]"
+    "logic": "Central_Left_Waterways + RIGHTSUPERDASH + ((WINGS + RIGHTDASH + ANYCLAW) | FULLCLAW | ((WINGS | RIGHTCLAW) + ACID)) | Waterways_Shaft + (RIGHTTUNNEL | (LEFTTUNNEL + RIGHTSUPERDASH)) + ((FULLCLAW + RIGHTSUPERDASH) | (ANYCLAW + WINGS + RIGHTDASH) | ((RIGHTCLAW | WINGS) + ACID)) | Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (LEFTSUPERDASH | ACID) | Waterways_07[right2] + (ACID | LEFTSKIPACID) | Waterways_07[right1] + (ANYCLAW | WINGS) | Waterways_07[door1]"
   },
   {
     "name": "Junk_Pit",
-    "logic": "\r\n      GG_Waterways[right1] + (LEFTSUPERDASH | SWIM)\r\n      | Junk_Pit_Shortcut\r\n    "
+    "logic": "GG_Waterways[right1] + (LEFTSUPERDASH | SWIM) | Junk_Pit_Shortcut"
   },
   {
     "name": "Junk_Pit_Shortcut",
-    "logic": "\r\n      GG_Waterways[right1] + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | (RIGHTSUPERDASH + RIGHTCLAW))) | (WINGS + RIGHTCLAW + MILDSKIPS))) | (WINGS + RIGHTDASH + RIGHTCLAW + SPICYSKIPS))\r\n      | Room_GG_Shortcut[top1] + (WINGS | SWIM | RIGHTDASH | SUPERDASH)\r\n    "
+    "logic": "GG_Waterways[right1] + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | (RIGHTSUPERDASH + RIGHTCLAW))) | (WINGS + RIGHTCLAW + MILDSKIPS))) | (WINGS + RIGHTDASH + RIGHTCLAW + SPICYSKIPS)) | Room_GG_Shortcut[top1] + (WINGS | SWIM | RIGHTDASH | RIGHTSUPERDASH)"
   },
   {
     "name": "Isma's_Grove",
-    "logic": "(Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (RIGHTDASH | SUPERDASH)))) | (Waterways_13[left2] + ((ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | (ACIDSKIPS + LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW))))"
+    "logic": "(Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)))) | (Waterways_13[left2] + ((ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | (ACIDSKIPS + LEFTCLAW + RIGHTSUPERDASH + (WINGS | RIGHTCLAW))))"
   },
   {
     "name": "Emilitia",
@@ -193,7 +197,7 @@
   },
   {
     "name": "Failed_Tramway",
-    "logic": "((Deepnest_14[bot1] | Deepnest_14[bot2]) + ((ANYCLAW + SUPERDASH) | ((RIGHTDASH | RIGHTCLAW) + (LEFTDASH | LEFTCLAW)) | WINGS)) | Deepnest_26[bot1]"
+    "logic": "(Deepnest_14[bot1] | Deepnest_14[bot2]) + (RIGHTDASH | RIGHTCLAW | (RIGHTSUPERDASH + LEFTCLAW) | WINGS) + (LEFTDASH | LEFTCLAW | (LEFTSUPERDASH + RIGHTCLAW) | WINGS) | Deepnest_26[bot1]"
   },
   {
     "name": "Dark_Deepnest",
@@ -225,11 +229,11 @@
   },
   {
     "name": "Lower_Basin",
-    "logic": "Mid_Basin | Abyss_04[bot1] | Abyss_04[right1] | (Far_Left_Basin + (RIGHTCLAW | WINGS | SUPERDASH))"
+    "logic": "Mid_Basin | Abyss_04[bot1] | Abyss_04[right1] | (Far_Left_Basin + (RIGHTCLAW | WINGS | RIGHTSUPERDASH))"
   },
   {
     "name": "Far_Left_Basin",
-    "logic": "Lower_Basin + (WINGS | SUPERDASH)"
+    "logic": "Lower_Basin + (WINGS | LEFTSUPERDASH)"
   },
   {
     "name": "Palace_Grounds",
@@ -249,19 +253,19 @@
   },
   {
     "name": "Central_Kingdom's_Edge",
-    "logic": "\r\n      Deepnest_East_03[left1]\r\n      | Deepnest_East_02[top1]\r\n      | Deepnest_East_01[right1] + LEFTCLAW\r\n      | Lower_Kingdom's_Edge + (FULLCLAW | WINGS | (LEFTCLAW + SPICYSKIPS) | (RIGHTCLAW + SPICYSKIPS))\r\n      | Upper_Kingdom's_Edge\r\n      | Center_Right_Kingdom's_Edge\r\n    "
+    "logic": "Deepnest_East_03[left1] | Deepnest_East_02[top1] | Deepnest_East_01[right1] + LEFTCLAW | Lower_Kingdom's_Edge + (FULLCLAW | WINGS | (LEFTCLAW + SPICYSKIPS) | (RIGHTCLAW + SPICYSKIPS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge"
   },
   {
     "name": "Upper_Kingdom's_Edge",
-    "logic": "(Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS) + (ACID | LEFTDASH | WINGS | AIRSTALL | 2MASKS)) | Top_Kingdom's_Edge | Deepnest_East_07[left2]"
+    "logic": "Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS) + (ACID | LEFTDASH | WINGS | AIRSTALL | 2MASKS) | Top_Kingdom's_Edge | Deepnest_East_07[left2]"
   },
   {
     "name": "Center_Right_Kingdom's_Edge",
-    "logic": "(Central_Kingdom's_Edge + (((RIGHTCLAW | WINGS) + (LEFTCLAW | (WINGS + MILDSKIPS))) | (ACID + (RIGHTDASH | WINGS | RIGHTCLAW | (LEFTCLAW + SUPERDASH))))) | Upper_Kingdom's_Edge | Deepnest_East_12[right1]"
+    "logic": "(Central_Kingdom's_Edge + (((RIGHTCLAW | WINGS) + (LEFTCLAW | (WINGS + MILDSKIPS))) | (ACID + (RIGHTDASH | WINGS | RIGHTCLAW | (LEFTCLAW + RIGHTSUPERDASH))))) | Upper_Kingdom's_Edge | Deepnest_East_12[right1]"
   },
   {
     "name": "Oro_Bench",
-    "logic": "(Central_Kingdom's_Edge + (RIGHTCLAW | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS))"
+    "logic": "Central_Kingdom's_Edge + (RIGHTCLAW | WINGS) | Center_Right_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS)"
   },
   {
     "name": "Cast_Off_Shell",
@@ -269,11 +273,11 @@
   },
   {
     "name": "Top_Kingdom's_Edge",
-    "logic": "(Upper_Kingdom's_Edge + (ANYCLAW | WINGS)) | Deepnest_East_09[right1]"
+    "logic": "Upper_Kingdom's_Edge + (ANYCLAW | WINGS) | Deepnest_East_09[right1]"
   },
   {
     "name": "Hive",
-    "logic": "(Hive_01[left1] + ((ANYCLAW + WINGS) | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | SUPERDASH))) + MILDSKIPS))) | Hive_03_c[left1] | Hive_Top"
+    "logic": "Hive_01[left1] + ((ANYCLAW + WINGS) | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH))) + MILDSKIPS)) | Hive_03_c[left1] | Hive_Top"
   },
   {
     "name": "Hive_Top",
@@ -289,15 +293,15 @@
   },
   {
     "name": "Crystal_Peak",
-    "logic": "(QUAKE + Mines_01[left1]) | Mines_02[left1] | ((SUPERDASH | (WINGS + LEFTDASH)) + (LANTERN | DARKROOMS) + Mines_28[door1]) | Upper_Crystal_Peak"
+    "logic": "Mines_01[left1] + QUAKE | Mines_02[left1] | Mines_28[door1] + (LEFTSUPERDASH | (WINGS + LEFTDASH)) + (LANTERN | DARKROOMS) | Upper_Crystal_Peak"
   },
   {
     "name": "Upper_Crystal_Peak",
-    "logic": "(Crystal_Peak + (LEFTCLAW | (RIGHTCLAW + WINGS) | (RIGHTCLAW + LEFTDASH + SHADESKIPS + 4MASKS) | (SPIKETUNNELS + WINGS + (FULLDASH | AIRSTALL)))) | (Mines_10[left1] + RIGHTCLAW + ((RIGHTDASH + WINGS) | LEFTCLAW) + SUPERDASH) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]"
+    "logic": "Crystal_Peak + (LEFTCLAW | RIGHTCLAW + WINGS | RIGHTCLAW + LEFTDASH + SHADESKIPS + 4MASKS | SPIKETUNNELS + WINGS + (FULLDASH | AIRSTALL)) | Mines_10[left1] + RIGHTCLAW + (RIGHTDASH + WINGS | LEFTCLAW) + RIGHTSUPERDASH | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]"
   },
   {
     "name": "Hallownest's_Crown",
-    "logic": "Mines_25[left1] + ((WINGS + ANYCLAW) | FULLCLAW) + (FULLDASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)"
+    "logic": "Mines_25[left1] + ((WINGS + ANYCLAW) | FULLCLAW) + (FULLDASH | WINGS | FULLSUPERDASH) + (WINGS | MILDSKIPS)"
   },
   {
     "name": "Crystallized_Mound",
@@ -317,23 +321,23 @@
   },
   {
     "name": "Lower_Resting_Grounds",
-    "logic": "(Upper_Resting_Grounds + QUAKE) | RestingGrounds_06[left1] | Right_Elevator"
+    "logic": "RestingGrounds_06[left1] | Right_Elevator"
   },
   {
     "name": "Left_Blue_Lake",
-    "logic": "Crossroads_50[left1] | (Crossroads_50[right1] + (SUPERDASH | SWIM) + (ANYCLAW | WINGS))"
+    "logic": "Crossroads_50[left1] | (Crossroads_50[right1] + (LEFTSUPERDASH | SWIM) + (ANYCLAW | WINGS))"
   },
   {
     "name": "Right_Blue_Lake",
-    "logic": "(Crossroads_50[left1] + (SUPERDASH | SWIM)) | Crossroads_50[right1]"
+    "logic": "(Crossroads_50[left1] + (RIGHTSUPERDASH | SWIM)) | Crossroads_50[right1]"
   },
   {
     "name": "Top_Right_Queen's_Gardens",
-    "logic": "Fungus3_34[right1] | Fungus3_34[top1] | (Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | WINGS))"
+    "logic": "Fungus3_34[right1] | Fungus3_34[top1] | (Top_Left_Queen's_Gardens + (RIGHTSUPERDASH | RIGHTDASH | WINGS))"
   },
   {
     "name": "Bottom_Right_Queen's_Gardens",
-    "logic": "(Top_Right_Queen's_Gardens + ((LEFTDASH + (RIGHTDASH | SUPERDASH)) | ((RIGHTCLAW | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + (LEFTCLAW | (RIGHTCLAW + WINGS)))"
+    "logic": "(Top_Right_Queen's_Gardens + ((LEFTDASH + (RIGHTDASH | RIGHTSUPERDASH)) | ((RIGHTCLAW | WINGS) + LEFTSUPERDASH + (RIGHTDASH | RIGHTSUPERDASH)))) | (Bottom_Left_Queen's_Gardens + (LEFTCLAW | (RIGHTCLAW + WINGS)))"
   },
   {
     "name": "Bottom_Left_Queen's_Gardens",
@@ -341,7 +345,7 @@
   },
   {
     "name": "Top_Left_Queen's_Gardens",
-    "logic": "(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (FULLDASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (FULLDASH + SHADESKIPS + SPICYSKIPS + 4MASKS))) | (Far_Queen's_Gardens + RIGHTDASH)"
+    "logic": "(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (FULLDASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)) | WINGS | (FULLDASH + SHADESKIPS + SPICYSKIPS + 4MASKS))) | (Far_Queen's_Gardens + RIGHTDASH)"
   },
   {
     "name": "Far_Queen's_Gardens",
@@ -349,10 +353,14 @@
   },
   {
     "name": "Howling_Cliffs",
-    "logic": "(Cliffs_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))) | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW))) | Cliffs_02[left2]"
+    "logic": "(Cliffs_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | MILDSKIPS)))) | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW))) | Cliffs_02[left2]"
   },
   {
     "name": "Stag_Nest",
     "logic": "Cliffs_03[right1] | ((ALLSTAGS | Stag_Nest_Stag) + Can_Stag)"
+  },
+  {
+    "name": "Can_Replenish_Geo",
+    "logic": "King's_Pass | Crossroads | Ancestral_Mound | Greenpath | Left_Fungal_Wastes | Main_Fungal_Wastes | Fungal_Core | Mantis_Outskirts | Mantis_Village | Left_City | Left_Elevator | Soul_Sanctum | Right_City | Right_Elevator | Lower_Basin | Abyss | Top_Left_Queen's_Gardens | Crystal_Peak | Howling_Cliffs | Lower_Kingdom's_Edge | Central_Kingdom's_Edge | Upper_Kingdom's_Edge | Top_Kingdom's_Edge | Central_Left_Waterways | Upper_Left_Waterways | Far_Left_Waterways"
   }
 ]

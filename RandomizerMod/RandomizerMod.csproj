@@ -21,6 +21,12 @@
     <EmbeddedResource Include="**\*.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Resources\entries.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\entries.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>

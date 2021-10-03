@@ -26,10 +26,6 @@ namespace RandomizerMod.Settings
         }
         public VesselFragmentType VesselFragments;
 
-        // TODO: Implement
         public bool RandomizeNotchCosts;
-
-        //public bool RandomizeShopLocations;
-        //shhh
     }
 }

@@ -8,10 +8,8 @@ namespace RandomizerMod.Settings.Presets
     public static class CursePresetData
     {
         public static CursedSettings None;
-        public static CursedSettings Random;
         public static CursedSettings Classic;
-        public static CursedSettings SplitClaw;
-        public static CursedSettings SplitEverything; // we demand split CH
+        public static CursedSettings Modern;
         public static CursedSettings UltraCursed;
 
         public static Dictionary<string, CursedSettings> CursedPresets;
@@ -20,78 +18,46 @@ namespace RandomizerMod.Settings.Presets
         {
             None = new CursedSettings
             {
-                RandomCurses = false,
-                RandomizeFocus = false,
                 ReplaceJunkWithOneGeo = false,
                 RemoveSpellUpgrades = false,
                 LongerProgressionChains = false,
-                SplitClaw = false,
-                SplitCloak = false,
-                RandomizeNail = false
-            };
-            Random = new CursedSettings
-            {
-                RandomCurses = true,
-                RandomizeFocus = false,
-                ReplaceJunkWithOneGeo = false,
-                RemoveSpellUpgrades = false,
-                LongerProgressionChains = false,
-                SplitClaw = false,
-                SplitCloak = false,
-                RandomizeNail = false
+                CursedMasks = false,
+                CursedNotches = false,
+                RandomizeMimics = false,
             };
             Classic = new CursedSettings
             {
-                RandomCurses = false,
-                RandomizeFocus = true,
                 ReplaceJunkWithOneGeo = true,
                 RemoveSpellUpgrades = true,
                 LongerProgressionChains = true,
-                SplitClaw = false,
-                SplitCloak = false,
-                RandomizeNail = false
+                CursedMasks = false,
+                CursedNotches = false,
+                RandomizeMimics = false,
             };
-            SplitClaw = new CursedSettings
+            Modern = new CursedSettings
             {
-                RandomCurses = false,
-                RandomizeFocus = false,
                 ReplaceJunkWithOneGeo = false,
                 RemoveSpellUpgrades = false,
                 LongerProgressionChains = false,
-                SplitClaw = true,
-                SplitCloak = false,
-                RandomizeNail = false
-            };
-            SplitEverything = new CursedSettings
-            {
-                RandomCurses = false,
-                RandomizeFocus = false,
-                ReplaceJunkWithOneGeo = false,
-                RemoveSpellUpgrades = false,
-                LongerProgressionChains = false,
-                SplitClaw = true,
-                SplitCloak = true,
-                RandomizeNail = true
+                CursedMasks = true,
+                CursedNotches = true,
+                RandomizeMimics = true,
             };
             UltraCursed = new CursedSettings
             {
-                RandomCurses = false,
-                RandomizeFocus = true,
                 ReplaceJunkWithOneGeo = true,
                 RemoveSpellUpgrades = true,
                 LongerProgressionChains = true,
-                SplitClaw = true,
-                SplitCloak = true,
-                RandomizeNail = true
+                CursedMasks = true,
+                CursedNotches = true,
+                RandomizeMimics = true,
             };
 
             CursedPresets = new Dictionary<string, CursedSettings>
             {
                 { "None", None },
-                { "Random", Random },
                 { "Classic", Classic },
-                { "Split Claw", SplitClaw },
-                { "Split Everything", SplitEverything },
+                { "Modern", Modern },
                 { "Ultra Cursed", UltraCursed },
             };
         }

@@ -7,10 +7,9 @@ namespace RandomizerMod.RandomizerData
 {
     public class ItemDef
     {
-        /*
-         * An item has a name, progression flags, and a template that can be converted to a LogicItem at runtime
-         */
         public string name;
+        public string pool; // for items in multiple pools, give the most common pool.
+        public int priceCap;
 
         // Item tier flags
         public bool progression;

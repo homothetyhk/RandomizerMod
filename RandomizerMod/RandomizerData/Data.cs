@@ -32,6 +32,9 @@ namespace RandomizerMod.RandomizerData
         // Logic Settings
         private static Dictionary<string, string> _logicSettings; // name in logic --> settings path
 
+        // Costs
+        private static Dictionary<string, CostDef> _costs;
+
         private static PoolDef[] __pools;
         public static IEnumerable<PoolDef> Pools => __pools;
 
@@ -41,7 +44,7 @@ namespace RandomizerMod.RandomizerData
         {
             if (_items.TryGetValue(name, out var def)) return def;
             
-            LogWarn($"Unable to find ItemDef for {name}.");
+            LogDebug($"Unable to find ItemDef for {name}.");
             return null;
         }
 
@@ -164,6 +167,12 @@ namespace RandomizerMod.RandomizerData
 
         #endregion
 
+        #region Cost Methods
+
+        public static bool TryGetCost(string name, out CostDef def) => _costs.TryGetValue(name, out def);
+
+        #endregion
+
         public static void Load()
         {
             _items = JsonUtil.Deserialize<Dictionary<string, ItemDef>>("RandomizerMod.Resources.items.json");
@@ -172,7 +181,7 @@ namespace RandomizerMod.RandomizerData
             __pools = JsonUtil.Deserialize<PoolDef[]>("RandomizerMod.Resources.pools.json");
             _starts = JsonUtil.Deserialize<Dictionary<string, StartDef>>("RandomizerMod.Resources.starts.json");
             _transitions = JsonUtil.Deserialize<Dictionary<string, TransitionDef>>("RandomizerMod.Resources.transitions.json");
-
+            _costs = JsonUtil.Deserialize<Dictionary<string, CostDef>>("RandomizerMod.Resources.costs.json");
             return;
         }
 

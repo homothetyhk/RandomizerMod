@@ -1,7 +1,7 @@
 ﻿using RandomizerCore;
 using RandomizerCore.Logic;
 
-namespace RandomizerMod
+namespace RandomizerMod.RC
 {
     public static class RCData
     {
