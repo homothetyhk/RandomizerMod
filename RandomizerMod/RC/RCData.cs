@@ -18,5 +18,12 @@ namespace RandomizerMod.RC
             AreaLM = Loader.LoadFromAssembly(RandomizerMod.Assembly, "RandomizerMod.Resources.Area.");
             RoomLM = Loader.LoadFromAssembly(RandomizerMod.Assembly, "RandomizerMod.Resources.Room.");
         }
+
+        public static LogicManager GetLM(LogicMode mode) => mode switch
+        {
+            LogicMode.Room => RoomLM,
+            LogicMode.Area => AreaLM,
+            _ => ItemLM,
+        };
     }
 }

@@ -9,23 +9,31 @@ namespace RandomizerMod.RC
 {
     public class LogicGeoCost : LogicCost
     {
-        public readonly int canReplenishGeoWaypoint;
-        public int geoAmount;
+        public Term CanReplenishGeoWaypoint { get; init; }
+        public int GeoAmount { get; set; }
+
+        public LogicGeoCost() { }
 
         public LogicGeoCost(LogicManager lm, int amount)
         {
-            canReplenishGeoWaypoint = lm.GetTermIndex("Can_Replenish_Geo");
-            geoAmount = amount;
+            CanReplenishGeoWaypoint = lm.GetTerm("Can_Replenish_Geo");
+            GeoAmount = amount;
         }
 
         public override bool CanGet(ProgressionManager pm)
         {
-            return pm.Has(canReplenishGeoWaypoint);
+            return pm.Has(CanReplenishGeoWaypoint.Id);
         }
 
-        public override IEnumerable<int> GetTerms()
+        public override IEnumerable<Term> GetTerms()
         {
-            yield return canReplenishGeoWaypoint;
+            yield return CanReplenishGeoWaypoint;
         }
+
+        public override string ToString()
+        {
+            return $"LogicGeoCost {{{GeoAmount} Geo}}";
+        }
+
     }
 }

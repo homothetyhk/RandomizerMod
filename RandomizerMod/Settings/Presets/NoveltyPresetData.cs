@@ -11,6 +11,7 @@ namespace RandomizerMod.Settings.Presets
         public static Dictionary<string, NoveltySettings> NoveltyPresets;
         public static NoveltySettings None;
         public static NoveltySettings Basic;
+        public static NoveltySettings Clawful;
         public static NoveltySettings SplitStuff;
         public static NoveltySettings Everything;
 
@@ -35,6 +36,17 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeNail = false,
                 RandomizeFocus = false,
                 SplitClaw = false,
+                SplitCloak = false,
+                EggShop = true,
+            };
+
+            Clawful = new()
+            {
+                RandomizeSwim = true,
+                RandomizeElevatorPass = true,
+                RandomizeNail = false,
+                RandomizeFocus = false,
+                SplitClaw = true,
                 SplitCloak = false,
                 EggShop = true,
             };
@@ -64,6 +76,7 @@ namespace RandomizerMod.Settings.Presets
             NoveltyPresets = new()
             {
                 { "Basic", Basic },
+                { "Clawful", Clawful },
                 { "Split Stuff", SplitStuff },
                 { "Everything", Everything },
                 { "None", None },

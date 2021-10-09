@@ -3,30 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 using RandomizerCore;
 using RandomizerMod.Settings;
 using static RandomizerMod.LogHelper;
+using RandomizerCore.Extensions;
+using System.Collections.Concurrent;
 
 namespace RandomizerMod.Logging
 {
-    public abstract class RandoLogger
-    {
-        public abstract void Log(string directory, LogArguments args);
-        internal void DoLog(string directory, LogArguments args)
-        {
-            try
-            {
-                Log(directory, args);
-            }
-            catch (Exception)
-            {
-                
-            }
-        }
-    }
-
     public class LogArguments
     {
         public object randomizer { get; init; }
@@ -34,86 +20,184 @@ namespace RandomizerMod.Logging
         public RandoContext ctx { get; init; }
     }
 
-    public class LogManager
+    public static class LogManager
     {
-        public readonly string directory;
+        public static readonly string R4Directory = Path.Combine(Application.persistentDataPath, "Randomizer 4");
         public static readonly string RecentDirectory = Path.Combine(Application.persistentDataPath, "Randomizer 4", "Recent");
+        public static string UserDirectory => Path.Combine(Application.persistentDataPath, "Randomizer 4", "user" + RandomizerMod.RS.ProfileID);
+
+        /// <summary>
+        /// Loggers which are activated when the save is created.
+        /// </summary>
         private static readonly List<RandoLogger> loggers = new()
         {
             new ItemSpoilerLog(),
             new TransitionSpoilerLog(),
         };
 
-        internal LogManager(int saveSlot)
+        internal static void Initialize()
         {
-            directory = Path.Combine(Application.persistentDataPath, "Randomizer 4", "user" + saveSlot);
+            logRequestConsumer = new Thread(() =>
+            {
+                foreach (Action a in logRequests.GetConsumingEnumerable())
+                {
+                    try
+                    {
+                        a?.Invoke();
+                    }
+                    catch (Exception e)
+                    {
+                        LogError($"Error in log request:\n{e}");
+                    }
+                }
+            })
+            { IsBackground = true, Priority = System.Threading.ThreadPriority.Lowest };
+            logRequestConsumer.Start();
+
+            Modding.ModHooks.ApplicationQuitHook += CloseLogRequests;
         }
 
-        internal void WriteLogs(LogArguments args)
+        private static void CloseLogRequests()
         {
-            DirectoryInfo di;
             try
             {
-                Directory.CreateDirectory(directory);
-                di = new(directory);
+                logRequests.CompleteAdding();
+                logRequestConsumer.Join();
+                logRequests.Dispose();
             }
             catch (Exception e)
             {
-                Log($"Error creating logging directory:\n{e}");
-                return;
+                LogError($"Error disposing LogManager:\n{e}");
             }
+        }
 
-            try
-            {
-                foreach (FileInfo fi in di.EnumerateFiles())
-                {
-                    fi.Delete();
-                }
-            }
-            catch (Exception e)
-            {
-                Log($"Error clearing logging directory:\n{e}");
-            }
+        private static readonly BlockingCollection<Action> logRequests = new();
+        private static Thread logRequestConsumer;
 
-            loggers.AsParallel().ForAll(l => l.DoLog(directory, args));
-
-            DirectoryInfo rdi;
-            try
-            {
-                Directory.CreateDirectory(RecentDirectory);
-                rdi = new(RecentDirectory);
-            }
-            catch (Exception e)
-            {
-                Log($"Error creating recent directory:\n{e}");
-                return;
-            }
-
-            try
-            {
-                foreach (FileInfo fi in rdi.EnumerateFiles())
-                {
-                    fi.Delete();
-                }
-            }
-            catch (Exception e)
-            {
-                Log($"Error clearing recent directory:\n{e}");
-            }
-
-            di.Refresh();
-            foreach (FileInfo fi in di.EnumerateFiles())
+        public static void Write(string contents, string fileName)
+        {
+            void WriteLog()
             {
                 try
                 {
-                    fi.CopyTo(Path.Combine(RecentDirectory, fi.Name), true);
+                    string userPath = Path.Combine(UserDirectory, fileName);
+                    Directory.CreateDirectory(Path.GetDirectoryName(userPath));
+                    File.WriteAllText(userPath, contents);
                 }
                 catch (Exception e)
                 {
-                    Log($"Error copying file {fi.Name} to recent directory:\n{e}");
+                    LogError($"Error printing log request to {UserDirectory}:\n{e}");
+                }
+                try
+                {
+                    string recentPath = Path.Combine(RecentDirectory, fileName);
+                    Directory.CreateDirectory(Path.GetDirectoryName(recentPath));
+                    File.WriteAllText(recentPath, contents);
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error printing log request to {RecentDirectory}:\n{e}");
                 }
             }
+
+            logRequests.Add(WriteLog);
         }
 
+        public static void Append(string contents, string fileName)
+        {
+            void AppendLog()
+            {
+                try
+                {
+                    string userPath = Path.Combine(UserDirectory, fileName);
+                    Directory.CreateDirectory(Path.GetDirectoryName(userPath));
+                    File.AppendAllText(userPath, contents);
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error appending log request to {UserDirectory}:\n{e}");
+                }
+                try
+                {
+                    string recentPath = Path.Combine(RecentDirectory, fileName);
+                    Directory.CreateDirectory(Path.GetDirectoryName(recentPath));
+                    File.AppendAllText(recentPath, contents);
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error appending log request to {RecentDirectory}:\n{e}");
+                }
+            }
+
+            logRequests.Add(AppendLog);
+        }
+
+        internal static void WriteLogs(LogArguments args)
+        {
+            DirectoryInfo userDI;
+            try
+            {
+                userDI = Directory.CreateDirectory(UserDirectory);
+                foreach (FileInfo fi in userDI.EnumerateFiles())
+                {
+                    fi.Delete();
+                }
+            }
+            catch (Exception e)
+            {
+                Log($"Error initializing user logging directory:\n{e}");
+                return;
+            }
+
+            DirectoryInfo recentDI;
+            try
+            {
+                recentDI = Directory.CreateDirectory(RecentDirectory);
+                foreach (FileInfo fi in recentDI.EnumerateFiles())
+                {
+                    fi.Delete();
+                }
+            }
+            catch (Exception e)
+            {
+                Log($"Error initializing recent logging directory:\n{e}");
+                return;
+            }
+
+            System.Diagnostics.Stopwatch sw = new();
+            sw.Start();
+            foreach (var rl in loggers) logRequests.Add(() => rl.DoLog(args));
+            logRequests.Add(() =>
+            {
+                sw.Stop();
+                Log($"Printed new game logs in {sw.Elapsed.TotalSeconds} seconds.");
+            });
+        }
+
+        internal static void UpdateRecent(int profileID)
+        {
+            void MoveFiles()
+            {
+                try
+                {
+                    DirectoryInfo recentDI = Directory.CreateDirectory(RecentDirectory);
+                    DirectoryInfo userDI = Directory.CreateDirectory(Path.Combine(R4Directory, "user" + profileID));
+                    foreach (FileInfo fi in recentDI.EnumerateFiles())
+                    {
+                        fi.Delete();
+                    }
+                    foreach (FileInfo fi in userDI.EnumerateFiles())
+                    {
+                        fi.CopyTo(Path.Combine(recentDI.FullName, fi.Name), true);
+                    }
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error overwriting recent log directory:\n{e}");
+                }
+            }
+
+            logRequests.Add(MoveFiles);
+        }
     }
 }

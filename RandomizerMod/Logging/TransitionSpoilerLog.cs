@@ -22,9 +22,10 @@ namespace RandomizerMod.Logging
             }
         }
 
-        public override void Log(string directory, LogArguments args)
+        public override void Log(LogArguments args)
         {
-            RandomizerData.JsonUtil.Serialize(args.ctx.transitionPlacements?.Select(p => new SpoilerEntry(p))?.ToList() ?? new(), Path.Combine(directory, "TransitionSpoilerLog.json"));
+            string contents = RandomizerData.JsonUtil.Serialize(args.ctx.transitionPlacements?.Select(p => new SpoilerEntry(p))?.ToList() ?? new());
+            LogManager.Write(contents, "TransitionSpoilerLog.json");
         }
     }
 }

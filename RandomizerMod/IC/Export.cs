@@ -13,7 +13,14 @@ namespace RandomizerMod.IC
 {
     public static class Export
     {
-        public static void BeginExport() => ItemChangerMod.CreateSettingsProfile(overwrite: true);
+        public static void BeginExport()
+        {
+            ItemChangerMod.CreateSettingsProfile(overwrite: true);
+            ItemChangerMod.Modules.Add<RandomizerModule>();
+            ItemChangerMod.Modules.Add<TrackerUpdate>();
+            ItemChangerMod.Modules.Add<TrackerLog>();
+        }
+
 
         public static void ExportStart(GenerationSettings gs)
         {
@@ -55,12 +62,13 @@ namespace RandomizerMod.IC
             }
         }
 
-        public static void ExportItemPlacements(GenerationSettings gs, IEnumerable<RandomizerCore.ItemPlacement> randoPlacements)
+        public static void ExportItemPlacements(GenerationSettings gs, IReadOnlyList<RandomizerCore.ItemPlacement> randoPlacements)
         {
             DefaultShopItems defaultShopItems = GetDefaultShopItems(gs);
-            Dictionary<string, AbstractPlacement> export = new Dictionary<string, AbstractPlacement>();
-            foreach (var (item, location) in randoPlacements)
+            Dictionary<string, AbstractPlacement> export = new();
+            for(int j = 0; j < randoPlacements.Count; j++)
             {
+                var (item, location) = randoPlacements[j];
                 if (!export.TryGetValue(location.Name, out AbstractPlacement p))
                 {
                     var l = Finder.GetLocation(location.Name);
@@ -112,6 +120,7 @@ namespace RandomizerMod.IC
                         scp.Cost = CostConversion.Convert(location.costs); // we assume all items for the scp have the same cost, and only apply it once.
                     }
                     if (p is ItemChanger.Placements.ShopPlacement sp) sp.defaultShopItems = defaultShopItems;
+                    p.AddTag<RandoPlacementTag>();
                     export.Add(p.Name, p);
                 }
 
@@ -138,7 +147,8 @@ namespace RandomizerMod.IC
                         else throw new InvalidOperationException($"Attached cost {location.costs[0]} to placement {p.Name} which does not support costs!");
                     }
                 }
-                
+
+                i.AddTag<RandoItemTag>().id = j;
                 p.Add(i);
             }
 

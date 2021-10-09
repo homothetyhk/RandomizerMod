@@ -15,7 +15,7 @@ namespace RandomizerMod.IC
         {
             if (cost is SimpleCost sc)
             {
-                switch (sc.term)
+                switch (sc.term.Name)
                 {
                     case "ESSENCE":
                         return Cost.NewEssenceCost(sc.threshold);
@@ -48,7 +48,7 @@ namespace RandomizerMod.IC
 
             if (cost is RC.LogicGeoCost gc)
             {
-                return Cost.NewGeoCost(gc.geoAmount);
+                return Cost.NewGeoCost(gc.GeoAmount);
             }
 
             throw new NotSupportedException($"Cost {cost} conversion is not supported.");

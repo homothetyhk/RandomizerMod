@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using RandomizerCore;
+using RandomizerCore.Logic;
 using RandomizerCore.Randomizers;
 using RandomizerMod.Extensions;
 using RandomizerMod.IC;
@@ -42,26 +45,36 @@ namespace RandomizerMod.RC
                 WrappedSettings ws = new(gs);
                 ItemRandomizer r = new(ws, ctx, rm);
                 r.Run();
+                ws.Finalize(r.rng, ctx);
                 args = new()
                 {
-                    ctx = ctx,
+                    ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
+                    {
+                        notchCosts = ctx.notchCosts?.ToList(),
+                        itemPlacements = ctx.itemPlacements?.ToList(),
+                        transitionPlacements = ctx.transitionPlacements?.ToList()
+                    },
                     gs = gs,
                     randomizer = r,
                 };
-                ws.Finalize(r.rng, ctx);
             }
             else
             {
                 WrappedSettings ws = new(gs);
                 TransitionRandomizer r = new(ws, ctx, rm);
                 r.Run();
+                ws.Finalize(r.rng, ctx);
                 args = new()
                 {
-                    ctx = ctx,
+                    ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
+                    {
+                        notchCosts = ctx.notchCosts?.ToList(),
+                        itemPlacements = ctx.itemPlacements?.ToList(),
+                        transitionPlacements = ctx.transitionPlacements?.ToList()
+                    },
                     gs = gs,
                     randomizer = r,
                 };
-                ws.Finalize(r.rng, ctx);
             }
         }
 
@@ -102,14 +115,34 @@ namespace RandomizerMod.RC
 
         public void Save()
         {
+            // We permute the ctx elements to reduce risk of leaking information if handled sloppily
+            if (ctx.itemPlacements != null)
+            {
+                rng.PermuteInPlace(ctx.itemPlacements);
+            }
+            if (ctx.transitionPlacements != null)
+            {
+                rng.PermuteInPlace(ctx.transitionPlacements);
+            }
+
+            RandomizerMod.RS = new()
+            {
+                GenerationSettings = gs.Clone() as GenerationSettings,
+                Context = ctx,
+                ProfileID = GameManager.instance.profileID,
+                TrackerData = new(),
+            };
+            RandomizerMod.RS.TrackerData.Setup(gs, ctx);
+
             Export.BeginExport();
             Export.ExportStart(gs);
-            if (ctx.itemPlacements != null) Export.ExportItemPlacements(gs, ctx.itemPlacements);
-            if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(ctx.transitionPlacements);
+            Export.ExportItemPlacements(gs, ctx.itemPlacements);
+            Export.ExportTransitionPlacements(ctx.transitionPlacements);
             if (ctx.notchCosts != null)
             {
                 for (int i = 0; i < ctx.notchCosts.Count; i++) PlayerData.instance.SetInt($"charmCost_{i + 1}", ctx.notchCosts[i]);
             }
+
             if (gs.CursedSettings.CursedNotches) PlayerData.instance.SetInt(nameof(PlayerData.charmSlots), 1);
             if (gs.CursedSettings.CursedMasks)
             {
@@ -117,11 +150,18 @@ namespace RandomizerMod.RC
                 PlayerData.instance.SetInt(nameof(PlayerData.maxHealthBase), 1);
             }
 
-
-            LogManager lm = new(GameManager.instance.profileID);
-            lm.WriteLogs(args);
+            LogManager.WriteLogs(args);
+            WriteRawSpoiler(gs, ctx); // write it here and not in LogManager so that it uses the permuted context // write it after LogManager so it doesn't get deleted
         }
 
+        private static void WriteRawSpoiler(GenerationSettings gs, RandoContext ctx)
+        {
+            LogicManager lm = RCData.GetLM(gs.TransitionSettings.GetLogicMode());
+            JsonSerializer js = RandomizerCore.Json.JsonUtil.GetLogicSerializer(lm);
+            using StringWriter sw = new();
+            js.Serialize(sw, ctx);
+            LogManager.Write(sw.ToString(), "RawSpoiler.json");
+        }
 
         private void SelectStart()
         {

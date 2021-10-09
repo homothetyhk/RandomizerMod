@@ -21,35 +21,12 @@ namespace RandomizerMod.IC
         {
             AbstractItem.ModifyRedundantItemGlobal += ModifyRedundantItem;
             ToggleSceneHooks(true);
-            ApplyQoLOverrides();
         }
 
         public override void Unload()
         {
             AbstractItem.ModifyRedundantItemGlobal -= ModifyRedundantItem;
             ToggleSceneHooks(false);
-            RemoveQoLOverrides();
-        }
-
-        private static void ApplyQoLOverrides()
-        {
-            try
-            {
-                MethodInfo overrider = Type.GetType("QoL.SettingsOverride, QoL").GetMethod("OverrideSettingsToggle", BindingFlags.Public | BindingFlags.Static);
-                overrider.Invoke(null, new object[] { "SkipCutscenes", "DreamersGet", false });
-
-            }
-            catch (Exception) { }
-        }
-
-        private static void RemoveQoLOverrides()
-        {
-            try
-            {
-                MethodInfo remover = Type.GetType("QoL.SettingsOverride, QoL").GetMethod("RemoveSettingsToggle", BindingFlags.Public | BindingFlags.Static);
-                remover.Invoke(null, new object[] { "SkipCutscenes", "DreamersGet" });
-            }
-            catch (Exception) { }
         }
 
         private static void ModifyRedundantItem(GiveEventArgs args)

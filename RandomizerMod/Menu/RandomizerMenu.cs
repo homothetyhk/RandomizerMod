@@ -47,8 +47,6 @@ namespace RandomizerMod.Menu
         List<MenuProfile> Profiles => RandomizerMod.GS.Profiles;
         readonly StartDef[] StartDefs;
 
-        QoLSettings GameSettings = new QoLSettings();
-
         readonly MenuPage ModePage;
         MenuPage ResumePage;
         MiniPM pm = new MiniPM();
@@ -212,10 +210,10 @@ namespace RandomizerMod.Menu
         #region Game Settings
 
         MenuPage GameSettingsPage;
-        MenuElementFactory<QoLSettings> gameSettingsMEF;
-        MenuLabel preloadExplanationLabel;
+        //MenuElementFactory<QoLSettings> gameSettingsMEF;
+        //MenuLabel preloadExplanationLabel;
 
-        GridItemPanel gameSettingsPanel;
+        //GridItemPanel gameSettingsPanel;
         #endregion
 
         #region Final
@@ -370,7 +368,7 @@ namespace RandomizerMod.Menu
             ApplyProfileButton = new SmallButton(ManageSettingsPage, "Apply Profile");
             ProfileNameField = new TextEntryField(ManageSettingsPage, "Profile Name");
 
-            gameSettingsMEF = new MenuElementFactory<QoLSettings>(GameSettingsPage, GameSettings);
+            //gameSettingsMEF = new MenuElementFactory<QoLSettings>(GameSettingsPage, GameSettings);
 
             // Final Page
             InfoPanelTitle = new MenuLabel(FinalPage, "Randomizer Progress");
@@ -452,6 +450,7 @@ namespace RandomizerMod.Menu
 
             StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), 50f, StartCornerButtons);
 
+            /*
             preloadExplanationLabel = new MenuLabel(GameSettingsPage,
                 "Disabling preloads allows the game to use less memory, and may help to prevent glitches such as " +
                 "infinite loads or invisible bosses. Changes to this setting apply to all files, " +
@@ -459,7 +458,7 @@ namespace RandomizerMod.Menu
                 MenuLabel.Style.Body);
             preloadExplanationLabel.MoveTo(new Vector2(0, -200));
             gameSettingsPanel = new GridItemPanel(GameSettingsPage, new Vector2(0, 300), 2, 80, 550, gameSettingsMEF.Elements);
-
+            */
 
             CodeVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(-400, 300), 100, CodeElements);
             ProfileVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(400, 300), 100, ProfileElements);
@@ -829,12 +828,6 @@ namespace RandomizerMod.Menu
         {
             try
             {
-                RandomizerMod.RS = new()
-                {
-                    GenerationSettings = Settings,
-                    Randomizer = true,
-                    GameSettings = GameSettings,
-                };
                 rc.Save();
                 MenuChangerMod.HideAllMenuPages();
                 UIManager.instance.StartNewGame();

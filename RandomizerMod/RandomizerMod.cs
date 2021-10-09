@@ -25,18 +25,8 @@ namespace RandomizerMod
             base.Initialize();
             LogHelper.OnLog += Log;
             RandomizerCore.LogHelper.OnLog += Log;
+            Logging.LogManager.Initialize();
             SpriteManager.LoadEmbeddedPngs("RandomizerMod.Resources.");
-
-            try
-            {
-                MethodInfo overrider = Type.GetType("QoL.SettingsOverride, QoL").GetMethod("OverrideSettingToggle", BindingFlags.Public | BindingFlags.Static);
-                overrider.Invoke(null, new object[] { "SkipCutscenes", "DreamersGet", false });
-                // we have to do this here and not in RandomizerModule since overriding the setting doesn't do anything after QoL initializes.
-            }
-            catch (Exception e) 
-            {
-                LogError(e);
-            }
 
             try
             {
@@ -85,6 +75,7 @@ namespace RandomizerMod
         public void OnLoadLocal(RandomizerSettings s)
         {
             RS = s;
+            RS?.Setup();
         }
 
         public RandomizerSettings OnSaveLocal()

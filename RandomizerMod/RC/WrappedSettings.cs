@@ -22,12 +22,7 @@ namespace RandomizerMod.RC
             if (!RCData.Loaded) RCData.Load();
 
             this.gs = gs;
-            LM = gs.TransitionSettings.GetLogicMode() switch
-            {
-                LogicMode.Room => RCData.RoomLM,
-                LogicMode.Area => RCData.AreaLM,
-                _ => RCData.ItemLM,
-            };
+            LM = RCData.GetLM(gs.TransitionSettings.GetLogicMode());
         }
 
         List<RandoItem> items;
@@ -58,22 +53,19 @@ namespace RandomizerMod.RC
         {
             foreach (string setting in Data.GetApplicableLogicSettings(gs))
             {
-                pm.Set(LM.GetTermIndex(setting), 1);
+                pm.Set(LM.GetTerm(setting).Id, 1);
             }
 
             var mode = gs.TransitionSettings.GetLogicMode();
             StartDef start = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
 
-            if (mode != LogicMode.Room) pm.Set(LM.GetTermIndex(start.waypoint), 1);
-            if (mode == LogicMode.Area) pm.Set(LM.GetTermIndex(start.areaTransition), 1);
-            if (mode == LogicMode.Room) pm.Set(LM.GetTermIndex(start.roomTransition), 1);
+            if (mode != LogicMode.Room) pm.Set(LM.GetTerm(start.waypoint).Id, 1);
+            if (mode == LogicMode.Area) pm.Set(LM.GetTerm(start.areaTransition).Id, 1);
+            if (mode == LogicMode.Room) pm.Set(LM.GetTerm(start.roomTransition).Id, 1);
 
-            if (gs.CursedSettings.CursedMasks) pm.Set(LM.GetTermIndex("MASKSHARDS"), 4);
-            else pm.Set(LM.GetTermIndex("MASKSHARDS"), 20);
-
-            if (gs.CursedSettings.CursedNotches) pm.Set(LM.GetTermIndex("NOTCHES"), 1);
-            else pm.Set(LM.GetTermIndex("NOTCHES"), 3);
-
+            // use these baseline numbers for cursed settings and add shards/notches as vanilla items at start if necessary
+            pm.Set(LM.GetTerm("MASKSHARDS").Id, 4); 
+            pm.Set(LM.GetTerm("NOTCHES").Id, 1);
         }
 
         void SetRandomizedItems(Random rng)
@@ -251,7 +243,7 @@ namespace RandomizerMod.RC
                         rl.AddCost(new LogicGeoCost(LM, def.amount));
                         break;
                     default:
-                        rl.AddCost(new SimpleCost(LM, def.term, def.amount));
+                        rl.AddCost(new SimpleCost(LM.GetTerm(def.term), def.amount));
                         break;
                 }
             }
@@ -303,17 +295,15 @@ namespace RandomizerMod.RC
                 {
                     case "Grubfather":
                         loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM, "GRUBS", rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
-                        LogDebug("Set Grubfather grub cost to " + ((SimpleCost)loc.costs[0]).threshold);
+                        loc.AddCost(new SimpleCost(LM.GetTerm("GRUBS"), rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
                         break;
                     case "Seer":
                         loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM, "ESSENCE", rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
-                        LogDebug("Set Seer essence cost to " + ((SimpleCost)loc.costs[0]).threshold);
+                        loc.AddCost(new SimpleCost(LM.GetTerm("ESSENCE"), rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
                         break;
                     case "Egg_Shop":
                         loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM, "RANCIDEGGS", rng.Next(1, 15)));
+                        loc.AddCost(new SimpleCost(LM.GetTerm("RANCIDEGGS"), rng.Next(1, 15)));
                         break;
                     case "Sly":
                     case "Sly_(Key)":
@@ -322,7 +312,6 @@ namespace RandomizerMod.RC
                     case "Leg_Eater":
                         loc.costs?.Clear();
                         loc.AddCost(new LogicGeoCost(LM, -1));
-                        LogDebug($"Added incomplete geo cost to shop {loc.Name}.");
                         break;
                 }
             }
@@ -356,7 +345,7 @@ namespace RandomizerMod.RC
                 bool required = i < threshold;
                 foreach (LogicGeoCost gc in rl.costs.OfType<LogicGeoCost>())
                 {
-                    if (gc.geoAmount < 0) gc.geoAmount = GetShopCost(rng, ri.Name, required);
+                    if (gc.GeoAmount < 0) gc.GeoAmount = GetShopCost(rng, ri.Name, required);
                 }
             }
         }
@@ -621,7 +610,6 @@ namespace RandomizerMod.RC
                         directionCounts = spheres[spheres.Count - 1].directionCounts,
                         placedTransitions = new(),
                         reachableTransitions = new(),
-                        snapshot = spheres[spheres.Count - 1].snapshot,
                     };
                     placementRecorder.Invoke(fakeSphere, current);
                 }

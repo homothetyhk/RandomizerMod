@@ -673,7 +673,72 @@
       "Mask_Shard"
     ],
     "includeLocations": [],
-    "vanilla": []
+    "vanilla": [
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      },
+      {
+        "item": "Mask_Shard",
+        "location": "Start"
+      }
+    ]
   },
   {
     "name": "Vessel",
