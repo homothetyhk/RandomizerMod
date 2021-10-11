@@ -136,8 +136,8 @@ namespace RandomizerMod.RC
 
             Export.BeginExport();
             Export.ExportStart(gs);
-            Export.ExportItemPlacements(gs, ctx.itemPlacements);
-            Export.ExportTransitionPlacements(ctx.transitionPlacements);
+            if (ctx.itemPlacements != null) Export.ExportItemPlacements(gs, ctx.itemPlacements);
+            if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(ctx.transitionPlacements);
             if (ctx.notchCosts != null)
             {
                 for (int i = 0; i < ctx.notchCosts.Count; i++) PlayerData.instance.SetInt($"charmCost_{i + 1}", ctx.notchCosts[i]);
