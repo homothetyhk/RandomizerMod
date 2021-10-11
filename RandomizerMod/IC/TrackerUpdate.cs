@@ -14,7 +14,7 @@ namespace RandomizerMod.IC
             RandoItemTag.AfterRandoItemGive += AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged += OnRandoPlacementVisitStateChanged;
             Events.OnBeginSceneTransition += OnBeginSceneTransition;
-            transitionInverse ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.target.Name, p => p.source.Name);
+            transitionInverse ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.target.Name, p => p.source.Name) ?? new();
         }
 
         public override void Unload()
