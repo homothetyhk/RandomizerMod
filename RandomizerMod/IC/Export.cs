@@ -92,6 +92,7 @@ namespace RandomizerMod.IC
                             chestLocation = chest,
                             tabletLocation = tablet,
                         };
+                        p.AddTag<ItemChanger.Tags.DestroyGrubRewardTag>().destroyRewards = GetRandomizedGrubRewards(gs);
                     }
                     else if (location.Name == "Seer")
                     {
@@ -99,7 +100,7 @@ namespace RandomizerMod.IC
                         var tablet = Finder.GetLocation(LocationNames.Hallownest_Seal_Seer) as ItemChanger.Locations.PlaceableLocation;
                         if (chest == null || tablet == null)
                         {
-                            Log("Error constructing Grubfather location!");
+                            Log("Error constructing Seer location!");
                             continue;
                         }
 
@@ -109,6 +110,7 @@ namespace RandomizerMod.IC
                             chestLocation = chest,
                             tabletLocation = tablet,
                         };
+                        p.AddTag<ItemChanger.Tags.DestroySeerRewardTag>().destroyRewards = GetRandomizedSeerRewards(gs);
                     }
                     else
                     {
@@ -131,7 +133,7 @@ namespace RandomizerMod.IC
                 }
                 if (item.Name == "Split_Shade_Cloak" && !((RC.SplitCloakItem)item.item).LeftBiased) // default is left biased
                 {
-                    i.GetTag<ItemChanger.Tags.ItemTreeTag>().predecessors = new string[] { ItemNames.Right_Mothwing_Cloak, ItemNames.Left_Mothwing_Cloak };
+                    i.GetTag<ItemChanger.Tags.ItemChainTag>().predecessor = ItemNames.Right_Mothwing_Cloak;
                 }
 
                 if (location.costs != null)
@@ -158,6 +160,64 @@ namespace RandomizerMod.IC
         public static void ExportTransitionPlacements(IEnumerable<RandomizerCore.TransitionPlacement> ps)
         {
             foreach (var p in ps) ItemChangerMod.AddTransitionOverride(new Transition(p.source.lt.sceneName, p.source.lt.gateName), new Transition(p.target.lt.sceneName, p.target.lt.gateName));
+        }
+
+        public static GrubfatherRewards GetRandomizedGrubRewards(GenerationSettings gs)
+        {
+            GrubfatherRewards gr = GrubfatherRewards.None;
+            if (gs.PoolSettings.Charms)
+            {
+                gr |= GrubfatherRewards.Grubsong | GrubfatherRewards.GrubberflysElegy;
+            }
+            if (gs.PoolSettings.MaskShards)
+            {
+                gr |= GrubfatherRewards.MaskShard;
+            }
+            if (gs.PoolSettings.PaleOre)
+            {
+                gr |= GrubfatherRewards.PaleOre;
+            }
+            if (gs.PoolSettings.Relics)
+            {
+                gr |= GrubfatherRewards.HallownestSeal | GrubfatherRewards.KingsIdol;
+            }
+            if (gs.PoolSettings.RancidEggs)
+            {
+                gr |= GrubfatherRewards.RancidEgg;
+            }
+            
+            return gr;
+        }
+
+        public static SeerRewards GetRandomizedSeerRewards(GenerationSettings gs)
+        {
+            SeerRewards sr = SeerRewards.None;
+            if (gs.PoolSettings.Relics)
+            {
+                sr |= SeerRewards.HallownestSeal | SeerRewards.ArcaneEgg;
+            }
+            if (gs.PoolSettings.PaleOre)
+            {
+                sr |= SeerRewards.PaleOre;
+            }
+            if (gs.PoolSettings.Charms)
+            {
+                sr |= SeerRewards.DreamWielder;
+            }
+            if (gs.PoolSettings.VesselFragments)
+            {
+                sr |= SeerRewards.VesselFragment;
+            }
+            if (gs.PoolSettings.Skills)
+            {
+                sr |= SeerRewards.DreamGate | SeerRewards.AwokenDreamNail;
+            }
+            if (gs.PoolSettings.MaskShards)
+            {
+                sr |= SeerRewards.MaskShard;
+            }
+
+            return sr;
         }
 
         public static DefaultShopItems GetDefaultShopItems(GenerationSettings gs)
