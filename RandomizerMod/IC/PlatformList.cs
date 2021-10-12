@@ -98,9 +98,9 @@ namespace RandomizerMod.IC
                 plats.Add(new() { SceneName = SceneNames.Waterways_04, X = 148f, Y = 23.1f });
                 plats.Add(new() { SceneName = SceneNames.Waterways_04, X = 139f, Y = 32f });
                 plats.Add(new() { SceneName = SceneNames.Waterways_04, X = 107f, Y = 10f,
-                    Test = gs.NoveltySettings.RandomizeSwim ? new PDBool { boolName = "canSwim" } : null });
+                    Test = gs.NoveltySettings.RandomizeSwim ? new PDBool("canSwim"): null });
                 plats.Add(new() { SceneName = SceneNames.Waterways_04, X = 107f, Y = 15f,
-                    Test = gs.NoveltySettings.RandomizeSwim ? new PDBool { boolName = "canSwim" } : null });
+                    Test = gs.NoveltySettings.RandomizeSwim ? new PDBool("canSwim") : null });
             }
 
             return plats;

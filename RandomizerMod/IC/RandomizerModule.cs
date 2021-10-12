@@ -37,9 +37,9 @@ namespace RandomizerMod.IC
                 name = "100_Geo-" + args.Orig.name,
                 UIDef = new ItemChanger.UIDefs.MsgUIDef
                 {
-                    name = new BoxedString { Value = $"100 Geo ({args.Orig.UIDef.GetPostviewName()})" },
-                    shopDesc = new BoxedString { Value = args.Orig.UIDef.GetShopDesc() },
-                    sprite = new BoxedSprite { Value = args.Orig.UIDef.GetSprite() }
+                    name = new BoxedString($"100 Geo ({args.Orig.UIDef.GetPostviewName()})"),
+                    shopDesc = new BoxedString(args.Orig.UIDef.GetShopDesc()),
+                    sprite = new BoxedSprite(args.Orig.UIDef.GetSprite())
                 }
             };
         }

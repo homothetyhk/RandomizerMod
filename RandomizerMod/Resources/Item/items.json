@@ -2494,7 +2494,43 @@
   },
   {
     "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
-    "Name": "Soul_Totem"
+    "Name": "Soul_Refill"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-A"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-B"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-C"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-D"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-E"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-F"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-G"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-Palace"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Name": "Soul_Totem-Path_of_Pain"
   },
   {
     "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
@@ -2627,7 +2663,5 @@
   {
     "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
     "Name": "Lore_Tablet-Path_of_Pain_Entrance"
-  }
-]_Entrance"
   }
 ]

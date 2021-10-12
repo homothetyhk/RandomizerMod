@@ -104,6 +104,20 @@ namespace RandomizerMod.RC
                 }
             }
 
+            switch (gs.LongLocationSettings.RandomizationInWhitePalace)
+            {
+                case LongLocationSettings.WPSetting.ExcludeWhitePalace:
+                    removeItems.Add("Soul_Totem-Palace");
+                    removeItems.Add("Lore_Tablet-Palace_Workshop");
+                    removeItems.Add("Lore_Tablet-Palace_Throne");
+                    goto case LongLocationSettings.WPSetting.ExcludePathOfPain;
+                case LongLocationSettings.WPSetting.ExcludePathOfPain:
+                    removeItems.Add("Soul_Totem-Path_of_Pain");
+                    removeItems.Add("Journal_Entry-Seal_of_Binding");
+                    removeItems.Add("Lore_Tablet-Path_of_Pain_Entrance");
+                    break;
+            }
+
             if (gs.MiscSettings.AddDuplicateItems)
             {
                 // TODO: better dupe settings
@@ -206,8 +220,7 @@ namespace RandomizerMod.RC
                 }
             }
 
-            int removeCount = items.RemoveAll(i => removeItems.Contains(i.Name));
-            PadItems(rng, items, removeCount);
+            items.RemoveAll(i => removeItems.Contains(i.Name));
         }
 
         private void PadItems(Random rng, List<RandoItem> items, int count)
@@ -269,6 +282,17 @@ namespace RandomizerMod.RC
             }
 
             if (gs.NoveltySettings.SplitClaw) locations.RemoveAll(l => l.Name == "Mantis_Claw");
+            
+            if (gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludeWhitePalace)
+            {
+                locations.RemoveAll(l => (Data.GetLocationDef(l.Name).areaName == "White_Palace" || Data.GetLocationDef(l.Name).areaName == "Path_of_Pain") && l.Name != "King_Fragment");
+            }
+            else if (gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludePathOfPain)
+            {
+                locations.RemoveAll(l => Data.GetLocationDef(l.Name).areaName == "Path_of_Pain" && l.Name != "King_Fragment");
+            }
+
+            // TODO: Boss Essence settings
 
             multiLocationPrefabs = locations.Where(l => Data.GetLocationDef(l.Name).multi).GroupBy(l => l.Name).Select(g => g.First()).ToList();
             HashSet<string> multiNames = new HashSet<string>(multiLocationPrefabs.Select(l => l.Name));

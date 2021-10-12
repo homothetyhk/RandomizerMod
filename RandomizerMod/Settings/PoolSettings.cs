@@ -36,10 +36,6 @@ namespace RandomizerMod.Settings
         public bool JournalEntries;
         public bool JunkPitChests;
 
-        // TODO: replace?
-        public bool PalaceSoul;
-        public bool PalaceLore;
-
 
         private static Dictionary<string, FieldInfo> fields = typeof(PoolSettings)
             .GetFields(BindingFlags.Public | BindingFlags.Instance)

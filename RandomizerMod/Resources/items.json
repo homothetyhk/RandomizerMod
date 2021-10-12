@@ -1583,8 +1583,80 @@
     "itemCandidate": false,
     "majorItem": false
   },
-  "Soul_Totem": {
-    "name": "Soul_Totem",
+  "Soul_Refill": {
+    "name": "Soul_Refill",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-A": {
+    "name": "Soul_Totem-A",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-B": {
+    "name": "Soul_Totem-B",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-C": {
+    "name": "Soul_Totem-C",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-D": {
+    "name": "Soul_Totem-D",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-E": {
+    "name": "Soul_Totem-E",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-F": {
+    "name": "Soul_Totem-F",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-G": {
+    "name": "Soul_Totem-G",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-Palace": {
+    "name": "Soul_Totem-Palace",
+    "pool": "Soul",
+    "priceCap": 1,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Soul_Totem-Path_of_Pain": {
+    "name": "Soul_Totem-Path_of_Pain",
     "pool": "Soul",
     "priceCap": 1,
     "progression": false,

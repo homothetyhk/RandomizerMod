@@ -3638,53 +3638,65 @@
     "name": "Soul",
     "path": "PoolSettings.SoulTotems",
     "includeItems": [
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem"
+      "Soul_Totem-C",
+      "Soul_Totem-B",
+      "Soul_Totem-A",
+      "Soul_Totem-C",
+      "Soul_Totem-C",
+      "Soul_Totem-B",
+      "Soul_Totem-B",
+      "Soul_Totem-C",
+      "Soul_Totem-E",
+      "Soul_Totem-A",
+      "Soul_Totem-F",
+      "Soul_Totem-D",
+      "Soul_Totem-E",
+      "Soul_Totem-B",
+      "Soul_Totem-B",
+      "Soul_Totem-C",
+      "Soul_Totem-B",
+      "Soul_Totem-A",
+      "Soul_Totem-C",
+      "Soul_Totem-B",
+      "Soul_Totem-A",
+      "Soul_Totem-B",
+      "Soul_Totem-A",
+      "Soul_Totem-C",
+      "Soul_Totem-C",
+      "Soul_Totem-C",
+      "Soul_Totem-C",
+      "Soul_Totem-A",
+      "Soul_Totem-C",
+      "Soul_Totem-C",
+      "Soul_Totem-B",
+      "Soul_Totem-A",
+      "Soul_Totem-B",
+      "Soul_Totem-A",
+      "Soul_Totem-B",
+      "Soul_Totem-C",
+      "Soul_Totem-C",
+      "Soul_Totem-E",
+      "Soul_Totem-B",
+      "Soul_Totem-D",
+      "Soul_Totem-A",
+      "Soul_Totem-G",
+      "Soul_Totem-C",
+      "Soul_Totem-B",
+      "Soul_Totem-C",
+      "Soul_Totem-B",
+      "Soul_Totem-Palace",
+      "Soul_Totem-Palace",
+      "Soul_Totem-Palace",
+      "Soul_Totem-Palace",
+      "Soul_Totem-Palace",
+      "Soul_Totem-Path_of_Pain",
+      "Soul_Totem-Path_of_Pain",
+      "Soul_Totem-Path_of_Pain",
+      "Soul_Totem-Path_of_Pain",
+      "Soul_Totem-Path_of_Pain",
+      "Soul_Totem-Path_of_Pain",
+      "Soul_Totem-Path_of_Pain",
+      "Soul_Totem-G"
     ],
     "includeLocations": [
       "Soul_Totem-Basin",
@@ -3733,217 +3745,6 @@
       "Soul_Totem-Top_Left_Waterways",
       "Soul_Totem-Waterways_East",
       "Soul_Totem-Waterways_Flukemarm",
-      "Soul_Totem-Pale_Lurker"
-    ],
-    "vanilla": [
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Basin"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Cliffs_Main"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Cliffs_Gorb"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Cliffs_Joni's"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crossroads_Goam_Journal"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crossroads_Shops"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crossroads_Mawlek_Upper"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crossroads_Acid"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crossroads_Mawlek_Lower"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crossroads_Myla"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Ancestral_Mound"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Distant_Village"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Deepnest_Vessel"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Mask_Maker"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Lower_Kingdom's_Edge_1"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Lower_Kingdom's_Edge_2"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Upper_Kingdom's_Edge"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Kingdom's_Edge_Camp"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Oro_Dive_2"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Oro_Dive_1"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Oro"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-420_Geo_Rock"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Beast's_Den"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Greenpath_Hunter's_Journal"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Greenpath_MMC"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Greenpath_Below_Toll"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Before_Pilgrim's_Way"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Pilgrim's_Way"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Fungal_Core"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Top_Left_Queen's_Gardens"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Below_Marmu"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Upper_Crystal_Peak"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Hallownest_Crown"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Outside_Crystallized_Mound"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crystal_Heart_1"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crystal_Heart_2"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Crystallized_Mound"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Resting_Grounds"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Below_Xero"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Sanctum_Below_Soul_Master"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Sanctum_Below_Chest"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Sanctum_Above_Grub"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Waterways_Entrance"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Top_Left_Waterways"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Waterways_East"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Waterways_Flukemarm"
-      },
-      {
-        "item": "Soul_Totem",
-        "location": "Soul_Totem-Pale_Lurker"
-      }
-    ]
-  },
-  {
-    "name": "PalaceSoul",
-    "path": "PoolSettings.PalaceSoul",
-    "includeItems": [
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem",
-      "Soul_Totem"
-    ],
-    "includeLocations": [
       "Soul_Totem-White_Palace_Entrance",
       "Soul_Totem-White_Palace_Hub",
       "Soul_Totem-White_Palace_Left",
@@ -3955,56 +3756,245 @@
       "Soul_Totem-Path_of_Pain_Second",
       "Soul_Totem-Path_of_Pain_Hidden",
       "Soul_Totem-Path_of_Pain_Below_Thornskip",
-      "Soul_Totem-Path_of_Pain_Final"
+      "Soul_Totem-Path_of_Pain_Final",
+      "Soul_Totem-Pale_Lurker"
     ],
     "vanilla": [
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Basin"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Cliffs_Main"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Cliffs_Gorb"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Cliffs_Joni's"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Crossroads_Goam_Journal"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Crossroads_Shops"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Crossroads_Mawlek_Upper"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Crossroads_Acid"
+      },
+      {
+        "item": "Soul_Totem-E",
+        "location": "Soul_Totem-Crossroads_Mawlek_Lower"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Crossroads_Myla"
+      },
+      {
+        "item": "Soul_Totem-F",
+        "location": "Soul_Totem-Ancestral_Mound"
+      },
+      {
+        "item": "Soul_Totem-D",
+        "location": "Soul_Totem-Distant_Village"
+      },
+      {
+        "item": "Soul_Totem-E",
+        "location": "Soul_Totem-Deepnest_Vessel"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Mask_Maker"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Lower_Kingdom's_Edge_1"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Lower_Kingdom's_Edge_2"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Upper_Kingdom's_Edge"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Kingdom's_Edge_Camp"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Oro_Dive_2"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Oro_Dive_1"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Oro"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-420_Geo_Rock"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Beast's_Den"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Greenpath_Hunter's_Journal"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Greenpath_MMC"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Greenpath_Below_Toll"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Before_Pilgrim's_Way"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Pilgrim's_Way"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Fungal_Core"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Top_Left_Queen's_Gardens"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Below_Marmu"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Upper_Crystal_Peak"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Hallownest_Crown"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Outside_Crystallized_Mound"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Crystal_Heart_1"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Crystal_Heart_2"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Crystallized_Mound"
+      },
+      {
+        "item": "Soul_Totem-E",
+        "location": "Soul_Totem-Resting_Grounds"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Below_Xero"
+      },
+      {
+        "item": "Soul_Totem-D",
+        "location": "Soul_Totem-Sanctum_Below_Soul_Master"
+      },
+      {
+        "item": "Soul_Totem-A",
+        "location": "Soul_Totem-Sanctum_Below_Chest"
+      },
+      {
+        "item": "Soul_Totem-G",
+        "location": "Soul_Totem-Sanctum_Above_Grub"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Waterways_Entrance"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Top_Left_Waterways"
+      },
+      {
+        "item": "Soul_Totem-C",
+        "location": "Soul_Totem-Waterways_East"
+      },
+      {
+        "item": "Soul_Totem-B",
+        "location": "Soul_Totem-Waterways_Flukemarm"
+      },
+      {
+        "item": "Soul_Totem-Palace",
         "location": "Soul_Totem-White_Palace_Entrance"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Palace",
         "location": "Soul_Totem-White_Palace_Hub"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Palace",
         "location": "Soul_Totem-White_Palace_Left"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Palace",
         "location": "Soul_Totem-White_Palace_Final"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Palace",
         "location": "Soul_Totem-White_Palace_Right"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Path_of_Pain",
         "location": "Soul_Totem-Path_of_Pain_Below_Lever"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Path_of_Pain",
         "location": "Soul_Totem-Path_of_Pain_Left_of_Lever"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Path_of_Pain",
         "location": "Soul_Totem-Path_of_Pain_Entrance"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Path_of_Pain",
         "location": "Soul_Totem-Path_of_Pain_Second"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Path_of_Pain",
         "location": "Soul_Totem-Path_of_Pain_Hidden"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Path_of_Pain",
         "location": "Soul_Totem-Path_of_Pain_Below_Thornskip"
       },
       {
-        "item": "Soul_Totem",
+        "item": "Soul_Totem-Path_of_Pain",
         "location": "Soul_Totem-Path_of_Pain_Final"
+      },
+      {
+        "item": "Soul_Totem-G",
+        "location": "Soul_Totem-Pale_Lurker"
       }
     ]
   },
@@ -4041,7 +4031,10 @@
       "Lore_Tablet-King's_Pass_Exit",
       "Lore_Tablet-World_Sense",
       "Lore_Tablet-Howling_Cliffs",
-      "Lore_Tablet-Kingdom's_Edge"
+      "Lore_Tablet-Kingdom's_Edge",
+      "Lore_Tablet-Palace_Workshop",
+      "Lore_Tablet-Palace_Throne",
+      "Lore_Tablet-Path_of_Pain_Entrance"
     ],
     "includeLocations": [
       "Lore_Tablet-City_Entrance",
@@ -4073,7 +4066,10 @@
       "Lore_Tablet-King's_Pass_Exit",
       "Lore_Tablet-World_Sense",
       "Lore_Tablet-Howling_Cliffs",
-      "Lore_Tablet-Kingdom's_Edge"
+      "Lore_Tablet-Kingdom's_Edge",
+      "Lore_Tablet-Palace_Workshop",
+      "Lore_Tablet-Palace_Throne",
+      "Lore_Tablet-Path_of_Pain_Entrance"
     ],
     "vanilla": [
       {
@@ -4195,23 +4191,7 @@
       {
         "item": "Lore_Tablet-Kingdom's_Edge",
         "location": "Lore_Tablet-Kingdom's_Edge"
-      }
-    ]
-  },
-  {
-    "name": "PalaceLore",
-    "path": "PoolSettings.PalaceLore",
-    "includeItems": [
-      "Lore_Tablet-Palace_Workshop",
-      "Lore_Tablet-Palace_Throne",
-      "Lore_Tablet-Path_of_Pain_Entrance"
-    ],
-    "includeLocations": [
-      "Lore_Tablet-Palace_Workshop",
-      "Lore_Tablet-Palace_Throne",
-      "Lore_Tablet-Path_of_Pain_Entrance"
-    ],
-    "vanilla": [
+      },
       {
         "item": "Lore_Tablet-Palace_Workshop",
         "location": "Lore_Tablet-Palace_Workshop"

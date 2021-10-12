@@ -308,7 +308,7 @@
   "King_Fragment": {
     "name": "King_Fragment",
     "sceneName": "White_Palace_09",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Void_Heart": {
@@ -1682,7 +1682,7 @@
   "Journal_Entry-Seal_of_Binding": {
     "name": "Journal_Entry-Seal_of_Binding",
     "sceneName": "White_Palace_20",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Elevator_Pass": {
@@ -3296,73 +3296,73 @@
   "Soul_Totem-White_Palace_Entrance": {
     "name": "Soul_Totem-White_Palace_Entrance",
     "sceneName": "White_Palace_02",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Soul_Totem-White_Palace_Hub": {
     "name": "Soul_Totem-White_Palace_Hub",
     "sceneName": "White_Palace_03_hub",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Soul_Totem-White_Palace_Left": {
     "name": "Soul_Totem-White_Palace_Left",
     "sceneName": "White_Palace_04",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Soul_Totem-White_Palace_Final": {
     "name": "Soul_Totem-White_Palace_Final",
     "sceneName": "White_Palace_09",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Soul_Totem-White_Palace_Right": {
     "name": "Soul_Totem-White_Palace_Right",
     "sceneName": "White_Palace_15",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Soul_Totem-Path_of_Pain_Below_Lever": {
     "name": "Soul_Totem-Path_of_Pain_Below_Lever",
     "sceneName": "White_Palace_17",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Soul_Totem-Path_of_Pain_Left_of_Lever": {
     "name": "Soul_Totem-Path_of_Pain_Left_of_Lever",
     "sceneName": "White_Palace_17",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Soul_Totem-Path_of_Pain_Entrance": {
     "name": "Soul_Totem-Path_of_Pain_Entrance",
     "sceneName": "White_Palace_18",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Soul_Totem-Path_of_Pain_Second": {
     "name": "Soul_Totem-Path_of_Pain_Second",
     "sceneName": "White_Palace_18",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Soul_Totem-Path_of_Pain_Hidden": {
     "name": "Soul_Totem-Path_of_Pain_Hidden",
     "sceneName": "White_Palace_19",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Soul_Totem-Path_of_Pain_Below_Thornskip": {
     "name": "Soul_Totem-Path_of_Pain_Below_Thornskip",
     "sceneName": "White_Palace_19",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Soul_Totem-Path_of_Pain_Final": {
     "name": "Soul_Totem-Path_of_Pain_Final",
     "sceneName": "White_Palace_20",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   },
   "Soul_Totem-Pale_Lurker": {
@@ -3554,19 +3554,19 @@
   "Lore_Tablet-Palace_Workshop": {
     "name": "Lore_Tablet-Palace_Workshop",
     "sceneName": "White_Palace_08",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Lore_Tablet-Palace_Throne": {
     "name": "Lore_Tablet-Palace_Throne",
     "sceneName": "White_Palace_09",
-    "areaName": "Palace_Grounds",
+    "areaName": "White_Palace",
     "multi": false
   },
   "Lore_Tablet-Path_of_Pain_Entrance": {
     "name": "Lore_Tablet-Path_of_Pain_Entrance",
     "sceneName": "White_Palace_18",
-    "areaName": "Palace_Grounds",
+    "areaName": "Path_of_Pain",
     "multi": false
   }
 }

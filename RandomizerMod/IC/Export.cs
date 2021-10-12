@@ -227,6 +227,7 @@ namespace RandomizerMod.IC
             items |= DefaultShopItems.IseldaMapPins;
             items |= DefaultShopItems.IseldaMapMarkers;
             items |= DefaultShopItems.SalubraBlessing;
+            items |= DefaultShopItems.LegEaterRepair;
 
             if (!gs.PoolSettings.Keys)
             {
@@ -242,7 +243,6 @@ namespace RandomizerMod.IC
                 items |= DefaultShopItems.IseldaCharms;
                 items |= DefaultShopItems.SalubraCharms;
                 items |= DefaultShopItems.LegEaterCharms;
-                items |= DefaultShopItems.LegEaterRepair;
             }
 
             if (!gs.PoolSettings.Maps)

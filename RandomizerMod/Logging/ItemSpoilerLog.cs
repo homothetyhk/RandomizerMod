@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RandomizerCore;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace RandomizerMod.Logging
 {
@@ -26,8 +27,14 @@ namespace RandomizerMod.Logging
 
         public override void Log(LogArguments args)
         {
-            string content = RandomizerData.JsonUtil.Serialize(args.ctx.itemPlacements?.Select(p => new SpoilerEntry(p))?.ToList() ?? new());
-            LogManager.Write(content, "ItemSpoilerLog.json");
+            JsonSerializer js = new()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                Formatting = Formatting.Indented,
+            };
+            using StringWriter sw = new();
+            js.Serialize(sw, args.ctx.itemPlacements?.Select(p => new SpoilerEntry(p))?.ToList() ?? new());
+            LogManager.Write(sw.ToString(), "ItemSpoilerLog.json");
         }
     }
 }
