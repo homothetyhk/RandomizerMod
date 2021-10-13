@@ -24,6 +24,12 @@ namespace RandomizerMod.Settings.Presets
                 EssenceTolerance = 150,
                 MinimumEssenceCost = 1,
                 MaximumEssenceCost = 900,
+                MinimumEggCost = 1,
+                MaximumEggCost = 15,
+                EggTolerance = 2,
+                MinimumCharmCost = 1,
+                MaximumCharmCost = 20,
+                CharmTolerance = 2,
             };
             Less = new CostSettings
             {
@@ -33,6 +39,12 @@ namespace RandomizerMod.Settings.Presets
                 EssenceTolerance = 150,
                 MinimumEssenceCost = 1,
                 MaximumEssenceCost = 600,
+                MinimumEggCost = 1,
+                MaximumEggCost = 10,
+                EggTolerance = 2,
+                MinimumCharmCost = 1,
+                MaximumCharmCost = 10,
+                CharmTolerance = 2,
             };
             More = new CostSettings
             {
@@ -42,8 +54,13 @@ namespace RandomizerMod.Settings.Presets
                 EssenceTolerance = 200,
                 MinimumEssenceCost = 1,
                 MaximumEssenceCost = 1800,
+                MinimumEggCost = 1,
+                MaximumEggCost = 20,
+                EggTolerance = 2,
+                MinimumCharmCost = 1,
+                MaximumCharmCost = 38,
+                CharmTolerance = 2,
             };
-
             Expert = new CostSettings
             {
                 GrubTolerance = 0,
@@ -52,6 +69,12 @@ namespace RandomizerMod.Settings.Presets
                 EssenceTolerance = 20,
                 MinimumEssenceCost = 1,
                 MaximumEssenceCost = 1800,
+                MinimumEggCost = 5,
+                MaximumEggCost = 15,
+                EggTolerance = 0,
+                MinimumCharmCost = 5,
+                MaximumCharmCost = 40,
+                CharmTolerance = 0,
             };
 
             CostPresets = new Dictionary<string, CostSettings>

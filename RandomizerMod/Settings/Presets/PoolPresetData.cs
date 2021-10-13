@@ -41,6 +41,8 @@ namespace RandomizerMod.Settings.Presets
                 BossEssence = false,
                 BossGeo = false,
                 LoreTablets = false,
+                JournalEntries = false,
+                JunkPitChests = false,
             };
 
             Super = new PoolSettings
@@ -67,6 +69,8 @@ namespace RandomizerMod.Settings.Presets
                 BossEssence = false,
                 BossGeo = false,
                 LoreTablets = false,
+                JournalEntries = false,
+                JunkPitChests = false,
             };
 
             LifeTotems = new PoolSettings
@@ -93,6 +97,8 @@ namespace RandomizerMod.Settings.Presets
                 BossEssence = false,
                 BossGeo = false,
                 LoreTablets = false,
+                JournalEntries = false,
+                JunkPitChests = false,
             };
 
             SpoilerDAB = new PoolSettings
@@ -119,6 +125,8 @@ namespace RandomizerMod.Settings.Presets
                 BossEssence = false,
                 BossGeo = false,
                 LoreTablets = false,
+                JournalEntries = false,
+                JunkPitChests = false,
             };
 
             Everything = new PoolSettings
@@ -145,6 +153,8 @@ namespace RandomizerMod.Settings.Presets
                 BossEssence = true,
                 BossGeo = true,
                 LoreTablets = true,
+                JournalEntries = true,
+                JunkPitChests = true,
             };
 
             Vanilla = new PoolSettings
@@ -169,6 +179,10 @@ namespace RandomizerMod.Settings.Presets
                 GrimmkinFlames = false,
                 GeoRocks = false,
                 BossEssence = false,
+                BossGeo = false,
+                LoreTablets = false,
+                JournalEntries = false,
+                JunkPitChests = false,
             };
 
             PoolPresets = new Dictionary<string, PoolSettings>

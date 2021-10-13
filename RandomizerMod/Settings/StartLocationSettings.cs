@@ -9,7 +9,7 @@ namespace RandomizerMod.Settings
     [Serializable]
     public class StartLocationSettings : SettingsModule
     {
-        public enum RandomizeStartLocationType : byte
+        public enum RandomizeStartLocationType
         {
             Fixed,
             RandomExcludingKP,

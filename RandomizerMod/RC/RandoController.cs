@@ -42,10 +42,10 @@ namespace RandomizerMod.RC
 
             if (gs.TransitionSettings.Mode == TransitionSettings.TransitionMode.None)
             {
-                WrappedSettings ws = new(gs);
+                WrappedSettings ws = new(gs, ctx);
                 ItemRandomizer r = new(ws, ctx, rm);
                 r.Run();
-                ws.Finalize(r.rng, ctx);
+                ws.Finalize(r.rng);
                 args = new()
                 {
                     ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
@@ -60,10 +60,10 @@ namespace RandomizerMod.RC
             }
             else
             {
-                WrappedSettings ws = new(gs);
+                WrappedSettings ws = new(gs, ctx);
                 TransitionRandomizer r = new(ws, ctx, rm);
                 r.Run();
-                ws.Finalize(r.rng, ctx);
+                ws.Finalize(r.rng);
                 args = new()
                 {
                     ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export

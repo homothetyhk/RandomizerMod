@@ -17,11 +17,12 @@ namespace RandomizerMod.RC
     // some settings are implemented through RandoController instead
     public class WrappedSettings : IRandomizerSettings, IItemRandomizerSettings, ITransitionRandomizerSettings
     {
-        public WrappedSettings(GenerationSettings gs)
+        public WrappedSettings(GenerationSettings gs, RandoContext ctx)
         {
             if (!RCData.Loaded) RCData.Load();
 
             this.gs = gs;
+            this.ctx = ctx;
             LM = RCData.GetLM(gs.TransitionSettings.GetLogicMode());
         }
 
@@ -30,17 +31,17 @@ namespace RandomizerMod.RC
 
         void IRandomizerSettings.Initialize(Random rng)
         {
+            GetStartItems(rng);
             SetRandomizedItems(rng);
             SetRandomizedLocations(rng);
             int diff = items.Count - locations.Count;
             if (diff > 0) PadLocations(rng, locations, diff);
             else if (diff < 0) PadItems(rng, items, -diff);
-
-            SetLocationCosts(rng);
         }
 
 
         readonly GenerationSettings gs;
+        readonly RandoContext ctx;
 
         public LogicManager LM { get; }
 
@@ -68,6 +69,23 @@ namespace RandomizerMod.RC
             pm.Set(LM.GetTerm("NOTCHES").Id, 1);
         }
 
+        void GetStartItems(Random rng)
+        {
+            ctx.itemPlacements ??= new();
+
+            void PlaceAtStart(RandoItem item)
+            {
+                ctx.itemPlacements.Add(new(item, new() { logic = LM.GetLogicDef("Start") }));
+            }
+
+            if (gs.StartItemSettings.MaximumStartGeo > 0)
+            {
+                PlaceAtStart(new CustomGeoItem(LM, rng.Next(gs.StartItemSettings.MinimumStartGeo, gs.StartItemSettings.MaximumStartGeo + 1)));
+            }
+
+            // TODO: add remaining start items, and remove corresponding randomized items
+        }
+
         void SetRandomizedItems(Random rng)
         {
             items = new();
@@ -77,6 +95,12 @@ namespace RandomizerMod.RC
                 {
                     items.AddRange(pool.includeItems.Select(i => new RandoItem { item = LM.GetItem(i) }));
                 }
+            }
+
+            if (gs.PoolSettings.GrimmkinFlames && gs.PoolSettings.Charms)
+            {
+                int grimmchildCount = items.RemoveAll(i => i.Name == "Grimmchild2");
+                for (int i = 0; i < grimmchildCount; i++) items.Add(new RandoItem { item = LM.GetItem("Grimmchild1") });
             }
 
             HashSet<string> removeItems = new();
@@ -234,13 +258,19 @@ namespace RandomizerMod.RC
 
         List<RandoItem> IItemRandomizerSettings.GetRandomizedItems() => items ?? throw new InvalidOperationException("Randomized items were not initialized.");
 
-        List<RandoLocation> multiLocationPrefabs;
+        List<string> multiNames;
 
-        private RandoLocation GetLocation(string name)
+        private RandoLocation GetLocation(string name, Random rng)
         {
+            string lookupName = name switch
+            {
+                "Salubra_(Requires_Charms)" => "Salubra",
+                _ => name
+            };
+
             RandoLocation rl = new()
             {
-                logic = LM.GetLogicDef(name) ?? throw new ArgumentException($"No logic found for location {name}!")
+                logic = LM.GetLogicDef(lookupName) ?? throw new ArgumentException($"No logic found for location {lookupName}!")
             };
 
             if (Data.TryGetCost(name, out CostDef def))
@@ -261,84 +291,63 @@ namespace RandomizerMod.RC
                 }
             }
 
-            return rl;
-        }
+            switch (name)
+            {
+                case "Grubfather":
+                    rl.AddCost(new SimpleCost(LM.GetTerm("GRUBS"), rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
+                    break;
+                case "Seer":
+                    rl.AddCost(new SimpleCost(LM.GetTerm("ESSENCE"), rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
+                    break;
+                case "Egg_Shop":
+                    rl.AddCost(new SimpleCost(LM.GetTerm("RANCIDEGGS"), rng.Next(gs.CostSettings.MinimumEggCost, gs.CostSettings.MaximumEggCost + 1)));
+                    break;
+                case "Salubra_(Requires_Charms)":
+                    rl.AddCost(new SimpleCost(LM.GetTerm("CHARMS"), rng.Next(gs.CostSettings.MinimumCharmCost, gs.CostSettings.MaximumCharmCost + 1)));
+                    goto case "Salubra";
+                case "Sly":
+                case "Sly_(Key)":
+                case "Iselda":
+                case "Salubra":
+                case "Leg_Eater":
+                    rl.AddCost(new LogicGeoCost(LM, -1));
+                    break;
+            }
 
-        private RandoLocation Clone(RandoLocation rl)
-        {
-            return new RandoLocation { logic = rl.logic, costs = rl.costs };
+            return rl;
         }
 
         void SetRandomizedLocations(Random rng)
         {
-            locations = new();
+            List<string> locationNames = new();
 
             foreach (var pool in Data.Pools)
             {
                 if (pool.IsIncluded(gs))
                 {
-                    locations.AddRange(pool.includeLocations.Select(l => GetLocation(l)));
+                    locationNames.AddRange(pool.includeLocations);
                 }
             }
-
-            if (gs.NoveltySettings.SplitClaw) locations.RemoveAll(l => l.Name == "Mantis_Claw");
-            
+            if (gs.NoveltySettings.SplitClaw) locationNames.RemoveAll(l => l == "Mantis_Claw");
             if (gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludeWhitePalace)
             {
-                locations.RemoveAll(l => (Data.GetLocationDef(l.Name).areaName == "White_Palace" || Data.GetLocationDef(l.Name).areaName == "Path_of_Pain") && l.Name != "King_Fragment");
+                locationNames.RemoveAll(l => (Data.GetLocationDef(l).areaName == "White_Palace" || Data.GetLocationDef(l).areaName == "Path_of_Pain") && l != "King_Fragment");
             }
             else if (gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludePathOfPain)
             {
-                locations.RemoveAll(l => Data.GetLocationDef(l.Name).areaName == "Path_of_Pain" && l.Name != "King_Fragment");
+                locationNames.RemoveAll(l => Data.GetLocationDef(l).areaName == "Path_of_Pain" && l != "King_Fragment");
             }
 
-            // TODO: Boss Essence settings
+            multiNames = locationNames.Where(l => Data.GetLocationDef(l).multi).Distinct().ToList();
+            int multiCount = locationNames.RemoveAll(l => Data.GetLocationDef(l).multi);
 
-            multiLocationPrefabs = locations.Where(l => Data.GetLocationDef(l.Name).multi).GroupBy(l => l.Name).Select(g => g.First()).ToList();
-            HashSet<string> multiNames = new HashSet<string>(multiLocationPrefabs.Select(l => l.Name));
-            int multiCount = locations.RemoveAll(l => multiNames.Contains(l.Name));
-
-            foreach (RandoLocation prefab in multiLocationPrefabs)
+            locationNames.AddRange(multiNames);
+            for (int i = multiNames.Count; i < multiCount; i++)
             {
-                locations.Add(prefab);
-                multiCount--;
+                locationNames.Add(rng.Next(multiNames));
             }
 
-            for (int i = 0; i < multiCount; i++)
-            {
-                RandoLocation prefab = rng.Next(multiLocationPrefabs);
-                locations.Add(Clone(prefab));
-            }
-        }
-
-        void SetLocationCosts(Random rng)
-        {
-            foreach (var loc in locations)
-            {
-                switch (loc.Name)
-                {
-                    case "Grubfather":
-                        loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM.GetTerm("GRUBS"), rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
-                        break;
-                    case "Seer":
-                        loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM.GetTerm("ESSENCE"), rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
-                        break;
-                    case "Egg_Shop":
-                        loc.costs?.Clear();
-                        loc.AddCost(new SimpleCost(LM.GetTerm("RANCIDEGGS"), rng.Next(1, 15)));
-                        break;
-                    case "Sly":
-                    case "Sly_(Key)":
-                    case "Iselda":
-                    case "Salubra":
-                    case "Leg_Eater":
-                        loc.costs?.Clear();
-                        loc.AddCost(new LogicGeoCost(LM, -1));
-                        break;
-                }
-            }
+            locations = locationNames.Select(l => GetLocation(l, rng)).ToList();
         }
 
         private int GetShopCost(Random rng, string itemName, bool required)
@@ -351,13 +360,13 @@ namespace RandomizerMod.RC
             return rng.PowerLaw(pow, 100, cap).ClampToMultipleOf(5);
         }
 
-        public void Finalize(Random rng, RandoContext ctx)
+        public void Finalize(Random rng)
         {
-            UnwrapPlaceholders(ctx);
-            FinalizeLocationCosts(rng, ctx);
+            UnwrapPlaceholders();
+            FinalizeLocationCosts(rng);
         }
 
-        private void FinalizeLocationCosts(Random rng, RandoContext ctx)
+        private void FinalizeLocationCosts(Random rng)
         {
             int nonrequiredCount = spheredPlacements[spheredPlacements.Count - 1].Item2.Count;
             int threshold = ctx.itemPlacements.Count - nonrequiredCount;
@@ -374,7 +383,7 @@ namespace RandomizerMod.RC
             }
         }
 
-        private void UnwrapPlaceholders(RandoContext ctx)
+        private void UnwrapPlaceholders()
         {
             for (int i = 0; i < ctx.itemPlacements.Count; i++)
             {
@@ -388,23 +397,7 @@ namespace RandomizerMod.RC
 
         private void PadLocations(Random rng, List<RandoLocation> locations, int count)
         {
-            var lookup = locations.ToLookup(l => Data.GetLocationDef(l.Name).multi);
-            locations.Clear();
-            locations.AddRange(lookup[false]);
-
-            var multi = lookup[true].GroupBy(l => l.Name).Select(g => new { count = g.Count(), prefab = g.First() }).ToArray();
-            foreach (var q in multi)
-            {
-                locations.Add(q.prefab);
-            }
-
-            count += multi.Sum(q => q.count - 1);
-
-            for (int i = 0; i < count; i++)
-            {
-                RandoLocation prefab = rng.Next(multi).prefab;
-                locations.Add(Clone(prefab));
-            }
+            for (int i = 0; i < count; i++) locations.Add(GetLocation(rng.Next(multiNames), rng));
         }
 
         List<RandoLocation> IItemRandomizerSettings.GetRandomizedLocations() => locations ?? throw new InvalidOperationException("Randomized locations were not initialized.");
@@ -421,14 +414,22 @@ namespace RandomizerMod.RC
             };
         }
 
-        List<ItemPlacement> IRandomizerSettings.GetVanillaPlacements()
+        public List<ItemPlacement> GetVanillaPlacements()
         {
             List<ItemPlacement> placements = new();
             foreach (PoolDef pool in Data.Pools)
             {
                 if (pool.IsVanilla(gs))
                 {
-                    placements.AddRange(pool.vanilla.Select(p => new ItemPlacement(new RandoItem { item = LM.GetItem(p.item) }, new RandoLocation { logic = LM.GetLogicDef(p.location) })));
+                    switch (pool.name)
+                    {
+                        case "Flame" when gs.PoolSettings.Charms:
+                            placements.AddRange(pool.vanilla.Skip(6).Select(p => new ItemPlacement(new RandoItem { item = LM.GetItem(p.item) }, new RandoLocation { logic = LM.GetLogicDef(p.location) })));
+                            break;
+                        default:
+                            placements.AddRange(pool.vanilla.Select(p => new ItemPlacement(new RandoItem { item = LM.GetItem(p.item) }, new RandoLocation { logic = LM.GetLogicDef(p.location) })));
+                            break;
+                    }
                 }
             }
             return placements;

@@ -29,6 +29,12 @@
     "areaName": "UNKNOWN",
     "multi": true
   },
+  "Salubra_(Requires_Charms)": {
+    "name": "Salubra_(Requires_Charms)",
+    "sceneName": "Room_Charm_Shop",
+    "areaName": "UNKNOWN",
+    "multi": true
+  },
   "Leg_Eater": {
     "name": "Leg_Eater",
     "sceneName": "Fungus2_26",
@@ -585,6 +591,36 @@
     "name": "Geo_Chest-Weavers_Den",
     "sceneName": "Deepnest_45_v02",
     "areaName": "Weavers_Den",
+    "multi": false
+  },
+  "Geo_Chest-Junk_Pit_1": {
+    "name": "Geo_Chest-Junk_Pit_1",
+    "sceneName": "GG_Waterways",
+    "areaName": "Junk_Pit",
+    "multi": false
+  },
+  "Geo_Chest-Junk_Pit_2": {
+    "name": "Geo_Chest-Junk_Pit_1",
+    "sceneName": "GG_Waterways",
+    "areaName": "Junk_Pit",
+    "multi": false
+  },
+  "Geo_Chest-Junk_Pit_3": {
+    "name": "Geo_Chest-Junk_Pit_1",
+    "sceneName": "GG_Waterways",
+    "areaName": "Junk_Pit",
+    "multi": false
+  },
+  "Geo_Chest-Junk_Pit_5": {
+    "name": "Geo_Chest-Junk_Pit_1",
+    "sceneName": "GG_Waterways",
+    "areaName": "Junk_Pit",
+    "multi": false
+  },
+  "Lumafly_Escape-Junk_Pit_Chest_4": {
+    "name": "Lumafly_Escape-Junk_Pit_Chest_4",
+    "sceneName": "GG_Waterways",
+    "areaName": "Junk_Pit",
     "multi": false
   },
   "Rancid_Egg-Sheo": {

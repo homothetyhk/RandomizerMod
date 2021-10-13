@@ -31,7 +31,7 @@ namespace RandomizerMod.Settings
             }
             else if (field.FieldType.IsEnum)
             {
-                this.minValue = Enum.GetValues(field.FieldType).Cast<int>().Min();
+                this.minValue = Enum.GetValues(field.FieldType).Cast<object>().Min(e => (int)e);
             }
             else this.minValue = int.MinValue;
 

@@ -11,7 +11,7 @@ namespace RandomizerMod.Settings
         public int MinimumStartGeo;
         public int MaximumStartGeo;
 
-        public enum StartVerticalType : byte
+        public enum StartVerticalType
         {
             None,
             ZeroOrMore,
@@ -22,7 +22,7 @@ namespace RandomizerMod.Settings
         }
         public StartVerticalType VerticalMovement;
 
-        public enum StartHorizontalType : byte
+        public enum StartHorizontalType
         {
             None,
             ZeroOrMore,
@@ -33,7 +33,7 @@ namespace RandomizerMod.Settings
         }
         public StartHorizontalType HorizontalMovement;
 
-        public enum StartCharmType : byte
+        public enum StartCharmType
         {
             None,
             ZeroOrMore,
@@ -41,7 +41,7 @@ namespace RandomizerMod.Settings
         }
         public StartCharmType Charms;
 
-        public enum StartStagType : byte
+        public enum StartStagType
         {
             None,
             DirtmouthStag,
@@ -52,7 +52,7 @@ namespace RandomizerMod.Settings
         }
         public StartStagType Stags;
 
-        public enum StartMiscItems : byte
+        public enum StartMiscItems
         {
             None,
             ZeroOrMore,

@@ -163,6 +163,10 @@
     "term": "GEO",
     "amount": 300
   },
+  "Elevator_Pass": {
+    "term": "GEO",
+    "amount": 150
+  },
   "Lore_Tablet-Spore_Shroom": {
     "term": "Spore_Shroom",
     "amount": 1

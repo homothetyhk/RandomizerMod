@@ -8,6 +8,7 @@ using SD = ItemChanger.Util.SceneDataUtil;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
 using static RandomizerMod.LogHelper;
+using RandomizerCore;
 
 namespace RandomizerMod.IC
 {
@@ -96,7 +97,7 @@ namespace RandomizerMod.IC
                     }
                     else if (location.Name == "Seer")
                     {
-                        var chest = Finder.GetLocation(LocationNames.Awoken_Dream_Nail) as ItemChanger.Locations.ContainerLocation;
+                        var chest = Finder.GetLocation(LocationNames.Vessel_Fragment_Seer) as ItemChanger.Locations.ContainerLocation;
                         var tablet = Finder.GetLocation(LocationNames.Hallownest_Seal_Seer) as ItemChanger.Locations.PlaceableLocation;
                         if (chest == null || tablet == null)
                         {
@@ -126,7 +127,7 @@ namespace RandomizerMod.IC
                     export.Add(p.Name, p);
                 }
 
-                var i = Finder.GetItem(item.Name);
+                var i = GetItem(item);
                 if (i == null)
                 {
                     throw new ArgumentException($"Item {item.Name} did not correspond to any ItemChanger item!");
@@ -156,6 +157,21 @@ namespace RandomizerMod.IC
 
             ItemChangerMod.AddPlacements(export.Select(kvp => kvp.Value));
         }
+
+        private static AbstractItem GetItem(RandoItem item)
+        {
+            if (item is RC.CustomGeoItem geo)
+            {
+                return new ItemChanger.Items.AddGeoItem
+                {
+                    amount = geo.geo,
+                    name = item.Name,
+                    UIDef = null,
+                };
+            }
+            else return Finder.GetItem(item.Name);
+        }
+
 
         public static void ExportTransitionPlacements(IEnumerable<RandomizerCore.TransitionPlacement> ps)
         {

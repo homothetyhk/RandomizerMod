@@ -16,6 +16,8 @@ using static RandomizerMod.LogHelper;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
 using System.Reflection;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace RandomizerMod.Menu
 {
@@ -268,6 +270,20 @@ namespace RandomizerMod.Menu
 
         private void MakeMenuPages()
         {
+            /*
+            JsonSerializer js = new() { TypeNameHandling = TypeNameHandling.Auto, Formatting = Formatting.None };
+            using StringWriter sw = new();
+            js.Serialize(sw, Settings);
+            using MemoryStream readFrom = new(Encoding.UTF8.GetBytes(sw.ToString()));
+            using MemoryStream writeTo = new();
+            System.IO.Compression.GZipStream gz = new(writeTo, System.IO.Compression.CompressionLevel.Optimal);
+            readFrom.CopyTo(gz);
+            gz.Dispose();
+            string result = Convert.ToBase64String(writeTo.ToArray());
+            Log(result);
+            Log(result.Length);
+            */
+
             StartPage = new MenuPage("Randomizer Setting Select Page", ModePage);
             JumpPage = new MenuPage("Randomizer Jump To Advanced Settings Page", StartPage);
             AdvancedSettingsPage = new MenuPage("Randomizer Advanced Settings Page", JumpPage);

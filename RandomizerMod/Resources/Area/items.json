@@ -1181,6 +1181,28 @@
       "Term": "GRIMMCHILD",
       "Value": 1
     },
+    "Name": "Grimmchild1"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
+    "Effects": [
+      {
+        "Term": "GRIMMCHILD",
+        "Value": 1
+      },
+      {
+        "Term": "CHARMS",
+        "Value": 1
+      },
+      {
+        "Term": "FLAMES",
+        "Value": 6
+      }
+    ],
+    "Cap": {
+      "Term": "GRIMMCHILD",
+      "Value": 1
+    },
     "Name": "Grimmchild2"
   },
   {

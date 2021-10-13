@@ -839,6 +839,40 @@
     ]
   },
   {
+    "name": "SalubraNotch",
+    "path": "PoolSettings.CharmNotches",
+    "includeItems": [
+      "Charm_Notch",
+      "Charm_Notch",
+      "Charm_Notch",
+      "Charm_Notch"
+    ],
+    "includeLocations": [
+      "Salubra_(Requires_Charms)",
+      "Salubra_(Requires_Charms)",
+      "Salubra_(Requires_Charms)",
+      "Salubra_(Requires_Charms)"
+    ],
+    "vanilla": [
+      {
+        "item": "Charm_Notch",
+        "location": "Salubra"
+      },
+      {
+        "item": "Charm_Notch",
+        "location": "Salubra"
+      },
+      {
+        "item": "Charm_Notch",
+        "location": "Salubra"
+      },
+      {
+        "item": "Charm_Notch",
+        "location": "Salubra"
+      }
+    ]
+  },
+  {
     "name": "CursedNotch",
     "path": "CursedSettings.CursedNotches",
     "includeItems": [

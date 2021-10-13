@@ -43,6 +43,14 @@ namespace RandomizerMod.IC
                             fieldName = nameof(PlayerData.equippedCharm_17),
                             uiText = "Equip Spore Shroom",
                         };
+
+                    case "CHARMS":
+                        return new PDIntCost
+                        {
+                            amount = sc.threshold,
+                            fieldName = nameof(PlayerData.charmsOwned),
+                            uiText = $"Once you own {sc.threshold} charm{(sc.threshold != 1 ? "s" : "")}, I'll gladly sell it to you."
+                        };
                 }
             }
 

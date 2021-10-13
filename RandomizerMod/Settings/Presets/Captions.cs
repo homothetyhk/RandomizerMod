@@ -9,13 +9,12 @@ namespace RandomizerMod.Settings.Presets
     {
         public static string Caption(this CostSettings cs)
         {
-            return $"Grub reward location costs will be randomized between " +
-            $"{cs.MinimumGrubCost} and {cs.MaximumGrubCost}. The randomizer will guarantee " +
-            $"{cs.GrubTolerance} additional grub(s) are accessible before " +
-            $"any cost is expected in logic. " + $"Seer reward location costs will be randomized between " +
-            $"{cs.MinimumEssenceCost} and {cs.MaximumEssenceCost}. The randomizer will guarantee " +
-            $"{cs.EssenceTolerance} additional essence is accessible before " +
-            $"any cost is expected in logic.";
+            StringBuilder sb = new();
+            sb.AppendLine($"Grub costs may be randomized in [{cs.MinimumGrubCost}, {cs.MaximumGrubCost}] (tol:{cs.GrubTolerance})");
+            sb.AppendLine($"Essence costs may be randomized in [{cs.MinimumEssenceCost}, {cs.MaximumEssenceCost}] (tol:{cs.EssenceTolerance})");
+            sb.AppendLine($"Egg shop costs may be randomized in [{cs.MinimumEggCost}, {cs.MaximumEggCost}] (tol:{cs.EggTolerance})");
+            sb.AppendLine($"Salubra charm costs may be randomized in [{cs.MinimumCharmCost}, {cs.MaximumCharmCost}] (tol:{cs.CharmTolerance})");
+            return sb.ToString();
         }
 
         public static string Caption(this LongLocationSettings ll, GenerationSettings Settings)

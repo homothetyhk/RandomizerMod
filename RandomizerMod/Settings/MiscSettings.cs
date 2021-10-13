@@ -10,7 +10,7 @@ namespace RandomizerMod.Settings
     {
         public bool AddDuplicateItems;
 
-        public enum MaskShardType : byte
+        public enum MaskShardType
         {
             FourShardsPerMask,
             TwoShardsPerMask,
@@ -18,7 +18,7 @@ namespace RandomizerMod.Settings
         }
         public MaskShardType MaskShards;
 
-        public enum VesselFragmentType : byte
+        public enum VesselFragmentType
         {
             ThreeFragmentsPerVessel,
             TwoFragmentsPerVessel,

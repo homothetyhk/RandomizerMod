@@ -33,7 +33,7 @@ namespace RandomizerMod.Settings
         public void Setup(GenerationSettings gs, RandoContext ctx)
         {
             this.ctx = ctx;
-            ws = new(gs);
+            ws = new(gs, ctx);
             lm = RCData.GetLM(gs.TransitionSettings.GetLogicMode());
 
             pm = new(lm, ws, ctx);
