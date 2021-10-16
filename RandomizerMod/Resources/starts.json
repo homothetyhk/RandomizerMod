@@ -175,6 +175,17 @@
     "roomTransition": "Deepnest_East_09[right1]",
     "logic": "ANY"
   },
+  "Crystallized Mound": {
+    "name": "Crystallized Mound",
+    "sceneName": "Mines_35",
+    "x": 3.2,
+    "y": 48.4,
+    "zone": "MINES",
+    "waypoint": "Crystallized_Mound",
+    "areaTransition": "Mines_35[left1]",
+    "roomTransition": "Mines_35[left1]",
+    "logic": "ANY"
+  },
   "Mantis Village": {
     "name": "Mantis Village",
     "sceneName": "Fungus2_14",
