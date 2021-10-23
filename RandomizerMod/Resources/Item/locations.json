@@ -480,6 +480,10 @@
     "logic": "Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))"
   },
   {
+    "name": "Rancid_Egg-Tuk",
+    "logic": "((Upper_Left_Waterways + (RIGHTCLAW | RIGHTDASH | WINGS | MILDSKIPS)) | (Central_Left_Waterways + RIGHTCLAW)) + Defender's_Crest"
+  },
+  {
     "name": "Wanderer's_Journal-Cliffs",
     "logic": "Howling_Cliffs"
   },
@@ -1981,7 +1985,7 @@
   },
   {
     "name": "Geo_Rock-Waterways_Tuk",
-    "logic": "(Upper_Left_Waterways + (RIGHTCLAW | WINGS | MILDSKIPS)) | (Central_Left_Waterways + RIGHTCLAW)"
+    "logic": "(Upper_Left_Waterways + (RIGHTCLAW | RIGHTDASH | WINGS | MILDSKIPS)) | (Central_Left_Waterways + RIGHTCLAW)"
   },
   {
     "name": "Geo_Rock-Waterways_Tuk_Alcove",

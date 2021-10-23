@@ -731,6 +731,12 @@
     "areaName": "Royal_Waterways",
     "multi": false
   },
+  "Rancid_Egg-Tuk": {
+    "name": "Rancid_Egg-Tuk",
+    "sceneName": "Waterways_03",
+    "areaName": "Royal_Waterways",
+    "multi": false
+  },
   "Wanderer's_Journal-Cliffs": {
     "name": "Wanderer's_Journal-Cliffs",
     "sceneName": "Cliffs_01",

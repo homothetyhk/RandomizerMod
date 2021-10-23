@@ -279,8 +279,11 @@ namespace RandomizerMod.RC
                 {
                     case "ESSENCE":
                     case "GRUBS":
-                    case "SIMPLE": // Godtuner now has an inherent key cost
-                    case "Spore_Shroom": // spore shroom tablets now have an inherent spore shroom requirement
+                    case "SIMPLE":
+                        rl.AddCost(new SimpleCost(LM.GetTerm("SIMPLE"), 1));
+                        break;
+                    case "Spore_Shroom":
+                        rl.AddCost(new SimpleCost(LM.GetTerm("Spore_Shroom"), 1));
                         break;
                     case "GEO":
                         rl.AddCost(new LogicGeoCost(LM, def.amount));

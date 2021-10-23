@@ -134,7 +134,7 @@ namespace RandomizerMod.RC
             };
             RandomizerMod.RS.TrackerData.Setup(gs, ctx);
 
-            Export.BeginExport();
+            Export.BeginExport(gs);
             Export.ExportStart(gs);
             if (ctx.itemPlacements != null) Export.ExportItemPlacements(gs, ctx.itemPlacements);
             if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(ctx.transitionPlacements);

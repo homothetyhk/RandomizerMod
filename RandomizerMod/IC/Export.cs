@@ -14,12 +14,13 @@ namespace RandomizerMod.IC
 {
     public static class Export
     {
-        public static void BeginExport()
+        public static void BeginExport(GenerationSettings gs)
         {
             ItemChangerMod.CreateSettingsProfile(overwrite: true);
             ItemChangerMod.Modules.Add<RandomizerModule>();
             ItemChangerMod.Modules.Add<TrackerUpdate>();
             ItemChangerMod.Modules.Add<TrackerLog>();
+            if (gs.MiscSettings.RandomizeNotchCosts) ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
         }
 
 
@@ -118,10 +119,6 @@ namespace RandomizerMod.IC
                         throw new ArgumentException($"Location {location.Name} did not correspond to any ItemChanger location!");
                     }
 
-                    if (location.costs != null && p is ItemChanger.Placements.ISingleCostPlacement scp)
-                    {
-                        scp.Cost = CostConversion.Convert(location.costs); // we assume all items for the scp have the same cost, and only apply it once.
-                    }
                     if (p is ItemChanger.Placements.ShopPlacement sp) sp.defaultShopItems = defaultShopItems;
                     p.AddTag<RandoPlacementTag>();
                     export.Add(p.Name, p);
@@ -139,16 +136,7 @@ namespace RandomizerMod.IC
 
                 if (location.costs != null)
                 {
-                    if (p is ItemChanger.Placements.IMultiCostPlacement)
-                    {
-                        i.GetOrAddTag<CostTag>().Cost += CostConversion.Convert(location.costs);
-                    }
-                    else if (p is not ItemChanger.Placements.ISingleCostPlacement)
-                    {
-                        if (p.Name == "Dash_Slash") { }
-                        else if (p.Name.Contains("Map")) { }
-                        else throw new InvalidOperationException($"Attached cost {location.costs[0]} to placement {p.Name} which does not support costs!");
-                    }
+                    CostConversion.HandleCosts(location.costs, i, p);
                 }
 
                 i.AddTag<RandoItemTag>().id = j;
