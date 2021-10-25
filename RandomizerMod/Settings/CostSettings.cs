@@ -3,51 +3,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MenuChanger.Attributes;
 
 namespace RandomizerMod.Settings
 {
     public class CostSettings : SettingsModule
     {
-        [MinValue(0)]
-        [MaxValue(46)]
+        [DynamicBound(nameof(MaximumGrubCost), true)]
+        [MenuRange(0, 46)]
         public int MinimumGrubCost;
-        [MinValue(0)]
-        [MaxValue(46)]
-        public int MaximumGrubCost;
-        [MinValue(0)]
-        [MaxValue(46)]
-        public int GrubTolerance;
 
-        [MinValue(0)]
-        [MaxValue(2800)]
+        [TriggerValidation(nameof(GrubTolerance))]
+        [DynamicBound(nameof(MinimumGrubCost), false)]
+        [MenuRange(0, 46)]
+        public int MaximumGrubCost;
+
+        [DynamicBound(nameof(GrubToleranceUB), true)]
+        [MenuRange(0, 46)]
+        public int GrubTolerance;
+        private int GrubToleranceUB => 46 - MaximumGrubCost;
+
+
+        [DynamicBound(nameof(MaximumEssenceCost), true)]
+        [MenuRange(0, 2800)]
         public int MinimumEssenceCost;
-        [MinValue(0)]
-        [MaxValue(2800)]
+
+        [DynamicBound(nameof(MinimumEssenceCost), false)]
+        [MenuRange(0, 2800)]
         public int MaximumEssenceCost;
-        [MinValue(0)]
-        [MaxValue(250)]
+
+        [MenuRange(0, 250)]
         public int EssenceTolerance;
 
-        [MinValue(0)]
-        [MaxValue(20)]
+
+        [DynamicBound(nameof(MaximumEggCost), true)]
+        [MenuRange(0, 21)]
         public int MinimumEggCost;
-        [MinValue(0)]
-        [MaxValue(20)]
+        
+        [TriggerValidation(nameof(EggTolerance))]
+        [DynamicBound(nameof(MinimumEggCost), false)]
+        [MenuRange(0, 21)]
         public int MaximumEggCost;
-        [MinValue(0)]
-        [MaxValue(20)]
+
+        [DynamicBound(nameof(EggToleranceUB), true)]
+        [MenuRange(0, 21)]
         public int EggTolerance;
+        private int EggToleranceUB => 21 - MaximumEggCost;
 
-        [MinValue(0)]
-        [MaxValue(40)]
+
+        [DynamicBound(nameof(MaximumCharmCost), true)]
+        [MenuRange(0, 40)]
         public int MinimumCharmCost;
-        [MinValue(0)]
-        [MaxValue(40)]
+        
+        [TriggerValidation(nameof(CharmTolerance))]
+        [DynamicBound(nameof(MinimumCharmCost), false)]
+        [MenuRange(0, 40)]
         public int MaximumCharmCost;
-        [MinValue(0)]
-        [MaxValue(40)]
+        
+        [DynamicBound(nameof(CharmToleranceUB), true)]
+        [MenuRange(0, 40)]
         public int CharmTolerance;
-
+        private int CharmToleranceUB => 40 - MaximumCharmCost;
 
 
         public override void Clamp(GenerationSettings gs)

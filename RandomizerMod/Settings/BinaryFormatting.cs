@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.IO;
+using MenuChanger.Attributes;
 
 namespace RandomizerMod.Settings
 {
@@ -25,25 +26,34 @@ namespace RandomizerMod.Settings
         public ConstrainedIntField(FieldInfo field)
         {
             this.field = field;
-            if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MinValueAttribute min)
+            
+            if (field.GetCustomAttribute<MenuRangeAttribute>() is var mr)
             {
-                this.minValue = min.Value;
+                this.minValue = (int)mr.min;
+                this.maxValue = (int)mr.max;
             }
-            else if (field.FieldType.IsEnum)
+            else
             {
-                this.minValue = Enum.GetValues(field.FieldType).Cast<object>().Min(e => (int)e);
-            }
-            else this.minValue = int.MinValue;
+                if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MinValueAttribute min)
+                {
+                    this.minValue = min.Value;
+                }
+                else if (field.FieldType.IsEnum)
+                {
+                    this.minValue = Enum.GetValues(field.FieldType).Cast<object>().Min(e => (int)e);
+                }
+                else this.minValue = int.MinValue;
 
-            if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MaxValueAttribute max)
-            {
-                this.maxValue = max.Value;
+                if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MaxValueAttribute max)
+                {
+                    this.maxValue = max.Value;
+                }
+                else if (field.FieldType.IsEnum)
+                {
+                    this.maxValue = Enum.GetValues(field.FieldType).Cast<int>().Max();
+                }
+                else this.maxValue = int.MaxValue;
             }
-            else if (field.FieldType.IsEnum)
-            {
-                this.maxValue = Enum.GetValues(field.FieldType).Cast<int>().Max();
-            }
-            else this.maxValue = int.MaxValue;
         }
 
         public readonly FieldInfo field;

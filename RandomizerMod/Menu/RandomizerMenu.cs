@@ -15,9 +15,6 @@ using RandomizerMod.Settings.Presets;
 using static RandomizerMod.LogHelper;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
-using System.Reflection;
-using Newtonsoft.Json;
-using System.IO;
 
 namespace RandomizerMod.Menu
 {
@@ -32,7 +29,6 @@ namespace RandomizerMod.Menu
 
         public override void OnEnterMainMenu(MenuPage modeMenu)
         {
-            Log("Building Randomizer Menu");
             menu = new RandomizerMenu(modeMenu);
         }
 
@@ -213,7 +209,6 @@ namespace RandomizerMod.Menu
 
         MenuPage GameSettingsPage;
         //MenuElementFactory<QoLSettings> gameSettingsMEF;
-        //MenuLabel preloadExplanationLabel;
 
         //GridItemPanel gameSettingsPanel;
         #endregion
@@ -251,39 +246,19 @@ namespace RandomizerMod.Menu
             StartDefs = Data.GetStartNames().Select(s => Data.GetStartDef(s)).ToArray();
 
             MakeMenuPages();
-            //Log("Made Randomizer menu pages");
             MakeMenuElements();
-            //Log("Made Randomizer menu elements");
             MakePanels();
-            //Log("Made Randomizer menu panels");
             AddEvents();
             AddMiniPMEvents();
-            //Log("Made Randomizer menu events");
             Arrange();
-            //Log("Arranged Randomizer menu");
 
             ResumeMenu.AddResumePage("Randomizer", ResumePage);
             SeedEntryField.InputValue = new System.Random().Next(0, 999999999);
             ApplySettingsToMenu(Settings);
-            //Log("Constructed Randomizer menu successfully");
         }
 
         private void MakeMenuPages()
         {
-            /*
-            JsonSerializer js = new() { TypeNameHandling = TypeNameHandling.Auto, Formatting = Formatting.None };
-            using StringWriter sw = new();
-            js.Serialize(sw, Settings);
-            using MemoryStream readFrom = new(Encoding.UTF8.GetBytes(sw.ToString()));
-            using MemoryStream writeTo = new();
-            System.IO.Compression.GZipStream gz = new(writeTo, System.IO.Compression.CompressionLevel.Optimal);
-            readFrom.CopyTo(gz);
-            gz.Dispose();
-            string result = Convert.ToBase64String(writeTo.ToArray());
-            Log(result);
-            Log(result.Length);
-            */
-
             StartPage = new MenuPage("Randomizer Setting Select Page", ModePage);
             JumpPage = new MenuPage("Randomizer Jump To Advanced Settings Page", StartPage);
             AdvancedSettingsPage = new MenuPage("Randomizer Advanced Settings Page", JumpPage);
@@ -304,9 +279,7 @@ namespace RandomizerMod.Menu
 
         private void MakeMenuElements()
         {
-            //Log("Mode Page? " + (ModePage != null));
             EntryButton = new BigButton(ModePage, SpriteManager.GetSprite("logo"), "Randomizer");
-            //Log("Made EntryButton");
             // Start Page
 
             JumpToJumpPageButton = new SmallButton(StartPage, "More Randomizer Settings");
@@ -467,12 +440,6 @@ namespace RandomizerMod.Menu
             StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), 50f, StartCornerButtons);
 
             /*
-            preloadExplanationLabel = new MenuLabel(GameSettingsPage,
-                "Disabling preloads allows the game to use less memory, and may help to prevent glitches such as " +
-                "infinite loads or invisible bosses. Changes to this setting apply to all files, " +
-                "but only take effect after restarting the game.",
-                MenuLabel.Style.Body);
-            preloadExplanationLabel.MoveTo(new Vector2(0, -200));
             gameSettingsPanel = new GridItemPanel(GameSettingsPage, new Vector2(0, 300), 2, 80, 550, gameSettingsMEF.Elements);
             */
 
@@ -511,49 +478,6 @@ namespace RandomizerMod.Menu
                     if (button is IMenuPreset preset) preset.Label?.SetVisibleByAlpha(self.CurrentSelection);
                 }
             };
-
-            // terrible interaction code
-            // TODO: move to MenuChanger and handle via attributes
-            costMEF.IntFields[nameof(CostSettings.MinimumGrubCost)].SetClamp(0, 46);
-            costMEF.IntFields[nameof(CostSettings.MaximumGrubCost)].SetClamp(0, 46);
-            costMEF.IntFields[nameof(CostSettings.GrubTolerance)].SetClamp(-46, 46);
-            costMEF.IntFields[nameof(CostSettings.MinimumGrubCost)].Modify +=
-                (s) => Math.Min(s, Settings.CostSettings.MaximumGrubCost);
-            costMEF.IntFields[nameof(CostSettings.MaximumGrubCost)].Modify +=
-                (s) => Math.Max(s, Settings.CostSettings.MinimumGrubCost);
-            costMEF.IntFields[nameof(CostSettings.GrubTolerance)].Modify +=
-                (s) => Math.Min(s, 46 - Settings.CostSettings.MaximumGrubCost);
-            costMEF.IntFields[nameof(CostSettings.MaximumGrubCost)].Changed +=
-                (s) =>
-                {
-                    if (46 - Settings.CostSettings.GrubTolerance < s)
-                    {
-                        costMEF.IntFields[nameof(CostSettings.GrubTolerance)].InputValue = 46 - s;
-                    }
-                };
-
-            costMEF.IntFields[nameof(CostSettings.MinimumEssenceCost)].SetClamp(0, 3100);
-            costMEF.IntFields[nameof(CostSettings.MaximumEssenceCost)].SetClamp(0, 3100);
-            costMEF.IntFields[nameof(CostSettings.EssenceTolerance)].SetClamp(-3100, 3100);
-            costMEF.IntFields[nameof(CostSettings.MinimumEssenceCost)].Modify +=
-                (s) => Math.Min(s, Settings.CostSettings.MaximumEssenceCost);
-            costMEF.IntFields[nameof(CostSettings.MaximumEssenceCost)].Modify +=
-                (s) => Math.Max(s, Settings.CostSettings.MinimumEssenceCost);
-            costMEF.IntFields[nameof(CostSettings.EssenceTolerance)].Modify +=
-                (s) => Math.Min(s, 3100 - Settings.CostSettings.MaximumEssenceCost);
-            costMEF.IntFields[nameof(CostSettings.MaximumEssenceCost)].Changed +=
-                (s) =>
-                {
-                    if (3100 - Settings.CostSettings.EssenceTolerance < s)
-                    {
-                        costMEF.IntFields[nameof(CostSettings.EssenceTolerance)].InputValue = 3100 - s;
-                    }
-                };
-
-            startItemMEF.IntFields[nameof(StartItemSettings.MinimumStartGeo)].Modify +=
-                (s) => Math.Min(s, Settings.StartItemSettings.MinimumStartGeo);
-            startItemMEF.IntFields[nameof(StartItemSettings.MaximumStartGeo)].Modify +=
-                (s) => Math.Max(s, Settings.StartItemSettings.MaximumStartGeo);
 
             startLocationSwitch.Changed += Settings.StartLocationSettings.SetStartLocation;
             startLocationSwitch.Changed += (s) => UpdateStartLocationPreset();
@@ -734,7 +658,7 @@ namespace RandomizerMod.Menu
 
         Thread RandomizerThread;
         RandoController rc;
-        //Logic.Randomizer randomizer;
+        
         private void Randomize()
         {
             AttemptCounter.Set(0);
@@ -766,17 +690,6 @@ namespace RandomizerMod.Menu
                 {
                     rc = new(Settings, pm, rm);
                     rc.Run();
-                    /*
-                    SelectStart(new Random(Settings.Seed + 4));
-                    Logic.LogicManager lm = Data.GetLogicManager(LogicMode.Item);
-                    var items = Data.GetRandomizedItems(Settings, lm);
-                    var locations = Data.GetRandomizedLocations(Settings, lm);
-                    Data.PoolTest(Settings, lm);
-                    randomizer = new Logic.Randomizer(items, locations, lm, Settings);
-
-                    ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
-                    randomizer.Randomize(Settings.Seed);
-                    */
                     ThreadSupport.BeginInvoke(() =>
                     {
                         RandomizationTimer.Stop();
@@ -808,36 +721,6 @@ namespace RandomizerMod.Menu
                 }
             });
             RandomizerThread.Start();
-        }
-
-        private void SelectStart(Random rng)
-        {
-            List<string> startNames = new List<string>();
-            var type = Settings.StartLocationSettings.StartLocationType;
-            switch (type)
-            {
-                case StartLocationSettings.RandomizeStartLocationType.Fixed:
-                    string startName = Settings.StartLocationSettings.StartLocation;
-                    if (string.IsNullOrEmpty(startName))
-                    {
-                        throw new InvalidOperationException($"Null or empty start name {startName} selected with \"Fixed\" start location type.");
-                    }
-                    else if (!(Data.GetStartDef(startName) is StartDef def))
-                    {
-                        throw new InvalidOperationException($"Could not find StartDef corresponding to {startName}.");
-                    }
-                    else if (!pm.Evaluate(def.logic))
-                    {
-                        throw new InvalidOperationException($"Start {startName} failed logic validation.");
-                    }
-
-                    return;
-                default:
-                    startNames.AddRange(StartDefs.Where(s => pm.Evaluate(s.logic)).Select(s => s.name));
-                    break;
-            }
-            if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
-            Settings.StartLocationSettings.StartLocation = rng.Next(startNames);
         }
 
         private void StartRandomizerGame()
