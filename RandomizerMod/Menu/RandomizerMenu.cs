@@ -15,6 +15,7 @@ using RandomizerMod.Settings.Presets;
 using static RandomizerMod.LogHelper;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
+using MenuChanger.Extensions;
 
 namespace RandomizerMod.Menu
 {
@@ -265,8 +266,8 @@ namespace RandomizerMod.Menu
             ManageSettingsPage = new MenuPage("Randomizer Manage Settings Page", JumpPage);
             GameSettingsPage = new MenuPage("Randomizer Game Settings Page", StartPage);
             FinalPage = new MenuPage("Randomizer Final Page", StartPage);
-            FinalPage.backButton.transform.Find("Text").GetComponent<Text>().text = "Abort";
-            FinalPage.backButton.AddEvent(Abort);
+            FinalPage.backButton.Text.text = "Abort";
+            FinalPage.backButton.OnClick += Abort;
 
             ResumePage = new MenuPage("Randomizer Resume Page");
             new BigButton(ResumePage, "Resume").OnClick += () =>
@@ -382,72 +383,77 @@ namespace RandomizerMod.Menu
         private void MakePanels()
         {
             //StartVIP = new VerticalItemPanel(StartPage, new Vector2(-480, 450), 125f, PresetButtons);
-            StartGIP = new GridItemPanel(StartPage, new Vector2(0, 450), 2, 125, 960, PresetButtons);
+            StartGIP = new GridItemPanel(StartPage, new Vector2(0, 450), 2, 125, 960, true, PresetButtons);
 
             PoolSubpage = new Subpage(AdvancedSettingsPage, "Randomized Items");
-            poolGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 4, 50f, 400f, poolMEF.Elements);
+            poolGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 4, 50f, 400f, false, poolMEF.Elements);
             PoolSubpage.Add(poolGIP);
 
             SkipSubpage = new Subpage(AdvancedSettingsPage, "Required Skips");
-            skipVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, skipMEF.Elements);
+            skipVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, skipMEF.Elements);
             SkipSubpage.Add(skipVIP);
 
             NoveltySubpage = new Subpage(AdvancedSettingsPage, "Novelties");
-            novVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, novMEF.Elements.ToArray());
+            novVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, novMEF.Elements.ToArray());
             NoveltySubpage.Add(novVIP);
 
             CostSubpage = new Subpage(AdvancedSettingsPage, "Cost Randomization");
-            costGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 3, 200f, 400f, costMEF.Elements.ToArray());
+            costGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 3, 200f, 400f, false, costMEF.Elements.ToArray());
             CostSubpage.Add(costGIP);
 
             LongLocationSubpage = new Subpage(AdvancedSettingsPage, "Long Location Options");
-            longVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, longLocationMEF.Elements);
+            longVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, longLocationMEF.Elements);
             LongLocationSubpage.Add(longVIP);
 
             StartLocationSubpage = new Subpage(AdvancedSettingsPage, "Start Location");
             startLocationTypeSwitch.MoveTo(new Vector2(0, 300));
             StartLocationSubpage.Add(startLocationTypeSwitch);
-            startLocationGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, 50f, 600f, startLocationSwitch.Elements);
+            startLocationGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, 50f, 600f, false, startLocationSwitch.Elements);
             StartLocationSubpage.Add(startLocationGIP);
 
             StartItemSubpage = new Subpage(AdvancedSettingsPage, "Start Items");
-            startItemGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 150f, 800f, startItemMEF.Elements);
+            startItemGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 150f, 800f, false, startItemMEF.Elements);
             StartItemSubpage.Add(startItemGIP);
 
             MiscSubpage = new Subpage(AdvancedSettingsPage, "Miscellaneous");
-            miscVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, miscMEF.Elements);
+            miscVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, miscMEF.Elements);
             MiscSubpage.Add(miscVIP);
 
             CursedSubpage = new Subpage(AdvancedSettingsPage, "Curse Options");
-            cursedVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, cursedMEF.Elements);
+            cursedVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, cursedMEF.Elements);
             CursedSubpage.Add(cursedVIP);
 
             TransitionSubpage = new Subpage(AdvancedSettingsPage, "Transition Randomizer");
-            transitionPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, transitionMEF.Elements);
+            transitionPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, transitionMEF.Elements);
             TransitionSubpage.Add(transitionPanel);
 
             AdvancedSettingsViewer = new OrderedItemViewer(AdvancedSettingsPage, AdvancedSettingsSubpages);
 
             JumpButtons = AdvancedSettingsSubpages.Select(p =>
             {
-                SmallButton b = new SmallButton(JumpPage, p.TitleLabel.Text.text);
-                b.Button.AddHideAndShowEvent(JumpPage, AdvancedSettingsPage);
-                b.Button.AddEvent(() => AdvancedSettingsViewer.JumpTo(p));
+                SmallButton b = new(JumpPage, p.TitleLabel.Text.text);
+                b.OnClick += () =>
+                {
+                    JumpPage.TransitionTo(AdvancedSettingsPage);
+                    b.Button.ForceDeselect();
+                    AdvancedSettingsViewer.JumpTo(p);
+                    AdvancedSettingsPage.nav.SelectDefault();
+                };
                 return b;
             }).ToArray();
-            JumpPanel = new GridItemPanel(JumpPage, new Vector2(0, 300), 2, 60f, 800f, JumpButtons);
+            JumpPanel = new GridItemPanel(JumpPage, new Vector2(0, 300), 2, 60f, 800f, true, JumpButtons);
 
-            StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), 50f, StartCornerButtons);
+            StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), 50f, false, StartCornerButtons);
 
             /*
             gameSettingsPanel = new GridItemPanel(GameSettingsPage, new Vector2(0, 300), 2, 80, 550, gameSettingsMEF.Elements);
             */
 
-            CodeVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(-400, 300), 100, CodeElements);
-            ProfileVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(400, 300), 100, ProfileElements);
+            CodeVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(-400, 300), 100, true, CodeElements);
+            ProfileVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(400, 300), 100, true, ProfileElements);
 
-            generationInfoVIP = new VerticalItemPanel(FinalPage, new Vector2(-400, 300), 50, InfoElements);
-            HashVIP = new VerticalItemPanel(FinalPage, new Vector2(400, 300), 50, HashLabels);
+            generationInfoVIP = new VerticalItemPanel(FinalPage, new Vector2(-400, 300), 50, true, InfoElements);
+            HashVIP = new VerticalItemPanel(FinalPage, new Vector2(400, 300), 50, true, HashLabels);
             HashVIP.Hide();
         }
 
@@ -589,6 +595,27 @@ namespace RandomizerMod.Menu
             ToManageSettingsPageButton.MoveTo(new Vector2(400, -300));
 
             StartButton.MoveTo(new Vector2(0, -200));
+
+            // buttons not in panels need navigation
+            GenerateButton.SymSetNeighbor(Neighbor.Up, StartGIP);
+            GenerateButton.SymSetNeighbor(Neighbor.Right, RandomSeedButton);
+            GenerateButton.SymSetNeighbor(Neighbor.Left, StartCornerVIP);
+            GenerateButton.SymSetNeighbor(Neighbor.Down, StartPage.backButton);
+
+            RandomSeedButton.SymSetNeighbor(Neighbor.Up, SeedEntryField);
+            RandomSeedButton.SymSetNeighbor(Neighbor.Right, StartCornerVIP);
+
+            StartCornerVIP.SetNeighbor(Neighbor.Up, StartGIP);
+
+            StartPage.backButton.SetNeighbor(Neighbor.Right, RandomSeedButton);
+            StartPage.backButton.SetNeighbor(Neighbor.Left, StartCornerVIP);
+
+            DefaultSettingsButton.SymSetNeighbor(Neighbor.Up, JumpPanel);
+            ToManageSettingsPageButton.SetNeighbor(Neighbor.Up, JumpPanel);
+            DefaultSettingsButton.SymSetNeighbor(Neighbor.Down, JumpPage.backButton);
+            ToManageSettingsPageButton.SetNeighbor(Neighbor.Down, JumpPage.backButton);
+            DefaultSettingsButton.SymSetNeighbor(Neighbor.Left, ToManageSettingsPageButton);
+            DefaultSettingsButton.SymSetNeighbor(Neighbor.Right, ToManageSettingsPageButton);
         }
 
         private void UpdateStartLocationSwitch(StartLocationSettings.RandomizeStartLocationType type, string loc)
@@ -706,6 +733,8 @@ namespace RandomizerMod.Menu
                         HashVIP.Show();
 
                         StartButton.Show();
+                        FinalPage.backButton.SetNeighbor(Neighbor.Up, StartButton);
+                        StartButton.SetNeighbor(Neighbor.Down, FinalPage.backButton);
                     });
                 }
                 catch (Exception e)
@@ -749,6 +778,8 @@ namespace RandomizerMod.Menu
             OutputLabel.Hide();
             HashVIP.Hide();
             StartButton.Hide();
+            FinalPage.backButton.SetNeighbor(Neighbor.Up, null);
+            StartButton.SetNeighbor(Neighbor.Down, null);
         }
 
         private bool CanSelectStart(string name)
