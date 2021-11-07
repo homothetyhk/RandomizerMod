@@ -83,6 +83,11 @@ namespace RandomizerMod.RC
                 PlaceAtStart(new CustomGeoItem(LM, rng.Next(gs.StartItemSettings.MinimumStartGeo, gs.StartItemSettings.MaximumStartGeo + 1)));
             }
 
+            if (gs.NoveltySettings.RandomizeNail)
+            {
+                PlaceAtStart(new() { item = LM.GetItem("Downslash") });
+            }
+
             // TODO: add remaining start items, and remove corresponding randomized items
         }
 

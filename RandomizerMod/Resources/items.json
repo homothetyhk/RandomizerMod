@@ -1415,6 +1415,14 @@
     "itemCandidate": false,
     "majorItem": false
   },
+  "Downslash": {
+    "name": "Downslash",
+    "pool": "CursedNail",
+    "priceCap": 500,
+    "progression": true,
+    "itemCandidate": false,
+    "majorItem": false
+  },
   "Geo_Rock-Default": {
     "name": "Geo_Rock-Default",
     "pool": "Rock",

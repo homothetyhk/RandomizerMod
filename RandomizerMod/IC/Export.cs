@@ -35,6 +35,8 @@ namespace RandomizerMod.IC
                     X = def.x,
                     Y = def.y,
                     MapZone = (int)def.zone,
+                    SpecialEffects = SpecialStartEffects.Default | SpecialStartEffects.SlowSoulRefill, // TODO: identify which starts+modes don't need soul refill
+                    RespawnFacingRight = true, // TODO: are there any starts which should face left?
                 });
             }
 
@@ -64,10 +66,11 @@ namespace RandomizerMod.IC
             }
         }
 
-        public static void ExportItemPlacements(GenerationSettings gs, IReadOnlyList<RandomizerCore.ItemPlacement> randoPlacements)
+        public static void ExportItemPlacements(GenerationSettings gs, IReadOnlyList<ItemPlacement> randoPlacements)
         {
             DefaultShopItems defaultShopItems = GetDefaultShopItems(gs);
             Dictionary<string, AbstractPlacement> export = new();
+
             for(int j = 0; j < randoPlacements.Count; j++)
             {
                 var (item, location) = randoPlacements[j];

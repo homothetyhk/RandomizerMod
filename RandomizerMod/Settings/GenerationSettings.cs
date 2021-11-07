@@ -72,5 +72,9 @@ namespace RandomizerMod.Settings
             foreach (FieldInfo f in moduleFields) f.SetValue(gs, (f.GetValue(this) as SettingsModule).Clone());
             return gs;
         }
+
+        // fields for hard-coding the path of a logic setting
+        private const bool True = true;
+        private const bool False = false;
     }
 }

@@ -2339,6 +2339,20 @@
     "Name": "Upslash"
   },
   {
+    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
+    "Effects": [
+      {
+        "Term": "DOWNSLASH",
+        "Value": 1
+      }
+    ],
+    "Cap": {
+      "Term": "DOWNSLASH",
+      "Value": 1
+    },
+    "Name": "Downslash"
+  },
+  {
     "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
     "Effect": {
       "Term": "GEO",

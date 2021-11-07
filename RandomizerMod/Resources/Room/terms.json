@@ -130,5 +130,6 @@
   "Elevator_Pass",
   "LEFTSLASH",
   "RIGHTSLASH",
-  "UPSLASH"
+  "UPSLASH",
+  "DOWNSLASH"
 ]

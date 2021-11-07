@@ -12,6 +12,7 @@ using UnityEngine.SceneManagement;
 using UObject = UnityEngine.Object;
 using SD = ItemChanger.Util.SceneDataUtil;
 using Module = ItemChanger.Modules.Module;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.IC
 {
@@ -35,12 +36,7 @@ namespace RandomizerMod.IC
             {
                 amount = 100,
                 name = "100_Geo-" + args.Orig.name,
-                UIDef = new ItemChanger.UIDefs.MsgUIDef
-                {
-                    name = new BoxedString($"100 Geo ({args.Orig.UIDef.GetPostviewName()})"),
-                    shopDesc = new BoxedString(args.Orig.UIDef.GetShopDesc()),
-                    sprite = new BoxedSprite(args.Orig.UIDef.GetSprite())
-                }
+                UIDef = args.Orig.UIDef?.Clone(),
             };
         }
 

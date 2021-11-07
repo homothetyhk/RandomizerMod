@@ -23,7 +23,7 @@ namespace RandomizerMod.Settings
 
         public static void Cache(Type T)
         {
-            TypeSortedFields[T] = T.GetFields(BindingFlags.Public | BindingFlags.Instance)
+            TypeSortedFields[T] = T.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
                 .ToDictionary(f => f.Name, f => f);
         }
 

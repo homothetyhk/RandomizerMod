@@ -23,9 +23,10 @@ namespace RandomizerMod.Menu
     {
         private RandomizerMenu menu;
 
-        public override BigButton GetModeButton(MenuPage modeMenu)
+        public override bool TryGetModeButton(MenuPage modeMenu, out BigButton button)
         {
-            return menu.EntryButton;
+            button = menu.EntryButton;
+            return true;
         }
 
         public override void OnEnterMainMenu(MenuPage modeMenu)
