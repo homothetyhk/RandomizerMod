@@ -103,6 +103,31 @@ namespace RandomizerMod.Logging
             logRequests.Add(WriteLog);
         }
 
+        public static void Write(Action<TextWriter> a, string fileName)
+        {
+            void WriteLog()
+            {
+                try
+                {
+                    string userPath = Path.Combine(UserDirectory, fileName);
+                    Directory.CreateDirectory(Path.GetDirectoryName(userPath));
+                    using FileStream fs = File.OpenWrite(userPath);
+                    using StreamWriter sr = new(fs);
+                    a?.Invoke(sr);
+
+                    string recentPath = Path.Combine(RecentDirectory, fileName);
+                    Directory.CreateDirectory(Path.GetDirectoryName(recentPath));
+                    File.Copy(userPath, recentPath, true);
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error printing log request for {fileName}:\n{e}");
+                }
+            }
+
+            logRequests.Add(WriteLog);
+        }
+
         public static void Append(string contents, string fileName)
         {
             void AppendLog()

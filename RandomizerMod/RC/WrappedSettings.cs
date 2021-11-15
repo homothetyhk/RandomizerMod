@@ -23,7 +23,7 @@ namespace RandomizerMod.RC
 
             this.gs = gs;
             this.ctx = ctx;
-            LM = RCData.GetLM(gs.TransitionSettings.GetLogicMode());
+            LM = ctx.LM;
         }
 
         List<RandoItem> items;

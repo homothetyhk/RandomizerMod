@@ -39,10 +39,13 @@ namespace RandomizerMod.RC
 
             SelectStart();
             AssignNotchCosts();
+            ctx.LM = RCData.GetNewLogicManager(gs);
 
             if (gs.TransitionSettings.Mode == TransitionSettings.TransitionMode.None)
             {
                 WrappedSettings ws = new(gs, ctx);
+                ctx.Vanilla = ws.GetVanillaPlacements().Select(ip => (GeneralizedPlacement)ip).ToList();
+                ctx.InitialProgression = new RandomizerCore.LogicItems.EmptyItem("Initializer"); // TODO: use this to replace the IRandomizerSettings interface for initializing pm
                 ItemRandomizer r = new(ws, ctx, rm);
                 r.Run();
                 ws.Finalize(r.rng);
@@ -61,6 +64,8 @@ namespace RandomizerMod.RC
             else
             {
                 WrappedSettings ws = new(gs, ctx);
+                ctx.Vanilla = ws.GetVanillaPlacements().Select(ip => (GeneralizedPlacement)ip).ToList();
+                ctx.InitialProgression = new RandomizerCore.LogicItems.EmptyItem("Initializer");
                 TransitionRandomizer r = new(ws, ctx, rm);
                 r.Run();
                 ws.Finalize(r.rng);
@@ -82,7 +87,7 @@ namespace RandomizerMod.RC
         {
             using System.Security.Cryptography.SHA256Managed sHA256 = new();
             StringBuilder sb = new();
-            sb.Append(RandomizerData.JsonUtil.Serialize(gs));
+            sb.Append(JsonUtil.Serialize(gs));
 
             if (ctx.notchCosts != null) sb.Append(string.Join(";", ctx.notchCosts));
 
@@ -156,11 +161,12 @@ namespace RandomizerMod.RC
 
         private static void WriteRawSpoiler(GenerationSettings gs, RandoContext ctx)
         {
-            LogicManager lm = RCData.GetLM(gs.TransitionSettings.GetLogicMode());
-            JsonSerializer js = RandomizerCore.Json.JsonUtil.GetLogicSerializer(lm);
             using StringWriter sw = new();
-            js.Serialize(sw, ctx);
-            LogManager.Write(sw.ToString(), "RawSpoiler.json");
+            LogManager.Write((tw) =>
+            {
+                using JsonTextWriter jtr = new(tw);
+                JsonUtil._js.Serialize(jtr, ctx);
+            }, "RawSpoiler.json");
         }
 
         private void SelectStart()

@@ -747,6 +747,7 @@ namespace RandomizerMod.Menu
                         OutputLabel.Text.text = "Randomization terminated due to error:\n" + e;
                         OutputLabel.Text.alignment = TextAnchor.UpperLeft;
                         OutputLabel.Show();
+                        Log("Randomization terminated due to error:\n" + e);
                     });
                 }
             });

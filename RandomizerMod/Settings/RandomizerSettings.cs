@@ -8,6 +8,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RandomizerCore;
+using RandomizerCore.Json;
 using RandomizerCore.Logic;
 using RandomizerMod.RC;
 using static RandomizerMod.LogHelper;
@@ -33,15 +34,12 @@ namespace RandomizerMod.Settings
                     return;
                 }
 
-                var lm = RCData.GetLM(GenerationSettings.TransitionSettings.GetLogicMode());
-                var js = RandomizerCore.Json.JsonUtil.GetLogicSerializer(lm);
-
                 using FileStream fs = File.OpenRead(rawSpoilerPath);
                 using StreamReader sr = new(fs);
                 using JsonTextReader jtr = new(sr);
                 try
                 {
-                    Context = js.Deserialize<RandoContext>(jtr);
+                    Context = JsonUtil.Deserialize<RandoContext>(jtr);
                 }
                 catch (Exception e)
                 {

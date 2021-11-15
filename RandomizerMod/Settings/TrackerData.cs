@@ -34,7 +34,7 @@ namespace RandomizerMod.Settings
         {
             this.ctx = ctx;
             ws = new(gs, ctx);
-            lm = RCData.GetLM(gs.TransitionSettings.GetLogicMode());
+            lm = ctx.LM;
 
             pm = new(lm, ws, ctx);
             pm.Add(obtainedItems.Select(i => ctx.itemPlacements[i].item));

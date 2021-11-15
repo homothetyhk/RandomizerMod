@@ -1,29 +1,121 @@
-﻿using RandomizerCore;
+﻿using System;
+using System.IO;
+using Newtonsoft.Json;
+using RandomizerCore;
+using RandomizerCore.Json;
 using RandomizerCore.Logic;
+using RandomizerMod.Settings;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.RC
 {
     public static class RCData
     {
-        public static LogicManager ItemLM;
-        public static LogicManager AreaLM;
-        public static LogicManager RoomLM;
         public static bool Loaded = false;
+
+        private static LogicManagerBuilder _itemLMB;
+        private static LogicManagerBuilder _areaLMB;
+        private static LogicManagerBuilder _roomLMB;
+
+        private static readonly (LogicManagerBuilder.JsonType type, string fileName)[] files = new[]
+        {
+            (LogicManagerBuilder.JsonType.Terms, "terms"),
+            (LogicManagerBuilder.JsonType.Macros, "macros"),
+            (LogicManagerBuilder.JsonType.Waypoints, "waypoints"),
+            (LogicManagerBuilder.JsonType.Transitions, "transitions"),
+            (LogicManagerBuilder.JsonType.Locations, "locations"),
+            (LogicManagerBuilder.JsonType.Items, "items"),
+        };
 
         public static void Load()
         {
             if (Loaded) return;
             Loaded = true;
-            ItemLM = Loader.LoadFromAssembly(RandomizerMod.Assembly, "RandomizerMod.Resources.Item.");
-            AreaLM = Loader.LoadFromAssembly(RandomizerMod.Assembly, "RandomizerMod.Resources.Area.");
-            RoomLM = Loader.LoadFromAssembly(RandomizerMod.Assembly, "RandomizerMod.Resources.Room.");
+
+            _itemLMB = new();
+            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
+            {
+                _itemLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Item.{fileName}.json"));
+            }
+
+            _areaLMB = new();
+            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
+            {
+                _areaLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Area.{fileName}.json"));
+            }
+
+            _roomLMB = new();
+            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
+            {
+                _roomLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Room.{fileName}.json"));
+            }
         }
 
-        public static LogicManager GetLM(LogicMode mode) => mode switch
+        /// <summary>
+        /// Clones and returns the builder for the LogicManager of the requested mode.
+        /// </summary>
+        public static LogicManagerBuilder GetNewBuilder(LogicMode mode)
         {
-            LogicMode.Room => RoomLM,
-            LogicMode.Area => AreaLM,
-            _ => ItemLM,
-        };
+            if (!Loaded) Load();
+            return mode switch
+            {
+                LogicMode.Room => new(_roomLMB),
+                LogicMode.Area => new(_areaLMB),
+                _ => new(_itemLMB),
+            };
+        }
+
+        public static void ApplyLocalLogicChanges(LogicMode mode, LogicManagerBuilder lmb)
+        {
+            string filePath = Path.Combine(RandomizerMod.Folder, mode switch
+            {
+                LogicMode.Room => "roomLogic.json",
+                LogicMode.Area => "areaLogic.json",
+                _ => "itemLogic.json",
+            });
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    Log("No file found at " + filePath);
+                    return;
+                }
+
+                using FileStream fs = File.OpenRead(filePath);
+                lmb.DeserializeJson(LogicManagerBuilder.JsonType.Logic, fs);
+                Log("Deserialized " + filePath);
+                // TODO: ORIG token substitution
+            }
+            catch (Exception e)
+            {
+                Log("Error fetching local logic changes:\n" + e);
+            }
+        }
+
+        /// <summary>
+        /// Creates a new LogicManager for the requested mode, allowing edits from local files and runtime hooks.
+        /// </summary>
+        public static LogicManager GetNewLogicManager(GenerationSettings gs)
+        {
+            LogicMode mode = gs.TransitionSettings.GetLogicMode();
+            LogicManagerBuilder lmb = GetNewBuilder(mode);
+            ApplyLocalLogicChanges(mode, lmb);
+            foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberList())
+            {
+                try
+                {
+                    a?.Invoke(gs, lmb);
+                }
+                catch (Exception e)
+                {
+                    Log("Error invoking logic override event:\n" + e);
+                }
+            }
+            
+            return new(lmb);
+        }
+
+        public static readonly PriorityEvent<Action<GenerationSettings, LogicManagerBuilder>> RuntimeLogicOverride = new(out _runtimeLogicOverrideOwner);
+        private static readonly PriorityEvent<Action<GenerationSettings, LogicManagerBuilder>>.IPriorityEventOwner _runtimeLogicOverrideOwner;
     }
 }
