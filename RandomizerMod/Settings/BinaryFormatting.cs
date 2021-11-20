@@ -27,24 +27,24 @@ namespace RandomizerMod.Settings
         {
             this.field = field;
             
-            if (field.GetCustomAttribute<MenuRangeAttribute>() is var mr)
+            if (field.GetCustomAttribute<MenuRangeAttribute>() is MenuRangeAttribute mr)
             {
                 this.minValue = (int)mr.min;
                 this.maxValue = (int)mr.max;
             }
             else
             {
-                if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MinValueAttribute min)
+                if (field.GetCustomAttribute<MinValueAttribute>() is MinValueAttribute min)
                 {
                     this.minValue = min.Value;
                 }
                 else if (field.FieldType.IsEnum)
                 {
-                    this.minValue = Enum.GetValues(field.FieldType).Cast<object>().Min(e => (int)e);
+                    this.minValue = Enum.GetValues(field.FieldType).Cast<int>().Min();
                 }
                 else this.minValue = int.MinValue;
 
-                if (Attribute.GetCustomAttribute(field, typeof(MinValueAttribute)) is MaxValueAttribute max)
+                if (field.GetCustomAttribute<MaxValueAttribute>() is MaxValueAttribute max)
                 {
                     this.maxValue = max.Value;
                 }
@@ -65,10 +65,6 @@ namespace RandomizerMod.Settings
     {
         public const char CLASS_SEPARATOR = ';';
         public const char STRING_SEPARATOR = '`';
-
-
-        static readonly Dictionary<Type, (FieldInfo[] numerics, FieldInfo[] bools)> FieldCache =
-            new();
 
         public class ReflectionData
         {
@@ -134,10 +130,12 @@ namespace RandomizerMod.Settings
             }
 
             writer.Close();
-            StringBuilder sb = new StringBuilder(Convert.ToBase64String(stream.ToArray()));
+            StringBuilder sb = new(Convert.ToBase64String(stream.ToArray()));
             foreach (FieldInfo f in rd.stringFields)
             {
-                sb.Append($"{STRING_SEPARATOR}{(string)f.GetValue(o)}");
+                sb.Append($"{STRING_SEPARATOR}{Convert.ToBase64String(Encoding.ASCII.GetBytes((string)f.GetValue(o)))}");
+                // this is less compressed than just adding the string directly, but it avoids the risk of special characters in the string
+                // and critically, prevents people from memeing about the start location name being readable from the settings string.
             }
             return sb.ToString();
         }
@@ -197,7 +195,7 @@ namespace RandomizerMod.Settings
                 cap = Math.Min(rd.stringFields.Length, pieces.Length - 1);
                 for (int i = 0; i < cap; i++)
                 {
-                    rd.stringFields[i].SetValue(o, pieces[i + 1]);
+                    rd.stringFields[i].SetValue(o, Encoding.ASCII.GetString(Convert.FromBase64String(pieces[i + 1])));
                 }
             }
             catch (Exception e)
@@ -208,7 +206,7 @@ namespace RandomizerMod.Settings
 
         public static bool[] ConvertByteArrayToBoolArray(byte[] bytes)
         {
-            BitArray bits = new BitArray(bytes);
+            BitArray bits = new(bytes);
             bool[] bools = new bool[bits.Count];
             bits.CopyTo(bools, 0);
             return bools;
@@ -216,7 +214,7 @@ namespace RandomizerMod.Settings
 
         public static byte[] ConvertBoolArrayToByteArray(bool[] boolArr)
         {
-            BitArray bits = new BitArray(boolArr);
+            BitArray bits = new(boolArr);
             byte[] bytes = new byte[bits.Length / 8 + 1];
             if (bits.Length > 0)
             {

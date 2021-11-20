@@ -148,7 +148,7 @@
     "x": 61.6,
     "y": 3.4,
     "zone": "CITY",
-    "waypoint": "Left_Elevator",
+    "waypoint": "Upper_Storerooms",
     "areaTransition": "Ruins1_01[left1]",
     "roomTransition": "Ruins1_17[right1]",
     "logic": "ANY"
@@ -159,7 +159,7 @@
     "x": 20.9,
     "y": 136.3,
     "zone": "CITY",
-    "waypoint": "Right_Elevator",
+    "waypoint": "Upper_King's_Station",
     "areaTransition": "Ruins2_10b[right1]",
     "roomTransition": "Ruins2_10b[right1]",
     "logic": "ANY"
