@@ -166,7 +166,7 @@ namespace RandomizerMod.IC
 
         public static void ExportTransitionPlacements(IEnumerable<RandomizerCore.TransitionPlacement> ps)
         {
-            foreach (var p in ps) ItemChangerMod.AddTransitionOverride(new Transition(p.source.lt.sceneName, p.source.lt.gateName), new Transition(p.target.lt.sceneName, p.target.lt.gateName));
+            foreach (var p in ps) ItemChangerMod.AddTransitionOverride(new Transition(p.source.lt.data.SceneName, p.source.lt.data.GateName), new Transition(p.target.lt.data.SceneName, p.target.lt.data.GateName));
         }
 
         public static GrubfatherRewards GetRandomizedGrubRewards(GenerationSettings gs)

@@ -67,28 +67,35 @@ namespace RandomizerMod.RC
 
         public static void ApplyLocalLogicChanges(LogicMode mode, LogicManagerBuilder lmb)
         {
-            string filePath = Path.Combine(RandomizerMod.Folder, mode switch
+            string directory = Path.Combine(RandomizerMod.Folder, mode switch
             {
-                LogicMode.Room => "roomLogic.json",
-                LogicMode.Area => "areaLogic.json",
-                _ => "itemLogic.json",
+                LogicMode.Room => "Room",
+                LogicMode.Area => "Area",
+                _ => "Item",
             });
             try
             {
-                if (!File.Exists(filePath))
+                DirectoryInfo di = new(directory);
+                if (di.Exists)
                 {
-                    Log("No file found at " + filePath);
-                    return;
-                }
+                    foreach (FileInfo fi in di.EnumerateFiles())
+                    {
+                        if (!fi.Extension.ToLower().EndsWith("json")) continue;
 
-                using FileStream fs = File.OpenRead(filePath);
-                lmb.DeserializeJson(LogicManagerBuilder.JsonType.Logic, fs);
-                Log("Deserialized " + filePath);
-                // TODO: ORIG token substitution
+                        if (fi.Name.ToLower().StartsWith("macro"))
+                        {
+                            lmb.DeserializeJson(LogicManagerBuilder.JsonType.MacroEdit, fi.OpenRead());
+                        }
+                        else
+                        {
+                            lmb.DeserializeJson(LogicManagerBuilder.JsonType.LogicEdit, fi.OpenRead());
+                        }
+                    }
+                }
             }
             catch (Exception e)
             {
-                Log("Error fetching local logic changes:\n" + e);
+                LogError("Error fetching local logic changes:\n" + e);
             }
         }
 

@@ -8,7 +8,14 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>latest</LangVersion>
     <Deterministic>true</Deterministic>
+    <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
+  <ItemGroup>
+    <Using Remove="System.Net.Http"/>
+    <Using Remove="System.Threading"/>
+    <Using Remove="System.Threading.Tasks"/>
+    <Using Include="RandomizerMod.LogHelper" Static="true"/>
+  </ItemGroup>
   <ItemGroup>
     <None Remove="**\*.json" />
     <None Remove="**\*.xml" />
