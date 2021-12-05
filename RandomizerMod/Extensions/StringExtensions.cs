@@ -26,6 +26,7 @@ namespace RandomizerMod.Extensions
             }
         }
 
+        /*
         public static string FromCamelCase(this string str)
         {
             StringBuilder uiname = new StringBuilder(str);
@@ -56,6 +57,7 @@ namespace RandomizerMod.Extensions
 
             return uiname.ToString();
         }
+        */
 
         public static bool TryToEnum<T>(this string self, out T val) where T : Enum
         {

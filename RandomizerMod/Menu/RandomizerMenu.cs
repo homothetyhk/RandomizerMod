@@ -16,6 +16,7 @@ using static RandomizerMod.LogHelper;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
 using MenuChanger.Extensions;
+using RandomizerCore.Extensions;
 
 namespace RandomizerMod.Menu
 {
@@ -49,8 +50,9 @@ namespace RandomizerMod.Menu
 
         readonly MenuPage ModePage;
         MenuPage ResumePage;
-        MiniPM pm = new MiniPM();
-
+        readonly SettingsPM pm;
+        readonly Random rng = new();
+            
         #region Start
 
         MenuPage StartPage;
@@ -186,7 +188,9 @@ namespace RandomizerMod.Menu
 
         Subpage StartLocationSubpage;
         MenuItem<StartLocationSettings.RandomizeStartLocationType> startLocationTypeSwitch;
+        SmallButton randomFixedStartButton;
         RadioSwitch startLocationSwitch;
+        VerticalItemPanel startLocationVIP;
         GridItemPanel startLocationGIP;
 
         Subpage StartItemSubpage;
@@ -246,16 +250,16 @@ namespace RandomizerMod.Menu
             ModePage = modePage;
 
             StartDefs = Data.GetStartNames().Select(s => Data.GetStartDef(s)).ToArray();
+            pm = new(Settings);
 
             MakeMenuPages();
             MakeMenuElements();
             MakePanels();
             AddEvents();
-            AddMiniPMEvents();
             Arrange();
 
             ResumeMenu.AddResumePage("Randomizer", ResumePage);
-            SeedEntryField.InputValue = new System.Random().Next(0, 999999999);
+            SeedEntryField.InputValue = rng.Next(0, 999999999);
             ApplySettingsToMenu(Settings);
         }
 
@@ -306,6 +310,7 @@ namespace RandomizerMod.Menu
             startLocationTypeSwitch.Format += (_, p, c, r) => (p, c, r.FromCamelCase());
             startLocationTypeSwitch.Bind(Settings.StartLocationSettings,
                 typeof(StartLocationSettings).GetField(nameof(StartLocationSettings.StartLocationType)));
+            randomFixedStartButton = new SmallButton(AdvancedSettingsPage, "Random Fixed Start");
 
             startLocationSwitch = new RadioSwitch(AdvancedSettingsPage, StartDefs.Select(def => def.name).ToArray());
             startItemMEF = new MenuElementFactory<StartItemSettings>(AdvancedSettingsPage, Settings.StartItemSettings);
@@ -407,10 +412,9 @@ namespace RandomizerMod.Menu
             LongLocationSubpage.Add(longVIP);
 
             StartLocationSubpage = new Subpage(AdvancedSettingsPage, "Start Location");
-            startLocationTypeSwitch.MoveTo(new Vector2(0, 300));
-            StartLocationSubpage.Add(startLocationTypeSwitch);
             startLocationGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, 50f, 600f, false, startLocationSwitch.Elements);
-            StartLocationSubpage.Add(startLocationGIP);
+            startLocationVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, startLocationTypeSwitch, randomFixedStartButton, startLocationGIP);
+            StartLocationSubpage.Add(startLocationVIP);
 
             StartItemSubpage = new Subpage(AdvancedSettingsPage, "Start Items");
             startItemGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 150f, 800f, false, startItemMEF.Elements);
@@ -469,7 +473,7 @@ namespace RandomizerMod.Menu
 
             RandomSeedButton.Button.AddEvent(() =>
             {
-                SeedEntryField.InputValue = new System.Random().Next(0, 1000000000);
+                SeedEntryField.InputValue = rng.Next(0, 1000000000);
             });
 
             StartLocationPreset.Changed += (self) => UpdateStartLocationPreset();
@@ -486,10 +490,30 @@ namespace RandomizerMod.Menu
                 }
             };
 
+            skipMEF.BoolFields[nameof(SkipSettings.MildSkips)].Changed += UpdateStartLocation;
+            skipMEF.BoolFields[nameof(SkipSettings.MildSkips)].Changed += UpdateStartLocation;
+            skipMEF.BoolFields[nameof(SkipSettings.ShadeSkips)].Changed += UpdateStartLocation;
+            skipMEF.BoolFields[nameof(SkipSettings.AcidSkips)].Changed += UpdateStartLocation;
+            skipMEF.BoolFields[nameof(SkipSettings.FireballSkips)].Changed += UpdateStartLocation;
+            skipMEF.BoolFields[nameof(SkipSettings.SpikeTunnels)].Changed += UpdateStartLocation;
+            skipMEF.BoolFields[nameof(SkipSettings.DarkRooms)].Changed += UpdateStartLocation;
+            skipMEF.BoolFields[nameof(SkipSettings.SpicySkips)].Changed += UpdateStartLocation;
+
+            transitionMEF.EnumFields[nameof(TransitionSettings.Mode)].Changed += UpdateStartLocation;
+
+            novMEF.BoolFields[nameof(NoveltySettings.RandomizeSwim)].Changed += UpdateStartLocation;
+            novMEF.BoolFields[nameof(NoveltySettings.RandomizeElevatorPass)].Changed += UpdateStartLocation;
+            cursedMEF.BoolFields[nameof(CursedSettings.CursedMasks)].Changed += UpdateStartLocation;
+
             startLocationSwitch.Changed += Settings.StartLocationSettings.SetStartLocation;
             startLocationSwitch.Changed += (s) => UpdateStartLocationPreset();
             startLocationTypeSwitch.Changed += UpdateStartLocationSwitch;
-            UpdateStartLocationSwitch();
+            randomFixedStartButton.OnClick += () =>
+            {
+                startLocationTypeSwitch.SetSelection(StartLocationSettings.RandomizeStartLocationType.Fixed);
+                startLocationSwitch.ChangeSelection(rng.NextWhere(startLocationSwitch.Elements, e => !e.Locked));
+            };
+            UpdateStartLocation();
 
             ToManageSettingsPageButton.Button.AddHideAndShowEvent(JumpPage, ManageSettingsPage);
             DefaultSettingsButton.Button.AddEvent(() => ApplySettingsToMenu(new GenerationSettings())); // Proper defaults please!
@@ -560,30 +584,6 @@ namespace RandomizerMod.Menu
 
             StartButton.Button.AddSetResumeKeyEvent("Randomizer");
             StartButton.Button.AddEvent(StartRandomizerGame);
-        }
-
-        private void AddMiniPMEvents()
-        {
-            skipMEF.BoolFields[nameof(SkipSettings.MildSkips)].Changed += b => pm.SetBool("MILDSKIPS", b.CurrentSelection);
-            skipMEF.BoolFields[nameof(SkipSettings.ShadeSkips)].Changed += b => pm.SetBool("SHADESKIPS", b.CurrentSelection);
-            skipMEF.BoolFields[nameof(SkipSettings.AcidSkips)].Changed += b => pm.SetBool("ACIDSKIPS", b.CurrentSelection);
-            skipMEF.BoolFields[nameof(SkipSettings.FireballSkips)].Changed += b => pm.SetBool("FIREBALLSKIPS", b.CurrentSelection);
-            skipMEF.BoolFields[nameof(SkipSettings.SpikeTunnels)].Changed += b => pm.SetBool("SPIKETUNNELS", b.CurrentSelection);
-            skipMEF.BoolFields[nameof(SkipSettings.DarkRooms)].Changed += b => pm.SetBool("DARKROOMS", b.CurrentSelection);
-            skipMEF.BoolFields[nameof(SkipSettings.SpicySkips)].Changed += b => pm.SetBool("SPICYSKIPS", b.CurrentSelection);
-
-            transitionMEF.EnumFields[nameof(TransitionSettings.Mode)].Changed += b =>
-            {
-                pm.SetBool("ITEMRANDO", Equals(b.CurrentSelection, TransitionSettings.TransitionMode.None));
-                pm.SetBool("AREARANDO", Equals(b.CurrentSelection, TransitionSettings.TransitionMode.AreaRandomizer));
-                pm.SetBool("ROOMRANDO", Equals(b.CurrentSelection, TransitionSettings.TransitionMode.RoomRandomizer));
-            };
-
-            novMEF.BoolFields[nameof(NoveltySettings.RandomizeSwim)].Changed += b => pm.SetBool("SWIM", !b.CurrentSelection);
-            cursedMEF.BoolFields[nameof(CursedSettings.CursedMasks)].Changed += b => pm.SetBool("2MASKS", !b.CurrentSelection);
-
-            pm.SetBool("VERTICAL", false);
-            pm.Changed += UpdateStartLocationSwitch;
         }
 
         private void Arrange()
@@ -662,6 +662,17 @@ namespace RandomizerMod.Menu
                 StartLocationPreset.SetSelection("Custom");
             }
             StartLocationPreset.UpdateCaption();
+        }
+
+        private void UpdateStartLocation()
+        {
+            UpdateStartLocationSwitch();
+            UpdateStartLocationPreset();
+        }
+
+        private void UpdateStartLocation(object o)
+        {
+            UpdateStartLocation();
         }
 
         private void ApplySettingsToMenu(GenerationSettings settings)

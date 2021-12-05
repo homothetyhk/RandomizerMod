@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RandomizerCore;
+using RandomizerCore.Extensions;
 using RandomizerCore.Logic;
 using RandomizerCore.Randomizers;
 using RandomizerMod.Extensions;
@@ -21,15 +22,15 @@ namespace RandomizerMod.RC
         public readonly RandoContext ctx = new();
         public readonly GenerationSettings gs;
         public readonly RandoMonitor rm;
-        public readonly MiniPM mpm;
+        public readonly SettingsPM pm;
         public readonly Random rng;
         private LogArguments args;
 
-        public RandoController(GenerationSettings gs, MiniPM mpm, RandoMonitor rm)
+        public RandoController(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
         {
             this.gs = gs;
             this.rm = rm;
-            this.mpm = mpm;
+            this.pm = pm;
             rng = new Random(gs.Seed + 4);
         }
 
@@ -174,7 +175,7 @@ namespace RandomizerMod.RC
             var type = gs.StartLocationSettings.StartLocationType;
             if (type != StartLocationSettings.RandomizeStartLocationType.Fixed)
             {
-                List<string> startNames = new(Data.GetStartNames().Where(s => mpm.Evaluate(Data.GetStartDef(s).logic)));
+                List<string> startNames = new(Data.GetStartNames().Where(s => pm.Evaluate(Data.GetStartDef(s).logic)));
                 if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
                 gs.StartLocationSettings.StartLocation = rng.Next(startNames);
             }

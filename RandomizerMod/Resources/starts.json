@@ -140,7 +140,7 @@
     "waypoint": "Right_Blue_Lake",
     "areaTransition": "Crossroads_50[right1]",
     "roomTransition": "Crossroads_50[right1]",
-    "logic": "ANY"
+    "logic": "ITEMRANDO + (MILDSKIPS | ELEVATOR) | AREARANDO | ROOMRANDO"
   },
   "City Storerooms": {
     "name": "City Storerooms",
