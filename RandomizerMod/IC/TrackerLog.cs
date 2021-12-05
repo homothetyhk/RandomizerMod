@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using ItemChanger;
 using ItemChanger.Modules;
 using RandomizerCore;
@@ -11,7 +7,6 @@ using RandomizerCore.Randomizers;
 using RandomizerMod.Logging;
 using RandomizerMod.RC;
 using RandomizerMod.Settings;
-using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.IC
 {
@@ -75,7 +70,20 @@ namespace RandomizerMod.IC
         private string GetItemPreviewName(int id, string placement)
         {
             // very good and normal code to print item names
-            return ItemChanger.Internal.Ref.Settings.Placements[placement].Items.First(i => i.GetTag<RandoItemTag>()?.id == id).GetResolvedUIDef().GetPreviewName();
+            return ItemChanger.Internal.Ref.Settings.Placements[placement]
+                .Items
+                .First(i => i.GetTag<RandoItemTag>()?.id == id)
+                .GetResolvedUIDef()
+                .GetPreviewName();
+        }
+
+        private bool IsPersistent(int id)
+        {
+            return ItemChanger.Internal.Ref.Settings.Placements[TD.ctx.itemPlacements[id].location.Name]
+                .Items
+                .First(i => i.GetTag<RandoItemTag>()?.id == id)
+                .GetTags<ItemChanger.Tags.PersistentItemTag>()
+                .Any(t => t.Persistence != Persistence.Single);
         }
 
         private void SetUpLog()
@@ -136,8 +144,22 @@ namespace RandomizerMod.IC
                 sb.AppendLine("UNCHECKED REACHABLE TRANSITIONS");
                 foreach (string s in TD.uncheckedReachableTransitions)
                 {
-                    sb.Append(' ');
+                    sb.Append(' ', 2);
                     sb.AppendLine(s);
+                }
+                sb.AppendLine();
+            }
+
+            List<int> persistentItems = TD.obtainedItems.Where(i => IsPersistent(i)).ToList();
+            if (persistentItems.Count != 0)
+            {
+                sb.AppendLine("RESPAWNING ITEMS");
+                foreach (int i in persistentItems)
+                {
+                    sb.Append(' ', 2);
+                    sb.Append(TD.ctx.itemPlacements[i].location.Name);
+                    sb.Append(" - ");
+                    sb.AppendLine(GetItemPreviewName(i, TD.ctx.itemPlacements[i].location.Name));
                 }
                 sb.AppendLine();
             }

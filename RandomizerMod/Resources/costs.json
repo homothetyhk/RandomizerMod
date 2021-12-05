@@ -1,4 +1,16 @@
 {
+  "Lurien": {
+    "term": "DREAMNAIL",
+    "amount": 1
+  },
+  "Monomon": {
+    "term": "DREAMNAIL",
+    "amount": 1
+  },
+  "Herrah": {
+    "term": "DREAMNAIL",
+    "amount": 1
+  },
   "Dream_Gate": {
     "term": "ESSENCE",
     "amount": 900
@@ -6,6 +18,10 @@
   "Awoken_Dream_Nail": {
     "term": "ESSENCE",
     "amount": 1800
+  },
+  "Abyss_Shriek": {
+    "term": "SCREAM",
+    "amount": 1
   },
   "Dash_Slash": {
     "term": "GEO",
@@ -22,6 +38,10 @@
   "Grubberfly's_Elegy": {
     "term": "GRUBS",
     "amount": 46
+  },
+  "Void_Heart": {
+    "term": "DREAMNAIL",
+    "amount": 1
   },
   "Godtuner": {
     "term": "SIMPLE",

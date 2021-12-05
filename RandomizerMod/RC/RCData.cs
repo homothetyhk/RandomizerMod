@@ -78,18 +78,24 @@ namespace RandomizerMod.RC
                 DirectoryInfo di = new(directory);
                 if (di.Exists)
                 {
+                    List<FileInfo> macros = new();
+                    List<FileInfo> logic = new();
+
                     foreach (FileInfo fi in di.EnumerateFiles())
                     {
                         if (!fi.Extension.ToLower().EndsWith("json")) continue;
-
-                        if (fi.Name.ToLower().StartsWith("macro"))
-                        {
-                            lmb.DeserializeJson(LogicManagerBuilder.JsonType.MacroEdit, fi.OpenRead());
-                        }
-                        else
-                        {
-                            lmb.DeserializeJson(LogicManagerBuilder.JsonType.LogicEdit, fi.OpenRead());
-                        }
+                        else if (fi.Name.ToLower().StartsWith("macro")) macros.Add(fi);
+                        else logic.Add(fi);
+                    }
+                    foreach (FileInfo fi in macros)
+                    {
+                        using FileStream fs = fi.OpenRead();
+                        lmb.DeserializeJson(LogicManagerBuilder.JsonType.MacroEdit, fs);
+                    }
+                    foreach (FileInfo fi in logic)
+                    {
+                        using FileStream fs = fi.OpenRead();
+                        lmb.DeserializeJson(LogicManagerBuilder.JsonType.LogicEdit, fs);
                     }
                 }
             }

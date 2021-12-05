@@ -21,6 +21,7 @@ namespace RandomizerMod.IC
             ItemChangerMod.Modules.Add<TrackerUpdate>();
             ItemChangerMod.Modules.Add<TrackerLog>();
             if (gs.MiscSettings.RandomizeNotchCosts) ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
+            if (!gs.PoolSettings.GrimmkinFlames) ItemChangerMod.Modules.Get<ItemChanger.Modules.InventoryTracker>().TrackGrimmkinFlames = false;
         }
 
 
@@ -164,7 +165,7 @@ namespace RandomizerMod.IC
         }
 
 
-        public static void ExportTransitionPlacements(IEnumerable<RandomizerCore.TransitionPlacement> ps)
+        public static void ExportTransitionPlacements(IEnumerable<TransitionPlacement> ps)
         {
             foreach (var p in ps) ItemChangerMod.AddTransitionOverride(new Transition(p.source.lt.data.SceneName, p.source.lt.data.GateName), new Transition(p.target.lt.data.SceneName, p.target.lt.data.GateName));
         }

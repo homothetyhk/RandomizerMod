@@ -94,6 +94,12 @@ namespace RandomizerMod.IC
 
                     case "CHARMS":
                         return new PDIntCost(sc.threshold, nameof(PlayerData.charmsOwned), $"Once you own {sc.threshold} charm{(sc.threshold != 1 ? "s" : "")}, I'll gladly sell it to you.");
+
+                    case "DREAMNAIL":
+                        return new PDBoolCost(nameof(PlayerData.hasDreamNail), "Requires Dream Nail");
+
+                    case "SCREAM":
+                        return new PDIntCost(sc.threshold, nameof(PlayerData.screamLevel), "Requires Howling Wraiths");
                 }
             }
 
