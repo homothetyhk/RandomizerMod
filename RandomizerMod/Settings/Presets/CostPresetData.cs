@@ -55,7 +55,7 @@ namespace RandomizerMod.Settings.Presets
                 MinimumEssenceCost = 1,
                 MaximumEssenceCost = 1800,
                 MinimumEggCost = 1,
-                MaximumEggCost = 20,
+                MaximumEggCost = 19,
                 EggTolerance = 2,
                 MinimumCharmCost = 1,
                 MaximumCharmCost = 38,
