@@ -14,11 +14,14 @@ namespace RandomizerMod
         }
 
         private readonly SortedDictionary<float, T> _events = new();
+        private T[] _cachedSubscriberArray;
+        private bool _cacheInvalidated = true;
 
         public void Subscribe(float key, T subscriber)
         {
             T current = _events.TryGetValue(key, out current) ? current : null;
             _events[key] = (T)Delegate.Combine(current, subscriber);
+            _cacheInvalidated = true;
         }
 
         public void Unsubscribe(float key, T subscriber)
@@ -26,6 +29,7 @@ namespace RandomizerMod
             if (_events.TryGetValue(key, out T current))
             {
                 _events[key] = (T)Delegate.Remove(current, subscriber);
+                _cacheInvalidated = true;
             }
         }
 
@@ -38,7 +42,16 @@ namespace RandomizerMod
         {
             public PriorityEventOwner(PriorityEvent<T> _parent) => this._parent = _parent;
             private readonly PriorityEvent<T> _parent;
-            public T[] GetSubscriberList() => _parent._events.Values.ToArray();
+            public T[] GetSubscriberList()
+            {
+                if (_parent._cacheInvalidated)
+                {
+                    _parent._cachedSubscriberArray = _parent._events.Values.ToArray();
+                    _parent._cacheInvalidated = false;
+                }
+
+                return _parent._cachedSubscriberArray;
+            }
         }
     }
 }

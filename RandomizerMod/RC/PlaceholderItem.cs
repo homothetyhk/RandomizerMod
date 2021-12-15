@@ -24,7 +24,7 @@ namespace RandomizerMod.RC
 
         public RandoItem Unwrap()
         {
-            innerItem.priority = priority;
+            innerItem.Priority = Priority;
             return innerItem;
         }
     }

@@ -18,6 +18,16 @@ namespace RandomizerMod.RandomizerData
         public bool isolated;
         public bool deadEnd;
         public TransitionSides sides;
+
+        public TransitionDirection GetDirection()
+        {
+            if (doorName.StartsWith("left")) return TransitionDirection.Left;
+            else if (doorName.StartsWith("right")) return TransitionDirection.Right;
+            else if (doorName.StartsWith("top")) return TransitionDirection.Top;
+            else if (doorName.StartsWith("bot")) return TransitionDirection.Bot;
+            else return TransitionDirection.Unknown;
+        }
+
     }
 
     public enum TransitionSides
@@ -32,4 +42,14 @@ namespace RandomizerMod.RandomizerData
         /// </summary>
         OneWayOut = 2,
     }
+
+    public enum TransitionDirection
+    {
+        Unknown,
+        Left,
+        Right,
+        Top,
+        Bot,
+    }
+
 }

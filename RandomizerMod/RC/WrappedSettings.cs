@@ -9,7 +9,6 @@ using RandomizerCore;
 using RandomizerCore.Extensions;
 using RandomizerCore.Logic;
 using RandomizerCore.Randomizers;
-using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.RC
 {
@@ -19,8 +18,6 @@ namespace RandomizerMod.RC
     {
         public WrappedSettings(GenerationSettings gs, RandoContext ctx)
         {
-            if (!RCData.Loaded) RCData.Load();
-
             this.gs = gs;
             this.ctx = ctx;
             LM = ctx.LM;
@@ -412,12 +409,12 @@ namespace RandomizerMod.RC
 
 
 
-        List<RandoTransition> ITransitionRandomizerSettings.GetRandomizedTransitions()
+        List<OldRandoTransition> ITransitionRandomizerSettings.GetRandomizedTransitions()
         {
             return gs.TransitionSettings.GetLogicMode() switch
             {
-                LogicMode.Room => Data.GetRoomTransitionNames().Select(t => new RandoTransition(LM.GetTransition(t))).ToList(),
-                LogicMode.Area => Data.GetAreaTransitionNames().Select(t => new RandoTransition(LM.GetTransition(t))).ToList(),
+                LogicMode.Room => Data.GetRoomTransitionNames().Select(t => new OldRandoTransition(LM.GetTransition(t))).ToList(),
+                LogicMode.Area => Data.GetAreaTransitionNames().Select(t => new OldRandoTransition(LM.GetTransition(t))).ToList(),
                 _ => new(),
             };
         }
@@ -449,7 +446,7 @@ namespace RandomizerMod.RC
         {
             return new DefaultItemPlacementStrategy
             {
-                depthPriorityTransform = (depth, location) => location.priority - 5 * depth,
+                depthPriorityTransform = (depth, location) => location.Priority - 5 * depth,
                 placementRecorder = (sphere, ps) =>
                 {
                     LogDebug("SPHERE " + sphere.index);
@@ -477,11 +474,11 @@ namespace RandomizerMod.RC
                 {
                     try
                     {
-                        checked { items[i].priority += rng.Next(items.Count - i); } // makes major items more likely to be selected late in progression
+                        checked { items[i].Priority += rng.Next(items.Count - i); } // makes major items more likely to be selected late in progression
                     }
                     catch (OverflowException)
                     {
-                        items[i].priority = int.MaxValue;
+                        items[i].Priority = int.MaxValue;
                     }
                 }
 
@@ -489,11 +486,11 @@ namespace RandomizerMod.RC
                 {
                     try
                     {
-                        checked { items[i].priority -= 1000; } // makes dupes more likely to be placed immediately after progression, into late locations
+                        checked { items[i].Priority -= 1000; } // makes dupes more likely to be placed immediately after progression, into late locations
                     }
                     catch (OverflowException)
                     {
-                        items[i].priority = int.MinValue;
+                        items[i].Priority = int.MinValue;
                     }
                 } 
             }
@@ -511,7 +508,7 @@ namespace RandomizerMod.RC
                 if (shopPenalty && (Data.GetLocationDef(locations[i].Name)?.multi ?? false))
                 {
                     // shops keep their lowest priority slot, but all other slots are moved to the end.
-                    if (!shops.Add(locations[i].Name)) locations[i].priority = Math.Max(locations[i].priority, locations.Count);
+                    if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, locations.Count);
                 }
             }
         }
@@ -526,7 +523,7 @@ namespace RandomizerMod.RC
             return tps;
         }
 
-        private int DepthPriorityTransform(int depth, RandoTransition t)
+        private int DepthPriorityTransform(int depth, OldRandoTransition t)
         {
             return t.priority - depth;
         }
@@ -547,13 +544,13 @@ namespace RandomizerMod.RC
         {
             private readonly struct AreaTransition
             {
-                public AreaTransition(RandoTransition t)
+                public AreaTransition(OldRandoTransition t)
                 {
                     transition = t;
                     areaName = Data.GetTransitionDef(t.Name).areaName;
                 }
 
-                public readonly RandoTransition transition;
+                public readonly OldRandoTransition transition;
                 public readonly string areaName;
             }
 
@@ -563,10 +560,10 @@ namespace RandomizerMod.RC
                 List<TransitionPlacement> current = new();
                 List<AreaTransition> reachable = new();
 
-                RandoTransition SelectSource(RandoTransition target)
+                OldRandoTransition SelectSource(OldRandoTransition target)
                 {
                     string area = Data.GetTransitionDef(target.Name).areaName;
-                    RandoTransition t2 = null;
+                    OldRandoTransition t2 = null;
                     int i = -1;
                     for (int j = 0; j < reachable.Count; j++)
                     {
@@ -594,7 +591,7 @@ namespace RandomizerMod.RC
 
                 for (int i = 0; i < spheres.Count; i++)
                 {
-                    foreach (RandoTransition t in spheres[i].reachableTransitions)
+                    foreach (OldRandoTransition t in spheres[i].reachableTransitions)
                     {
                         if (depthPriorityTransform != null)
                         {
@@ -605,9 +602,9 @@ namespace RandomizerMod.RC
                     }
                     reachable.Sort((t, u) => t.transition.priority - u.transition.priority);
 
-                    foreach (RandoTransition target in spheres[i].placedTransitions)
+                    foreach (OldRandoTransition target in spheres[i].placedTransitions)
                     {
-                        RandoTransition source = SelectSource(target);
+                        OldRandoTransition source = SelectSource(target);
                         current.Add(new(source, target));
                         if (target.coupled || source.coupled)
                         {
@@ -624,9 +621,9 @@ namespace RandomizerMod.RC
                 // There shouldn't be any decoupled transitions left over at this point
                 while (reachable.Count > 0)
                 {
-                    RandoTransition t1 = reachable[0].transition;
+                    OldRandoTransition t1 = reachable[0].transition;
                     reachable.RemoveAt(0);
-                    RandoTransition t2 = SelectSource(t1);
+                    OldRandoTransition t2 = SelectSource(t1);
 
                     current.Add(new(t2, t1));
                     if (t2.coupled || t1.coupled)
@@ -656,7 +653,7 @@ namespace RandomizerMod.RC
         }
 
 
-        void ITransitionRandomizerSettings.PostPermuteTransitions(Random rng, IReadOnlyList<RandoTransition> transitions)
+        void ITransitionRandomizerSettings.PostPermuteTransitions(Random rng, IReadOnlyList<OldRandoTransition> transitions)
         {
             if (gs.TransitionSettings.ConnectAreas)
             {
