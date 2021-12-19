@@ -9,7 +9,7 @@ using RandomizerCore.LogicItems;
 
 namespace RandomizerMod.RC
 {
-    public class CustomGeoItem : RandoItem
+    public class CustomGeoItem : RandoModItem
     {
         public int geo;
 

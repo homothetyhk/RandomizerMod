@@ -3,7 +3,6 @@ using ItemChanger;
 using ItemChanger.Modules;
 using RandomizerCore;
 using RandomizerCore.Logic;
-using RandomizerCore.Randomizers;
 using RandomizerMod.Logging;
 using RandomizerMod.RC;
 using RandomizerMod.Settings;

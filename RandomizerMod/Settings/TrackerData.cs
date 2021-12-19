@@ -5,7 +5,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RandomizerCore;
 using RandomizerCore.Logic;
-using RandomizerCore.Randomizers;
+using RandomizerCore.Randomization;
 using RandomizerMod.RC;
 
 namespace RandomizerMod.Settings
@@ -28,22 +28,20 @@ namespace RandomizerMod.Settings
         [JsonIgnore]
         public RandoContext ctx;
         private MainUpdater mu;
-        private WrappedSettings ws;
 
         public void Setup(GenerationSettings gs, RandoContext ctx)
         {
             this.ctx = ctx;
-            ws = new(gs, ctx);
             lm = ctx.LM;
 
-            pm = new(lm, ws, ctx);
+            pm = new(lm, ctx);
             pm.Add(obtainedItems.Select(i => ctx.itemPlacements[i].item));
 
             pm.Add(visitedTransitions.Select(t => lm.GetTransition(t)));
 
             mu = new(lm);
             mu.AddPlacements(lm.Waypoints);
-            mu.AddPlacements(((IItemRandomizerSettings)ws).GetVanillaPlacements());
+            mu.AddPlacements(ctx.Vanilla);
             if (ctx.itemPlacements != null) mu.AddEntries(ctx.itemPlacements.Select(p => new HelperItemUpdateEntry(p.location)));
             if (ctx.transitionPlacements != null) mu.AddEntries(ctx.transitionPlacements.Select(p => new HelperTransitionUpdateEntry(p.source)));
             mu.Hook(pm); // automatically handle tracking reachable unobtained locations/transitions and adding vanilla progression to pm

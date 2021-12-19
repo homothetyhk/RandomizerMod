@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using RandomizerCore;
 using RandomizerCore.Extensions;
 using RandomizerCore.Logic;
-using RandomizerCore.Randomizers;
+using RandomizerCore.Randomization;
 using RandomizerMod.Extensions;
 using RandomizerMod.IC;
 using RandomizerMod.Logging;
@@ -19,7 +19,7 @@ namespace RandomizerMod.RC
 {
     public class RandoController
     {
-        public readonly RandoContext ctx = new();
+        public readonly RandoModContext ctx;
         public readonly GenerationSettings gs;
         public readonly RandoMonitor rm;
         public readonly SettingsPM pm;
@@ -31,6 +31,7 @@ namespace RandomizerMod.RC
             this.gs = gs;
             this.rm = rm;
             this.pm = pm;
+            this.ctx = new(gs);
             rng = new Random(gs.Seed + 4);
         }
 
@@ -41,47 +42,46 @@ namespace RandomizerMod.RC
             SelectStart();
             AssignNotchCosts();
             ctx.LM = RCData.GetNewLogicManager(gs);
-
-            if (gs.TransitionSettings.Mode == TransitionSettings.TransitionMode.None)
+            RequestBuilder rb = new(gs, ctx.LM);
+            rb.Run(out RandomizationStage[] stages, out ctx.Vanilla);
+            Randomizer randomizer = new(new Random(gs.Seed), ctx, stages, rm);
+            List<List<RandoPlacement>[]> stagedPlacements = randomizer.Run();
+            for (int i = 0; i < stagedPlacements.Count; i++)
             {
-                WrappedSettings ws = new(gs, ctx);
-                ctx.Vanilla = ws.GetVanillaPlacements().Select(ip => (GeneralizedPlacement)ip).ToList();
-                ctx.InitialProgression = new RandomizerCore.LogicItems.EmptyItem("Initializer"); // TODO: use this to replace the IRandomizerSettings interface for initializing pm
-                ItemRandomizer r = new(ws, ctx, rm);
-                r.Run();
-                ws.Finalize(r.rng);
-                args = new()
+                for (int j = 0; j < stagedPlacements[i].Length; j++)
                 {
-                    ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
+                    foreach (RandoPlacement placement in stagedPlacements[i][j])
                     {
-                        notchCosts = ctx.notchCosts?.ToList(),
-                        itemPlacements = ctx.itemPlacements?.ToList(),
-                        transitionPlacements = ctx.transitionPlacements?.ToList()
-                    },
-                    gs = gs,
-                    randomizer = r,
-                };
+                        if (placement.Item is RandoModItem item && placement.Location is RandoModLocation location)
+                        {
+                            item.onRandomizerFinish?.Invoke(placement);
+                            location?.onRandomizerFinish?.Invoke(placement);
+                            ctx.itemPlacements ??= new();
+                            ctx.itemPlacements.Add(new(item, location));
+                        }
+                        else if (placement.Item is RandoModTransition target && placement.Location is RandoModTransition source)
+                        {
+                            ctx.transitionPlacements ??= new();
+                            ctx.transitionPlacements.Add(new(source, target));
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException($"Unknown placement type found in randomizer result with {placement.Item} at {placement.Location}");
+                        }
+                    }
+                }
             }
-            else
+            args = new()
             {
-                WrappedSettings ws = new(gs, ctx);
-                ctx.Vanilla = ws.GetVanillaPlacements().Select(ip => (GeneralizedPlacement)ip).ToList();
-                ctx.InitialProgression = new RandomizerCore.LogicItems.EmptyItem("Initializer");
-                TransitionRandomizer r = new(ws, ctx, rm);
-                r.Run();
-                ws.Finalize(r.rng);
-                args = new()
+                ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
                 {
-                    ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
-                    {
-                        notchCosts = ctx.notchCosts?.ToList(),
-                        itemPlacements = ctx.itemPlacements?.ToList(),
-                        transitionPlacements = ctx.transitionPlacements?.ToList()
-                    },
-                    gs = gs,
-                    randomizer = r,
-                };
-            }
+                    notchCosts = ctx.notchCosts?.ToList(),
+                    itemPlacements = ctx.itemPlacements?.ToList(),
+                    transitionPlacements = ctx.transitionPlacements?.ToList()
+                },
+                gs = gs,
+                randomizer = randomizer,
+            };
         }
 
         public int Hash()

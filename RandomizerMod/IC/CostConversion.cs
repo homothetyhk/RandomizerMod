@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ItemChanger;
+﻿using ItemChanger;
 using ItemChanger.Placements;
 using ItemChanger.Tags;
 using RandomizerMod.RandomizerData;
 using RandomizerCore.Logic;
-using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.IC
 {

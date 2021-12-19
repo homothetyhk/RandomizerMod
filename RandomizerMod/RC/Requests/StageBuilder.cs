@@ -6,7 +6,7 @@ namespace RandomizerMod.RC
     public class StageBuilder
     {
         public readonly string label;
-        public PlacementStrategy strategy;
+        public StagePlacementStrategy strategy;
         private readonly Dictionary<string, GroupBuilder> groupLookup;
         private readonly List<GroupBuilder> groups;
         public readonly ReadOnlyCollection<GroupBuilder> Groups;
@@ -23,7 +23,7 @@ namespace RandomizerMod.RC
         {
             if (gb == null) throw new ArgumentNullException(nameof(gb));
             if (gb.label == null || groupLookup.ContainsKey(gb.label)) throw new ArgumentException(nameof(gb));
-
+            gb.stageLabel = label;
             groups.Add(gb);
             groupLookup.Add(gb.label, gb);
         }
@@ -32,7 +32,7 @@ namespace RandomizerMod.RC
         {
             if (gb == null) throw new ArgumentNullException(nameof(gb));
             if (gb.label == null || groupLookup.ContainsKey(gb.label)) throw new ArgumentException(nameof(gb));
-
+            gb.stageLabel = label;
             groups.Insert(index, gb);
             groupLookup.Add(gb.label, gb);
         }
@@ -79,7 +79,7 @@ namespace RandomizerMod.RC
             {
                 label = label,
                 groups = rgs.ToArray(),
-                strategy = strategy ?? new DefaultPlacementStrategy(0),
+                strategy = strategy ?? new StagePlacementStrategy(),
             };
         }
     }

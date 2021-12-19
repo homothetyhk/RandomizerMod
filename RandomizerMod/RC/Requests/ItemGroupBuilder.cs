@@ -41,12 +41,16 @@ namespace RandomizerMod.RC
 
             if (items.Count != locations.Count) throw new InvalidOperationException($"Failed to build group {label} due to unbalanced counts.");
 
-            groups.Add(new RandomizationGroup
+            RandomizationGroup group = new()
             {
                 Items = items.ToArray<IRandoItem>(),
                 Locations = locations.ToArray<IRandoLocation>(),
-                Label = label
-            });
+                Label = label,
+                Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+            };
+            group.OnPermute += onPermute;
+
+            groups.Add(group);
         }
     }
 }

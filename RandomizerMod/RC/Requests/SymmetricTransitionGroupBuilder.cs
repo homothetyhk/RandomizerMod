@@ -36,12 +36,14 @@ namespace RandomizerMod.RC
                     Items = t1s.ToArray<IRandoItem>(),
                     Locations = t2s.ToArray<IRandoLocation>(),
                     Label = label,
+                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
                 };
                 CoupledRandomizationGroup g2 = new()
                 {
                     Items = t2s.ToArray<IRandoItem>(),
                     Locations = t1s.ToArray<IRandoLocation>(),
                     Label = reverseLabel,
+                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
                 };
                 g1.Dual = g2;
                 g2.Dual = g1;
@@ -56,12 +58,14 @@ namespace RandomizerMod.RC
                     Items = t1s.ToArray<IRandoItem>(),
                     Locations = t2s.ToArray<IRandoLocation>(),
                     Label = label,
+                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
                 };
                 RandomizationGroup g2 = new()
                 {
                     Items = t2s.ToArray<IRandoItem>(),
                     Locations = t1s.ToArray<IRandoLocation>(),
                     Label = reverseLabel,
+                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
                 };
 
                 groups.Add(g1);

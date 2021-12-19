@@ -1,20 +1,15 @@
 ﻿using ItemChanger;
 using RandomizerCore;
+using RandomizerMod.Settings;
 
 namespace RandomizerMod.RC
 {
     public class LocationRequestInfo
     {
-        public string stageLabel;
-        public string groupLabel;
-        public Func<RandoFactory, IRandoLocation> randoLocationCreator;
-        public Func<RealLocationCreatorArgs, AbstractPlacement> realPlacementCreator;
-        public Action<RandomizerFinishArgs> onRandomizerFinish;
-        public Action<AbstractPlacement, RandoPlacement> addToPlacement;
-
-        public class RandomizerFinishArgs
-        {
-            public RandoPlacement placement;
-        }
+        public Func<RandoFactory, RandoModLocation> randoLocationCreator;
+        public Action<RandoFactory, RandoModLocation> onRandoLocationCreation;
+        public Action<RandoPlacement> onRandomizerFinish;
+        public Func<ICFactory, RandoPlacement, AbstractPlacement> customPlacementFetch;
+        public Action<ICFactory, RandoPlacement, AbstractPlacement, AbstractItem> customAddToPlacement;
     }
 }

@@ -5,8 +5,8 @@ namespace RandomizerMod.RC
 {
     public class TransitionGroupBuilder : GroupBuilder
     {
-        public readonly Bucket<string> Sources = new();
-        public readonly Bucket<string> Targets = new();
+        public Bucket<string> Sources { get; } = new();
+        public Bucket<string> Targets { get; } = new();
 
         public override void Apply(List<RandomizationGroup> groups, RandoFactory factory)
         {
@@ -32,6 +32,7 @@ namespace RandomizerMod.RC
                 Label = label,
                 Items = items.ToArray<IRandoItem>(),
                 Locations = locations.ToArray<IRandoLocation>(),
+                Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
             });
         }
     }

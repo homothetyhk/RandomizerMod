@@ -6,6 +6,8 @@ namespace RandomizerMod.RC
     {
         public string label;
         public string stageLabel;
+        public Action<Random, RandomizationGroup> onPermute;
+        public GroupPlacementStrategy strategy;
 
         public abstract void Apply(List<RandomizationGroup> groups, RandoFactory factory);
     }

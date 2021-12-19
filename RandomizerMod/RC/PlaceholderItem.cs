@@ -9,22 +9,25 @@ using RandomizerCore.LogicItems;
 namespace RandomizerMod.RC
 {
     /// <summary>
-    /// A wrapper for a RandoItem to allow it to be ignored by logic.
-    /// <br/>Used mainly with duplicate progression, to avoid skewing 
+    /// A wrapper for a RandoModItem to allow it to be ignored by logic.
+    /// <br/>Used mainly with duplicate progression, to avoid skewing.
     /// </summary>
-    public class PlaceholderItem : RandoItem
+    public class PlaceholderItem : RandoModItem
     {
-        public PlaceholderItem(RandoItem innerItem)
+        public PlaceholderItem(RandoModItem innerItem)
         {
             this.innerItem = innerItem;
+            this.onRandomizerFinish = innerItem.onRandomizerFinish;
+            this.realItemCreator = innerItem.realItemCreator;
             base.item = new EmptyItem($"Placeholder-{innerItem.Name}");
         }
 
-        private readonly RandoItem innerItem;
+        private readonly RandoModItem innerItem;
 
-        public RandoItem Unwrap()
+        public RandoModItem Unwrap()
         {
             innerItem.Priority = Priority;
+            innerItem.Placed = Placed;
             return innerItem;
         }
     }

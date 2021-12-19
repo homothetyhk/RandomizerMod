@@ -23,6 +23,7 @@ namespace RandomizerMod.RC
                     Items = ts.ToArray<IRandoItem>(),
                     Locations = ts.ToArray<IRandoLocation>(),
                     Label = label,
+                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
                 };
                 g.Dual = g;
                 groups.Add(g);
@@ -34,6 +35,7 @@ namespace RandomizerMod.RC
                     Items = ts.ToArray<IRandoItem>(),
                     Locations = ts.ToArray<IRandoLocation>(),
                     Label = label,
+                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
                 };
                 groups.Add(g);
             }

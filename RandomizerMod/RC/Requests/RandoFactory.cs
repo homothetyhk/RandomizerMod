@@ -25,35 +25,65 @@ namespace RandomizerMod.RC
         public readonly Random rng;
         public readonly GenerationSettings gs;
 
-        public IRandoItem MakeItem(string name)
+        /// <summary>
+        /// Makes a PlaceholderItem. The item will be exported identically to the result of MakeItem, but will be treated by logic as an EmptyItem.
+        /// </summary>
+        public RandoModItem MakeWrappedItem(string name)
         {
-            if (rb.TryGetItemDef(name, out ItemRequestInfo info) && info.randoItemCreator != null)
-            {
-                return info.randoItemCreator(this);
-            }
-            else return MakeItemInternal(name);
+            RandoModItem item = MakeItem(name);
+            PlaceholderItem wrapper = new(item);
+            return wrapper;
         }
 
-        public RandoItem MakeItemInternal(string name)
+        public RandoModItem MakeItem(string name)
         {
-            return new RandoItem()
+            RandoModItem item;
+            if (rb.TryGetItemDef(name, out ItemRequestInfo info) && info.randoItemCreator != null)
+            {
+                item = info.randoItemCreator(this);
+            }
+            else
+            {
+                item = MakeItemInternal(name);
+            }
+
+            if (info != null)
+            {
+                item.onRandomizerFinish += info.onRandomizerFinish;
+                item.realItemCreator += info.realItemCreator;
+                info.onRandoItemCreation?.Invoke(this, item);
+            }
+
+            return item;
+        }
+
+        public RandoModItem MakeItemInternal(string name)
+        {
+            RandoModItem item = new()
             {
                 item = lm.GetItem(name),
             };
+
+            return item;
         }
 
-        public IRandoLocation MakeLocation(string name)
+        public RandoModLocation MakeLocation(string name)
         {
-            if (rb.TryGetLocationDef(name, out LocationRequestInfo info) && info.randoLocationCreator != null)
+            if (!rb.TryGetLocationDef(name, out LocationRequestInfo info))
             {
-                return info.randoLocationCreator(this);
+                return MakeLocationInternal(name);
             }
-            else return MakeLocationInternal(name);
+            else
+            {
+                RandoModLocation rl = info.randoLocationCreator?.Invoke(this) ?? MakeLocationInternal(name);
+                info.onRandoLocationCreation?.Invoke(this, rl);
+                return rl;
+            }
         }
 
-        public RandoLocation MakeLocationInternal(string name)
+        private RandoModLocation MakeLocationInternal(string name)
         {
-            RandoLocation rl = new()
+            RandoModLocation rl = new()
             {
                 logic = lm.GetLogicDef(name),
             };
@@ -78,28 +108,12 @@ namespace RandomizerMod.RC
                         break;
                 }
             }
-
-            switch (name)
+           
+            if (rb.TryGetLocationDef(name, out LocationRequestInfo info))
             {
-                case "Grubfather":
-                    rl.AddCost(new SimpleCost(lm.GetTerm("GRUBS"), rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
-                    break;
-                case "Seer":
-                    rl.AddCost(new SimpleCost(lm.GetTerm("ESSENCE"), rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
-                    break;
-                case "Egg_Shop":
-                    rl.AddCost(new SimpleCost(lm.GetTerm("RANCIDEGGS"), rng.Next(gs.CostSettings.MinimumEggCost, gs.CostSettings.MaximumEggCost + 1)));
-                    break;
-                case "Salubra_(Requires_Charms)":
-                    rl.AddCost(new SimpleCost(lm.GetTerm("CHARMS"), rng.Next(gs.CostSettings.MinimumCharmCost, gs.CostSettings.MaximumCharmCost + 1)));
-                    goto case "Salubra";
-                case "Sly":
-                case "Sly_(Key)":
-                case "Iselda":
-                case "Salubra":
-                case "Leg_Eater":
-                    rl.AddCost(new LogicGeoCost(lm, -1));
-                    break;
+                rl.onRandomizerFinish += info.onRandomizerFinish;
+                rl.customPlacementFetch += info.customPlacementFetch;
+                rl.customAddToPlacement += info.customAddToPlacement;
             }
 
             return rl;
@@ -107,7 +121,7 @@ namespace RandomizerMod.RC
 
         public IRandoCouple MakeTransition(string name)
         {
-            return new RandoTransition(lm.GetTransition(name));
+            return new RandoModTransition(lm.GetTransition(name));
         }
     }
 }
