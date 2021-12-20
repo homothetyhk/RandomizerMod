@@ -116,6 +116,24 @@
     "deadEnd": false,
     "sides": "Both"
   },
+  "Town[room_divine]": {
+    "sceneName": "Town",
+    "doorName": "room_divine",
+    "areaName": "Dirtmouth",
+    "isAreaTransition": false,
+    "isolated": false,
+    "deadEnd": false,
+    "sides": "Both"
+  },
+  "Town[room_grimm]": {
+    "sceneName": "Town",
+    "doorName": "room_grimm",
+    "areaName": "Dirtmouth",
+    "isAreaTransition": false,
+    "isolated": false,
+    "deadEnd": false,
+    "sides": "Both"
+  },
   "Room_shop[left1]": {
     "sceneName": "Room_shop",
     "doorName": "left1",

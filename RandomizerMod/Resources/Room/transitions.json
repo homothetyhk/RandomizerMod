@@ -91,6 +91,20 @@
     "Name": "Town[door_bretta]"
   },
   {
+    "sceneName": "Town",
+    "gateName": "room_divine",
+    "logic": "Town[room_divine] | Town + (GRIMMCHILD | Cliffs_06[left1] + DREAMNAIL)",
+    "oneWayType": "TwoWay",
+    "Name": "Town[room_divine]"
+  },
+  {
+    "sceneName": "Town",
+    "gateName": "room_grimm",
+    "logic": "Town[room_grimm] | Town + (GRIMMCHILD | Cliffs_06[left1] + DREAMNAIL)",
+    "oneWayType": "TwoWay",
+    "Name": "Town[room_grimm]"
+  },
+  {
     "sceneName": "Room_shop",
     "gateName": "left1",
     "logic": "Room_shop[left1]",

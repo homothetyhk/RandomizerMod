@@ -21,6 +21,9 @@ namespace RandomizerMod.IC
             ItemChangerMod.Modules.Add<RandomizerModule>();
             ItemChangerMod.Modules.Add<TrackerUpdate>();
             ItemChangerMod.Modules.Add<TrackerLog>();
+            ItemChangerMod.Modules.Add<ItemChanger.Modules.JijiJinnPassage>();
+            var cpo = ItemChangerMod.Modules.Add<ItemChanger.Modules.CompletionPercentOverride>();
+            cpo.CoupledTransitions = gs.TransitionSettings.Coupled;
             if (gs.MiscSettings.RandomizeNotchCosts) ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
             if (!gs.PoolSettings.GrimmkinFlames) ItemChangerMod.Modules.Get<ItemChanger.Modules.InventoryTracker>().TrackGrimmkinFlames = false;
         }
