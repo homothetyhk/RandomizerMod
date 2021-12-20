@@ -17,7 +17,7 @@ namespace RandomizerMod.RC
     /// </summary>
     public class RequestBuilder
     {
-        public void Run(out RandomizationStage[] stages, out List<GeneralizedPlacement> vanilla)
+        public void Run(out RandomizationStage[] stages, out List<RandoPlacement> vanilla)
         {
             HandleUpdateEvents();
 
@@ -26,7 +26,7 @@ namespace RandomizerMod.RC
             foreach (RandomizationStage stage in stages) rng.PermuteInPlace(stage.groups); // random tiebreakers between groups
 
             vanilla = Vanilla.EnumerateWithMultiplicity()
-                .Select(v => new GeneralizedPlacement(lm.GetItem(v.Item), lm.GetLogicDef(v.Location)))
+                .Select(v => new RandoPlacement(factory.MakeItem(v.Item), factory.MakeLocation(v.Location)))
                 .ToList();
         }
 

@@ -19,7 +19,7 @@ namespace RandomizerMod.RC
 {
     public class RandoController
     {
-        public readonly RandoModContext ctx;
+        public RandoModContext ctx;
         public readonly GenerationSettings gs;
         public readonly RandoMonitor rm;
         public readonly SettingsPM pm;
@@ -31,15 +31,14 @@ namespace RandomizerMod.RC
             this.gs = gs;
             this.rm = rm;
             this.pm = pm;
-            this.ctx = new(gs);
             rng = new Random(gs.Seed + 4);
         }
 
         public void Run()
         {
             gs.Clamp();
-
             SelectStart();
+            ctx = new(gs);
             AssignNotchCosts();
             ctx.LM = RCData.GetNewLogicManager(gs);
             RequestBuilder rb = new(gs, ctx.LM);
