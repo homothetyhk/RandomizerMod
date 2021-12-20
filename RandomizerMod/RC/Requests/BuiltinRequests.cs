@@ -509,9 +509,12 @@ namespace RandomizerMod.RC
 
         public static void ApplySpellRemove(RequestBuilder rb)
         {
-            rb.RemoveItemByName("Shade_Soul");
-            rb.RemoveItemByName("Abyss_Shriek");
-            rb.RemoveItemByName("Descending_Dark");
+            if (rb.gs.CursedSettings.RemoveSpellUpgrades)
+            {
+                rb.RemoveItemByName("Shade_Soul");
+                rb.RemoveItemByName("Abyss_Shriek");
+                rb.RemoveItemByName("Descending_Dark");
+            }
         }
 
         public static void ApplySplitClawFullClawRemove(RequestBuilder rb)
@@ -618,7 +621,7 @@ namespace RandomizerMod.RC
                         case "Notch":
                         case "CursedNotch":
                         case "Geo":
-                        case "Egg":
+                        case "Egg" when !rb.gs.NoveltySettings.EggShop:
                         case "Relic":
                         case "Rock":
                         case "Soul":
@@ -664,7 +667,8 @@ namespace RandomizerMod.RC
                 foreach (string loc in mimicPool.includeLocations) rb.RemoveLocationByName(loc);
                 foreach (PoolDef.StringILP ilp in grubPool.vanilla) rb.Vanilla.RemoveAll(new(ilp.item, ilp.location));
 
-                ItemGroupBuilder gb = rb.MainItemStage.AddItemGroup("Grub Mimic Group");
+                StageBuilder sb = rb.AddStage("Grub Mimic Stage");
+                ItemGroupBuilder gb = sb.AddItemGroup("Grub Mimic Group");
                 int num_mimics = rb.rng.Next(RBConsts.MIN_MIMIC_COUNT, RBConsts.MAX_MIMIC_COUNT + 1);
                 gb.Items.Set(ItemNames.Grub, 50 - num_mimics);
                 gb.Items.Set(ItemNames.Mimic_Grub, num_mimics);
