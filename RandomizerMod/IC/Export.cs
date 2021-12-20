@@ -26,6 +26,7 @@ namespace RandomizerMod.IC
             cpo.CoupledTransitions = gs.TransitionSettings.Coupled;
             if (gs.MiscSettings.RandomizeNotchCosts) ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
             if (!gs.PoolSettings.GrimmkinFlames) ItemChangerMod.Modules.Get<ItemChanger.Modules.InventoryTracker>().TrackGrimmkinFlames = false;
+            if (gs.TransitionSettings.Mode == TransitionSettings.TransitionMode.RoomRandomizer) ItemChangerMod.Modules.Add<ItemChanger.Modules.ReversePathOfPainSaw>();
         }
 
 
