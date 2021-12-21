@@ -95,7 +95,7 @@ namespace RandomizerMod.Settings.Presets
                 GrimmkinFlames = false,
                 GeoRocks = false,
                 BossEssence = false,
-                BossGeo = false,
+                BossGeo = true,
                 LoreTablets = false,
                 JournalEntries = false,
                 JunkPitChests = false,

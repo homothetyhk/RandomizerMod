@@ -10,16 +10,16 @@ namespace RandomizerMod.Settings
     public class GenerationSettings : ICloneable
     {
         public int Seed;
-        public TransitionSettings TransitionSettings = new TransitionSettings();
-        public SkipSettings SkipSettings = new SkipSettings();
-        public PoolSettings PoolSettings = new PoolSettings();
-        public NoveltySettings NoveltySettings = new();
-        public CostSettings CostSettings = new();
-        public CursedSettings CursedSettings = new CursedSettings();
-        public LongLocationSettings LongLocationSettings = new LongLocationSettings();
-        public StartLocationSettings StartLocationSettings = new StartLocationSettings();
-        public StartItemSettings StartItemSettings = new StartItemSettings();
-        public MiscSettings MiscSettings = new MiscSettings();
+        public TransitionSettings TransitionSettings = Presets.TransitionPresetData.None;
+        public SkipSettings SkipSettings = Presets.SkipPresetData.Easy;
+        public PoolSettings PoolSettings = Presets.PoolPresetData.Standard;
+        public NoveltySettings NoveltySettings = Presets.NoveltyPresetData.Basic;
+        public CostSettings CostSettings = Presets.CostPresetData.Standard;
+        public CursedSettings CursedSettings = Presets.CursePresetData.None;
+        public LongLocationSettings LongLocationSettings = Presets.LongLocationPresetData.Standard;
+        public StartLocationSettings StartLocationSettings = Presets.StartLocationPresetData.KingsPass;
+        public StartItemSettings StartItemSettings = Presets.StartItemPresetData.EarlyGeo;
+        public MiscSettings MiscSettings = Presets.MiscPresetData.Standard;
 
         public GenerationSettings()
         {
