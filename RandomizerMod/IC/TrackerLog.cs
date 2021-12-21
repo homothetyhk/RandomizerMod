@@ -81,8 +81,8 @@ namespace RandomizerMod.IC
             return ItemChanger.Internal.Ref.Settings.Placements[TD.ctx.itemPlacements[id].location.Name]
                 .Items
                 .First(i => i.GetTag<RandoItemTag>()?.id == id)
-                .GetTags<ItemChanger.Tags.PersistentItemTag>()
-                .Any(t => t.Persistence != Persistence.Single);
+                .GetTags<ItemChanger.Tags.IPersistenceTag>()
+                .Any(t => t is not ItemChanger.Tags.PersistentItemTag { Persistence: Persistence.Single });
         }
 
         private void SetUpLog()

@@ -1536,7 +1536,7 @@
     ]
   },
   {
-    "name": "Essence_Boss",
+    "name": "DreamWarrior",
     "path": "PoolSettings.BossEssence",
     "includeItems": [
       "Boss_Essence-Elder_Hu",
@@ -1545,12 +1545,7 @@
       "Boss_Essence-Marmu",
       "Boss_Essence-No_Eyes",
       "Boss_Essence-Galien",
-      "Boss_Essence-Markoth",
-      "Boss_Essence-Failed_Champion",
-      "Boss_Essence-Soul_Tyrant",
-      "Boss_Essence-Lost_Kin",
-      "Boss_Essence-White_Defender",
-      "Boss_Essence-Grey_Prince_Zote"
+      "Boss_Essence-Markoth"
     ],
     "includeLocations": [
       "Boss_Essence-Elder_Hu",
@@ -1559,12 +1554,7 @@
       "Boss_Essence-Marmu",
       "Boss_Essence-No_Eyes",
       "Boss_Essence-Galien",
-      "Boss_Essence-Markoth",
-      "Boss_Essence-Failed_Champion",
-      "Boss_Essence-Soul_Tyrant",
-      "Boss_Essence-Lost_Kin",
-      "Boss_Essence-White_Defender",
-      "Boss_Essence-Grey_Prince_Zote"
+      "Boss_Essence-Markoth"
     ],
     "vanilla": [
       {
@@ -1594,7 +1584,27 @@
       {
         "item": "Boss_Essence-Markoth",
         "location": "Boss_Essence-Markoth"
-      },
+      }
+    ]
+  },
+  {
+    "name": "DreamBoss",
+    "path": "PoolSettings.BossEssence",
+    "includeItems": [
+      "Boss_Essence-Failed_Champion",
+      "Boss_Essence-Soul_Tyrant",
+      "Boss_Essence-Lost_Kin",
+      "Boss_Essence-White_Defender",
+      "Boss_Essence-Grey_Prince_Zote"
+    ],
+    "includeLocations": [
+      "Boss_Essence-Failed_Champion",
+      "Boss_Essence-Soul_Tyrant",
+      "Boss_Essence-Lost_Kin",
+      "Boss_Essence-White_Defender",
+      "Boss_Essence-Grey_Prince_Zote"
+    ],
+    "vanilla": [
       {
         "item": "Boss_Essence-Failed_Champion",
         "location": "Boss_Essence-Failed_Champion"

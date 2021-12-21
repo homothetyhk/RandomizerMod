@@ -961,7 +961,7 @@
   },
   "Boss_Essence-Elder_Hu": {
     "name": "Boss_Essence-Elder_Hu",
-    "pool": "Essence_Boss",
+    "pool": "DreamWarrior",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -969,7 +969,7 @@
   },
   "Boss_Essence-Xero": {
     "name": "Boss_Essence-Xero",
-    "pool": "Essence_Boss",
+    "pool": "DreamWarrior",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -977,7 +977,7 @@
   },
   "Boss_Essence-Gorb": {
     "name": "Boss_Essence-Gorb",
-    "pool": "Essence_Boss",
+    "pool": "DreamWarrior",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -985,7 +985,7 @@
   },
   "Boss_Essence-Marmu": {
     "name": "Boss_Essence-Marmu",
-    "pool": "Essence_Boss",
+    "pool": "DreamWarrior",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -993,7 +993,7 @@
   },
   "Boss_Essence-No_Eyes": {
     "name": "Boss_Essence-No_Eyes",
-    "pool": "Essence_Boss",
+    "pool": "DreamWarrior",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -1001,7 +1001,7 @@
   },
   "Boss_Essence-Galien": {
     "name": "Boss_Essence-Galien",
-    "pool": "Essence_Boss",
+    "pool": "DreamWarrior",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -1009,7 +1009,7 @@
   },
   "Boss_Essence-Markoth": {
     "name": "Boss_Essence-Markoth",
-    "pool": "Essence_Boss",
+    "pool": "DreamWarrior",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -1017,7 +1017,7 @@
   },
   "Boss_Essence-Failed_Champion": {
     "name": "Boss_Essence-Failed_Champion",
-    "pool": "Essence_Boss",
+    "pool": "DreamBoss",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -1025,7 +1025,7 @@
   },
   "Boss_Essence-Soul_Tyrant": {
     "name": "Boss_Essence-Soul_Tyrant",
-    "pool": "Essence_Boss",
+    "pool": "DreamBoss",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -1033,7 +1033,7 @@
   },
   "Boss_Essence-Lost_Kin": {
     "name": "Boss_Essence-Lost_Kin",
-    "pool": "Essence_Boss",
+    "pool": "DreamBoss",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -1041,7 +1041,7 @@
   },
   "Boss_Essence-White_Defender": {
     "name": "Boss_Essence-White_Defender",
-    "pool": "Essence_Boss",
+    "pool": "DreamBoss",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,
@@ -1049,7 +1049,7 @@
   },
   "Boss_Essence-Grey_Prince_Zote": {
     "name": "Boss_Essence-Grey_Prince_Zote",
-    "pool": "Essence_Boss",
+    "pool": "DreamBoss",
     "priceCap": 500,
     "progression": true,
     "itemCandidate": false,

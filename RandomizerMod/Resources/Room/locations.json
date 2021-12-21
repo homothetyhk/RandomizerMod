@@ -1873,15 +1873,15 @@
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden",
-    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])"
+    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1] + (ANYCLAW | FIREBALL | SCREAM | CYCLONE))"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_1",
-    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])"
+    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1] + (ANYCLAW | FIREBALL | SCREAM | CYCLONE))"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_2",
-    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])"
+    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1] + (ANYCLAW | FIREBALL | SCREAM | CYCLONE))"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Before_Crystal_Heart",

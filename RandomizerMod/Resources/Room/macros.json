@@ -130,7 +130,7 @@
   "Deepnest_East_04": "(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | LEFTDASH | WINGS | AIRSTALL | 2MASKS))",
   "Deepnest_East_06": "(Deepnest_East_06[left1] + (RIGHTCLAW | WINGS)) | Deepnest_East_06[top1] | Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]",
   "Deepnest_East_07": "Deepnest_East_07[right1] | Deepnest_East_07[left1] | Deepnest_East_07[left2]",
-  "Deepnest_East_11": "Deepnest_East_11[left1] | Deepnest_East_11[bot1] | Deepnest_East_11[top1] | Deepnest_East_11[right1]",
+  "Deepnest_East_11": "Deepnest_East_11[left1] | Deepnest_East_11[bot1] | Deepnest_East_11[top1] + (SIDESLASH | Cyclone_Slash | Great_Slash | FIREBALL | QUAKE) | Deepnest_East_11[right1]",
   "Deepnest_East_18": "Deepnest_East_18[top1] | Deepnest_East_18[bot1] | (Deepnest_East_18[right2] + LEFTSHADOWDASH)",
   "Hive_03_c": "Hive_03_c[left1] | Hive_03_c[top1] | Hive_03_c[right2] | Hive_03_c[right3]",
   "Abyss_03": "Abyss_03[top1] | (Abyss_03[bot1] + (RIGHTCLAW | WINGS)) | Abyss_03[bot2]",

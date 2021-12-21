@@ -17,14 +17,14 @@
     <Using Include="RandomizerMod.LogHelper" Static="true" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="**\*.json" />
-    <None Remove="**\*.xml" />
-    <None Remove="**\*.png" />
+    <None Remove="Resources\**\*.json" />
+    <None Remove="Resources\**\*.xml" />
+    <None Remove="Resources\**\*.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="**\*.json" />
-    <EmbeddedResource Include="**\*.xml" />
-    <EmbeddedResource Include="**\*.png" />
+    <EmbeddedResource Include="Resources\**\*.json" />
+    <EmbeddedResource Include="Resources\**\*.xml" />
+    <EmbeddedResource Include="Resources\**\*.png" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\entries.txt" />
@@ -55,7 +55,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\PlayMaker.dll</HintPath>
     </Reference>
     <Reference Include="RandomizerCore">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\RandomizerCore\RandomizerCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\RandomizerCore\RandomizerCore.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll</HintPath>
@@ -75,5 +75,10 @@
   </ItemGroup>
   <Target Name="CopyMod" AfterTargets="PostBuildEvent">
     <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb" DestinationFolder="C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\$(TargetName)" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="ClearReferenceCopyLocalPaths" AfterTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" />
+    </ItemGroup>
   </Target>
 </Project>

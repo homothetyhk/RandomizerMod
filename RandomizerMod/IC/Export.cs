@@ -15,7 +15,7 @@ namespace RandomizerMod.IC
 {
     public static class Export
     {
-        public static void BeginExport(GenerationSettings gs)
+        public static void BeginExport(GenerationSettings gs, RandoModContext ctx)
         {
             ItemChangerMod.CreateSettingsProfile(overwrite: true);
             ItemChangerMod.Modules.Add<RandomizerModule>();
@@ -26,11 +26,23 @@ namespace RandomizerMod.IC
             cpo.CoupledTransitions = gs.TransitionSettings.Coupled;
             if (gs.MiscSettings.RandomizeNotchCosts) ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
             if (!gs.PoolSettings.GrimmkinFlames) ItemChangerMod.Modules.Get<ItemChanger.Modules.InventoryTracker>().TrackGrimmkinFlames = false;
-            if (gs.TransitionSettings.Mode == TransitionSettings.TransitionMode.RoomRandomizer) ItemChangerMod.Modules.Add<ItemChanger.Modules.ReversePathOfPainSaw>();
+
+            HashSet<string> sourceNames = new(ctx.transitionPlacements?.Select(x => x.source.Name) ?? Enumerable.Empty<string>());
+            HashSet<string> targetNames = new(ctx.transitionPlacements?.Select(x => x.target.Name) ?? Enumerable.Empty<string>());
+            if (targetNames.Contains($"{SceneNames.White_Palace_18}[top1]")
+                || targetNames.Contains($"{SceneNames.White_Palace_17}[right1]")
+                || targetNames.Contains($"{SceneNames.White_Palace_19}[top1]"))
+            {
+                ItemChangerMod.Modules.Add<ItemChanger.Modules.ReversePathOfPainSaw>();
+            }
+            if (sourceNames.Contains($"{SceneNames.Town}[room_grimm]") || sourceNames.Contains($"{SceneNames.Town}[room_divine]"))
+            {
+                ItemChangerMod.Modules.Add<ItemChanger.Modules.GrimmTroupeTentUnlock>();
+            }
         }
 
 
-        public static void ExportStart(GenerationSettings gs)
+        public static void ExportStart(GenerationSettings gs, RandoModContext ctx)
         {
             string startName = gs.StartLocationSettings.StartLocation;
             if (!string.IsNullOrEmpty(startName) && Data.GetStartDef(startName) is RandomizerData.StartDef def)
@@ -46,7 +58,7 @@ namespace RandomizerMod.IC
                 });
             }
 
-            foreach (SmallPlatform p in PlatformList.GetPlatformList(gs)) ItemChangerMod.AddDeployer(p); 
+            foreach (SmallPlatform p in PlatformList.GetPlatformList(gs, ctx)) ItemChangerMod.AddDeployer(p); 
 
             switch (startName)
             {

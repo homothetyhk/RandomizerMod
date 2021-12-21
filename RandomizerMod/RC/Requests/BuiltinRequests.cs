@@ -46,7 +46,8 @@ namespace RandomizerMod.RC
 
             OnUpdate.Subscribe(20f, ApplyDuplicateItemSettings);
 
-            OnUpdate.Subscribe(30f, ApplyLongLocationSettings);
+            OnUpdate.Subscribe(30f, ApplyPalaceLongLocationSetting);
+            OnUpdate.Subscribe(30f, ApplyBossEssenceLongLocationSetting);
 
 
             OnUpdate.Subscribe(100f, ApplyItemPostPermuteEvents);
@@ -429,7 +430,7 @@ namespace RandomizerMod.RC
             }
         }
 
-        public static void ApplyLongLocationSettings(RequestBuilder rb)
+        public static void ApplyPalaceLongLocationSetting(RequestBuilder rb)
         {
             switch (rb.gs.LongLocationSettings.RandomizationInWhitePalace)
             {
@@ -446,6 +447,38 @@ namespace RandomizerMod.RC
                     rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.areaName == "Path_of_Pain");
                     break;
             }
+        }
+
+        public static void ApplyBossEssenceLongLocationSetting(RequestBuilder rb)
+        {
+            if (!rb.gs.PoolSettings.BossEssence)
+            {
+                return;
+            }
+
+            switch (rb.gs.LongLocationSettings.BossEssenceRandomization)
+            {
+                case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamWarriors:
+                    PoolDef warriors = Data.Pools.First(p => p.name == "DreamWarrior");
+                    foreach (string item in warriors.includeItems) rb.RemoveItemByName(item);
+                    foreach (string loc in warriors.includeLocations) rb.RemoveLocationByName(loc);
+                    foreach (PoolDef.StringILP p in warriors.vanilla) rb.AddToVanilla(p.item, p.location);
+                    break;
+                case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses:
+                    PoolDef bosses = Data.Pools.First(p => p.name == "DreamBoss");
+                    foreach (string item in bosses.includeItems) rb.RemoveItemByName(item);
+                    foreach (string loc in bosses.includeLocations) rb.RemoveLocationByName(loc);
+                    foreach (PoolDef.StringILP p in bosses.vanilla) rb.AddToVanilla(p.item, p.location);
+                    break;
+                case LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender:
+                    rb.RemoveItemByName(ItemNames.Boss_Essence_White_Defender);
+                    rb.RemoveItemByName(ItemNames.Boss_Essence_Grey_Prince_Zote);
+                    rb.RemoveLocationByName(LocationNames.Boss_Essence_White_Defender);
+                    rb.RemoveLocationByName(LocationNames.Boss_Essence_Grey_Prince_Zote);
+                    rb.AddToVanilla(ItemNames.Boss_Essence_White_Defender, LocationNames.Boss_Essence_White_Defender);
+                    rb.AddToVanilla(ItemNames.Boss_Essence_Grey_Prince_Zote, LocationNames.Boss_Essence_Grey_Prince_Zote);
+                    break;
+            }    
         }
 
         public static void ApplyDuplicateItemSettings(RequestBuilder rb)
