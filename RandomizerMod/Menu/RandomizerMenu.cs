@@ -22,7 +22,8 @@ namespace RandomizerMod.Menu
 {
     public class RandomizerMenuConstructor : ModeMenuConstructor
     {
-        private RandomizerMenu menu;
+        internal static RandomizerMenu menu;
+        internal static bool finished = false;
 
         public override bool TryGetModeButton(MenuPage modeMenu, out BigButton button)
         {
@@ -33,11 +34,35 @@ namespace RandomizerMod.Menu
         public override void OnEnterMainMenu(MenuPage modeMenu)
         {
             menu = new RandomizerMenu(modeMenu);
+            foreach (var entry in RandomizerMenuAPI.randoMenuPageConstructors)
+            {
+                try
+                {
+                    entry.ConstructionHandler(menu.ConnectionsPage);
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error constructing external menu:\n{e}");
+                }
+            }
+            foreach (var entry in RandomizerMenuAPI.randoStartOverrides)
+            {
+                try
+                {
+                    entry.ConstructionHandler(menu.FinalPage);
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error constructing external menu:\n{e}");
+                }
+            }
+            finished = true;
         }
 
         public override void OnExitMainMenu()
         {
             menu = null;
+            finished = false;
         }
     }
 
@@ -88,13 +113,13 @@ namespace RandomizerMod.Menu
 
 
         SmallButton JumpToJumpPageButton;
-        SmallButton JumpToGameSettingsButton;
+        SmallButton JumpToConnectionsButton;
         ToggleButton ToggleCaptionsButton;
 
         SmallButton[] StartCornerButtons => new SmallButton[]
         {
             JumpToJumpPageButton,
-            JumpToGameSettingsButton,
+            JumpToConnectionsButton,
             ToggleCaptionsButton,
         };
         VerticalItemPanel StartCornerVIP;
@@ -213,15 +238,14 @@ namespace RandomizerMod.Menu
 
         #region Game Settings
 
-        MenuPage GameSettingsPage;
-        //MenuElementFactory<QoLSettings> gameSettingsMEF;
-
-        //GridItemPanel gameSettingsPanel;
+        public MenuPage ConnectionsPage;
+        MultiGridItemPanel connectionsPanel;
+        MenuLabel emptyConnectionsPanelLabel;
         #endregion
 
         #region Final
 
-        MenuPage FinalPage;
+        public MenuPage FinalPage;
 
         BigButton StartButton;
 
@@ -269,7 +293,7 @@ namespace RandomizerMod.Menu
             JumpPage = new MenuPage("Randomizer Jump To Advanced Settings Page", StartPage);
             AdvancedSettingsPage = new MenuPage("Randomizer Advanced Settings Page", JumpPage);
             ManageSettingsPage = new MenuPage("Randomizer Manage Settings Page", JumpPage);
-            GameSettingsPage = new MenuPage("Randomizer Game Settings Page", StartPage);
+            ConnectionsPage = new MenuPage("Randomizer Game Settings Page", StartPage);
             FinalPage = new MenuPage("Randomizer Final Page", StartPage);
             FinalPage.backButton.Text.text = "Abort";
             FinalPage.backButton.OnClick += Abort;
@@ -289,7 +313,7 @@ namespace RandomizerMod.Menu
             // Start Page
 
             JumpToJumpPageButton = new SmallButton(StartPage, "More Randomizer Settings");
-            JumpToGameSettingsButton = new SmallButton(StartPage, "Game Settings");
+            JumpToConnectionsButton = new SmallButton(StartPage, "Connections");
             ToggleCaptionsButton = new ToggleButton(StartPage, "Toggle Menu Captions");
 
             GenerateButton = new BigButton(StartPage, "Begin Randomization");
@@ -362,8 +386,6 @@ namespace RandomizerMod.Menu
             ApplyProfileButton = new SmallButton(ManageSettingsPage, "Apply Profile");
             ProfileNameField = new TextEntryField(ManageSettingsPage, "Profile Name");
 
-            //gameSettingsMEF = new MenuElementFactory<QoLSettings>(GameSettingsPage, GameSettings);
-
             // Final Page
             InfoPanelTitle = new MenuLabel(FinalPage, "Randomizer Progress");
             AttemptCounter = new CounterLabel(FinalPage, "Attempts");
@@ -386,7 +408,6 @@ namespace RandomizerMod.Menu
 
         private void MakePanels()
         {
-            //StartVIP = new VerticalItemPanel(StartPage, new Vector2(-480, 450), 125f, PresetButtons);
             StartGIP = new GridItemPanel(StartPage, new Vector2(0, 450), 2, 125, 960, true, PresetButtons);
 
             PoolSubpage = new Subpage(AdvancedSettingsPage, "Randomized Items");
@@ -448,9 +469,11 @@ namespace RandomizerMod.Menu
 
             StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), 50f, false, StartCornerButtons);
 
-            /*
-            gameSettingsPanel = new GridItemPanel(GameSettingsPage, new Vector2(0, 300), 2, 80, 550, gameSettingsMEF.Elements);
-            */
+            emptyConnectionsPanelLabel = new MenuLabel(ConnectionsPage, "This page is currently empty. " +
+                "Mods connected to the randomizer can link menus here.", MenuLabel.Style.Title);
+            emptyConnectionsPanelLabel.MoveTo(new(0, 400));
+            connectionsPanel = new MultiGridItemPanel(ConnectionsPage, 6, 4, 50f, 400f, new(0, 300), Array.Empty<IMenuElement>());
+            // note - connection entries are constructed after menu construction!
 
             CodeVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(-400, 300), 100, true, CodeElements);
             ProfileVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(400, 300), 100, true, ProfileElements);
@@ -474,7 +497,8 @@ namespace RandomizerMod.Menu
             StartLocationPreset.SelfChanged += (self) => UpdateStartLocationPreset();
 
             JumpToJumpPageButton.AddHideAndShowEvent(StartPage, JumpPage);
-            JumpToGameSettingsButton.AddHideAndShowEvent(StartPage, GameSettingsPage);
+            JumpToConnectionsButton.OnClick += RebuildConnectionsPanel;
+            JumpToConnectionsButton.AddHideAndShowEvent(StartPage, ConnectionsPage);
 
             ToggleCaptionsButton.SetValue(true);
             ToggleCaptionsButton.SelfChanged += (self) =>
@@ -744,9 +768,11 @@ namespace RandomizerMod.Menu
                         }
                         HashVIP.Show();
 
-                        StartButton.Show();
-                        FinalPage.backButton.SetNeighbor(Neighbor.Up, StartButton);
-                        StartButton.SetNeighbor(Neighbor.Down, FinalPage.backButton);
+                        var startButton = ResolveStartButton();
+                        startButton.Show();
+                        startButton.MoveTo(new(0f, -200f));
+                        FinalPage.backButton.SetNeighbor(Neighbor.Up, startButton);
+                        startButton.SetNeighbor(Neighbor.Down, FinalPage.backButton);
                     });
                 }
                 catch (Exception e)
@@ -800,5 +826,39 @@ namespace RandomizerMod.Menu
             StartDef def = Data.GetStartDef(name);
             return pm.Evaluate(def.logic);
         }
+
+        public void RebuildConnectionsPanel()
+        {
+            if (!RandomizerMenuConstructor.finished) return;
+
+            List<SmallButton> buttons = new();
+            foreach (var entry in RandomizerMenuAPI.randoMenuPageConstructors)
+            {
+                if (entry.ButtonHandler(ConnectionsPage, out SmallButton button))
+                {
+                    buttons.Add(button);
+                }
+            }
+            connectionsPanel.Clear();
+            if (buttons.Count > 0)
+            {
+                connectionsPanel.AddRange(buttons);
+                emptyConnectionsPanelLabel.Hide();
+            }
+            else
+            {
+                emptyConnectionsPanelLabel.Show();
+            }
+        }
+
+        private BaseButton ResolveStartButton()
+        {
+            foreach (var entry in RandomizerMenuAPI.randoStartOverrides)
+            {
+                if (entry.StartHandler(rc, FinalPage, out BaseButton button)) return button;
+            }
+            return StartButton;
+        }
+
     }
 }
