@@ -10,16 +10,16 @@ namespace RandomizerMod.Settings
     public class GenerationSettings : ICloneable
     {
         public int Seed;
-        public TransitionSettings TransitionSettings = Presets.TransitionPresetData.None;
-        public SkipSettings SkipSettings = Presets.SkipPresetData.Easy;
-        public PoolSettings PoolSettings = Presets.PoolPresetData.Standard;
-        public NoveltySettings NoveltySettings = Presets.NoveltyPresetData.Basic;
-        public CostSettings CostSettings = Presets.CostPresetData.Standard;
-        public CursedSettings CursedSettings = Presets.CursePresetData.None;
-        public LongLocationSettings LongLocationSettings = Presets.LongLocationPresetData.Standard;
-        public StartLocationSettings StartLocationSettings = Presets.StartLocationPresetData.KingsPass;
-        public StartItemSettings StartItemSettings = Presets.StartItemPresetData.EarlyGeo;
-        public MiscSettings MiscSettings = Presets.MiscPresetData.Standard;
+        public TransitionSettings TransitionSettings = Presets.TransitionPresetData.None.Clone() as TransitionSettings;
+        public SkipSettings SkipSettings = Presets.SkipPresetData.Easy.Clone() as SkipSettings;
+        public PoolSettings PoolSettings = Presets.PoolPresetData.Standard.Clone() as PoolSettings;
+        public NoveltySettings NoveltySettings = Presets.NoveltyPresetData.Basic.Clone() as NoveltySettings;
+        public CostSettings CostSettings = Presets.CostPresetData.Standard.Clone() as CostSettings;
+        public CursedSettings CursedSettings = Presets.CursePresetData.None.Clone() as CursedSettings;
+        public LongLocationSettings LongLocationSettings = Presets.LongLocationPresetData.Standard.Clone() as LongLocationSettings;
+        public StartLocationSettings StartLocationSettings = Presets.StartLocationPresetData.KingsPass.Clone() as StartLocationSettings;
+        public StartItemSettings StartItemSettings = Presets.StartItemPresetData.EarlyGeo.Clone() as StartItemSettings;
+        public MiscSettings MiscSettings = Presets.MiscPresetData.Standard.Clone() as MiscSettings;
 
         public GenerationSettings()
         {
