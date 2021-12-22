@@ -17,9 +17,7 @@ namespace RandomizerMod.RandomizerData
         public MapZone Zone { get; init; }
 
         // logic info
-        public string Waypoint { get; init; }
-        public string AreaTransition { get; init; }
-        public string RoomTransition { get; init; }
+        public string Transition { get; init; }
 
         // Primitive logic -- check SettingsPM
         public string Logic { get; init; }

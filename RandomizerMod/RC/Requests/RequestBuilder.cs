@@ -26,7 +26,9 @@ namespace RandomizerMod.RC
             foreach (RandomizationStage stage in stages) rng.PermuteInPlace(stage.groups); // random tiebreakers between groups
 
             vanilla = Vanilla.EnumerateWithMultiplicity()
-                .Select(v => new RandoPlacement(factory.MakeItem(v.Item), factory.MakeLocation(v.Location)))
+                .Select(v => !Data.IsTransition(v.Item)
+                ? new RandoPlacement(factory.MakeItem(v.Item), factory.MakeLocation(v.Location))
+                : new RandoPlacement(factory.MakeTransition(v.Item), factory.MakeTransition(v.Location)))
                 .ToList();
         }
 

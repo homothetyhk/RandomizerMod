@@ -18,6 +18,7 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(-2000f, ApplyCustomGeoMatch);
 
             OnUpdate.Subscribe(-1000f, ApplyTransitionSettings);
+            OnUpdate.Subscribe(-800f, PlaceUnrandomizedTransitions);
 
             OnUpdate.Subscribe(-100f, ApplyShopDefs);
             OnUpdate.Subscribe(-100f, ApplyGrubfatherDef);
@@ -56,6 +57,7 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(100f, ApplyTransitionPostPermuteEvents);
             OnUpdate.Subscribe(100f, ApplyTransitionPlacementStrategy);
         }
+
 
         public static void ApplyPlaceholderMatch(RequestBuilder rb)
         {
@@ -291,6 +293,25 @@ namespace RandomizerMod.RC
                     return false;
                 }
                 OnGetGroupFor.Subscribe(-1000f, NonMatchedTryResolveGroup);
+            }
+        }
+
+        public static void PlaceUnrandomizedTransitions(RequestBuilder rb)
+        {
+            HashSet<string> RandomizedTransitions = rb.gs.TransitionSettings.Mode switch
+            {
+                TransitionSettings.TransitionMode.RoomRandomizer => new(Data.GetRoomTransitionNames()),
+                TransitionSettings.TransitionMode.AreaRandomizer => new(Data.GetAreaTransitionNames()),
+                _ => new()
+            };
+
+            foreach (string trans in Data.GetRoomTransitionNames().Except(RandomizedTransitions))
+            {
+                string target = Data.GetTransitionDef(trans).VanillaTarget;
+                if (!string.IsNullOrEmpty(target))
+                {
+                    rb.AddToVanilla(target, trans);
+                }
             }
         }
 
