@@ -20,6 +20,7 @@ namespace RandomizerMod.Settings
         public StartLocationSettings StartLocationSettings = Presets.StartLocationPresetData.KingsPass.Clone() as StartLocationSettings;
         public StartItemSettings StartItemSettings = Presets.StartItemPresetData.EarlyGeo.Clone() as StartItemSettings;
         public MiscSettings MiscSettings = Presets.MiscPresetData.Standard.Clone() as MiscSettings;
+        public ProgressionDepthSettings ProgressionDepthSettings = new();
 
         public GenerationSettings()
         {

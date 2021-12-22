@@ -189,6 +189,7 @@ namespace RandomizerMod.Menu
             MiscSubpage,
             CursedSubpage,
             TransitionSubpage,
+            ProgressionDepthSubpage,
         };
 
         Subpage PoolSubpage;
@@ -233,6 +234,10 @@ namespace RandomizerMod.Menu
         Subpage TransitionSubpage;
         MenuElementFactory<TransitionSettings> transitionMEF;
         VerticalItemPanel transitionPanel;
+
+        Subpage ProgressionDepthSubpage;
+        MenuElementFactory<ProgressionDepthSettings> progressionDepthMEF;
+        VerticalItemPanel progressionDepthPanel;
 
         #endregion
 
@@ -340,6 +345,7 @@ namespace RandomizerMod.Menu
             miscMEF = new MenuElementFactory<MiscSettings>(AdvancedSettingsPage, Settings.MiscSettings);
             cursedMEF = new MenuElementFactory<CursedSettings>(AdvancedSettingsPage, Settings.CursedSettings);
             transitionMEF = new MenuElementFactory<TransitionSettings>(AdvancedSettingsPage, Settings.TransitionSettings);
+            progressionDepthMEF = new MenuElementFactory<ProgressionDepthSettings>(AdvancedSettingsPage, Settings.ProgressionDepthSettings);
 
             PoolPreset = new MenuPreset<PoolSettings>(StartPage, "Randomized Items", 
                 PoolPresetData.PoolPresets, Settings.PoolSettings,
@@ -450,6 +456,10 @@ namespace RandomizerMod.Menu
             TransitionSubpage = new Subpage(AdvancedSettingsPage, "Transition Randomizer");
             transitionPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, transitionMEF.Elements);
             TransitionSubpage.Add(transitionPanel);
+
+            ProgressionDepthSubpage = new Subpage(AdvancedSettingsPage, "Progression Depth");
+            progressionDepthPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 75f, false, progressionDepthMEF.Elements);
+            ProgressionDepthSubpage.Add(progressionDepthPanel);
 
             AdvancedSettingsViewer = new OrderedItemViewer(AdvancedSettingsPage, AdvancedSettingsSubpages);
 

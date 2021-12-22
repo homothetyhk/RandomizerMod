@@ -46,7 +46,7 @@ namespace RandomizerMod.RC
                 Items = items.ToArray<IRandoItem>(),
                 Locations = locations.ToArray<IRandoLocation>(),
                 Label = label,
-                Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetItemPlacementStrategy(),
             };
             group.OnPermute += onPermute;
 

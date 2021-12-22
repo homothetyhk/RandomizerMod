@@ -211,6 +211,10 @@ namespace RandomizerMod.RC
                 foreach (TransitionDef def in bots) vertical.Group1.Add(def.Name);
                 foreach (TransitionDef def in tops) vertical.Group2.Add(def.Name);
 
+                oneWays.strategy = rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
+                horizontal.strategy = rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
+                vertical.strategy = rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
+
                 if (ts.TransitionMatching == TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor)
                 {
                     static bool NotDoorToDoor(IRandoItem item, IRandoLocation location)
@@ -223,9 +227,7 @@ namespace RandomizerMod.RC
 
                         return t1.Direction != TransitionDirection.Door || t2.Direction != TransitionDirection.Door;
                     }
-                    DefaultGroupPlacementStrategy dgps = new(1);
-                    dgps.Constraints += NotDoorToDoor;
-                    horizontal.strategy = dgps;
+                    ((DefaultGroupPlacementStrategy)horizontal.strategy).Constraints += NotDoorToDoor;
                 }
 
                 sb.Add(oneWays);
@@ -276,6 +278,9 @@ namespace RandomizerMod.RC
                             break;
                     }
                 }
+
+                oneWays.strategy = rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
+                twoWays.strategy = rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
 
                 sb.Add(oneWays);
                 sb.Add(twoWays);
@@ -788,7 +793,7 @@ namespace RandomizerMod.RC
                 IReadOnlyList<IRandoItem> items = group.Items;
                 IReadOnlyList<IRandoLocation> locations = group.Locations;
                 bool majorPenalty = rb.gs.CursedSettings.LongerProgressionChains;
-                bool dupePenalty = true;
+                bool dupePenalty = rb.gs.ProgressionDepthSettings.DuplicateItemPenalty;
 
                 if (majorPenalty || dupePenalty)
                 {
@@ -796,31 +801,19 @@ namespace RandomizerMod.RC
                     {
                         if (majorPenalty && (Data.GetItemDef(items[i].Name)?.MajorItem ?? false))
                         {
-                            try
-                            {
-                                checked { items[i].Priority += rng.Next(items.Count - i); } // makes major items more likely to be selected late in progression
-                            }
-                            catch (OverflowException)
-                            {
-                                items[i].Priority = int.MaxValue;
-                            }
+                            
+                            items[i].Priority += rng.Next(items.Count - i) / (float)items.Count;
                         }
 
                         if (dupePenalty && items[i] is PlaceholderItem)
                         {
-                            try
-                            {
-                                checked { items[i].Priority -= 1000; } // makes dupes more likely to be placed immediately after progression, into late locations
-                            }
-                            catch (OverflowException)
-                            {
-                                items[i].Priority = int.MinValue;
-                            }
+                            // make dupes more likely to be placed immediately after progression, into late locations
+                            items[i].Priority -= 0.8f;
                         }
                     }
                 }
 
-                bool shopPenalty = true;
+                bool shopPenalty = rb.gs.ProgressionDepthSettings.MultiLocationPenalty;
 
                 if (shopPenalty)
                 {
@@ -830,7 +823,7 @@ namespace RandomizerMod.RC
                         if (shopPenalty && (Data.GetLocationDef(locations[i].Name)?.Multi ?? false))
                         {
                             // shops keep their lowest priority slot, but all other slots are moved to the end.
-                            if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, locations.Count);
+                            if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, 1f);
                         }
                     }
                 }
@@ -870,7 +863,7 @@ namespace RandomizerMod.RC
         {
             foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
             {
-                gb.strategy ??= new DefaultGroupPlacementStrategy(5); // TODO: depth priority transform setting
+                gb.strategy ??= rb.gs.ProgressionDepthSettings.GetItemPlacementStrategy();
             }
         }
 
@@ -896,14 +889,14 @@ namespace RandomizerMod.RC
                     {
                         string area = Data.GetTransitionDef(t.Name).AreaName ?? string.Empty;
                         if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
-                        t.Priority += modifier * 10;
+                        t.Priority += modifier * 0.8f;
                         
                     }
                     foreach (IRandoLocation t in group.Locations)
                     {
                         string area = Data.GetTransitionDef(t.Name).AreaName ?? string.Empty;
                         if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
-                        t.Priority += modifier * 10;
+                        t.Priority += modifier * 0.8f;
                     }
                 }
             }
@@ -915,7 +908,7 @@ namespace RandomizerMod.RC
             {
                 foreach (GroupBuilder gb in rb.EnumerateTransitionGroups())
                 {
-                    gb.strategy ??= new DefaultGroupPlacementStrategy(1);
+                    gb.strategy ??= rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
                     if (gb.strategy is DefaultGroupPlacementStrategy s)
                     {
                         s.Constraints += AreasMatch;

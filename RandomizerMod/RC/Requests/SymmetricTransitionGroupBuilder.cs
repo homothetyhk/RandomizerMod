@@ -36,14 +36,14 @@ namespace RandomizerMod.RC
                     Items = t1s.ToArray<IRandoItem>(),
                     Locations = t2s.ToArray<IRandoLocation>(),
                     Label = label,
-                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
                 CoupledRandomizationGroup g2 = new()
                 {
                     Items = t2s.ToArray<IRandoItem>(),
                     Locations = t1s.ToArray<IRandoLocation>(),
                     Label = reverseLabel,
-                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
                 g1.Dual = g2;
                 g2.Dual = g1;
@@ -58,14 +58,14 @@ namespace RandomizerMod.RC
                     Items = t1s.ToArray<IRandoItem>(),
                     Locations = t2s.ToArray<IRandoLocation>(),
                     Label = label,
-                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
                 RandomizationGroup g2 = new()
                 {
                     Items = t2s.ToArray<IRandoItem>(),
                     Locations = t1s.ToArray<IRandoLocation>(),
                     Label = reverseLabel,
-                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
 
                 groups.Add(g1);

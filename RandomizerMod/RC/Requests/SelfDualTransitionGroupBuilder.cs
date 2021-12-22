@@ -23,7 +23,7 @@ namespace RandomizerMod.RC
                     Items = ts.ToArray<IRandoItem>(),
                     Locations = ts.ToArray<IRandoLocation>(),
                     Label = label,
-                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
                 g.Dual = g;
                 groups.Add(g);
@@ -35,11 +35,10 @@ namespace RandomizerMod.RC
                     Items = ts.ToArray<IRandoItem>(),
                     Locations = ts.ToArray<IRandoLocation>(),
                     Label = label,
-                    Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
                 groups.Add(g);
             }
         }
-
     }
 }

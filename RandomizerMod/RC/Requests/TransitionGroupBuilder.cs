@@ -32,7 +32,7 @@ namespace RandomizerMod.RC
                 Label = label,
                 Items = items.ToArray<IRandoItem>(),
                 Locations = locations.ToArray<IRandoLocation>(),
-                Strategy = strategy ?? new DefaultGroupPlacementStrategy(0),
+                Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
             });
         }
     }
