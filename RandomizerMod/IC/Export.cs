@@ -59,10 +59,10 @@ namespace RandomizerMod.IC
             {
                 ItemChangerMod.ChangeStartGame(new ItemChanger.StartDef
                 {
-                    SceneName = def.sceneName,
-                    X = def.x,
-                    Y = def.y,
-                    MapZone = (int)def.zone,
+                    SceneName = def.SceneName,
+                    X = def.X,
+                    Y = def.Y,
+                    MapZone = (int)def.Zone,
                     SpecialEffects = SpecialStartEffects.Default | SpecialStartEffects.SlowSoulRefill, // TODO: identify which starts+modes don't need soul refill
                     RespawnFacingRight = true, // TODO: are there any starts which should face left?
                 });

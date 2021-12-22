@@ -7,11 +7,11 @@ namespace RandomizerMod.RandomizerData
 {
     public class PoolDef
     {
-        public string name;
-        public string path;
-        public string[] includeItems;
-        public string[] includeLocations;
-        public StringILP[] vanilla;
+        public string Name { get; init; }
+        public string Path { get; init; }
+        public string[] IncludeItems { get; init; }
+        public string[] IncludeLocations { get; init; }
+        public StringILP[] Vanilla { get; init; }
 
         public readonly struct StringILP
         {
@@ -28,16 +28,16 @@ namespace RandomizerMod.RandomizerData
 
         public bool IsIncluded(Settings.GenerationSettings gs)
         {
-            if (!string.IsNullOrEmpty(path)
-                && Settings.Util.Get(gs, path) is bool value
+            if (!string.IsNullOrEmpty(Path)
+                && Settings.Util.Get(gs, Path) is bool value
                 && value) return true;
             else return false;
         }
 
         public bool IsVanilla(Settings.GenerationSettings gs)
         {
-            if (!string.IsNullOrEmpty(path)
-                && Settings.Util.Get(gs, path) is bool value
+            if (!string.IsNullOrEmpty(Path)
+                && Settings.Util.Get(gs, Path) is bool value
                 && !value) return true;
             else return false;
         }

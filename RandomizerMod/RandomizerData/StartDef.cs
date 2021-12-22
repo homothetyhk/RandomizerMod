@@ -8,20 +8,20 @@ namespace RandomizerMod.RandomizerData
 {
     public class StartDef
     {
-        public string name;
+        public string Name { get; init; }
 
         // respawn marker properties
-        public string sceneName;
-        public float x;
-        public float y;
-        public MapZone zone;
+        public string SceneName { get; init; }
+        public float X { get; init; }
+        public float Y { get; init; }
+        public MapZone Zone { get; init; }
 
         // logic info
-        public string waypoint;
-        public string areaTransition;
-        public string roomTransition;
+        public string Waypoint { get; init; }
+        public string AreaTransition { get; init; }
+        public string RoomTransition { get; init; }
 
-        // Primitive logic -- check MenuChanger / PreRandomizer for supported flags
-        public string logic;
+        // Primitive logic -- check SettingsPM
+        public string Logic { get; init; }
     }
 }

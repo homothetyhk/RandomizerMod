@@ -92,7 +92,7 @@ namespace RandomizerMod.RandomizerData
 
         public static IEnumerable<string> GetAreaTransitionNames()
         {
-            return _transitions.Where(kvp => kvp.Value.isAreaTransition).Select(kvp => kvp.Key);
+            return _transitions.Where(kvp => kvp.Value.IsAreaTransition).Select(kvp => kvp.Key);
         }
 
         public static IEnumerable<string> GetRoomTransitionNames()
@@ -102,7 +102,7 @@ namespace RandomizerMod.RandomizerData
 
         public static bool IsAreaTransition(string str)
         {
-            return _transitions.TryGetValue(str, out TransitionDef def) && def.isAreaTransition;
+            return _transitions.TryGetValue(str, out TransitionDef def) && def.IsAreaTransition;
         }
 
         public static bool IsTransition(string str)
@@ -112,17 +112,17 @@ namespace RandomizerMod.RandomizerData
 
         public static bool IsTransitionWithEntry(string str)
         {
-            return _transitions.TryGetValue(str, out var def) && def.sides != TransitionSides.OneWayOut;
+            return _transitions.TryGetValue(str, out var def) && def.Sides != TransitionSides.OneWayOut;
         }
 
         public static bool IsExitOnlyTransition(string str)
         {
-            return _transitions.TryGetValue(str, out var def) && def.sides == TransitionSides.OneWayOut;
+            return _transitions.TryGetValue(str, out var def) && def.Sides == TransitionSides.OneWayOut;
         }
 
         public static bool IsEnterOnlyTransition(string str)
         {
-            return _transitions.TryGetValue(str, out var def) && def.sides == TransitionSides.OneWayIn;
+            return _transitions.TryGetValue(str, out var def) && def.Sides == TransitionSides.OneWayIn;
         }
         #endregion
         #region Start Methods
@@ -182,7 +182,6 @@ namespace RandomizerMod.RandomizerData
             _starts = JsonUtil.Deserialize<Dictionary<string, StartDef>>("RandomizerMod.Resources.starts.json");
             _transitions = JsonUtil.Deserialize<Dictionary<string, TransitionDef>>("RandomizerMod.Resources.transitions.json");
             _costs = JsonUtil.Deserialize<Dictionary<string, CostDef>>("RandomizerMod.Resources.costs.json");
-            return;
         }
 
     }

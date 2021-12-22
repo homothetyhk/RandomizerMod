@@ -90,7 +90,7 @@ namespace RandomizerMod.RC
 
             if (Data.TryGetCost(name, out CostDef def))
             {
-                switch (def.term)
+                switch (def.Term)
                 {
                     case "ESSENCE":
                     case "GRUBS":
@@ -101,10 +101,10 @@ namespace RandomizerMod.RC
                         rl.AddCost(new SimpleCost(lm.GetTerm("Spore_Shroom"), 1));
                         break;
                     case "GEO":
-                        rl.AddCost(new LogicGeoCost(lm, def.amount));
+                        rl.AddCost(new LogicGeoCost(lm, def.Amount));
                         break;
                     default:
-                        rl.AddCost(new SimpleCost(lm.GetTerm(def.term), def.amount));
+                        rl.AddCost(new SimpleCost(lm.GetTerm(def.Term), def.Amount));
                         break;
                 }
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RandomizerMod.RandomizerData
 {
-    public record CostDef(string term, int amount)
+    public record CostDef(string Term, int Amount)
     {
     }
 }

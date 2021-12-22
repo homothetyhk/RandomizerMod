@@ -7,9 +7,9 @@ namespace RandomizerMod.RandomizerData
 {
     public class LocationDef
     {
-        public string name;
-        public string sceneName;
-        public string areaName;
-        public bool multi;
+        public string Name { get; init; }
+        public string SceneName { get; init; }
+        public string AreaName { get; init; }
+        public bool Multi { get; init; }
     }
 }

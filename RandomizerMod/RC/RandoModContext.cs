@@ -23,9 +23,9 @@ namespace RandomizerMod.RC
             var mode = gs.TransitionSettings.GetLogicMode();
             StartDef start = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
 
-            if (mode != LogicMode.Room) Setters.Add(new(lm.GetTerm(start.waypoint), 1));
-            if (mode == LogicMode.Area) Setters.Add(new(lm.GetTerm(start.areaTransition), 1));
-            if (mode == LogicMode.Room) Setters.Add(new(lm.GetTerm(start.roomTransition), 1));
+            if (mode != LogicMode.Room) Setters.Add(new(lm.GetTerm(start.Waypoint), 1));
+            if (mode == LogicMode.Area) Setters.Add(new(lm.GetTerm(start.AreaTransition), 1));
+            if (mode == LogicMode.Room) Setters.Add(new(lm.GetTerm(start.RoomTransition), 1));
 
             // use these baseline numbers for cursed settings and add shards/notches as vanilla items at start if necessary
             Setters.Add(new(lm.GetTerm("MASKSHARDS"), 4));

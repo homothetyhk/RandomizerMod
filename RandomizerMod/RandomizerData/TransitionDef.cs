@@ -8,26 +8,18 @@ namespace RandomizerMod.RandomizerData
     public class TransitionDef
     {
         [Newtonsoft.Json.JsonIgnore]
-        public string Name => $"{sceneName}[{doorName}]";
+        public string Name => $"{SceneName}[{DoorName}]";
 
-        public string sceneName;
-        public string doorName;
-        public string areaName;
+        public string SceneName { get; init; }
+        public string DoorName { get; init; }
+        public string AreaName { get; init; }
+        public string VanillaTarget { get; init; }
+        public TransitionDirection Direction { get; init; }
 
-        public bool isAreaTransition;
-        public bool isolated;
-        public bool deadEnd;
-        public TransitionSides sides;
-
-        public TransitionDirection GetDirection()
-        {
-            if (doorName.StartsWith("left")) return TransitionDirection.Left;
-            else if (doorName.StartsWith("right")) return TransitionDirection.Right;
-            else if (doorName.StartsWith("top")) return TransitionDirection.Top;
-            else if (doorName.StartsWith("bot")) return TransitionDirection.Bot;
-            else return TransitionDirection.Unknown;
-        }
-
+        public bool IsAreaTransition { get; init; }
+        public bool Isolated { get; init; }
+        public bool DeadEnd { get; init; }
+        public TransitionSides Sides { get; init; }
     }
 
     public enum TransitionSides
@@ -45,7 +37,7 @@ namespace RandomizerMod.RandomizerData
 
     public enum TransitionDirection
     {
-        Unknown,
+        Door,
         Left,
         Right,
         Top,

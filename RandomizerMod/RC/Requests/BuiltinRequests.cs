@@ -150,12 +150,12 @@ namespace RandomizerMod.RC
                     { TransitionDirection.Right, rights },
                     { TransitionDirection.Top, tops },
                     { TransitionDirection.Bot, bots },
-                    { TransitionDirection.Unknown, doors },
+                    { TransitionDirection.Door, doors },
                 };
 
                 foreach (TransitionDef def in transitions)
                 {
-                    switch (def.sides)
+                    switch (def.Sides)
                     {
                         case TransitionSides.OneWayOut:
                             oneWays.Targets.Add(def.Name);
@@ -164,7 +164,7 @@ namespace RandomizerMod.RC
                             oneWays.Sources.Add(def.Name);
                             break;
                         default:
-                            directedTransitions[def.GetDirection()].Add(def);
+                            directedTransitions[def.Direction].Add(def);
                             break;
                     }
                 }
@@ -219,7 +219,7 @@ namespace RandomizerMod.RC
                             return true;
                         }
 
-                        return t1.GetDirection() != TransitionDirection.Unknown || t2.GetDirection() != TransitionDirection.Unknown;
+                        return t1.Direction != TransitionDirection.Door || t2.Direction != TransitionDirection.Door;
                     }
                     DefaultGroupPlacementStrategy dgps = new(1);
                     dgps.Constraints += NotDoorToDoor;
@@ -236,9 +236,9 @@ namespace RandomizerMod.RC
                         && (rb.gs.TransitionSettings.Mode != TransitionSettings.TransitionMode.AreaRandomizer || Data.IsAreaTransition(item)))
                     {
                         TransitionDef def = Data.GetTransitionDef(item);
-                        gb = def.sides != TransitionSides.Both
+                        gb = def.Sides != TransitionSides.Both
                             ? oneWays
-                            : Data.GetTransitionDef(item).GetDirection() switch
+                            : Data.GetTransitionDef(item).Direction switch
                             {
                                 TransitionDirection.Top or
                                 TransitionDirection.Bot => vertical,
@@ -261,7 +261,7 @@ namespace RandomizerMod.RC
                 };
                 foreach (TransitionDef def in transitions)
                 {
-                    switch (def.sides)
+                    switch (def.Sides)
                     {
                         case TransitionSides.OneWayOut:
                             oneWays.Targets.Add(def.Name);
@@ -284,7 +284,7 @@ namespace RandomizerMod.RC
                         && (rb.gs.TransitionSettings.Mode != TransitionSettings.TransitionMode.AreaRandomizer || Data.IsAreaTransition(item)))
                     {
                         TransitionDef def = Data.GetTransitionDef(item);
-                        gb = def.sides != TransitionSides.Both ? oneWays : twoWays;
+                        gb = def.Sides != TransitionSides.Both ? oneWays : twoWays;
                         return true;
                     }
                     gb = default;
@@ -333,7 +333,7 @@ namespace RandomizerMod.RC
             {
                 double pow = 1.2; // setting?
 
-                int cap = Data.GetItemDef(itemName).priceCap;
+                int cap = Data.GetItemDef(itemName).PriceCap;
                 if (cap <= 100) return cap;
                 if (required) return rng.PowerLaw(pow, 100, Math.Min(cap, 500)).ClampToMultipleOf(5);
                 return rng.PowerLaw(pow, 100, cap).ClampToMultipleOf(5);
@@ -435,16 +435,16 @@ namespace RandomizerMod.RC
             {
                 if (pool.IsIncluded(rb.gs))
                 {
-                    foreach (string item in pool.includeItems) rb.AddItemByName(item);
-                    foreach (string location in pool.includeLocations) rb.AddLocationByName(location);
+                    foreach (string item in pool.IncludeItems) rb.AddItemByName(item);
+                    foreach (string location in pool.IncludeLocations) rb.AddLocationByName(location);
                 }
                 if (pool.IsVanilla(rb.gs))
                 {
-                    if (pool.name == "Flame" && rb.gs.PoolSettings.Charms)
+                    if (pool.Name == "Flame" && rb.gs.PoolSettings.Charms)
                     {
-                        foreach (PoolDef.StringILP p in pool.vanilla.Skip(6)) rb.AddToVanilla(p.item, p.location);
+                        foreach (PoolDef.StringILP p in pool.Vanilla.Skip(6)) rb.AddToVanilla(p.item, p.location);
                     }
-                    else foreach (PoolDef.StringILP p in pool.vanilla) rb.AddToVanilla(p.item, p.location);
+                    else foreach (PoolDef.StringILP p in pool.Vanilla) rb.AddToVanilla(p.item, p.location);
                 }
             }
         }
@@ -457,13 +457,13 @@ namespace RandomizerMod.RC
                     rb.RemoveItemByName("Soul_Totem-Palace");
                     rb.RemoveItemByName("Lore_Tablet-Palace_Workshop");
                     rb.RemoveItemByName("Lore_Tablet-Palace_Throne");
-                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.areaName == "White_Palace");
+                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.AreaName == "White_Palace");
                     goto case LongLocationSettings.WPSetting.ExcludePathOfPain;
                 case LongLocationSettings.WPSetting.ExcludePathOfPain:
                     rb.RemoveItemByName("Soul_Totem-Path_of_Pain");
                     rb.RemoveItemByName("Journal_Entry-Seal_of_Binding");
                     rb.RemoveItemByName("Lore_Tablet-Path_of_Pain_Entrance");
-                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.areaName == "Path_of_Pain");
+                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.AreaName == "Path_of_Pain");
                     break;
             }
         }
@@ -478,16 +478,16 @@ namespace RandomizerMod.RC
             switch (rb.gs.LongLocationSettings.BossEssenceRandomization)
             {
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamWarriors:
-                    PoolDef warriors = Data.Pools.First(p => p.name == "DreamWarrior");
-                    foreach (string item in warriors.includeItems) rb.RemoveItemByName(item);
-                    foreach (string loc in warriors.includeLocations) rb.RemoveLocationByName(loc);
-                    foreach (PoolDef.StringILP p in warriors.vanilla) rb.AddToVanilla(p.item, p.location);
+                    PoolDef warriors = Data.Pools.First(p => p.Name == "DreamWarrior");
+                    foreach (string item in warriors.IncludeItems) rb.RemoveItemByName(item);
+                    foreach (string loc in warriors.IncludeLocations) rb.RemoveLocationByName(loc);
+                    foreach (PoolDef.StringILP p in warriors.Vanilla) rb.AddToVanilla(p.item, p.location);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses:
-                    PoolDef bosses = Data.Pools.First(p => p.name == "DreamBoss");
-                    foreach (string item in bosses.includeItems) rb.RemoveItemByName(item);
-                    foreach (string loc in bosses.includeLocations) rb.RemoveLocationByName(loc);
-                    foreach (PoolDef.StringILP p in bosses.vanilla) rb.AddToVanilla(p.item, p.location);
+                    PoolDef bosses = Data.Pools.First(p => p.Name == "DreamBoss");
+                    foreach (string item in bosses.IncludeItems) rb.RemoveItemByName(item);
+                    foreach (string loc in bosses.IncludeLocations) rb.RemoveLocationByName(loc);
+                    foreach (PoolDef.StringILP p in bosses.Vanilla) rb.AddToVanilla(p.item, p.location);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender:
                     rb.RemoveItemByName(ItemNames.Boss_Essence_White_Defender);
@@ -689,7 +689,7 @@ namespace RandomizerMod.RC
             {
                 foreach (PoolDef pool in Data.Pools)
                 {
-                    switch (pool.name)
+                    switch (pool.Name)
                     {
                         case "Mask":
                         case "CursedMask":
@@ -704,7 +704,7 @@ namespace RandomizerMod.RC
                         case "Soul":
                         case "PalaceSoul":
                         case "Boss_Geo":
-                            foreach (string i in pool.includeItems) rb.RemoveItemByName(i);
+                            foreach (string i in pool.IncludeItems) rb.RemoveItemByName(i);
                             break;
                     }
                 }
@@ -719,7 +719,7 @@ namespace RandomizerMod.RC
             {
                 foreach (string l in gb.Locations.EnumerateDistinct())
                 {
-                    if (Data.GetLocationDef(l) is LocationDef def && def.multi) multiSet.Add(l);
+                    if (Data.GetLocationDef(l) is LocationDef def && def.Multi) multiSet.Add(l);
                     // TODO: move multi to LocationRequestInfo?
                 }
             }
@@ -737,20 +737,20 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.CursedSettings.RandomizeMimics && !rb.gs.PoolSettings.Grubs)
             {
-                PoolDef mimicPool = Data.Pools.First(p => p.name == "Mimic");
-                PoolDef grubPool = Data.Pools.First(p => p.name == "Grub");
+                PoolDef mimicPool = Data.Pools.First(p => p.Name == "Mimic");
+                PoolDef grubPool = Data.Pools.First(p => p.Name == "Grub");
 
                 rb.RemoveItemByName(ItemNames.Mimic_Grub);
-                foreach (string loc in mimicPool.includeLocations) rb.RemoveLocationByName(loc);
-                foreach (PoolDef.StringILP ilp in grubPool.vanilla) rb.Vanilla.RemoveAll(new(ilp.item, ilp.location));
+                foreach (string loc in mimicPool.IncludeLocations) rb.RemoveLocationByName(loc);
+                foreach (PoolDef.StringILP ilp in grubPool.Vanilla) rb.Vanilla.RemoveAll(new(ilp.item, ilp.location));
 
                 StageBuilder sb = rb.AddStage("Grub Mimic Stage");
                 ItemGroupBuilder gb = sb.AddItemGroup("Grub Mimic Group");
                 int num_mimics = rb.rng.Next(RBConsts.MIN_MIMIC_COUNT, RBConsts.MAX_MIMIC_COUNT + 1);
                 gb.Items.Set(ItemNames.Grub, 50 - num_mimics);
                 gb.Items.Set(ItemNames.Mimic_Grub, num_mimics);
-                gb.Locations.AddRange(grubPool.includeLocations);
-                gb.Locations.AddRange(mimicPool.includeLocations);
+                gb.Locations.AddRange(grubPool.IncludeLocations);
+                gb.Locations.AddRange(mimicPool.IncludeLocations);
             }
         }
 
@@ -773,7 +773,7 @@ namespace RandomizerMod.RC
                 {
                     for (int i = 0; i < items.Count; i++)
                     {
-                        if (majorPenalty && (Data.GetItemDef(items[i].Name)?.majorItem ?? false))
+                        if (majorPenalty && (Data.GetItemDef(items[i].Name)?.MajorItem ?? false))
                         {
                             try
                             {
@@ -806,7 +806,7 @@ namespace RandomizerMod.RC
                     HashSet<string> shops = new();
                     for (int i = 0; i < locations.Count; i++)
                     {
-                        if (shopPenalty && (Data.GetLocationDef(locations[i].Name)?.multi ?? false))
+                        if (shopPenalty && (Data.GetLocationDef(locations[i].Name)?.Multi ?? false))
                         {
                             // shops keep their lowest priority slot, but all other slots are moved to the end.
                             if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, locations.Count);
@@ -835,7 +835,7 @@ namespace RandomizerMod.RC
                 {
                     foreach (string l in gb.Locations.EnumerateDistinct())
                     {
-                        if (Data.GetLocationDef(l) is LocationDef def && def.multi) multiSet.Add(l);
+                        if (Data.GetLocationDef(l) is LocationDef def && def.Multi) multiSet.Add(l);
                     }
                 }
                 // TODO: this method of padding does not consider group!
@@ -873,14 +873,14 @@ namespace RandomizerMod.RC
                 {
                     foreach (IRandoItem t in group.Items)
                     {
-                        string area = Data.GetTransitionDef(t.Name).areaName ?? string.Empty;
+                        string area = Data.GetTransitionDef(t.Name).AreaName ?? string.Empty;
                         if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
                         t.Priority += modifier * 10;
                         
                     }
                     foreach (IRandoLocation t in group.Locations)
                     {
-                        string area = Data.GetTransitionDef(t.Name).areaName ?? string.Empty;
+                        string area = Data.GetTransitionDef(t.Name).AreaName ?? string.Empty;
                         if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
                         t.Priority += modifier * 10;
                     }
@@ -902,21 +902,6 @@ namespace RandomizerMod.RC
                     else throw new InvalidOperationException("Connected areas conflict with transition group placement strategy!");
                 }
             }
-            if (false) // ban door-door transitions
-            {
-                foreach (GroupBuilder gb in rb.EnumerateTransitionGroups())
-                {
-                    if (gb.label == "Left -> Right" || gb.label == "Right -> Left")
-                    {
-                        gb.strategy ??= new DefaultGroupPlacementStrategy(1);
-                        if (gb.strategy is DefaultGroupPlacementStrategy s)
-                        {
-                            s.Constraints += NotDoorToDoor;
-                        }
-                        else throw new InvalidOperationException("Avoid Door-Door transitions conflicts with transition group placement strategy!");
-                    }
-                }
-            }
 
             static bool AreasMatch(IRandoItem item, IRandoLocation location)
             {
@@ -926,18 +911,7 @@ namespace RandomizerMod.RC
                     return true;
                 }
 
-                return t1.areaName == t2.areaName;
-            }
-
-            static bool NotDoorToDoor(IRandoItem item, IRandoLocation location)
-            {
-                if (Data.GetTransitionDef(item.Name) is not TransitionDef t1
-                    || Data.GetTransitionDef(location.Name) is not TransitionDef t2)
-                {
-                    return true;
-                }
-
-                return t1.GetDirection() != TransitionDirection.Unknown || t2.GetDirection() != TransitionDirection.Unknown;
+                return t1.AreaName == t2.AreaName;
             }
         }
     }

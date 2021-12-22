@@ -334,7 +334,7 @@ namespace RandomizerMod.Menu
                 typeof(StartLocationSettings).GetField(nameof(StartLocationSettings.StartLocationType)));
             randomFixedStartButton = new SmallButton(AdvancedSettingsPage, "Random Fixed Start");
 
-            startLocationSwitch = new RadioSwitch(AdvancedSettingsPage, StartDefs.Select(def => def.name).ToArray());
+            startLocationSwitch = new RadioSwitch(AdvancedSettingsPage, StartDefs.Select(def => def.Name).ToArray());
             startItemMEF = new MenuElementFactory<StartItemSettings>(AdvancedSettingsPage, Settings.StartItemSettings);
 
             miscMEF = new MenuElementFactory<MiscSettings>(AdvancedSettingsPage, Settings.MiscSettings);
@@ -824,7 +824,7 @@ namespace RandomizerMod.Menu
         private bool CanSelectStart(string name)
         {
             StartDef def = Data.GetStartDef(name);
-            return pm.Evaluate(def.logic);
+            return pm.Evaluate(def.Logic);
         }
 
         public void RebuildConnectionsPanel()

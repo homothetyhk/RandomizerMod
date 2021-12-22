@@ -174,7 +174,7 @@ namespace RandomizerMod.RC
             var type = gs.StartLocationSettings.StartLocationType;
             if (type != StartLocationSettings.RandomizeStartLocationType.Fixed)
             {
-                List<string> startNames = new(Data.GetStartNames().Where(s => pm.Evaluate(Data.GetStartDef(s).logic)));
+                List<string> startNames = new(Data.GetStartNames().Where(s => pm.Evaluate(Data.GetStartDef(s).Logic)));
                 if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
                 gs.StartLocationSettings.StartLocation = rng.Next(startNames);
             }
