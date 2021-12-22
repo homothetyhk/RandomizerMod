@@ -27,5 +27,14 @@ namespace RandomizerMod.Settings
         public VesselFragmentType VesselFragments;
 
         public bool RandomizeNotchCosts;
+
+        public enum SalubraNotchesSetting
+        {
+            GroupedWithCharmNotchesPool,
+            Vanilla,
+            Randomized,
+            AutoGivenAtCharmThreshold
+        }
+        public SalubraNotchesSetting SalubraNotches;
     }
 }

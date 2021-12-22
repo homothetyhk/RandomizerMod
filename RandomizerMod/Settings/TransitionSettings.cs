@@ -30,7 +30,13 @@ namespace RandomizerMod.Settings
         public RemoveRoomsSetting Remove;
         */
 
-        public bool Matched = true;
+        public enum TransitionMatchingSetting
+        {
+            MatchingDirections,
+            MatchingDirectionsAndNoDoorToDoor,
+            NonmatchingDirections
+        }
+        public TransitionMatchingSetting TransitionMatching;
         public bool Coupled = true;
 
         public LogicMode GetLogicMode()

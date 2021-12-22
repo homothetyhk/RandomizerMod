@@ -254,8 +254,18 @@ namespace RandomizerMod.Settings.Presets
                     {
                         StringBuilder sb = new();
                         sb.Append("Transitions between areas will be randomized. ");
-                        if (ts.Matched) sb.Append("Transition directions will be preserved. ");
-                        else sb.Append("Transition directions will be randomized. ");
+                        switch (ts.TransitionMatching)
+                        {
+                            case TransitionSettings.TransitionMatchingSetting.MatchingDirections:
+                                sb.Append("Transition directions will be preserved. ");
+                                break;
+                            case TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor:
+                                sb.Append("Transition directions will be preserved, and doors will not map to doors. ");
+                                break;
+                            default:
+                                sb.Append("Transition directions will be randomized. ");
+                                break;
+                        }
                         if (ts.Coupled) sb.Append("Transitions will be reversible.");
                         else sb.Append("Transitions may not be reversible.");
                         return sb.ToString();
@@ -265,8 +275,18 @@ namespace RandomizerMod.Settings.Presets
                         StringBuilder sb = new();
                         sb.Append("Transitions between rooms will be randomized. ");
                         if (ts.ConnectAreas) sb.Append("Where possible, transitions will connect to the same area. ");
-                        if (ts.Matched) sb.Append("Transition directions will be preserved. ");
-                        else sb.Append("Transition directions will be randomized. ");
+                        switch (ts.TransitionMatching)
+                        {
+                            case TransitionSettings.TransitionMatchingSetting.MatchingDirections:
+                                sb.Append("Transition directions will be preserved. ");
+                                break;
+                            case TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor:
+                                sb.Append("Transition directions will be preserved, and doors will not map to doors. ");
+                                break;
+                            default:
+                                sb.Append("Transition directions will be randomized. ");
+                                break;
+                        }
                         if (ts.Coupled) sb.Append("Transitions will be reversible.");
                         else sb.Append("Transitions may not be reversible.");
                         return sb.ToString();

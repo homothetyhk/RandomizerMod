@@ -1,6 +1,7 @@
 {
   "MILDSKIPS": "SkipSettings.MildSkips",
   "SHADESKIPS": "SkipSettings.ShadeSkips",
+  "INFECTIONSKIPS": "SkipSettings.InfectionSkips",
   "FIREBALLSKIPS": "SkipSettings.FireballSkips",
   "ACIDSKIPS": "SkipSettings.AcidSkips",
   "SPIKETUNNELS": "SkipSettings.SpikeTunnels",

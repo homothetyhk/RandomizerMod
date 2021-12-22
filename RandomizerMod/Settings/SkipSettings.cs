@@ -9,6 +9,7 @@ namespace RandomizerMod.Settings
     {
         public bool MildSkips;
         public bool ShadeSkips;
+        public bool InfectionSkips;
         public bool FireballSkips;
         public bool AcidSkips;
         public bool SpikeTunnels;

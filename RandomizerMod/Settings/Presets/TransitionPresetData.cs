@@ -21,7 +21,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 Mode = TransitionMode.None,
                 ConnectAreas = false,
-                Matched = true,
+                TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
 
@@ -29,7 +29,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 Mode = TransitionMode.AreaRandomizer,
                 ConnectAreas = false,
-                Matched = true,
+                TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
 
@@ -37,7 +37,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 Mode = TransitionMode.RoomRandomizer,
                 ConnectAreas = true,
-                Matched = true,
+                TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
 
@@ -45,7 +45,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 Mode = TransitionMode.RoomRandomizer,
                 ConnectAreas = false,
-                Matched = true,
+                TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
 
@@ -53,7 +53,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 Mode = TransitionMode.RoomRandomizer,
                 ConnectAreas = false,
-                Matched = false,
+                TransitionMatching = TransitionMatchingSetting.NonmatchingDirections,
                 Coupled = false,
             };
 

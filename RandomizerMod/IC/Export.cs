@@ -24,8 +24,18 @@ namespace RandomizerMod.IC
             ItemChangerMod.Modules.Add<ItemChanger.Modules.JijiJinnPassage>();
             var cpo = ItemChangerMod.Modules.Add<ItemChanger.Modules.CompletionPercentOverride>();
             cpo.CoupledTransitions = gs.TransitionSettings.Coupled;
-            if (gs.MiscSettings.RandomizeNotchCosts) ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
-            if (!gs.PoolSettings.GrimmkinFlames) ItemChangerMod.Modules.Get<ItemChanger.Modules.InventoryTracker>().TrackGrimmkinFlames = false;
+            if (gs.MiscSettings.RandomizeNotchCosts)
+            {
+                ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
+            }
+            if (!gs.PoolSettings.GrimmkinFlames)
+            {
+                ItemChangerMod.Modules.Get<ItemChanger.Modules.InventoryTracker>().TrackGrimmkinFlames = false;
+            }
+            if (gs.MiscSettings.SalubraNotches == MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold)
+            {
+                ItemChangerMod.Modules.Add<ItemChanger.Modules.AutoSalubraNotches>();
+            }
 
             HashSet<string> sourceNames = new(ctx.transitionPlacements?.Select(x => x.source.Name) ?? Enumerable.Empty<string>());
             HashSet<string> targetNames = new(ctx.transitionPlacements?.Select(x => x.target.Name) ?? Enumerable.Empty<string>());

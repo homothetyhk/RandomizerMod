@@ -28,6 +28,7 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(0f, ApplyPoolSettings);
             OnUpdate.Subscribe(0f, ApplyGrimmchildSetting);
             OnUpdate.Subscribe(0f, ApplySplitCloakShadeCloakRandomize);
+            OnUpdate.Subscribe(0f, ApplySalubraNotchesSetting);
             OnUpdate.Subscribe(1f, ApplyMultiLocationRebalancing);
             OnUpdate.Subscribe(2f, ApplyGrubMimicRando);
 
@@ -119,7 +120,8 @@ namespace RandomizerMod.RC
                 stageLabel = RBConsts.MainTransitionStage,
             };
 
-            if (ts.Matched)
+            if (ts.TransitionMatching == TransitionSettings.TransitionMatchingSetting.MatchingDirections 
+                || ts.TransitionMatching == TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor)
             {
                 SymmetricTransitionGroupBuilder horizontal = new()
                 {
@@ -206,6 +208,23 @@ namespace RandomizerMod.RC
                 foreach (TransitionDef def in lefts) horizontal.Group2.Add(def.Name);
                 foreach (TransitionDef def in bots) vertical.Group1.Add(def.Name);
                 foreach (TransitionDef def in tops) vertical.Group2.Add(def.Name);
+
+                if (ts.TransitionMatching == TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor)
+                {
+                    static bool NotDoorToDoor(IRandoItem item, IRandoLocation location)
+                    {
+                        if (Data.GetTransitionDef(item.Name) is not TransitionDef t1
+                            || Data.GetTransitionDef(location.Name) is not TransitionDef t2)
+                        {
+                            return true;
+                        }
+
+                        return t1.GetDirection() != TransitionDirection.Unknown || t2.GetDirection() != TransitionDirection.Unknown;
+                    }
+                    DefaultGroupPlacementStrategy dgps = new(1);
+                    dgps.Constraints += NotDoorToDoor;
+                    horizontal.strategy = dgps;
+                }
 
                 sb.Add(oneWays);
                 sb.Add(horizontal);
@@ -537,6 +556,31 @@ namespace RandomizerMod.RC
             if (rb.gs.PoolSettings.GrimmkinFlames && rb.gs.PoolSettings.Charms)
             {
                 rb.ReplaceItem("Grimmchild2", "Grimmchild1");
+            }
+        }
+
+        public static void ApplySalubraNotchesSetting(RequestBuilder rb)
+        {
+            switch (rb.gs.MiscSettings.SalubraNotches)
+            {
+                default:
+                case MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool: 
+                    return;
+                case MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold when rb.gs.PoolSettings.CharmNotches:
+                case MiscSettings.SalubraNotchesSetting.Vanilla when rb.gs.PoolSettings.CharmNotches:
+                    {
+                        ItemGroupBuilder gb = rb.GetItemGroupFor("Charm_Notch");
+                        gb.Items.Remove("Charm_Notch", 4);
+                        gb.Locations.Remove("Salubra_(Requires_Charms)", 4);
+                    }
+                    break;
+                case MiscSettings.SalubraNotchesSetting.Randomized when !rb.gs.PoolSettings.CharmNotches:
+                    {
+                        ItemGroupBuilder gb = rb.GetItemGroupFor("Charm_Notch");
+                        gb.Items.Increment("Charm_Notch", 4);
+                        gb.Locations.Increment("Salubra_(Requires_Charms)", 4);
+                    }
+                    break;
             }
         }
 

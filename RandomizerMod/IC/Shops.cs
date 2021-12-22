@@ -56,6 +56,12 @@ namespace RandomizerMod.IC
                 items |= DefaultShopItems.SlyRancidEgg;
             }
 
+            if (!gs.PoolSettings.CharmNotches && gs.MiscSettings.SalubraNotches == MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool
+                || gs.MiscSettings.SalubraNotches == MiscSettings.SalubraNotchesSetting.Vanilla)
+            {
+                items |= DefaultShopItems.SalubraNotches;
+            }
+
             return items;
         }
     }
