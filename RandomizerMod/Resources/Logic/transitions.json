@@ -86,7 +86,7 @@
   {
     "sceneName": "Town",
     "gateName": "door_bretta",
-    "logic": "Town[door_bretta] | Town + Fungus2_23 + ((FULLCLAW + (FULLDASH | FULLSUPERDASH | WINGS)) | ((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS))",
+    "logic": "Town[door_bretta] | Town + Fungus2_23 + ((FULLCLAW + (FULLDASH | FULLSUPERDASH | WINGS | (AIRSTALL + AREASHADESKIPS + 4MASKS))) | ((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS))",
     "oneWayType": "TwoWay",
     "Name": "Town[door_bretta]"
   },
@@ -268,7 +268,7 @@
   {
     "sceneName": "Crossroads_04",
     "gateName": "door_charmshop",
-    "logic": "Crossroads_04[door_charmshop] | Crossroads_04[right1] | (Crossroads_04 + (RIGHTCLAW | RIGHTDASH | WINGS | RIGHTSUPERDASH | AIRSTALL | INFECTED))",
+    "logic": "Crossroads_04[door_charmshop] | Crossroads_04[right1] | (Crossroads_04 + (RIGHTCLAW | RIGHTDASH | WINGS | RIGHTSUPERDASH | AIRSTALL | AREASHADESKIPS | INFECTED))",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_04[door_charmshop]"
   },
@@ -1101,7 +1101,7 @@
   {
     "sceneName": "Fungus1_11",
     "gateName": "left1",
-    "logic": "Fungus1_11[left1] | Fungus1_11 + (LEFTCLAW | WINGS | LEFTSUPERDASH | LEFTDASH | AIRSTALL)",
+    "logic": "Fungus1_11[left1] | Fungus1_11 + (LEFTCLAW | WINGS | LEFTSUPERDASH | LEFTDASH | AIRSTALL | AREASHADESKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_11[left1]"
   },
@@ -1332,7 +1332,7 @@
   {
     "sceneName": "Fungus1_28",
     "gateName": "left1",
-    "logic": "Fungus1_28[left1] | Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW))",
+    "logic": "Fungus1_28[left1] | Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW) | WINGS + AIRSTALL + ITEMSHADESKIPS + SPICYSKIPS + 4MASKS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_28[left1]"
   },
@@ -1780,7 +1780,7 @@
   {
     "sceneName": "Fungus2_01",
     "gateName": "right1",
-    "logic": "Fungus2_01[right1] | Fungus2_01 + (RIGHTDASH | RIGHTCLAW | WINGS | RIGHTSUPERDASH)",
+    "logic": "Fungus2_01[right1] | Fungus2_01 + (RIGHTDASH | RIGHTCLAW | WINGS | RIGHTSUPERDASH | AIRSTALL)",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_01[right1]"
   },
@@ -1864,7 +1864,7 @@
   {
     "sceneName": "Fungus2_06",
     "gateName": "top1",
-    "logic": "Fungus2_06[top1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | RIGHTSUPERDASH | Fungus2_06[right1])",
+    "logic": "Fungus2_06[top1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | RIGHTSUPERDASH | AIRSTALL | Fungus2_06[right1])",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_06[top1]"
   },
@@ -1885,7 +1885,7 @@
   {
     "sceneName": "Fungus2_06",
     "gateName": "right1",
-    "logic": "Fungus2_06[right1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | RIGHTSUPERDASH | Fungus2_06[top1])",
+    "logic": "Fungus2_06[right1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | RIGHTSUPERDASH | AIRSTALL | Fungus2_06[top1])",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_06[right1]"
   },
@@ -1983,7 +1983,7 @@
   {
     "sceneName": "Fungus2_11",
     "gateName": "left2",
-    "logic": "Fungus2_11[left2] | Fungus2_11 + (LEFTCLAW | WINGS | SPICYSKIPS)",
+    "logic": "Fungus2_11[left2] | Fungus2_11 + (LEFTCLAW | WINGS | SPICYSKIPS | (ITEMSHADESKIPS + 4MASKS))",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_11[left2]"
   },
@@ -2102,7 +2102,7 @@
   {
     "sceneName": "Fungus2_18",
     "gateName": "bot1",
-    "logic": "Fungus2_18[bot1] | ((Fungus2_18[right1] + (LEFTDASH | LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH) | MILDSKIPS)) | Fungus2_18[top1]) + (ANYCLAW | (WINGS + SPICYSKIPS))",
+    "logic": "Fungus2_18[bot1] | ((Fungus2_18[right1] + (LEFTDASH | LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH) | MILDSKIPS)) | Fungus2_18[top1]) + (ANYCLAW | (WINGS + (SPICYSKIPS | AREASHADESKIPS)))",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_18[bot1]"
   },
@@ -2277,7 +2277,7 @@
   {
     "sceneName": "Deepnest_01b",
     "gateName": "top1",
-    "logic": "Deepnest_01b[top1] + (ANYCLAW | WINGS | SPICYSKIPS) | Deepnest_01b + ((ANYCLAW + WINGS) | (Deepnest_01b[right1] + (ANYCLAW | (WINGS + MILDSKIPS))))",
+    "logic": "Deepnest_01b[top1] + (ANYCLAW | WINGS | SPICYSKIPS) | Deepnest_01b + (ANYCLAW + WINGS | (ANYCLAW | WINGS) + ITEMSHADESKIPS | Deepnest_01b[right1] + (ANYCLAW | (WINGS + MILDSKIPS)))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_01b[top1]"
   },
@@ -2340,21 +2340,21 @@
   {
     "sceneName": "Deepnest_03",
     "gateName": "left1",
-    "logic": "Deepnest_03[left1] | Deepnest_03 + (LEFTCLAW | WINGS | Deepnest_03[top1])",
+    "logic": "Deepnest_03[left1] | Deepnest_03 + (LEFTCLAW | WINGS | Deepnest_03[top1] | RIGHTCLAW + SPICYSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_03[left1]"
   },
   {
     "sceneName": "Deepnest_03",
     "gateName": "top1",
-    "logic": "Deepnest_03[top1] + (ANYCLAW | WINGS) | Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]))",
+    "logic": "Deepnest_03[top1] + (ANYCLAW | WINGS) | Deepnest_03 + (FULLCLAW | WINGS | RIGHTCLAW + Deepnest_03[left1] | RIGHTCLAW + SPICYSKIPS | LEFTCLAW + AREASHADESKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_03[top1]"
   },
   {
     "sceneName": "Deepnest_03",
     "gateName": "left2",
-    "logic": "Deepnest_03[left2] | Deepnest_03 + (LEFTSUPERDASH | WINGS)",
+    "logic": "Deepnest_03[left2] | Deepnest_03 + (LEFTSUPERDASH | WINGS | LEFTCLAW + AREASHADESKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_03[left2]"
   },
@@ -2879,7 +2879,7 @@
   {
     "sceneName": "Deepnest_East_03",
     "gateName": "top1",
-    "logic": "Deepnest_East_03[top1] + (LEFTCLAW | WINGS) | Deepnest_East_03 + LEFTCLAW + (UPWALLBREAK | (RIGHTSUPERDASH + MILDSKIPS))",
+    "logic": "Deepnest_East_03[top1] + (LEFTCLAW | WINGS) | Deepnest_East_03 + (UPWALLBREAK | RIGHTSUPERDASH + MILDSKIPS) + (LEFTCLAW | RIGHTCLAW + WINGS + (AREASHADESKIPS + 4MASKS))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_03[top1]"
   },
@@ -3586,7 +3586,7 @@
   {
     "sceneName": "Abyss_10",
     "gateName": "left2",
-    "logic": "Abyss_10[left2] | Abyss_10[left1] + LEFTSHADOWDASH + (RIGHTCLAW | ((WINGS | LEFTCLAW) + (RIGHTSHADOWDASH | VOIDHEART)))",
+    "logic": "Abyss_10[left2] | Abyss_10[left1] + LEFTSHADOWDASH + (RIGHTCLAW | (WINGS + ITEMSHADESKIPS) | ((WINGS | LEFTCLAW) + (RIGHTSHADOWDASH | VOIDHEART)))",
     "oneWayType": "TwoWay",
     "Name": "Abyss_10[left2]"
   },
@@ -4538,7 +4538,7 @@
   {
     "sceneName": "Ruins2_03b",
     "gateName": "top1",
-    "logic": "Ruins2_03b[top1] + (RIGHTCLAW | WINGS) | Ruins2_03b + (RIGHTCLAW | WINGS)",
+    "logic": "Ruins2_03b[top1] + (RIGHTCLAW | WINGS) | Ruins2_03b + (RIGHTCLAW | WINGS | AREASHADESKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_03b[top1]"
   },
@@ -4678,7 +4678,7 @@
   {
     "sceneName": "Ruins2_06",
     "gateName": "right1",
-    "logic": "Ruins2_06[right1] | Ruins2_06[left1] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2] + (RIGHTCLAW | WINGS) | Ruins2_06[left2] + (WINGS | (RIGHTCLAW + (RIGHTSUPERDASH | SWIM | (RIGHTDASH + MILDSKIPS))))",
+    "logic": "Ruins2_06[right1] | Ruins2_06[left1] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2] + (RIGHTCLAW | WINGS | ITEMSHADESKIPS) | Ruins2_06[left2] + (WINGS | (RIGHTCLAW + (RIGHTSUPERDASH | SWIM | (RIGHTDASH + MILDSKIPS))))",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_06[right1]"
   },
@@ -5133,14 +5133,14 @@
   {
     "sceneName": "Mines_05",
     "gateName": "right1",
-    "logic": "Mines_05[right1] | Mines_05 + (LEFTCLAW | WINGS | Mines_05[left1] | Mines_05[top1])",
+    "logic": "Mines_05[right1] | Mines_05 + (LEFTCLAW | WINGS | RIGHTCLAW + AREASHADESKIPS | Mines_05[left1] | Mines_05[top1])",
     "oneWayType": "TwoWay",
     "Name": "Mines_05[right1]"
   },
   {
     "sceneName": "Mines_05",
     "gateName": "top1",
-    "logic": "Mines_05[top1] | Mines_05 + (LEFTCLAW | WINGS | Mines_05[left1])",
+    "logic": "Mines_05[top1] | Mines_05 + (LEFTCLAW | WINGS | RIGHTCLAW + AREASHADESKIPS | RIGHTCLAW + Mines_05[right1] | Mines_05[left1])",
     "oneWayType": "TwoWay",
     "Name": "Mines_05[top1]"
   },
@@ -5154,7 +5154,7 @@
   {
     "sceneName": "Mines_05",
     "gateName": "left1",
-    "logic": "Mines_05[left1] | Mines_05 + (LEFTCLAW | WINGS | Mines_05[top1])",
+    "logic": "Mines_05[left1] | Mines_05 + (LEFTCLAW | WINGS | RIGHTCLAW + AREASHADESKIPS | RIGHTCLAW + Mines_05[right1] | Mines_05[top1])",
     "oneWayType": "TwoWay",
     "Name": "Mines_05[left1]"
   },
@@ -5406,7 +5406,7 @@
   {
     "sceneName": "Mines_28",
     "gateName": "left1",
-    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | (WINGS + LEFTDASH))",
+    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | (WINGS + LEFTDASH) | AIRSTALL + (WINGS | LEFTDASH))",
     "oneWayType": "TwoWay",
     "Name": "Mines_28[left1]"
   },
@@ -5420,7 +5420,7 @@
   {
     "sceneName": "Mines_28",
     "gateName": "door1",
-    "logic": "Mines_28[door1] | Mines_28[left1] + (RIGHTSUPERDASH | (WINGS + RIGHTDASH))",
+    "logic": "Mines_28[door1] | Mines_28[left1] + (RIGHTSUPERDASH | WINGS + RIGHTDASH | AIRSTALL + (WINGS | RIGHTDASH))",
     "oneWayType": "TwoWay",
     "Name": "Mines_28[door1]"
   },
@@ -5644,7 +5644,7 @@
   {
     "sceneName": "Fungus3_13",
     "gateName": "left1",
-    "logic": "Fungus3_13[left1] | Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[left3] | Fungus3_13[right1])",
+    "logic": "Fungus3_13[left1] | Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[left3] | Fungus3_13[right1] | FULLDASH + AREASHADESKIPS + SPICYSKIPS + 4MASKS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_13[left1]"
   },
@@ -5658,7 +5658,7 @@
   {
     "sceneName": "Fungus3_13",
     "gateName": "left3",
-    "logic": "Fungus3_13[left3] | Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[right1] | Fungus3_13[left1])",
+    "logic": "Fungus3_13[left3] | Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[right1] | Fungus3_13[left1] | FULLDASH + AREASHADESKIPS + SPICYSKIPS + 4MASKS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_13[left3]"
   },
@@ -5672,7 +5672,7 @@
   {
     "sceneName": "Fungus3_13",
     "gateName": "right1",
-    "logic": "Fungus3_13[right1] | Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[left3] | Fungus3_13[left1])",
+    "logic": "Fungus3_13[right1] | Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[left3] | Fungus3_13[left1] | FULLDASH + AREASHADESKIPS + SPICYSKIPS + 4MASKS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_13[right1]"
   },
@@ -6099,7 +6099,7 @@
   {
     "sceneName": "White_Palace_11",
     "gateName": "door2",
-    "logic": "White_Palace_11[door2]",
+    "logic": "White_Palace_11[door2] | Abyss_05 + AWOKEN",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_11[door2]"
   },

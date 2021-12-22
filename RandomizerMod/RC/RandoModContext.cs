@@ -20,12 +20,21 @@ namespace RandomizerMod.RC
                 Setters.Add(new(lm.GetTerm(setting), 1));
             }
 
-            var mode = gs.TransitionSettings.GetLogicMode();
-            StartDef start = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
+            switch (gs.TransitionSettings.Mode)
+            {
+                case TransitionSettings.TransitionMode.None:
+                    Setters.Add(new(lm.GetTerm("ITEMRANDO"), 1));
+                    break;
+                case TransitionSettings.TransitionMode.AreaRandomizer:
+                    Setters.Add(new(lm.GetTerm("AREARANDO"), 1));
+                    break;
+                case TransitionSettings.TransitionMode.RoomRandomizer:
+                    Setters.Add(new(lm.GetTerm("ROOMRANDO"), 1));
+                    break;
+            }
 
-            if (mode != LogicMode.Room) Setters.Add(new(lm.GetTerm(start.Waypoint), 1));
-            if (mode == LogicMode.Area) Setters.Add(new(lm.GetTerm(start.AreaTransition), 1));
-            if (mode == LogicMode.Room) Setters.Add(new(lm.GetTerm(start.RoomTransition), 1));
+            StartDef start = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
+            Setters.Add(new(lm.GetTerm(start.Transition), 1));
 
             // use these baseline numbers for cursed settings and add shards/notches as vanilla items at start if necessary
             Setters.Add(new(lm.GetTerm("MASKSHARDS"), 4));

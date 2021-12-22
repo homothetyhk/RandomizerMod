@@ -18,6 +18,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 MildSkips = false,
                 ShadeSkips = false,
+                InfectionSkips = false,
                 FireballSkips = false,
                 AcidSkips = false,
                 SpikeTunnels = false,
@@ -29,6 +30,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 MildSkips = true,
                 ShadeSkips = true,
+                InfectionSkips = false,
                 FireballSkips = false,
                 AcidSkips = false,
                 SpikeTunnels = false,
@@ -40,6 +42,7 @@ namespace RandomizerMod.Settings.Presets
             {
                 MildSkips = true,
                 ShadeSkips = true,
+                InfectionSkips = true,
                 FireballSkips = true,
                 AcidSkips = true,
                 SpikeTunnels = true,

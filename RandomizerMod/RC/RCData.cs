@@ -12,10 +12,7 @@ namespace RandomizerMod.RC
     public static class RCData
     {
         public static bool Loaded = false;
-
-        private static LogicManagerBuilder _itemLMB;
-        private static LogicManagerBuilder _areaLMB;
-        private static LogicManagerBuilder _roomLMB;
+        private static LogicManagerBuilder _combinedLMB;
 
         private static readonly (LogicManagerBuilder.JsonType type, string fileName)[] files = new[]
         {
@@ -32,47 +29,25 @@ namespace RandomizerMod.RC
             if (Loaded) return;
             Loaded = true;
 
-            _itemLMB = new();
+            _combinedLMB = new();
             foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
             {
-                _itemLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Item.{fileName}.json"));
-            }
-
-            _areaLMB = new();
-            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
-            {
-                _areaLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Area.{fileName}.json"));
-            }
-
-            _roomLMB = new();
-            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
-            {
-                _roomLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Room.{fileName}.json"));
+                _combinedLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Logic.{fileName}.json"));
             }
         }
 
         /// <summary>
-        /// Clones and returns the builder for the LogicManager of the requested mode.
+        /// Clones and returns the builder for the LogicManager.
         /// </summary>
-        public static LogicManagerBuilder GetNewBuilder(LogicMode mode)
+        public static LogicManagerBuilder GetNewBuilder()
         {
             if (!Loaded) Load();
-            return mode switch
-            {
-                LogicMode.Room => new(_roomLMB),
-                LogicMode.Area => new(_areaLMB),
-                _ => new(_itemLMB),
-            };
+            return new(_combinedLMB);
         }
 
-        public static void ApplyLocalLogicChanges(LogicMode mode, LogicManagerBuilder lmb)
+        public static void ApplyLocalLogicChanges(LogicManagerBuilder lmb)
         {
-            string directory = Path.Combine(RandomizerMod.Folder, mode switch
-            {
-                LogicMode.Room => "Room",
-                LogicMode.Area => "Area",
-                _ => "Item",
-            });
+            string directory = Path.Combine(RandomizerMod.Folder, "Logic");
             try
             {
                 DirectoryInfo di = new(directory);
@@ -106,13 +81,12 @@ namespace RandomizerMod.RC
         }
 
         /// <summary>
-        /// Creates a new LogicManager for the requested mode, allowing edits from local files and runtime hooks.
+        /// Creates a new LogicManager, allowing edits from local files and runtime hooks.
         /// </summary>
         public static LogicManager GetNewLogicManager(GenerationSettings gs)
         {
-            LogicMode mode = gs.TransitionSettings.GetLogicMode();
-            LogicManagerBuilder lmb = GetNewBuilder(mode);
-            ApplyLocalLogicChanges(mode, lmb);
+            LogicManagerBuilder lmb = GetNewBuilder();
+            ApplyLocalLogicChanges(lmb);
             foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberList())
             {
                 try

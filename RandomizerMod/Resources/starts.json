@@ -5,9 +5,7 @@
     "x": 35.5,
     "y": 11.4,
     "zone": "KINGS_PASS",
-    "waypoint": "King's_Pass",
-    "areaTransition": "Tutorial_01[right1]",
-    "roomTransition": "Tutorial_01[right1]",
+    "transition": "Tutorial_01[right1]",
     "logic": "ANY"
   },
   "Stag Nest": {
@@ -16,9 +14,7 @@
     "x": 85.8,
     "y": 46.4,
     "zone": "CLIFFS",
-    "waypoint": "Stag_Nest",
-    "areaTransition": "Cliffs_03[right1]",
-    "roomTransition": "Cliffs_03[right1]",
+    "transition": "Cliffs_03[right1]",
     "logic": "ANY"
   },
   "West Crossroads": {
@@ -27,9 +23,7 @@
     "x": 40.2,
     "y": 22.0,
     "zone": "CROSSROADS",
-    "waypoint": "Crossroads",
-    "areaTransition": "Crossroads_01[top1]",
-    "roomTransition": "Crossroads_36[right1]",
+    "transition": "Crossroads_36[right1]",
     "logic": "ANY"
   },
   "East Crossroads": {
@@ -38,9 +32,7 @@
     "x": 14.0,
     "y": 68.0,
     "zone": "CROSSROADS",
-    "waypoint": "Crossroads",
-    "areaTransition": "Crossroads_01[top1]",
-    "roomTransition": "Crossroads_03[top1]",
+    "transition": "Crossroads_03[top1]",
     "logic": "ANY"
   },
   "Ancestral Mound": {
@@ -49,9 +41,7 @@
     "x": 37.7,
     "y": 46.5,
     "zone": "SHAMAN_TEMPLE",
-    "waypoint": "Ancestral_Mound",
-    "areaTransition": "Crossroads_ShamanTemple[left1]",
-    "roomTransition": "Crossroads_ShamanTemple[left1]",
+    "transition": "Crossroads_ShamanTemple[left1]",
     "logic": "ANY"
   },
   "West Fog Canyon": {
@@ -60,9 +50,7 @@
     "x": 35.1,
     "y": 16.4,
     "zone": "FOG_CANYON",
-    "waypoint": "Left_Fog_Canyon",
-    "areaTransition": "Fungus3_01[top1]",
-    "roomTransition": "Fungus3_30[bot1]",
+    "transition": "Fungus3_30[bot1]",
     "logic": "ANY"
   },
   "East Fog Canyon": {
@@ -71,9 +59,7 @@
     "x": 77.5,
     "y": 23.7,
     "zone": "FOG_CANYON",
-    "waypoint": "Right_Fog_Canyon",
-    "areaTransition": "Fungus3_26[right1]",
-    "roomTransition": "Fungus3_25[right1]",
+    "transition": "Fungus3_25[right1]",
     "logic": "ANY"
   },
   "Queen's Station": {
@@ -82,9 +68,7 @@
     "x": 24.0,
     "y": 37.4,
     "zone": "QUEENS_STATION",
-    "waypoint": "Queen's_Station",
-    "areaTransition": "Fungus2_01[left1]",
-    "roomTransition": "Fungus2_01[left1]",
+    "transition": "Fungus2_01[left1]",
     "logic": "ANY"
   },
   "Fungal Wastes": {
@@ -93,9 +77,7 @@
     "x": 59.6,
     "y": 3.4,
     "zone": "WASTES",
-    "waypoint": "Left_Fungal_Wastes",
-    "areaTransition": "Fungus2_03[left1]",
-    "roomTransition": "Fungus2_28[left1]",
+    "transition": "Fungus2_28[left1]",
     "logic": "ANY"
   },
   "Greenpath": {
@@ -104,9 +86,7 @@
     "x": 3.8,
     "y": 27.4,
     "zone": "GREEN_PATH",
-    "waypoint": "Greenpath",
-    "areaTransition": "Fungus1_20_v02[right1]",
-    "roomTransition": "Fungus1_32[left1]",
+    "transition": "Fungus1_32[left1]",
     "logic": "ANY"
   },
   "Lower Greenpath": {
@@ -115,9 +95,7 @@
     "x": 126.2,
     "y": 37.4,
     "zone": "GREEN_PATH",
-    "waypoint": "Greenpath-MMC",
-    "areaTransition": "Fungus1_11[bot1]",
-    "roomTransition": "Fungus1_13[right1]",
+    "transition": "Fungus1_13[right1]",
     "logic": "ANY"
   },
   "West Blue Lake": {
@@ -126,9 +104,7 @@
     "x": 21.2,
     "y": 44.4,
     "zone": "CROSSROADS",
-    "waypoint": "Left_Blue_Lake",
-    "areaTransition": "Crossroads_50[left1]",
-    "roomTransition": "Crossroads_50[left1]",
+    "transition": "Crossroads_50[left1]",
     "logic": "ANY"
   },
   "East Blue Lake": {
@@ -137,9 +113,7 @@
     "x": 225.2,
     "y": 25.4,
     "zone": "CROSSROADS",
-    "waypoint": "Right_Blue_Lake",
-    "areaTransition": "Crossroads_50[right1]",
-    "roomTransition": "Crossroads_50[right1]",
+    "transition": "Crossroads_50[right1]",
     "logic": "ITEMRANDO + (MILDSKIPS | ELEVATOR) | AREARANDO | ROOMRANDO"
   },
   "City Storerooms": {
@@ -148,9 +122,7 @@
     "x": 61.6,
     "y": 3.4,
     "zone": "CITY",
-    "waypoint": "Upper_Storerooms",
-    "areaTransition": "Ruins1_01[left1]",
-    "roomTransition": "Ruins1_17[right1]",
+    "transition": "Ruins1_17[right1]",
     "logic": "ANY"
   },
   "King's Station": {
@@ -159,9 +131,7 @@
     "x": 20.9,
     "y": 136.3,
     "zone": "CITY",
-    "waypoint": "Upper_King's_Station",
-    "areaTransition": "Ruins2_10b[right1]",
-    "roomTransition": "Ruins2_10b[right1]",
+    "transition": "Ruins2_10b[right1]",
     "logic": "ANY"
   },
   "Outside Colosseum": {
@@ -170,9 +140,7 @@
     "x": 159.9,
     "y": 12.4,
     "zone": "COLOSSEUM",
-    "waypoint": "Top_Kingdom's_Edge",
-    "areaTransition": "Deepnest_East_09[right1]",
-    "roomTransition": "Deepnest_East_09[right1]",
+    "transition": "Deepnest_East_09[right1]",
     "logic": "ANY"
   },
   "Crystallized Mound": {
@@ -181,9 +149,7 @@
     "x": 3.2,
     "y": 48.4,
     "zone": "MINES",
-    "waypoint": "Crystallized_Mound",
-    "areaTransition": "Mines_35[left1]",
-    "roomTransition": "Mines_35[left1]",
+    "transition": "Mines_35[left1]",
     "logic": "ANY"
   },
   "Mantis Village": {
@@ -192,9 +158,7 @@
     "x": 117.8,
     "y": 15.4,
     "zone": "WASTES",
-    "waypoint": "Right_Mantis_Village",
-    "areaTransition": "Fungus2_12[left1]",
-    "roomTransition": "Fungus2_14[right1]",
+    "transition": "Fungus2_14[right1]",
     "logic": "(ITEMRANDO + MILDSKIPS) | (AREARANDO + MILDSKIPS) | ROOMRANDO | VERTICAL"
   },
   "Kingdom's Edge": {
@@ -203,9 +167,7 @@
     "x": 26.5,
     "y": 4.4,
     "zone": "OUTSKIRTS",
-    "waypoint": "Upper_Kingdom's_Edge",
-    "areaTransition": "Deepnest_East_07[left2]",
-    "roomTransition": "Deepnest_East_15[left1]",
+    "transition": "Deepnest_East_15[left1]",
     "logic": "(ITEMRANDO + MILDSKIPS + SWIM) | AREARANDO | ROOMRANDO | VERTICAL"
   },
   "Hallownest's Crown": {
@@ -214,9 +176,7 @@
     "x": 128.3,
     "y": 46.4,
     "zone": "MINES",
-    "waypoint": "Hallownest's_Crown",
-    "areaTransition": "Mines_25[left1]",
-    "roomTransition": "Mines_34[bot1]",
+    "transition": "Mines_34[bot1]",
     "logic": "(ITEMRANDO + DARKROOMS) | AREARANDO | ROOMRANDO"
   },
   "West Waterways": {
@@ -225,9 +185,7 @@
     "x": 34.7,
     "y": 30.4,
     "zone": "WATERWAYS",
-    "waypoint": "Far_Upper_Left_Waterways",
-    "areaTransition": "Waterways_09[left1]",
-    "roomTransition": "Waterways_09[left1]",
+    "transition": "Waterways_09[left1]",
     "logic": "(ITEMRANDO + MILDSKIPS + SHADESKIPS + 2MASKS) | AREARANDO | ROOMRANDO | VERTICAL"
   },
   "Queen's Gardens": {
@@ -236,9 +194,7 @@
     "x": 25.3,
     "y": 63.4,
     "zone": "ROYAL_GARDENS",
-    "waypoint": "Top_Left_Queen's_Gardens",
-    "areaTransition": "Fungus3_34[right1]",
-    "roomTransition": "Fungus3_13[left1]",
+    "transition": "Fungus3_13[left1]",
     "logic": "(ITEMRANDO + SPICYSKIPS) | AREARANDO | ROOMRANDO"
   },
   "Distant Village": {
@@ -247,9 +203,7 @@
     "x": 23.1,
     "y": 13.4,
     "zone": "DEEPNEST",
-    "waypoint": "Distant_Village",
-    "areaTransition": "Deepnest_10[right2]",
-    "roomTransition": "Room_spider_small[left1]",
+    "transition": "Room_spider_small[left1]",
     "logic": "AREARANDO | ROOMRANDO | VERTICAL"
   },
   "Far Greenpath": {
@@ -258,9 +212,7 @@
     "x": 34.9,
     "y": 23.4,
     "zone": "GREEN_PATH",
-    "waypoint": "Greenpath-QG",
-    "areaTransition": "Fungus1_13[left1]",
-    "roomTransition": "Fungus1_13[left1]",
+    "transition": "Fungus1_13[left1]",
     "logic": "AREARANDO | ROOMRANDO | VERTICAL"
   },
   "Hive": {
@@ -269,9 +221,7 @@
     "x": 47.2,
     "y": 142.7,
     "zone": "HIVE",
-    "waypoint": "Hive_Top",
-    "areaTransition": "Hive_03_c[left1]",
-    "roomTransition": "Hive_03[right1]",
+    "transition": "Hive_03[right1]",
     "logic": "ROOMRANDO | VERTICAL"
   },
   "Royal Waterways": {
@@ -280,9 +230,7 @@
     "x": 93.6,
     "y": 4.4,
     "zone": "WATERWAYS",
-    "waypoint": "Upper_Left_Waterways",
-    "areaTransition": "Waterways_09[left1]",
-    "roomTransition": "Waterways_03[left1]",
+    "transition": "Waterways_03[left1]",
     "logic": "ROOMRANDO | VERTICAL"
   },
   "City of Tears": {
@@ -291,9 +239,7 @@
     "x": 29.6,
     "y": 6.4,
     "zone": "CITY",
-    "waypoint": "Left_City",
-    "areaTransition": "Ruins1_01[left1]",
-    "roomTransition": "Ruins1_27[left1]",
+    "transition": "Ruins1_27[left1]",
     "logic": "ROOMRANDO | VERTICAL"
   },
   "Abyss": {
@@ -302,9 +248,7 @@
     "x": 42.0,
     "y": 5.4,
     "zone": "ABYSS",
-    "waypoint": "Abyss",
-    "areaTransition": "Abyss_06_Core[top1]",
-    "roomTransition": "Abyss_06_Core[right2]",
+    "transition": "Abyss_06_Core[right2]",
     "logic": "ROOMRANDO"
   },
   "Fungal Core": {
@@ -313,9 +257,7 @@
     "x": 64.8,
     "y": 21.4,
     "zone": "WASTES",
-    "waypoint": "Fungal_Core",
-    "areaTransition": "Fungus2_29[right1]",
-    "roomTransition": "Fungus2_30[top1]",
+    "transition": "Fungus2_30[top1]",
     "logic": "VERTICAL"
   }
 }

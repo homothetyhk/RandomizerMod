@@ -38,15 +38,5 @@ namespace RandomizerMod.Settings
         }
         public TransitionMatchingSetting TransitionMatching;
         public bool Coupled = true;
-
-        public LogicMode GetLogicMode()
-        {
-            return Mode switch
-            {
-                TransitionMode.AreaRandomizer => LogicMode.Area,
-                TransitionMode.RoomRandomizer => LogicMode.Room,
-                _ => LogicMode.Item,
-            };
-        }
     }
 }

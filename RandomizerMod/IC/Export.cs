@@ -24,6 +24,7 @@ namespace RandomizerMod.IC
             ItemChangerMod.Modules.Add<ItemChanger.Modules.JijiJinnPassage>();
             var cpo = ItemChangerMod.Modules.Add<ItemChanger.Modules.CompletionPercentOverride>();
             cpo.CoupledTransitions = gs.TransitionSettings.Coupled;
+            ItemChangerMod.Modules.Add<ItemChanger.Modules.DisablePalaceMidWarp>();
             if (gs.MiscSettings.RandomizeNotchCosts)
             {
                 ItemChangerMod.Modules.Add<ItemChanger.Modules.NotchCostUI>();
