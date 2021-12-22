@@ -17,7 +17,7 @@ namespace RandomizerMod.RC
     /// </summary>
     public class RequestBuilder
     {
-        public void Run(out RandomizationStage[] stages, out List<RandoPlacement> vanilla)
+        public void Run(out RandomizationStage[] stages, out List<RandoPlacement> vanilla, out List<ItemPlacement> start)
         {
             HandleUpdateEvents();
 
@@ -29,6 +29,9 @@ namespace RandomizerMod.RC
                 .Select(v => !Data.IsTransition(v.Item)
                 ? new RandoPlacement(factory.MakeItem(v.Item), factory.MakeLocation(v.Location))
                 : new RandoPlacement(factory.MakeTransition(v.Item), factory.MakeTransition(v.Location)))
+                .ToList();
+            start = StartItems.EnumerateWithMultiplicity()
+                .Select(i => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation("Start")))
                 .ToList();
         }
 
@@ -167,9 +170,21 @@ namespace RandomizerMod.RC
             foreach (ItemGroupBuilder gb in EnumerateItemGroups()) gb.Items.RemoveAll(name);
         }
 
-        public bool TryGetItemDef(string name, out ItemRequestInfo def)
+        public bool TryGetItemDef(string name, out ItemRequestInfo info)
         {
-            return ItemDefs.TryGetValue(name, out def);
+            if (ItemDefs.TryGetValue(name, out info))
+            {
+                return true;
+            }
+            else
+            {
+                foreach (ItemMatchHandler matcher in ItemMatchers)
+                {
+                    if (matcher(name, out info)) return true;
+                }
+            }
+            info = default;
+            return false;
         }
 
         public void EditItemInfo(string name, Action<ItemRequestInfo> edit)
@@ -204,7 +219,19 @@ namespace RandomizerMod.RC
 
         public bool TryGetLocationDef(string name, out LocationRequestInfo info)
         {
-            return LocationDefs.TryGetValue(name, out info);
+            if (LocationDefs.TryGetValue(name, out info))
+            {
+                return true;
+            }
+            else
+            {
+                foreach (LocationMatchHandler matcher in LocationMatchers)
+                {
+                    if (matcher(name, out info)) return true;
+                }
+            }
+            info = default;
+            return false;
         }
 
         public void EditLocationInfo(string name, Action<LocationRequestInfo> edit)

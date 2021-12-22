@@ -379,6 +379,7 @@ namespace RandomizerMod.RC
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
+                    if (factory.TryFetchPlacement("Grubfather", out AbstractPlacement p)) return p;
                     return IC.Grubfather.GetGrubfatherPlacement(factory);
                 };
             });
@@ -397,6 +398,7 @@ namespace RandomizerMod.RC
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
+                    if (factory.TryFetchPlacement("Seer", out AbstractPlacement p)) return p;
                     return IC.Seer.GetSeerPlacement(factory);
                 };
             });

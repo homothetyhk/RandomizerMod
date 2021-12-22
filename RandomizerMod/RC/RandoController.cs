@@ -42,7 +42,7 @@ namespace RandomizerMod.RC
             AssignNotchCosts();
             ctx.LM = RCData.GetNewLogicManager(gs);
             RequestBuilder rb = new(gs, ctx.LM);
-            rb.Run(out RandomizationStage[] stages, out ctx.Vanilla);
+            rb.Run(out RandomizationStage[] stages, out ctx.Vanilla, out ctx.itemPlacements);
             Randomizer randomizer = new(new Random(gs.Seed), ctx, stages, rm);
             List<List<RandoPlacement>[]> stagedPlacements = randomizer.Run();
             for (int i = 0; i < stagedPlacements.Count; i++)
@@ -55,7 +55,6 @@ namespace RandomizerMod.RC
                         {
                             item.onRandomizerFinish?.Invoke(placement);
                             location?.onRandomizerFinish?.Invoke(placement);
-                            ctx.itemPlacements ??= new();
                             ctx.itemPlacements.Add(new(item, location));
                         }
                         else if (placement.Item is RandoModTransition target && placement.Location is RandoModTransition source)
