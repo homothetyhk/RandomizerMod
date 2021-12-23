@@ -95,10 +95,10 @@ namespace RandomizerMod.IC
             }
         }
 
-        public static void ExportItemPlacements(GenerationSettings gs, IReadOnlyList<ItemPlacement> randoPlacements)
+        public static void ExportItemPlacements(RequestBuilder rb, IReadOnlyList<ItemPlacement> randoPlacements)
         {
             Dictionary<string, AbstractPlacement> export = new();
-            ICFactory factory = new(gs, export);
+            ICFactory factory = new(rb, export);
 
             for(int j = 0; j < randoPlacements.Count; j++)
             {

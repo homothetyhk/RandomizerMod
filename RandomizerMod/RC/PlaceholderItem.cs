@@ -20,11 +20,12 @@ namespace RandomizerMod.RC
         {
             this.innerItem = innerItem;
             this.onRandomizerFinish = innerItem.onRandomizerFinish;
-            this.realItemCreator = innerItem.realItemCreator;
+            this.realItemCreator = innerItem.realItemCreator 
+                ?? ((factory, next) => factory.MakeItemWithEvents(innerItem.Name, next));
             base.item = new EmptyItem($"Placeholder-{innerItem.Name}");
         }
 
-        private readonly RandoModItem innerItem;
+        public readonly RandoModItem innerItem;
 
         public RandoModItem Unwrap()
         {

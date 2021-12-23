@@ -7,12 +7,14 @@ namespace RandomizerMod.RC
 {
     public class ICFactory
     {
+        public readonly RequestBuilder rb;
         public readonly GenerationSettings gs;
         private readonly Dictionary<string, AbstractPlacement> _placements;
 
-        public ICFactory(GenerationSettings gs, Dictionary<string, AbstractPlacement> placements)
+        public ICFactory(RequestBuilder rb, Dictionary<string, AbstractPlacement> placements)
         {
-            this.gs = gs;
+            this.rb = rb;
+            this.gs = rb.gs;
             _placements = placements;
         }
 
@@ -39,6 +41,7 @@ namespace RandomizerMod.RC
             {
                 item = MakeItem(ri.Name);
             }
+            if (item == null) throw new InvalidOperationException($"Failed to instantiate item {ri.Name} at {rl.Name}.");
 
             if (rl.customAddToPlacement != null)
             {
@@ -53,6 +56,25 @@ namespace RandomizerMod.RC
             }
         }
 
+        /// <summary>
+        /// Makes the item by name using the info in the RequestBuilder, or else the default method.
+        /// <br/>This does not consider the events attached to the RandoModItem, if any.
+        /// </summary>
+        public AbstractItem MakeItemWithEvents(string itemName, RandoPlacement placement)
+        {
+            if (rb.TryGetItemDef(itemName, out ItemRequestInfo info) && info.realItemCreator != null)
+            {
+                return info.realItemCreator(this, placement);
+            }
+            else
+            {
+                return MakeItem(itemName);
+            }
+        }
+
+        /// <summary>
+        /// Makes the item by name, using ItemChanger.Finder.
+        /// </summary>
         public AbstractItem MakeItem(string name)
         {
             AbstractItem item = Finder.GetItem(name);
@@ -82,6 +104,19 @@ namespace RandomizerMod.RC
         {
             if (_placements.TryGetValue(name, out AbstractPlacement placement)) return placement;
             return MakePlacement(name);
+        }
+
+        public AbstractPlacement FetchOrMakePlacementWithEvents(string placementName, RandoPlacement next)
+        {
+            if (_placements.TryGetValue(placementName, out AbstractPlacement placement))
+            {
+                return placement;
+            }
+            else if (rb.TryGetLocationDef(placementName, out LocationRequestInfo info) && info.customPlacementFetch != null)
+            {
+                return info.customPlacementFetch(this, next);
+            }
+            else return MakePlacement(placementName);
         }
 
         private AbstractPlacement MakePlacement(string name)

@@ -2277,18 +2277,50 @@
     "Name": "Split_Shade_Cloak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "LEFTCLAW",
-      "Value": 1
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Left_Mantis_Claw_Item",
+      "logic": "LEFTCLAW<1"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
+        "Term": "LEFTCLAW",
+        "Value": 1
+      },
+      "Name": "Left_Mantis_Claw"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
+        "Term": "RIGHTCLAW",
+        "Value": 1
+      },
+      "Name": "Right_Mantis_Claw"
     },
     "Name": "Left_Mantis_Claw"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "RIGHTCLAW",
-      "Value": 1
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Right_Mantis_Claw_Item",
+      "logic": "RIGHTCLAW<1"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
+        "Term": "RIGHTCLAW",
+        "Value": 1
+      },
+      "Name": "Right_Mantis_Claw"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
+        "Term": "LEFTCLAW",
+        "Value": 1
+      },
+      "Name": "Left_Mantis_Claw"
     },
     "Name": "Right_Mantis_Claw"
   },

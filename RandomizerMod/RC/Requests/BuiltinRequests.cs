@@ -29,6 +29,7 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(0f, ApplyPoolSettings);
             OnUpdate.Subscribe(0f, ApplyGrimmchildSetting);
             OnUpdate.Subscribe(0f, ApplySplitCloakShadeCloakRandomize);
+            OnUpdate.Subscribe(0f, ApplyProgressiveSplitClaw);
             OnUpdate.Subscribe(0f, ApplySalubraNotchesSetting);
             OnUpdate.Subscribe(1f, ApplyMultiLocationRebalancing);
             OnUpdate.Subscribe(2f, ApplyGrubMimicRando);
@@ -67,7 +68,7 @@ namespace RandomizerMod.RC
                 {
                     info = new ItemRequestInfo
                     {
-                        randoItemCreator = factory => factory.MakeWrappedItem(name.Substring(PlaceholderItem.Prefix.Length))
+                        randoItemCreator = factory => factory.MakeWrappedItem(name.Substring(PlaceholderItem.Prefix.Length)),
                     };
                     return true;
                 }
@@ -741,6 +742,22 @@ namespace RandomizerMod.RC
                     };
                 });
             }
+        }
+
+        public static void ApplyProgressiveSplitClaw(RequestBuilder rb)
+        {
+            rb.EditItemInfo(ItemNames.Left_Mantis_Claw, info => info.realItemCreator = (factory, placement) =>
+            {
+                AbstractItem item = factory.MakeItem(ItemNames.Left_Mantis_Claw);
+                item.AddTag<ItemChanger.Tags.ItemTreeTag>().successors = new[] { ItemNames.Right_Mantis_Claw };
+                return item;
+            });
+            rb.EditItemInfo(ItemNames.Right_Mantis_Claw, info => info.realItemCreator = (factory, placement) =>
+            {
+                AbstractItem item = factory.MakeItem(ItemNames.Right_Mantis_Claw);
+                item.AddTag<ItemChanger.Tags.ItemTreeTag>().successors = new[] { ItemNames.Left_Mantis_Claw };
+                return item;
+            });
         }
 
         public static void ApplyMaskShardCountSetting(RequestBuilder rb)

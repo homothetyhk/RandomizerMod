@@ -20,6 +20,7 @@ namespace RandomizerMod.RC
     public class RandoController
     {
         public RandoModContext ctx;
+        public RequestBuilder rb;
         public readonly GenerationSettings gs;
         public readonly RandoMonitor rm;
         public readonly SettingsPM pm;
@@ -41,7 +42,7 @@ namespace RandomizerMod.RC
             ctx = new(gs);
             AssignNotchCosts();
             ctx.LM = RCData.GetNewLogicManager(gs);
-            RequestBuilder rb = new(gs, ctx.LM);
+            rb = new(gs, ctx.LM);
             rb.Run(out RandomizationStage[] stages, out ctx.Vanilla, out ctx.itemPlacements);
             Randomizer randomizer = new(new Random(gs.Seed), ctx, stages, rm);
             List<List<RandoPlacement>[]> stagedPlacements = randomizer.Run();
@@ -140,7 +141,7 @@ namespace RandomizerMod.RC
 
             Export.BeginExport(gs, ctx);
             Export.ExportStart(gs, ctx);
-            if (ctx.itemPlacements != null) Export.ExportItemPlacements(gs, ctx.itemPlacements);
+            if (ctx.itemPlacements != null) Export.ExportItemPlacements(rb, ctx.itemPlacements);
             if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(ctx.transitionPlacements);
             if (ctx.notchCosts != null)
             {
