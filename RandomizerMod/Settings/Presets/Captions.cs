@@ -293,5 +293,11 @@ namespace RandomizerMod.Settings.Presets
                     }
             }
         }
+
+        public static string Caption(this DuplicateItemSettings ds)
+        {
+            return "For more information, see the Duplicate Items page in Advanced Settings.";
+        }
+
     }
 }

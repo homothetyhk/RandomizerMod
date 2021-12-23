@@ -21,6 +21,7 @@ namespace RandomizerMod.Settings
         public StartItemSettings StartItemSettings = Presets.StartItemPresetData.EarlyGeo.Clone() as StartItemSettings;
         public MiscSettings MiscSettings = Presets.MiscPresetData.Standard.Clone() as MiscSettings;
         public ProgressionDepthSettings ProgressionDepthSettings = new();
+        public DuplicateItemSettings DuplicateItemSettings = Presets.DuplicateItemPresetData.DuplicateMajorItems.Clone() as DuplicateItemSettings;
 
         public GenerationSettings()
         {

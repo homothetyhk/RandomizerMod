@@ -14,6 +14,8 @@ namespace RandomizerMod.RC
     /// </summary>
     public class PlaceholderItem : RandoModItem
     {
+        public const string Prefix = "Placeholder-";
+
         public PlaceholderItem(RandoModItem innerItem)
         {
             this.innerItem = innerItem;

@@ -4755,7 +4755,7 @@
   {
     "sceneName": "Ruins2_10b",
     "gateName": "right2",
-    "logic": "Ruins2_10b[right2] | Ruins2_10",
+    "logic": "Ruins2_10b[right2] | Ruins2_10b[left1] | Ruins2_10b[right1] | Ruins2_10",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_10b[right2]"
   },

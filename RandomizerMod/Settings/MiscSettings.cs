@@ -8,8 +8,6 @@ namespace RandomizerMod.Settings
     [Serializable]
     public class MiscSettings : SettingsModule
     {
-        public bool AddDuplicateItems;
-
         public enum MaskShardType
         {
             FourShardsPerMask,

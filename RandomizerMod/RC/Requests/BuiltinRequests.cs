@@ -61,14 +61,13 @@ namespace RandomizerMod.RC
 
         public static void ApplyPlaceholderMatch(RequestBuilder rb)
         {
-            const string prefix = "Placeholder-";
             static bool TryMatch(string name, out ItemRequestInfo info)
             {
-                if (name.StartsWith(prefix))
+                if (name.StartsWith(PlaceholderItem.Prefix))
                 {
                     info = new ItemRequestInfo
                     {
-                        randoItemCreator = factory => factory.MakeWrappedItem(name.Substring(prefix.Length))
+                        randoItemCreator = factory => factory.MakeWrappedItem(name.Substring(PlaceholderItem.Prefix.Length))
                     };
                     return true;
                 }
@@ -359,7 +358,12 @@ namespace RandomizerMod.RC
             {
                 double pow = 1.2; // setting?
 
-                int cap = Data.GetItemDef(itemName).PriceCap;
+                if (itemName.StartsWith(PlaceholderItem.Prefix))
+                {
+                    itemName = itemName.Substring(PlaceholderItem.Prefix.Length);
+                }
+
+                int cap = Data.GetItemDef(itemName) is ItemDef def ? def.PriceCap : 500;
                 if (cap <= 100) return cap;
                 if (required) return rng.PowerLaw(pow, 100, Math.Min(cap, 500)).ClampToMultipleOf(5);
                 return rng.PowerLaw(pow, 100, cap).ClampToMultipleOf(5);
@@ -530,52 +534,126 @@ namespace RandomizerMod.RC
 
         public static void ApplyDuplicateItemSettings(RequestBuilder rb)
         {
-            if (rb.gs.MiscSettings.AddDuplicateItems)
+            DuplicateItemSettings ds = rb.gs.DuplicateItemSettings;
+            NoveltySettings ns = rb.gs.NoveltySettings;
+            CursedSettings cs = rb.gs.CursedSettings;
+            PoolSettings ps = rb.gs.PoolSettings;
+            List<string> dupes = new();
+
+            if (ds.MothwingCloak && !ns.SplitCloak) dupes.Add(ItemNames.Mothwing_Cloak);
+            if (ds.MantisClaw && !ns.SplitClaw) dupes.Add(ItemNames.Mantis_Claw);
+            if (ds.CrystalHeart) dupes.Add(ItemNames.Crystal_Heart);
+            if (ds.MonarchWings) dupes.Add(ItemNames.Monarch_Wings);
+            if (ds.ShadeCloak) dupes.Add(ns.SplitCloak ? ItemNames.Split_Shade_Cloak : ItemNames.Shade_Cloak);
+            if (ds.DreamNail) dupes.Add(ItemNames.Dream_Nail);
+            if (ds.Dreamer) dupes.Add(ItemNames.Dreamer);
+            if (ds.SwimmingItems)
             {
-                // TODO: better dupe settings
-                List<string> dupes = new()
+                dupes.Add(ItemNames.Ismas_Tear);
+                if (ns.RandomizeSwim) dupes.Add(ItemNames.Swim);
+            }
+            if (ds.LevelOneSpells && !cs.RemoveSpellUpgrades)
+            {
+                dupes.Add(ItemNames.Vengeful_Spirit);
+                dupes.Add(ItemNames.Desolate_Dive);
+                dupes.Add(ItemNames.Descending_Dark);
+            }
+            if (ds.LevelTwoSpells && !cs.RemoveSpellUpgrades)
+            {
+                dupes.Add(ItemNames.Shade_Soul);
+                dupes.Add(ItemNames.Descending_Dark);
+                dupes.Add(ItemNames.Abyss_Shriek);
+            }
+            if (ds.Grimmchild)
+            {
+                dupes.Add(ps.GrimmkinFlames ? ItemNames.Grimmchild1 : ItemNames.Grimmchild2);
+            }
+            if (ds.NailArts)
+            {
+                dupes.Add(ItemNames.Cyclone_Slash);
+                dupes.Add(ItemNames.Great_Slash);
+                dupes.Add(ItemNames.Dash_Slash);
+            }
+            if (ds.CursedNailItems && ns.RandomizeNail)
+            {
+                dupes.Add(ItemNames.Upslash);
+                dupes.Add(ItemNames.Leftslash);
+                dupes.Add(ItemNames.Rightslash);
+            }
+            if (ds.DuplicateUniqueKeys)
+            {
+                dupes.Add(ItemNames.City_Crest);
+                dupes.Add(ItemNames.Lumafly_Lantern);
+                dupes.Add(ItemNames.Tram_Pass);
+                dupes.Add(ItemNames.Shopkeepers_Key);
+                dupes.Add(ItemNames.Elegant_Key);
+                dupes.Add(ItemNames.Love_Key);
+                dupes.Add(ItemNames.Kings_Brand);
+            }
+            switch (ds.SimpleKeyHandling)
+            {
+                default:
+                case DuplicateItemSettings.SimpleKeySetting.NoDupe:
+                    break;
+                case DuplicateItemSettings.SimpleKeySetting.TwoDupeKeys:
+                    dupes.Add(ItemNames.Simple_Key);
+                    dupes.Add(ItemNames.Simple_Key);
+                    break;
+                case DuplicateItemSettings.SimpleKeySetting.TwoExtraKeysInLogic:
+                    rb.AddItemByName(ItemNames.Simple_Key);
+                    rb.AddItemByName(ItemNames.Simple_Key);
+                    break;
+            }
+            if (ns.SplitClaw)
+            {
+                switch (ds.SplitClawHandling)
                 {
-                    "Vengeful_Spirit",
-                    "Howling_Wraiths",
-                    "Desolate_Dive",
-                    "Mothwing_Cloak",
-                    "Mantis_Claw",
-                    "Crystal_Heart",
-                    "Isma's_Tear",
-                    "Monarch_Wings",
-                    "Shade_Cloak",
-                    "Dreamer",
-                    "Void_Heart",
-                    "Dream_Nail",
-                };
-
-                if (rb.gs.NoveltySettings.SplitClaw) dupes.Remove("Mantis_Claw");
-                if (rb.gs.NoveltySettings.SplitCloak)
-                {
-                    dupes.Remove("Mothwing_Cloak");
-                    dupes.Remove("Shade_Cloak");
+                    default:
+                    case DuplicateItemSettings.SplitItemSetting.NoDupe:
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeLeft:
+                        dupes.Add(ItemNames.Left_Mantis_Claw);
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeRight:
+                        dupes.Add(ItemNames.Right_Mantis_Claw);
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeRandom:
+                        if (rb.rng.NextBool()) goto case DuplicateItemSettings.SplitItemSetting.DupeLeft;
+                        else goto case DuplicateItemSettings.SplitItemSetting.DupeRight;
+                    case DuplicateItemSettings.SplitItemSetting.DupeBoth:
+                        dupes.Add(ItemNames.Left_Mantis_Claw);
+                        dupes.Add(ItemNames.Right_Mantis_Claw);
+                        break;
                 }
-                if (rb.gs.CursedSettings.RemoveSpellUpgrades)
+            }
+            if (ns.SplitCloak)
+            {
+                switch (ds.SplitCloakHandling)
                 {
-                    dupes.Remove("Vengeful_Spirit");
-                    dupes.Remove("Howling_Wraiths");
-                    dupes.Remove("Desolate_Dive");
+                    default:
+                    case DuplicateItemSettings.SplitItemSetting.NoDupe:
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeLeft:
+                        dupes.Add(ItemNames.Left_Mothwing_Cloak);
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeRight:
+                        dupes.Add(ItemNames.Right_Mothwing_Cloak);
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeRandom:
+                        if (rb.rng.NextBool()) goto case DuplicateItemSettings.SplitItemSetting.DupeLeft;
+                        else goto case DuplicateItemSettings.SplitItemSetting.DupeRight;
+                    case DuplicateItemSettings.SplitItemSetting.DupeBoth:
+                        dupes.Add(ItemNames.Left_Mothwing_Cloak);
+                        dupes.Add(ItemNames.Right_Mothwing_Cloak);
+                        break;
                 }
+            }
 
-                // non-logic-readable dupes
-                foreach (string dupe in dupes)
-                {
-                    string name = $"Placeholder-{dupe}";
-                    rb.EditItemInfo(name, info =>
-                    {
-                        info.randoItemCreator = (args) => args.MakeWrappedItem(dupe);
-                    });
-                    rb.AddItemByName(name);
-                }
-
-                // dupe simple keys which are logic readable to increase odds of 4 keys waterways
-                rb.AddItemByName("Simple_Key");
-                rb.AddItemByName("Simple_Key");
+            // non-logic-readable dupes
+            foreach (string dupe in dupes)
+            {
+                string name = $"{PlaceholderItem.Prefix}{dupe}";
+                rb.AddItemByName(name);
             }
         }
 

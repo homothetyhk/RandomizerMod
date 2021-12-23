@@ -96,6 +96,7 @@ namespace RandomizerMod.Menu
         MenuPreset<LongLocationSettings> LongLocationPreset;
         MenuPreset<CursedSettings> CursedPreset;
         MenuPreset<TransitionSettings> TransitionPreset;
+        MenuPreset<DuplicateItemSettings> DuplicateItemPreset;
 
         SmallButton[] PresetButtons => new SmallButton[]
         {
@@ -108,6 +109,7 @@ namespace RandomizerMod.Menu
             LongLocationPreset,
             CursedPreset,
             TransitionPreset,
+            DuplicateItemPreset,
         };
         GridItemPanel StartGIP;
 
@@ -190,6 +192,7 @@ namespace RandomizerMod.Menu
             CursedSubpage,
             TransitionSubpage,
             ProgressionDepthSubpage,
+            DuplicateItemSubpage
         };
 
         Subpage PoolSubpage;
@@ -238,6 +241,10 @@ namespace RandomizerMod.Menu
         Subpage ProgressionDepthSubpage;
         MenuElementFactory<ProgressionDepthSettings> progressionDepthMEF;
         VerticalItemPanel progressionDepthPanel;
+
+        Subpage DuplicateItemSubpage;
+        MenuElementFactory<DuplicateItemSettings> duplicateItemMEF;
+        GridItemPanel duplicateItemPanel;
 
         #endregion
 
@@ -346,6 +353,7 @@ namespace RandomizerMod.Menu
             cursedMEF = new MenuElementFactory<CursedSettings>(AdvancedSettingsPage, Settings.CursedSettings);
             transitionMEF = new MenuElementFactory<TransitionSettings>(AdvancedSettingsPage, Settings.TransitionSettings);
             progressionDepthMEF = new MenuElementFactory<ProgressionDepthSettings>(AdvancedSettingsPage, Settings.ProgressionDepthSettings);
+            duplicateItemMEF = new MenuElementFactory<DuplicateItemSettings>(AdvancedSettingsPage, Settings.DuplicateItemSettings);
 
             PoolPreset = new MenuPreset<PoolSettings>(StartPage, "Randomized Items", 
                 PoolPresetData.PoolPresets, Settings.PoolSettings,
@@ -377,6 +385,9 @@ namespace RandomizerMod.Menu
                 TransitionPresetData.TransitionPresets, Settings.TransitionSettings,
                 ts => ts.Caption(),
                 transitionMEF);
+
+            DuplicateItemPreset = new MenuPreset<DuplicateItemSettings>(StartPage, "Duplicate Items",
+                DuplicateItemPresetData.Presets, Settings.DuplicateItemSettings, ds => ds.Caption(), duplicateItemMEF);
 
             DefaultSettingsButton = new SmallButton(JumpPage, "Restore Default Settings");
             ToManageSettingsPageButton = new SmallButton(JumpPage, "Manage Settings Profiles");
@@ -460,6 +471,10 @@ namespace RandomizerMod.Menu
             ProgressionDepthSubpage = new Subpage(AdvancedSettingsPage, "Progression Depth");
             progressionDepthPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 75f, false, progressionDepthMEF.Elements);
             ProgressionDepthSubpage.Add(progressionDepthPanel);
+
+            DuplicateItemSubpage = new Subpage(AdvancedSettingsPage, "Duplicate Items");
+            duplicateItemPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 800f, false, duplicateItemMEF.Elements);
+            DuplicateItemSubpage.Add(duplicateItemPanel);
 
             AdvancedSettingsViewer = new OrderedItemViewer(AdvancedSettingsPage, AdvancedSettingsSubpages);
 
