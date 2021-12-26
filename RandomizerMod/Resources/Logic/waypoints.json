@@ -2,5 +2,201 @@
   {
     "name": "Can_Replenish_Geo",
     "logic": "Tutorial_01 | Crossroads_01[top1] | Crossroads_ShamanTemple[left1] | Fungus1_01[right1] | Fungus2_03[left1] | Fungus2_06[top1] | Fungus2_12[left1] | Fungus2_14[top1] | Ruins1_01[left1] | Ruins1_17[right1] | Ruins2_04[right2] | Ruins2_06[right2] | Abyss_04[left1] | Abyss_12[right1] | Fungus3_40[top1] | Mines_02[left1] | Cliffs_02[left1] | Deepnest_East_01[bot1] | Deepnest_East_03[left1] | Deepnest_East_07[left2] | Deepnest_East_08[top1] | Waterways_02[top1] | Waterways_01[right1] | Waterways_04b[left1]"
+  },
+  {
+    "name": "Rescued_Sly",
+    "logic": "Room_ruinhouse[left1]"
+  },
+  {
+    "name": "Rescued_Bretta",
+    "logic": "Fungus2_23 + ((FULLCLAW + (FULLDASH | FULLSUPERDASH | WINGS | (AIRSTALL + AREASHADESKIPS + 4MASKS))) | ((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS))"
+  },
+  {
+    "name": "Rescued_Deepnest_Zote",
+    "logic": "Deepnest_33[top1]"
+  },
+  {
+    "name": "Defeated_Colosseum_Zote",
+    "logic": "Room_Colosseum_01[left1] + Rescued_Deepnest_Zote + Defeated_Colosseum_1"
+  },
+  {
+    "name": "Lever-Shade_Soul",
+    "logic": "Ruins1_31b[right1] | Ruins1_31b[right2] + Defeated_Elegant_Warrior"
+  },
+  {
+    "name": "Lever-Dung_Defender",
+    "logic": "Waterways_05[bot1] + (ANYCLAW | WINGS) + Defeated_Dung_Defender | Waterways_05[bot2] | Waterways_05[right1]"
+  },
+  {
+    "name": "Breakable_Wall-Dung_Defender",
+    "logic": "Waterways_05[bot1] + (ANYCLAW | WINGS) + Defeated_Dung_Defender | Waterways_05[bot2] | Waterways_05[right1]"
+  },
+  {
+    "name": "Defeated_Gruz_Mother",
+    "logic": "(Crossroads_04[left1] | Crossroads_04[top1] | Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | Crossroads_04[right1]) + COMBAT[Gruz_Mother]"
+  },
+  {
+    "name": "Defeated_False_Knight",
+    "logic": "(Crossroads_10[right1] | Crossroads_10[left1] + ANYCLAW) + COMBAT[False_Knight]"
+  },
+  {
+    "name": "Defeated_Brooding_Mawlek",
+    "logic": "(Crossroads_09[left1] | Crossroads_09[right1]) + COMBAT[Brooding_Mawlek]"
+  },
+  {
+    "name": "Defeated_Hornet_1",
+    "logic": "Fungus1_04[right1] + COMBAT[Hornet_1]"
+  },
+  {
+    "name": "Defeated_Mantis_Lords",
+    "logic": "(Fungus2_15[top3] | Fungus2_15[right1] | Fungus2_15[left1]) + COMBAT[Mantis_Lords]"
+  },
+  {
+    "name": "Defeated_Sanctum_Warrior",
+    "logic": "COMBAT[Sanctum_Warrior]"
+  },
+  {
+    "name": "Defeated_Soul_Master",
+    "logic": "Ruins1_24[right1] + COMBAT[Soul_Master]"
+  },
+  {
+    "name": "Defeated_Elegant_Warrior",
+    "logic": "(Ruins1_31b[right1] | Ruins1_31b[right2]) + COMBAT[Elegant_Warrior]"
+  },
+  {
+    "name": "Defeated_Crystal_Guardian",
+    "logic": "(Mines_18[left1] | Mines_18[right1] | Mines_18[top1]) + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash)) + COMBAT[Crystal_Guardian]"
+  },
+  {
+    "name": "Defeated_Enraged_Guardian",
+    "logic": "Mines_32[bot1] + Defeated_Crystal_Guardian + COMBAT[Enraged_Guardian]"
+  },
+  {
+    "name": "Defeated_Flukemarm",
+    "logic": "Waterways_12[right1] + (SWIM | LEFTSUPERDASH) + COMBAT[Flukemarm]"
+  },
+  {
+    "name": "Defeated_Dung_Defender",
+    "logic": "Waterways_05[bot1] + (ANYCLAW | WINGS) + COMBAT[Dung_Defender]"
+  },
+  {
+    "name": "Defeated_Broken_Vessel",
+    "logic": "Abyss_19[bot1] + (ANYCLAW | WINGS) + COMBAT[Broken_Vessel]"
+  },
+  {
+    "name": "Defeated_Hornet_2",
+    "logic": "Deepnest_East_Hornet[left1] + COMBAT[Hornet_2]"
+  },
+  {
+    "name": "Defeated_Watcher_Knights",
+    "logic": "(Ruins2_03[bot1] | Ruins2_03[top1]) + COMBAT[Watcher_Knights]"
+  },
+  {
+    "name": "Defeated_Uumuu",
+    "logic": "Fungus3_archive_02[top1] + (ANYSUPERDASH | ACID | ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS) + COMBAT[Uumuu]"
+  },
+  {
+    "name": "Defeated_Nosk",
+    "logic": "Deepnest_32[left1] + COMBAT[Nosk]"
+  },
+  {
+    "name": "Defeated_Traitor_Lord",
+    "logic": "(Fungus3_23[left1] + RIGHTSHADOWDASH | Fungus3_23[right1] + LEFTSHADOWDASH + (ANYCLAW | WINGS)) + COMBAT[Traitor_Lord]"
+  },
+  {
+    "name": "Defeated_Grimm",
+    "logic": "Grimm_Main_Tent[left1] + Grimmchild + 6FLAMES + COMBAT[Grimm]"
+  },
+  {
+    "name": "Defeated_Collector",
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTDASH + RIGHTCLAW | WINGS) + COMBAT[Collector]"
+  },
+  {
+    "name": "Defeated_Hive_Knight",
+    "logic": "Hive_05[left1] + COMBAT[Hive_Knight]"
+  },
+  {
+    "name": "Defeated_Pale_Lurker",
+    "logic": "GG_Lurker[left1] + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + RIGHTSUPERDASH)) + RIGHTCLAW + COMBAT[Pale_Lurker]"
+  },
+  {
+    "name": "Defeated_Elder_Hu",
+    "logic": "Fungus2_32[left1] + DREAMNAIL + COMBAT[Elder_Hu]"
+  },
+  {
+    "name": "Defeated_Xero",
+    "logic": "RestingGrounds_02 + DREAMNAIL + COMBAT[Xero]"
+  },
+  {
+    "name": "Defeated_Gorb",
+    "logic": "Cliffs_02 + DREAMNAIL + COMBAT[Gorb]"
+  },
+  {
+    "name": "Defeated_Marmu",
+    "logic": "(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH))) + DREAMNAIL + COMBAT[Marmu]"
+  },
+  {
+    "name": "Defeated_No_Eyes",
+    "logic": "(Fungus1_35[left1] | Fungus1_35[right1]) + LANTERN + DREAMNAIL + COMBAT[No_Eyes]"
+  },
+  {
+    "name": "Defeated_Galien",
+    "logic": "Deepnest_40[right1] + DREAMNAIL + COMBAT[Galien]"
+  },
+  {
+    "name": "Defeated_Markoth",
+    "logic": "Deepnest_East_10[left1] + DREAMNAIL + COMBAT[Markoth]"
+  },
+  {
+    "name": "Defeated_Failed_Champion",
+    "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight + (ANYCLAW + (WINGS | LEFTDASH | LEFTSUPERDASH)) + DREAMNAIL + COMBAT[Failed_Champion]"
+  },
+  {
+    "name": "Defeated_Soul_Tyrant",
+    "logic": "(Ruins1_24[right1] | Ruins1_24[left1]) + Defeated_Soul_Master + (LEFTCLAW | WINGS | LEFTDASH) + DREAMNAIL + COMBAT[Soul_Tyrant]"
+  },
+  {
+    "name": "Defeated_Lost_Kin",
+    "logic": "(Abyss_19[left1] | Abyss_19[bot1]) + Defeated_Broken_Vessel + DREAMNAIL + (LEFTCLAW | WINGS) + COMBAT[Lost_Kin]"
+  },
+  {
+    "name": "Defeated_White_Defender",
+    "logic": "Waterways_15[top1] + DREAMNAIL + DREAMER3 + Defeated_Dung_Defender + COMBAT[White_Defender]"
+  },
+  {
+    "name": "Defeated_Grey_Prince_Zote",
+    "logic": "Room_Bretta[right1] + DREAMNAIL + WINGS + Rescued_Bretta + Defeated_Colosseum_Zote + COMBAT[Grey_Prince_Zote]"
+  },
+  {
+    "name": "Defeated_Colosseum_1",
+    "logic": "Room_Colosseum_01[left1] + Can_Replenish_Geo + COMBAT[Colosseum_1]"
+  },
+  {
+    "name": "Defeated_Colosseum_2",
+    "logic": "Room_Colosseum_01[left1] + Can_Replenish_Geo + (ANYCLAW | (SPICYCOMBATSKIPS + WINGS)) + COMBAT[Colosseum_2]"
+  },
+  {
+    "name": "Defeated_King's_Station_Arena",
+    "logic": "Ruins2_09[bot1] + COMBAT[King's_Station_Arena]"
+  },
+  {
+    "name": "Defeated_West_Queen's_Gardens_Arena",
+    "logic": "(Fungus3_10[bot1] | Fungus3_10[top1] + (FULLDASH | WINGS)) + COMBAT[West_Queen's_Gardens_Arena]"
+  },
+  {
+    "name": "Defeated_Path_of_Pain_Arena",
+    "logic": "White_Palace_20[bot1] + FULLCLAW + RIGHTDASH + WINGS + COMBAT[Path_of_Pain_Arena]"
+  },
+  {
+    "name": "Can_Stag",
+    "logic": "Room_Town_Stag_Station[left1] | Crossroads_47[right1] | Fungus1_16_alt[right1] | Fungus2_02[right1] | (Fungus3_40[top1] | Fungus3_40[right1]) | Ruins1_29[left1] | Ruins2_08[left1] | RestingGrounds_09[left1] | Deepnest_09[left1] | Abyss_22[left1]"
+  },
+  {
+    "name": "First_Grimmchild_Upgrade",
+    "logic": "Grimm_Main_Tent[left1] + Grimmchild + 3FLAMES"
+  },
+  {
+    "name": "Second_Grimmchild_Upgrade",
+    "logic": "Grimm_Main_Tent[left1] + Grimmchild + 6FLAMES + Defeated_Grimm"
   }
 ]

@@ -201,7 +201,7 @@ namespace RandomizerMod.Menu
 
         Subpage SkipSubpage;
         MenuElementFactory<SkipSettings> skipMEF;
-        VerticalItemPanel skipVIP;
+        GridItemPanel skipPanel;
 
         Subpage NoveltySubpage;
         MenuElementFactory<NoveltySettings> novMEF;
@@ -432,8 +432,8 @@ namespace RandomizerMod.Menu
             PoolSubpage.Add(poolGIP);
 
             SkipSubpage = new Subpage(AdvancedSettingsPage, "Required Skips");
-            skipVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, skipMEF.Elements);
-            SkipSubpage.Add(skipVIP);
+            skipPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 800f,  false, skipMEF.Elements);
+            SkipSubpage.Add(skipPanel);
 
             NoveltySubpage = new Subpage(AdvancedSettingsPage, "Novelties");
             novVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, novMEF.Elements.ToArray());

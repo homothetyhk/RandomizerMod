@@ -8,6 +8,10 @@ namespace RandomizerMod.Settings
     public class SkipSettings : SettingsModule
     {
         public bool MildSkips;
+        public bool PreciseMovement;
+        public bool BackgroundObjectPogos;
+        public bool EnemyPogos;
+        public bool ObscureSkips;
         public bool ShadeSkips;
         public bool InfectionSkips;
         public bool FireballSkips;
@@ -15,6 +19,9 @@ namespace RandomizerMod.Settings
         public bool SpikeTunnels;
         public bool DarkRooms;
         public bool SpicySkips;
+        public bool DamageBoosts;
+        public bool ComplexSkips;
+        public bool DifficultSkips;
 
         private static Dictionary<string, FieldInfo> fields = typeof(SkipSettings)
             .GetFields(BindingFlags.Public | BindingFlags.Instance)
