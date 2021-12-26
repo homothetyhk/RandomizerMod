@@ -198,5 +198,77 @@
   {
     "name": "Second_Grimmchild_Upgrade",
     "logic": "Grimm_Main_Tent[left1] + Grimmchild + 6FLAMES + Defeated_Grimm"
+  },
+  {
+    "name": "Nightmare_Lantern_Lit",
+    "logic": "Cliffs_06[left1] + DREAMNAIL | Grimmchild"
+  },
+  {
+    "name": "Opened_Waterways_Manhole",
+    "logic": "Ruins1_05b + WATERWAYSUNLOCK"
+  },
+  {
+    "name": "Opened_Resting_Grounds_Floor",
+    "logic": "(RestingGrounds_06[left1] | RestingGrounds_06[right1]) + (LEFTDASH | LEFTCLAW | WINGS | ENEMYPOGOS) | RestingGrounds_06[top1]"
+  },
+  {
+    "name": "Opened_Pleasure_House_Wall",
+    "logic": "Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1]"
+  },
+  {
+    "name": "Opened_Gardens_Stag_Exit",
+    "logic": "Fungus3_40[top1] | Fungus3_40[right1] | Queen's_Gardens_Stag + Can_Stag"
+  },
+  {
+    "name": "Opened_Mawlek_Wall",
+    "logic": "Crossroads_09[right1] | Crossroads_09[left1] + Defeated_Brooding_Mawlek"
+  },
+  {
+    "name": "Opened_Shaman_Pillar",
+    "logic": "Crossroads_06[left1] | Crossroads_06[door1] | Crossroads_06[right1] | DREAMER"
+  },
+  {
+    "name": "Opened_Tramway_Exit_Gate",
+    "logic": "WINGS | (LEFTCLAW + (RIGHTDASH | ENEMYPOGOS))"
+  },
+  {
+    "name": "Broke_Sanctum_Glass_Floor",
+    "logic": "Ruins1_30 + QUAKE"
+  },
+  {
+    "name": "Opened_Emilitia_Door",
+    "logic": "Ruins_House_03[left1] | (ANYCLAW + Ruins_House_03[left2])"
+  },
+  {
+    "name": "Lit_Abyss_Lighthouse",
+    "logic": "Abyss_Lighthouse_room[left1]"
+  },
+  {
+    "name": "Lower_Kingdom's_Edge_Wall",
+    "logic": "Deepnest_East_02"
+  },
+  {
+    "name": "Opened_Glade_Door",
+    "logic": "RestingGrounds_07[right1] + 200ESSENCE"
+  },
+  {
+    "name": "Opened_Waterways_Exit",
+    "logic": "(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)))"
+  },
+  {
+    "name": "Palace_Entrance_Lantern_Lit",
+    "logic": "White_Palace_02[left1] + LEFTCLAW + WINGS"
+  },
+  {
+    "name": "Palace_Left_Lantern_Lit",
+    "logic": "White_Palace_14[right1]"
+  },
+  {
+    "name": "Palace_Right_Lantern_Lit",
+    "logic": "White_Palace_15[right1]"
+  },
+  {
+    "name": "Palace_Atrium_Gates_Opened",
+    "logic": "Palace_Left_Lantern_Lit + Palace_Right_Lantern_Lit"
   }
 ]

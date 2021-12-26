@@ -557,7 +557,7 @@ namespace RandomizerMod.RC
             {
                 dupes.Add(ItemNames.Vengeful_Spirit);
                 dupes.Add(ItemNames.Desolate_Dive);
-                dupes.Add(ItemNames.Descending_Dark);
+                dupes.Add(ItemNames.Howling_Wraiths);
             }
             if (ds.LevelTwoSpells && !cs.RemoveSpellUpgrades)
             {

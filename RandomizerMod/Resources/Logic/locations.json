@@ -217,7 +217,7 @@
   },
   {
     "name": "Grimmchild",
-    "logic": "((Cliffs_06[left1] + DREAMNAIL) | Grimmchild) + Grimm_Main_Tent[left1]"
+    "logic": "Nightmare_Lantern_Lit + Grimm_Main_Tent[left1]"
   },
   {
     "name": "City_Crest",
