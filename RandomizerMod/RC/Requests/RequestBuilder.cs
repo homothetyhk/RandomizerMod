@@ -39,7 +39,6 @@ namespace RandomizerMod.RC
         private readonly List<StageBuilder> _stages;
         public readonly ReadOnlyCollection<StageBuilder> Stages;
         public readonly StageBuilder MainItemStage;
-        public readonly StageBuilder MainTransitionStage;
         public readonly ItemGroupBuilder MainItemGroup;
 
         /// <summary>
@@ -111,11 +110,18 @@ namespace RandomizerMod.RC
             Transition
         }
 
+        /// <summary>
+        /// Adds a stage with the given label after all existing stages.
+        /// </summary>
         public StageBuilder AddStage(string name)
         {
             return InsertStage(_stages.Count, name);
         }
 
+        /// <summary>
+        /// Creates a StageBuilder at the specified index with the given label.
+        /// <br/>Throws an exception if the index is out of range or the label is already in use.
+        /// </summary>
         public StageBuilder InsertStage(int index, string name)
         {
             if (name == null) throw new ArgumentNullException(nameof(name));
@@ -127,6 +133,43 @@ namespace RandomizerMod.RC
             return sb;
         }
 
+        /// <summary>
+        /// Moves the stage with the given label to the given index.
+        /// <br/>Throws an exception if the index is out of range or the stage with the given label is not found.
+        /// </summary>
+        public void MoveStage(int destinationIndex, string name)
+        {
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            int init = _stages.FindIndex(s => s.label == name);
+            if (init < 0) throw new ArgumentException(nameof(name));
+            if (destinationIndex < 0 || destinationIndex > _stages.Count) throw new ArgumentOutOfRangeException(nameof(destinationIndex));
+
+            StageBuilder sb = _stages[init];
+            _stages.RemoveAt(init);
+            _stages.Insert(destinationIndex, sb);
+        }
+
+        /// <summary>
+        /// Searches for a StageBuilder with the given label and returns it if found.
+        /// </summary>
+        public bool TryGetStage(string name, out StageBuilder sb)
+        {
+            int i = _stages.FindIndex(s => s.label == name);
+            if (i < 0)
+            {
+                sb = null;
+                return false;
+            }
+            else
+            {
+                sb = _stages[i];
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Searches for the appropriate group for the named item, location, or transition, using the OnGetGroupFor event.
+        /// </summary>
         public GroupBuilder GetGroupFor(string name, ElementType type = ElementType.Unknown)
         {
             foreach (GroupResolver resolver in _onGetGroupForOwner.GetSubscriberList())
@@ -142,29 +185,43 @@ namespace RandomizerMod.RC
             return null;
         }
 
-
+        /// <summary>
+        /// Searches for the appropriate item group for the named item, using the OnGetGroupFor event.
+        /// </summary>
         public ItemGroupBuilder GetItemGroupFor(string name)
         {
             if (GetGroupFor(name, ElementType.Item) is ItemGroupBuilder igb) return igb;
             return MainItemGroup;
         }
 
+        /// <summary>
+        /// Searches for the appropriate item group for the named location, using the OnGetGroupFor event.
+        /// </summary>
         public ItemGroupBuilder GetLocationGroupFor(string name)
         {
             if (GetGroupFor(name, ElementType.Location) is ItemGroupBuilder igb) return igb;
             return MainItemGroup;
         }
 
+        /// <summary>
+        /// Adds one copy of the named item to the group returned by GetItemGroupFor.
+        /// </summary>
         public void AddItemByName(string name)
         {
             GetItemGroupFor(name).Items.Add(name);
         }
 
+        /// <summary>
+        /// Adds the requested number of copies of the named item to the group returned by GetItemGroupFor.
+        /// </summary>
         public void AddItemByName(string name, int count)
         {
             GetItemGroupFor(name).Items.Increment(name, count);
         }
 
+        /// <summary>
+        /// Removes all copies of the named item from all item groups.
+        /// </summary>
         public void RemoveItemByName(string name)
         {
             foreach (ItemGroupBuilder gb in EnumerateItemGroups()) gb.Items.RemoveAll(name);
@@ -197,21 +254,33 @@ namespace RandomizerMod.RC
             edit(info);
         }
 
+        /// <summary>
+        /// Adds one copy of the named location to the group returned by GetItemGroupFor.
+        /// </summary>
         public void AddLocationByName(string name)
         {
             GetLocationGroupFor(name).Locations.Add(name);
         }
 
+        /// <summary>
+        /// Adds the requested number of copies of the named location to the group returned by GetItemGroupFor.
+        /// </summary>
         public void AddLocationByName(string name, int count)
         {
             GetLocationGroupFor(name).Locations.Increment(name, count);
         }
 
+        /// <summary>
+        /// Removes all copies of the named location from all item groups.
+        /// </summary>
         public void RemoveLocationByName(string name)
         {
             foreach (ItemGroupBuilder gb in EnumerateItemGroups()) gb.Locations.RemoveAll(name);
         }
 
+        /// <summary>
+        /// Removes the requested number of copies of the named location from the group returned by GetLocationGroupFor.
+        /// </summary>
         public void RemoveLocationByName(string name, int count)
         {
             GetLocationGroupFor(name).Locations.Remove(name, count);
@@ -244,6 +313,9 @@ namespace RandomizerMod.RC
             edit(info);
         }
 
+        /// <summary>
+        /// Removes all copies of all items in any item groups for which the predicate returns true.
+        /// </summary>
         public void RemoveItemsWhere(Predicate<string> selector)
         {
             foreach (ItemGroupBuilder gb in EnumerateItemGroups())
@@ -258,6 +330,9 @@ namespace RandomizerMod.RC
             _set.Clear();
         }
 
+        /// <summary>
+        /// Replaces each copy of the named item in each item group with the replacement string.
+        /// </summary>
         public void ReplaceItem(string name, string replaceWith)
         {
             foreach (ItemGroupBuilder gb in EnumerateItemGroups())
@@ -294,6 +369,9 @@ namespace RandomizerMod.RC
             _set.Clear();
         }
 
+        /// <summary>
+        /// Removes all copies of all locations in any item groups for which the predicate returns true.
+        /// </summary>
         public void RemoveLocationsWhere(Predicate<string> selector)
         {
             foreach (ItemGroupBuilder gb in EnumerateItemGroups())
@@ -357,6 +435,16 @@ namespace RandomizerMod.RC
         public void AddToStart(string item, int count)
         {
             StartItems.Increment(item, count);
+        }
+
+        public void RemoveFromStart(string item)
+        {
+            StartItems.RemoveAll(item);
+        }
+
+        public bool IsAtStart(string item)
+        {
+            return StartItems.GetCount(item) > 0;
         }
 
         public delegate bool GroupResolver(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb);

@@ -171,7 +171,7 @@ namespace RandomizerMod.RC
                     }
                 }
 
-
+                rb.rng.PermuteInPlace(doors);
                 for (int i = 0; i < doors.Count; i++)
                 {
                     switch (rights.Count - lefts.Count)
@@ -423,7 +423,7 @@ namespace RandomizerMod.RC
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
-                    return factory.FetchOrMakePlacement("Salubra");
+                    return factory.FetchOrMakePlacementWithEvents("Salubra", placement);
                 };
             });
         }
@@ -553,7 +553,7 @@ namespace RandomizerMod.RC
                 dupes.Add(ItemNames.Ismas_Tear);
                 if (ns.RandomizeSwim) dupes.Add(ItemNames.Swim);
             }
-            if (ds.LevelOneSpells && !cs.RemoveSpellUpgrades)
+            if (ds.LevelOneSpells)
             {
                 dupes.Add(ItemNames.Vengeful_Spirit);
                 dupes.Add(ItemNames.Desolate_Dive);
@@ -695,9 +695,36 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.CursedSettings.RemoveSpellUpgrades)
             {
-                rb.RemoveItemByName("Shade_Soul");
-                rb.RemoveItemByName("Abyss_Shriek");
-                rb.RemoveItemByName("Descending_Dark");
+                rb.RemoveItemByName(ItemNames.Shade_Soul);
+                rb.RemoveItemByName(ItemNames.Abyss_Shriek);
+                rb.RemoveItemByName(ItemNames.Descending_Dark);
+                rb.EditItemInfo(ItemNames.Vengeful_Spirit, info =>
+                {
+                    info.realItemCreator = (factory, placement) =>
+                    {
+                        AbstractItem item = factory.MakeItem(ItemNames.Vengeful_Spirit);
+                        item.RemoveTags<ItemChanger.Tags.ItemChainTag>();
+                        return item;
+                    };
+                });
+                rb.EditItemInfo(ItemNames.Howling_Wraiths, info =>
+                {
+                    info.realItemCreator = (factory, placement) =>
+                    {
+                        AbstractItem item = factory.MakeItem(ItemNames.Howling_Wraiths);
+                        item.RemoveTags<ItemChanger.Tags.ItemChainTag>();
+                        return item;
+                    };
+                });
+                rb.EditItemInfo(ItemNames.Desolate_Dive, info =>
+                {
+                    info.realItemCreator = (factory, placement) =>
+                    {
+                        AbstractItem item = factory.MakeItem(ItemNames.Desolate_Dive);
+                        item.RemoveTags<ItemChanger.Tags.ItemChainTag>();
+                        return item;
+                    };
+                });
             }
         }
 
@@ -840,20 +867,27 @@ namespace RandomizerMod.RC
             HashSet<string> multiSet = new();
             foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
             {
+                int count = 0;
                 foreach (string l in gb.Locations.EnumerateDistinct())
                 {
-                    if (Data.GetLocationDef(l) is LocationDef def && def.Multi) multiSet.Add(l);
+                    if (Data.GetLocationDef(l) is LocationDef def && def.Multi)
+                    {
+                        multiSet.Add(l);
+                        count += gb.Locations.GetCount(l) - 1;
+                    }
                     // TODO: move multi to LocationRequestInfo?
                 }
+                string[] multi = multiSet.OrderBy(s => s).ToArray();
+                foreach (string l in multi)
+                {
+                    gb.Locations.Set(l, 1);
+                }
+                while (count-- > 0)
+                {
+                    gb.Locations.Add(rb.rng.Next(multi));
+                }
+                multiSet.Clear();
             }
-
-            string[] multi = multiSet.OrderBy(s => s).ToArray();
-            IEnumerable<string> Select(int i)
-            {
-                for (int j = 0; j < i; j++) yield return rb.rng.Next(multi);
-            }
-
-            rb.ReplaceLocation(l => multiSet.Contains(l), (_, i) => Select(i));
         }
 
         public static void ApplyGrubMimicRando(RequestBuilder rb)

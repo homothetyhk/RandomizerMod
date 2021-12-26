@@ -739,6 +739,9 @@ namespace RandomizerMod.Menu
             miscMEF.SetMenuValues(settings.MiscSettings);
             cursedMEF.SetMenuValues(settings.CursedSettings);
             transitionMEF.SetMenuValues(settings.TransitionSettings);
+            novMEF.SetMenuValues(settings.NoveltySettings);
+            progressionDepthMEF.SetMenuValues(settings.ProgressionDepthSettings);
+            duplicateItemMEF.SetMenuValues(settings.DuplicateItemSettings);
 
             foreach (IMenuPreset preset in PresetButtons) preset.UpdatePreset();
         }
