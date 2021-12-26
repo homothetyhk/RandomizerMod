@@ -21,7 +21,11 @@ namespace RandomizerMod.IC
             ItemChangerMod.Modules.Add<RandomizerModule>();
             ItemChangerMod.Modules.Add<TrackerUpdate>();
             ItemChangerMod.Modules.Add<TrackerLog>();
-            ItemChangerMod.Modules.Add<ItemChanger.Modules.JijiJinnPassage>();
+            if (!gs.NoveltySettings.EggShop)
+            {
+                // TODO - with egg shop, keep the passage but forbid selling (somehow) until egg shop is bought out
+                ItemChangerMod.Modules.Add<ItemChanger.Modules.JijiJinnPassage>();
+            }
             var cpo = ItemChangerMod.Modules.Add<ItemChanger.Modules.CompletionPercentOverride>();
             cpo.CoupledTransitions = gs.TransitionSettings.Coupled;
             ItemChangerMod.Modules.Add<ItemChanger.Modules.DisablePalaceMidWarp>();

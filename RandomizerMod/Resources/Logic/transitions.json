@@ -93,14 +93,14 @@
   {
     "sceneName": "Town",
     "gateName": "room_divine",
-    "logic": "Town[room_divine] | Town + (GRIMMCHILD | Cliffs_06[left1] + DREAMNAIL)",
+    "logic": "Town[room_divine] | Town + Nightmare_Lantern_Lit",
     "oneWayType": "TwoWay",
     "Name": "Town[room_divine]"
   },
   {
     "sceneName": "Town",
     "gateName": "room_grimm",
-    "logic": "Town[room_grimm] | Town + (GRIMMCHILD | Cliffs_06[left1] + DREAMNAIL)",
+    "logic": "Town[room_grimm] | Town + Nightmare_Lantern_Lit",
     "oneWayType": "TwoWay",
     "Name": "Town[room_grimm]"
   },
@@ -660,7 +660,7 @@
   {
     "sceneName": "Crossroads_33",
     "gateName": "left1",
-    "logic": "Crossroads_33[left1] | Crossroads_33 + ((Crossroads_09[left1] + Defeated_Brooding_Mawlek) | Crossroads_09[right1])",
+    "logic": "Crossroads_33[left1] | Crossroads_33 + Opened_Mawlek_Wall",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_33[left1]"
   },
@@ -674,7 +674,7 @@
   {
     "sceneName": "Crossroads_33",
     "gateName": "right1",
-    "logic": "Crossroads_33[right1] | Crossroads_33 + (Crossroads_06[left1] | Crossroads_06[right1] | Crossroads_06[door1])",
+    "logic": "Crossroads_33[right1] | Crossroads_33 + Opened_Shaman_Pillar",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_33[right1]"
   },
@@ -2067,7 +2067,7 @@
   {
     "sceneName": "Fungus2_15",
     "gateName": "left1",
-    "logic": "Fungus2_15[left1] | Fungus2_15[top3] | Fungus2_15[right1]",
+    "logic": "Fungus2_15[left1] | (Fungus2_15[top3] | Fungus2_15[right1]) + Defeated_Mantis_Lords",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_15[left1]"
   },
@@ -2165,7 +2165,7 @@
   {
     "sceneName": "Fungus2_23",
     "gateName": "right2",
-    "logic": "Fungus2_23[right2] | Fungus2_23 + (Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)))",
+    "logic": "Fungus2_23[right2] | Fungus2_23 + Opened_Waterways_Exit",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_23[right2]"
   },
@@ -2501,14 +2501,14 @@
   {
     "sceneName": "Fungus2_25",
     "gateName": "right1",
-    "logic": "Fungus2_25[right1] | (Fungus2_25[top1] | Fungus2_25[top2]) + Fungus2_15[left1]",
+    "logic": "Fungus2_25[right1] | (Fungus2_25[top1] | Fungus2_25[top2]) + Defeated_Mantis_Lords",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_25[right1]"
   },
   {
     "sceneName": "Deepnest_26",
     "gateName": "left1",
-    "logic": "Deepnest_26[left1] | Deepnest_26 + Deepnest_26b[right2] + (LEFTCLAW | (WINGS + ENEMYPOGOS)) + (WINGS | (LEFTCLAW + (RIGHTDASH | ENEMYPOGOS)))",
+    "logic": "Deepnest_26[left1] | Deepnest_26 + (LEFTCLAW | (WINGS + ENEMYPOGOS)) + Opened_Tramway_Exit_Gate",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_26[left1]"
   },
@@ -2872,7 +2872,7 @@
   {
     "sceneName": "Deepnest_East_03",
     "gateName": "left2",
-    "logic": "Deepnest_East_03[left2] | Deepnest_East_03 + Deepnest_East_02",
+    "logic": "Deepnest_East_03[left2] | Deepnest_East_03 + Lower_Kingdom's_Edge_Wall",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_03[left2]"
   },
@@ -3551,7 +3551,7 @@
   {
     "sceneName": "Abyss_09",
     "gateName": "right1",
-    "logic": "Abyss_09[right1] | Abyss_09 + (Abyss_Lighthouse_room[left1] | VOIDHEART) + (SWIM | RIGHTSUPERDASH)",
+    "logic": "Abyss_09[right1] | Abyss_09 + (Lit_Abyss_Lighthouse | VOIDHEART) + (SWIM | RIGHTSUPERDASH)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_09[right1]"
   },
@@ -3705,7 +3705,7 @@
   {
     "sceneName": "Waterways_01",
     "gateName": "top1",
-    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS) | Waterways_01 + Ruins1_05b + WATERWAYSUNLOCK + ANYCLAW",
+    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS) | Waterways_01 + Opened_Waterways_Manhole + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "Waterways_01[top1]"
   },
@@ -4111,7 +4111,7 @@
   {
     "sceneName": "Ruins1_05b",
     "gateName": "bot1",
-    "logic": "Ruins1_05b[bot1] | Ruins1_05b + WATERWAYSUNLOCK",
+    "logic": "Ruins1_05b[bot1] | Ruins1_05b + Opened_Waterways_Manhole",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05b[bot1]"
   },
@@ -4272,7 +4272,7 @@
   {
     "sceneName": "Ruins1_23",
     "gateName": "top1",
-    "logic": "Ruins1_23[top1] + WINGS | Ruins1_23 + WINGS + Defeated_Sanctum_Warrior + (Ruins1_30 + QUAKE)",
+    "logic": "Ruins1_23[top1] + WINGS | Ruins1_23 + WINGS + Defeated_Sanctum_Warrior + Broke_Sanctum_Glass_Floor",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_23[top1]"
   },
@@ -4629,7 +4629,7 @@
   {
     "sceneName": "Ruins2_04",
     "gateName": "door_Ruin_House_03",
-    "logic": "Ruins2_04[door_Ruin_House_03] | Ruins2_04 + (Ruins_House_03[left1] | (ANYCLAW + Ruins_House_03[left2]))",
+    "logic": "Ruins2_04[door_Ruin_House_03] | Ruins2_04 + Opened_Emilitia_Door",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_04[door_Ruin_House_03]"
   },
@@ -4762,7 +4762,7 @@
   {
     "sceneName": "Ruins2_10b",
     "gateName": "left1",
-    "logic": "Ruins2_10b[left1] | (Ruins2_10 | Ruins2_10b[right1] | Ruins2_10b[right2]) + (Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1]) + ((ANYCLAW + WINGS) | FULLCLAW | Ruins2_10b[right1])",
+    "logic": "Ruins2_10b[left1] | (Ruins2_10 | Ruins2_10b[right1] | Ruins2_10b[right2]) + Opened_Pleasure_House_Wall + ((ANYCLAW + WINGS) | FULLCLAW | Ruins2_10b[right1])",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_10b[left1]"
   },
@@ -4874,7 +4874,7 @@
   {
     "sceneName": "RestingGrounds_02",
     "gateName": "bot1",
-    "logic": "RestingGrounds_02[bot1] | RestingGrounds_02 + (((RestingGrounds_06[left1] | RestingGrounds_06[right1]) + (LEFTDASH | LEFTCLAW | WINGS | ENEMYPOGOS)) | RestingGrounds_06[top1])",
+    "logic": "RestingGrounds_02[bot1] | RestingGrounds_02 + Opened_Resting_Grounds_Floor",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_02[bot1]"
   },
@@ -4923,7 +4923,7 @@
   {
     "sceneName": "RestingGrounds_05",
     "gateName": "right1",
-    "logic": "RestingGrounds_05[right1] | RestingGrounds_05 + RestingGrounds_07[right1] + 200ESSENCE",
+    "logic": "RestingGrounds_05[right1] | RestingGrounds_05 + Opened_Glade_Door",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_05[right1]"
   },
@@ -5651,7 +5651,7 @@
   {
     "sceneName": "Fungus3_13",
     "gateName": "left2",
-    "logic": "Fungus3_13[left2] | Fungus3_13 + Fungus3_40",
+    "logic": "Fungus3_13[left2] | Fungus3_13 + Opened_Gardens_Stag_Exit",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_13[left2]"
   },
@@ -5952,7 +5952,7 @@
   {
     "sceneName": "White_Palace_01",
     "gateName": "top1",
-    "logic": "White_Palace_01[top1] | White_Palace_01 + White_Palace_02[left1] + LEFTCLAW + WINGS",
+    "logic": "White_Palace_01[top1] | White_Palace_01 + Palace_Entrance_Lantern_Lit",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_01[top1]"
   },
@@ -5987,7 +5987,7 @@
   {
     "sceneName": "White_Palace_03_hub",
     "gateName": "top1",
-    "logic": "White_Palace_03_hub[top1] + (ANYCLAW | WINGS) | White_Palace_03_hub + ((White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + FULLDASH) | White_Palace_14[right1]) + White_Palace_15[right1] + (WINGS | (FULLCLAW + LEFTSUPERDASH))",
+    "logic": "White_Palace_03_hub[top1] + (ANYCLAW | WINGS) | White_Palace_03_hub + Palace_Atrium_Gates_Opened + (WINGS | FULLCLAW + LEFTSUPERDASH)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_03_hub[top1]"
   },

@@ -195,7 +195,7 @@
     "y": 63.4,
     "zone": "ROYAL_GARDENS",
     "transition": "Fungus3_13[left1]",
-    "logic": "(ITEMRANDO + SPICYSKIPS) | AREARANDO | ROOMRANDO"
+    "logic": "(ITEMRANDO + SPICYSKIPS) | (AREARANDO + SPICYSKIPS) | ROOMRANDO"
   },
   "Distant Village": {
     "name": "Distant Village",

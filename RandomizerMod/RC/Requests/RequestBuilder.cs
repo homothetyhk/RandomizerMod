@@ -255,7 +255,7 @@ namespace RandomizerMod.RC
         }
 
         /// <summary>
-        /// Adds one copy of the named location to the group returned by GetItemGroupFor.
+        /// Adds one copy of the named location to the group returned by GetLocationGroupFor.
         /// </summary>
         public void AddLocationByName(string name)
         {
@@ -263,7 +263,7 @@ namespace RandomizerMod.RC
         }
 
         /// <summary>
-        /// Adds the requested number of copies of the named location to the group returned by GetItemGroupFor.
+        /// Adds the requested number of copies of the named location to the group returned by GetLocationGroupFor.
         /// </summary>
         public void AddLocationByName(string name, int count)
         {
