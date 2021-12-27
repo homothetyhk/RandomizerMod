@@ -105,7 +105,7 @@ namespace RandomizerMod.Settings
             BinaryWriter writer = new(stream);
             foreach (ConstrainedIntField f in rd.intFields)
             {
-                int range = f.maxValue - f.maxValue;
+                int range = f.maxValue - f.minValue;
                 int value = (int)f.field.GetValue(o);
                 if (range < 0)
                 {
@@ -172,7 +172,7 @@ namespace RandomizerMod.Settings
             {
                 foreach (ConstrainedIntField field in rd.intFields)
                 {
-                    int range = field.maxValue - field.maxValue;
+                    int range = field.maxValue - field.minValue;
                     if (range < 0)
                     {
                         field.field.SetValue(o, reader.ReadInt32());

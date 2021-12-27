@@ -36,6 +36,7 @@ namespace RandomizerMod.RC
 
             OnUpdate.Subscribe(5f, ApplyStartGeo);
             OnUpdate.Subscribe(5f, ApplyDownslashStart);
+            OnUpdate.Subscribe(5f, ApplyStartItemSettings);
 
             OnUpdate.Subscribe(15f, ApplySplitClawFullClawRemove);
             OnUpdate.Subscribe(15f, ApplySplitCloakFullCloakRemove);
@@ -454,6 +455,201 @@ namespace RandomizerMod.RC
             }
         }
 
+        public static void ApplyStartItemSettings(RequestBuilder rb)
+        {
+            List<string> startItems = new();
+            StartItemSettings ss = rb.gs.StartItemSettings;
+            NoveltySettings ns = rb.gs.NoveltySettings;
+
+            void AddUniformlyFrom(IList<string> items, double rate, int cap)
+            {
+                rb.rng.PermuteInPlace(items);
+
+                int toAdd = 0;
+                for (int i = 0; i < items.Count; i++)
+                {
+                    if (rb.rng.NextDouble() < rate)
+                    {
+                        // Cursed way to make the distribution a bit more smooth than simply
+                        // flipping a coin for each until we reach the cap
+                        toAdd = (toAdd + 1) % (cap + 1);
+                    }
+                }
+
+                for (int i = 0; i < toAdd; i++)
+                {
+                    startItems.Add(items[i]);
+                }
+            }
+
+            {
+                string[] horizontal = new[] { ItemNames.Mothwing_Cloak, ItemNames.Crystal_Heart };
+                switch (ss.HorizontalMovement)
+                {
+                    case StartItemSettings.StartHorizontalType.None:
+                        break;
+                    case StartItemSettings.StartHorizontalType.MothwingCloak:
+                        startItems.Add(ItemNames.Mothwing_Cloak);
+                        break;
+                    case StartItemSettings.StartHorizontalType.CrystalHeart:
+                        startItems.Add(ItemNames.Crystal_Heart);
+                        break;
+                    case StartItemSettings.StartHorizontalType.OneRandomItem:
+                        startItems.Add(rb.rng.Next(horizontal));
+                        break;
+                    case StartItemSettings.StartHorizontalType.ZeroOrMore:
+                        AddUniformlyFrom(horizontal, 0.5, 2);
+                        break;
+                    case StartItemSettings.StartHorizontalType.All:
+                        startItems.AddRange(horizontal);
+                        break;
+                }
+            }
+            {
+                string[] vertical = new[] { ItemNames.Mantis_Claw, ItemNames.Monarch_Wings };
+                switch (ss.VerticalMovement)
+                {
+                    case StartItemSettings.StartVerticalType.None:
+                        break;
+                    case StartItemSettings.StartVerticalType.MantisClaw:
+                        startItems.Add(ItemNames.Mantis_Claw);
+                        break;
+                    case StartItemSettings.StartVerticalType.MonarchWings:
+                        startItems.Add(ItemNames.Monarch_Wings);
+                        break;
+                    case StartItemSettings.StartVerticalType.OneRandomItem:
+                        startItems.Add(rb.rng.Next(vertical));
+                        break;
+                    case StartItemSettings.StartVerticalType.ZeroOrMore:
+                        AddUniformlyFrom(vertical, 0.5, 2);
+                        break;
+                    case StartItemSettings.StartVerticalType.All:
+                        startItems.AddRange(vertical);
+                        break;
+                }
+            }
+            {
+                string[] charms = Data.Pools.First(x => x.Name == "Charm")
+                    .IncludeItems
+                    .Except(new[] { ItemNames.Queen_Fragment, ItemNames.King_Fragment, ItemNames.Void_Heart })
+                    .ToArray();
+                switch (ss.Charms)
+                {
+                    case StartItemSettings.StartCharmType.None:
+                        break;
+                    case StartItemSettings.StartCharmType.ZeroOrMore:
+                        AddUniformlyFrom(charms, 2.0 / (3.0 * (double)charms.Length), 4);
+                        break;
+                    case StartItemSettings.StartCharmType.OneRandomItem:
+                        startItems.Add(rb.rng.Next(charms));
+                        break;
+                }
+            }
+            {
+                string[] stags = Data.Pools.First(x => x.Name == "Stag").IncludeItems;
+                switch (ss.Stags)
+                {
+                    case StartItemSettings.StartStagType.None:
+                        break;
+                    case StartItemSettings.StartStagType.DirtmouthStag:
+                        startItems.Add(ItemNames.Dirtmouth_Stag);
+                        break;
+                    case StartItemSettings.StartStagType.OneRandomStag:
+                        startItems.Add(rb.rng.Next(stags));
+                        break;
+                    case StartItemSettings.StartStagType.ZeroOrMoreRandomStags:
+                        AddUniformlyFrom(stags, (double)1 / (double)stags.Length, 3);
+                        break;
+                    case StartItemSettings.StartStagType.ManyRandomStags:
+                        AddUniformlyFrom(stags, 0.4, stags.Length);
+                        break;
+                    case StartItemSettings.StartStagType.AllStags:
+                        startItems.AddRange(stags);
+                        break;
+                }
+            }
+            {
+                List<string> miscSkill = new()
+                {
+                    ItemNames.Dream_Nail,
+                    ItemNames.Ismas_Tear,
+                    ItemNames.Vengeful_Spirit,
+                    ItemNames.Desolate_Dive,
+                    ItemNames.Howling_Wraiths,
+                    ItemNames.Cyclone_Slash,
+                    ItemNames.Great_Slash,
+                    ItemNames.Dash_Slash
+                };
+                List<string> miscKey = new()
+                {
+                    ItemNames.Simple_Key,
+                    ItemNames.Elegant_Key,
+                    ItemNames.Tram_Pass,
+                    ItemNames.Kings_Brand,
+                    ItemNames.Love_Key,
+                    ItemNames.Lumafly_Lantern,
+                    ItemNames.Shopkeepers_Key,
+                    ItemNames.City_Crest
+                };
+                List<string> miscAll = Enumerable.Concat(miscSkill, miscKey).ToList();
+
+                switch (ss.MiscItems)
+                {
+                    case StartItemSettings.StartMiscItems.None:
+                        break;
+                    case StartItemSettings.StartMiscItems.DreamNail:
+                        startItems.Add(ItemNames.Dream_Nail);
+                        break;
+                    case StartItemSettings.StartMiscItems.ZeroOrMore:
+                        AddUniformlyFrom(miscAll, 1.0 / (double)miscAll.Count, 3);
+                        break;
+                    case StartItemSettings.StartMiscItems.Many:
+                        AddUniformlyFrom(miscAll, 3.0 / (double)miscAll.Count, 8);
+                        break;
+                    case StartItemSettings.StartMiscItems.DreamNailAndMore:
+                        startItems.Add(ItemNames.Dream_Nail);
+                        miscAll.Remove(ItemNames.Dream_Nail);
+                        miscAll.Add(ItemNames.Dream_Gate);
+                        AddUniformlyFrom(miscAll, 1.0 / (double)miscAll.Count, 3);
+                        break;
+                }
+            }
+
+            // If they wanted both sides of the skill they shouldn't have split it
+            if (ns.SplitCloak)
+            {
+                if (startItems.Remove(ItemNames.Mothwing_Cloak))
+                {
+                    startItems.Add(rb.rng.Next(new[] { ItemNames.Left_Mothwing_Cloak, ItemNames.Right_Mothwing_Cloak }));
+                }
+            }
+            if (ns.SplitClaw)
+            {
+                if (startItems.Remove(ItemNames.Mantis_Claw))
+                {
+                    startItems.Add(rb.rng.Next(new[] { ItemNames.Left_Mantis_Claw, ItemNames.Right_Mantis_Claw }));
+                }
+            }
+
+            foreach (string item in startItems)
+            {
+                rb.AddToStart(item);
+                rb.GetItemGroupFor(item).Items.Remove(item, 1);
+                if (Data.GetItemDef(item).Pool == "Charm" && rb.rng.NextBool())
+                {
+                    rb.EditItemInfo(item, info =>
+                    {
+                        info.realItemCreator = (factory, placement) =>
+                        {
+                            AbstractItem realItem = factory.MakeItem(item);
+                            realItem.AddTag<ItemChanger.Tags.EquipCharmOnGiveTag>();
+                            return realItem;
+                        };
+                    });
+                }
+            }
+        }
+
         public static void ApplyDownslashStart(RequestBuilder rb)
         {
             if (rb.gs.NoveltySettings.RandomizeNail)
@@ -541,17 +737,44 @@ namespace RandomizerMod.RC
             PoolSettings ps = rb.gs.PoolSettings;
             List<string> dupes = new();
 
-            if (ds.MothwingCloak && !ns.SplitCloak) dupes.Add(ItemNames.Mothwing_Cloak);
-            if (ds.MantisClaw && !ns.SplitClaw) dupes.Add(ItemNames.Mantis_Claw);
-            if (ds.CrystalHeart) dupes.Add(ItemNames.Crystal_Heart);
-            if (ds.MonarchWings) dupes.Add(ItemNames.Monarch_Wings);
-            if (ds.ShadeCloak) dupes.Add(ns.SplitCloak ? ItemNames.Split_Shade_Cloak : ItemNames.Shade_Cloak);
-            if (ds.DreamNail) dupes.Add(ItemNames.Dream_Nail);
-            if (ds.Dreamer) dupes.Add(ItemNames.Dreamer);
+            if (ds.MothwingCloak && !ns.SplitCloak && !rb.IsAtStart(ItemNames.Mothwing_Cloak))
+            {
+                dupes.Add(ItemNames.Mothwing_Cloak);
+            }
+            if (ds.MantisClaw && !ns.SplitClaw && !rb.IsAtStart(ItemNames.Mantis_Claw))
+            {
+                dupes.Add(ItemNames.Mantis_Claw);
+            }
+            if (ds.CrystalHeart && !rb.IsAtStart(ItemNames.Crystal_Heart))
+            {
+                dupes.Add(ItemNames.Crystal_Heart);
+            }
+            if (ds.MonarchWings && !rb.IsAtStart(ItemNames.Monarch_Wings))
+            {
+                dupes.Add(ItemNames.Monarch_Wings);
+            }
+            if (ds.ShadeCloak && !rb.IsAtStart(ItemNames.Shade_Cloak) && !rb.IsAtStart(ItemNames.Split_Shade_Cloak))
+            {
+                dupes.Add(ns.SplitCloak ? ItemNames.Split_Shade_Cloak : ItemNames.Shade_Cloak);
+            }
+            if (ds.DreamNail && !rb.IsAtStart(ItemNames.Dream_Nail))
+            {
+                dupes.Add(ItemNames.Dream_Nail);
+            }
+            if (ds.Dreamer && !rb.IsAtStart(ItemNames.Dreamer))
+            {
+                dupes.Add(ItemNames.Dreamer);
+            }
             if (ds.SwimmingItems)
             {
-                dupes.Add(ItemNames.Ismas_Tear);
-                if (ns.RandomizeSwim) dupes.Add(ItemNames.Swim);
+                if (!rb.IsAtStart(ItemNames.Ismas_Tear))
+                {
+                    dupes.Add(ItemNames.Ismas_Tear);
+                }
+                if (ns.RandomizeSwim && !rb.IsAtStart(ItemNames.Swim))
+                {
+                    dupes.Add(ItemNames.Swim);
+                }
             }
             if (ds.LevelOneSpells)
             {
@@ -565,31 +788,31 @@ namespace RandomizerMod.RC
                 dupes.Add(ItemNames.Descending_Dark);
                 dupes.Add(ItemNames.Abyss_Shriek);
             }
-            if (ds.Grimmchild)
+            if (ds.Grimmchild && !rb.IsAtStart(ItemNames.Grimmchild1) && !rb.IsAtStart(ItemNames.Grimmchild2))
             {
                 dupes.Add(ps.GrimmkinFlames ? ItemNames.Grimmchild1 : ItemNames.Grimmchild2);
             }
             if (ds.NailArts)
             {
-                dupes.Add(ItemNames.Cyclone_Slash);
-                dupes.Add(ItemNames.Great_Slash);
-                dupes.Add(ItemNames.Dash_Slash);
+                if (!rb.IsAtStart(ItemNames.Cyclone_Slash)) dupes.Add(ItemNames.Cyclone_Slash);
+                if (!rb.IsAtStart(ItemNames.Great_Slash)) dupes.Add(ItemNames.Great_Slash);
+                if (!rb.IsAtStart(ItemNames.Dash_Slash)) dupes.Add(ItemNames.Dash_Slash);
             }
             if (ds.CursedNailItems && ns.RandomizeNail)
             {
-                dupes.Add(ItemNames.Upslash);
-                dupes.Add(ItemNames.Leftslash);
-                dupes.Add(ItemNames.Rightslash);
+                if (!rb.IsAtStart(ItemNames.Upslash)) dupes.Add(ItemNames.Upslash);
+                if (!rb.IsAtStart(ItemNames.Leftslash)) dupes.Add(ItemNames.Leftslash);
+                if (!rb.IsAtStart(ItemNames.Rightslash)) dupes.Add(ItemNames.Rightslash);
             }
             if (ds.DuplicateUniqueKeys)
             {
-                dupes.Add(ItemNames.City_Crest);
-                dupes.Add(ItemNames.Lumafly_Lantern);
-                dupes.Add(ItemNames.Tram_Pass);
-                dupes.Add(ItemNames.Shopkeepers_Key);
-                dupes.Add(ItemNames.Elegant_Key);
-                dupes.Add(ItemNames.Love_Key);
-                dupes.Add(ItemNames.Kings_Brand);
+                if (!rb.IsAtStart(ItemNames.City_Crest)) dupes.Add(ItemNames.City_Crest);
+                if (!rb.IsAtStart(ItemNames.Lumafly_Lantern)) dupes.Add(ItemNames.Lumafly_Lantern);
+                if (!rb.IsAtStart(ItemNames.Tram_Pass)) dupes.Add(ItemNames.Tram_Pass);
+                if (!rb.IsAtStart(ItemNames.Shopkeepers_Key)) dupes.Add(ItemNames.Shopkeepers_Key);
+                if (!rb.IsAtStart(ItemNames.Elegant_Key)) dupes.Add(ItemNames.Elegant_Key);
+                if (!rb.IsAtStart(ItemNames.Love_Key)) dupes.Add(ItemNames.Love_Key);
+                if (!rb.IsAtStart(ItemNames.Kings_Brand)) dupes.Add(ItemNames.Kings_Brand);
             }
             switch (ds.SimpleKeyHandling)
             {
@@ -605,7 +828,7 @@ namespace RandomizerMod.RC
                     rb.AddItemByName(ItemNames.Simple_Key);
                     break;
             }
-            if (ns.SplitClaw)
+            if (ns.SplitClaw && !rb.IsAtStart(ItemNames.Mantis_Claw))
             {
                 switch (ds.SplitClawHandling)
                 {
@@ -613,21 +836,21 @@ namespace RandomizerMod.RC
                     case DuplicateItemSettings.SplitItemSetting.NoDupe:
                         break;
                     case DuplicateItemSettings.SplitItemSetting.DupeLeft:
-                        dupes.Add(ItemNames.Left_Mantis_Claw);
+                        if (!rb.IsAtStart(ItemNames.Left_Mantis_Claw)) dupes.Add(ItemNames.Left_Mantis_Claw);
                         break;
                     case DuplicateItemSettings.SplitItemSetting.DupeRight:
-                        dupes.Add(ItemNames.Right_Mantis_Claw);
+                        if (!rb.IsAtStart(ItemNames.Right_Mantis_Claw)) dupes.Add(ItemNames.Right_Mantis_Claw);
                         break;
                     case DuplicateItemSettings.SplitItemSetting.DupeRandom:
                         if (rb.rng.NextBool()) goto case DuplicateItemSettings.SplitItemSetting.DupeLeft;
                         else goto case DuplicateItemSettings.SplitItemSetting.DupeRight;
                     case DuplicateItemSettings.SplitItemSetting.DupeBoth:
-                        dupes.Add(ItemNames.Left_Mantis_Claw);
-                        dupes.Add(ItemNames.Right_Mantis_Claw);
+                        if (!rb.IsAtStart(ItemNames.Left_Mantis_Claw)) dupes.Add(ItemNames.Left_Mantis_Claw);
+                        if (!rb.IsAtStart(ItemNames.Right_Mantis_Claw)) dupes.Add(ItemNames.Right_Mantis_Claw);
                         break;
                 }
             }
-            if (ns.SplitCloak)
+            if (ns.SplitCloak && !rb.IsAtStart(ItemNames.Mothwing_Cloak))
             {
                 switch (ds.SplitCloakHandling)
                 {
@@ -635,17 +858,17 @@ namespace RandomizerMod.RC
                     case DuplicateItemSettings.SplitItemSetting.NoDupe:
                         break;
                     case DuplicateItemSettings.SplitItemSetting.DupeLeft:
-                        dupes.Add(ItemNames.Left_Mothwing_Cloak);
+                        if (!rb.IsAtStart(ItemNames.Left_Mothwing_Cloak)) dupes.Add(ItemNames.Left_Mothwing_Cloak);
                         break;
                     case DuplicateItemSettings.SplitItemSetting.DupeRight:
-                        dupes.Add(ItemNames.Right_Mothwing_Cloak);
+                        if (!rb.IsAtStart(ItemNames.Right_Mothwing_Cloak)) dupes.Add(ItemNames.Right_Mothwing_Cloak);
                         break;
                     case DuplicateItemSettings.SplitItemSetting.DupeRandom:
                         if (rb.rng.NextBool()) goto case DuplicateItemSettings.SplitItemSetting.DupeLeft;
                         else goto case DuplicateItemSettings.SplitItemSetting.DupeRight;
                     case DuplicateItemSettings.SplitItemSetting.DupeBoth:
-                        dupes.Add(ItemNames.Left_Mothwing_Cloak);
-                        dupes.Add(ItemNames.Right_Mothwing_Cloak);
+                        if (!rb.IsAtStart(ItemNames.Left_Mothwing_Cloak)) dupes.Add(ItemNames.Left_Mothwing_Cloak);
+                        if (!rb.IsAtStart(ItemNames.Right_Mothwing_Cloak)) dupes.Add(ItemNames.Right_Mothwing_Cloak);
                         break;
                 }
             }
