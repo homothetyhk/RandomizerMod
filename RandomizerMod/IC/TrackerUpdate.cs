@@ -67,9 +67,9 @@ namespace RandomizerMod.IC
         private void OnBeginSceneTransition(Transition t)
         {
             string target = t.ToString();
-            if (transitionInverse.TryGetValue(target, out string source) && !TD.visitedTransitions.Contains(source))
+            if (transitionInverse.TryGetValue(target, out string source) && !TD.visitedTransitions.ContainsKey(source))
             {
-                TD.visitedTransitions.Add(source);
+                TD.visitedTransitions.Add(source, target);
                 TD.uncheckedReachableTransitions.Remove(source);
                 TD.pm.Add(TD.lm.GetTransition(source));
                 TD.pm.Add(TD.lm.GetTransition(target));
@@ -77,7 +77,7 @@ namespace RandomizerMod.IC
 
                 if (RandomizerMod.RS.GenerationSettings.TransitionSettings.Coupled && transitionInverse.ContainsKey(target))
                 {
-                    TD.visitedTransitions.Add(target);
+                    TD.visitedTransitions.Add(target, source);
                     TD.uncheckedReachableTransitions.Remove(target);
                     OnTransitionVisited?.Invoke(target, source);
                 }

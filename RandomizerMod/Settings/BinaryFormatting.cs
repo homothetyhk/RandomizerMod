@@ -6,6 +6,7 @@ using System.Text;
 using System.Reflection;
 using System.IO;
 using MenuChanger.Attributes;
+using MenuChanger.Extensions;
 
 namespace RandomizerMod.Settings
 {
@@ -80,10 +81,10 @@ namespace RandomizerMod.Settings
                 }
             }
 
-            public FieldInfo[] numericFields;
             public FieldInfo[] boolFields;
             public FieldInfo[] stringFields;
             public ConstrainedIntField[] intFields;
+            public FieldInfo[] floatFields;
 
             public ReflectionData(Type T)
             {
@@ -91,6 +92,7 @@ namespace RandomizerMod.Settings
                 boolFields = fields.Where(f => f.FieldType == typeof(bool)).OrderBy(f => f.Name).ToArray();
                 stringFields = fields.Where(f => f.FieldType == typeof(string)).OrderBy(f => f.Name).ToArray();
                 intFields = fields.Where(f => f.FieldType == typeof(int) || f.FieldType.IsEnum).OrderBy(f => f.Name).Select(f => new ConstrainedIntField(f)).ToArray();
+                floatFields = fields.Where(f => f.FieldType == typeof(float)).OrderBy(f => f.Name).ToArray();
             }
         }
 
@@ -121,6 +123,10 @@ namespace RandomizerMod.Settings
                 {
                     writer.Write(value);
                 }
+            }
+            foreach (FieldInfo fi in rd.floatFields)
+            {
+                writer.Write((float)fi.GetValue(o));
             }
 
             bool[] boolValues = rd.boolFields.Select(f => (bool)f.GetValue(o)).ToArray();
@@ -183,6 +189,10 @@ namespace RandomizerMod.Settings
                     {
                         field.field.SetValue(o, reader.ReadInt32());
                     }
+                }
+                foreach (FieldInfo fi in rd.floatFields)
+                {
+                    fi.SetValue(o, reader.ReadSingle());
                 }
 
                 bool[] boolValues = ConvertByteArrayToBoolArray(reader.ReadBytes(bytes.Length - (int)stream.Position));

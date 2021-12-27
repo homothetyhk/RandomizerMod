@@ -46,14 +46,14 @@ namespace RandomizerMod.Menu
     }
 
     /*
-    public class TestPage
+    public class TestPage1
     {
         public static void Test()
         {
             for (int i = 0; i < 100; i++)
             {
-                TestPage tp = new();
-                AddMenuPage(tp.OnConstruct, tp.TryGetButton);
+                TestPage1 tp = new();
+                RandomizerMenuAPI.AddMenuPage(tp.OnConstruct, tp.TryGetButton);
             }
         }
 
@@ -65,6 +65,32 @@ namespace RandomizerMod.Menu
         }
 
         public bool TryGetButton(MenuPage page, out SmallButton button)
+        {
+            button = this.button;
+            if (button == null) throw new InvalidOperationException();
+            return true;
+        }
+    }
+    public class TestPage2
+    {
+        public static void Test()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                TestPage2 tp = new();
+                RandomizerMenuAPI.AddStartGameOverride(tp.OnConstruct, tp.TryGetButton);
+            }
+        }
+
+        public BigButton button;
+
+        public void OnConstruct(MenuPage page)
+        {
+            button = new(page, "Test");
+            button.OnClick += RandomizerMenuAPI.Menu.StartRandomizerGame;
+        }
+
+        public bool TryGetButton(RandoController rc, MenuPage page, out BaseButton button)
         {
             button = this.button;
             if (button == null) throw new InvalidOperationException();

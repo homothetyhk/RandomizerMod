@@ -147,6 +147,14 @@ namespace RandomizerMod.IC
                     sb.AppendLine(s);
                 }
                 sb.AppendLine();
+
+                sb.AppendLine("CHECKED TRANSITIONS");
+                foreach (var kvp in TD.visitedTransitions)
+                {
+                    sb.Append(' ', 2);
+                    sb.AppendLine($"{kvp.Key}  -->  {kvp.Value}");
+                }
+                sb.AppendLine();
             }
 
             List<int> persistentItems = TD.obtainedItems.Where(i => IsPersistent(i)).ToList();

@@ -16,7 +16,7 @@ namespace RandomizerMod.Settings
     {
         public HashSet<int> obtainedItems = new();
         public HashSet<string> previewedLocations = new();
-        public HashSet<string> visitedTransitions = new();
+        public Dictionary<string, string> visitedTransitions = new();
         public HashSet<string> clearedLocations = new();
         public HashSet<string> uncheckedReachableLocations = new();
         public HashSet<string> uncheckedReachableTransitions = new();
@@ -37,7 +37,7 @@ namespace RandomizerMod.Settings
             pm = new(lm, ctx);
             pm.Add(obtainedItems.Select(i => ctx.itemPlacements[i].item));
 
-            pm.Add(visitedTransitions.Select(t => lm.GetTransition(t)));
+            pm.Add(visitedTransitions.Keys.Select(t => lm.GetTransition(t)));
 
             mu = new(lm);
             mu.AddPlacements(lm.Waypoints);
@@ -100,7 +100,7 @@ namespace RandomizerMod.Settings
 
             public override void OnAdd(ProgressionManager pm)
             {
-                if (!RandomizerMod.RS.TrackerData.visitedTransitions.Contains(transition.Name))
+                if (!RandomizerMod.RS.TrackerData.visitedTransitions.ContainsKey(transition.Name))
                 {
                     RandomizerMod.RS.TrackerData.uncheckedReachableTransitions.Add(transition.Name);
                 }

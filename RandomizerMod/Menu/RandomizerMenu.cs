@@ -49,7 +49,7 @@ namespace RandomizerMod.Menu
             {
                 try
                 {
-                    entry.ConstructionHandler(menu.FinalPage);
+                    entry.ConstructionHandler(menu.PostGenerationRedirectPage);
                 }
                 catch (Exception e)
                 {
@@ -260,6 +260,7 @@ namespace RandomizerMod.Menu
         public MenuPage FinalPage;
 
         BigButton StartButton;
+        BigButton ProceedButton;
 
         MenuLabel InfoPanelTitle;
         CounterLabel AttemptCounter;
@@ -280,6 +281,9 @@ namespace RandomizerMod.Menu
 
         #endregion
 
+        public MenuPage PostGenerationRedirectPage;
+        MultiGridItemPanel postGenerationRedirectPanel;
+        BigButton redirectStartButton;
 
         public RandomizerMenu(MenuPage modePage)
         {
@@ -309,6 +313,7 @@ namespace RandomizerMod.Menu
             FinalPage = new MenuPage("Randomizer Final Page", StartPage);
             FinalPage.backButton.Text.text = "Abort";
             FinalPage.backButton.OnClick += Abort;
+            PostGenerationRedirectPage = new MenuPage("Randomizer Post Generation Redirect Page", FinalPage);
 
             ResumePage = new MenuPage("Randomizer Resume Page");
             new BigButton(ResumePage, "Resume").OnClick += () =>
@@ -412,6 +417,10 @@ namespace RandomizerMod.Menu
 
             StartButton = new BigButton(FinalPage, SpriteManager.GetSprite("logo"), "Start Game");
             StartButton.Hide();
+            ProceedButton = new BigButton(FinalPage, "Proceed");
+            ProceedButton.Hide();
+
+            redirectStartButton = new BigButton(PostGenerationRedirectPage, SpriteManager.GetSprite("logo"), "Start Rando Normally");
 
             int hashLength = 1 + 4;
             HashLabels = new MenuLabel[hashLength];
@@ -506,6 +515,8 @@ namespace RandomizerMod.Menu
             generationInfoVIP = new VerticalItemPanel(FinalPage, new Vector2(-400, 300), 50, true, InfoElements);
             HashVIP = new VerticalItemPanel(FinalPage, new Vector2(400, 300), 50, true, HashLabels);
             HashVIP.Hide();
+
+            postGenerationRedirectPanel = new MultiGridItemPanel(PostGenerationRedirectPage, 5, 3, 150f, 650f, new Vector2(0, 300), Array.Empty<IMenuElement>());
         }
 
         private void AddEvents()
@@ -626,6 +637,11 @@ namespace RandomizerMod.Menu
 
             StartButton.AddSetResumeKeyEvent("Randomizer");
             StartButton.OnClick += StartRandomizerGame;
+
+            ProceedButton.AddHideAndShowEvent(PostGenerationRedirectPage);
+
+            redirectStartButton.AddSetResumeKeyEvent("Randomizer");
+            redirectStartButton.OnClick += StartRandomizerGame;
         }
 
         private void Arrange()
@@ -796,11 +812,10 @@ namespace RandomizerMod.Menu
                         }
                         HashVIP.Show();
 
-                        var startButton = ResolveStartButton();
-                        startButton.Show();
-                        startButton.MoveTo(new(0f, -200f));
-                        FinalPage.backButton.SetNeighbor(Neighbor.Up, startButton);
-                        startButton.SetNeighbor(Neighbor.Down, FinalPage.backButton);
+                        BigButton nextButton = RebuildPostGenerationRedirectPanel() ? ProceedButton : StartButton;
+                        nextButton.Show();
+                        nextButton.MoveTo(new(0f, -200f));
+                        FinalPage.backButton.SymSetNeighbor(Neighbor.Up, nextButton);
                     });
                 }
                 catch (Exception e)
@@ -819,7 +834,7 @@ namespace RandomizerMod.Menu
             RandomizerThread.Start();
         }
 
-        private void StartRandomizerGame()
+        public void StartRandomizerGame()
         {
             try
             {
@@ -842,11 +857,19 @@ namespace RandomizerMod.Menu
         {
             RandomizerThread?.Abort();
             RandomizerThread?.Join();
-            OutputLabel.Hide();
+            ThreadSupport.BeginInvoke(ResetOutputLabel); // the thread will schedule ThreadSupport to send an error to the label
             HashVIP.Hide();
             StartButton.Hide();
+            ProceedButton.Hide();
             FinalPage.backButton.SetNeighbor(Neighbor.Up, null);
             StartButton.SetNeighbor(Neighbor.Down, null);
+        }
+
+        private void ResetOutputLabel()
+        {
+            OutputLabel.Text.color = Color.white;
+            OutputLabel.Text.text = "";
+            OutputLabel.Hide();
         }
 
         private bool CanSelectStart(string name)
@@ -867,6 +890,7 @@ namespace RandomizerMod.Menu
                     buttons.Add(button);
                 }
             }
+
             connectionsPanel.Clear();
             if (buttons.Count > 0)
             {
@@ -879,14 +903,28 @@ namespace RandomizerMod.Menu
             }
         }
 
-        private BaseButton ResolveStartButton()
+        /// <summary>
+        /// Polls each subscriber to RandoStartOverride to build the PostGenerationRedirectPage. Returns true if any subscriber returns true.
+        /// <br/>If this returns true, the Proceed button will be used after rando generation. Otherwise, the Start Game button will be used.
+        /// </summary>
+        public bool RebuildPostGenerationRedirectPanel()
         {
+            if (!RandomizerMenuConstructor.finished) return false;
+
+            List<BaseButton> buttons = new();
+            buttons.Add(redirectStartButton);
             foreach (var entry in RandomizerMenuAPI.randoStartOverrides)
             {
-                if (entry.StartHandler(rc, FinalPage, out BaseButton button)) return button;
+                if (entry.StartHandler(rc, PostGenerationRedirectPage, out BaseButton button))
+                {
+                    buttons.Add(button);
+                }
             }
-            return StartButton;
-        }
+            if (buttons.Count < 2) return false;
 
+            postGenerationRedirectPanel.Clear();
+            postGenerationRedirectPanel.AddRange(buttons);
+            return true;
+        }
     }
 }
