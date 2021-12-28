@@ -2956,14 +2956,14 @@
   {
     "sceneName": "Deepnest_East_06",
     "gateName": "door1",
-    "logic": "Deepnest_East_06[door1] | Deepnest_East_06[right1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[top1] | Deepnest_East_06[bot1]) + (RIGHTCLAW | WINGS | ENEMYPOGOS + DIFFICULTSKIPS)",
+    "logic": "Deepnest_East_06[door1] | Deepnest_East_06[right1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[top1] | Deepnest_East_06[bot1]) + (RIGHTCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_06[door1]"
   },
   {
     "sceneName": "Deepnest_East_06",
     "gateName": "right1",
-    "logic": "Deepnest_East_06[right1] | Deepnest_East_06[door1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[top1] | Deepnest_East_06[bot1]) + (RIGHTCLAW | WINGS | ENEMYPOGOS + DIFFICULTSKIPS)",
+    "logic": "Deepnest_East_06[right1] | Deepnest_East_06[door1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[top1] | Deepnest_East_06[bot1]) + (RIGHTCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_06[right1]"
   },
@@ -3124,7 +3124,7 @@
   {
     "sceneName": "Deepnest_East_14b",
     "gateName": "top1",
-    "logic": "Deepnest_East_14b[top1] + (ANYCLAW | WINGS | ENEMYPOGOS) | Deepnest_East_14b[right1] + (ENEMYPOGOS + DIFFICULTSKIPS | FULLCLAW | WINGS)",
+    "logic": "Deepnest_East_14b[top1] + (ANYCLAW | WINGS | ENEMYPOGOS) | Deepnest_East_14b[right1] + (ENEMYPOGOS + DANGEROUSSKIPS | FULLCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_14b[top1]"
   },
@@ -3852,7 +3852,7 @@
   {
     "sceneName": "Waterways_06",
     "gateName": "top1",
-    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH) + (ENEMYPOGOS + DIFFICULTSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW)) | WINGS)",
+    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH) + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW)) | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_06[top1]"
   },

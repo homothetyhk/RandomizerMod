@@ -136,6 +136,16 @@ namespace RandomizerMod.Menu
 
         SmallButton DefaultSettingsButton;
         SmallButton ToManageSettingsPageButton;
+        SmallButton OpenReadmeButton;
+        SmallButton OpenLogicReadmeButton;
+        GridItemPanel SubJumpPanel;
+        IMenuElement[] SubJumpElements => new IMenuElement[]
+        {
+            DefaultSettingsButton,
+            ToManageSettingsPageButton,
+            OpenReadmeButton,
+            OpenLogicReadmeButton,
+        };
 
         #endregion
 
@@ -396,6 +406,8 @@ namespace RandomizerMod.Menu
 
             DefaultSettingsButton = new SmallButton(JumpPage, "Restore Default Settings");
             ToManageSettingsPageButton = new SmallButton(JumpPage, "Manage Settings Profiles");
+            OpenReadmeButton = new SmallButton(JumpPage, "Open Main Readme");
+            OpenLogicReadmeButton = new SmallButton(JumpPage, "Open Logic Readme");
 
             GenerateCodeButton = new SmallButton(ManageSettingsPage, "Refresh Code");
             ApplyCodeButton = new SmallButton(ManageSettingsPage, "Apply Code To Menu");
@@ -500,6 +512,7 @@ namespace RandomizerMod.Menu
                 return b;
             }).ToArray();
             JumpPanel = new GridItemPanel(JumpPage, new Vector2(0, 300), 2, 60f, 800f, true, JumpButtons);
+            SubJumpPanel = new GridItemPanel(JumpPage, new Vector2(0f, -300f), 2, 60f, 800f, true, SubJumpElements);
 
             StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), 50f, false, StartCornerButtons);
 
@@ -572,7 +585,9 @@ namespace RandomizerMod.Menu
 
             ToManageSettingsPageButton.AddHideAndShowEvent(JumpPage, ManageSettingsPage);
             DefaultSettingsButton.OnClick += () => ApplySettingsToMenu(new GenerationSettings()); // Proper defaults please!
-
+            OpenReadmeButton.OnClick += () => OpenLocalFile(OpenReadmeButton, "README.md");
+            OpenLogicReadmeButton.OnClick += () => OpenLocalFile(OpenLogicReadmeButton, "LOGIC_README.md");
+            // TODO: export readmes to html for release.
 
             GenerateCodeButton.OnClick += () => SettingsCodeField.SetValue(Settings.Serialize());
             ApplyCodeButton.OnClick += () =>
@@ -650,9 +665,6 @@ namespace RandomizerMod.Menu
             SeedEntryField.MoveTo(new Vector2(650, -350));
             RandomSeedButton.MoveTo(new Vector2(650, -400));
 
-            DefaultSettingsButton.MoveTo(new Vector2(-400, -300));
-            ToManageSettingsPageButton.MoveTo(new Vector2(400, -300));
-
             StartButton.MoveTo(new Vector2(0, -200));
 
             // buttons not in panels need navigation
@@ -669,12 +681,8 @@ namespace RandomizerMod.Menu
             StartPage.backButton.SetNeighbor(Neighbor.Right, RandomSeedButton);
             StartPage.backButton.SetNeighbor(Neighbor.Left, StartCornerVIP);
 
-            DefaultSettingsButton.SymSetNeighbor(Neighbor.Up, JumpPanel);
-            ToManageSettingsPageButton.SetNeighbor(Neighbor.Up, JumpPanel);
-            DefaultSettingsButton.SymSetNeighbor(Neighbor.Down, JumpPage.backButton);
-            ToManageSettingsPageButton.SetNeighbor(Neighbor.Down, JumpPage.backButton);
-            DefaultSettingsButton.SymSetNeighbor(Neighbor.Left, ToManageSettingsPageButton);
-            DefaultSettingsButton.SymSetNeighbor(Neighbor.Right, ToManageSettingsPageButton);
+            SubJumpPanel.SymSetNeighbor(Neighbor.Up, JumpPanel);
+            SubJumpPanel.SymSetNeighbor(Neighbor.Down, JumpPage.backButton);
         }
 
         private void UpdateStartLocationSwitch(StartLocationSettings.RandomizeStartLocationType type, string loc)
@@ -925,6 +933,36 @@ namespace RandomizerMod.Menu
             postGenerationRedirectPanel.Clear();
             postGenerationRedirectPanel.AddRange(buttons);
             return true;
+        }
+
+        public static void OpenLocalFile(SmallButton self, string localName)
+        {
+            string fileName = Path.Combine(RandomizerMod.Folder, localName);
+            try
+            {
+                System.Diagnostics.Process.Start(fileName);
+            }
+            catch (System.ComponentModel.Win32Exception w)
+            {
+                switch (w.NativeErrorCode)
+                {
+                    case 2:
+                        Log($"Error opening Logic Readme: File {fileName} was not found.");
+                        break;
+                    default:
+                        LogError(w.ToString());
+                        break;
+                }
+
+                self.Text.text = "Error: See ModLog";
+                self.Lock();
+            }
+            catch (Exception e)
+            {
+                LogError(e.ToString());
+                self.Text.text = "Error: See ModLog";
+                self.Lock();
+            }
         }
     }
 }

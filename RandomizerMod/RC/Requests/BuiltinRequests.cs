@@ -1127,6 +1127,7 @@ namespace RandomizerMod.RC
                 StageBuilder sb = rb.AddStage("Grub Mimic Stage");
                 ItemGroupBuilder gb = sb.AddItemGroup("Grub Mimic Group");
                 int num_mimics = rb.rng.Next(RBConsts.MIN_MIMIC_COUNT, RBConsts.MAX_MIMIC_COUNT + 1);
+                num_mimics = Math.Min(num_mimics, 50 - rb.gs.CostSettings.MaximumGrubCost - rb.gs.CostSettings.GrubTolerance);
                 gb.Items.Set(ItemNames.Grub, 50 - num_mimics);
                 gb.Items.Set(ItemNames.Mimic_Grub, num_mimics);
                 gb.Locations.AddRange(grubPool.IncludeLocations);

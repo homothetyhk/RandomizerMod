@@ -185,7 +185,7 @@
   },
   {
     "name": "Quick_Slash",
-    "logic": "Deepnest_East_14b[top1] | (Deepnest_East_14b[right1] + (FULLCLAW | WINGS | ENEMYPOGOS + DIFFICULTSKIPS))"
+    "logic": "Deepnest_East_14b[top1] | (Deepnest_East_14b[right1] + (FULLCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS))"
   },
   {
     "name": "Spell_Twister",
@@ -597,7 +597,7 @@
   },
   {
     "name": "Hallownest_Seal-Queen's_Gardens",
-    "logic": "(Fungus3_48[right2] | Fungus3_48[bot1]) + (FULLCLAW | WINGS | (FULLDASH + ENEMYPOGOS + DIFFICULTSKIPS))"
+    "logic": "(Fungus3_48[right2] | Fungus3_48[bot1]) + (FULLCLAW | WINGS | (FULLDASH + ENEMYPOGOS + DANGEROUSSKIPS))"
   },
   {
     "name": "King's_Idol-Cliffs",

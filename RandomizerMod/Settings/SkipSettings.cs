@@ -20,6 +20,7 @@ namespace RandomizerMod.Settings
         public bool DarkRooms;
         public bool SpicySkips;
         public bool DamageBoosts;
+        public bool DangerousSkips;
         public bool ComplexSkips;
         public bool DifficultSkips;
 

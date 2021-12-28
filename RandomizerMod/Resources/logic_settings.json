@@ -12,6 +12,7 @@
   "DARKROOMS": "SkipSettings.DarkRooms",
   "SPICYSKIPS": "SkipSettings.SpicySkips",
   "DAMAGEBOOSTS": "SkipSettings.DamageBoosts",
+  "DANGEROUSSKIPS": "SkipSettings.DangerousSkips",
   "COMPLEXSKIPS": "SkipSettings.ComplexSkips",
   "DIFFICULTSKIPS": "SkipSettings.DifficultSkips",
   "RANDOMNAIL": "NoveltySettings.RandomizeNail",
