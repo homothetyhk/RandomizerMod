@@ -74,7 +74,6 @@ namespace RandomizerMod.Menu
         readonly StartDef[] StartDefs;
 
         readonly MenuPage ModePage;
-        MenuPage ResumePage;
         readonly SettingsPM pm;
         readonly Random rng = new();
             
@@ -291,6 +290,21 @@ namespace RandomizerMod.Menu
 
         #endregion
 
+        #region Resume
+        MenuPage ResumePage;
+        BigButton resumeButton;
+        SmallButton openLogFolderButton;
+        SmallButton openTrackerButton;
+        SmallButton openHelperButton;
+        IMenuElement[] resumeElements => new IMenuElement[]
+        {
+            openLogFolderButton,
+            openTrackerButton,
+            openHelperButton,
+        };
+        VerticalItemPanel resumePanel;
+        #endregion
+
         public MenuPage PostGenerationRedirectPage;
         MultiGridItemPanel postGenerationRedirectPanel;
         BigButton redirectStartButton;
@@ -326,12 +340,6 @@ namespace RandomizerMod.Menu
             PostGenerationRedirectPage = new MenuPage("Randomizer Post Generation Redirect Page", FinalPage);
 
             ResumePage = new MenuPage("Randomizer Resume Page");
-            new BigButton(ResumePage, "Resume").OnClick += () =>
-            {
-                MenuChangerMod.HideAllMenuPages();
-                UIManager.instance.ContinueGame();
-                GameManager.instance.ContinueGame();
-            };
         }
 
         private void MakeMenuElements()
@@ -442,6 +450,11 @@ namespace RandomizerMod.Menu
                 HashLabels[i] = new MenuLabel(FinalPage, "", MenuLabel.Style.Body);
                 HashLabels[i].Text.alignment = TextAnchor.UpperCenter;
             }
+
+            resumeButton = new BigButton(ResumePage, "Resume");
+            openLogFolderButton = new SmallButton(ResumePage, "Open Log Folder");
+            openTrackerButton = new SmallButton(ResumePage, "Open Tracker Log");
+            openHelperButton = new SmallButton(ResumePage, "Open Helper Log");
         }
 
         private void MakePanels()
@@ -530,6 +543,9 @@ namespace RandomizerMod.Menu
             HashVIP.Hide();
 
             postGenerationRedirectPanel = new MultiGridItemPanel(PostGenerationRedirectPage, 5, 3, 150f, 650f, new Vector2(0, 300), Array.Empty<IMenuElement>());
+
+            ResumePage.AddToNavigationControl(resumeButton);
+            resumePanel = new VerticalItemPanel(ResumePage, new(-720f, 50f), 50f, true, resumeElements);
         }
 
         private void AddEvents()
@@ -586,8 +602,8 @@ namespace RandomizerMod.Menu
 
             ToManageSettingsPageButton.AddHideAndShowEvent(JumpPage, ManageSettingsPage);
             DefaultSettingsButton.OnClick += () => ApplySettingsToMenu(new GenerationSettings()); // Proper defaults please!
-            OpenReadmeButton.OnClick += () => OpenLocalFile(OpenReadmeButton, "README.md");
-            OpenLogicReadmeButton.OnClick += () => OpenLocalFile(OpenLogicReadmeButton, "LOGIC_README.md");
+            OpenReadmeButton.OnClick += () => OpenFile(OpenReadmeButton, "README.md", DirectoryOptions.DllFolder);
+            OpenLogicReadmeButton.OnClick += () => OpenFile(OpenLogicReadmeButton, "LOGIC_README.md", DirectoryOptions.DllFolder);
             // TODO: export readmes to html for release.
 
             GenerateCodeButton.OnClick += () => SettingsCodeField.SetValue(Settings.Serialize());
@@ -658,6 +674,17 @@ namespace RandomizerMod.Menu
 
             redirectStartButton.AddSetResumeKeyEvent("Randomizer");
             redirectStartButton.OnClick += StartRandomizerGame;
+
+
+            resumeButton.OnClick += () =>
+            {
+                MenuChangerMod.HideAllMenuPages();
+                UIManager.instance.ContinueGame();
+                GameManager.instance.ContinueGame();
+            };
+            openLogFolderButton.OnClick += () => OpenFile(openLogFolderButton, string.Empty, DirectoryOptions.RecentLogFolder);
+            openTrackerButton.OnClick += () => OpenFile(openTrackerButton, "TrackerLog.txt", DirectoryOptions.RecentLogFolder);
+            openHelperButton.OnClick += () => OpenFile(openHelperButton, "HelperLog.txt", DirectoryOptions.RecentLogFolder);
         }
 
         private void Arrange()
@@ -944,9 +971,20 @@ namespace RandomizerMod.Menu
             return true;
         }
 
-        public static void OpenLocalFile(SmallButton self, string localName)
+        public enum DirectoryOptions
         {
-            string fileName = Path.Combine(RandomizerMod.Folder, localName);
+            DllFolder,
+            RecentLogFolder
+        }
+
+        public static void OpenFile(SmallButton self, string fileName, DirectoryOptions directory)
+        {
+            fileName = directory switch
+            {
+                DirectoryOptions.DllFolder => Path.Combine(RandomizerMod.Folder, fileName),
+                DirectoryOptions.RecentLogFolder => Path.Combine(Logging.LogManager.RecentDirectory, fileName),
+                _ => throw new ArgumentException(nameof(directory)),
+            };
             try
             {
                 System.Diagnostics.Process.Start(fileName);
