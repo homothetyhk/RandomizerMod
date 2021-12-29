@@ -48,8 +48,8 @@ namespace RandomizerMod.IC
             // Platforms to climb back up from pale ore with no items
             plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 164.7f, Y = 30f, Test = lacksRightVertical });
             plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 99.5f, Y = 12.5f, Test = lacksRightVertical });
-            plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 117.7f, Y = 18.8f, Test = lacksAnyClaw });
-            plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 114.3f, Y = 23f, Test = lacksAnyClaw });
+            plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 117.7f, Y = 18.8f, Test = lacksRightClaw });
+            plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 114.3f, Y = 23f, Test = lacksAnyVertical });
             plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 117.7f, Y = 7f, Test = lacksAnyClaw });
             plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 117.7f, Y = 10.8f, Test = lacksAnyClaw });
 

@@ -52,6 +52,16 @@ namespace RandomizerMod.Settings
 
         }
 
+        public virtual void CopyTo(SettingsModule target)
+        {
+            Type T = GetType();
+            if (target.GetType() != T) throw new ArgumentException(nameof(target));
+            foreach (FieldInfo f in Util.GetOrderedFields(T))
+            {
+                f.SetValue(target, f.GetValue(this));
+            }
+        }
+
         public virtual object Clone()
         {
             return MemberwiseClone();

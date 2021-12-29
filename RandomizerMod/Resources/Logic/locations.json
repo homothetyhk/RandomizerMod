@@ -480,7 +480,7 @@
     "logic": "Waterways_04b[left1] + (ANYCLAW | (WINGS + SPICYSKIPS))"
   },
   {
-    "name": "Rancid_Egg-Tuk",
+    "name": "Rancid_Egg-Tuk_Defender's_Crest",
     "logic": "Waterways_03[left1] + Defender's_Crest"
   },
   {

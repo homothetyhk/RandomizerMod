@@ -179,7 +179,7 @@
   "Cliffs_02": "Cliffs_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS))) | Cliffs_02[door1] | Cliffs_02[left1] | Cliffs_02[left2]",
   "White_Palace_01": "(White_Palace_01[left1] + (WINGS | (RIGHTCLAW + RIGHTDASH)))  | (White_Palace_01[right1] + (LEFTDASH | (FULLCLAW + LEFTSUPERDASH) | WINGS)) | (White_Palace_01[top1] + Palace_Entrance_Lantern_Lit)",
   "White_Palace_03_hub": "White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + ANYCLAW) | White_Palace_03_hub[right1] | White_Palace_03_hub[top1] + Palace_Atrium_Gates_Opened",
-  "White_Palace_13": "(White_Palace_13[right1] + FULLSUPERDASH + LEFTCLAW + (WINGS | (RIGHTCLAW + FULLDASH))) | (White_Palace_13[left1] + RIGHTCLAW + FULLSUPERDASH) | (White_Palace_13[left2] + LEFTCLAW + FULLSUPERDASH + (WINGS | RIGHTCLAW) + (FULLDASH | (WINGS + RIGHTCLAW))) | White_Palace_13[left3]",
+  "White_Palace_13": "(White_Palace_13[right1] + OBSCURESKIPS + FULLSUPERDASH + LEFTCLAW + (WINGS | (RIGHTCLAW + FULLDASH))) | (White_Palace_13[left1] + RIGHTCLAW + FULLSUPERDASH) | (White_Palace_13[left2] + LEFTCLAW + FULLSUPERDASH + (WINGS | RIGHTCLAW) + (FULLDASH | (WINGS + RIGHTCLAW))) | White_Palace_13[left3]",
   "Abyss_05": "Abyss_05[left1] | Abyss_05[right1] | White_Palace_11[door2] | White_Palace_03_hub",
   "COMBAT[Gruz_Mother]": "ANY",
   "COMBAT[False_Knight]": "ANY",

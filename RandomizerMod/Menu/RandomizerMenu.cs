@@ -576,6 +576,7 @@ namespace RandomizerMod.Menu
             startLocationSwitch.Changed += Settings.StartLocationSettings.SetStartLocation;
             startLocationSwitch.Changed += (s) => UpdateStartLocationPreset();
             startLocationTypeSwitch.ValueChanged += UpdateStartLocationSwitch;
+            startLocationTypeSwitch.ValueChanged += (s) => UpdateStartLocationPreset();
             randomFixedStartButton.OnClick += () =>
             {
                 startLocationTypeSwitch.SetValue(StartLocationSettings.RandomizeStartLocationType.Fixed);
@@ -727,6 +728,11 @@ namespace RandomizerMod.Menu
 
         private void UpdateStartLocationPreset()
         {
+            if (Settings.StartLocationSettings.StartLocationType != StartLocationSettings.RandomizeStartLocationType.Fixed
+                && Settings.StartLocationSettings.StartLocation != null)
+            {
+                Settings.StartLocationSettings.StartLocation = null;
+            }
             StartLocationPreset.UpdatePreset();
             if (Settings.StartLocationSettings.StartLocationType == StartLocationSettings.RandomizeStartLocationType.Fixed
                 && StartLocationPresetData.StartLocationPresets.TryGetValue(StartLocationPreset.Value, out StartLocationSettings preset)
@@ -734,6 +740,7 @@ namespace RandomizerMod.Menu
             {
                 StartLocationPreset.SetValue("Custom");
             }
+
             StartLocationPreset.UpdateCaption();
         }
 
@@ -750,6 +757,8 @@ namespace RandomizerMod.Menu
 
         private void ApplySettingsToMenu(GenerationSettings settings)
         {
+            settings.CopyTo(Settings); // prevent validation events from firing early and modifying result
+
             poolMEF.SetMenuValues(settings.PoolSettings);
             skipMEF.SetMenuValues(settings.SkipSettings);
             costMEF.SetMenuValues(settings.CostSettings);

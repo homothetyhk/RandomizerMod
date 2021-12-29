@@ -35,8 +35,8 @@ namespace RandomizerMod.IC
             args.Item = new ItemChanger.Items.AddGeoItem
             {
                 amount = 100,
-                name = "100_Geo-" + args.Orig.name,
-                UIDef = args.Orig.UIDef?.Clone(),
+                name = $"100_Geo-{args.Orig.name}",
+                UIDef = DupeUIDef.Convert(100, args.Orig.UIDef),
             };
         }
 

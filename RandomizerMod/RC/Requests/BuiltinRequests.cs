@@ -529,16 +529,17 @@ namespace RandomizerMod.RC
                 }
             }
             {
-                string[] charms = Data.Pools.First(x => x.Name == "Charm")
+                List<string> charms = Data.Pools.First(x => x.Name == "Charm")
                     .IncludeItems
-                    .Except(new[] { ItemNames.Queen_Fragment, ItemNames.King_Fragment, ItemNames.Void_Heart })
-                    .ToArray();
+                    .Except(new[] { ItemNames.Queen_Fragment, ItemNames.King_Fragment, ItemNames.Void_Heart, "Grimmchild" })
+                    .ToList();
+                charms.Add(rb.gs.PoolSettings.GrimmkinFlames ? ItemNames.Grimmchild1 : ItemNames.Grimmchild2);
                 switch (ss.Charms)
                 {
                     case StartItemSettings.StartCharmType.None:
                         break;
                     case StartItemSettings.StartCharmType.ZeroOrMore:
-                        AddUniformlyFrom(charms, 2.0 / (3.0 * (double)charms.Length), 4);
+                        AddUniformlyFrom(charms, 2.0 / (3.0d * charms.Count), 4);
                         break;
                     case StartItemSettings.StartCharmType.OneRandomItem:
                         startItems.Add(rb.rng.Next(charms));

@@ -75,6 +75,14 @@ namespace RandomizerMod.Settings
             return gs;
         }
 
+        public void CopyTo(GenerationSettings target)
+        {
+            foreach (FieldInfo fi in moduleFields)
+            {
+                ((SettingsModule)fi.GetValue(this)).CopyTo((SettingsModule)fi.GetValue(target));
+            }
+        }
+
         // fields for hard-coding the path of a logic setting
         private const bool True = true;
         private const bool False = false;
