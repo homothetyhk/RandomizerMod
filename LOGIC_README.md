@@ -33,7 +33,7 @@ This file serves to document the randomizer logic.
     
 ### Shade Skips
 - Shade Skips are skips which utilize the shade, often by pogoing it or using it for damage boosts.
-- Generally, shade skips which require shade fireballs are not in logic, due to their rng-dependence and relative obscurity.
+- Generally, shade skips which require shade fireballs are not in logic, due to their RNG-dependence and relative obscurity.
 - Some shade skips are only conditionally in logic, depending on the transition randomizer setting. Limitations of the randomizer make it infeasible to calculate bench accessibility for setting up shade skips in every location.
 - In logic, Shade Skips are indicated with the **SHADESKIPS** token. More commonly, the **ITEMSHADESKIPS**, **AREASHADESKIPS**, or **ROOMSHADESKIPS** macros are used.
 - Examples include:
@@ -78,7 +78,7 @@ This file serves to document the randomizer logic.
 
 ### Dangerous Skips:
 - Dangerous Skips are skips which carry a high risk of taking damage, due to aggressive enemies or other sources.
-- Generally, this modifier is not applied to Acid Skips or Spike Tunnels, which are implicitly understodd to be dangerous.
+- Generally, this modifier is not applied to Acid Skips or Spike Tunnels, which are implicitly understood to be dangerous.
 - In logic, Dangerous Skips are indicated with the **DANGEROUSSKIPS** token.
 - Examples include:
 	-
@@ -97,8 +97,8 @@ This file serves to document the randomizer logic.
 
 ## Local Logic Edits
 
-The randomizer supports editing logic in local files. To do so, navigate to the RandomizerMod folder in the Mods folder in the game files. Create the Logic folder within the RandomizerMod folder if it does not already exist, and navigate to this folder. Any json file within this folder will be parsed for logic edits, with two format options:
+The randomizer supports editing logic in local files. To do so, navigate to the RandomizerMod folder in the Mods folder in the game files. Create the Logic folder within the RandomizerMod folder if it does not already exist, and navigate to this folder. Any JSON file within this folder will be parsed for logic edits, with two format options:
 - The Dictionary<string, string> format used by the macros.json file in the randomizer logic source code. In this case, the name of the file should start with "macro" and the file will be parsed before other logic edits to allow creating new macros (e.g. for use in a location logic edit file) or overriding existing macros.
 - The RawLogicDef[] format used by the locations.json file in the randomizer logic source code. In this case, the name of the file should not start with "macro", and the file will be parsed to edit location, waypoint, or transition logic.
 
-With either type of edit, only the logic definitions which are being editted need to be included in the file. Additionally, in any edit, the **ORIG** token can be used to refer to the current value of the randomizer logic with the same name. For example, the **BOSS** macro could be edited to **ORIG + FULLCLAW** to change boss logic to additionally require full claw.
+With either type of edit, only the logic definitions which are being edited need to be included in the file. Additionally, in any edit, the **ORIG** token can be used to refer to the current value of the randomizer logic with the same name. For example, the **BOSS** macro could be edited to **ORIG + FULLCLAW** to change boss logic to additionally require full claw.
