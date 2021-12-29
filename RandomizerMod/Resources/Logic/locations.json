@@ -844,7 +844,7 @@
     "logic": "Waterways_04[right1] + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM) | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM) | Waterways_04[left2] + (SWIM | RIGHTSKIPACID)"
   },
   {
-    "name": "Grub-Waterways_East",
+    "name": "Grub-Isma's_Grove",
     "logic": "((Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | ENEMYPOGOS)) | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)))) | (Waterways_13[left2] + (RIGHTCLAW | ((WINGS | ENEMYPOGOS) + LEFTCLAW)))) + (ACID | RIGHTSKIPACID)"
   },
   {
@@ -1740,7 +1740,7 @@
     "logic": "Fungus2_25[top1] | ((Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | WINGS))"
   },
   {
-    "name": "Geo_Rock-Depenest_Lower_Cornifer",
+    "name": "Geo_Rock-Deepnest_Lower_Cornifer",
     "logic": "(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + ANYCLAW"
   },
   {

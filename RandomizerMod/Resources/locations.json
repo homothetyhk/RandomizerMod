@@ -1277,8 +1277,8 @@
     "areaName": "Royal_Waterways",
     "multi": false
   },
-  "Grub-Waterways_East": {
-    "name": "Grub-Waterways_East",
+  "Grub-Isma's_Grove": {
+    "name": "Grub-Isma's_Grove",
     "sceneName": "Waterways_13",
     "areaName": "Ismas_Grove",
     "multi": false
@@ -2615,8 +2615,8 @@
     "areaName": "Deepnest",
     "multi": false
   },
-  "Geo_Rock-Depenest_Lower_Cornifer": {
-    "name": "Geo_Rock-Depenest_Lower_Cornifer",
+  "Geo_Rock-Deepnest_Lower_Cornifer": {
+    "name": "Geo_Rock-Deepnest_Lower_Cornifer",
     "sceneName": "Fungus2_25",
     "areaName": "Deepnest",
     "multi": false

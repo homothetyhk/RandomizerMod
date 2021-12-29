@@ -1703,7 +1703,7 @@
       "Grub-Basin_Requires_Wings",
       "Grub-Basin_Requires_Dive",
       "Grub-Waterways_Main",
-      "Grub-Waterways_East",
+      "Grub-Isma's_Grove",
       "Grub-Waterways_Requires_Tram",
       "Grub-City_of_Tears_Left",
       "Grub-Soul_Sanctum",
@@ -1825,7 +1825,7 @@
       },
       {
         "item": "Grub",
-        "location": "Grub-Waterways_East"
+        "location": "Grub-Isma's_Grove"
       },
       {
         "item": "Grub",
@@ -2724,7 +2724,7 @@
       "Geo_Rock-Fungal_Above_City_Entrance",
       "Geo_Rock-Deepnest_By_Mantis_Lords_1",
       "Geo_Rock-Deepnest_By_Mantis_Lords_2",
-      "Geo_Rock-Depenest_Lower_Cornifer",
+      "Geo_Rock-Deepnest_Lower_Cornifer",
       "Geo_Rock-Fungal_Core_Entrance",
       "Geo_Rock-Fungal_Core_Hidden",
       "Geo_Rock-Fungal_Core_Above_Elder",
@@ -3358,7 +3358,7 @@
       },
       {
         "item": "Geo_Rock-Deepnest",
-        "location": "Geo_Rock-Depenest_Lower_Cornifer"
+        "location": "Geo_Rock-Deepnest_Lower_Cornifer"
       },
       {
         "item": "Geo_Rock-Fung01",

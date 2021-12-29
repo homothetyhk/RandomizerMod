@@ -15,7 +15,7 @@ namespace RandomizerMod.IC
             {
                 return new MsgUIDef
                 {
-                    name = msgDef.name?.Clone(),
+                    name = new BoxedString($"{geoAmount} ({msgDef.GetPostviewName()})"),
                     shopDesc = msgDef.shopDesc?.Clone(),
                     sprite = msgDef.sprite?.Clone(),
                 };
