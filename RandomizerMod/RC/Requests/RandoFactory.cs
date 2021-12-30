@@ -113,6 +113,7 @@ namespace RandomizerMod.RC
             {
                 rl.onRandomizerFinish += info.onRandomizerFinish;
                 rl.customPlacementFetch += info.customPlacementFetch;
+                rl.onPlacementFetch += info.onPlacementFetch;
                 rl.customAddToPlacement += info.customAddToPlacement;
             }
 

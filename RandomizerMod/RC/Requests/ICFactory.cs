@@ -31,6 +31,7 @@ namespace RandomizerMod.RC
             {
                 placement = FetchOrMakePlacement(rl.Name);
             }
+            rl.onPlacementFetch?.Invoke(this, new(ri, rl), placement);
 
             AbstractItem item;
             if (ri.realItemCreator != null)
@@ -108,15 +109,22 @@ namespace RandomizerMod.RC
 
         public AbstractPlacement FetchOrMakePlacementWithEvents(string placementName, RandoPlacement next)
         {
-            if (_placements.TryGetValue(placementName, out AbstractPlacement placement))
+            bool hasInfo = rb.TryGetLocationDef(placementName, out LocationRequestInfo info);
+
+            AbstractPlacement placement;
+            if (hasInfo && info.customPlacementFetch != null)
             {
-                return placement;
+                placement = info.customPlacementFetch(this, next);
             }
-            else if (rb.TryGetLocationDef(placementName, out LocationRequestInfo info) && info.customPlacementFetch != null)
+            else
             {
-                return info.customPlacementFetch(this, next);
+                placement = FetchOrMakePlacement(placementName);
             }
-            else return MakePlacement(placementName);
+            if (hasInfo && info.onPlacementFetch != null)
+            {
+                info.onPlacementFetch?.Invoke(this, next, placement);
+            }
+            return placement;
         }
 
         private AbstractPlacement MakePlacement(string name)

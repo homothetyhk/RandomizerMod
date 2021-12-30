@@ -99,11 +99,16 @@ For each category, there is a minimum, maximum, and tolerance. The costs will be
 
 ### Long Location Settings
 
-Settings which allow selectively not randomizing certain long locations, or modifying certain item hints.
+Settings which allow selectively not randomizing certain long locations, or modifying certain item previews.
 - Randomization In White Palace: Allows removing all randomized items and locations in Path of Pain, or White Palace as a whole, and leaving them vanilla. For historical reasons, the King Fragment item and location are not affected by this setting, and are always randomized with the Charms pool.
 - Boss Essence Randomization: Allows selecting which bosses are included in the Boss Essence pool; for example, giving the option to remove White Defender and Grey Prince Zote, or to remove all Dream Bosses leaving only Dream Warriors.
-- Cost Item Hints: not yet implemented.
-- Long Location Hints: not yet implemented.
+
+For each preview setting, toggling the setting off will result in the corresponding location(s) no longer allowing preview of their items. For locations which carry randomized costs, the preview setting has four options:
+- Cost And Name: default preview behavior
+- Cost Only: item names will be redacted from the preview
+- Name Only: cost details will be redacted from the preview
+- None: all details except number of items will be redacted from the preview
+
 
 ### Start Location Settings
 

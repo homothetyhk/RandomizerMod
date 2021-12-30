@@ -10,6 +10,7 @@ namespace RandomizerMod.RC
         public Action<RandoFactory, RandoModLocation> onRandoLocationCreation;
         public Action<RandoPlacement> onRandomizerFinish;
         public Func<ICFactory, RandoPlacement, AbstractPlacement> customPlacementFetch;
+        public Action<ICFactory, RandoPlacement, AbstractPlacement> onPlacementFetch;
         public Action<ICFactory, RandoPlacement, AbstractPlacement, AbstractItem> customAddToPlacement;
     }
 }

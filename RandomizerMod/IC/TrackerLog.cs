@@ -76,6 +76,11 @@ namespace RandomizerMod.IC
                 .GetPreviewName();
         }
 
+        private AbstractPlacement GetPlacement(string name)
+        {
+            return ItemChanger.Internal.Ref.Settings.Placements[name];
+        }
+
         private bool IsPersistent(int id)
         {
             return ItemChanger.Internal.Ref.Settings.Placements[TD.ctx.itemPlacements[id].location.Name]
@@ -121,8 +126,29 @@ namespace RandomizerMod.IC
             {
                 sb.Append(' ', 2);
                 sb.AppendLine(s);
+                AbstractPlacement p = GetPlacement(s);
+                if (p.GetTag<ItemChanger.Tags.MultiPreviewRecordTag>() is ItemChanger.Tags.MultiPreviewRecordTag mprt 
+                    && mprt.previewTexts != null)
+                {
+                    for (int i = 0; i < mprt.previewTexts.Length; i++)
+                    {
+                        string t = mprt.previewTexts[i];
+                        if (!string.IsNullOrEmpty(t) && i < p.Items.Count && !p.Items[i].IsObtained())
+                        {
+                            sb.Append(' ', 4);
+                            sb.AppendLine(t);
+                        }
+                    }
+                }
+                else if (p.GetTag<ItemChanger.Tags.PreviewRecordTag>() is ItemChanger.Tags.PreviewRecordTag prt
+                    && !string.IsNullOrEmpty(prt.previewText))
+                {
+                    sb.Append(' ', 4);
+                    sb.AppendLine(prt.previewText);
+                }
 
-                foreach (int i in previewLookup[s])
+                /*
+                    foreach (int i in previewLookup[s])
                 {
                     (RandoItem ri, RandoLocation rl) = TD.ctx.itemPlacements[i];
                     sb.Append(' ', 4);
@@ -135,6 +161,7 @@ namespace RandomizerMod.IC
                     }
                     sb.AppendLine();
                 }
+                */
             }
             sb.AppendLine();
 

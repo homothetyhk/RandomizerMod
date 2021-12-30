@@ -35,6 +35,7 @@ namespace RandomizerMod.RandomizerData
         // Costs
         private static Dictionary<string, CostDef> _costs;
 
+        private static Dictionary<string, PoolDef> _pools;
         private static PoolDef[] __pools;
         public static IEnumerable<PoolDef> Pools => __pools;
 
@@ -173,12 +174,18 @@ namespace RandomizerMod.RandomizerData
 
         #endregion
 
+        public static PoolDef GetPoolDef(string name)
+        {
+            if (_pools.TryGetValue(name, out var def)) return def;
+            return null;
+        }
         public static void Load()
         {
             _items = JsonUtil.Deserialize<Dictionary<string, ItemDef>>("RandomizerMod.Resources.items.json");
             _locations = JsonUtil.Deserialize<Dictionary<string, LocationDef>>("RandomizerMod.Resources.locations.json");
             _logicSettings = JsonUtil.Deserialize<Dictionary<string, string>>("RandomizerMod.Resources.logic_settings.json");
             __pools = JsonUtil.Deserialize<PoolDef[]>("RandomizerMod.Resources.pools.json");
+            _pools = __pools.ToDictionary(def => def.Name);
             _starts = JsonUtil.Deserialize<Dictionary<string, StartDef>>("RandomizerMod.Resources.starts.json");
             _transitions = JsonUtil.Deserialize<Dictionary<string, TransitionDef>>("RandomizerMod.Resources.transitions.json");
             _costs = JsonUtil.Deserialize<Dictionary<string, CostDef>>("RandomizerMod.Resources.costs.json");

@@ -31,16 +31,24 @@ namespace RandomizerMod.Settings
             None
         }
 
-        public enum LongLocationHintSetting
-        {
-            Standard,
-            MoreHints,
-            None
-        }
-
         public WPSetting RandomizationInWhitePalace;
         public BossEssenceSetting BossEssenceRandomization;
-        public CostItemHintSettings CostItemHints;
-        public LongLocationHintSetting LongLocationHints;
+
+        public bool ColosseumPreview;
+        public bool KingFragmentPreview;
+        public bool FlowerQuestPreview;
+        public bool GreyPrinceZotePreview;
+        public bool WhisperingRootPreview;
+        public bool AbyssShriekPreview;
+        public bool VoidHeartPreview;
+        public bool DreamerPreview;
+        public bool BasinFountainPreview;
+        public bool NailmasterPreview;
+        public bool StagPreview;
+        public bool MapPreview;
+        public CostItemHintSettings GeoShopPreview;
+        public CostItemHintSettings GrubfatherPreview;
+        public CostItemHintSettings SeerPreview;
+        public CostItemHintSettings EggShopPreview;
     }
 }

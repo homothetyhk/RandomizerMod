@@ -52,7 +52,7 @@ namespace RandomizerMod.RC
 
             OnUpdate.Subscribe(30f, ApplyPalaceLongLocationSetting);
             OnUpdate.Subscribe(30f, ApplyBossEssenceLongLocationSetting);
-
+            OnUpdate.Subscribe(30f, ApplyLongLocationPreviewSettings);
 
             OnUpdate.Subscribe(100f, ApplyItemPostPermuteEvents);
             OnUpdate.Subscribe(100f, ApplyDefaultItemPadding);
@@ -529,7 +529,7 @@ namespace RandomizerMod.RC
                 }
             }
             {
-                List<string> charms = Data.Pools.First(x => x.Name == "Charm")
+                List<string> charms = Data.GetPoolDef("Charm")
                     .IncludeItems
                     .Except(new[] { ItemNames.Queen_Fragment, ItemNames.King_Fragment, ItemNames.Void_Heart, "Grimmchild" })
                     .ToList();
@@ -547,7 +547,7 @@ namespace RandomizerMod.RC
                 }
             }
             {
-                string[] stags = Data.Pools.First(x => x.Name == "Stag").IncludeItems;
+                string[] stags = Data.GetPoolDef("Stag").IncludeItems;
                 switch (ss.Stags)
                 {
                     case StartItemSettings.StartStagType.None:
@@ -708,13 +708,13 @@ namespace RandomizerMod.RC
             switch (rb.gs.LongLocationSettings.BossEssenceRandomization)
             {
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamWarriors:
-                    PoolDef warriors = Data.Pools.First(p => p.Name == "DreamWarrior");
+                    PoolDef warriors = Data.GetPoolDef("DreamWarrior");
                     foreach (string item in warriors.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in warriors.IncludeLocations) rb.RemoveLocationByName(loc);
                     foreach (PoolDef.StringILP p in warriors.Vanilla) rb.AddToVanilla(p.item, p.location);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses:
-                    PoolDef bosses = Data.Pools.First(p => p.Name == "DreamBoss");
+                    PoolDef bosses = Data.GetPoolDef("DreamBoss");
                     foreach (string item in bosses.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in bosses.IncludeLocations) rb.RemoveLocationByName(loc);
                     foreach (PoolDef.StringILP p in bosses.Vanilla) rb.AddToVanilla(p.item, p.location);
@@ -728,6 +728,141 @@ namespace RandomizerMod.RC
                     rb.AddToVanilla(ItemNames.Boss_Essence_Grey_Prince_Zote, LocationNames.Boss_Essence_Grey_Prince_Zote);
                     break;
             }    
+        }
+
+        public static void ApplyLongLocationPreviewSettings(RequestBuilder rb)
+        {
+            LongLocationSettings lls = rb.gs.LongLocationSettings;
+
+            /*
+            static void RemoveLocalHint(ICFactory factory, RandoPlacement next, AbstractPlacement placement)
+            {
+                if (placement is ItemChanger.Placements.IPrimaryLocationPlacement iplp
+                && iplp.Location is ItemChanger.Locations.ILocalHintLocation ilhl)
+                {
+                    ilhl.HintActive = false;
+                }
+                else
+                {
+                    LogWarn($"Unable to disable hint on placement {placement.Name}");
+                }
+            }
+            */
+
+            static void RemoveNamePreview(ICFactory factory, RandoPlacement next, AbstractPlacement placement)
+            {
+                placement.GetOrAddTag<ItemChanger.Tags.DisableItemPreviewTag>();
+            }
+
+            static void RemoveCostPreview(ICFactory factory, RandoPlacement next, AbstractPlacement placement)
+            {
+                placement.GetOrAddTag<ItemChanger.Tags.DisableCostPreviewTag>();
+            }
+
+            static void RemoveNameAndCostPreview(ICFactory factory, RandoPlacement next, AbstractPlacement placement)
+            {
+                placement.GetOrAddTag<ItemChanger.Tags.DisableItemPreviewTag>();
+                placement.GetOrAddTag<ItemChanger.Tags.DisableCostPreviewTag>();
+            }
+
+            List<string> hintRemoveLocations = new();
+
+            if (!lls.ColosseumPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Charm_Notch_Colosseum);
+                hintRemoveLocations.Add(LocationNames.Pale_Ore_Colosseum);
+            }
+            if (!lls.KingFragmentPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.King_Fragment);
+            }
+            if (!lls.FlowerQuestPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Mask_Shard_Grey_Mourner);
+            }
+            if (!lls.GreyPrinceZotePreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Boss_Essence_Grey_Prince_Zote);
+            }
+            if (!lls.WhisperingRootPreview)
+            {
+                hintRemoveLocations.AddRange(Data.GetPoolDef("Root").IncludeLocations);
+            }
+            if (!lls.AbyssShriekPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Abyss_Shriek);
+            }
+            if (!lls.VoidHeartPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Void_Heart);
+            }
+            if (!lls.DreamerPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Lurien);
+                hintRemoveLocations.Add(LocationNames.Monomon);
+                hintRemoveLocations.Add(LocationNames.Herrah);
+            }
+            foreach (string s in hintRemoveLocations)
+            {
+                rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
+            }
+
+            if (!lls.BasinFountainPreview)
+            {
+                rb.EditLocationInfo(LocationNames.Vessel_Fragment_Basin, info => info.onPlacementFetch += RemoveNamePreview);
+            }
+            if (!lls.NailmasterPreview)
+            {
+                foreach (string s in new[] { LocationNames.Cyclone_Slash, LocationNames.Great_Slash, LocationNames.Dash_Slash })
+                {
+                    rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
+                }
+            }
+            if (!lls.StagPreview)
+            {
+                foreach (string s in Data.GetPoolDef("Stag").IncludeLocations)
+                {
+                    rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
+                }
+            }
+            if (!lls.MapPreview)
+            {
+                foreach (string s in Data.GetPoolDef("Map").IncludeLocations)
+                {
+                    rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
+                }
+            }
+
+
+            (string, LongLocationSettings.CostItemHintSettings)[] costHints = new[]
+            {
+                (LocationNames.Sly, lls.GeoShopPreview),
+                (LocationNames.Sly_Key, lls.GeoShopPreview),
+                (LocationNames.Iselda, lls.GeoShopPreview),
+                (LocationNames.Salubra, lls.GeoShopPreview),
+                (LocationNames.Leg_Eater, lls.GeoShopPreview),
+                ("Grubfather", lls.GrubfatherPreview),
+                ("Seer", lls.SeerPreview),
+                (LocationNames.Egg_Shop, lls.EggShopPreview),
+            };
+
+            foreach ((string loc, LongLocationSettings.CostItemHintSettings cs) in costHints)
+            {
+                switch (cs)
+                {
+                    case LongLocationSettings.CostItemHintSettings.CostAndName:
+                        break;
+                    case LongLocationSettings.CostItemHintSettings.CostOnly:
+                        rb.EditLocationInfo(loc, info => info.onPlacementFetch += RemoveNamePreview);
+                        break;
+                    case LongLocationSettings.CostItemHintSettings.NameOnly:
+                        rb.EditLocationInfo(loc, info => info.onPlacementFetch += RemoveCostPreview);
+                        break;
+                    case LongLocationSettings.CostItemHintSettings.None:
+                        rb.EditLocationInfo(loc, info => info.onPlacementFetch += RemoveNameAndCostPreview);
+                        break;
+                }
+            }
         }
 
         public static void ApplyDuplicateItemSettings(RequestBuilder rb)
@@ -1118,8 +1253,8 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.CursedSettings.RandomizeMimics && !rb.gs.PoolSettings.Grubs)
             {
-                PoolDef mimicPool = Data.Pools.First(p => p.Name == "Mimic");
-                PoolDef grubPool = Data.Pools.First(p => p.Name == "Grub");
+                PoolDef mimicPool = Data.GetPoolDef("Mimic");
+                PoolDef grubPool = Data.GetPoolDef("Grub");
 
                 rb.RemoveItemByName(ItemNames.Mimic_Grub);
                 foreach (string loc in mimicPool.IncludeLocations) rb.RemoveLocationByName(loc);

@@ -222,7 +222,7 @@ namespace RandomizerMod.Menu
 
         Subpage LongLocationSubpage;
         MenuElementFactory<LongLocationSettings> longLocationMEF;
-        VerticalItemPanel longVIP;
+        GridItemPanel longLocationPanel;
 
         Subpage StartLocationSubpage;
         MenuItem<StartLocationSettings.RandomizeStartLocationType> startLocationTypeSwitch;
@@ -478,8 +478,8 @@ namespace RandomizerMod.Menu
             CostSubpage.Add(costGIP);
 
             LongLocationSubpage = new Subpage(AdvancedSettingsPage, "Long Location Options");
-            longVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, longLocationMEF.Elements);
-            LongLocationSubpage.Add(longVIP);
+            longLocationPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 800f, false, longLocationMEF.Elements);
+            LongLocationSubpage.Add(longLocationPanel);
 
             StartLocationSubpage = new Subpage(AdvancedSettingsPage, "Start Location");
             startLocationGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, 50f, 600f, false, startLocationSwitch.Elements);

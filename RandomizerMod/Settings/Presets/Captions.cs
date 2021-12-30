@@ -41,32 +41,7 @@ namespace RandomizerMod.Settings.Presets
                     sb.Append("Grey Prince Zote and White Defender essence rewards will not be randomized. ");
                     break;
             }
-            switch (ll.CostItemHints)
-            {
-                case LongLocationSettings.CostItemHintSettings.CostOnly:
-                    sb.Append("Item dialogue boxes will not display the item name, and will show only the cost of the item. ");
-                    break;
-                case LongLocationSettings.CostItemHintSettings.NameOnly:
-                    sb.Append("Item dialogue boxes will not display the cost, and will show only the name of the item. ");
-                    break;
-                case LongLocationSettings.CostItemHintSettings.None:
-                    sb.Append("Item dialogue boxes will show neither the cost nor the name of the item. ");
-                    break;
-            }
-            switch (ll.LongLocationHints)
-            {
-                case LongLocationSettings.LongLocationHintSetting.Standard:
-
-                    sb.Append("Hints are provided for the items (if randomized) " +
-                        (ll.RandomizationInWhitePalace != LongLocationSettings.WPSetting.ExcludeWhitePalace ?
-                        "at King Fragment, " : string.Empty) +
-                        (ll.BossEssenceRandomization != LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses &&
-                        ll.BossEssenceRandomization != LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender ?
-                        "at Grey Prince Zote, " : string.Empty) +
-                        "in the colosseum, " +
-                        "and behind Flower Quest. ");
-                    break;
-            }
+            sb.Append("See Long Location Options for details regarding location previews.");
 
             return sb.ToString();
         }

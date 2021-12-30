@@ -11,7 +11,7 @@ namespace RandomizerMod.Settings.Presets
         public static LongLocationSettings Easier;
         public static LongLocationSettings FewerHints;
         public static LongLocationSettings DAB;
-
+        public static LongLocationSettings NoPreviews;
 
         public static Dictionary<string, LongLocationSettings> LongLocationPresets;
 
@@ -21,35 +21,110 @@ namespace RandomizerMod.Settings.Presets
             {
                 RandomizationInWhitePalace = LongLocationSettings.WPSetting.Allowed,
                 BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.All,
-                CostItemHints = LongLocationSettings.CostItemHintSettings.CostAndName,
-                LongLocationHints = LongLocationSettings.LongLocationHintSetting.Standard
+                ColosseumPreview = true,
+                KingFragmentPreview = true,
+                FlowerQuestPreview = true,
+                GreyPrinceZotePreview = true,
+                WhisperingRootPreview = true,
+                AbyssShriekPreview = true,
+                VoidHeartPreview = true,
+                DreamerPreview = true,
+                NailmasterPreview = true,
+                MapPreview = true,
+                StagPreview = true,
+                GeoShopPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                GrubfatherPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                SeerPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                EggShopPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
             };
 
             Easier = new LongLocationSettings
             {
                 RandomizationInWhitePalace = LongLocationSettings.WPSetting.ExcludePathOfPain,
                 BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender,
-                CostItemHints = LongLocationSettings.CostItemHintSettings.CostAndName,
-                LongLocationHints = LongLocationSettings.LongLocationHintSetting.MoreHints
+                ColosseumPreview = true,
+                KingFragmentPreview = true,
+                FlowerQuestPreview = true,
+                GreyPrinceZotePreview = true,
+                WhisperingRootPreview = true,
+                AbyssShriekPreview = true,
+                VoidHeartPreview = true,
+                DreamerPreview = true,
+                BasinFountainPreview = true,
+                NailmasterPreview = true,
+                StagPreview = true,
+                MapPreview = true,
+                GeoShopPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                GrubfatherPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                SeerPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                EggShopPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
             };
 
             FewerHints = new LongLocationSettings
             {
                 RandomizationInWhitePalace = LongLocationSettings.WPSetting.Allowed,
                 BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.All,
-                CostItemHints = LongLocationSettings.CostItemHintSettings.CostOnly,
-                LongLocationHints = LongLocationSettings.LongLocationHintSetting.None
+                ColosseumPreview = true,
+                KingFragmentPreview = true,
+                FlowerQuestPreview = true,
+                GreyPrinceZotePreview = true,
+                WhisperingRootPreview = false,
+                AbyssShriekPreview = false,
+                VoidHeartPreview = false,
+                DreamerPreview = false,
+                BasinFountainPreview = false,
+                NailmasterPreview = false,
+                StagPreview = false,
+                MapPreview = false,
+                GeoShopPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                GrubfatherPreview = LongLocationSettings.CostItemHintSettings.CostOnly,
+                SeerPreview = LongLocationSettings.CostItemHintSettings.CostOnly,
+                EggShopPreview = LongLocationSettings.CostItemHintSettings.CostOnly,
             };
 
             DAB = new LongLocationSettings
             {
                 RandomizationInWhitePalace = LongLocationSettings.WPSetting.ExcludeWhitePalace,
                 BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses,
-                CostItemHints = LongLocationSettings.CostItemHintSettings.CostAndName,
-                LongLocationHints = LongLocationSettings.LongLocationHintSetting.Standard
+                ColosseumPreview = true,
+                KingFragmentPreview = true,
+                FlowerQuestPreview = true,
+                GreyPrinceZotePreview = true,
+                WhisperingRootPreview = true,
+                AbyssShriekPreview = true,
+                VoidHeartPreview = true,
+                DreamerPreview = true,
+                BasinFountainPreview = true,
+                NailmasterPreview = true,
+                StagPreview = true,
+                MapPreview = true,
+                GeoShopPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                GrubfatherPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                SeerPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
+                EggShopPreview = LongLocationSettings.CostItemHintSettings.CostAndName,
             };
 
-
+            NoPreviews = new LongLocationSettings
+            {
+                RandomizationInWhitePalace = LongLocationSettings.WPSetting.Allowed,
+                BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.All,
+                ColosseumPreview = false,
+                KingFragmentPreview = false,
+                FlowerQuestPreview = false,
+                GreyPrinceZotePreview = false,
+                WhisperingRootPreview = false,
+                AbyssShriekPreview = false,
+                VoidHeartPreview = false,
+                DreamerPreview = false,
+                BasinFountainPreview = false,
+                NailmasterPreview = false,
+                StagPreview = false,
+                MapPreview = false,
+                GeoShopPreview = LongLocationSettings.CostItemHintSettings.None,
+                GrubfatherPreview = LongLocationSettings.CostItemHintSettings.None,
+                SeerPreview = LongLocationSettings.CostItemHintSettings.None,
+                EggShopPreview = LongLocationSettings.CostItemHintSettings.None,
+            };
 
 
             LongLocationPresets = new Dictionary<string, LongLocationSettings>
