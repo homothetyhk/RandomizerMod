@@ -19,7 +19,7 @@ Additionally, the following mods are strongly recommended:
 
 - Several items can be used to kill baldurs, including: Vengeful Spirit (or upgrades), Desolate Dive (or upgrades), Grubberfly's Elegy, Glowing Womb, Dash Slash with Dash, Weaversong, Spore Shroom, Cyclone Slash, Mark of Pride, and even just Dash on its own!
     - With default skip settings, only Vengeful Spirit, Desolate Dive, Grubberfly's Elegy, and Glowing Womb can be required in logic.
-Baldur hp is reduced to 5 to make slower baldur kills less tedious, and to reduce rng.
+Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduce RNG.
 - Several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. For such items, any of the pickups in the family may be forced by randomizer logic. The families this pertains to are:
     - Dream Nail, Dream Gate, Awoken Dream Nail
     - Mothwing Cloak, Shade Cloak
@@ -52,7 +52,7 @@ These settings control which items are randomized.
 - Pale Ore
 - Charm Notches
 - Geo Chests: all geo chests, except the one above Baldur Shell and those in the Junk Pit
-- Relics: all wanderers journals, hallownest seals, king's idols, and arcane eggs.
+- Relics: all Wanderer's Journals, Hallownest Seals, King's Idols, and Arcane Eggs.
 - Rancid Eggs
 - Stags
 - Maps
@@ -65,7 +65,7 @@ These settings control which items are randomized.
 - Boss Essence: essence drops from Dream Warriors and Dream Bosses
 - Boss Geo: geo drops from Gruz Mother, Massive Moss Charger, Vengefly King, Gorgeous Husk, Crystal/Enraged Guardian and both Soul Warriors
 - Lore Tablets 
-- Journal Entries: The Hunter's Journal, along with the Goam, Garpede, Charged Lumafly and Void Tendrils and Seal of Binding locations.
+- Journal Entries: The Hunter's Journal, along with the Goam, Garpede, Charged Lumafly, Void Tendrils and Seal of Binding locations.
 - Junk Pit Chests
 
 
@@ -157,7 +157,7 @@ Settings which control which transitions between rooms are randomized. There are
 - Room Randomizer: almost all room transitions are randomized, excluding:
     - Warps of any kind, including those entering dream areas
     - Trams and elevators
-    - Transitions within Godhome and the Shrine of Believers
+    - Transitions within Godhome, the Shrine of Believers and the Black Egg Temple
     - The transitions leading to Sly's storeroom, Bretta's basement, or to any trial of the colosseum
 
 There are additional settings which control the randomization of transitions:
