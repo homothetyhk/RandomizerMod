@@ -42,7 +42,7 @@ namespace RandomizerMod.RC
             ctx = new(gs);
             AssignNotchCosts();
             ctx.LM = RCData.GetNewLogicManager(gs);
-            rb = new(gs, ctx.LM);
+            rb = new(gs, ctx.LM, rm);
             rb.Run(out RandomizationStage[] stages, out ctx.Vanilla, out ctx.itemPlacements);
             Randomizer randomizer = new(new Random(gs.Seed), ctx, stages, rm);
             List<List<RandoPlacement>[]> stagedPlacements = randomizer.Run();

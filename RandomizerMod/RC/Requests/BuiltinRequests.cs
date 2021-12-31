@@ -56,7 +56,7 @@ namespace RandomizerMod.RC
 
             OnUpdate.Subscribe(100f, ApplyItemPostPermuteEvents);
             OnUpdate.Subscribe(100f, ApplyDefaultItemPadding);
-            OnUpdate.Subscribe(100f, ApplyTransitionPostPermuteEvents);
+            OnUpdate.Subscribe(100f, ApplyConnectAreasPostPermuteEvent);
             OnUpdate.Subscribe(100f, ApplyTransitionPlacementStrategy);
         }
 
@@ -451,7 +451,6 @@ namespace RandomizerMod.RC
             {
                 int geo = rb.rng.Next(minGeo, maxGeo);
                 rb.AddToStart($"{geo}_Geo");
-                // TODO: can it resolve this item pattern?
             }
         }
 
@@ -531,7 +530,7 @@ namespace RandomizerMod.RC
             {
                 List<string> charms = Data.GetPoolDef("Charm")
                     .IncludeItems
-                    .Except(new[] { ItemNames.Queen_Fragment, ItemNames.King_Fragment, ItemNames.Void_Heart, "Grimmchild" })
+                    .Except(new[] { ItemNames.Queen_Fragment, ItemNames.King_Fragment, ItemNames.Void_Heart, ItemNames.Grimmchild2 })
                     .ToList();
                 charms.Add(rb.gs.PoolSettings.GrimmkinFlames ? ItemNames.Grimmchild1 : ItemNames.Grimmchild2);
                 switch (ss.Charms)
@@ -696,6 +695,36 @@ namespace RandomizerMod.RC
                     rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.AreaName == "Path_of_Pain");
                     break;
             }
+
+            /* TODO: update area names in transitions.json with Path_of_Pain
+            if (rb.gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludeWhitePalace)
+            {
+                foreach (string s in Data.GetRoomTransitionNames())
+                {
+                    TransitionDef def = Data.GetTransitionDef(s);
+                    if (def.VanillaTarget != null && (def.AreaName == "White_Palace" || def.AreaName == "Path_of_Pain"))
+                    {
+                        rb.Vanilla.Set(new(def.Name, def.VanillaTarget), 1);
+                    }
+                }
+                rb.RemoveTransitionsWhere(s => Data.GetTransitionDef(s) is TransitionDef def 
+                && (def.AreaName == "White_Palace" || def.AreaName == "Path_of_Pain"));
+            }
+            else if (rb.gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludePathOfPain)
+            {
+                foreach (string s in Data.GetRoomTransitionNames())
+                {
+                    TransitionDef def = Data.GetTransitionDef(s);
+                    if (def.VanillaTarget != null && def.AreaName == "Path_of_Pain")
+                    {
+                        rb.Vanilla.Set(new(def.Name, def.VanillaTarget), 1);
+                    }
+                }
+                rb.RemoveTransitionsWhere(s => Data.GetTransitionDef(s) is TransitionDef def
+                && def.AreaName == "Path_of_Pain");
+                rb.RemoveTransitionByName("White_Palace_06[left1]");  
+            }
+            */
         }
 
         public static void ApplyBossEssenceLongLocationSetting(RequestBuilder rb)
@@ -802,37 +831,35 @@ namespace RandomizerMod.RC
                 hintRemoveLocations.Add(LocationNames.Monomon);
                 hintRemoveLocations.Add(LocationNames.Herrah);
             }
+            if (!lls.BasinFountainPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Vessel_Fragment_Basin);
+            }
+            if (!lls.NailmasterPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Cyclone_Slash);
+                hintRemoveLocations.Add(LocationNames.Great_Slash);
+                hintRemoveLocations.Add(LocationNames.Dash_Slash);
+            }
+            if (!lls.StagPreview)
+            {
+                hintRemoveLocations.AddRange(Data.GetPoolDef("Stag").IncludeLocations);
+            }
+            if (!lls.MapPreview)
+            {
+                hintRemoveLocations.AddRange(Data.GetPoolDef("Map").IncludeLocations);
+            }
+            if (!lls.LoreTabletPreview)
+            {
+                // only the spore shroom tablets are technically needed
+                // but might as well block previews on all of them
+                hintRemoveLocations.AddRange(Data.GetPoolDef("Lore").IncludeLocations);
+            }
+
             foreach (string s in hintRemoveLocations)
             {
                 rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
             }
-
-            if (!lls.BasinFountainPreview)
-            {
-                rb.EditLocationInfo(LocationNames.Vessel_Fragment_Basin, info => info.onPlacementFetch += RemoveNamePreview);
-            }
-            if (!lls.NailmasterPreview)
-            {
-                foreach (string s in new[] { LocationNames.Cyclone_Slash, LocationNames.Great_Slash, LocationNames.Dash_Slash })
-                {
-                    rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
-                }
-            }
-            if (!lls.StagPreview)
-            {
-                foreach (string s in Data.GetPoolDef("Stag").IncludeLocations)
-                {
-                    rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
-                }
-            }
-            if (!lls.MapPreview)
-            {
-                foreach (string s in Data.GetPoolDef("Map").IncludeLocations)
-                {
-                    rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
-                }
-            }
-
 
             (string, LongLocationSettings.CostItemHintSettings)[] costHints = new[]
             {
@@ -1358,30 +1385,30 @@ namespace RandomizerMod.RC
             }
         }
 
-        public static void ApplyTransitionPostPermuteEvents(RequestBuilder rb)
+        public static void ApplyConnectAreasPostPermuteEvent(RequestBuilder rb)
         {
-            Dictionary<string, int> areaOrder = new(); // TODO: how to manage this effectively?
-            // reset event through RandoMonitor maybe?
-
-            foreach (GroupBuilder gb in rb.EnumerateTransitionGroups())
+            if (rb.gs.TransitionSettings.ConnectAreas)
             {
-                if (gb.onPermute == null) gb.onPermute = PostPermute;
-            }
+                Dictionary<string, int> areaOrder = new();
 
-            // weakly group transitions by area in the order
-            // so that selector eliminates one area before moving onto the next
-            // "weakly", since we ideally do not want to prevent bottlenecked layouts like vanilla city
-            // note that areaOrder is captured, to synchronize across groups
-            void PostPermute(Random rng, RandomizationGroup group)
-            {
-                if (rb.gs.TransitionSettings.ConnectAreas)
+                foreach (GroupBuilder gb in rb.EnumerateTransitionGroups())
+                {
+                    if (gb.onPermute == null) gb.onPermute += PostPermute;
+                }
+                rb.rm.OnNewAttempt += areaOrder.Clear;
+
+                // weakly group transitions by area in the order
+                // so that selector eliminates one area before moving onto the next
+                // "weakly", since we ideally do not want to prevent bottlenecked layouts like vanilla city
+                // note that areaOrder is captured, to synchronize across groups
+                void PostPermute(Random rng, RandomizationGroup group)
                 {
                     foreach (IRandoItem t in group.Items)
                     {
                         string area = Data.GetTransitionDef(t.Name).AreaName ?? string.Empty;
                         if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
                         t.Priority += modifier * 0.8f;
-                        
+
                     }
                     foreach (IRandoLocation t in group.Locations)
                     {

@@ -149,7 +149,6 @@ namespace RandomizerMod.RC
             }
         }
 
-        // TODO: how to handle rando item tag?
         public void AddToPlacement(RandoPlacement next, AbstractItem item, AbstractPlacement placement)
         {
             RandoLocation rl = (RandoLocation)next.Location;

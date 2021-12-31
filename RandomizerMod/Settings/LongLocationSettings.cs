@@ -46,6 +46,7 @@ namespace RandomizerMod.Settings
         public bool NailmasterPreview;
         public bool StagPreview;
         public bool MapPreview;
+        public bool LoreTabletPreview;
         public CostItemHintSettings GeoShopPreview;
         public CostItemHintSettings GrubfatherPreview;
         public CostItemHintSettings SeerPreview;

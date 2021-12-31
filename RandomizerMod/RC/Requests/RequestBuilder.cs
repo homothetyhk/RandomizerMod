@@ -82,14 +82,16 @@ namespace RandomizerMod.RC
         public readonly GenerationSettings gs;
         public readonly LogicManager lm;
         public readonly Random rng;
+        public readonly RandoMonitor rm;
 
         private static readonly List<string> _set = new(); // used as a utility for several methods
 
-        public RequestBuilder(GenerationSettings gs, LogicManager lm)
+        public RequestBuilder(GenerationSettings gs, LogicManager lm, RandoMonitor rm)
         {
             this.gs = gs;
             this.lm = lm;
             rng = new(gs.Seed + 11);
+            this.rm = rm;
             _stages = new();
             Stages = new(_stages);
 
@@ -422,6 +424,55 @@ namespace RandomizerMod.RC
             _set.Clear();
         }
 
+        /// <summary>
+        /// Removes the transition by name from all transition groups.
+        /// </summary>
+        /// <param name="name"></param>
+        public void RemoveTransitionByName(string name)
+        {
+            foreach (GroupBuilder gb in EnumerateTransitionGroups())
+            {
+                if (gb is TransitionGroupBuilder tgb)
+                {
+                    tgb.Sources.RemoveAll(name);
+                    tgb.Targets.RemoveAll(name);
+                }
+                else if (gb is SymmetricTransitionGroupBuilder stgb)
+                {
+                    stgb.Group1.RemoveAll(name);
+                    stgb.Group2.RemoveAll(name);
+                }
+                else if (gb is SelfDualTransitionGroupBuilder sdtgb)
+                {
+                    sdtgb.Transitions.RemoveAll(name);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes all copies of all transitions in any transition groups where the selector returns true.
+        /// </summary>
+        public void RemoveTransitionsWhere(Func<string, bool> selector)
+        {
+            foreach (GroupBuilder gb in EnumerateTransitionGroups())
+            {
+                if (gb is TransitionGroupBuilder tgb)
+                {
+                    RemoveFromBucket(tgb.Sources, selector);
+                    RemoveFromBucket(tgb.Targets, selector);
+                }
+                else if (gb is SymmetricTransitionGroupBuilder stgb)
+                {
+                    RemoveFromBucket(stgb.Group1, selector);
+                    RemoveFromBucket(stgb.Group2, selector);
+                }
+                else if (gb is SelfDualTransitionGroupBuilder sdtgb)
+                {
+                    RemoveFromBucket(sdtgb.Transitions, selector);
+                }
+            }
+        }
+
         public void AddToVanilla(string item, string location)
         {
             Vanilla.Add(new(item, location));
@@ -445,6 +496,14 @@ namespace RandomizerMod.RC
         public bool IsAtStart(string item)
         {
             return StartItems.GetCount(item) > 0;
+        }
+
+        private void RemoveFromBucket(Bucket<string> bucket, Func<string, bool> selector)
+        {
+            _set.Clear();
+            _set.AddRange(bucket.EnumerateDistinct().Where(selector));
+            foreach (string s in _set) bucket.RemoveAll(s);
+            _set.Clear();
         }
 
         public delegate bool GroupResolver(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb);
