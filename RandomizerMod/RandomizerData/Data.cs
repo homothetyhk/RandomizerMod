@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using static RandomizerMod.LogHelper;
-using RandomizerMod.Settings;
+﻿using RandomizerMod.Settings;
 
 namespace RandomizerMod.RandomizerData
 {
@@ -25,6 +19,9 @@ namespace RandomizerMod.RandomizerData
 
         // Transitions
         private static Dictionary<string, TransitionDef> _transitions;
+
+        // Rooms
+        private static Dictionary<string, RoomDef> _rooms;
 
         // Starts
         private static Dictionary<string, StartDef> _starts;
@@ -87,13 +84,18 @@ namespace RandomizerMod.RandomizerData
         {
             if (_transitions.TryGetValue(name, out TransitionDef def)) return def;
 
-            LogWarn($"Unable to find TransitionDef for {name}.");
+            LogDebug($"Unable to find TransitionDef for {name}.");
             return null;
+        }
+
+        public static IEnumerable<string> GetMapAreaTransitionNames()
+        {
+            return _transitions.Where(kvp => kvp.Value.IsMapAreaTransition).Select(kvp => kvp.Key);
         }
 
         public static IEnumerable<string> GetAreaTransitionNames()
         {
-            return _transitions.Where(kvp => kvp.Value.IsAreaTransition).Select(kvp => kvp.Key);
+            return _transitions.Where(kvp => kvp.Value.IsTitledAreaTransition).Select(kvp => kvp.Key);
         }
 
         public static IEnumerable<string> GetRoomTransitionNames()
@@ -101,9 +103,14 @@ namespace RandomizerMod.RandomizerData
             return _transitions.Keys;
         }
 
+        public static bool IsMapAreaTransition(string str)
+        {
+            return _transitions.TryGetValue(str, out TransitionDef def) && def.IsMapAreaTransition;
+        }
+
         public static bool IsAreaTransition(string str)
         {
-            return _transitions.TryGetValue(str, out TransitionDef def) && def.IsAreaTransition;
+            return _transitions.TryGetValue(str, out TransitionDef def) && def.IsTitledAreaTransition;
         }
 
         public static bool IsTransition(string str)
@@ -126,6 +133,31 @@ namespace RandomizerMod.RandomizerData
             return _transitions.TryGetValue(str, out var def) && def.Sides == TransitionSides.OneWayIn;
         }
         #endregion
+
+        #region Room Methods
+
+        public static RoomDef GetRoomDef(string name)
+        {
+            if (name is null)
+            {
+                LogDebug("Null name passed to GetRoomDef");
+                return null;
+            }
+            if (!_rooms.TryGetValue(name, out RoomDef def))
+            {
+                LogDebug($"Unable to find RoomDef for {name}.");
+                return null;
+            }
+            return def;
+        }
+
+        public static bool IsRoom(string str)
+        {
+            return str is not null && _rooms.ContainsKey(str);
+        }
+
+        #endregion
+
         #region Start Methods
 
         public static bool IsStart(string str)
@@ -188,6 +220,7 @@ namespace RandomizerMod.RandomizerData
             _pools = __pools.ToDictionary(def => def.Name);
             _starts = JsonUtil.Deserialize<Dictionary<string, StartDef>>("RandomizerMod.Resources.starts.json");
             _transitions = JsonUtil.Deserialize<Dictionary<string, TransitionDef>>("RandomizerMod.Resources.transitions.json");
+            _rooms = JsonUtil.Deserialize<Dictionary<string, RoomDef>>("RandomizerMod.Resources.rooms.json");
             _costs = JsonUtil.Deserialize<Dictionary<string, CostDef>>("RandomizerMod.Resources.costs.json");
         }
 

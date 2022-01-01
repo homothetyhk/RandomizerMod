@@ -686,13 +686,13 @@ namespace RandomizerMod.RC
                     rb.RemoveItemByName("Soul_Totem-Palace");
                     rb.RemoveItemByName("Lore_Tablet-Palace_Workshop");
                     rb.RemoveItemByName("Lore_Tablet-Palace_Throne");
-                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.AreaName == "White_Palace");
+                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.TitledArea == "White_Palace");
                     goto case LongLocationSettings.WPSetting.ExcludePathOfPain;
                 case LongLocationSettings.WPSetting.ExcludePathOfPain:
                     rb.RemoveItemByName("Soul_Totem-Path_of_Pain");
                     rb.RemoveItemByName("Journal_Entry-Seal_of_Binding");
                     rb.RemoveItemByName("Lore_Tablet-Path_of_Pain_Entrance");
-                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.AreaName == "Path_of_Pain");
+                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.TitledArea == "Path_of_Pain");
                     break;
             }
 
@@ -1405,14 +1405,15 @@ namespace RandomizerMod.RC
                 {
                     foreach (IRandoItem t in group.Items)
                     {
-                        string area = Data.GetTransitionDef(t.Name).AreaName ?? string.Empty;
+                        string area = Data.GetTransitionDef(t.Name).MapArea;
+                        if (string.IsNullOrEmpty(area)) continue;
                         if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
                         t.Priority += modifier * 0.8f;
-
                     }
                     foreach (IRandoLocation t in group.Locations)
                     {
-                        string area = Data.GetTransitionDef(t.Name).AreaName ?? string.Empty;
+                        string area = Data.GetTransitionDef(t.Name).MapArea;
+                        if (string.IsNullOrEmpty(area)) continue;
                         if (!areaOrder.TryGetValue(area, out int modifier)) areaOrder.Add(area, modifier = areaOrder.Count);
                         t.Priority += modifier * 0.8f;
                     }
@@ -1443,7 +1444,7 @@ namespace RandomizerMod.RC
                     return true;
                 }
 
-                return t1.AreaName == t2.AreaName;
+                return t1.TitledArea == t2.TitledArea;
             }
         }
     }

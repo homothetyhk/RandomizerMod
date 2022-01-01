@@ -9,11 +9,11 @@ namespace RandomizerMod.Settings
         public bool DuplicateItemPenalty = true;
 
         public TransformType LocationPriorityTransformType = TransformType.Linear;
-        public ItemPriorityDepthEffect ItemLocationPriorityInteraction = ItemPriorityDepthEffect.DefaultCutoff;
+        public ItemPriorityDepthEffect ItemLocationPriorityInteraction = ItemPriorityDepthEffect.Cliff;
         public float LocationPriorityTransformCoefficient = 3f;
 
         public TransformType TransitionPriorityTransformType = TransformType.SquareRoot;
-        public ItemPriorityDepthEffect TransitionTransitionPriorityInteraction = ItemPriorityDepthEffect.DefaultCutoff;
+        public ItemPriorityDepthEffect TransitionTransitionPriorityInteraction = ItemPriorityDepthEffect.Cliff;
         public float TransitionPriorityTransformCoefficient = 1f;
 
         public DefaultGroupPlacementStrategy GetItemPlacementStrategy()

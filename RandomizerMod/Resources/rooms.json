@@ -1,0 +1,1852 @@
+{
+  "Start": {
+    "SceneName": "Start",
+    "MapArea": "Start",
+    "TitledArea": "Start"
+  },
+  "Abyss_03": {
+    "SceneName": "Abyss_03",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Ancient Basin"
+  },
+  "Abyss_04": {
+    "SceneName": "Abyss_04",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Ancient Basin"
+  },
+  "Abyss_05": {
+    "SceneName": "Abyss_05",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Palace Grounds"
+  },
+  "Abyss_06_Core": {
+    "SceneName": "Abyss_06_Core",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Abyss_08": {
+    "SceneName": "Abyss_08",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Abyss_09": {
+    "SceneName": "Abyss_09",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Abyss_10": {
+    "SceneName": "Abyss_10",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Abyss_12": {
+    "SceneName": "Abyss_12",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Abyss_15": {
+    "SceneName": "Abyss_15",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Abyss_16": {
+    "SceneName": "Abyss_16",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Abyss_17": {
+    "SceneName": "Abyss_17",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Ancient Basin"
+  },
+  "Abyss_18": {
+    "SceneName": "Abyss_18",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Ancient Basin"
+  },
+  "Abyss_19": {
+    "SceneName": "Abyss_19",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Ancient Basin"
+  },
+  "Abyss_20": {
+    "SceneName": "Abyss_20",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Ancient Basin"
+  },
+  "Abyss_21": {
+    "SceneName": "Abyss_21",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Ancient Basin"
+  },
+  "Abyss_22": {
+    "SceneName": "Abyss_22",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Palace Grounds"
+  },
+  "Abyss_Lighthouse_room": {
+    "SceneName": "Abyss_Lighthouse_room",
+    "MapArea": "Ancient Basin",
+    "TitledArea": "Abyss"
+  },
+  "Crossroads_49b": {
+    "SceneName": "Crossroads_49b",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Room_nailsmith": {
+    "SceneName": "Room_nailsmith",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins_Bathhouse": {
+    "SceneName": "Ruins_Bathhouse",
+    "MapArea": "City of Tears",
+    "TitledArea": "Pleasure House"
+  },
+  "Ruins_Elevator": {
+    "SceneName": "Ruins_Elevator",
+    "MapArea": "City of Tears",
+    "TitledArea": "Pleasure House"
+  },
+  "Ruins_House_01": {
+    "SceneName": "Ruins_House_01",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins_House_02": {
+    "SceneName": "Ruins_House_02",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins_House_03": {
+    "SceneName": "Ruins_House_03",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_01": {
+    "SceneName": "Ruins1_01",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_02": {
+    "SceneName": "Ruins1_02",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_03": {
+    "SceneName": "Ruins1_03",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_04": {
+    "SceneName": "Ruins1_04",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_05": {
+    "SceneName": "Ruins1_05",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_05b": {
+    "SceneName": "Ruins1_05b",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_05c": {
+    "SceneName": "Ruins1_05c",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_06": {
+    "SceneName": "Ruins1_06",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_09": {
+    "SceneName": "Ruins1_09",
+    "MapArea": "City of Tears",
+    "TitledArea": "Soul Sanctum"
+  },
+  "Ruins1_17": {
+    "SceneName": "Ruins1_17",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_18": {
+    "SceneName": "Ruins1_18",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_23": {
+    "SceneName": "Ruins1_23",
+    "MapArea": "City of Tears",
+    "TitledArea": "Soul Sanctum"
+  },
+  "Ruins1_24": {
+    "SceneName": "Ruins1_24",
+    "MapArea": "City of Tears",
+    "TitledArea": "Soul Sanctum"
+  },
+  "Ruins1_25": {
+    "SceneName": "Ruins1_25",
+    "MapArea": "City of Tears",
+    "TitledArea": "Soul Sanctum"
+  },
+  "Ruins1_27": {
+    "SceneName": "Ruins1_27",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_28": {
+    "SceneName": "Ruins1_28",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_29": {
+    "SceneName": "Ruins1_29",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_30": {
+    "SceneName": "Ruins1_30",
+    "MapArea": "City of Tears",
+    "TitledArea": "Soul Sanctum"
+  },
+  "Ruins1_31": {
+    "SceneName": "Ruins1_31",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_31b": {
+    "SceneName": "Ruins1_31b",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins1_32": {
+    "SceneName": "Ruins1_32",
+    "MapArea": "City of Tears",
+    "TitledArea": "Soul Sanctum"
+  },
+  "Ruins2_01": {
+    "SceneName": "Ruins2_01",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins2_01_b": {
+    "SceneName": "Ruins2_01_b",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins2_03": {
+    "SceneName": "Ruins2_03",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins2_03b": {
+    "SceneName": "Ruins2_03b",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins2_04": {
+    "SceneName": "Ruins2_04",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Ruins2_05": {
+    "SceneName": "Ruins2_05",
+    "MapArea": "City of Tears",
+    "TitledArea": "King's Station"
+  },
+  "Ruins2_06": {
+    "SceneName": "Ruins2_06",
+    "MapArea": "City of Tears",
+    "TitledArea": "King's Station"
+  },
+  "Ruins2_07": {
+    "SceneName": "Ruins2_07",
+    "MapArea": "City of Tears",
+    "TitledArea": "King's Station"
+  },
+  "Ruins2_08": {
+    "SceneName": "Ruins2_08",
+    "MapArea": "City of Tears",
+    "TitledArea": "King's Station"
+  },
+  "Ruins2_09": {
+    "SceneName": "Ruins2_09",
+    "MapArea": "City of Tears",
+    "TitledArea": "King's Station"
+  },
+  "Ruins2_10b": {
+    "SceneName": "Ruins2_10b",
+    "MapArea": "City of Tears",
+    "TitledArea": "King's Station"
+  },
+  "Ruins2_11": {
+    "SceneName": "Ruins2_11",
+    "MapArea": "City of Tears",
+    "TitledArea": "Tower of Love"
+  },
+  "Ruins2_11_b": {
+    "SceneName": "Ruins2_11_b",
+    "MapArea": "City of Tears",
+    "TitledArea": "Tower of Love"
+  },
+  "Ruins2_Watcher_Room": {
+    "SceneName": "Ruins2_Watcher_Room",
+    "MapArea": "City of Tears",
+    "TitledArea": "City of Tears"
+  },
+  "Mines_01": {
+    "SceneName": "Mines_01",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_02": {
+    "SceneName": "Mines_02",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_03": {
+    "SceneName": "Mines_03",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_04": {
+    "SceneName": "Mines_04",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_05": {
+    "SceneName": "Mines_05",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_06": {
+    "SceneName": "Mines_06",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_07": {
+    "SceneName": "Mines_07",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_10": {
+    "SceneName": "Mines_10",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_11": {
+    "SceneName": "Mines_11",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_13": {
+    "SceneName": "Mines_13",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_16": {
+    "SceneName": "Mines_16",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_17": {
+    "SceneName": "Mines_17",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_18": {
+    "SceneName": "Mines_18",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_19": {
+    "SceneName": "Mines_19",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_20": {
+    "SceneName": "Mines_20",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_23": {
+    "SceneName": "Mines_23",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_24": {
+    "SceneName": "Mines_24",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_25": {
+    "SceneName": "Mines_25",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Hallownest's Crown"
+  },
+  "Mines_28": {
+    "SceneName": "Mines_28",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_29": {
+    "SceneName": "Mines_29",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_30": {
+    "SceneName": "Mines_30",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_31": {
+    "SceneName": "Mines_31",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_32": {
+    "SceneName": "Mines_32",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_34": {
+    "SceneName": "Mines_34",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Hallownest's Crown"
+  },
+  "Mines_35": {
+    "SceneName": "Mines_35",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystallized Mound"
+  },
+  "Mines_36": {
+    "SceneName": "Mines_36",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Mines_37": {
+    "SceneName": "Mines_37",
+    "MapArea": "Crystal Peak",
+    "TitledArea": "Crystal Peak"
+  },
+  "Abyss_03_b": {
+    "SceneName": "Abyss_03_b",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_01b": {
+    "SceneName": "Deepnest_01b",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_02": {
+    "SceneName": "Deepnest_02",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_03": {
+    "SceneName": "Deepnest_03",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_09": {
+    "SceneName": "Deepnest_09",
+    "MapArea": "Deepnest",
+    "TitledArea": "Distant Village"
+  },
+  "Deepnest_10": {
+    "SceneName": "Deepnest_10",
+    "MapArea": "Deepnest",
+    "TitledArea": "Distant Village"
+  },
+  "Deepnest_14": {
+    "SceneName": "Deepnest_14",
+    "MapArea": "Deepnest",
+    "TitledArea": "Failed Tramway"
+  },
+  "Deepnest_16": {
+    "SceneName": "Deepnest_16",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_17": {
+    "SceneName": "Deepnest_17",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_26": {
+    "SceneName": "Deepnest_26",
+    "MapArea": "Deepnest",
+    "TitledArea": "Failed Tramway"
+  },
+  "Deepnest_26b": {
+    "SceneName": "Deepnest_26b",
+    "MapArea": "Deepnest",
+    "TitledArea": "Failed Tramway"
+  },
+  "Deepnest_30": {
+    "SceneName": "Deepnest_30",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_31": {
+    "SceneName": "Deepnest_31",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_32": {
+    "SceneName": "Deepnest_32",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_33": {
+    "SceneName": "Deepnest_33",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_34": {
+    "SceneName": "Deepnest_34",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_35": {
+    "SceneName": "Deepnest_35",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_36": {
+    "SceneName": "Deepnest_36",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_37": {
+    "SceneName": "Deepnest_37",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_38": {
+    "SceneName": "Deepnest_38",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_39": {
+    "SceneName": "Deepnest_39",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_40": {
+    "SceneName": "Deepnest_40",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_41": {
+    "SceneName": "Deepnest_41",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_42": {
+    "SceneName": "Deepnest_42",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_44": {
+    "SceneName": "Deepnest_44",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Deepnest_45_v02": {
+    "SceneName": "Deepnest_45_v02",
+    "MapArea": "Deepnest",
+    "TitledArea": "Weaver's Den"
+  },
+  "Deepnest_Spider_Town": {
+    "SceneName": "Deepnest_Spider_Town",
+    "MapArea": "Deepnest",
+    "TitledArea": "Beast's Den"
+  },
+  "Fungus2_25": {
+    "SceneName": "Fungus2_25",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Room_Mask_Maker": {
+    "SceneName": "Room_Mask_Maker",
+    "MapArea": "Deepnest",
+    "TitledArea": "Deepnest"
+  },
+  "Room_spider_small": {
+    "SceneName": "Room_spider_small",
+    "MapArea": "Deepnest",
+    "TitledArea": "Distant Village"
+  },
+  "Grimm_Divine": {
+    "SceneName": "Grimm_Divine",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Grimm_Main_Tent": {
+    "SceneName": "Grimm_Main_Tent",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Room_Bretta": {
+    "SceneName": "Room_Bretta",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Room_Bretta_Basement": {
+    "SceneName": "Room_Bretta_Basement",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Room_mapper": {
+    "SceneName": "Room_mapper",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Room_Ouiji": {
+    "SceneName": "Room_Ouiji",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Room_shop": {
+    "SceneName": "Room_shop",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Room_Sly_Storeroom": {
+    "SceneName": "Room_Sly_Storeroom",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Room_Town_Stag_Station": {
+    "SceneName": "Room_Town_Stag_Station",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Town": {
+    "SceneName": "Town",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "Dirtmouth"
+  },
+  "Tutorial_01": {
+    "SceneName": "Tutorial_01",
+    "MapArea": "Dirtmouth",
+    "TitledArea": "King's Pass"
+  },
+  "Fungus3_01": {
+    "SceneName": "Fungus3_01",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_02": {
+    "SceneName": "Fungus3_02",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_03": {
+    "SceneName": "Fungus3_03",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_24": {
+    "SceneName": "Fungus3_24",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_25": {
+    "SceneName": "Fungus3_25",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_25b": {
+    "SceneName": "Fungus3_25b",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_26": {
+    "SceneName": "Fungus3_26",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_27": {
+    "SceneName": "Fungus3_27",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_28": {
+    "SceneName": "Fungus3_28",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_30": {
+    "SceneName": "Fungus3_30",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_35": {
+    "SceneName": "Fungus3_35",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_44": {
+    "SceneName": "Fungus3_44",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_47": {
+    "SceneName": "Fungus3_47",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Fog Canyon"
+  },
+  "Fungus3_archive": {
+    "SceneName": "Fungus3_archive",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Teacher's Archives"
+  },
+  "Fungus3_archive_02": {
+    "SceneName": "Fungus3_archive_02",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Teacher's Archives"
+  },
+  "Room_Fungus_Shaman": {
+    "SceneName": "Room_Fungus_Shaman",
+    "MapArea": "Fog Canyon",
+    "TitledArea": "Overgrown Mound"
+  },
+  "Crossroads_01": {
+    "SceneName": "Crossroads_01",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_02": {
+    "SceneName": "Crossroads_02",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_03": {
+    "SceneName": "Crossroads_03",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_04": {
+    "SceneName": "Crossroads_04",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_05": {
+    "SceneName": "Crossroads_05",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_06": {
+    "SceneName": "Crossroads_06",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_07": {
+    "SceneName": "Crossroads_07",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_08": {
+    "SceneName": "Crossroads_08",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_09": {
+    "SceneName": "Crossroads_09",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_10": {
+    "SceneName": "Crossroads_10",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_11_alt": {
+    "SceneName": "Crossroads_11_alt",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_12": {
+    "SceneName": "Crossroads_12",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_13": {
+    "SceneName": "Crossroads_13",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_14": {
+    "SceneName": "Crossroads_14",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_15": {
+    "SceneName": "Crossroads_15",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_16": {
+    "SceneName": "Crossroads_16",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_18": {
+    "SceneName": "Crossroads_18",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_19": {
+    "SceneName": "Crossroads_19",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_21": {
+    "SceneName": "Crossroads_21",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_22": {
+    "SceneName": "Crossroads_22",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_25": {
+    "SceneName": "Crossroads_25",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_27": {
+    "SceneName": "Crossroads_27",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_30": {
+    "SceneName": "Crossroads_30",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_31": {
+    "SceneName": "Crossroads_31",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_33": {
+    "SceneName": "Crossroads_33",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_35": {
+    "SceneName": "Crossroads_35",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_36": {
+    "SceneName": "Crossroads_36",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_37": {
+    "SceneName": "Crossroads_37",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_38": {
+    "SceneName": "Crossroads_38",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_39": {
+    "SceneName": "Crossroads_39",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_40": {
+    "SceneName": "Crossroads_40",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_42": {
+    "SceneName": "Crossroads_42",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_43": {
+    "SceneName": "Crossroads_43",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_45": {
+    "SceneName": "Crossroads_45",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_46": {
+    "SceneName": "Crossroads_46",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_47": {
+    "SceneName": "Crossroads_47",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_48": {
+    "SceneName": "Crossroads_48",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_49": {
+    "SceneName": "Crossroads_49",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_52": {
+    "SceneName": "Crossroads_52",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Crossroads_ShamanTemple": {
+    "SceneName": "Crossroads_ShamanTemple",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Ancestral Mound"
+  },
+  "Mines_33": {
+    "SceneName": "Mines_33",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Room_Charm_Shop": {
+    "SceneName": "Room_Charm_Shop",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Room_Mender_House": {
+    "SceneName": "Room_Mender_House",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Room_ruinhouse": {
+    "SceneName": "Room_ruinhouse",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Forgotten Crossroads"
+  },
+  "Room_temple": {
+    "SceneName": "Room_temple",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Black Egg Temple"
+  },
+  "Room_Final_Boss_Atrium": {
+    "SceneName": "Room_Final_Boss_Atrium",
+    "MapArea": "Forgotten Crossroads",
+    "TitledArea": "Black Egg Temple"
+  },
+  "Deepnest_01": {
+    "SceneName": "Deepnest_01",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_01": {
+    "SceneName": "Fungus2_01",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Queen's Station"
+  },
+  "Fungus2_02": {
+    "SceneName": "Fungus2_02",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Queen's Station"
+  },
+  "Fungus2_03": {
+    "SceneName": "Fungus2_03",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_04": {
+    "SceneName": "Fungus2_04",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_05": {
+    "SceneName": "Fungus2_05",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_06": {
+    "SceneName": "Fungus2_06",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_07": {
+    "SceneName": "Fungus2_07",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_08": {
+    "SceneName": "Fungus2_08",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_09": {
+    "SceneName": "Fungus2_09",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_10": {
+    "SceneName": "Fungus2_10",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_11": {
+    "SceneName": "Fungus2_11",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_12": {
+    "SceneName": "Fungus2_12",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Mantis Village"
+  },
+  "Fungus2_13": {
+    "SceneName": "Fungus2_13",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Mantis Village"
+  },
+  "Fungus2_14": {
+    "SceneName": "Fungus2_14",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Mantis Village"
+  },
+  "Fungus2_15": {
+    "SceneName": "Fungus2_15",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Mantis Village"
+  },
+  "Fungus2_17": {
+    "SceneName": "Fungus2_17",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_18": {
+    "SceneName": "Fungus2_18",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_19": {
+    "SceneName": "Fungus2_19",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_20": {
+    "SceneName": "Fungus2_20",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_21": {
+    "SceneName": "Fungus2_21",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_23": {
+    "SceneName": "Fungus2_23",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Mantis Village"
+  },
+  "Fungus2_26": {
+    "SceneName": "Fungus2_26",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_28": {
+    "SceneName": "Fungus2_28",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_29": {
+    "SceneName": "Fungus2_29",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Core"
+  },
+  "Fungus2_30": {
+    "SceneName": "Fungus2_30",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Core"
+  },
+  "Fungus2_31": {
+    "SceneName": "Fungus2_31",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Mantis Village"
+  },
+  "Fungus2_32": {
+    "SceneName": "Fungus2_32",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_33": {
+    "SceneName": "Fungus2_33",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Fungal Wastes"
+  },
+  "Fungus2_34": {
+    "SceneName": "Fungus2_34",
+    "MapArea": "Fungal Wastes",
+    "TitledArea": "Queen's Station"
+  },
+  "Fungus1_01": {
+    "SceneName": "Fungus1_01",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_01b": {
+    "SceneName": "Fungus1_01b",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_02": {
+    "SceneName": "Fungus1_02",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_03": {
+    "SceneName": "Fungus1_03",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_04": {
+    "SceneName": "Fungus1_04",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_05": {
+    "SceneName": "Fungus1_05",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_06": {
+    "SceneName": "Fungus1_06",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_07": {
+    "SceneName": "Fungus1_07",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_08": {
+    "SceneName": "Fungus1_08",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_09": {
+    "SceneName": "Fungus1_09",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_10": {
+    "SceneName": "Fungus1_10",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_11": {
+    "SceneName": "Fungus1_11",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_12": {
+    "SceneName": "Fungus1_12",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_13": {
+    "SceneName": "Fungus1_13",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_14": {
+    "SceneName": "Fungus1_14",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_15": {
+    "SceneName": "Fungus1_15",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_16_alt": {
+    "SceneName": "Fungus1_16_alt",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_17": {
+    "SceneName": "Fungus1_17",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_19": {
+    "SceneName": "Fungus1_19",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_20_v02": {
+    "SceneName": "Fungus1_20_v02",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_21": {
+    "SceneName": "Fungus1_21",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_22": {
+    "SceneName": "Fungus1_22",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_25": {
+    "SceneName": "Fungus1_25",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_26": {
+    "SceneName": "Fungus1_26",
+    "MapArea": "Greenpath",
+    "TitledArea": "Lake of Unn"
+  },
+  "Fungus1_29": {
+    "SceneName": "Fungus1_29",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_30": {
+    "SceneName": "Fungus1_30",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_31": {
+    "SceneName": "Fungus1_31",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_32": {
+    "SceneName": "Fungus1_32",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_34": {
+    "SceneName": "Fungus1_34",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_35": {
+    "SceneName": "Fungus1_35",
+    "MapArea": "Greenpath",
+    "TitledArea": "Stone Sanctuary"
+  },
+  "Fungus1_36": {
+    "SceneName": "Fungus1_36",
+    "MapArea": "Greenpath",
+    "TitledArea": "Stone Sanctuary"
+  },
+  "Fungus1_37": {
+    "SceneName": "Fungus1_37",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Fungus1_Slug": {
+    "SceneName": "Fungus1_Slug",
+    "MapArea": "Greenpath",
+    "TitledArea": "Lake of Unn"
+  },
+  "Room_nailmaster_02": {
+    "SceneName": "Room_nailmaster_02",
+    "MapArea": "Greenpath",
+    "TitledArea": "Greenpath"
+  },
+  "Room_Slug_Shrine": {
+    "SceneName": "Room_Slug_Shrine",
+    "MapArea": "Greenpath",
+    "TitledArea": "Lake of Unn"
+  },
+  "Cliffs_01": {
+    "SceneName": "Cliffs_01",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Howling Cliffs"
+  },
+  "Cliffs_02": {
+    "SceneName": "Cliffs_02",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Howling Cliffs"
+  },
+  "Cliffs_03": {
+    "SceneName": "Cliffs_03",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Stag Nest"
+  },
+  "Cliffs_04": {
+    "SceneName": "Cliffs_04",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Howling Cliffs"
+  },
+  "Cliffs_05": {
+    "SceneName": "Cliffs_05",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Howling Cliffs"
+  },
+  "Cliffs_06": {
+    "SceneName": "Cliffs_06",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Howling Cliffs"
+  },
+  "Fungus1_28": {
+    "SceneName": "Fungus1_28",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Howling Cliffs"
+  },
+  "Room_nailmaster": {
+    "SceneName": "Room_nailmaster",
+    "MapArea": "Howling Cliffs",
+    "TitledArea": "Howling Cliffs"
+  },
+  "Abyss_03_c": {
+    "SceneName": "Abyss_03_c",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_01": {
+    "SceneName": "Deepnest_East_01",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_02": {
+    "SceneName": "Deepnest_East_02",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_03": {
+    "SceneName": "Deepnest_East_03",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_04": {
+    "SceneName": "Deepnest_East_04",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_06": {
+    "SceneName": "Deepnest_East_06",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_07": {
+    "SceneName": "Deepnest_East_07",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_08": {
+    "SceneName": "Deepnest_East_08",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_09": {
+    "SceneName": "Deepnest_East_09",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_10": {
+    "SceneName": "Deepnest_East_10",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_11": {
+    "SceneName": "Deepnest_East_11",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_12": {
+    "SceneName": "Deepnest_East_12",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_13": {
+    "SceneName": "Deepnest_East_13",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_14": {
+    "SceneName": "Deepnest_East_14",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_14b": {
+    "SceneName": "Deepnest_East_14b",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_15": {
+    "SceneName": "Deepnest_East_15",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_16": {
+    "SceneName": "Deepnest_East_16",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_17": {
+    "SceneName": "Deepnest_East_17",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_18": {
+    "SceneName": "Deepnest_East_18",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Deepnest_East_Hornet": {
+    "SceneName": "Deepnest_East_Hornet",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Cast Off Shell"
+  },
+  "GG_Lurker": {
+    "SceneName": "GG_Lurker",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Hive_01": {
+    "SceneName": "Hive_01",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Hive"
+  },
+  "Hive_02": {
+    "SceneName": "Hive_02",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Hive"
+  },
+  "Hive_03": {
+    "SceneName": "Hive_03",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Hive"
+  },
+  "Hive_03_c": {
+    "SceneName": "Hive_03_c",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Hive"
+  },
+  "Hive_04": {
+    "SceneName": "Hive_04",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Hive"
+  },
+  "Hive_05": {
+    "SceneName": "Hive_05",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Hive"
+  },
+  "Room_Colosseum_01": {
+    "SceneName": "Room_Colosseum_01",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Colosseum"
+  },
+  "Room_Colosseum_02": {
+    "SceneName": "Room_Colosseum_02",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Colosseum"
+  },
+  "Room_Colosseum_Spectate": {
+    "SceneName": "Room_Colosseum_Spectate",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Colosseum"
+  },
+  "Room_Colosseum_Bronze": {
+    "SceneName": "Room_Colosseum_Bronze",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Colosseum"
+  },
+  "Room_Colosseum_Silver": {
+    "SceneName": "Room_Colosseum_Silver",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Colosseum"
+  },
+  "Room_Colosseum_Gold": {
+    "SceneName": "Room_Colosseum_Gold",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Colosseum"
+  },
+  "Room_nailmaster_03": {
+    "SceneName": "Room_nailmaster_03",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Kingdom's Edge"
+  },
+  "Room_Wyrm": {
+    "SceneName": "Room_Wyrm",
+    "MapArea": "Kingdom's Edge",
+    "TitledArea": "Cast Off Shell"
+  },
+  "Deepnest_43": {
+    "SceneName": "Deepnest_43",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus1_23": {
+    "SceneName": "Fungus1_23",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus1_24": {
+    "SceneName": "Fungus1_24",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_04": {
+    "SceneName": "Fungus3_04",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_05": {
+    "SceneName": "Fungus3_05",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_08": {
+    "SceneName": "Fungus3_08",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_10": {
+    "SceneName": "Fungus3_10",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_11": {
+    "SceneName": "Fungus3_11",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_13": {
+    "SceneName": "Fungus3_13",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_21": {
+    "SceneName": "Fungus3_21",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_22": {
+    "SceneName": "Fungus3_22",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_23": {
+    "SceneName": "Fungus3_23",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_34": {
+    "SceneName": "Fungus3_34",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_39": {
+    "SceneName": "Fungus3_39",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_40": {
+    "SceneName": "Fungus3_40",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_48": {
+    "SceneName": "Fungus3_48",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_49": {
+    "SceneName": "Fungus3_49",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Fungus3_50": {
+    "SceneName": "Fungus3_50",
+    "MapArea": "Queen's Gardens",
+    "TitledArea": "Queen's Gardens"
+  },
+  "Room_Queen": {
+    "SceneName": "Room_Queen",
+    "MapArea": "Queens' Gardens",
+    "TitledArea": "Queens' Gardens"
+  },
+  "Crossroads_46b": {
+    "SceneName": "Crossroads_46b",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "Crossroads_50": {
+    "SceneName": "Crossroads_50",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Blue Lake"
+  },
+  "RestingGrounds_02": {
+    "SceneName": "RestingGrounds_02",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_04": {
+    "SceneName": "RestingGrounds_04",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_05": {
+    "SceneName": "RestingGrounds_05",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_06": {
+    "SceneName": "RestingGrounds_06",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_07": {
+    "SceneName": "RestingGrounds_07",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_08": {
+    "SceneName": "RestingGrounds_08",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Spirits' Glade"
+  },
+  "RestingGrounds_09": {
+    "SceneName": "RestingGrounds_09",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_10": {
+    "SceneName": "RestingGrounds_10",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_12": {
+    "SceneName": "RestingGrounds_12",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "RestingGrounds_17": {
+    "SceneName": "RestingGrounds_17",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "Room_Mansion": {
+    "SceneName": "Room_Mansion",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "Ruins2_10": {
+    "SceneName": "Ruins2_10",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "Dream_Nailcollection": {
+    "SceneName": "Dream_Nailcollection",
+    "MapArea": "Resting Grounds",
+    "TitledArea": "Resting Grounds"
+  },
+  "Abyss_01": {
+    "SceneName": "Abyss_01",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Abyss_02": {
+    "SceneName": "Abyss_02",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "GG_Pipeway": {
+    "SceneName": "GG_Pipeway",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "GG_Waterways": {
+    "SceneName": "GG_Waterways",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Junk Pit"
+  },
+  "Room_GG_Shortcut": {
+    "SceneName": "Room_GG_Shortcut",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Junk Pit"
+  },
+  "Waterways_01": {
+    "SceneName": "Waterways_01",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_02": {
+    "SceneName": "Waterways_02",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_03": {
+    "SceneName": "Waterways_03",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_04": {
+    "SceneName": "Waterways_04",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_04b": {
+    "SceneName": "Waterways_04b",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_05": {
+    "SceneName": "Waterways_05",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_06": {
+    "SceneName": "Waterways_06",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_07": {
+    "SceneName": "Waterways_07",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_08": {
+    "SceneName": "Waterways_08",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_09": {
+    "SceneName": "Waterways_09",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_12": {
+    "SceneName": "Waterways_12",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_13": {
+    "SceneName": "Waterways_13",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Isma's Grove"
+  },
+  "Waterways_14": {
+    "SceneName": "Waterways_14",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "Waterways_15": {
+    "SceneName": "Waterways_15",
+    "MapArea": "Royal Waterways",
+    "TitledArea": "Royal Waterways"
+  },
+  "White_Palace_01": {
+    "SceneName": "White_Palace_01",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_02": {
+    "SceneName": "White_Palace_02",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_03_hub": {
+    "SceneName": "White_Palace_03_hub",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_04": {
+    "SceneName": "White_Palace_04",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_05": {
+    "SceneName": "White_Palace_05",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_06": {
+    "SceneName": "White_Palace_06",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_07": {
+    "SceneName": "White_Palace_07",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_08": {
+    "SceneName": "White_Palace_08",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_09": {
+    "SceneName": "White_Palace_09",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_11": {
+    "SceneName": "White_Palace_11",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_12": {
+    "SceneName": "White_Palace_12",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_13": {
+    "SceneName": "White_Palace_13",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_14": {
+    "SceneName": "White_Palace_14",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_15": {
+    "SceneName": "White_Palace_15",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_16": {
+    "SceneName": "White_Palace_16",
+    "MapArea": "White Palace",
+    "TitledArea": "White Palace"
+  },
+  "White_Palace_17": {
+    "SceneName": "White_Palace_17",
+    "MapArea": "White Palace",
+    "TitledArea": "Path of Pain"
+  },
+  "White_Palace_18": {
+    "SceneName": "White_Palace_18",
+    "MapArea": "White Palace",
+    "TitledArea": "Path of Pain"
+  },
+  "White_Palace_19": {
+    "SceneName": "White_Palace_19",
+    "MapArea": "White Palace",
+    "TitledArea": "Path of Pain"
+  },
+  "White_Palace_20": {
+    "SceneName": "White_Palace_20",
+    "MapArea": "White Palace",
+    "TitledArea": "Path of Pain"
+  }
+}
