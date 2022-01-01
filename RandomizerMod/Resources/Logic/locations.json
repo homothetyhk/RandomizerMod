@@ -329,7 +329,7 @@
   },
   {
     "name": "Charm_Notch-Fog_Canyon",
-    "logic": "Fungus3_28[right1] + ((ACID | LEFTSKIPACID | (WINGS + (LEFTDASH | (AIRSTALL + RIGHTCLAW)) + ACIDSKIPS)) + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS))) | (FULLCLAW + FULLDASH + ACIDSKIPS + SPICYSKIPS))"
+    "logic": "Fungus3_28[right1] + ((ACID | LEFTSKIPACID | (WINGS + (LEFTDASH | (AIRSTALL + RIGHTCLAW)) + ACIDSKIPS)) + (RIGHTCLAW | (LEFTCLAW + (WINGS | ENEMYPOGOS))) | (FULLCLAW + FULLDASH + ACIDSKIPS + SPICYSKIPS))"
   },
   {
     "name": "Charm_Notch-Colosseum",
@@ -421,7 +421,7 @@
   },
   {
     "name": "Rancid_Egg-Blue_Lake",
-    "logic": "(Crossroads_50[left1] + RIGHTSUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + SWIM + WINGS)"
+    "logic": "(Crossroads_50[left1] + RIGHTSUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + SWIM + WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
@@ -473,7 +473,7 @@
   },
   {
     "name": "Rancid_Egg-Waterways_West_Bluggsac",
-    "logic": "Waterways_04[right1] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (LEFTSKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS)) | Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (LEFTSKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS)) | Waterways_04[left2] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (RIGHTSKIPACID + WINGS))"
+    "logic": "Waterways_04[right1] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | ENEMYPOGOS)) | (LEFTSKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS)) | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | ENEMYPOGOS)) | (LEFTSKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS)) | Waterways_04[left2] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | ENEMYPOGOS)) | (RIGHTSKIPACID + WINGS))"
   },
   {
     "name": "Rancid_Egg-Waterways_West_Pickup",
@@ -545,7 +545,7 @@
   },
   {
     "name": "Hallownest_Seal-Greenpath",
-    "logic": "(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (LEFTDASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | LEFTSUPERDASH)"
+    "logic": "(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (LEFTDASH + (AIRSTALL | Dashmaster + OBSCURESKIPS | WINGS | LEFTCLAW)) | LEFTSUPERDASH)"
   },
   {
     "name": "Hallownest_Seal-Fog_Canyon_West",
@@ -561,7 +561,7 @@
   },
   {
     "name": "Hallownest_Seal-Fungal_Wastes_Sporgs",
-    "logic": "Fungus2_03"
+    "logic": "Fungus2_03 + (ANYCLAW | WINGS | LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS)"
   },
   {
     "name": "Hallownest_Seal-Mantis_Lords",
@@ -605,7 +605,7 @@
   },
   {
     "name": "King's_Idol-Crystal_Peak",
-    "logic": "(Mines_30[right1] | (RIGHTSUPERDASH + Mines_30[left1])) + ((RIGHTCLAW + RIGHTDASH) | WINGS)"
+    "logic": "(Mines_30[right1] | (RIGHTSUPERDASH + Mines_30[left1])) + (RIGHTCLAW + RIGHTDASH + BACKGROUNDPOGOS | WINGS)"
   },
   {
     "name": "King's_Idol-Glade_of_Hope",
@@ -669,7 +669,7 @@
   },
   {
     "name": "Whispering_Root-Waterways",
-    "logic": "Abyss_01[left3] + ((FULLCLAW + (FULLDASH | WINGS | RIGHTSUPERDASH | MILDSKIPS)) | (WINGS + ANYCLAW)) + DREAMNAIL"
+    "logic": "Abyss_01[left3] + ((FULLCLAW + (FULLDASH | WINGS | RIGHTSUPERDASH | ENEMYPOGOS)) | (WINGS + ANYCLAW)) + DREAMNAIL"
   },
   {
     "name": "Whispering_Root-City",
@@ -1209,7 +1209,7 @@
   },
   {
     "name": "Geo_Rock-Abyss_3",
-    "logic": "(Abyss_06_Core[top1] + BRAND) | ((Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((LEFTCLAW + (MILDSKIPS | RIGHTCLAW) + FULLDASH) | WINGS)) | Abyss_06_Core[left1]"
+    "logic": "(Abyss_06_Core[top1] + BRAND) | ((Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((LEFTCLAW + (PRECISEMOVEMENT | RIGHTCLAW) + FULLDASH) | WINGS)) | Abyss_06_Core[left1]"
   },
   {
     "name": "Geo_Rock-Basin_Tunnel",
@@ -1225,19 +1225,19 @@
   },
   {
     "name": "Geo_Rock-Cliffs_Main_1",
-    "logic": "Cliffs_01[right1] | (Cliffs_01[right2] + (MILDSKIPS | FULLDASH | FULLCLAW | WINGS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))"
+    "logic": "Cliffs_01[right1] | Cliffs_01[right2] + (LEFTDASH | ANYCLAW | WINGS) | (Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + ENEMYPOGOS) | ANYCLAW | WINGS)"
   },
   {
     "name": "Geo_Rock-Cliffs_Main_2",
-    "logic": "Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))"
+    "logic": "Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + ENEMYPOGOS) | ANYCLAW | WINGS))"
   },
   {
     "name": "Geo_Rock-Cliffs_Main_3",
-    "logic": "((Cliffs_01[right1] | Cliffs_01[right2]) + (RIGHTDASH | ANYCLAW | WINGS | RIGHTSUPERDASH | MILDSKIPS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))"
+    "logic": "((Cliffs_01[right1] | Cliffs_01[right2]) + (RIGHTDASH | ANYCLAW | WINGS | RIGHTSUPERDASH | ENEMYPOGOS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + ENEMYPOGOS) | ANYCLAW | WINGS))"
   },
   {
     "name": "Geo_Rock-Cliffs_Main_4",
-    "logic": "Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))"
+    "logic": "Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + ENEMYPOGOS) | ANYCLAW | WINGS))"
   },
   {
     "name": "Geo_Rock-Below_Gorb_Dupe",
@@ -1357,19 +1357,19 @@
   },
   {
     "name": "Geo_Rock-Ancestral_Mound",
-    "logic": "Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + MILDSKIPS))"
+    "logic": "Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + OBSCURESKIPS))"
   },
   {
     "name": "Geo_Rock-Ancestral_Mound_Dupe",
-    "logic": "Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + MILDSKIPS))"
+    "logic": "Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + OBSCURESKIPS))"
   },
   {
     "name": "Geo_Rock-Ancestral_Mound_Tree",
-    "logic": "Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + MILDSKIPS))"
+    "logic": "Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + OBSCURESKIPS))"
   },
   {
     "name": "Geo_Rock-Ancestral_Mound_Tree_Dupe",
-    "logic": "Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + MILDSKIPS))"
+    "logic": "Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (((LEFTSUPERDASH + RIGHTCLAW) | (RIGHTSUPERDASH + LEFTCLAW)) + OBSCURESKIPS))"
   },
   {
     "name": "Geo_Rock-Moss_Prophet",
@@ -1449,11 +1449,11 @@
   },
   {
     "name": "Geo_Rock-Dark_Deepnest_Above_Grub_1",
-    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))"
+    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))"
   },
   {
     "name": "Geo_Rock-Dark_Deepnest_Above_Grub_2",
-    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))"
+    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))"
   },
   {
     "name": "Geo_Rock-Dark_Deepnest_Bottom_Left",
@@ -1469,11 +1469,11 @@
   },
   {
     "name": "Geo_Rock-Lower_Kingdom's_Edge_1",
-    "logic": "(Deepnest_East_01[bot1] | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | MILDSKIPS)"
+    "logic": "(Deepnest_East_01[bot1] | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Lower_Kingdom's_Edge_2",
-    "logic": "((Deepnest_East_01[bot1] + (RIGHTCLAW | WINGS)) | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | MILDSKIPS)"
+    "logic": "((Deepnest_East_01[bot1] + (RIGHTCLAW | WINGS)) | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Lower_Kingdom's_Edge_3",
@@ -1493,7 +1493,7 @@
   },
   {
     "name": "Geo_Rock-Kingdom's_Edge_Oro_Middle_Left",
-    "logic": "Deepnest_East_06[top1] | (Deepnest_East_06[left1] + (RIGHTCLAW | WINGS)) | ((Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (LEFTCLAW | (WINGS + MILDSKIPS)))"
+    "logic": "Deepnest_East_06[top1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (LEFTCLAW | (WINGS + ENEMYPOGOS))"
   },
   {
     "name": "Geo_Rock-Kingdom's_Edge_Above_Root",
@@ -1685,23 +1685,23 @@
   },
   {
     "name": "Geo_Rock-Mantis_Village_After_Lever",
-    "logic": "Fungus2_14 + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)) | MILDSKIPS)"
+    "logic": "Fungus2_14 + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)) | ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Mantis_Village_Above_Claw",
-    "logic": "Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | LEFTSUPERDASH | MILDSKIPS)))"
+    "logic": "Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS)))"
   },
   {
     "name": "Geo_Rock-Mantis_Village_Above_Claw_Dupe",
-    "logic": "Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | LEFTSUPERDASH | MILDSKIPS)))"
+    "logic": "Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS)))"
   },
   {
     "name": "Geo_Rock-Mantis_Village_Below_Lore",
-    "logic": "Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | LEFTSUPERDASH | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))"
+    "logic": "Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | LEFTSUPERDASH | FULLCLAW | ENEMYPOGOS) + ((RIGHTCLAW + (WINGS | ENEMYPOGOS)) | LEFTCLAW))"
   },
   {
     "name": "Geo_Rock-Mantis_Village_Above_Lever",
-    "logic": "(Fungus2_14[top1] | (Fungus2_14 + (LEFTDASH | RIGHTSUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))) + ((LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | MILDSKIPS)) | WINGS | RIGHTCLAW)"
+    "logic": "(Fungus2_14[top1] | (Fungus2_14 + (LEFTDASH | RIGHTSUPERDASH | WINGS | FULLCLAW | ENEMYPOGOS) + ((RIGHTCLAW + (WINGS | ENEMYPOGOS)) | LEFTCLAW))) + ((LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | BACKGROUNDPOGOS)) | WINGS | RIGHTCLAW)"
   },
   {
     "name": "Geo_Rock-Above_Mantis_Lords_1",
@@ -1797,7 +1797,7 @@
   },
   {
     "name": "Geo_Rock-Hive_Below_Root",
-    "logic": "Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (RIGHTDASH | WINGS | RIGHTCLAW | MILDSKIPS))"
+    "logic": "Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (RIGHTDASH | WINGS | RIGHTCLAW | ENEMYPOGOS))"
   },
   {
     "name": "Geo_Rock-Hive_After_Root",
@@ -1809,11 +1809,11 @@
   },
   {
     "name": "Geo_Rock-Hive_Stash",
-    "logic": "Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + FULLDASH) | (RIGHTCLAW + FULLDASH + MILDSKIPS)))"
+    "logic": "Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + FULLDASH) | (RIGHTCLAW + FULLDASH + ENEMYPOGOS)))"
   },
   {
     "name": "Geo_Rock-Hive_Stash_Dupe",
-    "logic": "Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + FULLDASH) | (RIGHTCLAW + FULLDASH + MILDSKIPS)))"
+    "logic": "Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + FULLDASH) | (RIGHTCLAW + FULLDASH + ENEMYPOGOS)))"
   },
   {
     "name": "Geo_Rock-Hive_Below_Grub",
@@ -1925,11 +1925,11 @@
   },
   {
     "name": "Geo_Rock-Fluke_Hermit_Dupe",
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))"
+    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + ENEMYPOGOS + (LEFTDASH | LEFTSUPERDASH)))"
   },
   {
     "name": "Geo_Rock-Fluke_Hermit",
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))"
+    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + ENEMYPOGOS + (LEFTDASH | LEFTSUPERDASH)))"
   },
   {
     "name": "Geo_Rock-Pleasure_House",
@@ -1957,11 +1957,11 @@
   },
   {
     "name": "Geo_Rock-Above_King's_Station",
-    "logic": "(Ruins2_05[bot1] + (LEFTCLAW | WINGS | MILDSKIPS)) | Ruins2_05[left1] | Ruins2_05[top1]"
+    "logic": "Ruins2_05[bot1] + (LEFTCLAW | WINGS | ENEMYPOGOS) | Ruins2_05[left1] | Ruins2_05[top1]"
   },
   {
     "name": "Geo_Rock-King's_Station",
-    "logic": "(Ruins2_06[left1] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2]) + (RIGHTCLAW | ((WINGS | LEFTCLAW) + AREASHADESKIPS) | (WINGS + (LEFTCLAW | MILDSKIPS))) | Ruins2_06[left2] + (RIGHTSUPERDASH | WINGS | SWIM | (RIGHTCLAW + RIGHTDASH + MILDSKIPS)) + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))"
+    "logic": "(Ruins2_06[left1] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2]) + (RIGHTCLAW | ((WINGS | LEFTCLAW) + AREASHADESKIPS) | (WINGS + (LEFTCLAW | ENEMYPOGOS))) | Ruins2_06[left2] + (RIGHTSUPERDASH | WINGS | SWIM | (RIGHTCLAW + RIGHTDASH + PRECISEMOVEMENT)) + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)))"
   },
   {
     "name": "Geo_Rock-King's_Pass_Left",
@@ -1985,7 +1985,7 @@
   },
   {
     "name": "Geo_Rock-Waterways_Tuk",
-    "logic": "Waterways_01 + (Waterways_01[right1] | RIGHTCLAW | WINGS | MILDSKIPS)"
+    "logic": "Waterways_01 + (Waterways_01[right1] | RIGHTCLAW | WINGS | ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Waterways_Tuk_Alcove",
@@ -1993,7 +1993,7 @@
   },
   {
     "name": "Geo_Rock-Waterways_Left",
-    "logic": " Waterways_04b[left1] | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))"
+    "logic": " Waterways_04b[left1] | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS)) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))"
   },
   {
     "name": "Geo_Rock-Waterways_East",
@@ -2001,7 +2001,7 @@
   },
   {
     "name": "Geo_Rock-Waterways_Flukemarm",
-    "logic": "Waterways_08[left2] | ((Waterways_08[left1] | Waterways_08[top1]) + (ANYCLAW | WINGS))"
+    "logic": "Waterways_08[left2] | (Waterways_08[top1] + (ENEMYPOGOS | RIGHTCLAW | WINGS | RIGHTSUPERDASH) | Waterways_08[left1]) + (ANYCLAW | WINGS)"
   },
   {
     "name": "Boss_Geo-Massive_Moss_Charger",
@@ -2013,7 +2013,7 @@
   },
   {
     "name": "Boss_Geo-Sanctum_Soul_Warrior",
-    "logic": "Ruins1_23[top1] | (Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + MILDSKIPS)))"
+    "logic": "Ruins1_23[top1] | (Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + BACKGROUNDPOGOS)))"
   },
   {
     "name": "Boss_Geo-Elegant_Soul_Warrior",
@@ -2173,7 +2173,7 @@
   },
   {
     "name": "Soul_Totem-Crystal_Heart_1",
-    "logic": "Mines_31[left1] + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (RIGHTSUPERDASH + MILDSKIPS))) | (RIGHTCLAW + RIGHTSUPERDASH + RIGHTDASH + WINGS) | (WINGS + AREASHADESKIPS + 4MASKS))"
+    "logic": "Mines_31[left1] + (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | RIGHTSUPERDASH + PRECISEMOVEMENT) | (RIGHTCLAW + RIGHTSUPERDASH + RIGHTDASH + WINGS) | (WINGS + AREASHADESKIPS + 4MASKS))"
   },
   {
     "name": "Soul_Totem-Crystal_Heart_2",
@@ -2209,15 +2209,15 @@
   },
   {
     "name": "Soul_Totem-Top_Left_Waterways",
-    "logic": "Waterways_04b[left1] + (ANYCLAW | (WINGS + SPICYSKIPS)) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + (ANYCLAW | (WINGS + SPICYSKIPS)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW)) + (ANYCLAW | (WINGS + SPICYSKIPS))"
+    "logic": "Waterways_04b[left1] + (ANYCLAW | (WINGS + SPICYSKIPS)) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + (ANYCLAW | (WINGS + SPICYSKIPS)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS)) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW)) + (ANYCLAW | (WINGS + SPICYSKIPS))"
   },
   {
     "name": "Soul_Totem-Waterways_East",
-    "logic": "Waterways_07 + ((LEFTCLAW + (LEFTDASH | WINGS | LEFTSUPERDASH | (AIRSTALL + RIGHTCLAW) | MILDSKIPS)) | (RIGHTCLAW + WINGS))"
+    "logic": "Waterways_07 + ((LEFTCLAW + (LEFTDASH | WINGS | LEFTSUPERDASH | (AIRSTALL + RIGHTCLAW) | ENEMYPOGOS)) | (RIGHTCLAW + WINGS))"
   },
   {
     "name": "Soul_Totem-Waterways_Flukemarm",
-    "logic": "Waterways_08[top1] | Waterways_08[left1] | Waterways_08[left2]"
+    "logic": "Waterways_08[top1] + (ENEMYPOGOS | RIGHTCLAW | WINGS | RIGHTSUPERDASH) | Waterways_08[left1] | Waterways_08[left2]"
   },
   {
     "name": "Soul_Totem-White_Palace_Entrance",
