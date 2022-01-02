@@ -25,7 +25,8 @@ namespace RandomizerMod.RC
                 case TransitionSettings.TransitionMode.None:
                     Setters.Add(new(lm.GetTerm("ITEMRANDO"), 1));
                     break;
-                case TransitionSettings.TransitionMode.AreaRandomizer:
+                case TransitionSettings.TransitionMode.MapAreaRandomizer:
+                case TransitionSettings.TransitionMode.FullAreaRandomizer:
                     Setters.Add(new(lm.GetTerm("AREARANDO"), 1));
                     break;
                 case TransitionSettings.TransitionMode.RoomRandomizer:

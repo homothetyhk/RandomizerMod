@@ -473,6 +473,46 @@ namespace RandomizerMod.RC
             }
         }
 
+        /// <summary>
+        /// Identical to RemoveTransitionByName, but if the transition is a source, it is ensured to be in Vanilla with its VanillaTarget.
+        /// </summary>
+        public void UnrandomizeTransitionByName(string name)
+        {
+            RemoveTransitionByName(name);
+            EnsureVanillaSourceTransition(name);
+        }
+
+        /// <summary>
+        /// Identical to RemoveTransitionsWhere, but each removed source transition is ensured to be in Vanilla with its VanillaTarget.
+        /// </summary>
+        public void UnrandomizeTransitionsWhere(Func<string, bool> selector)
+        {
+            foreach (GroupBuilder gb in EnumerateTransitionGroups())
+            {
+                if (gb is TransitionGroupBuilder tgb)
+                {
+                    TakeFromBucket(_set, tgb.Sources, selector);
+                    foreach (string s in _set) EnsureVanillaSourceTransition(s);
+                    _set.Clear();
+                    RemoveFromBucket(tgb.Targets, selector);
+                }
+                else if (gb is SymmetricTransitionGroupBuilder stgb)
+                {
+                    TakeFromBucket(_set, stgb.Group1, selector);
+                    foreach (string s in _set) EnsureVanillaSourceTransition(s);
+                    _set.Clear();
+                    RemoveFromBucket(stgb.Group2, selector);
+                }
+                else if (gb is SelfDualTransitionGroupBuilder sdtgb)
+                {
+                    TakeFromBucket(_set, sdtgb.Transitions, selector);
+                    foreach (string s in _set) EnsureVanillaSourceTransition(s);
+                    _set.Clear();
+                }
+            }
+        }
+      
+
         public void AddToVanilla(string item, string location)
         {
             Vanilla.Add(new(item, location));
@@ -486,6 +526,19 @@ namespace RandomizerMod.RC
         public void AddToStart(string item, int count)
         {
             StartItems.Increment(item, count);
+        }
+
+        /// <summary>
+        /// Ensures that the Vanilla bucket contains the placement of the transition's VanillaTarget at the transition.
+        /// <br/>Has no effect on a transition without a VanillaTarget, such as a OneWayOut transition.
+        /// <br/>Only ensures one side of a coupled transition is vanilla.
+        /// </summary>
+        public void EnsureVanillaSourceTransition(string transition)
+        {
+            if (Data.GetTransitionDef(transition)?.VanillaTarget is string target)
+            {
+                Vanilla.Set(new(target, transition), 1);
+            }
         }
 
         public void RemoveFromStart(string item)
@@ -504,6 +557,14 @@ namespace RandomizerMod.RC
             _set.AddRange(bucket.EnumerateDistinct().Where(selector));
             foreach (string s in _set) bucket.RemoveAll(s);
             _set.Clear();
+        }
+
+        // adds the distinct matches to result, and removes them from the bucket.
+        private void TakeFromBucket(List<string> result, Bucket<string> bucket, Func<string, bool> selector)
+        {
+            result.Clear();
+            result.AddRange(bucket.EnumerateDistinct().Where(selector));
+            foreach (string s in result) bucket.RemoveAll(s);
         }
 
         public delegate bool GroupResolver(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb);

@@ -11,12 +11,20 @@ namespace RandomizerMod.Settings
         public enum TransitionMode
         {
             None,
-            AreaRandomizer,
+            MapAreaRandomizer,
+            FullAreaRandomizer,
             RoomRandomizer,
         }
         public TransitionMode Mode;
 
-        public bool ConnectAreas;
+        public enum AreaConstraintSetting
+        {
+            None,
+            MoreConnectedMapAreas,
+            MoreConnectedTitledAreas,
+        }
+
+        public AreaConstraintSetting AreaConstraint;
 
         /*
         // This will likely be difficult to implement -- not many rooms which don't have items or npcs or events

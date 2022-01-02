@@ -220,53 +220,47 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this TransitionSettings ts)
         {
+            if (ts.Mode == TransitionSettings.TransitionMode.None) return string.Empty;
+
+            StringBuilder sb = new();
             switch (ts.Mode)
             {
-                default:
-                case TransitionSettings.TransitionMode.None:
-                    return "";
-                case TransitionSettings.TransitionMode.AreaRandomizer:
-                    {
-                        StringBuilder sb = new();
-                        sb.Append("Transitions between areas will be randomized. ");
-                        switch (ts.TransitionMatching)
-                        {
-                            case TransitionSettings.TransitionMatchingSetting.MatchingDirections:
-                                sb.Append("Transition directions will be preserved. ");
-                                break;
-                            case TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor:
-                                sb.Append("Transition directions will be preserved, and doors will not map to doors. ");
-                                break;
-                            default:
-                                sb.Append("Transition directions will be randomized. ");
-                                break;
-                        }
-                        if (ts.Coupled) sb.Append("Transitions will be reversible.");
-                        else sb.Append("Transitions may not be reversible.");
-                        return sb.ToString();
-                    }
+                case TransitionSettings.TransitionMode.MapAreaRandomizer:
+                    sb.Append("Transitions between areas with different maps (e.g. Greenpath, Fog Canyon) will be randomized. ");
+                    break;
+                case TransitionSettings.TransitionMode.FullAreaRandomizer:
+                    sb.Append("Transitions between areas with different titles (e.g. Greenpath, Lake of Unn) will be randomized. ");
+                    break;
                 case TransitionSettings.TransitionMode.RoomRandomizer:
-                    {
-                        StringBuilder sb = new();
-                        sb.Append("Transitions between rooms will be randomized. ");
-                        if (ts.ConnectAreas) sb.Append("Where possible, transitions will connect to the same area. ");
-                        switch (ts.TransitionMatching)
-                        {
-                            case TransitionSettings.TransitionMatchingSetting.MatchingDirections:
-                                sb.Append("Transition directions will be preserved. ");
-                                break;
-                            case TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor:
-                                sb.Append("Transition directions will be preserved, and doors will not map to doors. ");
-                                break;
-                            default:
-                                sb.Append("Transition directions will be randomized. ");
-                                break;
-                        }
-                        if (ts.Coupled) sb.Append("Transitions will be reversible.");
-                        else sb.Append("Transitions may not be reversible.");
-                        return sb.ToString();
-                    }
+                    sb.Append("Transitions between rooms will be randomized. ");
+                    break;
             }
+            switch (ts.TransitionMatching)
+            {
+                case TransitionSettings.TransitionMatchingSetting.MatchingDirections:
+                    sb.Append("Transition directions will be preserved. ");
+                    break;
+                case TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor:
+                    sb.Append("Transition directions will be preserved, and doors will not map to doors. ");
+                    break;
+                default:
+                    sb.Append("Transition directions will be randomized. ");
+                    break;
+            }
+            switch (ts.AreaConstraint)
+            {
+                case TransitionSettings.AreaConstraintSetting.None:
+                    break;
+                case TransitionSettings.AreaConstraintSetting.MoreConnectedMapAreas:
+                    sb.Append("Where possible, transitions will connect to the same map area. ");
+                    break;
+                case TransitionSettings.AreaConstraintSetting.MoreConnectedTitledAreas:
+                    sb.Append("Where possible, transitions will connect to the same titled area. ");
+                    break;
+            }
+            if (ts.Coupled) sb.Append("Transitions will be reversible.");
+            else sb.Append("Transitions may not be reversible.");
+            return sb.ToString();
         }
 
         public static string Caption(this DuplicateItemSettings ds)

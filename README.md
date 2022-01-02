@@ -101,6 +101,7 @@ For each category, there is a minimum, maximum, and tolerance. The costs will be
 
 Settings which allow selectively not randomizing certain long locations, or modifying certain item previews.
 - Randomization In White Palace: Allows removing all randomized items and locations in Path of Pain, or White Palace as a whole, and leaving them vanilla. For historical reasons, the King Fragment item and location are not affected by this setting, and are always randomized with the Charms pool.
+    - In transition randomizer, this setting also unrandomizes transitions. The Exclude Path of Pain setting unrandomizes all transitions in Path of Pain and the transition leading to Path of Pain. The Exclude White Palace setting unrandomizes all transitions in White Palace and Path of Pain.
 - Boss Essence Randomization: Allows selecting which bosses are included in the Boss Essence pool; for example, giving the option to remove White Defender and Grey Prince Zote, or to remove all Dream Bosses leaving only Dream Warriors.
 
 For each preview setting, toggling the setting off will result in the corresponding location(s) no longer allowing preview of their items. For locations which carry randomized costs, the preview setting has four options:
@@ -151,9 +152,11 @@ Settings which do not fit into the other classifications.
 
 Settings which control which transitions between rooms are randomized. There are three main transition randomizer modes:
 - None: no transitions are randomized
-- Area Randomizer: transitions between areas are randomized. 
-    - Randomizer defines an area to be any region of the game with a name which appears as onscreen text, excluding dream areas, trams, and elevators. 
-    - Transitions between areas are chosen subjectively, though in most cases the obvious choice is taken.
+- Map Area Randomizer: transitions between map areas are randomized.
+    - Maps refer to the maps purchased from Cornifer or Iselda, and the initial map of King's Pass and Dirtmouth.
+- Full Area Randomizer: transitions between titled areas are randomized. 
+    - A titled area is defined to be an area with title text, i.e. a name which pops up as onscreen text.
+    - Transitions between titled areas agree with the transitions between map areas where possible. The remaining transitions are chosen subjectively, though in most cases the obvious choice is taken.
 - Room Randomizer: almost all room transitions are randomized, excluding:
     - Warps of any kind, including those entering dream areas
     - Trams and elevators
@@ -161,7 +164,7 @@ Settings which control which transitions between rooms are randomized. There are
     - The transitions leading to Sly's storeroom, Bretta's basement, or to any trial of the colosseum
 
 There are additional settings which control the randomization of transitions:
-- Connect Areas: Forces the randomizer to connect transitions to the same area if possible. This does not guarantee that areas are connected, but it gives a high likelihood that a transition will stay within the same area.
+- Area Constraint: Forces the randomizer to connect transitions to the same area if possible. This does not guarantee that areas are connected, but it gives a high likelihood that a transition will stay within the same area.
 - Transition Matching: Controls how transition directions affect randomization. Note that independent of this setting, one-way transitions always map to one-way transitions.
     - Matching Directions: left transitions must map to right transitions, top transitions must map to bottom transitions, and so on.
         - Door transitions are assigned directions so that the transition count is balanced. Since there are two more doors and right transitions total than left transitions (due to the door in Dirtmouth leading to a right transition in Bretta's room), one door will act as a left transition and all others will act as a right transition.

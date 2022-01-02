@@ -59,7 +59,8 @@ namespace RandomizerMod.Settings
                 "SPICYSKIPS" => GS.SkipSettings.SpicySkips,
 
                 "ITEMRANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.None,
-                "AREARANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.AreaRandomizer,
+                "AREARANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.FullAreaRandomizer 
+                || GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.MapAreaRandomizer,
                 "ROOMRANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.RoomRandomizer,
                 
                 "SWIM" => !GS.NoveltySettings.RandomizeSwim,

@@ -9,6 +9,7 @@ namespace RandomizerMod.Settings.Presets
     public static class TransitionPresetData
     {
         public static TransitionSettings None;
+        public static TransitionSettings MapArea;
         public static TransitionSettings Area;
         public static TransitionSettings Room;
         public static TransitionSettings ConnectedAreaRoom;
@@ -20,15 +21,23 @@ namespace RandomizerMod.Settings.Presets
             None = new TransitionSettings
             {
                 Mode = TransitionMode.None,
-                ConnectAreas = false,
+                AreaConstraint = AreaConstraintSetting.None,
+                TransitionMatching = TransitionMatchingSetting.MatchingDirections,
+                Coupled = true,
+            };
+
+            MapArea = new TransitionSettings
+            {
+                Mode = TransitionMode.MapAreaRandomizer,
+                AreaConstraint = AreaConstraintSetting.None,
                 TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
 
             Area = new TransitionSettings
             {
-                Mode = TransitionMode.AreaRandomizer,
-                ConnectAreas = false,
+                Mode = TransitionMode.FullAreaRandomizer,
+                AreaConstraint = AreaConstraintSetting.None,
                 TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
@@ -36,7 +45,7 @@ namespace RandomizerMod.Settings.Presets
             ConnectedAreaRoom = new TransitionSettings
             {
                 Mode = TransitionMode.RoomRandomizer,
-                ConnectAreas = true,
+                AreaConstraint = AreaConstraintSetting.MoreConnectedMapAreas,
                 TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
@@ -44,7 +53,7 @@ namespace RandomizerMod.Settings.Presets
             Room = new TransitionSettings
             {
                 Mode = TransitionMode.RoomRandomizer,
-                ConnectAreas = false,
+                AreaConstraint = AreaConstraintSetting.None,
                 TransitionMatching = TransitionMatchingSetting.MatchingDirections,
                 Coupled = true,
             };
@@ -52,7 +61,7 @@ namespace RandomizerMod.Settings.Presets
             Chaos = new TransitionSettings
             {
                 Mode = TransitionMode.RoomRandomizer,
-                ConnectAreas = false,
+                AreaConstraint = AreaConstraintSetting.None,
                 TransitionMatching = TransitionMatchingSetting.NonmatchingDirections,
                 Coupled = false,
             };
@@ -60,7 +69,8 @@ namespace RandomizerMod.Settings.Presets
             TransitionPresets = new Dictionary<string, TransitionSettings>
             {
                 { "None", None },
-                { "Area Rando", Area },
+                { "Map Area Rando", MapArea },
+                { "Full Area Rando", Area },
                 { "Connected-Area Room Rando", ConnectedAreaRoom },
                 { "Room Rando", Room },
                 { "Chaos Room Rando", Chaos },
