@@ -24,6 +24,7 @@ namespace RandomizerMod.Settings.Presets
                 CursedMasks = false,
                 CursedNotches = false,
                 RandomizeMimics = false,
+                MaximumGrubsReplacedByMimics = 0,
             };
             Classic = new CursedSettings
             {
@@ -33,6 +34,7 @@ namespace RandomizerMod.Settings.Presets
                 CursedMasks = false,
                 CursedNotches = false,
                 RandomizeMimics = false,
+                MaximumGrubsReplacedByMimics = 0,
             };
             Modern = new CursedSettings
             {
@@ -42,6 +44,7 @@ namespace RandomizerMod.Settings.Presets
                 CursedMasks = true,
                 CursedNotches = true,
                 RandomizeMimics = true,
+                MaximumGrubsReplacedByMimics = 10,
             };
             UltraCursed = new CursedSettings
             {
@@ -51,6 +54,7 @@ namespace RandomizerMod.Settings.Presets
                 CursedMasks = true,
                 CursedNotches = true,
                 RandomizeMimics = true,
+                MaximumGrubsReplacedByMimics = 10,
             };
 
             CursedPresets = new Dictionary<string, CursedSettings>

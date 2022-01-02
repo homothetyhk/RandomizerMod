@@ -1299,12 +1299,22 @@ namespace RandomizerMod.RC
 
                 StageBuilder sb = rb.AddStage("Grub Mimic Stage");
                 ItemGroupBuilder gb = sb.AddItemGroup("Grub Mimic Group");
-                int num_mimics = rb.rng.Next(RBConsts.MIN_MIMIC_COUNT, RBConsts.MAX_MIMIC_COUNT + 1);
-                num_mimics = Math.Min(num_mimics, 50 - rb.gs.CostSettings.MaximumGrubCost - rb.gs.CostSettings.GrubTolerance);
-                gb.Items.Set(ItemNames.Grub, 50 - num_mimics);
-                gb.Items.Set(ItemNames.Mimic_Grub, num_mimics);
+                int extraMimics = rb.rng.Next(rb.gs.CursedSettings.MaximumGrubsReplacedByMimics + 1);
+                extraMimics = Math.Min(extraMimics, 46 - rb.gs.CostSettings.MaximumGrubCost - rb.gs.CostSettings.GrubTolerance);
+                gb.Items.Set(ItemNames.Grub, 46 - extraMimics);
+                gb.Items.Set(ItemNames.Mimic_Grub, 4 + extraMimics);
                 gb.Locations.AddRange(grubPool.IncludeLocations);
                 gb.Locations.AddRange(mimicPool.IncludeLocations);
+            }
+            else if (rb.gs.CursedSettings.RandomizeMimics)
+            {
+                ItemGroupBuilder gb = rb.GetItemGroupFor(ItemNames.Grub);
+                int availableGrubs = gb.Items.GetCount(ItemNames.Grub);
+                int extraMimics = rb.rng.Next(rb.gs.CursedSettings.MaximumGrubsReplacedByMimics + 1);
+                extraMimics = Math.Min(extraMimics, 46 - rb.gs.CostSettings.MaximumGrubCost - rb.gs.CostSettings.GrubTolerance);
+                extraMimics = Math.Min(extraMimics, availableGrubs);
+                gb.Items.Remove(ItemNames.Grub, extraMimics);
+                gb.Items.Increment(ItemNames.Mimic_Grub, extraMimics);
             }
         }
 

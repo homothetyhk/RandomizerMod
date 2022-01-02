@@ -263,6 +263,68 @@ namespace RandomizerMod.Settings.Presets
             return sb.ToString();
         }
 
+        public static string Caption(this MiscSettings ms)
+        {
+            StringBuilder sb = new();
+            if (ms.RandomizeNotchCosts)
+            {
+                sb.Append("Notch costs of charms will be randomized. ");
+            }
+            else
+            {
+                sb.Append("Notch costs of charms will not be randomized. ");
+            }
+
+            if (ms.ExtraPlatforms)
+            {
+                sb.Append("Extra platforms will be added in certain places to prevent softlocks. ");
+            }
+            else
+            {
+                sb.Append("Softlock-prevention platforms will not be provided. ");
+            }
+
+            switch (ms.SalubraNotches)
+            {
+                case MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool:
+                    sb.Append("Salubra notches will behave like other charm notches. ");
+                    break;
+                case MiscSettings.SalubraNotchesSetting.Vanilla:
+                    sb.Append("Salubra notches will never be randomized. ");
+                    break;
+                case MiscSettings.SalubraNotchesSetting.Randomized:
+                    sb.Append("Salubra notches will always be randomized. ");
+                    break;
+                case MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold:
+                    sb.Append("Salubra notches will be automatically given. ");
+                    break;
+            }
+            switch (ms.MaskShards)
+            {
+                case MiscSettings.MaskShardType.FourShardsPerMask:
+                    break;
+                case MiscSettings.MaskShardType.TwoShardsPerMask:
+                    sb.Append("Mask Shards will be consolidated to double shards. ");
+                    break;
+                case MiscSettings.MaskShardType.OneShardPerMask:
+                    sb.Append("Mask Shards will be consolidated to quadruple shards. ");
+                    break;
+            }
+            switch (ms.VesselFragments)
+            {
+                case MiscSettings.VesselFragmentType.ThreeFragmentsPerVessel:
+                    break;
+                case MiscSettings.VesselFragmentType.TwoFragmentsPerVessel:
+                    sb.Append("Vessel Fragments will be consolidated to double fragments. ");
+                    break;
+                case MiscSettings.VesselFragmentType.OneFragmentPerVessel:
+                    sb.Append("Vessel Fragments will be consolidated to triple fragments. ");
+                    break;
+            }
+
+            return sb.ToString();
+        }
+
         public static string Caption(this DuplicateItemSettings ds)
         {
             return "For more information, see the Duplicate Items page in Advanced Settings.";

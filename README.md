@@ -133,11 +133,13 @@ These settings control what items will be given to the player when the game begi
 ### Misc Settings
 
 Settings which do not fit into the other classifications.
+- Randomize Notch Costs: This setting randomizes the costs of all 40 charms uniformly so that the costs add to a total between 70 and 110. The notch cost will subsequently be displayed as part of the charm name. This does not affect future cost modifications, such as when Carefree Melody or Void Heart are obtained.
+- Extra Platforms: Adds small platforms near locations where the player would otherwise softlock, mainly in areas like Royal Waterways or Ancient Basin where vertical movement is often needed.
+- Salubra Notches: Allows the player to choose whether Salubra Charm Notches are randomized as part of the Charm Notches pool, are always vanilla or random, or should behave as in Randomizer 2 and 3, where each notch is automatically given when the player collects 5, 10, 18, and 25 notches.
 - Mask Shards: Allows replacing randomized mask shards with double or quadruple shards, adding up to the same number of masks.
 - Vessel Fragments: Allows replacing randomized vessel fragments with double or triple fragments, adding up to the same number of vessels.
-    - These settings may be desired to reduce the number of items, particularly in opposition to Duplicate Items.
-- Randomize Notch Costs: This setting randomizes the costs of all 40 charms uniformly so that the costs add to a total between 70 and 110. The notch cost will subsequently be displayed as part of the charm name. This does not affect future cost modifications, such as when Carefree Melody or Void Heart are obtained.
-- Salubra Notches: Allows the player to choose whether Salubra Charm Notches are randomized as part of the Charm Notches pool, are always vanilla or random, or should behave as in Randomizer 2 and 3, where each notch is automatically given when the player collects 5, 10, 18, and 25 notches.
+    - These last two settings may be desired to reduce the number of items, particularly in opposition to Duplicate Items.
+
 
 ### Cursed Settings
 
@@ -146,7 +148,8 @@ Settings which do not fit into the other classifications.
 - Remove Spell Upgrades: Removes Shade Soul, Descending Dark, and Abyss Shriek. Additionally, modifies spells so that they cannot be upgraded beyond the first level, even with duplicate items.
 - Cursed Masks: The Knight starts with only one mask, and an additional 16 mask shards are randomized. Be warned that this setting interacts with Replace Junk With One Geo to remove the added mask shards, if both are active.
 - Cursed Notches: The Knight starts with only one charm notch, and an additional 2 charm notches are randomized. Be warned that this setting interacts with Replace Junk With One Geo to remove the added charm notches, if both are active.
-- Randomize Mimics: Add the four non-colo mimic locations to the randomization pool (some grubs may turn into mimics). With grubs unrandomized, instead randomize the mimics and grubs among themselves (some grubs may turn into mimics).
+- Randomize Mimics: Add the four non-colo mimic locations to the randomization pool (some grubs may turn into mimics). With grubs unrandomized, instead randomize the mimics and grubs among themselves.
+- Maximum Grubs Replaced By Mimics: When Randomize Mimics is enabled, this setting allows the randomizer to replace grubs with mimics. The maximum here is inclusive. Grub replacement can happen whether grubs are randomized or not. The number of replaced grubs will be clamped to 46 - CostSettings.MaximumGrubCost - CostSettings.GrubTolerance, to ensure all grub costs remain payable.
 
 ### Transition Settings
 

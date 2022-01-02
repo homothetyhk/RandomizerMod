@@ -68,7 +68,8 @@ namespace RandomizerMod.Settings
 
                 "2MASKS" => !GS.CursedSettings.CursedMasks,
                 
-                "VERTICAL" => false,
+                "VERTICAL" => GS.StartItemSettings.VerticalMovement != StartItemSettings.StartVerticalType.None 
+                    && GS.StartItemSettings.VerticalMovement != StartItemSettings.StartVerticalType.ZeroOrMore,
                 _ => throw new NotImplementedException()
             };
         }

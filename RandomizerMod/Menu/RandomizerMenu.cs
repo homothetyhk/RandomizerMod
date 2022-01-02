@@ -95,6 +95,7 @@ namespace RandomizerMod.Menu
         MenuPreset<LongLocationSettings> LongLocationPreset;
         MenuPreset<CursedSettings> CursedPreset;
         MenuPreset<TransitionSettings> TransitionPreset;
+        MenuPreset<MiscSettings> MiscPreset;
         MenuPreset<DuplicateItemSettings> DuplicateItemPreset;
 
         SmallButton[] PresetButtons => new SmallButton[]
@@ -108,6 +109,7 @@ namespace RandomizerMod.Menu
             LongLocationPreset,
             CursedPreset,
             TransitionPreset,
+            MiscPreset,
             DuplicateItemPreset,
         };
         GridItemPanel StartGIP;
@@ -408,6 +410,11 @@ namespace RandomizerMod.Menu
                 TransitionPresetData.TransitionPresets, Settings.TransitionSettings,
                 ts => ts.Caption(),
                 transitionMEF);
+
+            MiscPreset = new MenuPreset<MiscSettings>(StartPage, "Miscellaneous",
+                MiscPresetData.MiscPresets, Settings.MiscSettings,
+                ms => ms.Caption(),
+                miscMEF);
 
             DuplicateItemPreset = new MenuPreset<DuplicateItemSettings>(StartPage, "Duplicate Items",
                 DuplicateItemPresetData.Presets, Settings.DuplicateItemSettings, ds => ds.Caption(), duplicateItemMEF);

@@ -12,6 +12,7 @@ namespace RandomizerMod.Settings
         public bool CursedMasks;
         public bool CursedNotches;
         public bool RandomizeMimics;
+        public int MaximumGrubsReplacedByMimics;
 
         public string ToMultiline()
         {

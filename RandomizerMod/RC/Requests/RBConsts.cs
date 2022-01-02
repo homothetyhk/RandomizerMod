@@ -23,10 +23,6 @@
         /// </summary>
         public const string GrubMimicGroup = "Grub Mimic Group";
 
-        // TODO: move these to settings
-        public const int MIN_MIMIC_COUNT = 4;
-        public const int MAX_MIMIC_COUNT = 14;
-
         /// <summary>
         /// Label for the corresponding matched transition group.
         /// </summary>

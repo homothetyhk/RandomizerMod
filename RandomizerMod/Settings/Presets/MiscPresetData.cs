@@ -9,7 +9,7 @@ namespace RandomizerMod.Settings.Presets
     {
         public static MiscSettings Standard;
         public static MiscSettings Classic;
-        public static MiscSettings Special;
+        public static MiscSettings ConsolidatedItems;
         public static Dictionary<string, MiscSettings> MiscPresets;
 
         static MiscPresetData()
@@ -19,6 +19,8 @@ namespace RandomizerMod.Settings.Presets
                 MaskShards = MiscSettings.MaskShardType.FourShardsPerMask,
                 VesselFragments = MiscSettings.VesselFragmentType.ThreeFragmentsPerVessel,
                 RandomizeNotchCosts = true,
+                ExtraPlatforms = true,
+                SalubraNotches = MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool,
             };
 
             Classic = new MiscSettings
@@ -26,20 +28,24 @@ namespace RandomizerMod.Settings.Presets
                 MaskShards = MiscSettings.MaskShardType.FourShardsPerMask,
                 VesselFragments = MiscSettings.VesselFragmentType.ThreeFragmentsPerVessel,
                 RandomizeNotchCosts = false,
+                ExtraPlatforms = true,
+                SalubraNotches = MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold,
             };
 
-            Special = new MiscSettings
+            ConsolidatedItems = new MiscSettings
             {
                 MaskShards = MiscSettings.MaskShardType.OneShardPerMask,
                 VesselFragments = MiscSettings.VesselFragmentType.OneFragmentPerVessel,
                 RandomizeNotchCosts = true,
+                ExtraPlatforms = true,
+                SalubraNotches = MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool,
             };
 
             MiscPresets = new Dictionary<string, MiscSettings>
             {
                 { "Standard", Standard },
                 { "Classic", Classic },
-                { "Special", Special },
+                { "Consolidated Items", ConsolidatedItems },
             };
         }
     }

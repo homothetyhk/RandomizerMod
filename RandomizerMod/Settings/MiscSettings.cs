@@ -1,38 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace RandomizerMod.Settings
+﻿namespace RandomizerMod.Settings
 {
-    [Serializable]
     public class MiscSettings : SettingsModule
     {
+        public bool RandomizeNotchCosts;
+        public bool ExtraPlatforms;
+        public SalubraNotchesSetting SalubraNotches;
+        public MaskShardType MaskShards;
+        public VesselFragmentType VesselFragments;
+
         public enum MaskShardType
         {
             FourShardsPerMask,
             TwoShardsPerMask,
             OneShardPerMask
         }
-        public MaskShardType MaskShards;
-
+        
         public enum VesselFragmentType
         {
             ThreeFragmentsPerVessel,
             TwoFragmentsPerVessel,
             OneFragmentPerVessel
         }
-        public VesselFragmentType VesselFragments;
-
-        public bool RandomizeNotchCosts;
-
+        
         public enum SalubraNotchesSetting
         {
             GroupedWithCharmNotchesPool,
             Vanilla,
             Randomized,
             AutoGivenAtCharmThreshold
-        }
-        public SalubraNotchesSetting SalubraNotches;
+        }   
     }
 }

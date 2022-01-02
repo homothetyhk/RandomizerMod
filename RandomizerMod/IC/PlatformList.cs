@@ -30,7 +30,7 @@ namespace RandomizerMod.IC
 
             List<SmallPlatform> plats = new();
 
-            // TODO: extra platform settings check
+            if (!gs.MiscSettings.ExtraPlatforms) return plats;
 
             // Platforms to climb out from basin wanderer's journal
             plats.Add(new() { SceneName = SceneNames.Abyss_02, X = 128.3f, Y = 7f, Test = lacksLeftClaw });
