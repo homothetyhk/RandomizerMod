@@ -1008,14 +1008,20 @@ namespace RandomizerMod.Menu
                         break;
                 }
 
-                self.Text.text = "Error: See ModLog";
-                self.Lock();
+                if (self != null)
+                {
+                    self.Text.text = "Error: See ModLog";
+                    self.Lock();
+                }
             }
             catch (Exception e)
             {
                 LogError(e.ToString());
-                self.Text.text = "Error: See ModLog";
-                self.Lock();
+                if (self != null)
+                {
+                    self.Text.text = "Error: See ModLog";
+                    self.Lock();
+                }
             }
         }
     }
