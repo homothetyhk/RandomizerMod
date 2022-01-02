@@ -10,7 +10,7 @@ using RandomizerMod.Settings;
 
 namespace RandomizerMod
 {
-    public class RandomizerMod : Mod, IGlobalSettings<GlobalSettings>, ILocalSettings<RandomizerSettings>
+    public class RandomizerMod : Mod, IGlobalSettings<GlobalSettings>, ILocalSettings<RandomizerSettings>, ICustomMenuMod
     {
         private readonly string _version = $"PRERELEASE: {GetSHA1()}";
         public override string GetVersion() => _version;
@@ -92,6 +92,12 @@ namespace RandomizerMod
             Assembly = typeof(RandomizerMod).Assembly;
             Location = Assembly.Location;
             Folder = Path.GetDirectoryName(Location);
+        }
+
+        public bool ToggleButtonInsideMenu => false;
+        public MenuScreen GetMenuScreen(MenuScreen modListMenu, ModToggleDelegates? _)
+        {
+            return Menu.ModMenu.GetRandomizerMenuScreen(modListMenu);
         }
     }
 }
