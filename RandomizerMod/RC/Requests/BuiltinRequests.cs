@@ -54,10 +54,14 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(30f, ApplyBossEssenceLongLocationSetting);
             OnUpdate.Subscribe(30f, ApplyLongLocationPreviewSettings);
 
+            OnUpdate.Subscribe(99f, ApplyItemPlacementStrategy);
+            OnUpdate.Subscribe(99f, ApplyTransitionPlacementStrategy);
+
             OnUpdate.Subscribe(100f, ApplyItemPostPermuteEvents);
             OnUpdate.Subscribe(100f, ApplyDefaultItemPadding);
             OnUpdate.Subscribe(100f, ApplyConnectAreasPostPermuteEvent);
-            OnUpdate.Subscribe(100f, ApplyTransitionPlacementStrategy);
+            OnUpdate.Subscribe(100f, ApplyAreaConstraint);
+            OnUpdate.Subscribe(100f, ApplyDerangedConstraint);
         }
 
 
@@ -269,7 +273,7 @@ namespace RandomizerMod.RC
                     gb = null;
                     return false;
                 }
-                OnGetGroupFor.Subscribe(-1000f, MatchedTryResolveGroup);
+                rb.OnGetGroupFor.Subscribe(-1000f, MatchedTryResolveGroup);
             }
             else
             {
@@ -323,7 +327,7 @@ namespace RandomizerMod.RC
                     gb = default;
                     return false;
                 }
-                OnGetGroupFor.Subscribe(-1000f, NonMatchedTryResolveGroup);
+                rb.OnGetGroupFor.Subscribe(-1000f, NonMatchedTryResolveGroup);
             }
         }
 
@@ -1405,6 +1409,14 @@ namespace RandomizerMod.RC
             }
         }
 
+        public static void ApplyTransitionPlacementStrategy(RequestBuilder rb)
+        {
+            foreach (GroupBuilder gb in rb.EnumerateTransitionGroups())
+            {
+                gb.strategy ??= rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
+            }
+        }
+
         public static void ApplyConnectAreasPostPermuteEvent(RequestBuilder rb)
         {
             if (rb.gs.TransitionSettings.AreaConstraint != TransitionSettings.AreaConstraintSetting.None)
@@ -1452,7 +1464,7 @@ namespace RandomizerMod.RC
             }
         }
 
-        public static void ApplyTransitionPlacementStrategy(RequestBuilder rb)
+        public static void ApplyAreaConstraint(RequestBuilder rb)
         {
             if (rb.gs.TransitionSettings.AreaConstraint != TransitionSettings.AreaConstraintSetting.None)
             {
@@ -1481,6 +1493,46 @@ namespace RandomizerMod.RC
                         s.Constraints += AreasMatch;
                     }
                     else throw new InvalidOperationException("Connected areas conflict with transition group placement strategy!");
+                }
+            }
+        }
+
+        public static void ApplyDerangedConstraint(RequestBuilder rb)
+        {
+            if (!rb.gs.CursedSettings.Deranged) return;
+
+            static bool NotVanillaTransition(IRandoItem item, IRandoLocation location)
+            {
+                if (Data.GetTransitionDef(location.Name) is not TransitionDef source)
+                {
+                    return true;
+                }
+
+                return source.VanillaTarget != item.Name;
+            }
+
+            Dictionary<string, HashSet<string>> vanillaLookup = Data.Pools
+                .SelectMany(p => p.Vanilla)
+                .GroupBy(v => v.location, v => v.item)
+                .ToDictionary(g => g.Key, g => new HashSet<string>(g));
+            bool NotVanillaLocation(IRandoItem item, IRandoLocation location)
+            {
+                return !vanillaLookup.TryGetValue(location.Name, out HashSet<string> items)
+                    || !items.Contains(item.Name);
+            }
+
+            foreach (GroupBuilder gb in rb.EnumerateTransitionGroups())
+            {
+                if (gb.strategy is DefaultGroupPlacementStrategy dgps)
+                {
+                    dgps.Constraints += NotVanillaTransition;
+                }
+            }
+            foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
+            {
+                if (gb.strategy is DefaultGroupPlacementStrategy dgps)
+                {
+                    dgps.Constraints += NotVanillaLocation;
                 }
             }
         }

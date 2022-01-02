@@ -502,7 +502,7 @@ namespace RandomizerMod.Menu
             MiscSubpage.Add(miscVIP);
 
             CursedSubpage = new Subpage(AdvancedSettingsPage, "Curse Options");
-            cursedVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, cursedMEF.Elements);
+            cursedVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, cursedMEF.Elements);
             CursedSubpage.Add(cursedVIP);
 
             TransitionSubpage = new Subpage(AdvancedSettingsPage, "Transition Randomizer");

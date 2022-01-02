@@ -102,6 +102,8 @@ namespace RandomizerMod.RC
             };
             MainItemStage.Add(MainItemGroup);
             _stages.Add(MainItemStage);
+
+            OnGetGroupFor = new(out _onGetGroupForOwner);
         }
 
         public enum ElementType
@@ -568,8 +570,11 @@ namespace RandomizerMod.RC
         }
 
         public delegate bool GroupResolver(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb);
-        public static readonly PriorityEvent<GroupResolver> OnGetGroupFor = new(out _onGetGroupForOwner);
-        private static readonly PriorityEvent<GroupResolver>.IPriorityEventOwner _onGetGroupForOwner;
+        public static readonly PriorityEvent<GroupResolver> OnGetGroupGlobalFor = new(out _onGetGroupForGlobalOwner);
+        private static readonly PriorityEvent<GroupResolver>.IPriorityEventOwner _onGetGroupForGlobalOwner;
+
+        public readonly PriorityEvent<GroupResolver> OnGetGroupFor;
+        private readonly PriorityEvent<GroupResolver>.IPriorityEventOwner _onGetGroupForOwner;
 
         public delegate void RequestBuilderUpdateHandler(RequestBuilder rb);
         public static readonly PriorityEvent<RequestBuilderUpdateHandler> OnUpdate = new(out _onUpdateOwner);

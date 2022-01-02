@@ -9,6 +9,7 @@ namespace RandomizerMod.Settings
         public bool LongerProgressionChains;
         public bool ReplaceJunkWithOneGeo;
         public bool RemoveSpellUpgrades;
+        public bool Deranged;
         public bool CursedMasks;
         public bool CursedNotches;
         public bool RandomizeMimics;

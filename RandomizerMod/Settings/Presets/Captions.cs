@@ -83,6 +83,7 @@ namespace RandomizerMod.Settings.Presets
             if (cs.ReplaceJunkWithOneGeo) sb.Append("Luxury items like mask shards and pale ore and the like are replaced with 1 geo pickups. ");
             if (cs.RemoveSpellUpgrades) sb.Append("Spell upgrades are completely removed. ");
             if (cs.LongerProgressionChains) sb.Append("Progression items are harder to find on average. ");
+            if (cs.Deranged) sb.Append("Placements are much less likely to be vanilla. ");
             if (cs.CursedMasks) sb.Append("Start with only 1 mask. ");
             if (cs.CursedNotches) sb.Append("Start with only 1 charm notch. ");
             if (cs.RandomizeMimics) sb.Append("Some grub bottles may contain a surprise...");
