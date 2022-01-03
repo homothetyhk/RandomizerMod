@@ -139,7 +139,9 @@ namespace RandomizerMod.Settings
             StringBuilder sb = new(Convert.ToBase64String(stream.ToArray()));
             foreach (FieldInfo f in rd.stringFields)
             {
-                sb.Append($"{STRING_SEPARATOR}{Convert.ToBase64String(Encoding.ASCII.GetBytes((string)f.GetValue(o)))}");
+                string s = (string)f.GetValue(o);
+                sb.Append(STRING_SEPARATOR);
+                if (s != null) sb.Append(Convert.ToBase64String(Encoding.ASCII.GetBytes(s)));
                 // this is less compressed than just adding the string directly, but it avoids the risk of special characters in the string
                 // and critically, prevents people from memeing about the start location name being readable from the settings string.
             }
@@ -205,7 +207,9 @@ namespace RandomizerMod.Settings
                 cap = Math.Min(rd.stringFields.Length, pieces.Length - 1);
                 for (int i = 0; i < cap; i++)
                 {
-                    rd.stringFields[i].SetValue(o, Encoding.ASCII.GetString(Convert.FromBase64String(pieces[i + 1])));
+                    string s = pieces[i + 1];
+                    s = s.Length != 0 ? Encoding.ASCII.GetString(Convert.FromBase64String(s)) : null;
+                    rd.stringFields[i].SetValue(o, s);
                 }
             }
             catch (Exception e)

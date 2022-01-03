@@ -33,12 +33,19 @@ namespace RandomizerMod.Settings
 
         public string Serialize()
         {
-            return string.Join(BinaryFormatting.CLASS_SEPARATOR.ToString(), modules.Select(o => BinaryFormatting.Serialize(o)).ToArray());
+            return RandomizerMod.Version + string.Join(BinaryFormatting.CLASS_SEPARATOR.ToString(), modules.Select(o => BinaryFormatting.Serialize(o)).ToArray());
         }
 
         public static GenerationSettings Deserialize(string code)
         {
-            GenerationSettings gs = new GenerationSettings();
+            if (!code.StartsWith(RandomizerMod.Version))
+            {
+                LogHelper.LogWarn("Invalid settings code: incorrect version.");
+                return null;
+            }
+            else code = code.Substring(RandomizerMod.Version.Length);
+
+            GenerationSettings gs = new();
             string[] pieces = code.Split(BinaryFormatting.CLASS_SEPARATOR);
             object[] fields = gs.modules;
 
