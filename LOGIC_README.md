@@ -167,7 +167,8 @@ This file serves to document the randomizer logic.
 			- In item or area randomizers, airstall can be required to cross *Mines_28* (the room outside Crystallized Mound) right to left. Soul can be refilled in the dark room.
 			- In item randomizer, airstall can be required to cross *Mines_28* left to right. Only two casts are required, so another cast can be used to open Crystallized Mound, and soul can be refilled inside the room.
 			- In all modes, airstall can be required to reach the Bretta bench from the bottom left transition of *Fungus2_13*, since soul can be refilled on the subsequent enemies of the room.
-			-
+			- In all modes, airstall can be required to reach the rest of *Deepnest_East_04* (Bardoon's room) from the bottom right transition, since soul can be refilled on the subsequent enemies of the room.
+			- 
 
 ## Local Logic Edits
 

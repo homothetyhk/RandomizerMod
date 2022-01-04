@@ -26,6 +26,9 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(-100f, ApplyEggShopDef);
             OnUpdate.Subscribe(-100f, ApplySalubraCharmDef);
 
+            OnUpdate.Subscribe(-80f, ApplyWorldSenseDef);
+            OnUpdate.Subscribe(-80f, ApplyFocusDef);
+
             OnUpdate.Subscribe(0f, ApplyPoolSettings);
             OnUpdate.Subscribe(0f, ApplyGrimmchildSetting);
             OnUpdate.Subscribe(0f, ApplySplitCloakShadeCloakRandomize);
@@ -472,6 +475,24 @@ namespace RandomizerMod.RC
                     rl.AddCost(new SimpleCost(lm.GetTerm("RANCIDEGGS"), rng.Next(gs.CostSettings.MinimumEggCost, gs.CostSettings.MaximumEggCost + 1)));
                 };
             });
+        }
+
+        public static void ApplyWorldSenseDef(RequestBuilder rb)
+        {
+            if (rb.gs.PoolSettings.LoreTablets)
+            {
+                rb.EditLocationInfo(LocationNames.World_Sense, info => info.customPlacementFetch =
+                    (factory, next) => factory.FetchOrMakePlacementWithEvents(LocationNames.Lore_Tablet_World_Sense, next));
+            }
+        }
+
+        public static void ApplyFocusDef(RequestBuilder rb)
+        {
+            if (rb.gs.PoolSettings.LoreTablets)
+            {
+                rb.EditLocationInfo(LocationNames.Focus, info => info.customPlacementFetch =
+                    (factory, next) => factory.FetchOrMakePlacementWithEvents(LocationNames.Lore_Tablet_Kings_Pass_Focus, next));
+            }
         }
 
         public static void ApplyStartGeo(RequestBuilder rb)
@@ -1309,6 +1330,19 @@ namespace RandomizerMod.RC
                 gb.Items.Set(ItemNames.Mimic_Grub, 4 + extraMimics);
                 gb.Locations.AddRange(grubPool.IncludeLocations);
                 gb.Locations.AddRange(mimicPool.IncludeLocations);
+
+                bool TryMatchGroup(RequestBuilder builder, string item, ElementType type, out GroupBuilder group)
+                {
+                    if (item == ItemNames.Grub || item == ItemNames.Mimic_Grub)
+                    {
+                        group = gb;
+                        return true;
+                    }
+
+                    group = null;
+                    return false;
+                }
+                rb.OnGetGroupFor.Subscribe(-2f, TryMatchGroup);
             }
             else if (rb.gs.CursedSettings.RandomizeMimics)
             {

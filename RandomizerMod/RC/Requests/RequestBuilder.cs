@@ -570,9 +570,6 @@ namespace RandomizerMod.RC
         }
 
         public delegate bool GroupResolver(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb);
-        public static readonly PriorityEvent<GroupResolver> OnGetGroupGlobalFor = new(out _onGetGroupForGlobalOwner);
-        private static readonly PriorityEvent<GroupResolver>.IPriorityEventOwner _onGetGroupForGlobalOwner;
-
         public readonly PriorityEvent<GroupResolver> OnGetGroupFor;
         private readonly PriorityEvent<GroupResolver>.IPriorityEventOwner _onGetGroupForOwner;
 

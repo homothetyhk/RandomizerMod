@@ -596,6 +596,8 @@ namespace RandomizerMod.Menu
             novMEF.ElementLookup[nameof(NoveltySettings.RandomizeElevatorPass)].SelfChanged += UpdateStartLocation;
             cursedMEF.ElementLookup[nameof(CursedSettings.CursedMasks)].SelfChanged += UpdateStartLocation;
 
+            startItemMEF.ElementLookup[nameof(StartItemSettings.VerticalMovement)].SelfChanged += UpdateStartLocation;
+
             startLocationSwitch.Changed += Settings.StartLocationSettings.SetStartLocation;
             startLocationSwitch.Changed += (s) => UpdateStartLocationPreset();
             startLocationTypeSwitch.ValueChanged += UpdateStartLocationSwitch;
