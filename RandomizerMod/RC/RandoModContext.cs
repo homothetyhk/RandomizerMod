@@ -20,19 +20,13 @@ namespace RandomizerMod.RC
                 Setters.Add(new(lm.GetTerm(setting), 1));
             }
 
-            switch (gs.TransitionSettings.Mode)
+            Setters.Add(new(lm.GetTerm(gs.TransitionSettings.Mode switch
             {
-                case TransitionSettings.TransitionMode.None:
-                    Setters.Add(new(lm.GetTerm("ITEMRANDO"), 1));
-                    break;
-                case TransitionSettings.TransitionMode.MapAreaRandomizer:
-                case TransitionSettings.TransitionMode.FullAreaRandomizer:
-                    Setters.Add(new(lm.GetTerm("AREARANDO"), 1));
-                    break;
-                case TransitionSettings.TransitionMode.RoomRandomizer:
-                    Setters.Add(new(lm.GetTerm("ROOMRANDO"), 1));
-                    break;
-            }
+                TransitionSettings.TransitionMode.None => "ITEMRANDO",
+                TransitionSettings.TransitionMode.MapAreaRandomizer => "MAPAREARANDO",
+                TransitionSettings.TransitionMode.FullAreaRandomizer => "FULLAREARANDO",
+                _ => "ROOMRANDO",
+            }), 1));
 
             StartDef start = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
             Setters.Add(new(lm.GetTerm(start.Transition), 1));

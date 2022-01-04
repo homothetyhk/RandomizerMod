@@ -51,14 +51,26 @@ namespace RandomizerMod.Settings
             return name switch
             {
                 "MILDSKIPS" => GS.SkipSettings.MildSkips,
+                "PRECISEMOVEMENT" => GS.SkipSettings.PreciseMovement,
+                "BACKGROUNDPOGOS" => GS.SkipSettings.BackgroundObjectPogos,
+                "ENEMYPOGOS" => GS.SkipSettings.EnemyPogos,
+                "OBSCURESKIPS" => GS.SkipSettings.ObscureSkips,
                 "SHADESKIPS" => GS.SkipSettings.ShadeSkips,
+                "INFECTIONSKIPS" => GS.SkipSettings.InfectionSkips,
                 "ACIDSKIPS" => GS.SkipSettings.AcidSkips,
                 "FIREBALLSKIPS" => GS.SkipSettings.FireballSkips,
                 "SPIKETUNNELS" => GS.SkipSettings.SpikeTunnels,
                 "DARKROOMS" => GS.SkipSettings.DarkRooms,
                 "SPICYSKIPS" => GS.SkipSettings.SpicySkips,
 
+                "DAMAGEBOOSTS" => GS.SkipSettings.DamageBoosts,
+                "DANGEROUSSKIPS" => GS.SkipSettings.DangerousSkips,
+                "COMPLEXSKIPS" => GS.SkipSettings.ComplexSkips,
+                "DIFFICULTSKIPS" => GS.SkipSettings.DifficultSkips,
+
                 "ITEMRANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.None,
+                "MAPAREARANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.MapAreaRandomizer,
+                "FULLAREARANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.FullAreaRandomizer,
                 "AREARANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.FullAreaRandomizer 
                 || GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.MapAreaRandomizer,
                 "ROOMRANDO" => GS.TransitionSettings.Mode == TransitionSettings.TransitionMode.RoomRandomizer,
@@ -70,7 +82,7 @@ namespace RandomizerMod.Settings
                 
                 "VERTICAL" => GS.StartItemSettings.VerticalMovement != StartItemSettings.StartVerticalType.None 
                     && GS.StartItemSettings.VerticalMovement != StartItemSettings.StartVerticalType.ZeroOrMore,
-                _ => throw new NotImplementedException()
+                _ => throw new ArgumentException($"Unrecognized term in SettingsPM: {name}"),
             };
         }
     }

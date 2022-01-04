@@ -29,7 +29,7 @@ namespace RandomizerMod.RC
 
         public RandoController(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
         {
-            this.gs = gs;
+            this.gs = gs.Clone() as GenerationSettings;
             this.rm = rm;
             this.pm = pm;
             rng = new Random(gs.Seed + 4);
@@ -132,7 +132,7 @@ namespace RandomizerMod.RC
 
             RandomizerMod.RS = new()
             {
-                GenerationSettings = gs.Clone() as GenerationSettings,
+                GenerationSettings = gs,
                 Context = ctx,
                 ProfileID = GameManager.instance.profileID,
                 TrackerData = new(),

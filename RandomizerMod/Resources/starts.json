@@ -114,7 +114,8 @@
     "y": 25.4,
     "zone": "CROSSROADS",
     "transition": "Crossroads_50[right1]",
-    "logic": "ITEMRANDO + (MILDSKIPS | ELEVATOR) | AREARANDO | ROOMRANDO"
+    "logic": "(ITEMRANDO | MAPAREARANDO) + (ENEMYPOGOS | ELEVATOR) | FULLAREARANDO | ROOMRANDO"
+      // first branch: ensure upper Resting Grounds or King's Station is accessible
   },
   "City Storerooms": {
     "name": "City Storerooms",
@@ -159,7 +160,8 @@
     "y": 15.4,
     "zone": "WASTES",
     "transition": "Fungus2_14[right1]",
-    "logic": "(ITEMRANDO + MILDSKIPS) | (AREARANDO + MILDSKIPS) | ROOMRANDO | VERTICAL"
+    "logic": "(ITEMRANDO | MAPAREARANDO | FULLAREARANDO) + ENEMYPOGOS | ROOMRANDO | VERTICAL"
+    // first branch: ensure Queen's Station (or on full area, Fungus2_12[left1]) is reachable
   },
   "Kingdom's Edge": {
     "name": "Kingdom's Edge",
@@ -168,7 +170,8 @@
     "y": 4.4,
     "zone": "OUTSKIRTS",
     "transition": "Deepnest_East_15[left1]",
-    "logic": "(ITEMRANDO + MILDSKIPS + SWIM) | AREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "(ITEMRANDO + ENEMYPOGOS + SWIM) | MAPAREARANDO | FULLAREARANDO | ROOMRANDO | VERTICAL"
+      // first branch: ensure King's Station Stag is reachable
   },
   "Hallownest's Crown": {
     "name": "Hallownest's Crown",
@@ -177,7 +180,7 @@
     "y": 46.4,
     "zone": "MINES",
     "transition": "Mines_34[bot1]",
-    "logic": "(ITEMRANDO + DARKROOMS) | AREARANDO | ROOMRANDO"
+    "logic": "(ITEMRANDO | MAPAREARANDO) + DARKROOMS | FULLAREARANDO | ROOMRANDO"
   },
   "West Waterways": {
     "name": "West Waterways",
@@ -186,7 +189,7 @@
     "y": 30.4,
     "zone": "WATERWAYS",
     "transition": "Waterways_09[left1]",
-    "logic": "(ITEMRANDO + MILDSKIPS + SHADESKIPS + 2MASKS) | AREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "(ITEMRANDO + ENEMYPOGOS + SHADESKIPS + 2MASKS) | MAPAREARANDO | FULLAREARANDO | ROOMRANDO | VERTICAL"
   },
   "Queen's Gardens": {
     "name": "Queen's Gardens",
@@ -195,7 +198,8 @@
     "y": 63.4,
     "zone": "ROYAL_GARDENS",
     "transition": "Fungus3_13[left1]",
-    "logic": "(ITEMRANDO + SPICYSKIPS) | (AREARANDO + SPICYSKIPS) | ROOMRANDO"
+    "logic": "(ITEMRANDO | MAPAREARANDO | FULLAREARANDO) + ENEMYPOGOS + DANGEROUSSKIPS | ROOMRANDO"
+      // skip logic is minimum to ensure Hallownest_Seal-Queen's_Gardens is reachable
   },
   "Distant Village": {
     "name": "Distant Village",
@@ -204,7 +208,7 @@
     "y": 13.4,
     "zone": "DEEPNEST",
     "transition": "Room_spider_small[left1]",
-    "logic": "AREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "FULLAREARANDO | ROOMRANDO | VERTICAL"
   },
   "Far Greenpath": {
     "name": "Far Greenpath",
@@ -213,7 +217,7 @@
     "y": 23.4,
     "zone": "GREEN_PATH",
     "transition": "Fungus1_13[left1]",
-    "logic": "AREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "MAPAREARANDO | FULLAREARANDO | ROOMRANDO | VERTICAL"
   },
   "Hive": {
     "name": "Hive",

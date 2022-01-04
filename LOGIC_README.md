@@ -5,10 +5,14 @@ This file serves to document the randomizer logic.
 ### Precise Movement
 - Precise Movement is a skip category used for ordinary movement with a very low margin of error. Precise Movement cases often, but not always, have a large penalty for failure.
 - In logic, Precise Movement is indicated with the **PRECISEMOVEMENT** token.
-- More advanced skips such as Fireball Skips or Acid Skips generally do not include the Precise Movement modifier.
+- More advanced skips such as Fireball Skips or Acid Skips generally do not include the Precise Movement modifier, but rather one of OBSCURESKIPS, COMPLEXSKIPS, or DIFFICULTSKIPS as appropriate.
 - Examples include:
     - Jumping to *Hallownest_Seal-Fungal_Wastes_Sporgs* with no items.
     - Jumping to *Ancient_Basin_Map* with no items.
+	- Navigating through the Lifeblood Core room with no items (logic for *Lifeblood_Core*, *Arcane_Egg-Lifeblood_Core*, *Warp-Lifeblood_Core_to_Abyss*).
+	- Coyote jump to reach the warp to Palace Grounds in White_Palace_03 (logic for *Warp-White_Palace_Atrium_to_Palace_Grounds*).
+	- Coyote jump and right dash to reach the platform in lower King's Station, from the bottom left entrance without Swim (logic for transitions in *Ruins2_06* from *Ruins2_06[left2]*).
+	- Using Mantis Claw and Crystal Heart to pass under conveyors (logic for *Mines_37*, including *Geo_Chest-Crystal_Peak*). Also considered an Obscure Skip.
     
 ### Background Object Pogos
 - Background Object Pogos are as the name suggests.
@@ -30,6 +34,9 @@ This file serves to document the randomizer logic.
 - In logic, Obscure Skips are indicated with the **OBSCURESKIPS** token.
 - Examples include:
     - Destroying horizontal planks in Ancestral Mound or Kingdom's Edge using Crystal Heart.
+	- Itemless explosion pogo to Mantis Village.
+	- Corpse explosion pogo with wings below Fungal Wastes Cornifer.
+	- Using Mantis Claw and Crystal Heart to pass under conveyors (logic for *Mines_37*, including *Geo_Chest-Crystal_Peak*). Also considered Precise Movement.
     
 ### Shade Skips
 - Shade Skips are skips which utilize the shade, often by pogoing it or using it for damage boosts.
@@ -81,19 +88,86 @@ This file serves to document the randomizer logic.
 - Generally, this modifier is not applied to Acid Skips or Spike Tunnels, which are implicitly understood to be dangerous.
 - In logic, Dangerous Skips are indicated with the **DANGEROUSSKIPS** token.
 - Examples include:
-	-
+	- Skips requiring pogoing Dirtcarvers in the trap Deepnest entrance (logic for *Deepnest_01b[top1]*).
+	- Pogoing up the Quick Slash room (Deepnest_East_14b) without items (logic for *Quick_Slash*, *Deepnest_East_14b[top1]*).
+	- 
 
 ### Complex Skips
-- Complex Skips are skips which have extended setup time or involve combining multiple types of skips in an unusual way.
+- Complex Skips are skips which have extended setup time or are obscure even by the standards of advanced skips.
 - In logic, Complex Skips are indicated with the **COMPLEXSKIPS** token.
 - Examples include:
-    -
+	- Leftward Lake of Unn acid skip, which requires spell airstall or Sharp Shadow (logic for *Fungus1_26[left1]*).
+	- *Love_Key* acid skip using Sharp Shadow.
+	- Shade skip to Blue Lake using dash and airstall (logic for *Crossroads_04[right1]*).
+	- Shade skip to *Geo_Chest-Crystal_Peak* using Grubberfly's Elegy to provoke the shade.
+    - Vengefly pogo in King's Pass to Howling Cliffs (logic for *Tutorial_01[top2]*).
+	- Vengefly pogo in Tower of Love to above Collector (logic for *Collector's_Map*, *Grub-Collector_1*, *Grub-Collector_2*, *Grub-Collector_3*).
+	- Shade skips in Beast Den without Mantis Claw (logic for locations in *Deepnest_Spider_Town*).
+	
 
 ### Difficult Skips
 - Difficult Skips are skips which are subjectively considered to be more difficult than usual.
 - In logic, Difficult Skips are indicated with the **DIFFICULTSKIPS** token.
 - Examples include:
-    -
+    - Item rando shade skip from chest above Baldur Shell to Howling Cliffs (logic for *Fungus1_28[left1]*).
+	- Pogoing a falling Gluttinous Husk to reach the bottom left transition in lower King's Station without Swim (logic for *Ruins2_06[left2]*).
+
+## Terminal Logic and Nonterminal Logic
+- Briefly, logic is terminal if it represents a goal which has a permanently saved effect. In other words, after achieving that, the player could return to start and fully reset before continuing. Terminal logic includes:
+	- Logic for locations
+	- Logic for world events such as defeating bosses, triggering levers, destroying breakable walls, and so on.
+- Nonterminal logic includes:
+	- All other waypoints, such as room waypoints, warp waypoints, *Can_Stag*, and so on.
+	- Logic for transitions.
+- The randomizer does not represent conditional logic access, such as access requiring spending soul or giving up the ability to shade skip or giving up charm slot space. As a result, conditional access cannot be freely used in nonterminal logic. Instead, logic uses the following convention:
+- For terminal logic:
+	- The player is assumed to be able to shade skip.
+	- The player is assumed to have all charm slots available.
+	- The player is assumed to have full soul.
+- For nonterminal logic,
+	- The player cannot be required to shade skip.
+	- The player cannot be required to equip charms.
+	- The player cannot be required to spend soul.
+- There are some conditions upon which nonterminal logic can be treated as terminal:
+	- In the current mode, there is a known way to restore the spent resource. For example,
+		- Fireball Skips are allowed in Room Randomizer when it is possible to refill soul in the same room from enemies after the skip.
+		- Shade Skips are allowed in any mode where there is bench access after the skip.
+		- Most resources become available once Dream Gate and essence is obtained, provided it is possible to set a Dream Gate in the room in question.
+			- Again, note that the randomizer does not track spent essence. Logic expects that essence exceeding the essence tolerance is reachable before requiring Dream Gate, and expects the player to choose a tolerance which will be sufficient for all required warps.
+	- An exhaustive list of exceptions follows:
+		- Shade Skips:
+			- In item randomizer, the shade skip in *Crossroads_04* to Blue Lake is allowed. Airstall can also be required for the shade skip. Shade skips are not required in Blue Lake unless the player can reach the bench in Resting Grounds.
+			- In item or area randomizers, the shade skip in *Fungus1_11*, the room before Massive Moss Charger, is allowed when *Fungus1_11[left1]* is not reachable otherwise, since there are no itemless skips in the following rooms which require a shade.
+			- In item or area randomizers, the wings shade skip in *Fungus1_28*, the room with Baldur Shell, to reach the upper transition *Fungus1_28[left1]* without claw, is allowed since the bench at Mato is subsequently reachable.
+			- In item or map area randomizer, the shade skip in *Fungus2_11*, replacing explosion pogo to reach Mantis Village with no items, is allowed since there are no itemless skips in the following rooms which require a shade.
+			- In item randomizer, the wings shade skip in *Fungus2_18*, below Fungal Wastes Cornifer and heading to Spore Shroom, is allowed since there are no other wings shade skips between there and the next bench in *Deepnest_30* (Deepnest Hot Springs).
+			- In item randomizer, the shade skip in *Deepnest_01b* (below the trap entrance to Deepnest) to the top transition is allowed since no other shade skips can be required to reach the bench in Queen's Station.
+			- In item or map area randomizer, the left claw shade skip in *Deepnest_03* (left of Deepnest Hot Springs) to the top transition is allowed [*missing justification*].
+			- In item or area randomizers, the left claw shade skip in *Deepnest_03* (left of Deepnest Hot Springs) to the bottom-left transition (toward Nosk grub) is allowed, since no left claw shade skips can be required for the following two rooms.
+			- In item or area randomizers, the right claw shade skip in *Deepnest_East_03* is allowed to reach the top transition (leading directly to *Wanderer's Journal-Kingdom's_Edge_Entrance*).
+			- In item or area randomizers, the wings shade skip in *Abyss_10* to the upper left transition (leading directly to *Journal_Entry-Void_Tendrils*).
+			- In item or area randomizers, the itemless shade skip in *Ruins2_06* is allowed to reach the upper right transition, leading to King's Station Stag, since that room contains a bench.
+			- In item or area randomizers, the right claw shade skip in *Mines_05* is allowed to reach the transitions above the breakable wall leading to Deep Focus, since the Crystal Guardian bench is then accessible.
+			- In item or area randomizers, the dash only shade skip in *Fungus3_13* (right of the Queen's Gardens Stag) is allowed to reach the upper transitions, since no other dash only shade skips can be required in upper Queen's Gardens.
+			- In all modes, the shade skip to reach the rest of *Fungus2_13* from the bottom left transition is allowed, since the player can use the Bretta bench after killing the shade.
+		- Fireball Skips:
+			- In item and area randomizers, the fireball skip in *Crossroads_04* to reach the Salubra bench is allowed since no soul is required inside the transition.
+			- In item randomizer, the airstall shade skip in *Crossroads_04* to Blue Lake is allowed since no soul is required in Blue Lake unless the player can reach the enemies on the opposite side.
+			- In item or area randomizers, the fireball skip in *Fungus1_11*, the room before Massive Moss Charger, is allowed when *Fungus1_11[left1]* is not reachable otherwise, since soul can be recovered in the following rooms.
+			- In item or area randomizers, the wings shade skip in *Fungus1_28* to upper Howling Cliffs can require airstall. Soul can be refilled in the following rooms.
+			- In all modes, the fireball skip to reach the top transition in *Fungus3_26* (right Fog Canyon shaft) is allowed, since it only requires one cast, and soul can be refilled on the subsequent enemies.
+			- In item and map area randomizer, the fireball skip to cross Queen's Station is allowed, since soul can be refilled in the first room of Fungal Wastes.
+			- In item or area randomizers, the fireball skip to climb *Fungus2_06* (to cross the acid pool outside Leg Eater) is allowed, since soul can be refilled on the enemies in the upper part of the room.
+			- In item randomizer, the fireball skip to cross *Fungus2_21* (to reach the City Crest gate) is allowed, since soul can be refilled in the first city room.
+			- In all modes, fireball skips in *Deepnest_39* (the dark Deepnest room with the grub and whispering root) are allowed, since soul can be refilled from the many enemies.
+			- In item and map area randomizer, fireball skips in *Ruins2_06* (lower King's Station) to reach the bottom left transition are allowed since soul can be refilled in the neighboring city room.
+			- In item randomizer, airstall can be required as part of the swim skip to cross *Ruins2_07* left to right. Soul can be refilled in the first room of Kingdom's Edge.
+			- In item or area randomizers, airstall can be required as part of the swim skip to cross *Ruins2_07* right to left. Soul can be refilled in the next room of King's Station.
+			- In item or area randomizers, airstall can be required to go through the spike tunnel below the grub in *Mines_03* to reach upper Crystal Peak. Soul can be refilled in later rooms.
+			- In item or area randomizers, airstall can be required to cross *Mines_28* (the room outside Crystallized Mound) right to left. Soul can be refilled in the dark room.
+			- In item randomizer, airstall can be required to cross *Mines_28* left to right. Only two casts are required, so another cast can be used to open Crystallized Mound, and soul can be refilled inside the room.
+			- In all modes, airstall can be required to reach the Bretta bench from the bottom left transition of *Fungus2_13*, since soul can be refilled on the subsequent enemies of the room.
+			-
 
 ## Local Logic Edits
 
