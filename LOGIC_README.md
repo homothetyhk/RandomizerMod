@@ -90,20 +90,23 @@ This file serves to document the randomizer logic.
 - Examples include:
 	- Skips requiring pogoing Dirtcarvers in the trap Deepnest entrance (logic for *Deepnest_01b[top1]*).
 	- Pogoing up the Quick Slash room (Deepnest_East_14b) without items (logic for *Quick_Slash*, *Deepnest_East_14b[top1]*).
-	- 
+	- Various Hwurmp and/or Flukefey pogos in *Waterways_04b* (Waterways Mask Shard room).
+	- Pogoing the Flukefey to cross the water with right dash and no swim in *Waterways_02*.
 
 ### Complex Skips
 - Complex Skips are skips which have extended setup time or are obscure even by the standards of advanced skips.
 - In logic, Complex Skips are indicated with the **COMPLEXSKIPS** token.
 - Examples include:
 	- Leftward Lake of Unn acid skip, which requires spell airstall or Sharp Shadow (logic for *Fungus1_26[left1]*).
+	- Swim skip in *Ruins2_07* in either direction, if done without Crystal Heart, using a combination of wings, claw, dash, and airstall or Sharp Shadow.
 	- *Love_Key* acid skip using Sharp Shadow.
 	- Shade skip to Blue Lake using dash and airstall (logic for *Crossroads_04[right1]*).
 	- Shade skip to *Geo_Chest-Crystal_Peak* using Grubberfly's Elegy to provoke the shade.
     - Vengefly pogo in King's Pass to Howling Cliffs (logic for *Tutorial_01[top2]*).
 	- Vengefly pogo in Tower of Love to above Collector (logic for *Collector's_Map*, *Grub-Collector_1*, *Grub-Collector_2*, *Grub-Collector_3*).
 	- Shade skips in Beast Den without Mantis Claw (logic for locations in *Deepnest_Spider_Town*).
-	
+	- Luring a Mantis Youth to pogo to *Geo_Rock-Mantis_Village_Above_Claw* without items.
+	- Fireball skip with left dash, right claw, and wings to get to *Rancid_Egg-Waterways_West_Bluggsac* from the right without swim.
 
 ### Difficult Skips
 - Difficult Skips are skips which are subjectively considered to be more difficult than usual.
@@ -111,6 +114,7 @@ This file serves to document the randomizer logic.
 - Examples include:
     - Item rando shade skip from chest above Baldur Shell to Howling Cliffs (logic for *Fungus1_28[left1]*).
 	- Pogoing a falling Gluttinous Husk to reach the bottom left transition in lower King's Station without Swim (logic for *Ruins2_06[left2]*).
+
 
 ## Terminal Logic and Nonterminal Logic
 - Briefly, logic is terminal if it represents a goal which has a permanently saved effect. In other words, after achieving that, the player could return to start and fully reset before continuing. Terminal logic includes:
@@ -168,6 +172,10 @@ This file serves to document the randomizer logic.
 			- In item randomizer, airstall can be required to cross *Mines_28* left to right. Only two casts are required, so another cast can be used to open Crystallized Mound, and soul can be refilled inside the room.
 			- In all modes, airstall can be required to reach the Bretta bench from the bottom left transition of *Fungus2_13*, since soul can be refilled on the subsequent enemies of the room.
 			- In all modes, airstall can be required to reach the rest of *Deepnest_East_04* (Bardoon's room) from the bottom right transition, since soul can be refilled on the subsequent enemies of the room.
+		- Charms:
+			- In item or area randomizers, Sharp Shadow can be required for the right to left King's Station swim skip. The player is expected to bench afterward at the King's Station Stag.
+			- In item randomizer, Sharp Shadow can be required for the left to right King's Station swim skip. The player is expected to bench afterward at Oro.
+			- In item or area randomizers, Sharp Shadow can be required for the right to left Lake of Unn acid skip. Any skips which require other charms in Unn's room will adjust logic accordingly.
 			- 
 
 ## Local Logic Edits

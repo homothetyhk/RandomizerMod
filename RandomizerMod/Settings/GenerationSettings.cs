@@ -11,7 +11,7 @@ namespace RandomizerMod.Settings
     {
         public int Seed;
         public TransitionSettings TransitionSettings = Presets.TransitionPresetData.None.Clone() as TransitionSettings;
-        public SkipSettings SkipSettings = Presets.SkipPresetData.Easy.Clone() as SkipSettings;
+        public SkipSettings SkipSettings = Presets.SkipPresetData.Casual.Clone() as SkipSettings;
         public PoolSettings PoolSettings = Presets.PoolPresetData.Standard.Clone() as PoolSettings;
         public NoveltySettings NoveltySettings = Presets.NoveltyPresetData.Basic.Clone() as NoveltySettings;
         public CostSettings CostSettings = Presets.CostPresetData.Standard.Clone() as CostSettings;

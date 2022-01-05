@@ -4,23 +4,21 @@ using RandomizerCore.Extensions;
 
 namespace RandomizerMod.Settings
 {
-    [Serializable]
     public class SkipSettings : SettingsModule
     {
-        public bool MildSkips;
         public bool PreciseMovement;
+        public bool ProficientCombat;
         public bool BackgroundObjectPogos;
         public bool EnemyPogos;
         public bool ObscureSkips;
         public bool ShadeSkips;
         public bool InfectionSkips;
         public bool FireballSkips;
-        public bool AcidSkips;
         public bool SpikeTunnels;
-        public bool DarkRooms;
-        public bool SpicySkips;
+        public bool AcidSkips;
         public bool DamageBoosts;
         public bool DangerousSkips;
+        public bool DarkRooms;
         public bool ComplexSkips;
         public bool DifficultSkips;
 

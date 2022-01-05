@@ -581,14 +581,7 @@ namespace RandomizerMod.Menu
                 }
             };
 
-            skipMEF.ElementLookup[nameof(SkipSettings.MildSkips)].SelfChanged += UpdateStartLocation;
-            skipMEF.ElementLookup[nameof(SkipSettings.MildSkips)].SelfChanged += UpdateStartLocation;
-            skipMEF.ElementLookup[nameof(SkipSettings.ShadeSkips)].SelfChanged += UpdateStartLocation;
-            skipMEF.ElementLookup[nameof(SkipSettings.AcidSkips)].SelfChanged += UpdateStartLocation;
-            skipMEF.ElementLookup[nameof(SkipSettings.FireballSkips)].SelfChanged += UpdateStartLocation;
-            skipMEF.ElementLookup[nameof(SkipSettings.SpikeTunnels)].SelfChanged += UpdateStartLocation;
-            skipMEF.ElementLookup[nameof(SkipSettings.DarkRooms)].SelfChanged += UpdateStartLocation;
-            skipMEF.ElementLookup[nameof(SkipSettings.SpicySkips)].SelfChanged += UpdateStartLocation;
+            foreach (IValueElement ve in skipMEF.Elements) ve.SelfChanged += UpdateStartLocation;
 
             transitionMEF.ElementLookup[nameof(TransitionSettings.Mode)].SelfChanged += UpdateStartLocation;
 

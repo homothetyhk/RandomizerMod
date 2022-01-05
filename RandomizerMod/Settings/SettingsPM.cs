@@ -50,8 +50,8 @@ namespace RandomizerMod.Settings
         {
             return name switch
             {
-                "MILDSKIPS" => GS.SkipSettings.MildSkips,
                 "PRECISEMOVEMENT" => GS.SkipSettings.PreciseMovement,
+                "PROFICIENTCOMBAT" => GS.SkipSettings.ProficientCombat,
                 "BACKGROUNDPOGOS" => GS.SkipSettings.BackgroundObjectPogos,
                 "ENEMYPOGOS" => GS.SkipSettings.EnemyPogos,
                 "OBSCURESKIPS" => GS.SkipSettings.ObscureSkips,
@@ -61,7 +61,6 @@ namespace RandomizerMod.Settings
                 "FIREBALLSKIPS" => GS.SkipSettings.FireballSkips,
                 "SPIKETUNNELS" => GS.SkipSettings.SpikeTunnels,
                 "DARKROOMS" => GS.SkipSettings.DarkRooms,
-                "SPICYSKIPS" => GS.SkipSettings.SpicySkips,
 
                 "DAMAGEBOOSTS" => GS.SkipSettings.DamageBoosts,
                 "DANGEROUSSKIPS" => GS.SkipSettings.DangerousSkips,

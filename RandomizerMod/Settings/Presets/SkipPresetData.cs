@@ -1,60 +1,116 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace RandomizerMod.Settings.Presets
+﻿namespace RandomizerMod.Settings.Presets
 {
     public static class SkipPresetData
     {
-        public static SkipSettings Easy;
-        public static SkipSettings Medium;
-        public static SkipSettings Hard;
+        public static SkipSettings Casual;
+        public static SkipSettings Experienced;
+        public static SkipSettings Advanced;
+        public static SkipSettings Fearless;
+        public static SkipSettings Foolish;
         public static Dictionary<string, SkipSettings> SkipPresets;
 
         static SkipPresetData()
         {
-            Easy = new SkipSettings
+            Casual = new SkipSettings
             {
-                MildSkips = false,
+                PreciseMovement = false,
+                ProficientCombat = false,
+                BackgroundObjectPogos = false,
+                EnemyPogos = false,
+                ObscureSkips = false,
                 ShadeSkips = false,
                 InfectionSkips = false,
                 FireballSkips = false,
-                AcidSkips = false,
                 SpikeTunnels = false,
+                AcidSkips = false,
+                DamageBoosts = false,
+                DangerousSkips = false,
                 DarkRooms = false,
-                SpicySkips = false,
+                ComplexSkips = false,
+                DifficultSkips = false,
             };
 
-            Medium = new SkipSettings
+            Experienced = new SkipSettings
             {
-                MildSkips = true,
-                ShadeSkips = true,
+                PreciseMovement = true,
+                ProficientCombat = true,
+                BackgroundObjectPogos = true,
+                EnemyPogos = true,
+                ObscureSkips = true,
+                ShadeSkips = false,
                 InfectionSkips = false,
                 FireballSkips = false,
-                AcidSkips = false,
                 SpikeTunnels = false,
+                AcidSkips = false,
+                DamageBoosts = false,
+                DangerousSkips = false,
                 DarkRooms = false,
-                SpicySkips = false,
+                ComplexSkips = false,
+                DifficultSkips = false,
             };
 
-            Hard = new SkipSettings
+            Advanced = new SkipSettings
             {
-                MildSkips = true,
+                PreciseMovement = true,
+                ProficientCombat = true,
+                BackgroundObjectPogos = true,
+                EnemyPogos = true,
+                ObscureSkips = true,
                 ShadeSkips = true,
                 InfectionSkips = true,
                 FireballSkips = true,
-                AcidSkips = true,
                 SpikeTunnels = true,
+                AcidSkips = true,
+                DamageBoosts = false,
+                DangerousSkips = false,
+                DarkRooms = false,
+                ComplexSkips = false,
+                DifficultSkips = false,
+            };
+
+            Fearless = new SkipSettings
+            {
+                PreciseMovement = true,
+                BackgroundObjectPogos = true,
+                EnemyPogos = true,
+                ObscureSkips = true,
+                ShadeSkips = true,
+                InfectionSkips = true,
+                FireballSkips = true,
+                SpikeTunnels = true,
+                AcidSkips = true,
+                DamageBoosts = true,
+                DangerousSkips = true,
+                DarkRooms = false,
+                ComplexSkips = false,
+                DifficultSkips = false,
+            };
+
+            Foolish = new SkipSettings
+            {
+                PreciseMovement = true,
+                BackgroundObjectPogos = true,
+                EnemyPogos = true,
+                ObscureSkips = true,
+                ShadeSkips = true,
+                InfectionSkips = true,
+                FireballSkips = true,
+                SpikeTunnels = true,
+                AcidSkips = true,
+                DamageBoosts = true,
+                DangerousSkips = true,
                 DarkRooms = true,
-                SpicySkips = true,
+                ComplexSkips = true,
+                DifficultSkips = true,
             };
 
             SkipPresets = new Dictionary<string, SkipSettings>
             {
-                { "Easy", Easy },
-                { "Medium", Medium },
-                { "Hard", Hard }
+                { "Casual", Casual },
+                { "Experienced", Experienced },
+                { "Advanced", Advanced },
+                { "Fearless", Fearless },
+                { "Foolish", Foolish }
             };
         }
     }
