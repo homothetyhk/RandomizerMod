@@ -4645,14 +4645,14 @@
   {
     "sceneName": "Ruins2_05",
     "gateName": "left1",
-    "logic": "Ruins2_05[left1] | Ruins2_05[top1] | (Ruins2_05[bot1] + (LEFTCLAW | WINGS | ENEMYPOGOS))",
+    "logic": "Ruins2_05[left1] | Ruins2_05[top1] | Ruins2_05[bot1] + (LEFTCLAW | WINGS | ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_05[left1]"
   },
   {
     "sceneName": "Ruins2_05",
     "gateName": "top1",
-    "logic": "Ruins2_05[top1] | Ruins2_05[left1] | (Ruins2_05[bot1] + (LEFTCLAW | WINGS | ENEMYPOGOS))",
+    "logic": "Ruins2_05[top1] | (Ruins2_05[left1] | Ruins2_05[bot1]) + (LEFTCLAW | WINGS | ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_05[top1]"
   },

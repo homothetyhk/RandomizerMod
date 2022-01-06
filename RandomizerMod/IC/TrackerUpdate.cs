@@ -79,7 +79,7 @@ namespace RandomizerMod.IC
             {
                 OnTransitionVisited?.Invoke(source, target);
 
-                if (RandomizerMod.RS.GenerationSettings.TransitionSettings.Coupled && transitionInverse.ContainsKey(target))
+                if (RandomizerMod.RS.GenerationSettings.TransitionSettings.Coupled && transitionInverse.ContainsKey(source))
                 {
                     OnTransitionVisited?.Invoke(target, source);
                 }

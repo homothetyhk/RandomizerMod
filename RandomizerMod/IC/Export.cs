@@ -65,8 +65,8 @@ namespace RandomizerMod.IC
                     X = def.X,
                     Y = def.Y,
                     MapZone = (int)def.Zone,
-                    SpecialEffects = SpecialStartEffects.Default | SpecialStartEffects.SlowSoulRefill, // TODO: identify which starts+modes don't need soul refill
-                    RespawnFacingRight = true, // TODO: are there any starts which should face left?
+                    SpecialEffects = SpecialStartEffects.Default | SpecialStartEffects.SlowSoulRefill,
+                    RespawnFacingRight = true,
                 });
             }
 

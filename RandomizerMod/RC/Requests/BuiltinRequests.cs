@@ -1324,12 +1324,11 @@ namespace RandomizerMod.RC
                 int count = 0;
                 foreach (string l in gb.Locations.EnumerateDistinct())
                 {
-                    if (Data.GetLocationDef(l) is LocationDef def && def.Multi)
+                    if (rb.TryGetLocationDef(l, out LocationDef def) && def.Multi)
                     {
                         multiSet.Add(l);
                         count += gb.Locations.GetCount(l) - 1;
                     }
-                    // TODO: move multi to LocationRequestInfo?
                 }
                 string[] multi = multiSet.OrderBy(s => s).ToArray();
                 foreach (string l in multi)
@@ -1445,24 +1444,20 @@ namespace RandomizerMod.RC
             foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
             {
                 gb.ItemPadder ??= ItemPadder;
-                gb.LocationPadder ??= LocationPadder;
+                gb.LocationPadder ??= (factory, count) => LocationPadder(gb, factory, count);
             }
 
             IEnumerable<RandoModItem> ItemPadder(RandoFactory factory, int count)
             {
                 for (int i = 0; i < count; i++) yield return factory.MakeItem(ItemNames.One_Geo);
             }
-            IEnumerable<RandoModLocation> LocationPadder(RandoFactory factory, int count)
+            IEnumerable<RandoModLocation> LocationPadder(ItemGroupBuilder gb, RandoFactory factory, int count)
             {
                 HashSet<string> multiSet = new();
-                foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
+                foreach (string l in gb.Locations.EnumerateDistinct())
                 {
-                    foreach (string l in gb.Locations.EnumerateDistinct())
-                    {
-                        if (Data.GetLocationDef(l) is LocationDef def && def.Multi) multiSet.Add(l);
-                    }
+                    if (Data.GetLocationDef(l) is LocationDef def && def.Multi) multiSet.Add(l);
                 }
-                // TODO: this method of padding does not consider group!
                 if (multiSet.Count == 0) multiSet.Add(LocationNames.Sly);
                 string[] multi = multiSet.OrderBy(s => s).ToArray();
                 for (int i = 0; i < count; i++) yield return factory.MakeLocation(rb.rng.Next(multi));

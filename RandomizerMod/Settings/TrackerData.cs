@@ -56,13 +56,9 @@ namespace RandomizerMod.Settings
         /// <summary>
         /// The ProgressionManager for the current state, with the information available to the player.
         /// </summary>
-        [JsonIgnore]
-        public ProgressionManager pm;
-
-        [JsonIgnore]
-        public LogicManager lm;
-        [JsonIgnore]
-        public RandoContext ctx;
+        [JsonIgnore] public ProgressionManager pm;
+        [JsonIgnore] public LogicManager lm;
+        [JsonIgnore] public RandoContext ctx;
         private MainUpdater mu;
 
         public void Setup(GenerationSettings gs, RandoContext ctx)
@@ -71,9 +67,9 @@ namespace RandomizerMod.Settings
             lm = ctx.LM;
 
             pm = new(lm, ctx);
-            pm.Add(obtainedItems.Select(i => ctx.itemPlacements[i].item));
-            pm.Add(visitedTransitions.Keys.Select(t => lm.GetTransition(t)));
-            pm.Add(visitedTransitions.Values.Select(t => lm.GetTransition(t)));
+            pm.Add(obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].item));
+            pm.Add(visitedTransitions.Keys.Where(t => !outOfLogicVisitedTransitions.Contains(t)).Select(t => lm.GetTransition(t)));
+            pm.Add(visitedTransitions.Values.Where(t => !outOfLogicVisitedTransitions.Contains(t)).Select(t => lm.GetTransition(t)));
 
             // note: location costs are ignored in the tracking, to prevent providing unintended information, by using p.location.logic rather than p.location
             // it is assumed that no information is divulged from the regular location logic and transition logic
@@ -157,7 +153,7 @@ namespace RandomizerMod.Settings
         public void OnTransitionVisited(string source, string target)
         {
             visitedTransitions[source] = target;
-            uncheckedReachableTransitions.Remove(target);
+            uncheckedReachableTransitions.Remove(source);
 
             LogicTransition st = lm.GetTransition(source);
             if (AllowSequenceBreaks || st.CanGet(pm))
