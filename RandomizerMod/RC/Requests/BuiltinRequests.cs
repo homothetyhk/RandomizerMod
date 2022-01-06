@@ -678,6 +678,13 @@ namespace RandomizerMod.RC
                     startItems.Add(rb.rng.Next(new[] { ItemNames.Left_Mantis_Claw, ItemNames.Right_Mantis_Claw }));
                 }
             }
+            if (ns.SplitSuperdash)
+            {
+                if (startItems.Remove(ItemNames.Crystal_Heart))
+                {
+                    startItems.Add(rb.rng.Next(new[] { ItemNames.Left_Crystal_Heart, ItemNames.Right_Crystal_Heart }));
+                }
+            }
 
             foreach (string item in startItems)
             {
@@ -939,7 +946,7 @@ namespace RandomizerMod.RC
             {
                 dupes.Add(ItemNames.Mantis_Claw);
             }
-            if (ds.CrystalHeart && !rb.IsAtStart(ItemNames.Crystal_Heart))
+            if (ds.CrystalHeart && !ns.SplitSuperdash && !rb.IsAtStart(ItemNames.Crystal_Heart))
             {
                 dupes.Add(ItemNames.Crystal_Heart);
             }
@@ -1063,6 +1070,28 @@ namespace RandomizerMod.RC
                     case DuplicateItemSettings.SplitItemSetting.DupeBoth:
                         if (!rb.IsAtStart(ItemNames.Left_Mothwing_Cloak)) dupes.Add(ItemNames.Left_Mothwing_Cloak);
                         if (!rb.IsAtStart(ItemNames.Right_Mothwing_Cloak)) dupes.Add(ItemNames.Right_Mothwing_Cloak);
+                        break;
+                }
+            }
+            if (ns.SplitSuperdash && !rb.IsAtStart(ItemNames.Crystal_Heart))
+            {
+                switch (ds.SplitSuperdashHandling)
+                {
+                    default:
+                    case DuplicateItemSettings.SplitItemSetting.NoDupe:
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeLeft:
+                        if (!rb.IsAtStart(ItemNames.Left_Crystal_Heart)) dupes.Add(ItemNames.Left_Crystal_Heart);
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeRight:
+                        if (!rb.IsAtStart(ItemNames.Right_Crystal_Heart)) dupes.Add(ItemNames.Right_Crystal_Heart);
+                        break;
+                    case DuplicateItemSettings.SplitItemSetting.DupeRandom:
+                        if (rb.rng.NextBool()) goto case DuplicateItemSettings.SplitItemSetting.DupeLeft;
+                        else goto case DuplicateItemSettings.SplitItemSetting.DupeRight;
+                    case DuplicateItemSettings.SplitItemSetting.DupeBoth:
+                        if (!rb.IsAtStart(ItemNames.Left_Crystal_Heart)) dupes.Add(ItemNames.Left_Crystal_Heart);
+                        if (!rb.IsAtStart(ItemNames.Right_Crystal_Heart)) dupes.Add(ItemNames.Right_Crystal_Heart);
                         break;
                 }
             }

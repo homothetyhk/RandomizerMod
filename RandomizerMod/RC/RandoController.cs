@@ -135,9 +135,9 @@ namespace RandomizerMod.RC
                 GenerationSettings = gs,
                 Context = ctx,
                 ProfileID = GameManager.instance.profileID,
-                TrackerData = new(),
+                TrackerData = new() { AllowSequenceBreaks = true, },
+                TrackerDataWithoutSequenceBreaks = new() { AllowSequenceBreaks = false, }
             };
-            RandomizerMod.RS.TrackerData.Setup(gs, ctx);
 
             Export.BeginExport(gs, ctx);
             Export.ExportStart(gs, ctx);
@@ -157,6 +157,8 @@ namespace RandomizerMod.RC
 
             LogManager.WriteLogs(args);
             WriteRawSpoiler(gs, ctx); // write it here and not in LogManager so that it uses the permuted context // write it after LogManager so it doesn't get deleted
+            RandomizerMod.RS.TrackerData.Setup(gs, ctx);
+            RandomizerMod.RS.TrackerDataWithoutSequenceBreaks.Setup(gs, ctx);
         }
 
         private static void WriteRawSpoiler(GenerationSettings gs, RandoContext ctx)

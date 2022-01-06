@@ -1542,7 +1542,7 @@
   {
     "sceneName": "Fungus3_02",
     "gateName": "right1",
-    "logic": "Fungus3_02[right1] | Fungus3_02 + Fungus3_47",
+    "logic": "Fungus3_02[right1] | Fungus3_02 + Opened_Archives_Exit_Wall",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_02[right1]"
   },

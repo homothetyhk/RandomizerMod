@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger;
+﻿using ItemChanger;
 using RandomizerMod.Settings;
 
 namespace RandomizerMod.IC
@@ -15,6 +11,15 @@ namespace RandomizerMod.IC
             RandoPlacementTag.OnRandoPlacementVisitStateChanged += OnRandoPlacementVisitStateChanged;
             Events.OnBeginSceneTransition += OnBeginSceneTransition;
             transitionInverse ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.target.Name, p => p.source.Name) ?? new();
+            
+            OnItemObtained += TD.OnItemObtained;
+            OnItemObtained += TD_WSB.OnItemObtained;
+            OnPlacementPreviewed += TD.OnPlacementPreviewed;
+            OnPlacementPreviewed += TD_WSB.OnPlacementPreviewed;
+            OnPlacementCleared += TD.OnPlacementCleared;
+            OnPlacementCleared += TD_WSB.OnPlacementCleared;
+            OnTransitionVisited += TD.OnTransitionVisited;
+            OnTransitionVisited += TD_WSB.OnTransitionVisited;
         }
 
         public override void Unload()
@@ -22,6 +27,15 @@ namespace RandomizerMod.IC
             RandoItemTag.AfterRandoItemGive -= AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged -= OnRandoPlacementVisitStateChanged;
             Events.OnBeginSceneTransition -= OnBeginSceneTransition;
+
+            OnItemObtained -= TD.OnItemObtained;
+            OnItemObtained -= TD_WSB.OnItemObtained;
+            OnPlacementPreviewed -= TD.OnPlacementPreviewed;
+            OnPlacementPreviewed -= TD_WSB.OnPlacementPreviewed;
+            OnPlacementCleared -= TD.OnPlacementCleared;
+            OnPlacementCleared -= TD_WSB.OnPlacementCleared;
+            OnTransitionVisited -= TD.OnTransitionVisited;
+            OnTransitionVisited -= TD_WSB.OnTransitionVisited;
         }
 
         public static event Action<string> OnPlacementPreviewed;
@@ -31,14 +45,13 @@ namespace RandomizerMod.IC
         public static event Action OnFinishedUpdate;
 
         private TrackerData TD => RandomizerMod.RS.TrackerData;
+        private TrackerData TD_WSB => RandomizerMod.RS.TrackerDataWithoutSequenceBreaks;
         private Dictionary<string, string> transitionInverse;
 
         private void OnRandoPlacementVisitStateChanged(VisitStateChangedEventArgs args)
         {
             if ((args.NewFlags & VisitState.Previewed) == VisitState.Previewed)
             {
-                TD.previewedLocations.Add(args.Placement.Name);
-                TD.uncheckedReachableLocations.Remove(args.Placement.Name);
                 OnPlacementPreviewed?.Invoke(args.Placement.Name);
                 OnFinishedUpdate?.Invoke();
             }
@@ -48,16 +61,11 @@ namespace RandomizerMod.IC
         {
             string itemName = args.Item.name; // the name of the item that was given (not necessarily the item placed)
             string placementName = args.Placement.Name;
-            
-            TD.obtainedItems.Add(id);
-            TD.pm.Add(TD.ctx.itemPlacements[id].item);
+
             OnItemObtained?.Invoke(id, itemName, placementName);
             
             if (args.Placement.AllObtained())
             {
-                TD.clearedLocations.Add(placementName);
-                TD.previewedLocations.Remove(placementName);
-                TD.uncheckedReachableLocations.Remove(placementName);
                 OnPlacementCleared?.Invoke(placementName);
             }
 
@@ -67,18 +75,12 @@ namespace RandomizerMod.IC
         private void OnBeginSceneTransition(Transition t)
         {
             string target = t.ToString();
-            if (transitionInverse.TryGetValue(target, out string source) && !TD.visitedTransitions.ContainsKey(source))
+            if (transitionInverse.TryGetValue(target, out string source) && !TD.HasVisited(source))
             {
-                TD.visitedTransitions.Add(source, target);
-                TD.uncheckedReachableTransitions.Remove(source);
-                TD.pm.Add(TD.lm.GetTransition(source));
-                TD.pm.Add(TD.lm.GetTransition(target));
                 OnTransitionVisited?.Invoke(source, target);
 
                 if (RandomizerMod.RS.GenerationSettings.TransitionSettings.Coupled && transitionInverse.ContainsKey(target))
                 {
-                    TD.visitedTransitions.Add(target, source);
-                    TD.uncheckedReachableTransitions.Remove(target);
                     OnTransitionVisited?.Invoke(target, source);
                 }
 

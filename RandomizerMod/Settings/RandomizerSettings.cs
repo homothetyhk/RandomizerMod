@@ -20,6 +20,7 @@ namespace RandomizerMod.Settings
         public GenerationSettings GenerationSettings;
         public int ProfileID = -1; // LocalSettings load before GameManager.instance.profileId or PlayerData.instance.profileId are loaded.
         public TrackerData TrackerData;
+        public TrackerData TrackerDataWithoutSequenceBreaks;
         [JsonIgnore]
         public RandoContext Context;
 
@@ -48,6 +49,7 @@ namespace RandomizerMod.Settings
                 try
                 {
                     TrackerData.Setup(GenerationSettings, Context);
+                    TrackerDataWithoutSequenceBreaks.Setup(GenerationSettings, Context);
                 }
                 catch (Exception e)
                 {

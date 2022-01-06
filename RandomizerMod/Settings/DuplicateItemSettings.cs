@@ -21,7 +21,7 @@
         public SimpleKeySetting SimpleKeyHandling;
         public SplitItemSetting SplitClawHandling;
         public SplitItemSetting SplitCloakHandling;
-
+        public SplitItemSetting SplitSuperdashHandling;
         public enum SimpleKeySetting
         {
             NoDupe,

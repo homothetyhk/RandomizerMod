@@ -1,69 +1,32 @@
-﻿using System.Text;
-using ItemChanger;
+﻿using ItemChanger;
 using ItemChanger.Modules;
-using RandomizerCore;
-using RandomizerCore.Logic;
 using RandomizerMod.Logging;
-using RandomizerMod.RC;
 using RandomizerMod.Settings;
+using System.Text;
 
 namespace RandomizerMod.IC
 {
-    public class TrackerLog : Module
+    public class HelperLogModule : Module
     {
         private void PrintHelper()
         {
             LogManager.Write(BuildHelper(), "HelperLog.txt");
-        }
-
-        private void AppendToTracker(string contents)
-        {
-            LogManager.Append(contents, "TrackerLog.txt");
+            LogManager.Write(TD.pm.ToString(), "TrackerDataPM.txt");
+            LogManager.Write(TD_WSB.pm.ToString(), "TrackerDataWithoutSequenceBreaksPM.txt");
         }
 
         private TrackerData TD => RandomizerMod.RS.TrackerData;
+        private TrackerData TD_WSB => RandomizerMod.RS.TrackerDataWithoutSequenceBreaks;
 
         public override void Initialize()
         {
             SetUpLog();
-            TrackerUpdate.OnItemObtained += TrackItemObtained;
-            TrackerUpdate.OnPlacementPreviewed += TrackLocationPreviewed;
-            TrackerUpdate.OnPlacementCleared += TrackLocationCleared;
-            TrackerUpdate.OnTransitionVisited += TrackTransitionFound;
             TrackerUpdate.OnFinishedUpdate += PrintHelper;
         }
 
         public override void Unload()
         {
-            TrackerUpdate.OnItemObtained -= TrackItemObtained;
-            TrackerUpdate.OnPlacementPreviewed -= TrackLocationPreviewed;
-            TrackerUpdate.OnPlacementCleared -= TrackLocationCleared;
-            TrackerUpdate.OnTransitionVisited -= TrackTransitionFound;
             TrackerUpdate.OnFinishedUpdate -= PrintHelper;
-        }
-
-        private void TrackItemObtained(int id, string item, string location) 
-        {
-            string line = $"ITEM OBTAINED --- {{{item}}} at {{{location}}}{Environment.NewLine}";
-            AppendToTracker(line);
-        }
-
-        private void TrackLocationPreviewed(string location)
-        {
-            string line = $"LOCATION PREVIEWED --- {{{location}}}{Environment.NewLine}";
-            AppendToTracker(line);
-        }
-
-        private void TrackLocationCleared(string location)
-        {
-            string line = $"LOCATION CLEARED --- {{{location}}}{Environment.NewLine}";
-            AppendToTracker(line);
-        }
-
-        private void TrackTransitionFound(string t1, string t2)
-        {
-            string line = $"TRANSITION --- {{{t1}}} --> {{{t2}}}{Environment.NewLine}";
-            AppendToTracker(line);
         }
 
         private string GetItemPreviewName(int id, string placement)
@@ -92,31 +55,31 @@ namespace RandomizerMod.IC
 
         private void SetUpLog()
         {
-            if (!File.Exists(Path.Combine(LogManager.UserDirectory, "TrackerLog.txt")))
-            {
-                StringBuilder sb = new("Starting tracker log for new randomizer file.");
-                sb.AppendLine();
-                sb.AppendLine();
-                sb.AppendLine(RandomizerData.JsonUtil.Serialize(RandomizerMod.RS.GenerationSettings));
-                sb.AppendLine();
-                AppendToTracker(sb.ToString());
-            }
-
             PrintHelper();
         }
 
         private string BuildHelper()
         {
             StringBuilder sb = new();
+            TrackerData td = TD;
+            TrackerData tdwsb = TD_WSB;
+
 
             sb.AppendLine("UNCHECKED REACHABLE LOCATIONS");
-            foreach (string s in TD.uncheckedReachableLocations.OrderBy(s => s)) // alphabetical. The locations are permuted after rando, but order could still give info regarding multi loc frequencies
+            foreach (string s in TD.uncheckedReachableLocations
+                .Where(s => tdwsb.uncheckedReachableLocations.Contains(s)).OrderBy(s => s)) // alphabetical. The locations are permuted after rando, but order could still give info regarding multi loc frequencies
             {
                 sb.Append(' ', 2);
                 sb.AppendLine(s);
             }
+            foreach (string s in TD.uncheckedReachableLocations
+                .Where(s => !tdwsb.uncheckedReachableLocations.Contains(s)).OrderBy(s => s))
+            {
+                sb.Append(' ', 2);
+                sb.Append('*'); // sequence broken
+                sb.AppendLine(s);
+            }
             sb.AppendLine();
-
 
             var previewLookup = Enumerable.Range(0, TD.ctx.itemPlacements.Count)
                 .Where(i => !TD.obtainedItems.Contains(i) && TD.previewedLocations.Contains(TD.ctx.itemPlacements[i].location.Name))
@@ -146,31 +109,23 @@ namespace RandomizerMod.IC
                     sb.Append(' ', 4);
                     sb.AppendLine(prt.previewText);
                 }
-
-                /*
-                    foreach (int i in previewLookup[s])
-                {
-                    (RandoItem ri, RandoLocation rl) = TD.ctx.itemPlacements[i];
-                    sb.Append(' ', 4);
-                    sb.Append(GetItemPreviewName(i, rl.Name));
-
-                    if (rl.costs?.Any() ?? false)
-                    {
-                        sb.Append(' ', 4);
-                        sb.Append(string.Join(", ", rl.costs.Select(c => "{Requires: " + c.ToString().Split('{').Last())));
-                    }
-                    sb.AppendLine();
-                }
-                */
             }
             sb.AppendLine();
 
             if (TD.ctx.transitionPlacements?.Any() ?? false)
             {
                 sb.AppendLine("UNCHECKED REACHABLE TRANSITIONS");
-                foreach (string s in TD.uncheckedReachableTransitions)
+                foreach (string s in TD.uncheckedReachableTransitions
+                    .Where(s => TD_WSB.uncheckedReachableTransitions.Contains(s)))
                 {
                     sb.Append(' ', 2);
+                    sb.AppendLine(s);
+                }
+                foreach (string s in TD.uncheckedReachableTransitions
+                    .Where(s => !TD_WSB.uncheckedReachableTransitions.Contains(s)))
+                {
+                    sb.Append(' ', 2);
+                    sb.Append('*'); // sequence broken transition
                     sb.AppendLine(s);
                 }
                 sb.AppendLine();
@@ -179,6 +134,7 @@ namespace RandomizerMod.IC
                 foreach (var kvp in TD.visitedTransitions)
                 {
                     sb.Append(' ', 2);
+                    if (TD_WSB.outOfLogicVisitedTransitions.Contains(kvp.Key)) sb.Append('*'); // sequence broken transition
                     sb.AppendLine($"{kvp.Key}  -->  {kvp.Value}");
                 }
                 sb.AppendLine();
@@ -197,9 +153,6 @@ namespace RandomizerMod.IC
                 }
                 sb.AppendLine();
             }
-
-            sb.AppendLine("CURRENT PROGRESSION (INCLUDING REACHABLE VANILLA ITEMS)");
-            sb.AppendLine(TD.pm.ToString());
 
             return sb.ToString();
         }

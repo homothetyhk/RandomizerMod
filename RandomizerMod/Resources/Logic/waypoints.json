@@ -284,6 +284,10 @@
     "logic": "Crossroads_06[left1] | Crossroads_06[door1] | Crossroads_06[right1] | DREAMER"
   },
   {
+    "name": "Opened_Archives_Exit_Wall",
+    "logic": "Fungus3_47"
+  },
+  {
     "name": "Opened_Tramway_Exit_Gate",
     "logic": "WINGS | (LEFTCLAW + (RIGHTDASH | ENEMYPOGOS))"
   },

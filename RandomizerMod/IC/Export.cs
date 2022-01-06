@@ -20,7 +20,8 @@ namespace RandomizerMod.IC
             ItemChangerMod.CreateSettingsProfile(overwrite: true);
             ItemChangerMod.Modules.Add<RandomizerModule>();
             ItemChangerMod.Modules.Add<TrackerUpdate>();
-            ItemChangerMod.Modules.Add<TrackerLog>();
+            ItemChangerMod.Modules.Add<TrackerLogModule>();
+            ItemChangerMod.Modules.Add<HelperLogModule>();
             ItemChangerMod.Modules.Add<ItemChanger.Modules.JijiJinnPassage>();
             var cpo = ItemChangerMod.Modules.Add<ItemChanger.Modules.CompletionPercentOverride>();
             cpo.CoupledTransitions = gs.TransitionSettings.Coupled;

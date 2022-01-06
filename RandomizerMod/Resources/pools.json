@@ -2344,6 +2344,10 @@
       {
         "item": "Upslash",
         "location": "Start"
+      },
+      {
+        "item": "Downslash",
+        "location": "Start"
       }
     ]
   },

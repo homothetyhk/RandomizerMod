@@ -36,6 +36,7 @@ Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduc
 - There are several logs created per file in the Randomizer 4 folder in the save directory to help you with your playthrough.
     - Tracker Log: this log continuously records item locations and transition connections as you discover them.
     - Helper Log: this log computes which locations/transitions are accessible with your current equipment.
+		- Tip: if you sequence break out of logic, locations and transitions which are put into logic by the sequence break will be labeled with an asterisk until they are reachable without sequence breaks.
     - Spoiler Log: this log lists the exact locations of every randomized item and/or transition.
 
 ## Settings
@@ -85,6 +86,7 @@ These settings add new and unusual features to the randomizer:
 - Split Claw: Replaces Mantis Claw with two items, a "Left Mantis Claw" that works only on left walls, and a "Right Mantis Claw" that works only on the right. Replaces the Mantis Claw location with two locations in Mantis Village.
 - Split Cloak: Replaces Mothwing Cloak with two items, a "Left Mothwing Cloak" that lets you dash to the left, and a "Right Mothwing Cloak" that dashes to the right. Also adds a new location dropped after defeating Hornet in Greenpath. Shade Cloak is not split, meaning that there are effectively 3 dash upgrades in this mode: the ability to dash left, to dash right, and to shadowdash.
     - Dash items remain progressive. In this mode, Shade Cloak has a random directional bias, and will give the dash of that direction if it has not yet been obtained.
+- Split Superdahs: Replaces Crystal Heart with two items, a "Left Crystal Heart" that lets you superdash to the left, and a "Right Crystal Heart" that superdashes to the right. Also adds a new location left of the bridge next to the Crystal Heart location.
 - Egg Shop: instead of summoning your shade, Jiji will now let you buy items for rancid eggs. If you've given her enough rancid eggs, any items you've reached the cost for will be summoned.
 
 ### Cost Settings
