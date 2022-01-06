@@ -70,13 +70,14 @@ namespace RandomizerMod.RC
 
         public static void ApplyPlaceholderMatch(RequestBuilder rb)
         {
-            static bool TryMatch(string name, out ItemRequestInfo info)
+            bool TryMatch(string name, out ItemRequestInfo info)
             {
                 if (name.StartsWith(PlaceholderItem.Prefix))
                 {
                     info = new ItemRequestInfo
                     {
                         randoItemCreator = factory => factory.MakeWrappedItem(name.Substring(PlaceholderItem.Prefix.Length)),
+                        getItemDef = () => rb.TryGetItemDef(name.Substring(PlaceholderItem.Prefix.Length), out ItemDef def) ? def : null,
                     };
                     return true;
                 }
@@ -91,7 +92,7 @@ namespace RandomizerMod.RC
 
         public static void ApplyCustomGeoMatch(RequestBuilder rb)
         {
-            static bool TryMatch(string name, out ItemRequestInfo info)
+            bool TryMatch(string name, out ItemRequestInfo info)
             {
                 if (name.EndsWith("_Geo") && int.TryParse(name.Substring(0, name.IndexOf('_')), out int value))
                 {
@@ -102,7 +103,8 @@ namespace RandomizerMod.RC
                         {
                             CustomGeoItem geoItem = (CustomGeoItem)placement.Item;
                             return ItemChanger.Items.SpawnGeoItem.MakeGeoItem(geoItem.geo);
-                        }
+                        },
+                        getItemDef = () => Data.GetItemDef(ItemNames.One_Geo) with { Name = name },
                     };
                     return true;
                 }
@@ -359,12 +361,12 @@ namespace RandomizerMod.RC
         {
             string[] shops = new[]
             {
-                "Sly", "Sly_(Key)", "Iselda", "Salubra", "Leg_Eater"
+                LocationNames.Sly, LocationNames.Sly_Key, LocationNames.Iselda, LocationNames.Salubra, LocationNames.Leg_Eater,
             };
 
             foreach (string s in shops)
             {
-                rb.EditLocationInfo(s, info =>
+                rb.EditLocationRequest(s, info =>
                 {
                     info.onRandoLocationCreation += (factory, rl) =>
                     {
@@ -380,35 +382,29 @@ namespace RandomizerMod.RC
                     };
                     info.onRandomizerFinish += placement =>
                     {
-                        IRandoLocation location = placement.Location;
-                        if (location is not RandoModLocation rl || rl.costs == null) return;
+                        if (placement.Location is not RandoModLocation rl || placement.Item is not RandoModItem ri || rl.costs == null) return;
                         foreach (LogicGeoCost gc in rl.costs.OfType<LogicGeoCost>())
                         {
-                            if (gc.GeoAmount < 0) gc.GeoAmount = GetShopCost(rb.rng, placement.Item.Name, placement.Item.Required);
+                            if (gc.GeoAmount < 0) gc.GeoAmount = GetShopCost(rb.rng, ri);
                         }
                     };
                 });
             }
 
-            static int GetShopCost(Random rng, string itemName, bool required)
+            static int GetShopCost(Random rng, RandoModItem item)
             {
                 double pow = 1.2; // setting?
 
-                if (itemName.StartsWith(PlaceholderItem.Prefix))
-                {
-                    itemName = itemName.Substring(PlaceholderItem.Prefix.Length);
-                }
-
-                int cap = Data.GetItemDef(itemName) is ItemDef def ? def.PriceCap : 500;
+                int cap = item.TryGetItemDef(out ItemDef def) ? def.PriceCap : 500;
                 if (cap <= 100) return cap;
-                if (required) return rng.PowerLaw(pow, 100, Math.Min(cap, 500)).ClampToMultipleOf(5);
+                if (item.Required) return rng.PowerLaw(pow, 100, Math.Min(cap, 500)).ClampToMultipleOf(5);
                 return rng.PowerLaw(pow, 100, cap).ClampToMultipleOf(5);
             }
         }
 
         public static void ApplyGrubfatherDef(RequestBuilder rb)
         {
-            rb.EditLocationInfo("Grubfather", info =>
+            rb.EditLocationRequest("Grubfather", info =>
             {
                 info.onRandoLocationCreation += (factory, rl) =>
                 {
@@ -427,7 +423,7 @@ namespace RandomizerMod.RC
 
         public static void ApplySeerDef(RequestBuilder rb)
         {
-            rb.EditLocationInfo("Seer", info =>
+            rb.EditLocationRequest("Seer", info =>
             {
                 info.onRandoLocationCreation += (factory, rl) =>
                 {
@@ -446,9 +442,9 @@ namespace RandomizerMod.RC
 
         public static void ApplySalubraCharmDef(RequestBuilder rb)
         {
-            rb.EditLocationInfo("Salubra_(Requires_Charms)", info =>
+            rb.EditLocationRequest("Salubra_(Requires_Charms)", info =>
             {
-                info.randoLocationCreator += factory => factory.MakeLocation("Salubra");
+                info.randoLocationCreator += factory => factory.MakeLocation(LocationNames.Salubra);
                 info.onRandoLocationCreation += (factory, rl) =>
                 {
                     LogicManager lm = factory.lm;
@@ -458,14 +454,14 @@ namespace RandomizerMod.RC
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
-                    return factory.FetchOrMakePlacementWithEvents("Salubra", placement);
+                    return factory.FetchOrMakePlacementWithEvents(LocationNames.Salubra, placement);
                 };
             });
         }
 
         public static void ApplyEggShopDef(RequestBuilder rb)
         {
-            rb.EditLocationInfo("Egg_Shop", info =>
+            rb.EditLocationRequest(LocationNames.Egg_Shop, info =>
             {
                 info.onRandoLocationCreation += (factory, rl) =>
                 {
@@ -481,7 +477,7 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.PoolSettings.LoreTablets)
             {
-                rb.EditLocationInfo(LocationNames.World_Sense, info => info.customPlacementFetch =
+                rb.EditLocationRequest(LocationNames.World_Sense, info => info.customPlacementFetch =
                     (factory, next) => factory.FetchOrMakePlacementWithEvents(LocationNames.Lore_Tablet_World_Sense, next));
             }
         }
@@ -490,7 +486,7 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.PoolSettings.LoreTablets)
             {
-                rb.EditLocationInfo(LocationNames.Focus, info => info.customPlacementFetch =
+                rb.EditLocationRequest(LocationNames.Focus, info => info.customPlacementFetch =
                     (factory, next) => factory.FetchOrMakePlacementWithEvents(LocationNames.Lore_Tablet_Kings_Pass_Focus, next));
             }
         }
@@ -580,7 +576,7 @@ namespace RandomizerMod.RC
                 }
             }
             {
-                List<string> charms = Data.GetPoolDef("Charm")
+                List<string> charms = Data.GetPoolDef(PoolNames.Charm)
                     .IncludeItems
                     .Except(new[] { ItemNames.Queen_Fragment, ItemNames.King_Fragment, ItemNames.Void_Heart, ItemNames.Grimmchild2 })
                     .ToList();
@@ -598,7 +594,7 @@ namespace RandomizerMod.RC
                 }
             }
             {
-                string[] stags = Data.GetPoolDef("Stag").IncludeItems;
+                string[] stags = Data.GetPoolDef(PoolNames.Stag).IncludeItems;
                 switch (ss.Stags)
                 {
                     case StartItemSettings.StartStagType.None:
@@ -687,9 +683,9 @@ namespace RandomizerMod.RC
             {
                 rb.AddToStart(item);
                 rb.GetItemGroupFor(item).Items.Remove(item, 1);
-                if (Data.GetItemDef(item).Pool == "Charm" && rb.rng.NextBool())
+                if (Data.GetItemDef(item).Pool == PoolNames.Charm && rb.rng.NextBool())
                 {
-                    rb.EditItemInfo(item, info =>
+                    rb.EditItemRequest(item, info =>
                     {
                         info.realItemCreator = (factory, placement) =>
                         {
@@ -706,7 +702,7 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.NoveltySettings.RandomizeNail)
             {
-                rb.AddToStart("Downslash");
+                rb.AddToStart(ItemNames.Downslash);
             }
         }
 
@@ -721,7 +717,7 @@ namespace RandomizerMod.RC
                 }
                 if (pool.IsVanilla(rb.gs))
                 {
-                    if (pool.Name == "Flame" && rb.gs.PoolSettings.Charms)
+                    if (pool.Name == PoolNames.Flame && rb.gs.PoolSettings.Charms)
                     {
                         foreach (PoolDef.StringILP p in pool.Vanilla.Skip(6)) rb.AddToVanilla(p.item, p.location);
                     }
@@ -735,19 +731,19 @@ namespace RandomizerMod.RC
             switch (rb.gs.LongLocationSettings.RandomizationInWhitePalace)
             {
                 case LongLocationSettings.WPSetting.ExcludeWhitePalace:
-                    rb.RemoveItemByName("Soul_Totem-Palace");
-                    rb.RemoveItemByName("Lore_Tablet-Palace_Workshop");
-                    rb.RemoveItemByName("Lore_Tablet-Palace_Throne");
-                    rb.RemoveItemByName("Soul_Totem-Path_of_Pain");
-                    rb.RemoveItemByName("Journal_Entry-Seal_of_Binding");
-                    rb.RemoveItemByName("Lore_Tablet-Path_of_Pain_Entrance");
-                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.MapArea == "White Palace");
+                    rb.RemoveItemByName(ItemNames.Soul_Totem_Palace);
+                    rb.RemoveItemByName(ItemNames.Lore_Tablet_Palace_Workshop);
+                    rb.RemoveItemByName(ItemNames.Lore_Tablet_Palace_Throne);
+                    rb.RemoveItemByName(ItemNames.Soul_Totem_Path_of_Pain);
+                    rb.RemoveItemByName(ItemNames.Journal_Entry_Seal_of_Binding);
+                    rb.RemoveItemByName(ItemNames.Lore_Tablet_Path_of_Pain_Entrance);
+                    rb.RemoveLocationsWhere(s => s != LocationNames.King_Fragment && Data.GetLocationDef(s)?.MapArea == "White Palace");
                     break;
                 case LongLocationSettings.WPSetting.ExcludePathOfPain:
-                    rb.RemoveItemByName("Soul_Totem-Path_of_Pain");
-                    rb.RemoveItemByName("Journal_Entry-Seal_of_Binding");
-                    rb.RemoveItemByName("Lore_Tablet-Path_of_Pain_Entrance");
-                    rb.RemoveLocationsWhere(s => s != "King_Fragment" && Data.GetLocationDef(s)?.TitledArea == "Path of Pain");
+                    rb.RemoveItemByName(ItemNames.Soul_Totem_Path_of_Pain);
+                    rb.RemoveItemByName(ItemNames.Journal_Entry_Seal_of_Binding);
+                    rb.RemoveItemByName(ItemNames.Lore_Tablet_Path_of_Pain_Entrance);
+                    rb.RemoveLocationsWhere(s => s != LocationNames.King_Fragment && Data.GetLocationDef(s)?.TitledArea == "Path of Pain");
                     break;
             }
 
@@ -772,13 +768,13 @@ namespace RandomizerMod.RC
             switch (rb.gs.LongLocationSettings.BossEssenceRandomization)
             {
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamWarriors:
-                    PoolDef warriors = Data.GetPoolDef("DreamWarrior");
+                    PoolDef warriors = Data.GetPoolDef(PoolNames.DreamWarrior);
                     foreach (string item in warriors.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in warriors.IncludeLocations) rb.RemoveLocationByName(loc);
                     foreach (PoolDef.StringILP p in warriors.Vanilla) rb.AddToVanilla(p.item, p.location);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses:
-                    PoolDef bosses = Data.GetPoolDef("DreamBoss");
+                    PoolDef bosses = Data.GetPoolDef(PoolNames.DreamBoss);
                     foreach (string item in bosses.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in bosses.IncludeLocations) rb.RemoveLocationByName(loc);
                     foreach (PoolDef.StringILP p in bosses.Vanilla) rb.AddToVanilla(p.item, p.location);
@@ -850,7 +846,7 @@ namespace RandomizerMod.RC
             }
             if (!lls.WhisperingRootPreview)
             {
-                hintRemoveLocations.AddRange(Data.GetPoolDef("Root").IncludeLocations);
+                hintRemoveLocations.AddRange(Data.GetPoolDef(PoolNames.Root).IncludeLocations);
             }
             if (!lls.AbyssShriekPreview)
             {
@@ -878,22 +874,22 @@ namespace RandomizerMod.RC
             }
             if (!lls.StagPreview)
             {
-                hintRemoveLocations.AddRange(Data.GetPoolDef("Stag").IncludeLocations);
+                hintRemoveLocations.AddRange(Data.GetPoolDef(PoolNames.Stag).IncludeLocations);
             }
             if (!lls.MapPreview)
             {
-                hintRemoveLocations.AddRange(Data.GetPoolDef("Map").IncludeLocations);
+                hintRemoveLocations.AddRange(Data.GetPoolDef(PoolNames.Map).IncludeLocations);
             }
             if (!lls.LoreTabletPreview)
             {
                 // only the spore shroom tablets are technically needed
                 // but might as well block previews on all of them
-                hintRemoveLocations.AddRange(Data.GetPoolDef("Lore").IncludeLocations);
+                hintRemoveLocations.AddRange(Data.GetPoolDef(PoolNames.Lore).IncludeLocations);
             }
 
             foreach (string s in hintRemoveLocations)
             {
-                rb.EditLocationInfo(s, info => info.onPlacementFetch += RemoveNamePreview);
+                rb.EditLocationRequest(s, info => info.onPlacementFetch += RemoveNamePreview);
             }
 
             (string, LongLocationSettings.CostItemHintSettings)[] costHints = new[]
@@ -915,13 +911,13 @@ namespace RandomizerMod.RC
                     case LongLocationSettings.CostItemHintSettings.CostAndName:
                         break;
                     case LongLocationSettings.CostItemHintSettings.CostOnly:
-                        rb.EditLocationInfo(loc, info => info.onPlacementFetch += RemoveNamePreview);
+                        rb.EditLocationRequest(loc, info => info.onPlacementFetch += RemoveNamePreview);
                         break;
                     case LongLocationSettings.CostItemHintSettings.NameOnly:
-                        rb.EditLocationInfo(loc, info => info.onPlacementFetch += RemoveCostPreview);
+                        rb.EditLocationRequest(loc, info => info.onPlacementFetch += RemoveCostPreview);
                         break;
                     case LongLocationSettings.CostItemHintSettings.None:
-                        rb.EditLocationInfo(loc, info => info.onPlacementFetch += RemoveNameAndCostPreview);
+                        rb.EditLocationRequest(loc, info => info.onPlacementFetch += RemoveNameAndCostPreview);
                         break;
                 }
             }
@@ -1083,7 +1079,7 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.PoolSettings.GrimmkinFlames && rb.gs.PoolSettings.Charms)
             {
-                rb.ReplaceItem("Grimmchild2", "Grimmchild1");
+                rb.ReplaceItem(ItemNames.Grimmchild2, ItemNames.Grimmchild1);
             }
         }
 
@@ -1097,15 +1093,15 @@ namespace RandomizerMod.RC
                 case MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold when rb.gs.PoolSettings.CharmNotches:
                 case MiscSettings.SalubraNotchesSetting.Vanilla when rb.gs.PoolSettings.CharmNotches:
                     {
-                        ItemGroupBuilder gb = rb.GetItemGroupFor("Charm_Notch");
-                        gb.Items.Remove("Charm_Notch", 4);
+                        ItemGroupBuilder gb = rb.GetItemGroupFor(ItemNames.Charm_Notch);
+                        gb.Items.Remove(ItemNames.Charm_Notch, 4);
                         gb.Locations.Remove("Salubra_(Requires_Charms)", 4);
                     }
                     break;
                 case MiscSettings.SalubraNotchesSetting.Randomized when !rb.gs.PoolSettings.CharmNotches:
                     {
-                        ItemGroupBuilder gb = rb.GetItemGroupFor("Charm_Notch");
-                        gb.Items.Increment("Charm_Notch", 4);
+                        ItemGroupBuilder gb = rb.GetItemGroupFor(ItemNames.Charm_Notch);
+                        gb.Items.Increment(ItemNames.Charm_Notch, 4);
                         gb.Locations.Increment("Salubra_(Requires_Charms)", 4);
                     }
                     break;
@@ -1119,7 +1115,7 @@ namespace RandomizerMod.RC
                 rb.RemoveItemByName(ItemNames.Shade_Soul);
                 rb.RemoveItemByName(ItemNames.Abyss_Shriek);
                 rb.RemoveItemByName(ItemNames.Descending_Dark);
-                rb.EditItemInfo(ItemNames.Vengeful_Spirit, info =>
+                rb.EditItemRequest(ItemNames.Vengeful_Spirit, info =>
                 {
                     info.realItemCreator = (factory, placement) =>
                     {
@@ -1128,7 +1124,7 @@ namespace RandomizerMod.RC
                         return item;
                     };
                 });
-                rb.EditItemInfo(ItemNames.Howling_Wraiths, info =>
+                rb.EditItemRequest(ItemNames.Howling_Wraiths, info =>
                 {
                     info.realItemCreator = (factory, placement) =>
                     {
@@ -1137,7 +1133,7 @@ namespace RandomizerMod.RC
                         return item;
                     };
                 });
-                rb.EditItemInfo(ItemNames.Desolate_Dive, info =>
+                rb.EditItemRequest(ItemNames.Desolate_Dive, info =>
                 {
                     info.realItemCreator = (factory, placement) =>
                     {
@@ -1153,8 +1149,8 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.NoveltySettings.SplitClaw)
             {
-                rb.RemoveItemByName("Mantis_Claw");
-                rb.RemoveLocationByName("Mantis_Claw");
+                rb.RemoveItemByName(ItemNames.Mantis_Claw);
+                rb.RemoveLocationByName(LocationNames.Mantis_Claw);
             }
         }
 
@@ -1162,8 +1158,16 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.NoveltySettings.SplitCloak)
             {
-                rb.RemoveItemByName("Mothwing_Cloak");
-                rb.RemoveItemByName("Shade_Cloak");
+                rb.RemoveItemByName(ItemNames.Mothwing_Cloak);
+                rb.RemoveItemByName(ItemNames.Shade_Cloak);
+            }
+        }
+
+        public static void ApplySplitSuperdashFullCrystalHeartRemove(RequestBuilder rb)
+        {
+            if (rb.gs.NoveltySettings.SplitSuperdash)
+            {
+                rb.RemoveItemByName(ItemNames.Crystal_Heart);
             }
         }
 
@@ -1173,7 +1177,7 @@ namespace RandomizerMod.RC
             {
                 bool leftBiased = rb.rng.NextBool();
                 // note -- this means all Split_Shade_Cloak items have the same bias.
-                rb.EditItemInfo(ItemNames.Split_Shade_Cloak, info =>
+                rb.EditItemRequest(ItemNames.Split_Shade_Cloak, info =>
                 {
                     info.randoItemCreator = factory =>
                     {
@@ -1194,13 +1198,13 @@ namespace RandomizerMod.RC
 
         public static void ApplyProgressiveSplitClaw(RequestBuilder rb)
         {
-            rb.EditItemInfo(ItemNames.Left_Mantis_Claw, info => info.realItemCreator = (factory, placement) =>
+            rb.EditItemRequest(ItemNames.Left_Mantis_Claw, info => info.realItemCreator = (factory, placement) =>
             {
                 AbstractItem item = factory.MakeItem(ItemNames.Left_Mantis_Claw);
                 item.AddTag<ItemChanger.Tags.ItemTreeTag>().successors = new[] { ItemNames.Right_Mantis_Claw };
                 return item;
             });
-            rb.EditItemInfo(ItemNames.Right_Mantis_Claw, info => info.realItemCreator = (factory, placement) =>
+            rb.EditItemRequest(ItemNames.Right_Mantis_Claw, info => info.realItemCreator = (factory, placement) =>
             {
                 AbstractItem item = factory.MakeItem(ItemNames.Right_Mantis_Claw);
                 item.AddTag<ItemChanger.Tags.ItemTreeTag>().successors = new[] { ItemNames.Left_Mantis_Claw };
@@ -1212,22 +1216,22 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.MiscSettings.MaskShards == MiscSettings.MaskShardType.TwoShardsPerMask)
             {
-                rb.ReplaceItem("Mask_Shard", (i) =>
+                rb.ReplaceItem(ItemNames.Mask_Shard, (i) =>
                 {
                     int doubleShards = i / 2;
                     int singleShards = i - 2 * doubleShards;
 
-                    return Enumerable.Repeat("Double_Mask_Shard", doubleShards).Concat(Enumerable.Repeat("Mask_Shard", singleShards));
+                    return Enumerable.Repeat(ItemNames.Double_Mask_Shard, doubleShards).Concat(Enumerable.Repeat(ItemNames.Mask_Shard, singleShards));
                 });
             }
             else if (rb.gs.MiscSettings.MaskShards == MiscSettings.MaskShardType.OneShardPerMask)
             {
-                rb.ReplaceItem("Mask_Shard", (i) =>
+                rb.ReplaceItem(ItemNames.Mask_Shard, (i) =>
                 {
                     int fullMasks = i / 4;
                     int singleShards = i - 4 * fullMasks;
 
-                    return Enumerable.Repeat("Full_Mask", fullMasks).Concat(Enumerable.Repeat("Mask_Shard", singleShards));
+                    return Enumerable.Repeat(ItemNames.Full_Mask, fullMasks).Concat(Enumerable.Repeat(ItemNames.Mask_Shard, singleShards));
                 });
             }
         }
@@ -1236,20 +1240,20 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.MiscSettings.VesselFragments == MiscSettings.VesselFragmentType.TwoFragmentsPerVessel)
             {
-                rb.ReplaceItem("Vessel_Fragment", i =>
+                rb.ReplaceItem(ItemNames.Vessel_Fragment, i =>
                 {
                     int doubleFragments = i / 2;
                     int singleFragments = i - 2 * doubleFragments;
-                    return Enumerable.Repeat("Double_Vessel_Fragment", doubleFragments).Concat(Enumerable.Repeat("Vessel_Fragment", singleFragments));
+                    return Enumerable.Repeat(ItemNames.Double_Vessel_Fragment, doubleFragments).Concat(Enumerable.Repeat(ItemNames.Vessel_Fragment, singleFragments));
                 });
             }
             else if (rb.gs.MiscSettings.VesselFragments == MiscSettings.VesselFragmentType.OneFragmentPerVessel)
             {
-                rb.ReplaceItem("Vessel_Fragment", i =>
+                rb.ReplaceItem(ItemNames.Vessel_Fragment, i =>
                 {
                     int fullVessels = i / 3;
                     int singleFragments = i - 3 * fullVessels;
-                    return Enumerable.Repeat("Full_Soul_Vessel", fullVessels).Concat(Enumerable.Repeat("Vessel_Fragment", singleFragments));
+                    return Enumerable.Repeat(ItemNames.Full_Soul_Vessel, fullVessels).Concat(Enumerable.Repeat(ItemNames.Vessel_Fragment, singleFragments));
                 });
             }
         }
@@ -1315,15 +1319,15 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.CursedSettings.RandomizeMimics && !rb.gs.PoolSettings.Grubs)
             {
-                PoolDef mimicPool = Data.GetPoolDef("Mimic");
-                PoolDef grubPool = Data.GetPoolDef("Grub");
+                PoolDef mimicPool = Data.GetPoolDef(PoolNames.Mimic);
+                PoolDef grubPool = Data.GetPoolDef(PoolNames.Grub);
 
                 rb.RemoveItemByName(ItemNames.Mimic_Grub);
                 foreach (string loc in mimicPool.IncludeLocations) rb.RemoveLocationByName(loc);
                 foreach (PoolDef.StringILP ilp in grubPool.Vanilla) rb.Vanilla.RemoveAll(new(ilp.item, ilp.location));
 
-                StageBuilder sb = rb.AddStage("Grub Mimic Stage");
-                ItemGroupBuilder gb = sb.AddItemGroup("Grub Mimic Group");
+                StageBuilder sb = rb.AddStage(RBConsts.GrubMimicStage);
+                ItemGroupBuilder gb = sb.AddItemGroup(RBConsts.GrubMimicGroup);
                 int extraMimics = rb.rng.Next(rb.gs.CursedSettings.MaximumGrubsReplacedByMimics + 1);
                 extraMimics = Math.Min(extraMimics, 46 - rb.gs.CostSettings.MaximumGrubCost - rb.gs.CostSettings.GrubTolerance);
                 gb.Items.Set(ItemNames.Grub, 46 - extraMimics);
@@ -1396,7 +1400,8 @@ namespace RandomizerMod.RC
                     HashSet<string> shops = new();
                     for (int i = 0; i < locations.Count; i++)
                     {
-                        if (shopPenalty && (Data.GetLocationDef(locations[i].Name)?.Multi ?? false))
+                        if (locations[i] is not RandoModLocation rl) continue;
+                        if (rl.TryGetLocationDef(out LocationDef def) && def.Multi)
                         {
                             // shops keep their lowest priority slot, but all other slots are moved to the end.
                             if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, 1f);
@@ -1429,7 +1434,7 @@ namespace RandomizerMod.RC
                     }
                 }
                 // TODO: this method of padding does not consider group!
-                if (multiSet.Count == 0) multiSet.Add("Sly");
+                if (multiSet.Count == 0) multiSet.Add(LocationNames.Sly);
                 string[] multi = multiSet.OrderBy(s => s).ToArray();
                 for (int i = 0; i < count; i++) yield return factory.MakeLocation(rb.rng.Next(multi));
             }

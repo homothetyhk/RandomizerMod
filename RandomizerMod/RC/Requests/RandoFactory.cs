@@ -38,7 +38,7 @@ namespace RandomizerMod.RC
         public RandoModItem MakeItem(string name)
         {
             RandoModItem item;
-            if (rb.TryGetItemDef(name, out ItemRequestInfo info) && info.randoItemCreator != null)
+            if (rb.TryGetItemRequest(name, out ItemRequestInfo info) && info.randoItemCreator != null)
             {
                 item = info.randoItemCreator(this);
             }
@@ -47,12 +47,7 @@ namespace RandomizerMod.RC
                 item = MakeItemInternal(name);
             }
 
-            if (info != null)
-            {
-                item.onRandomizerFinish += info.onRandomizerFinish;
-                item.realItemCreator += info.realItemCreator;
-                info.onRandoItemCreation?.Invoke(this, item);
-            }
+            info?.AppendTo(item.info ??= new());
 
             return item;
         }
@@ -69,7 +64,7 @@ namespace RandomizerMod.RC
 
         public RandoModLocation MakeLocation(string name)
         {
-            if (!rb.TryGetLocationDef(name, out LocationRequestInfo info))
+            if (!rb.TryGetLocationRequest(name, out LocationRequestInfo info))
             {
                 return MakeLocationInternal(name);
             }
@@ -109,12 +104,9 @@ namespace RandomizerMod.RC
                 }
             }
            
-            if (rb.TryGetLocationDef(name, out LocationRequestInfo info))
+            if (rb.TryGetLocationRequest(name, out LocationRequestInfo info))
             {
-                rl.onRandomizerFinish += info.onRandomizerFinish;
-                rl.customPlacementFetch += info.customPlacementFetch;
-                rl.onPlacementFetch += info.onPlacementFetch;
-                rl.customAddToPlacement += info.customAddToPlacement;
+                info.AppendTo(rl.info ??= new());
             }
 
             return rl;

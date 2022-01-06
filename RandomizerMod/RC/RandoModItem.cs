@@ -6,18 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using RandomizerMod.RandomizerData;
 
 namespace RandomizerMod.RC
 {
     public class RandoModItem : RandoItem
     {
-        [field: JsonIgnore] public Action<RandoPlacement> onRandomizerFinish;
-        [field: JsonIgnore] public Func<ICFactory, RandoPlacement, AbstractItem> realItemCreator;
+        [JsonIgnore] public ItemRequestInfo? info;
 
-        public void Apply(ItemRequestInfo info)
+        public bool TryGetItemDef(out ItemDef def)
         {
-            this.onRandomizerFinish = info.onRandomizerFinish;
-            this.realItemCreator = info.realItemCreator;
+            def = info?.getItemDef != null ? info.getItemDef() : Data.GetItemDef(Name);
+            return def is not null;
         }
     }
 }

@@ -1,25 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Concurrent;
 using System.Threading;
 using UnityEngine;
-using RandomizerCore;
-using RandomizerMod.Settings;
-using static RandomizerMod.LogHelper;
-using RandomizerCore.Extensions;
-using System.Collections.Concurrent;
 
 namespace RandomizerMod.Logging
 {
-    public class LogArguments
-    {
-        public object randomizer { get; init; }
-        public GenerationSettings gs { get; init; }
-        public RandoContext ctx { get; init; }
-    }
-
     public static class LogManager
     {
         public static readonly string R4Directory = Path.Combine(Application.persistentDataPath, "Randomizer 4");
@@ -34,6 +18,16 @@ namespace RandomizerMod.Logging
             new ItemSpoilerLog(),
             new TransitionSpoilerLog(),
         };
+
+        public static void AddLogger(RandoLogger rl)
+        {
+            loggers.Add(rl);
+        }
+
+        public static void RemoveLogger(RandoLogger rl)
+        {
+            loggers.Remove(rl);
+        }
 
         internal static void Initialize()
         {

@@ -19,7 +19,7 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this LongLocationSettings ll, GenerationSettings Settings)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             switch (ll.RandomizationInWhitePalace)
             {
                 case LongLocationSettings.WPSetting.ExcludePathOfPain:
@@ -72,6 +72,7 @@ namespace RandomizerMod.Settings.Presets
             terms.Clear();
             if (ns.SplitClaw) sb.Append("The abilities to walljump from left and right slopes will be separated. ");
             if (ns.SplitCloak) sb.Append("The abilities to dash left and right will be separated. ");
+            if (ns.SplitSuperdash) sb.Append("The abilities to superdash left and right will be separated. ");
             if (ns.EggShop) sb.Append("Jiji will trade items for rancid eggs. ");
 
             return sb.ToString();
@@ -79,7 +80,7 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this CursedSettings cs)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             if (cs.ReplaceJunkWithOneGeo) sb.Append("Luxury items like mask shards and pale ore and the like are replaced with 1 geo pickups. ");
             if (cs.RemoveSpellUpgrades) sb.Append("Spell upgrades are completely removed. ");
             if (cs.LongerProgressionChains) sb.Append("Progression items are harder to find on average. ");
@@ -93,7 +94,7 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this StartItemSettings si)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             if (si.MinimumStartGeo == si.MaximumStartGeo)
             {
                 sb.Append($"Start with {si.MinimumStartGeo} geo. ");

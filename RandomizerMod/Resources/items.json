@@ -1423,6 +1423,22 @@
     "itemCandidate": false,
     "majorItem": false
   },
+  "Left_Crystal_Heart": {
+    "name": "Left_Crystal_Heart",
+    "pool": "SplitSuperdash",
+    "priceCap": 500,
+    "progression": true,
+    "itemCandidate": true,
+    "majorItem": true
+  },
+  "Right_Crystal_Heart": {
+    "name": "Right_Crystal_Heart",
+    "pool": "SplitSuperdash",
+    "priceCap": 500,
+    "progression": true,
+    "itemCandidate": true,
+    "majorItem": true
+  },
   "Geo_Rock-Default": {
     "name": "Geo_Rock-Default",
     "pool": "Rock",

@@ -18,6 +18,11 @@
         /// Label for the default group of the default stage, in any rando.
         /// </summary>
         public const string MainItemGroup = "Main Item Group";
+
+        /// <summary>
+        /// Label for the stage of grubs and mimics, when mimics are randomized but grubs are not randomized.
+        /// </summary>
+        public const string GrubMimicStage = "Grub Mimic Stage";
         /// <summary>
         /// Label for the group of grubs and mimics, when mimics are randomized but grubs are not randomized.
         /// </summary>

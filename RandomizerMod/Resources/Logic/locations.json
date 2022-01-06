@@ -1160,6 +1160,10 @@
     "logic": "Fungus2_14 + (LEFTDASH | WINGS | (LEFTSUPERDASH + ANYCLAW) | ENEMYPOGOS)"
   },
   {
+    "name": "Split_Crystal_Heart",
+    "logic": "Mines_31[left1] + (RIGHTSUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + 4MASKS))"
+  },
+  {
     "name": "Leftslash",
     "logic": "Tutorial_01"
   },

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RandomizerMod.Logging
+﻿namespace RandomizerMod.Logging
 {
     public abstract class RandoLogger
     {
@@ -13,7 +11,7 @@ namespace RandomizerMod.Logging
             }
             catch (Exception e)
             {
-                LogHelper.LogError($"Error in RandoLogger {GetType().Name}:\n{e}");
+                LogError($"Error in RandoLogger {GetType().Name}:\n{e}");
             }
         }
     }

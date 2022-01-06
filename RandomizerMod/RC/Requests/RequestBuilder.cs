@@ -17,7 +17,7 @@ namespace RandomizerMod.RC
     /// </summary>
     public class RequestBuilder
     {
-        public void Run(out RandomizationStage[] stages, out List<RandoPlacement> vanilla, out List<ItemPlacement> start)
+        public void Run(out RandomizationStage[] stages, out List<RandoPlacement> vanilla, out List<ItemPlacement> start) 
         {
             HandleUpdateEvents();
 
@@ -31,7 +31,7 @@ namespace RandomizerMod.RC
                 : new RandoPlacement(factory.MakeTransition(v.Item), factory.MakeTransition(v.Location)))
                 .ToList();
             start = StartItems.EnumerateWithMultiplicity()
-                .Select(i => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation("Start")))
+                .Select(i => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation(LocationNames.Start)))
                 .ToList();
         }
 
@@ -70,10 +70,10 @@ namespace RandomizerMod.RC
         }
 
 
-        public readonly Dictionary<string, ItemRequestInfo> ItemDefs = new();
+        public readonly Dictionary<string, ItemRequestInfo> ItemRequests = new();
         public readonly List<ItemMatchHandler> ItemMatchers = new();
 
-        public readonly Dictionary<string, LocationRequestInfo> LocationDefs = new();
+        public readonly Dictionary<string, LocationRequestInfo> LocationRequests = new();
         public readonly List<LocationMatchHandler> LocationMatchers = new();
 
         public readonly Bucket<string> StartItems = new();
@@ -231,9 +231,9 @@ namespace RandomizerMod.RC
             foreach (ItemGroupBuilder gb in EnumerateItemGroups()) gb.Items.RemoveAll(name);
         }
 
-        public bool TryGetItemDef(string name, out ItemRequestInfo info)
+        public bool TryGetItemRequest(string name, out ItemRequestInfo info)
         {
-            if (ItemDefs.TryGetValue(name, out info))
+            if (ItemRequests.TryGetValue(name, out info))
             {
                 return true;
             }
@@ -241,21 +241,33 @@ namespace RandomizerMod.RC
             {
                 foreach (ItemMatchHandler matcher in ItemMatchers)
                 {
-                    if (matcher(name, out info)) return true;
+                    if (matcher(name, out info))
+                    {
+                        ItemRequests.Add(name, info);
+                        return true;
+                    }
                 }
             }
             info = default;
             return false;
         }
 
-        public void EditItemInfo(string name, Action<ItemRequestInfo> edit)
+        public void EditItemRequest(string name, Action<ItemRequestInfo> edit)
         {
-            if (!ItemDefs.TryGetValue(name, out ItemRequestInfo info))
+            if (!TryGetItemRequest(name, out ItemRequestInfo info))
             {
-                info = new();
-                ItemDefs.Add(name, info);
+                ItemRequests.Add(name, info = new());
             }
+
             edit(info);
+        }
+
+        public bool TryGetItemDef(string name, out ItemDef def)
+        {
+            def = TryGetItemRequest(name, out ItemRequestInfo info) && info.getItemDef != null 
+                ? info.getItemDef() 
+                : Data.GetItemDef(name);
+            return def is not null;
         }
 
         /// <summary>
@@ -290,9 +302,9 @@ namespace RandomizerMod.RC
             GetLocationGroupFor(name).Locations.Remove(name, count);
         }
 
-        public bool TryGetLocationDef(string name, out LocationRequestInfo info)
+        public bool TryGetLocationRequest(string name, out LocationRequestInfo info)
         {
-            if (LocationDefs.TryGetValue(name, out info))
+            if (LocationRequests.TryGetValue(name, out info))
             {
                 return true;
             }
@@ -300,21 +312,32 @@ namespace RandomizerMod.RC
             {
                 foreach (LocationMatchHandler matcher in LocationMatchers)
                 {
-                    if (matcher(name, out info)) return true;
+                    if (matcher(name, out info))
+                    {
+                        LocationRequests.Add(name, info);
+                        return true;
+                    }
                 }
             }
             info = default;
             return false;
         }
 
-        public void EditLocationInfo(string name, Action<LocationRequestInfo> edit)
+        public void EditLocationRequest(string name, Action<LocationRequestInfo> edit)
         {
-            if (!LocationDefs.TryGetValue(name, out LocationRequestInfo info))
+            if (!LocationRequests.TryGetValue(name, out LocationRequestInfo info))
             {
-                info = new();
-                LocationDefs.Add(name, info);
+                LocationRequests.Add(name, info = new());
             }
             edit(info);
+        }
+
+        public bool TryGetLocationDef(string name, out LocationDef def)
+        {
+            def = TryGetLocationRequest(name, out LocationRequestInfo info) && info.getLocationDef != null
+                ? info.getLocationDef()
+                : Data.GetLocationDef(name);
+            return def is not null;
         }
 
         /// <summary>

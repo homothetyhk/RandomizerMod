@@ -26,6 +26,7 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeFocus = false,
                 SplitClaw = false,
                 SplitCloak = false,
+                SplitSuperdash = false,
                 EggShop = false,
             };
 
@@ -37,6 +38,7 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeFocus = false,
                 SplitClaw = false,
                 SplitCloak = false,
+                SplitSuperdash = false,
                 EggShop = true,
             };
 
@@ -59,6 +61,7 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeFocus = false,
                 SplitClaw = true,
                 SplitCloak = true,
+                SplitSuperdash = true,
                 EggShop = true,
             };
 
@@ -70,6 +73,7 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeFocus = true,
                 SplitClaw = true,
                 SplitCloak = true,
+                SplitSuperdash = true,
                 EggShop = true,
             };
 

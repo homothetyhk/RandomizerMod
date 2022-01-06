@@ -19,19 +19,11 @@ namespace RandomizerMod.RC
         public PlaceholderItem(RandoModItem innerItem)
         {
             this.innerItem = innerItem;
-            this.onRandomizerFinish = innerItem.onRandomizerFinish;
-            this.realItemCreator = innerItem.realItemCreator 
-                ?? ((factory, next) => factory.MakeItemWithEvents(innerItem.Name, next));
+            this.info = innerItem.info?.Clone() ?? new();
+            this.info.realItemCreator ??= ((factory, next) => factory.MakeItemWithEvents(innerItem.Name, next));
             base.item = new EmptyItem($"Placeholder-{innerItem.Name}");
         }
 
         public readonly RandoModItem innerItem;
-
-        public RandoModItem Unwrap()
-        {
-            innerItem.Priority = Priority;
-            innerItem.Placed = Placed;
-            return innerItem;
-        }
     }
 }

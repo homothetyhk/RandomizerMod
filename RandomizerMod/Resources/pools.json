@@ -34,20 +34,6 @@
     ]
   },
   {
-    "name": "Fake",
-    "path": null,
-    "includeItems": [
-      "Dreamer",
-      "One_Geo",
-      "Grubfather",
-      "Seer",
-      "Equipped",
-      "Placeholder"
-    ],
-    "includeLocations": [],
-    "vanilla": []
-  },
-  {
     "name": "Skill",
     "path": "PoolSettings.Skills",
     "includeItems": [
@@ -2360,6 +2346,18 @@
         "location": "Start"
       }
     ]
+  },
+  {
+    "name": "SplitSuperdash",
+    "path": "NoveltySettings.SplitSuperdash",
+    "includeItems": [
+      "Left_Crystal_Heart",
+      "Right_Crystal_Heart"
+    ],
+    "includeLocations": [
+      "Split_Crystal_Heart"
+    ],
+    "vanilla": []
   },
   {
     "name": "EggShop",

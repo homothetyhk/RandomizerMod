@@ -1,14 +1,17 @@
 ﻿using ItemChanger;
 using Newtonsoft.Json;
 using RandomizerCore;
+using RandomizerMod.RandomizerData;
 
 namespace RandomizerMod.RC
 {
     public class RandoModLocation : RandoLocation
     {
-        [field: JsonIgnore] public Action<RandoPlacement> onRandomizerFinish;
-        [field: JsonIgnore] public Func<ICFactory, RandoPlacement, AbstractPlacement> customPlacementFetch;
-        [field: JsonIgnore] public Action<ICFactory, RandoPlacement, AbstractPlacement> onPlacementFetch;
-        [field: JsonIgnore] public Action<ICFactory, RandoPlacement, AbstractPlacement, AbstractItem> customAddToPlacement;
+        [JsonIgnore] public LocationRequestInfo? info;
+        public bool TryGetLocationDef(out LocationDef def)
+        {
+            def = info?.getLocationDef != null ? info.getLocationDef() : Data.GetLocationDef(Name);
+            return def is not null;
+        }
     }
 }

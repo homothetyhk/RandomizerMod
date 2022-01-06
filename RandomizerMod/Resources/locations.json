@@ -2064,6 +2064,13 @@
     "MapArea": "Dirtmouth",
     "Multi": false
   },
+  "Split_Crystal_Heart": {
+    "Name": "Split_Crystal_Heart",
+    "SceneName": "Mines_31",
+    "TitledArea": "Crystal Peak",
+    "MapArea": "Crystal Peak",
+    "Multi": false
+  },
   "Geo_Rock-Broken_Elevator_1": {
     "Name": "Geo_Rock-Broken_Elevator_1",
     "SceneName": "Abyss_01",

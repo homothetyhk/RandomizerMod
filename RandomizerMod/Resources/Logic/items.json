@@ -2383,6 +2383,22 @@
   {
     "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
     "Effect": {
+      "Term": "LEFTSUPERDASH",
+      "Value": 1
+    },
+    "Name": "Left_Crystal_Heart"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+    "Effect": {
+      "Term": "RIGHTSUPERDASH",
+      "Value": 1
+    },
+    "Name": "Right_Crystal_Heart"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+    "Effect": {
       "Term": "GEO",
       "Value": 15
     },

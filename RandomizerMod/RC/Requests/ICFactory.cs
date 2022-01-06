@@ -21,9 +21,9 @@ namespace RandomizerMod.RC
         public void HandlePlacement(int index, RandoModItem ri, RandoModLocation rl)
         {
             AbstractPlacement placement;
-            if (rl.customPlacementFetch != null)
+            if (rl.info?.customPlacementFetch != null)
             {
-                placement = rl.customPlacementFetch(this, new(ri, rl));
+                placement = rl.info.customPlacementFetch(this, new(ri, rl));
                 if (placement == null) throw new NullReferenceException("Placement cannot be null after custom placement fetch!");
                 if (!_placements.ContainsKey(placement.Name)) AddPlacement(placement);
             }
@@ -31,12 +31,12 @@ namespace RandomizerMod.RC
             {
                 placement = FetchOrMakePlacement(rl.Name);
             }
-            rl.onPlacementFetch?.Invoke(this, new(ri, rl), placement);
+            rl.info?.onPlacementFetch?.Invoke(this, new(ri, rl), placement);
 
             AbstractItem item;
-            if (ri.realItemCreator != null)
+            if (ri.info?.realItemCreator != null)
             {
-                item = ri.realItemCreator(this, new(ri, rl));
+                item = ri.info.realItemCreator(this, new(ri, rl));
             }
             else
             {
@@ -44,9 +44,9 @@ namespace RandomizerMod.RC
             }
             if (item == null) throw new InvalidOperationException($"Failed to instantiate item {ri.Name} at {rl.Name}.");
 
-            if (rl.customAddToPlacement != null)
+            if (rl.info?.customAddToPlacement != null)
             {
-                rl.customAddToPlacement(this, new(ri, rl), placement, item);
+                rl.info.customAddToPlacement(this, new(ri, rl), placement, item);
                 if (item.GetTag<RandoItemTag>() is not RandoItemTag tag || tag.id != index) item.AddTag<RandoItemTag>().id = index;
             }
             else
@@ -63,7 +63,7 @@ namespace RandomizerMod.RC
         /// </summary>
         public AbstractItem MakeItemWithEvents(string itemName, RandoPlacement placement)
         {
-            if (rb.TryGetItemDef(itemName, out ItemRequestInfo info) && info.realItemCreator != null)
+            if (rb.TryGetItemRequest(itemName, out ItemRequestInfo info) && info.realItemCreator != null)
             {
                 return info.realItemCreator(this, placement);
             }
@@ -109,7 +109,7 @@ namespace RandomizerMod.RC
 
         public AbstractPlacement FetchOrMakePlacementWithEvents(string placementName, RandoPlacement next)
         {
-            bool hasInfo = rb.TryGetLocationDef(placementName, out LocationRequestInfo info);
+            bool hasInfo = rb.TryGetLocationRequest(placementName, out LocationRequestInfo info);
 
             AbstractPlacement placement;
             if (hasInfo && info.customPlacementFetch != null)
