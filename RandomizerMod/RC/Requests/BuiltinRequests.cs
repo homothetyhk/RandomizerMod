@@ -20,6 +20,8 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(-1000f, ApplyTransitionSettings);
             OnUpdate.Subscribe(-800f, PlaceUnrandomizedTransitions);
 
+            OnUpdate.Subscribe(-500f, ApplySplitGroupResolver);
+
             OnUpdate.Subscribe(-100f, ApplyShopDefs);
             OnUpdate.Subscribe(-100f, ApplyGrubfatherDef);
             OnUpdate.Subscribe(-100f, ApplySeerDef);
@@ -43,6 +45,7 @@ namespace RandomizerMod.RC
 
             OnUpdate.Subscribe(15f, ApplySplitClawFullClawRemove);
             OnUpdate.Subscribe(15f, ApplySplitCloakFullCloakRemove);
+            OnUpdate.Subscribe(15f, ApplySplitSuperdashFullCrystalHeartRemove);
             OnUpdate.Subscribe(15f, ApplySpellRemove);
 
             OnUpdate.Subscribe(16f, ApplyJunkItemRemove);
@@ -66,7 +69,6 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(100f, ApplyAreaConstraint);
             OnUpdate.Subscribe(100f, ApplyDerangedConstraint);
         }
-
 
         public static void ApplyPlaceholderMatch(RequestBuilder rb)
         {
@@ -355,6 +357,65 @@ namespace RandomizerMod.RC
             {
                 if (IsVanillaInMode(t)) rb.EnsureVanillaSourceTransition(t);
             }
+        }
+
+        public static void ApplySplitGroupResolver(RequestBuilder rb)
+        {
+            Dictionary<int, ItemGroupBuilder> splitGroups = new();
+            Dictionary<string, Bucket<int>> itemWeightBuilder = new();
+            Dictionary<string, Bucket<int>> locationWeightBuilder = new();
+            splitGroups.Add(0, rb.MainItemGroup);
+            foreach (PoolDef def in Data.Pools)
+            {
+                if (rb.gs.SplitGroupSettings.TryGetValue(def, out int value))
+                {
+                    if (!splitGroups.ContainsKey(value))
+                    {
+                        splitGroups.Add(value, rb.MainItemStage.AddItemGroup(RBConsts.SplitGroupPrefix + value));
+                    }
+                    foreach (string s in def.IncludeItems)
+                    {
+                        if (!itemWeightBuilder.TryGetValue(s, out Bucket<int> b)) itemWeightBuilder.Add(s, b = new());
+                        b.Add(value);
+                    }
+                    foreach (string s in def.IncludeLocations)
+                    {
+                        if (!locationWeightBuilder.TryGetValue(s, out Bucket<int> b)) locationWeightBuilder.Add(s, b = new());
+                        b.Add(value);
+                    }
+                }
+            }
+
+            Dictionary<string, WeightedArray<int>> itemGroups = itemWeightBuilder.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToWeightedArray());
+            Dictionary<string, WeightedArray<int>> locationGroups = locationWeightBuilder.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToWeightedArray());
+
+            bool TryGetSplitGroup(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb)
+            {
+                if (type == ElementType.Unknown)
+                {
+                    if (locationGroups.ContainsKey(item)) type = ElementType.Location;
+                    else if (itemGroups.ContainsKey(item)) type = ElementType.Item;
+                }
+                if (type == ElementType.Item)
+                {
+                    if (itemGroups.TryGetValue(item, out WeightedArray<int> arr) && splitGroups.TryGetValue(arr.Next(rb.rng), out ItemGroupBuilder igb))
+                    {
+                        gb = igb;
+                        return true;
+                    }
+                }
+                if (type == ElementType.Location)
+                {
+                    if (locationGroups.TryGetValue(item, out WeightedArray<int> arr) && splitGroups.TryGetValue(arr.Next(rb.rng), out ItemGroupBuilder igb))
+                    {
+                        gb = igb;
+                        return true;
+                    }
+                }
+                gb = null;
+                return false;
+            }
+            rb.OnGetGroupFor.Subscribe(0f, TryGetSplitGroup);
         }
 
         public static void ApplyShopDefs(RequestBuilder rb)
@@ -1204,20 +1265,26 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.NoveltySettings.SplitCloak)
             {
-                bool leftBiased = rb.rng.NextBool();
-                // note -- this means all Split_Shade_Cloak items have the same bias.
                 rb.EditItemRequest(ItemNames.Split_Shade_Cloak, info =>
                 {
                     info.randoItemCreator = factory =>
                     {
                         return new RandoModItem
                         {
-                            item = ((SplitCloakItem)factory.lm.GetItem(ItemNames.Split_Shade_Cloak)) with { LeftBiased = leftBiased }
+                            item = ((SplitCloakItem)factory.lm.GetItem(ItemNames.Split_Shade_Cloak)) with { LeftBiased = rb.rng.NextBool() }
                         };
                     };
                     info.realItemCreator = (factory, next) =>
                     {
                         AbstractItem item = factory.MakeItem(ItemNames.Split_Shade_Cloak);
+
+                        RandoModItem ri = (RandoModItem)next.Item;
+                        if (ri is PlaceholderItem pi) ri = pi.innerItem;
+
+                        bool leftBiased;
+                        if (ri.item is SplitCloakItem cloak) leftBiased = cloak.LeftBiased;
+                        else leftBiased = factory.rb.rng.NextBool();
+
                         item.GetTag<ItemChanger.Tags.ItemChainTag>().predecessor = leftBiased ? ItemNames.Left_Mothwing_Cloak : ItemNames.Right_Mothwing_Cloak;
                         return item;
                     };
@@ -1324,7 +1391,7 @@ namespace RandomizerMod.RC
                 int count = 0;
                 foreach (string l in gb.Locations.EnumerateDistinct())
                 {
-                    if (rb.TryGetLocationDef(l, out LocationDef def) && def.Multi)
+                    if (rb.TryGetLocationDef(l, out LocationDef def) && def.FlexibleCount)
                     {
                         multiSet.Add(l);
                         count += gb.Locations.GetCount(l) - 1;
@@ -1429,7 +1496,7 @@ namespace RandomizerMod.RC
                     for (int i = 0; i < locations.Count; i++)
                     {
                         if (locations[i] is not RandoModLocation rl) continue;
-                        if (rl.TryGetLocationDef(out LocationDef def) && def.Multi)
+                        if (rl.TryGetLocationDef(out LocationDef def) && def.AdditionalProgressionPenalty)
                         {
                             // shops keep their lowest priority slot, but all other slots are moved to the end.
                             if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, 1f);
@@ -1456,7 +1523,7 @@ namespace RandomizerMod.RC
                 HashSet<string> multiSet = new();
                 foreach (string l in gb.Locations.EnumerateDistinct())
                 {
-                    if (Data.GetLocationDef(l) is LocationDef def && def.Multi) multiSet.Add(l);
+                    if (Data.GetLocationDef(l) is LocationDef def && def.FlexibleCount) multiSet.Add(l);
                 }
                 if (multiSet.Count == 0) multiSet.Add(LocationNames.Sly);
                 string[] multi = multiSet.OrderBy(s => s).ToArray();

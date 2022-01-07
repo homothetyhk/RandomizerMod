@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using MenuChanger;
-using MenuChanger.MenuPanels;
+﻿using MenuChanger;
+using MenuChanger.Extensions;
 using MenuChanger.MenuElements;
-using Random = System.Random;
-using System.Threading;
-using UnityEngine.UI;
-using RandomizerMod.Extensions;
-using RandomizerMod.Settings;
-using RandomizerMod.Settings.Presets;
-using static RandomizerMod.LogHelper;
+using MenuChanger.MenuPanels;
+using RandomizerCore.Extensions;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
-using MenuChanger.Extensions;
-using RandomizerCore.Extensions;
+using RandomizerMod.Settings;
+using RandomizerMod.Settings.Presets;
+using System.Threading;
+using UnityEngine;
+using Random = System.Random;
 
 namespace RandomizerMod.Menu
 {
@@ -97,6 +90,7 @@ namespace RandomizerMod.Menu
         MenuPreset<TransitionSettings> TransitionPreset;
         MenuPreset<MiscSettings> MiscPreset;
         MenuPreset<DuplicateItemSettings> DuplicateItemPreset;
+        MenuPreset<SplitGroupSettings> SplitGroupPreset;
 
         SmallButton[] PresetButtons => new SmallButton[]
         {
@@ -111,6 +105,7 @@ namespace RandomizerMod.Menu
             TransitionPreset,
             MiscPreset,
             DuplicateItemPreset,
+            SplitGroupPreset,
         };
         GridItemPanel StartGIP;
 
@@ -203,7 +198,8 @@ namespace RandomizerMod.Menu
             CursedSubpage,
             TransitionSubpage,
             ProgressionDepthSubpage,
-            DuplicateItemSubpage
+            DuplicateItemSubpage,
+            SplitGroupSubpage,
         };
 
         Subpage PoolSubpage;
@@ -256,6 +252,10 @@ namespace RandomizerMod.Menu
         Subpage DuplicateItemSubpage;
         MenuElementFactory<DuplicateItemSettings> duplicateItemMEF;
         GridItemPanel duplicateItemPanel;
+
+        Subpage SplitGroupSubpage;
+        MenuElementFactory<SplitGroupSettings> splitGroupMEF;
+        GridItemPanel splitGroupPanel;
 
         #endregion
 
@@ -379,6 +379,7 @@ namespace RandomizerMod.Menu
             transitionMEF = new MenuElementFactory<TransitionSettings>(AdvancedSettingsPage, Settings.TransitionSettings);
             progressionDepthMEF = new MenuElementFactory<ProgressionDepthSettings>(AdvancedSettingsPage, Settings.ProgressionDepthSettings);
             duplicateItemMEF = new MenuElementFactory<DuplicateItemSettings>(AdvancedSettingsPage, Settings.DuplicateItemSettings);
+            splitGroupMEF = new MenuElementFactory<SplitGroupSettings>(AdvancedSettingsPage, Settings.SplitGroupSettings);
 
             PoolPreset = new MenuPreset<PoolSettings>(StartPage, "Randomized Items", 
                 PoolPresetData.PoolPresets, Settings.PoolSettings,
@@ -418,6 +419,9 @@ namespace RandomizerMod.Menu
 
             DuplicateItemPreset = new MenuPreset<DuplicateItemSettings>(StartPage, "Duplicate Items",
                 DuplicateItemPresetData.Presets, Settings.DuplicateItemSettings, ds => ds.Caption(), duplicateItemMEF);
+
+            SplitGroupPreset = new MenuPreset<SplitGroupSettings>(StartPage, "Split Group Randomizer", SplitGroupPresetData.Presets,
+                Settings.SplitGroupSettings, Captions.Caption, splitGroupMEF);
 
             DefaultSettingsButton = new SmallButton(JumpPage, "Restore Default Settings");
             ToManageSettingsPageButton = new SmallButton(JumpPage, "Manage Settings Profiles");
@@ -516,6 +520,10 @@ namespace RandomizerMod.Menu
             DuplicateItemSubpage = new Subpage(AdvancedSettingsPage, "Duplicate Items");
             duplicateItemPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 800f, false, duplicateItemMEF.Elements);
             DuplicateItemSubpage.Add(duplicateItemPanel);
+
+            SplitGroupSubpage = new Subpage(AdvancedSettingsPage, "Split Group Randomizer");
+            splitGroupPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 4, 75f, 400f, false, splitGroupMEF.Elements);
+            SplitGroupSubpage.Add(splitGroupPanel);
 
             AdvancedSettingsViewer = new OrderedItemViewer(AdvancedSettingsPage, AdvancedSettingsSubpages);
 

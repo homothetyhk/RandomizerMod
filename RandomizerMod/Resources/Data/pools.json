@@ -1,20 +1,21 @@
 [
   {
-    "name": "Dreamer",
-    "path": "PoolSettings.Dreamers",
-    "includeItems": [
+    "Group": "Dreamers",
+    "Name": "Dreamer",
+    "Path": "PoolSettings.Dreamers",
+    "IncludeItems": [
       "Lurien",
       "Monomon",
       "Herrah",
       "World_Sense"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Lurien",
       "Monomon",
       "Herrah",
       "World_Sense"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Lurien",
         "location": "Lurien"
@@ -34,9 +35,10 @@
     ]
   },
   {
-    "name": "Skill",
-    "path": "PoolSettings.Skills",
-    "includeItems": [
+    "Group": "Skills",
+    "Name": "Skill",
+    "Path": "PoolSettings.Skills",
+    "IncludeItems": [
       "Mothwing_Cloak",
       "Mantis_Claw",
       "Crystal_Heart",
@@ -56,7 +58,7 @@
       "Dash_Slash",
       "Great_Slash"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Mothwing_Cloak",
       "Mantis_Claw",
       "Crystal_Heart",
@@ -76,7 +78,7 @@
       "Dash_Slash",
       "Great_Slash"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Mothwing_Cloak",
         "location": "Mothwing_Cloak"
@@ -152,15 +154,16 @@
     ]
   },
   {
-    "name": "Focus",
-    "path": "NoveltySettings.RandomizeFocus",
-    "includeItems": [
+    "Group": "Skills",
+    "Name": "Focus",
+    "Path": "NoveltySettings.RandomizeFocus",
+    "IncludeItems": [
       "Focus"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Focus"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Focus",
         "location": "Start"
@@ -168,13 +171,14 @@
     ]
   },
   {
-    "name": "Swim",
-    "path": "NoveltySettings.RandomizeSwim",
-    "includeItems": [
+    "Group": "Skills",
+    "Name": "Swim",
+    "Path": "NoveltySettings.RandomizeSwim",
+    "IncludeItems": [
       "Swim"
     ],
-    "includeLocations": [],
-    "vanilla": [
+    "IncludeLocations": [],
+    "Vanilla": [
       {
         "item": "Swim",
         "location": "Start"
@@ -182,9 +186,10 @@
     ]
   },
   {
-    "name": "Charm",
-    "path": "PoolSettings.Charms",
-    "includeItems": [
+    "Group": "Charms",
+    "Name": "Charm",
+    "Path": "PoolSettings.Charms",
+    "IncludeItems": [
       "Gathering_Swarm",
       "Wayward_Compass",
       "Grubsong",
@@ -231,7 +236,7 @@
       "Unbreakable_Greed",
       "Unbreakable_Strength"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Grubfather",
       "Baldur_Shell",
       "Fury_of_the_Fallen",
@@ -278,7 +283,7 @@
       "Unbreakable_Greed",
       "Unbreakable_Strength"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Grubsong",
         "location": "Grubfather"
@@ -462,9 +467,10 @@
     ]
   },
   {
-    "name": "Key",
-    "path": "PoolSettings.Keys",
-    "includeItems": [
+    "Group": "Keys",
+    "Name": "Key",
+    "Path": "PoolSettings.Keys",
+    "IncludeItems": [
       "City_Crest",
       "Lumafly_Lantern",
       "Tram_Pass",
@@ -479,7 +485,7 @@
       "Godtuner",
       "Collector's_Map"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "City_Crest",
       "Tram_Pass",
       "Simple_Key-Basin",
@@ -494,7 +500,7 @@
       "Sly",
       "Sly_(Key)"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "City_Crest",
         "location": "City_Crest"
@@ -550,9 +556,10 @@
     ]
   },
   {
-    "name": "Mask",
-    "path": "PoolSettings.MaskShards",
-    "includeItems": [
+    "Group": "MaskShards",
+    "Name": "Mask",
+    "Path": "PoolSettings.MaskShards",
+    "IncludeItems": [
       "Mask_Shard",
       "Mask_Shard",
       "Mask_Shard",
@@ -570,7 +577,7 @@
       "Mask_Shard",
       "Mask_Shard"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Seer",
       "Grubfather",
       "Mask_Shard-Brooding_Mawlek",
@@ -588,7 +595,7 @@
       "Sly_(Key)",
       "Sly_(Key)"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Mask_Shard",
         "location": "Seer"
@@ -656,9 +663,10 @@
     ]
   },
   {
-    "name": "CursedMask",
-    "path": "CursedSettings.CursedMasks",
-    "includeItems": [
+    "Group": "MaskShards",
+    "Name": "CursedMask",
+    "Path": "CursedSettings.CursedMasks",
+    "IncludeItems": [
       "Mask_Shard",
       "Mask_Shard",
       "Mask_Shard",
@@ -676,8 +684,8 @@
       "Mask_Shard",
       "Mask_Shard"
     ],
-    "includeLocations": [],
-    "vanilla": [
+    "IncludeLocations": [],
+    "Vanilla": [
       {
         "item": "Mask_Shard",
         "location": "Start"
@@ -745,9 +753,10 @@
     ]
   },
   {
-    "name": "Vessel",
-    "path": "PoolSettings.VesselFragments",
-    "includeItems": [
+    "Group": "VesselFragments",
+    "Name": "Vessel",
+    "Path": "PoolSettings.VesselFragments",
+    "IncludeItems": [
       "Vessel_Fragment",
       "Vessel_Fragment",
       "Vessel_Fragment",
@@ -758,7 +767,7 @@
       "Vessel_Fragment",
       "Vessel_Fragment"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Seer",
       "Vessel_Fragment-Greenpath",
       "Vessel_Fragment-City",
@@ -769,7 +778,7 @@
       "Sly",
       "Sly_(Key)"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Vessel_Fragment",
         "location": "Seer"
@@ -809,21 +818,22 @@
     ]
   },
   {
-    "name": "Notch",
-    "path": "PoolSettings.CharmNotches",
-    "includeItems": [
+    "Group": "CharmNotches",
+    "Name": "Notch",
+    "Path": "PoolSettings.CharmNotches",
+    "IncludeItems": [
       "Charm_Notch",
       "Charm_Notch",
       "Charm_Notch",
       "Charm_Notch"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Charm_Notch-Shrumal_Ogres",
       "Charm_Notch-Fog_Canyon",
       "Charm_Notch-Colosseum",
       "Charm_Notch-Grimm"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Charm_Notch",
         "location": "Charm_Notch-Shrumal_Ogres"
@@ -843,21 +853,22 @@
     ]
   },
   {
-    "name": "SalubraNotch",
-    "path": "PoolSettings.CharmNotches",
-    "includeItems": [
+    "Group": "CharmNotches",
+    "Name": "SalubraNotch",
+    "Path": "PoolSettings.CharmNotches",
+    "IncludeItems": [
       "Charm_Notch",
       "Charm_Notch",
       "Charm_Notch",
       "Charm_Notch"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Salubra_(Requires_Charms)",
       "Salubra_(Requires_Charms)",
       "Salubra_(Requires_Charms)",
       "Salubra_(Requires_Charms)"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Charm_Notch",
         "location": "Salubra"
@@ -877,14 +888,15 @@
     ]
   },
   {
-    "name": "CursedNotch",
-    "path": "CursedSettings.CursedNotches",
-    "includeItems": [
+    "Group": "CharmNotches",
+    "Name": "CursedNotch",
+    "Path": "CursedSettings.CursedNotches",
+    "IncludeItems": [
       "Charm_Notch",
       "Charm_Notch"
     ],
-    "includeLocations": [],
-    "vanilla": [
+    "IncludeLocations": [],
+    "Vanilla": [
       {
         "item": "Charm_Notch",
         "location": "Start"
@@ -896,9 +908,10 @@
     ]
   },
   {
-    "name": "Ore",
-    "path": "PoolSettings.PaleOre",
-    "includeItems": [
+    "Group": "PaleOre",
+    "Name": "Ore",
+    "Path": "PoolSettings.PaleOre",
+    "IncludeItems": [
       "Pale_Ore",
       "Pale_Ore",
       "Pale_Ore",
@@ -906,7 +919,7 @@
       "Pale_Ore",
       "Pale_Ore"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Pale_Ore-Basin",
       "Pale_Ore-Crystal_Peak",
       "Pale_Ore-Nosk",
@@ -914,7 +927,7 @@
       "Grubfather",
       "Pale_Ore-Colosseum"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Pale_Ore",
         "location": "Pale_Ore-Basin"
@@ -942,9 +955,10 @@
     ]
   },
   {
-    "name": "Geo",
-    "path": "PoolSettings.GeoChests",
-    "includeItems": [
+    "Group": "GeoChests",
+    "Name": "Geo",
+    "Path": "PoolSettings.GeoChests",
+    "IncludeItems": [
       "Geo_Chest-False_Knight",
       "Geo_Chest-Soul_Master",
       "Geo_Chest-Watcher_Knights",
@@ -954,7 +968,7 @@
       "Geo_Chest-Crystal_Peak",
       "Geo_Chest-Weavers_Den"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Geo_Chest-False_Knight",
       "Geo_Chest-Soul_Master",
       "Geo_Chest-Watcher_Knights",
@@ -964,7 +978,7 @@
       "Geo_Chest-Crystal_Peak",
       "Geo_Chest-Weavers_Den"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Geo_Chest-False_Knight",
         "location": "Geo_Chest-False_Knight"
@@ -1000,23 +1014,24 @@
     ]
   },
   {
-    "name": "JunkPitChest",
-    "path": "PoolSettings.JunkPitChests",
-    "includeItems": [
+    "Group": "GeoChests",
+    "Name": "JunkPitChest",
+    "Path": "PoolSettings.JunkPitChests",
+    "IncludeItems": [
       "Geo_Chest-Junk_Pit_1",
       "Geo_Chest-Junk_Pit_2",
       "Geo_Chest-Junk_Pit_3",
       "Geo_Chest-Junk_Pit_5",
       "Lumafly_Escape"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Geo_Chest-Junk_Pit_1",
       "Geo_Chest-Junk_Pit_2",
       "Geo_Chest-Junk_Pit_3",
       "Geo_Chest-Junk_Pit_5",
       "Lumafly_Escape-Junk_Pit_Chest_4"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Geo_Chest-Junk_Pit_1",
         "location": "Geo_Chest-Junk_Pit_1"
@@ -1040,9 +1055,10 @@
     ]
   },
   {
-    "name": "Egg",
-    "path": "PoolSettings.RancidEggs",
-    "includeItems": [
+    "Group": "RancidEggs",
+    "Name": "Egg",
+    "Path": "PoolSettings.RancidEggs",
+    "IncludeItems": [
       "Rancid_Egg",
       "Rancid_Egg",
       "Rancid_Egg",
@@ -1065,7 +1081,7 @@
       "Rancid_Egg",
       "Rancid_Egg"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Grubfather",
       "Rancid_Egg-Sheo",
       "Rancid_Egg-Fungal_Core",
@@ -1088,7 +1104,7 @@
       "Rancid_Egg-Tuk_Defender's_Crest",
       "Sly"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Rancid_Egg",
         "location": "Grubfather"
@@ -1172,9 +1188,10 @@
     ]
   },
   {
-    "name": "Relic",
-    "path": "PoolSettings.Relics",
-    "includeItems": [
+    "Group": "Relics",
+    "Name": "Relic",
+    "Path": "PoolSettings.Relics",
+    "IncludeItems": [
       "Wanderer's_Journal",
       "Wanderer's_Journal",
       "Wanderer's_Journal",
@@ -1219,7 +1236,7 @@
       "Arcane_Egg",
       "Arcane_Egg"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Wanderer's_Journal-Cliffs",
       "Wanderer's_Journal-Greenpath_Stag",
       "Wanderer's_Journal-Greenpath_Lower",
@@ -1264,7 +1281,7 @@
       "Arcane_Egg-Shade_Cloak",
       "Arcane_Egg-Birthplace"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Wanderer's_Journal",
         "location": "Wanderer's_Journal-Cliffs"
@@ -1440,9 +1457,10 @@
     ]
   },
   {
-    "name": "Root",
-    "path": "PoolSettings.WhisperingRoots",
-    "includeItems": [
+    "Group": "WhisperingRoots",
+    "Name": "Root",
+    "Path": "PoolSettings.WhisperingRoots",
+    "IncludeItems": [
       "Whispering_Root-Crossroads",
       "Whispering_Root-Greenpath",
       "Whispering_Root-Leg_Eater",
@@ -1459,7 +1477,7 @@
       "Whispering_Root-Ancestral_Mound",
       "Whispering_Root-Hive"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Whispering_Root-Crossroads",
       "Whispering_Root-Greenpath",
       "Whispering_Root-Leg_Eater",
@@ -1476,7 +1494,7 @@
       "Whispering_Root-Ancestral_Mound",
       "Whispering_Root-Hive"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Whispering_Root-Crossroads",
         "location": "Whispering_Root-Crossroads"
@@ -1540,9 +1558,10 @@
     ]
   },
   {
-    "name": "DreamWarrior",
-    "path": "PoolSettings.BossEssence",
-    "includeItems": [
+    "Group": "BossEssence",
+    "Name": "DreamWarrior",
+    "Path": "PoolSettings.BossEssence",
+    "IncludeItems": [
       "Boss_Essence-Elder_Hu",
       "Boss_Essence-Xero",
       "Boss_Essence-Gorb",
@@ -1551,7 +1570,7 @@
       "Boss_Essence-Galien",
       "Boss_Essence-Markoth"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Boss_Essence-Elder_Hu",
       "Boss_Essence-Xero",
       "Boss_Essence-Gorb",
@@ -1560,7 +1579,7 @@
       "Boss_Essence-Galien",
       "Boss_Essence-Markoth"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Boss_Essence-Elder_Hu",
         "location": "Boss_Essence-Elder_Hu"
@@ -1592,23 +1611,24 @@
     ]
   },
   {
-    "name": "DreamBoss",
-    "path": "PoolSettings.BossEssence",
-    "includeItems": [
+    "Group": "BossEssence",
+    "Name": "DreamBoss",
+    "Path": "PoolSettings.BossEssence",
+    "IncludeItems": [
       "Boss_Essence-Failed_Champion",
       "Boss_Essence-Soul_Tyrant",
       "Boss_Essence-Lost_Kin",
       "Boss_Essence-White_Defender",
       "Boss_Essence-Grey_Prince_Zote"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Boss_Essence-Failed_Champion",
       "Boss_Essence-Soul_Tyrant",
       "Boss_Essence-Lost_Kin",
       "Boss_Essence-White_Defender",
       "Boss_Essence-Grey_Prince_Zote"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Boss_Essence-Failed_Champion",
         "location": "Boss_Essence-Failed_Champion"
@@ -1632,9 +1652,10 @@
     ]
   },
   {
-    "name": "Grub",
-    "path": "PoolSettings.Grubs",
-    "includeItems": [
+    "Group": "Grubs",
+    "Name": "Grub",
+    "Path": "PoolSettings.Grubs",
+    "IncludeItems": [
       "Grub",
       "Grub",
       "Grub",
@@ -1682,7 +1703,7 @@
       "Grub",
       "Grub"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Grub-Crossroads_Acid",
       "Grub-Crossroads_Center",
       "Grub-Crossroads_Stag",
@@ -1730,7 +1751,7 @@
       "Grub-Collector_2",
       "Grub-Collector_3"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Grub",
         "location": "Grub-Crossroads_Acid"
@@ -1918,21 +1939,22 @@
     ]
   },
   {
-    "name": "Mimic",
-    "path": "CursedSettings.RandomizeMimics",
-    "includeItems": [
+    "Group": "Mimics",
+    "Name": "Mimic",
+    "Path": "CursedSettings.RandomizeMimics",
+    "IncludeItems": [
       "Mimic_Grub",
       "Mimic_Grub",
       "Mimic_Grub",
       "Mimic_Grub"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Mimic_Grub-Deepnest_1",
       "Mimic_Grub-Deepnest_2",
       "Mimic_Grub-Deepnest_3",
       "Mimic_Grub-Crystal_Peak"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Mimic_Grub",
         "location": "Mimic_Grub-Deepnest_1"
@@ -1952,9 +1974,10 @@
     ]
   },
   {
-    "name": "Map",
-    "path": "PoolSettings.Maps",
-    "includeItems": [
+    "Group": "Maps",
+    "Name": "Map",
+    "Path": "PoolSettings.Maps",
+    "IncludeItems": [
       "Crossroads_Map",
       "Greenpath_Map",
       "Fog_Canyon_Map",
@@ -1970,7 +1993,7 @@
       "Queen's_Gardens_Map",
       "Resting_Grounds_Map"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Crossroads_Map",
       "Greenpath_Map",
       "Fog_Canyon_Map",
@@ -1986,7 +2009,7 @@
       "Queen's_Gardens_Map",
       "Resting_Grounds_Map"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Crossroads_Map",
         "location": "Crossroads_Map"
@@ -2050,9 +2073,10 @@
     ]
   },
   {
-    "name": "Stag",
-    "path": "PoolSettings.Stags",
-    "includeItems": [
+    "Group": "Stags",
+    "Name": "Stag",
+    "Path": "PoolSettings.Stags",
+    "IncludeItems": [
       "Dirtmouth_Stag",
       "Crossroads_Stag",
       "Greenpath_Stag",
@@ -2065,7 +2089,7 @@
       "Hidden_Station_Stag",
       "Stag_Nest_Stag"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Dirtmouth_Stag",
       "Crossroads_Stag",
       "Greenpath_Stag",
@@ -2078,7 +2102,7 @@
       "Hidden_Station_Stag",
       "Stag_Nest_Stag"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Dirtmouth_Stag",
         "location": "Dirtmouth_Stag"
@@ -2126,9 +2150,10 @@
     ]
   },
   {
-    "name": "Cocoon",
-    "path": "PoolSettings.LifebloodCocoons",
-    "includeItems": [
+    "Group": "LifebloodCocoons",
+    "Name": "Cocoon",
+    "Path": "PoolSettings.LifebloodCocoons",
+    "IncludeItems": [
       "Lifeblood_Cocoon_Small",
       "Lifeblood_Cocoon_Small",
       "Lifeblood_Cocoon_Small",
@@ -2138,7 +2163,7 @@
       "Lifeblood_Cocoon_Large",
       "Lifeblood_Cocoon_Large"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Lifeblood_Cocoon-King's_Pass",
       "Lifeblood_Cocoon-Ancestral_Mound",
       "Lifeblood_Cocoon-Greenpath",
@@ -2148,7 +2173,7 @@
       "Lifeblood_Cocoon-Galien",
       "Lifeblood_Cocoon-Kingdom's_Edge"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Lifeblood_Cocoon_Small",
         "location": "Lifeblood_Cocoon-King's_Pass"
@@ -2184,9 +2209,10 @@
     ]
   },
   {
-    "name": "Flame",
-    "path": "PoolSettings.GrimmkinFlames",
-    "includeItems": [
+    "Group": "GrimmkinFlames",
+    "Name": "Flame",
+    "Path": "PoolSettings.GrimmkinFlames",
+    "IncludeItems": [
       "Grimmkin_Flame",
       "Grimmkin_Flame",
       "Grimmkin_Flame",
@@ -2198,7 +2224,7 @@
       "Grimmkin_Flame",
       "Grimmkin_Flame"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Grimmkin_Flame-City_Storerooms",
       "Grimmkin_Flame-Greenpath",
       "Grimmkin_Flame-Crystal_Peak",
@@ -2210,7 +2236,7 @@
       "Grimmkin_Flame-Hive",
       "Grimmkin_Flame-Brumm"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Grimmkin_Flame",
         "location": "Grimmkin_Flame-City_Storerooms"
@@ -2254,9 +2280,10 @@
     ]
   },
   {
-    "name": "Journal",
-    "path": "PoolSettings.JournalEntries",
-    "includeItems": [
+    "Group": "JournalEntries",
+    "Name": "Journal",
+    "Path": "PoolSettings.JournalEntries",
+    "IncludeItems": [
       "Hunter's_Journal",
       "Journal_Entry-Void_Tendrils",
       "Journal_Entry-Charged_Lumafly",
@@ -2264,7 +2291,7 @@
       "Journal_Entry-Garpede",
       "Journal_Entry-Seal_of_Binding"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Hunter's_Journal",
       "Journal_Entry-Void_Tendrils",
       "Journal_Entry-Charged_Lumafly",
@@ -2272,7 +2299,7 @@
       "Journal_Entry-Garpede",
       "Journal_Entry-Seal_of_Binding"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Hunter's_Journal",
         "location": "Hunter's_Journal"
@@ -2300,15 +2327,16 @@
     ]
   },
   {
-    "name": "ElevatorPass",
-    "path": "NoveltySettings.RandomizeElevatorPass",
-    "includeItems": [
+    "Group": "Keys",
+    "Name": "ElevatorPass",
+    "Path": "NoveltySettings.RandomizeElevatorPass",
+    "IncludeItems": [
       "Elevator_Pass"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Elevator_Pass"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Elevator_Pass",
         "location": "Start"
@@ -2316,41 +2344,44 @@
     ]
   },
   {
-    "name": "SplitCloak",
-    "path": "NoveltySettings.SplitCloak",
-    "includeItems": [
+    "Group": "Skills",
+    "Name": "SplitCloak",
+    "Path": "NoveltySettings.SplitCloak",
+    "IncludeItems": [
       "Left_Mothwing_Cloak",
       "Right_Mothwing_Cloak",
       "Split_Shade_Cloak"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Split_Mothwing_Cloak"
     ],
-    "vanilla": []
+    "Vanilla": []
   },
   {
-    "name": "SplitClaw",
-    "path": "NoveltySettings.SplitClaw",
-    "includeItems": [
+    "Group": "Skills",
+    "Name": "SplitClaw",
+    "Path": "NoveltySettings.SplitClaw",
+    "IncludeItems": [
       "Left_Mantis_Claw",
       "Right_Mantis_Claw"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Left_Mantis_Claw",
       "Right_Mantis_Claw"
     ],
-    "vanilla": []
+    "Vanilla": []
   },
   {
-    "name": "CursedNail",
-    "path": "NoveltySettings.RandomizeNail",
-    "includeItems": [
+    "Group": "Skills",
+    "Name": "CursedNail",
+    "Path": "NoveltySettings.RandomizeNail",
+    "IncludeItems": [
       "Leftslash",
       "Rightslash",
       "Upslash"
     ],
-    "includeLocations": [],
-    "vanilla": [
+    "IncludeLocations": [],
+    "Vanilla": [
       {
         "item": "Leftslash",
         "location": "Start"
@@ -2370,30 +2401,33 @@
     ]
   },
   {
-    "name": "SplitSuperdash",
-    "path": "NoveltySettings.SplitSuperdash",
-    "includeItems": [
+    "Group": "Skills",
+    "Name": "SplitSuperdash",
+    "Path": "NoveltySettings.SplitSuperdash",
+    "IncludeItems": [
       "Left_Crystal_Heart",
       "Right_Crystal_Heart"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Split_Crystal_Heart"
     ],
-    "vanilla": []
+    "Vanilla": []
   },
   {
-    "name": "EggShop",
-    "path": "NoveltySettings.EggShop",
-    "includeItems": [],
-    "includeLocations": [
+    "Group": "Keys",
+    "Name": "EggShop",
+    "Path": "NoveltySettings.EggShop",
+    "IncludeItems": [],
+    "IncludeLocations": [
       "Egg_Shop"
     ],
-    "vanilla": []
+    "Vanilla": []
   },
   {
-    "name": "Rock",
-    "path": "PoolSettings.GeoRocks",
-    "includeItems": [
+    "Group": "GeoRocks",
+    "Name": "Rock",
+    "Path": "PoolSettings.GeoRocks",
+    "IncludeItems": [
       "Geo_Rock-Default",
       "Geo_Rock-Default",
       "Geo_Rock-Default",
@@ -2602,7 +2636,7 @@
       "Geo_Rock-City",
       "Geo_Rock-City"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Geo_Rock-Broken_Elevator_1",
       "Geo_Rock-Broken_Elevator_2",
       "Geo_Rock-Broken_Elevator_3",
@@ -2811,7 +2845,7 @@
       "Geo_Rock-Waterways_East",
       "Geo_Rock-Waterways_Flukemarm"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Geo_Rock-Default",
         "location": "Geo_Rock-Broken_Elevator_1"
@@ -3643,9 +3677,10 @@
     ]
   },
   {
-    "name": "Boss_Geo",
-    "path": "PoolSettings.BossGeo",
-    "includeItems": [
+    "Group": "BossGeo",
+    "Name": "Boss_Geo",
+    "Path": "PoolSettings.BossGeo",
+    "IncludeItems": [
       "Boss_Geo-Massive_Moss_Charger",
       "Boss_Geo-Gorgeous_Husk",
       "Boss_Geo-Sanctum_Soul_Warrior",
@@ -3655,7 +3690,7 @@
       "Boss_Geo-Gruz_Mother",
       "Boss_Geo-Vengefly_King"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Boss_Geo-Massive_Moss_Charger",
       "Boss_Geo-Gorgeous_Husk",
       "Boss_Geo-Sanctum_Soul_Warrior",
@@ -3665,7 +3700,7 @@
       "Boss_Geo-Gruz_Mother",
       "Boss_Geo-Vengefly_King"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Boss_Geo-Massive_Moss_Charger",
         "location": "Boss_Geo-Massive_Moss_Charger"
@@ -3701,9 +3736,10 @@
     ]
   },
   {
-    "name": "Soul",
-    "path": "PoolSettings.SoulTotems",
-    "includeItems": [
+    "Group": "SoulTotems",
+    "Name": "Soul",
+    "Path": "PoolSettings.SoulTotems",
+    "IncludeItems": [
       "Soul_Totem-C",
       "Soul_Totem-B",
       "Soul_Totem-A",
@@ -3764,7 +3800,7 @@
       "Soul_Totem-Path_of_Pain",
       "Soul_Totem-G"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Soul_Totem-Basin",
       "Soul_Totem-Cliffs_Main",
       "Soul_Totem-Cliffs_Gorb",
@@ -3825,7 +3861,7 @@
       "Soul_Totem-Path_of_Pain_Final",
       "Soul_Totem-Pale_Lurker"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Soul_Totem-C",
         "location": "Soul_Totem-Basin"
@@ -4065,9 +4101,10 @@
     ]
   },
   {
-    "name": "Lore",
-    "path": "PoolSettings.LoreTablets",
-    "includeItems": [
+    "Group": "LoreTablets",
+    "Name": "Lore",
+    "Path": "PoolSettings.LoreTablets",
+    "IncludeItems": [
       "Lore_Tablet-City_Entrance",
       "Lore_Tablet-Pleasure_House",
       "Lore_Tablet-Sanctum_Entrance",
@@ -4102,7 +4139,7 @@
       "Lore_Tablet-Palace_Throne",
       "Lore_Tablet-Path_of_Pain_Entrance"
     ],
-    "includeLocations": [
+    "IncludeLocations": [
       "Lore_Tablet-City_Entrance",
       "Lore_Tablet-Pleasure_House",
       "Lore_Tablet-Sanctum_Entrance",
@@ -4137,7 +4174,7 @@
       "Lore_Tablet-Palace_Throne",
       "Lore_Tablet-Path_of_Pain_Entrance"
     ],
-    "vanilla": [
+    "Vanilla": [
       {
         "item": "Lore_Tablet-City_Entrance",
         "location": "Lore_Tablet-City_Entrance"

@@ -1,0 +1,1490 @@
+{
+  "Lurien": {
+    "Name": "Lurien",
+    "Pool": "Dreamer",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Monomon": {
+    "Name": "Monomon",
+    "Pool": "Dreamer",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Herrah": {
+    "Name": "Herrah",
+    "Pool": "Dreamer",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "World_Sense": {
+    "Name": "World_Sense",
+    "Pool": "Dreamer",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Dreamer": {
+    "Name": "Dreamer",
+    "Pool": "Fake",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Mothwing_Cloak": {
+    "Name": "Mothwing_Cloak",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Mantis_Claw": {
+    "Name": "Mantis_Claw",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Crystal_Heart": {
+    "Name": "Crystal_Heart",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Monarch_Wings": {
+    "Name": "Monarch_Wings",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Shade_Cloak": {
+    "Name": "Shade_Cloak",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Isma's_Tear": {
+    "Name": "Isma's_Tear",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Dream_Nail": {
+    "Name": "Dream_Nail",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Dream_Gate": {
+    "Name": "Dream_Gate",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Awoken_Dream_Nail": {
+    "Name": "Awoken_Dream_Nail",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Vengeful_Spirit": {
+    "Name": "Vengeful_Spirit",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Shade_Soul": {
+    "Name": "Shade_Soul",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Desolate_Dive": {
+    "Name": "Desolate_Dive",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Descending_Dark": {
+    "Name": "Descending_Dark",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Howling_Wraiths": {
+    "Name": "Howling_Wraiths",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Abyss_Shriek": {
+    "Name": "Abyss_Shriek",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Cyclone_Slash": {
+    "Name": "Cyclone_Slash",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Dash_Slash": {
+    "Name": "Dash_Slash",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Great_Slash": {
+    "Name": "Great_Slash",
+    "Pool": "Skill",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Focus": {
+    "Name": "Focus",
+    "Pool": "Focus",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Swim": {
+    "Name": "Swim",
+    "Pool": "Swim",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Gathering_Swarm": {
+    "Name": "Gathering_Swarm",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Wayward_Compass": {
+    "Name": "Wayward_Compass",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Grubsong": {
+    "Name": "Grubsong",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Stalwart_Shell": {
+    "Name": "Stalwart_Shell",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Baldur_Shell": {
+    "Name": "Baldur_Shell",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Fury_of_the_Fallen": {
+    "Name": "Fury_of_the_Fallen",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Quick_Focus": {
+    "Name": "Quick_Focus",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Lifeblood_Heart": {
+    "Name": "Lifeblood_Heart",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Lifeblood_Core": {
+    "Name": "Lifeblood_Core",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Defender's_Crest": {
+    "Name": "Defender's_Crest",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Flukenest": {
+    "Name": "Flukenest",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Thorns_of_Agony": {
+    "Name": "Thorns_of_Agony",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Mark_of_Pride": {
+    "Name": "Mark_of_Pride",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Steady_Body": {
+    "Name": "Steady_Body",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Heavy_Blow": {
+    "Name": "Heavy_Blow",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Sharp_Shadow": {
+    "Name": "Sharp_Shadow",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Spore_Shroom": {
+    "Name": "Spore_Shroom",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Longnail": {
+    "Name": "Longnail",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Shaman_Stone": {
+    "Name": "Shaman_Stone",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Soul_Catcher": {
+    "Name": "Soul_Catcher",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Soul_Eater": {
+    "Name": "Soul_Eater",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Glowing_Womb": {
+    "Name": "Glowing_Womb",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Fragile_Heart": {
+    "Name": "Fragile_Heart",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Unbreakable_Heart": {
+    "Name": "Unbreakable_Heart",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Fragile_Greed": {
+    "Name": "Fragile_Greed",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Unbreakable_Greed": {
+    "Name": "Unbreakable_Greed",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Fragile_Strength": {
+    "Name": "Fragile_Strength",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Unbreakable_Strength": {
+    "Name": "Unbreakable_Strength",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Nailmaster's_Glory": {
+    "Name": "Nailmaster's_Glory",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Joni's_Blessing": {
+    "Name": "Joni's_Blessing",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Shape_of_Unn": {
+    "Name": "Shape_of_Unn",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Hiveblood": {
+    "Name": "Hiveblood",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Dream_Wielder": {
+    "Name": "Dream_Wielder",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Dashmaster": {
+    "Name": "Dashmaster",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Quick_Slash": {
+    "Name": "Quick_Slash",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Spell_Twister": {
+    "Name": "Spell_Twister",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Deep_Focus": {
+    "Name": "Deep_Focus",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Grubberfly's_Elegy": {
+    "Name": "Grubberfly's_Elegy",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Queen_Fragment": {
+    "Name": "Queen_Fragment",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "King_Fragment": {
+    "Name": "King_Fragment",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Void_Heart": {
+    "Name": "Void_Heart",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Sprintmaster": {
+    "Name": "Sprintmaster",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Dreamshield": {
+    "Name": "Dreamshield",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Weaversong": {
+    "Name": "Weaversong",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Grimmchild1": {
+    "Name": "Grimmchild1",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Grimmchild2": {
+    "Name": "Grimmchild2",
+    "Pool": "Charm",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "City_Crest": {
+    "Name": "City_Crest",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Lumafly_Lantern": {
+    "Name": "Lumafly_Lantern",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Tram_Pass": {
+    "Name": "Tram_Pass",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Simple_Key": {
+    "Name": "Simple_Key",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Shopkeeper's_Key": {
+    "Name": "Shopkeeper's_Key",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Elegant_Key": {
+    "Name": "Elegant_Key",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Love_Key": {
+    "Name": "Love_Key",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "King's_Brand": {
+    "Name": "King's_Brand",
+    "Pool": "Key",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Godtuner": {
+    "Name": "Godtuner",
+    "Pool": "Key",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Collector's_Map": {
+    "Name": "Collector's_Map",
+    "Pool": "Key",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Mask_Shard": {
+    "Name": "Mask_Shard",
+    "Pool": "Mask",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Double_Mask_Shard": {
+    "Name": "Double_Mask_Shard",
+    "Pool": "Mask",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Full_Mask": {
+    "Name": "Full_Mask",
+    "Pool": "Mask",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Vessel_Fragment": {
+    "Name": "Vessel_Fragment",
+    "Pool": "Vessel",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Double_Vessel_Fragment": {
+    "Name": "Double_Vessel_Fragment",
+    "Pool": "Vessel",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Full_Soul_Vessel": {
+    "Name": "Full_Soul_Vessel",
+    "Pool": "Vessel",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Charm_Notch": {
+    "Name": "Charm_Notch",
+    "Pool": "Notch",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Pale_Ore": {
+    "Name": "Pale_Ore",
+    "Pool": "Ore",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Geo_Chest-False_Knight": {
+    "Name": "Geo_Chest-False_Knight",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest-Soul_Master": {
+    "Name": "Geo_Chest-Soul_Master",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest-Watcher_Knights": {
+    "Name": "Geo_Chest-Watcher_Knights",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest-Greenpath": {
+    "Name": "Geo_Chest-Greenpath",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest-Mantis_Lords": {
+    "Name": "Geo_Chest-Mantis_Lords",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest-Resting_Grounds": {
+    "Name": "Geo_Chest-Resting_Grounds",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest-Crystal_Peak": {
+    "Name": "Geo_Chest-Crystal_Peak",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest-Weavers_Den": {
+    "Name": "Geo_Chest-Weavers_Den",
+    "Pool": "Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest_Junk_Pit_1": {
+    "Name": "Geo_Chest_Junk_Pit_1",
+    "Pool": "JunkPitChest",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest_Junk_Pit_2": {
+    "Name": "Geo_Chest_Junk_Pit_2",
+    "Pool": "JunkPitChest",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest_Junk_Pit_3": {
+    "Name": "Geo_Chest_Junk_Pit_3",
+    "Pool": "JunkPitChest",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Chest_Junk_Pit_5": {
+    "Name": "Geo_Chest_Junk_Pit_5",
+    "Pool": "JunkPitChest",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lumafly_Escape": {
+    "Name": "Lumafly_Escape",
+    "Pool": "JunkPitChest",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "One_Geo": {
+    "Name": "One_Geo",
+    "Pool": "Fake",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Rancid_Egg": {
+    "Name": "Rancid_Egg",
+    "Pool": "Egg",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Wanderer's_Journal": {
+    "Name": "Wanderer's_Journal",
+    "Pool": "Relic",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Hallownest_Seal": {
+    "Name": "Hallownest_Seal",
+    "Pool": "Relic",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "King's_Idol": {
+    "Name": "King's_Idol",
+    "Pool": "Relic",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Arcane_Egg": {
+    "Name": "Arcane_Egg",
+    "Pool": "Relic",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Crossroads": {
+    "Name": "Whispering_Root-Crossroads",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Greenpath": {
+    "Name": "Whispering_Root-Greenpath",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Leg_Eater": {
+    "Name": "Whispering_Root-Leg_Eater",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Mantis_Village": {
+    "Name": "Whispering_Root-Mantis_Village",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Deepnest": {
+    "Name": "Whispering_Root-Deepnest",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Queens_Gardens": {
+    "Name": "Whispering_Root-Queens_Gardens",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Kingdoms_Edge": {
+    "Name": "Whispering_Root-Kingdoms_Edge",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Waterways": {
+    "Name": "Whispering_Root-Waterways",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-City": {
+    "Name": "Whispering_Root-City",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Resting_Grounds": {
+    "Name": "Whispering_Root-Resting_Grounds",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Spirits_Glade": {
+    "Name": "Whispering_Root-Spirits_Glade",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Crystal_Peak": {
+    "Name": "Whispering_Root-Crystal_Peak",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Howling_Cliffs": {
+    "Name": "Whispering_Root-Howling_Cliffs",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Ancestral_Mound": {
+    "Name": "Whispering_Root-Ancestral_Mound",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Whispering_Root-Hive": {
+    "Name": "Whispering_Root-Hive",
+    "Pool": "Root",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Elder_Hu": {
+    "Name": "Boss_Essence-Elder_Hu",
+    "Pool": "DreamWarrior",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Xero": {
+    "Name": "Boss_Essence-Xero",
+    "Pool": "DreamWarrior",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Gorb": {
+    "Name": "Boss_Essence-Gorb",
+    "Pool": "DreamWarrior",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Marmu": {
+    "Name": "Boss_Essence-Marmu",
+    "Pool": "DreamWarrior",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-No_Eyes": {
+    "Name": "Boss_Essence-No_Eyes",
+    "Pool": "DreamWarrior",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Galien": {
+    "Name": "Boss_Essence-Galien",
+    "Pool": "DreamWarrior",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Markoth": {
+    "Name": "Boss_Essence-Markoth",
+    "Pool": "DreamWarrior",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Failed_Champion": {
+    "Name": "Boss_Essence-Failed_Champion",
+    "Pool": "DreamBoss",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Soul_Tyrant": {
+    "Name": "Boss_Essence-Soul_Tyrant",
+    "Pool": "DreamBoss",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Lost_Kin": {
+    "Name": "Boss_Essence-Lost_Kin",
+    "Pool": "DreamBoss",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-White_Defender": {
+    "Name": "Boss_Essence-White_Defender",
+    "Pool": "DreamBoss",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Boss_Essence-Grey_Prince_Zote": {
+    "Name": "Boss_Essence-Grey_Prince_Zote",
+    "Pool": "DreamBoss",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Grub": {
+    "Name": "Grub",
+    "Pool": "Grub",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Mimic_Grub": {
+    "Name": "Mimic_Grub",
+    "Pool": "Mimic",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Quill": {
+    "Name": "Quill",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Crossroads_Map": {
+    "Name": "Crossroads_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Greenpath_Map": {
+    "Name": "Greenpath_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Fog_Canyon_Map": {
+    "Name": "Fog_Canyon_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Fungal_Wastes_Map": {
+    "Name": "Fungal_Wastes_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Deepnest_Map": {
+    "Name": "Deepnest_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Ancient_Basin_Map": {
+    "Name": "Ancient_Basin_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Kingdom's_Edge_Map": {
+    "Name": "Kingdom's_Edge_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "City_of_Tears_Map": {
+    "Name": "City_of_Tears_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Royal_Waterways_Map": {
+    "Name": "Royal_Waterways_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Howling_Cliffs_Map": {
+    "Name": "Howling_Cliffs_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Crystal_Peak_Map": {
+    "Name": "Crystal_Peak_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Queen's_Gardens_Map": {
+    "Name": "Queen's_Gardens_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Resting_Grounds_Map": {
+    "Name": "Resting_Grounds_Map",
+    "Pool": "Map",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Dirtmouth_Stag": {
+    "Name": "Dirtmouth_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Crossroads_Stag": {
+    "Name": "Crossroads_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Greenpath_Stag": {
+    "Name": "Greenpath_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Queen's_Station_Stag": {
+    "Name": "Queen's_Station_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Queen's_Gardens_Stag": {
+    "Name": "Queen's_Gardens_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "City_Storerooms_Stag": {
+    "Name": "City_Storerooms_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "King's_Station_Stag": {
+    "Name": "King's_Station_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Resting_Grounds_Stag": {
+    "Name": "Resting_Grounds_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Distant_Village_Stag": {
+    "Name": "Distant_Village_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Hidden_Station_Stag": {
+    "Name": "Hidden_Station_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Stag_Nest_Stag": {
+    "Name": "Stag_Nest_Stag",
+    "Pool": "Stag",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Lifeblood_Cocoon_Small": {
+    "Name": "Lifeblood_Cocoon_Small",
+    "Pool": "Cocoon",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Lifeblood_Cocoon_Large": {
+    "Name": "Lifeblood_Cocoon_Large",
+    "Pool": "Cocoon",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Grimmkin_Flame": {
+    "Name": "Grimmkin_Flame",
+    "Pool": "Flame",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Hunter's_Journal": {
+    "Name": "Hunter's_Journal",
+    "Pool": "Journal",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Journal_Entry-Void_Tendrils": {
+    "Name": "Journal_Entry-Void_Tendrils",
+    "Pool": "Journal",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Journal_Entry-Charged_Lumafly": {
+    "Name": "Journal_Entry-Charged_Lumafly",
+    "Pool": "Journal",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Journal_Entry-Goam": {
+    "Name": "Journal_Entry-Goam",
+    "Pool": "Journal",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Journal_Entry-Garpede": {
+    "Name": "Journal_Entry-Garpede",
+    "Pool": "Journal",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Journal_Entry-Seal_of_Binding": {
+    "Name": "Journal_Entry-Seal_of_Binding",
+    "Pool": "Journal",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Elevator_Pass": {
+    "Name": "Elevator_Pass",
+    "Pool": "ElevatorPass",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Left_Mothwing_Cloak": {
+    "Name": "Left_Mothwing_Cloak",
+    "Pool": "SplitCloak",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Right_Mothwing_Cloak": {
+    "Name": "Right_Mothwing_Cloak",
+    "Pool": "SplitCloak",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Split_Shade_Cloak": {
+    "Name": "Split_Shade_Cloak",
+    "Pool": "SplitCloak",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Left_Mantis_Claw": {
+    "Name": "Left_Mantis_Claw",
+    "Pool": "SplitClaw",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Right_Mantis_Claw": {
+    "Name": "Right_Mantis_Claw",
+    "Pool": "SplitClaw",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Leftslash": {
+    "Name": "Leftslash",
+    "Pool": "CursedNail",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Rightslash": {
+    "Name": "Rightslash",
+    "Pool": "CursedNail",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Upslash": {
+    "Name": "Upslash",
+    "Pool": "CursedNail",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Downslash": {
+    "Name": "Downslash",
+    "Pool": "CursedNail",
+    "PriceCap": 500,
+    "MajorItem": false
+  },
+  "Left_Crystal_Heart": {
+    "Name": "Left_Crystal_Heart",
+    "Pool": "SplitSuperdash",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Right_Crystal_Heart": {
+    "Name": "Right_Crystal_Heart",
+    "Pool": "SplitSuperdash",
+    "PriceCap": 500,
+    "MajorItem": true
+  },
+  "Geo_Rock-Default": {
+    "Name": "Geo_Rock-Default",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Deepnest": {
+    "Name": "Geo_Rock-Deepnest",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Abyss": {
+    "Name": "Geo_Rock-Abyss",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-GreenPath01": {
+    "Name": "Geo_Rock-GreenPath01",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Outskirts": {
+    "Name": "Geo_Rock-Outskirts",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Outskirts420": {
+    "Name": "Geo_Rock-Outskirts420",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-GreenPath02": {
+    "Name": "Geo_Rock-GreenPath02",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Fung01": {
+    "Name": "Geo_Rock-Fung01",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Fung02": {
+    "Name": "Geo_Rock-Fung02",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-City": {
+    "Name": "Geo_Rock-City",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Hive": {
+    "Name": "Geo_Rock-Hive",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Mine": {
+    "Name": "Geo_Rock-Mine",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Grave02": {
+    "Name": "Geo_Rock-Grave02",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Geo_Rock-Grave01": {
+    "Name": "Geo_Rock-Grave01",
+    "Pool": "Rock",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Massive_Moss_Charger": {
+    "Name": "Boss_Geo-Massive_Moss_Charger",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Gorgeous_Husk": {
+    "Name": "Boss_Geo-Gorgeous_Husk",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Sanctum_Soul_Warrior": {
+    "Name": "Boss_Geo-Sanctum_Soul_Warrior",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Elegant_Soul_Warrior": {
+    "Name": "Boss_Geo-Elegant_Soul_Warrior",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Crystal_Guardian": {
+    "Name": "Boss_Geo-Crystal_Guardian",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Enraged_Guardian": {
+    "Name": "Boss_Geo-Enraged_Guardian",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Gruz_Mother": {
+    "Name": "Boss_Geo-Gruz_Mother",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Boss_Geo-Vengefly_King": {
+    "Name": "Boss_Geo-Vengefly_King",
+    "Pool": "Boss_Geo",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Refill": {
+    "Name": "Soul_Refill",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-A": {
+    "Name": "Soul_Totem-A",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-B": {
+    "Name": "Soul_Totem-B",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-C": {
+    "Name": "Soul_Totem-C",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-D": {
+    "Name": "Soul_Totem-D",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-E": {
+    "Name": "Soul_Totem-E",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-F": {
+    "Name": "Soul_Totem-F",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-G": {
+    "Name": "Soul_Totem-G",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-Palace": {
+    "Name": "Soul_Totem-Palace",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Soul_Totem-Path_of_Pain": {
+    "Name": "Soul_Totem-Path_of_Pain",
+    "Pool": "Soul",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-City_Entrance": {
+    "Name": "Lore_Tablet-City_Entrance",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Pleasure_House": {
+    "Name": "Lore_Tablet-Pleasure_House",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Sanctum_Entrance": {
+    "Name": "Lore_Tablet-Sanctum_Entrance",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Sanctum_Past_Soul_Master": {
+    "Name": "Lore_Tablet-Sanctum_Past_Soul_Master",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Watcher's_Spire": {
+    "Name": "Lore_Tablet-Watcher's_Spire",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Archives_Upper": {
+    "Name": "Lore_Tablet-Archives_Upper",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Archives_Left": {
+    "Name": "Lore_Tablet-Archives_Left",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Archives_Right": {
+    "Name": "Lore_Tablet-Archives_Right",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Pilgrim's_Way_1": {
+    "Name": "Lore_Tablet-Pilgrim's_Way_1",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Pilgrim's_Way_2": {
+    "Name": "Lore_Tablet-Pilgrim's_Way_2",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Mantis_Outskirts": {
+    "Name": "Lore_Tablet-Mantis_Outskirts",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Mantis_Village": {
+    "Name": "Lore_Tablet-Mantis_Village",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Greenpath_Upper_Hidden": {
+    "Name": "Lore_Tablet-Greenpath_Upper_Hidden",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Greenpath_Below_Toll": {
+    "Name": "Lore_Tablet-Greenpath_Below_Toll",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Greenpath_Lifeblood": {
+    "Name": "Lore_Tablet-Greenpath_Lifeblood",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Greenpath_Stag": {
+    "Name": "Lore_Tablet-Greenpath_Stag",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Greenpath_QG": {
+    "Name": "Lore_Tablet-Greenpath_QG",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Greenpath_Lower_Hidden": {
+    "Name": "Lore_Tablet-Greenpath_Lower_Hidden",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Dung_Defender": {
+    "Name": "Lore_Tablet-Dung_Defender",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Spore_Shroom": {
+    "Name": "Lore_Tablet-Spore_Shroom",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Fungal_Wastes_Hidden": {
+    "Name": "Lore_Tablet-Fungal_Wastes_Hidden",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
+    "Name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Fungal_Core": {
+    "Name": "Lore_Tablet-Fungal_Core",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Ancient_Basin": {
+    "Name": "Lore_Tablet-Ancient_Basin",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-King's_Pass_Focus": {
+    "Name": "Lore_Tablet-King's_Pass_Focus",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-King's_Pass_Fury": {
+    "Name": "Lore_Tablet-King's_Pass_Fury",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-King's_Pass_Exit": {
+    "Name": "Lore_Tablet-King's_Pass_Exit",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-World_Sense": {
+    "Name": "Lore_Tablet-World_Sense",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Howling_Cliffs": {
+    "Name": "Lore_Tablet-Howling_Cliffs",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Kingdom's_Edge": {
+    "Name": "Lore_Tablet-Kingdom's_Edge",
+    "Pool": "Lore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Palace_Workshop": {
+    "Name": "Lore_Tablet-Palace_Workshop",
+    "Pool": "PalaceLore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Palace_Throne": {
+    "Name": "Lore_Tablet-Palace_Throne",
+    "Pool": "PalaceLore",
+    "PriceCap": 1,
+    "MajorItem": false
+  },
+  "Lore_Tablet-Path_of_Pain_Entrance": {
+    "Name": "Lore_Tablet-Path_of_Pain_Entrance",
+    "Pool": "PalaceLore",
+    "PriceCap": 1,
+    "MajorItem": false
+  }
+}

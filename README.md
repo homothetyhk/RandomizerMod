@@ -198,3 +198,16 @@ These settings control which important items are duplicated. Duplicate items gen
 
 However, there is one important exception: the default Simple Key Handling is to create two Simple Keys which are identical to normal Simple Keys. This increases the odds of Simple Key progression, to make up for the fact that all Simple Key locks require 4 Simple Keys in logic in Randomizer 4.
 
+### Split Group Randomizer Settings
+
+These settings allow controlling the randomization groups. Normally, items and locations are randomized in one group, so that any item can end up at any location. With split groups, the items in a group can only end up at the locations of that group. These settings do not control which items and locations are randomized--for that, see Pool Settings. Rather, these settings control what group an item or location would be placed in if it were randomized.
+
+The settings consist of numeric fields for each pool.
+- Entering -1 for a pool will cause that pool to be ignored by split group rando.
+- Entering 0 for a pool will put that pool in the main randomization group.
+- Entering a positive number for a pool will put that pool in a new randomization group for that number.
+Items or locations in more than one pool, such as shops, will be randomly divided among the groups, weighted by their initial distribution.
+- The difference between entering -1 and entering 0 is that the items and locations in a pool with -1 will not factor into the weighting. This can be important for compatibility with other mods which edit randomization groups.
+
+In summary, use these settings to arrange pools so that the pools with the same number are randomized with each other.
+

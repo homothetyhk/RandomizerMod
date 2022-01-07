@@ -2,4243 +2,3637 @@
   "Start": {
     "Name": "Start",
     "SceneName": "Start",
-    "TitledArea": "Start",
-    "MapArea": "Start",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": true
   },
   "Sly": {
     "Name": "Sly",
     "SceneName": "Room_shop",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": true
   },
   "Sly_(Key)": {
     "Name": "Sly_(Key)",
     "SceneName": "Room_shop",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": true
   },
   "Iselda": {
     "Name": "Iselda",
     "SceneName": "Room_mapper",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": true
   },
   "Salubra": {
     "Name": "Salubra",
     "SceneName": "Room_Charm_Shop",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": true
   },
   "Salubra_(Requires_Charms)": {
     "Name": "Salubra_(Requires_Charms)",
     "SceneName": "Room_Charm_Shop",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": true
   },
   "Leg_Eater": {
     "Name": "Leg_Eater",
     "SceneName": "Fungus2_26",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": true
   },
   "Grubfather": {
     "Name": "Grubfather",
     "SceneName": "Crossroads_38",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": false
   },
   "Seer": {
     "Name": "Seer",
     "SceneName": "RestingGrounds_07",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": false
   },
   "Egg_Shop": {
     "Name": "Egg_Shop",
     "SceneName": "Room_Ouiji",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": true
+    "FlexibleCount": true,
+    "AdditionalProgressionPenalty": false
   },
   "Lurien": {
     "Name": "Lurien",
     "SceneName": "Ruins2_Watcher_Room",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Monomon": {
     "Name": "Monomon",
     "SceneName": "Fungus3_archive_02",
-    "TitledArea": "Teacher's Archives",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Herrah": {
     "Name": "Herrah",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "World_Sense": {
     "Name": "World_Sense",
-    "SceneName": "Room_Final_Boss_Atrium",
-    "TitledArea": "Black Egg Temple",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "SceneName": "Room_temple",
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mothwing_Cloak": {
     "Name": "Mothwing_Cloak",
     "SceneName": "Fungus1_04",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mantis_Claw": {
     "Name": "Mantis_Claw",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Crystal_Heart": {
     "Name": "Crystal_Heart",
     "SceneName": "Mines_31",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Monarch_Wings": {
     "Name": "Monarch_Wings",
     "SceneName": "Abyss_21",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Shade_Cloak": {
     "Name": "Shade_Cloak",
     "SceneName": "Abyss_10",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Isma's_Tear": {
     "Name": "Isma's_Tear",
     "SceneName": "Waterways_13",
-    "TitledArea": "Isma's Grove",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Dream_Nail": {
     "Name": "Dream_Nail",
-    "SceneName": "Dream_Nailcollection",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "SceneName": "RestingGrounds_04",
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Vengeful_Spirit": {
     "Name": "Vengeful_Spirit",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Shade_Soul": {
     "Name": "Shade_Soul",
     "SceneName": "Ruins1_31b",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Desolate_Dive": {
     "Name": "Desolate_Dive",
     "SceneName": "Ruins1_24",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Descending_Dark": {
     "Name": "Descending_Dark",
     "SceneName": "Mines_35",
-    "TitledArea": "Crystallized Mound",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Howling_Wraiths": {
     "Name": "Howling_Wraiths",
     "SceneName": "Room_Fungus_Shaman",
-    "TitledArea": "Overgrown Mound",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Abyss_Shriek": {
     "Name": "Abyss_Shriek",
     "SceneName": "Abyss_12",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Cyclone_Slash": {
     "Name": "Cyclone_Slash",
     "SceneName": "Room_nailmaster",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Dash_Slash": {
     "Name": "Dash_Slash",
     "SceneName": "Room_nailmaster_03",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Great_Slash": {
     "Name": "Great_Slash",
     "SceneName": "Room_nailmaster_02",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Focus": {
     "Name": "Focus",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Baldur_Shell": {
     "Name": "Baldur_Shell",
     "SceneName": "Fungus1_28",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Fury_of_the_Fallen": {
     "Name": "Fury_of_the_Fallen",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Core": {
     "Name": "Lifeblood_Core",
     "SceneName": "Abyss_08",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Defender's_Crest": {
     "Name": "Defender's_Crest",
     "SceneName": "Waterways_05",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Flukenest": {
     "Name": "Flukenest",
     "SceneName": "Waterways_12",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Thorns_of_Agony": {
     "Name": "Thorns_of_Agony",
     "SceneName": "Fungus1_14",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mark_of_Pride": {
     "Name": "Mark_of_Pride",
     "SceneName": "Fungus2_31",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Sharp_Shadow": {
     "Name": "Sharp_Shadow",
     "SceneName": "Deepnest_44",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Spore_Shroom": {
     "Name": "Spore_Shroom",
     "SceneName": "Fungus2_20",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Catcher": {
     "Name": "Soul_Catcher",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Eater": {
     "Name": "Soul_Eater",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Glowing_Womb": {
     "Name": "Glowing_Womb",
     "SceneName": "Crossroads_22",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Nailmaster's_Glory": {
     "Name": "Nailmaster's_Glory",
-    "SceneName": "Room_Sly_Storeroom",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "SceneName": "Room_shop",
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Joni's_Blessing": {
     "Name": "Joni's_Blessing",
     "SceneName": "Cliffs_05",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Shape_of_Unn": {
     "Name": "Shape_of_Unn",
     "SceneName": "Fungus1_Slug",
-    "TitledArea": "Lake of Unn",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hiveblood": {
     "Name": "Hiveblood",
     "SceneName": "Hive_05",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Dashmaster": {
     "Name": "Dashmaster",
     "SceneName": "Fungus2_23",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Quick_Slash": {
     "Name": "Quick_Slash",
     "SceneName": "Deepnest_East_14b",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Spell_Twister": {
     "Name": "Spell_Twister",
     "SceneName": "Ruins1_30",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Deep_Focus": {
     "Name": "Deep_Focus",
     "SceneName": "Mines_36",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Queen_Fragment": {
     "Name": "Queen_Fragment",
     "SceneName": "Room_Queen",
-    "TitledArea": "Queens' Gardens",
-    "MapArea": "Queens' Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King_Fragment": {
     "Name": "King_Fragment",
     "SceneName": "White_Palace_09",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Void_Heart": {
     "Name": "Void_Heart",
     "SceneName": "Abyss_15",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Dreamshield": {
     "Name": "Dreamshield",
     "SceneName": "RestingGrounds_17",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Weaversong": {
     "Name": "Weaversong",
     "SceneName": "Deepnest_45_v02",
-    "TitledArea": "Weaver's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmchild": {
     "Name": "Grimmchild",
     "SceneName": "Grimm_Main_Tent",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Unbreakable_Heart": {
     "Name": "Unbreakable_Heart",
     "SceneName": "Grimm_Divine",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Unbreakable_Greed": {
     "Name": "Unbreakable_Greed",
     "SceneName": "Grimm_Divine",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Unbreakable_Strength": {
     "Name": "Unbreakable_Strength",
     "SceneName": "Grimm_Divine",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "City_Crest": {
     "Name": "City_Crest",
     "SceneName": "Crossroads_10",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Tram_Pass": {
     "Name": "Tram_Pass",
     "SceneName": "Deepnest_26b",
-    "TitledArea": "Failed Tramway",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Simple_Key-Basin": {
     "Name": "Simple_Key-Basin",
     "SceneName": "Abyss_20",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Simple_Key-City": {
     "Name": "Simple_Key-City",
     "SceneName": "Ruins1_17",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Simple_Key-Lurker": {
     "Name": "Simple_Key-Lurker",
     "SceneName": "GG_Lurker",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Shopkeeper's_Key": {
     "Name": "Shopkeeper's_Key",
     "SceneName": "Mines_11",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Love_Key": {
     "Name": "Love_Key",
     "SceneName": "Fungus3_39",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Brand": {
     "Name": "King's_Brand",
     "SceneName": "Room_Wyrm",
-    "TitledArea": "Cast Off Shell",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Godtuner": {
     "Name": "Godtuner",
     "SceneName": "GG_Waterways",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Collector's_Map": {
     "Name": "Collector's_Map",
     "SceneName": "Ruins2_11",
-    "TitledArea": "Tower of Love",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Brooding_Mawlek": {
     "Name": "Mask_Shard-Brooding_Mawlek",
     "SceneName": "Crossroads_09",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Crossroads_Goam": {
     "Name": "Mask_Shard-Crossroads_Goam",
     "SceneName": "Crossroads_13",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Stone_Sanctuary": {
     "Name": "Mask_Shard-Stone_Sanctuary",
     "SceneName": "Fungus1_36",
-    "TitledArea": "Stone Sanctuary",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Queen's_Station": {
     "Name": "Mask_Shard-Queen's_Station",
     "SceneName": "Fungus2_01",
-    "TitledArea": "Queen's Station",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Deepnest": {
     "Name": "Mask_Shard-Deepnest",
     "SceneName": "Fungus2_25",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Waterways": {
     "Name": "Mask_Shard-Waterways",
     "SceneName": "Waterways_04b",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Enraged_Guardian": {
     "Name": "Mask_Shard-Enraged_Guardian",
     "SceneName": "Mines_32",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Hive": {
     "Name": "Mask_Shard-Hive",
     "SceneName": "Hive_04",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Grey_Mourner": {
     "Name": "Mask_Shard-Grey_Mourner",
     "SceneName": "Room_Mansion",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mask_Shard-Bretta": {
     "Name": "Mask_Shard-Bretta",
     "SceneName": "Room_Bretta",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Vessel_Fragment-Greenpath": {
     "Name": "Vessel_Fragment-Greenpath",
     "SceneName": "Fungus1_13",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Vessel_Fragment-City": {
     "Name": "Vessel_Fragment-City",
     "SceneName": "Ruins2_09",
-    "TitledArea": "King's Station",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Vessel_Fragment-Crossroads": {
     "Name": "Vessel_Fragment-Crossroads",
     "SceneName": "Crossroads_37",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Vessel_Fragment-Basin": {
     "Name": "Vessel_Fragment-Basin",
     "SceneName": "Abyss_04",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Vessel_Fragment-Deepnest": {
     "Name": "Vessel_Fragment-Deepnest",
     "SceneName": "Deepnest_38",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Vessel_Fragment-Stag_Nest": {
     "Name": "Vessel_Fragment-Stag_Nest",
     "SceneName": "Cliffs_03",
-    "TitledArea": "Stag Nest",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Charm_Notch-Shrumal_Ogres": {
     "Name": "Charm_Notch-Shrumal_Ogres",
     "SceneName": "Fungus2_05",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Charm_Notch-Fog_Canyon": {
     "Name": "Charm_Notch-Fog_Canyon",
     "SceneName": "Fungus3_28",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Charm_Notch-Colosseum": {
     "Name": "Charm_Notch-Colosseum",
     "SceneName": "Room_Colosseum_Bronze",
-    "TitledArea": "Colosseum",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Charm_Notch-Grimm": {
     "Name": "Charm_Notch-Grimm",
     "SceneName": "Grimm_Main_Tent",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Pale_Ore-Basin": {
     "Name": "Pale_Ore-Basin",
     "SceneName": "Abyss_17",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Pale_Ore-Crystal_Peak": {
     "Name": "Pale_Ore-Crystal_Peak",
     "SceneName": "Mines_34",
-    "TitledArea": "Hallownest's Crown",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Pale_Ore-Nosk": {
     "Name": "Pale_Ore-Nosk",
     "SceneName": "Deepnest_32",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Pale_Ore-Colosseum": {
     "Name": "Pale_Ore-Colosseum",
     "SceneName": "Room_Colosseum_Silver",
-    "TitledArea": "Colosseum",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-False_Knight": {
     "Name": "Geo_Chest-False_Knight",
     "SceneName": "Crossroads_10",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Soul_Master": {
     "Name": "Geo_Chest-Soul_Master",
     "SceneName": "Ruins1_32",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Watcher_Knights": {
     "Name": "Geo_Chest-Watcher_Knights",
     "SceneName": "Ruins2_03",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Greenpath": {
     "Name": "Geo_Chest-Greenpath",
     "SceneName": "Fungus1_13",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Mantis_Lords": {
     "Name": "Geo_Chest-Mantis_Lords",
     "SceneName": "Fungus2_31",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Resting_Grounds": {
     "Name": "Geo_Chest-Resting_Grounds",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Crystal_Peak": {
     "Name": "Geo_Chest-Crystal_Peak",
     "SceneName": "Mines_37",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Weavers_Den": {
     "Name": "Geo_Chest-Weavers_Den",
     "SceneName": "Deepnest_45_v02",
-    "TitledArea": "Weaver's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Junk_Pit_1": {
     "Name": "Geo_Chest-Junk_Pit_1",
     "SceneName": "GG_Waterways",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Junk_Pit_2": {
     "Name": "Geo_Chest-Junk_Pit_2",
     "SceneName": "GG_Waterways",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Junk_Pit_3": {
     "Name": "Geo_Chest-Junk_Pit_3",
     "SceneName": "GG_Waterways",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Chest-Junk_Pit_5": {
     "Name": "Geo_Chest-Junk_Pit_5",
     "SceneName": "GG_Waterways",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lumafly_Escape-Junk_Pit_Chest_4": {
     "Name": "Lumafly_Escape-Junk_Pit_Chest_4",
     "SceneName": "GG_Waterways",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Sheo": {
     "Name": "Rancid_Egg-Sheo",
     "SceneName": "Fungus1_15",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Fungal_Core": {
     "Name": "Rancid_Egg-Fungal_Core",
     "SceneName": "Fungus2_29",
-    "TitledArea": "Fungal Core",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Queen's_Gardens": {
     "Name": "Rancid_Egg-Queen's_Gardens",
     "SceneName": "Fungus3_34",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Blue_Lake": {
     "Name": "Rancid_Egg-Blue_Lake",
     "SceneName": "Crossroads_50",
-    "TitledArea": "Blue Lake",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Crystal_Peak_Dive_Entrance": {
     "Name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
     "SceneName": "Mines_01",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Crystal_Peak_Dark_Room": {
     "Name": "Rancid_Egg-Crystal_Peak_Dark_Room",
     "SceneName": "Mines_29",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Crystal_Peak_Tall_Room": {
     "Name": "Rancid_Egg-Crystal_Peak_Tall_Room",
     "SceneName": "Mines_20",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-City_of_Tears_Left": {
     "Name": "Rancid_Egg-City_of_Tears_Left",
     "SceneName": "Ruins1_05c",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-City_of_Tears_Pleasure_House": {
     "Name": "Rancid_Egg-City_of_Tears_Pleasure_House",
     "SceneName": "Ruins_Elevator",
-    "TitledArea": "Pleasure House",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Beast's_Den": {
     "Name": "Rancid_Egg-Beast's_Den",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Dark_Deepnest": {
     "Name": "Rancid_Egg-Dark_Deepnest",
     "SceneName": "Deepnest_39",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Weaver's_Den": {
     "Name": "Rancid_Egg-Weaver's_Den",
     "SceneName": "Deepnest_45_v02",
-    "TitledArea": "Weaver's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Near_Quick_Slash": {
     "Name": "Rancid_Egg-Near_Quick_Slash",
     "SceneName": "Deepnest_East_14",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Upper_Kingdom's_Edge": {
     "Name": "Rancid_Egg-Upper_Kingdom's_Edge",
     "SceneName": "Deepnest_East_07",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Waterways_East": {
     "Name": "Rancid_Egg-Waterways_East",
     "SceneName": "Waterways_07",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Waterways_Main": {
     "Name": "Rancid_Egg-Waterways_Main",
     "SceneName": "Waterways_02",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Waterways_West_Bluggsac": {
     "Name": "Rancid_Egg-Waterways_West_Bluggsac",
     "SceneName": "Waterways_04",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Waterways_West_Pickup": {
     "Name": "Rancid_Egg-Waterways_West_Pickup",
     "SceneName": "Waterways_04b",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rancid_Egg-Tuk_Defender's_Crest": {
     "Name": "Rancid_Egg-Tuk_Defender's_Crest",
     "SceneName": "Waterways_03",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Cliffs": {
     "Name": "Wanderer's_Journal-Cliffs",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Greenpath_Stag": {
     "Name": "Wanderer's_Journal-Greenpath_Stag",
     "SceneName": "Fungus1_22",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Greenpath_Lower": {
     "Name": "Wanderer's_Journal-Greenpath_Lower",
     "SceneName": "Fungus1_11",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Fungal_Wastes_Thorns_Gauntlet": {
     "Name": "Wanderer's_Journal-Fungal_Wastes_Thorns_Gauntlet",
     "SceneName": "Fungus2_04",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Above_Mantis_Village": {
     "Name": "Wanderer's_Journal-Above_Mantis_Village",
     "SceneName": "Fungus2_17",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Crystal_Peak_Crawlers": {
     "Name": "Wanderer's_Journal-Crystal_Peak_Crawlers",
     "SceneName": "Mines_20",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Resting_Grounds_Catacombs": {
     "Name": "Wanderer's_Journal-Resting_Grounds_Catacombs",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-King's_Station": {
     "Name": "Wanderer's_Journal-King's_Station",
     "SceneName": "Ruins2_05",
-    "TitledArea": "King's Station",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Pleasure_House": {
     "Name": "Wanderer's_Journal-Pleasure_House",
     "SceneName": "Ruins_Elevator",
-    "TitledArea": "Pleasure House",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-City_Storerooms": {
     "Name": "Wanderer's_Journal-City_Storerooms",
     "SceneName": "Ruins1_28",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Ancient_Basin": {
     "Name": "Wanderer's_Journal-Ancient_Basin",
     "SceneName": "Abyss_02",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Kingdom's_Edge_Entrance": {
     "Name": "Wanderer's_Journal-Kingdom's_Edge_Entrance",
     "SceneName": "Deepnest_East_07",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Kingdom's_Edge_Camp": {
     "Name": "Wanderer's_Journal-Kingdom's_Edge_Camp",
     "SceneName": "Deepnest_East_13",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Wanderer's_Journal-Kingdom's_Edge_Requires_Dive": {
     "Name": "Wanderer's_Journal-Kingdom's_Edge_Requires_Dive",
     "SceneName": "Deepnest_East_18",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Crossroads_Well": {
     "Name": "Hallownest_Seal-Crossroads_Well",
     "SceneName": "Crossroads_01",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Greenpath": {
     "Name": "Hallownest_Seal-Greenpath",
     "SceneName": "Fungus1_10",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Fog_Canyon_West": {
     "Name": "Hallownest_Seal-Fog_Canyon_West",
     "SceneName": "Fungus3_30",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Fog_Canyon_East": {
     "Name": "Hallownest_Seal-Fog_Canyon_East",
     "SceneName": "Fungus3_26",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Queen's_Station": {
     "Name": "Hallownest_Seal-Queen's_Station",
     "SceneName": "Fungus2_34",
-    "TitledArea": "Queen's Station",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Fungal_Wastes_Sporgs": {
     "Name": "Hallownest_Seal-Fungal_Wastes_Sporgs",
     "SceneName": "Fungus2_03",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Mantis_Lords": {
     "Name": "Hallownest_Seal-Mantis_Lords",
     "SceneName": "Fungus2_31",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Resting_Grounds_Catacombs": {
     "Name": "Hallownest_Seal-Resting_Grounds_Catacombs",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-King's_Station": {
     "Name": "Hallownest_Seal-King's_Station",
     "SceneName": "Ruins2_08",
-    "TitledArea": "King's Station",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-City_Rafters": {
     "Name": "Hallownest_Seal-City_Rafters",
     "SceneName": "Ruins1_03",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Soul_Sanctum": {
     "Name": "Hallownest_Seal-Soul_Sanctum",
     "SceneName": "Ruins1_32",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Watcher_Knight": {
     "Name": "Hallownest_Seal-Watcher_Knight",
     "SceneName": "Ruins2_03",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Deepnest_By_Mantis_Lords": {
     "Name": "Hallownest_Seal-Deepnest_By_Mantis_Lords",
     "SceneName": "Deepnest_16",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Beast's_Den": {
     "Name": "Hallownest_Seal-Beast's_Den",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hallownest_Seal-Queen's_Gardens": {
     "Name": "Hallownest_Seal-Queen's_Gardens",
     "SceneName": "Fungus3_48",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Idol-Cliffs": {
     "Name": "King's_Idol-Cliffs",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Idol-Crystal_Peak": {
     "Name": "King's_Idol-Crystal_Peak",
     "SceneName": "Mines_30",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Idol-Glade_of_Hope": {
     "Name": "King's_Idol-Glade_of_Hope",
     "SceneName": "RestingGrounds_08",
-    "TitledArea": "Spirits' Glade",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Idol-Dung_Defender": {
     "Name": "King's_Idol-Dung_Defender",
     "SceneName": "Waterways_15",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Idol-Great_Hopper": {
     "Name": "King's_Idol-Great_Hopper",
     "SceneName": "Deepnest_East_08",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Idol-Pale_Lurker": {
     "Name": "King's_Idol-Pale_Lurker",
     "SceneName": "GG_Lurker",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Idol-Deepnest": {
     "Name": "King's_Idol-Deepnest",
     "SceneName": "Deepnest_33",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Arcane_Egg-Lifeblood_Core": {
     "Name": "Arcane_Egg-Lifeblood_Core",
     "SceneName": "Abyss_08",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Arcane_Egg-Shade_Cloak": {
     "Name": "Arcane_Egg-Shade_Cloak",
     "SceneName": "Abyss_10",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Arcane_Egg-Birthplace": {
     "Name": "Arcane_Egg-Birthplace",
     "SceneName": "Abyss_15",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Crossroads": {
     "Name": "Whispering_Root-Crossroads",
     "SceneName": "Crossroads_07",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Greenpath": {
     "Name": "Whispering_Root-Greenpath",
     "SceneName": "Fungus1_13",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Leg_Eater": {
     "Name": "Whispering_Root-Leg_Eater",
     "SceneName": "Fungus2_33",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Mantis_Village": {
     "Name": "Whispering_Root-Mantis_Village",
     "SceneName": "Fungus2_17",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Deepnest": {
     "Name": "Whispering_Root-Deepnest",
     "SceneName": "Deepnest_39",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Queens_Gardens": {
     "Name": "Whispering_Root-Queens_Gardens",
     "SceneName": "Fungus3_11",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Kingdoms_Edge": {
     "Name": "Whispering_Root-Kingdoms_Edge",
     "SceneName": "Deepnest_East_07",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Waterways": {
     "Name": "Whispering_Root-Waterways",
     "SceneName": "Abyss_01",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-City": {
     "Name": "Whispering_Root-City",
     "SceneName": "Ruins1_17",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Resting_Grounds": {
     "Name": "Whispering_Root-Resting_Grounds",
     "SceneName": "RestingGrounds_05",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Spirits_Glade": {
     "Name": "Whispering_Root-Spirits_Glade",
     "SceneName": "RestingGrounds_08",
-    "TitledArea": "Spirits' Glade",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Crystal_Peak": {
     "Name": "Whispering_Root-Crystal_Peak",
     "SceneName": "Mines_23",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Howling_Cliffs": {
     "Name": "Whispering_Root-Howling_Cliffs",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Ancestral_Mound": {
     "Name": "Whispering_Root-Ancestral_Mound",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Whispering_Root-Hive": {
     "Name": "Whispering_Root-Hive",
     "SceneName": "Hive_02",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Elder_Hu": {
     "Name": "Boss_Essence-Elder_Hu",
     "SceneName": "Fungus2_32",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Xero": {
     "Name": "Boss_Essence-Xero",
     "SceneName": "RestingGrounds_02",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Gorb": {
     "Name": "Boss_Essence-Gorb",
     "SceneName": "Cliffs_02",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Marmu": {
     "Name": "Boss_Essence-Marmu",
     "SceneName": "Fungus3_40",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-No_Eyes": {
     "Name": "Boss_Essence-No_Eyes",
     "SceneName": "Fungus1_35",
-    "TitledArea": "Stone Sanctuary",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Galien": {
     "Name": "Boss_Essence-Galien",
     "SceneName": "Deepnest_40",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Markoth": {
     "Name": "Boss_Essence-Markoth",
     "SceneName": "Deepnest_East_10",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Failed_Champion": {
     "Name": "Boss_Essence-Failed_Champion",
     "SceneName": "Crossroads_10",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Soul_Tyrant": {
     "Name": "Boss_Essence-Soul_Tyrant",
     "SceneName": "Ruins1_24",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Lost_Kin": {
     "Name": "Boss_Essence-Lost_Kin",
     "SceneName": "Abyss_19",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-White_Defender": {
     "Name": "Boss_Essence-White_Defender",
     "SceneName": "Waterways_15",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Essence-Grey_Prince_Zote": {
     "Name": "Boss_Essence-Grey_Prince_Zote",
-    "SceneName": "Room_Bretta_Basement",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "SceneName": "Room_Bretta",
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crossroads_Acid": {
     "Name": "Grub-Crossroads_Acid",
     "SceneName": "Crossroads_35",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crossroads_Center": {
     "Name": "Grub-Crossroads_Center",
     "SceneName": "Crossroads_05",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crossroads_Stag": {
     "Name": "Grub-Crossroads_Stag",
     "SceneName": "Crossroads_03",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crossroads_Spike": {
     "Name": "Grub-Crossroads_Spike",
     "SceneName": "Crossroads_31",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crossroads_Guarded": {
     "Name": "Grub-Crossroads_Guarded",
     "SceneName": "Crossroads_48",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Greenpath_Cornifer": {
     "Name": "Grub-Greenpath_Cornifer",
     "SceneName": "Fungus1_06",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Greenpath_Journal": {
     "Name": "Grub-Greenpath_Journal",
     "SceneName": "Fungus1_07",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Greenpath_MMC": {
     "Name": "Grub-Greenpath_MMC",
     "SceneName": "Fungus1_13",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Greenpath_Stag": {
     "Name": "Grub-Greenpath_Stag",
     "SceneName": "Fungus1_21",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Fog_Canyon": {
     "Name": "Grub-Fog_Canyon",
     "SceneName": "Fungus3_47",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Fungal_Bouncy": {
     "Name": "Grub-Fungal_Bouncy",
     "SceneName": "Fungus2_18",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Fungal_Spore_Shroom": {
     "Name": "Grub-Fungal_Spore_Shroom",
     "SceneName": "Fungus2_20",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Deepnest_Mimic": {
     "Name": "Grub-Deepnest_Mimic",
     "SceneName": "Deepnest_36",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Deepnest_Nosk": {
     "Name": "Grub-Deepnest_Nosk",
     "SceneName": "Deepnest_31",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Deepnest_Spike": {
     "Name": "Grub-Deepnest_Spike",
     "SceneName": "Deepnest_03",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Dark_Deepnest": {
     "Name": "Grub-Dark_Deepnest",
     "SceneName": "Deepnest_39",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Beast's_Den": {
     "Name": "Grub-Beast's_Den",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Kingdom's_Edge_Oro": {
     "Name": "Grub-Kingdom's_Edge_Oro",
     "SceneName": "Deepnest_East_14",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Kingdom's_Edge_Camp": {
     "Name": "Grub-Kingdom's_Edge_Camp",
     "SceneName": "Deepnest_East_11",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Hive_External": {
     "Name": "Grub-Hive_External",
     "SceneName": "Hive_03",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Hive_Internal": {
     "Name": "Grub-Hive_Internal",
     "SceneName": "Hive_04",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Basin_Requires_Wings": {
     "Name": "Grub-Basin_Requires_Wings",
     "SceneName": "Abyss_19",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Basin_Requires_Dive": {
     "Name": "Grub-Basin_Requires_Dive",
     "SceneName": "Abyss_17",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Waterways_Main": {
     "Name": "Grub-Waterways_Main",
     "SceneName": "Waterways_04",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Isma's_Grove": {
     "Name": "Grub-Isma's_Grove",
     "SceneName": "Waterways_13",
-    "TitledArea": "Isma's Grove",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Waterways_Requires_Tram": {
     "Name": "Grub-Waterways_Requires_Tram",
     "SceneName": "Waterways_14",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-City_of_Tears_Left": {
     "Name": "Grub-City_of_Tears_Left",
     "SceneName": "Ruins1_05",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Soul_Sanctum": {
     "Name": "Grub-Soul_Sanctum",
     "SceneName": "Ruins1_32",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Watcher's_Spire": {
     "Name": "Grub-Watcher's_Spire",
     "SceneName": "Ruins2_03",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-City_of_Tears_Guarded": {
     "Name": "Grub-City_of_Tears_Guarded",
     "SceneName": "Ruins_House_01",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-King's_Station": {
     "Name": "Grub-King's_Station",
     "SceneName": "Ruins2_07",
-    "TitledArea": "King's Station",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Resting_Grounds": {
     "Name": "Grub-Resting_Grounds",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crystal_Peak_Below_Chest": {
     "Name": "Grub-Crystal_Peak_Below_Chest",
     "SceneName": "Mines_04",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crystallized_Mound": {
     "Name": "Grub-Crystallized_Mound",
     "SceneName": "Mines_35",
-    "TitledArea": "Crystallized Mound",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crystal_Peak_Spike": {
     "Name": "Grub-Crystal_Peak_Spike",
     "SceneName": "Mines_03",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crystal_Peak_Mimic": {
     "Name": "Grub-Crystal_Peak_Mimic",
     "SceneName": "Mines_16",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crystal_Peak_Crushers": {
     "Name": "Grub-Crystal_Peak_Crushers",
     "SceneName": "Mines_19",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Crystal_Heart": {
     "Name": "Grub-Crystal_Heart",
     "SceneName": "Mines_31",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Hallownest_Crown": {
     "Name": "Grub-Hallownest_Crown",
     "SceneName": "Mines_24",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Howling_Cliffs": {
     "Name": "Grub-Howling_Cliffs",
     "SceneName": "Fungus1_28",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Queen's_Gardens_Stag": {
     "Name": "Grub-Queen's_Gardens_Stag",
     "SceneName": "Fungus3_10",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Queen's_Gardens_Marmu": {
     "Name": "Grub-Queen's_Gardens_Marmu",
     "SceneName": "Fungus3_48",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Queen's_Gardens_Top": {
     "Name": "Grub-Queen's_Gardens_Top",
     "SceneName": "Fungus3_22",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Collector_1": {
     "Name": "Grub-Collector_1",
     "SceneName": "Ruins2_11",
-    "TitledArea": "Tower of Love",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Collector_2": {
     "Name": "Grub-Collector_2",
     "SceneName": "Ruins2_11",
-    "TitledArea": "Tower of Love",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grub-Collector_3": {
     "Name": "Grub-Collector_3",
     "SceneName": "Ruins2_11",
-    "TitledArea": "Tower of Love",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mimic_Grub-Deepnest_1": {
     "Name": "Mimic_Grub-Deepnest_1",
     "SceneName": "Deepnest_36",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mimic_Grub-Deepnest_2": {
     "Name": "Mimic_Grub-Deepnest_2",
     "SceneName": "Deepnest_36",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mimic_Grub-Deepnest_3": {
     "Name": "Mimic_Grub-Deepnest_3",
     "SceneName": "Deepnest_36",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Mimic_Grub-Crystal_Peak": {
     "Name": "Mimic_Grub-Crystal_Peak",
     "SceneName": "Deepnest_36",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Crossroads_Map": {
     "Name": "Crossroads_Map",
     "SceneName": "Crossroads_33",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Greenpath_Map": {
     "Name": "Greenpath_Map",
     "SceneName": "Fungus1_06",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Fog_Canyon_Map": {
     "Name": "Fog_Canyon_Map",
     "SceneName": "Fungus3_25",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Fungal_Wastes_Map": {
     "Name": "Fungal_Wastes_Map",
     "SceneName": "Fungus2_18",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Deepnest_Map-Upper": {
     "Name": "Deepnest_Map-Upper",
     "SceneName": "Deepnest_01b",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Deepnest_Map-Right": {
     "Name": "Deepnest_Map-Right",
     "SceneName": "Fungus2_25",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Ancient_Basin_Map": {
     "Name": "Ancient_Basin_Map",
     "SceneName": "Abyss_04",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Kingdom's_Edge_Map": {
     "Name": "Kingdom's_Edge_Map",
     "SceneName": "Deepnest_East_03",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "City_of_Tears_Map": {
     "Name": "City_of_Tears_Map",
     "SceneName": "Ruins1_31",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Royal_Waterways_Map": {
     "Name": "Royal_Waterways_Map",
     "SceneName": "Waterways_09",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Howling_Cliffs_Map": {
     "Name": "Howling_Cliffs_Map",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Crystal_Peak_Map": {
     "Name": "Crystal_Peak_Map",
     "SceneName": "Mines_30",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Queen's_Gardens_Map": {
     "Name": "Queen's_Gardens_Map",
     "SceneName": "Fungus1_24",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Resting_Grounds_Map": {
     "Name": "Resting_Grounds_Map",
     "SceneName": "RestingGrounds_09",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Dirtmouth_Stag": {
     "Name": "Dirtmouth_Stag",
     "SceneName": "Room_Town_Stag_Station",
-    "TitledArea": "Dirtmouth",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Crossroads_Stag": {
     "Name": "Crossroads_Stag",
     "SceneName": "Crossroads_47",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Greenpath_Stag": {
     "Name": "Greenpath_Stag",
     "SceneName": "Fungus1_16_alt",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Queen's_Station_Stag": {
     "Name": "Queen's_Station_Stag",
     "SceneName": "Fungus2_02",
-    "TitledArea": "Queen's Station",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Queen's_Gardens_Stag": {
     "Name": "Queen's_Gardens_Stag",
     "SceneName": "Fungus3_40",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "City_Storerooms_Stag": {
     "Name": "City_Storerooms_Stag",
     "SceneName": "Ruins1_29",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "King's_Station_Stag": {
     "Name": "King's_Station_Stag",
     "SceneName": "Ruins2_08",
-    "TitledArea": "King's Station",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Resting_Grounds_Stag": {
     "Name": "Resting_Grounds_Stag",
     "SceneName": "RestingGrounds_09",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Distant_Village_Stag": {
     "Name": "Distant_Village_Stag",
     "SceneName": "Deepnest_09",
-    "TitledArea": "Distant Village",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hidden_Station_Stag": {
     "Name": "Hidden_Station_Stag",
     "SceneName": "Abyss_22",
-    "TitledArea": "Palace Grounds",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Stag_Nest_Stag": {
     "Name": "Stag_Nest_Stag",
     "SceneName": "Cliffs_03",
-    "TitledArea": "Stag Nest",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-King's_Pass": {
     "Name": "Lifeblood_Cocoon-King's_Pass",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-Ancestral_Mound": {
     "Name": "Lifeblood_Cocoon-Ancestral_Mound",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-Greenpath": {
     "Name": "Lifeblood_Cocoon-Greenpath",
     "SceneName": "Fungus1_32",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-Fog_Canyon_West": {
     "Name": "Lifeblood_Cocoon-Fog_Canyon_West",
     "SceneName": "Fungus3_30",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-Mantis_Village": {
     "Name": "Lifeblood_Cocoon-Mantis_Village",
     "SceneName": "Fungus2_15",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-Failed_Tramway": {
     "Name": "Lifeblood_Cocoon-Failed_Tramway",
     "SceneName": "Deepnest_26",
-    "TitledArea": "Failed Tramway",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-Galien": {
     "Name": "Lifeblood_Cocoon-Galien",
     "SceneName": "Deepnest_40",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lifeblood_Cocoon-Kingdom's_Edge": {
     "Name": "Lifeblood_Cocoon-Kingdom's_Edge",
     "SceneName": "Deepnest_East_15",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-City_Storerooms": {
     "Name": "Grimmkin_Flame-City_Storerooms",
     "SceneName": "Ruins1_28",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Greenpath": {
     "Name": "Grimmkin_Flame-Greenpath",
     "SceneName": "Fungus1_10",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Crystal_Peak": {
     "Name": "Grimmkin_Flame-Crystal_Peak",
     "SceneName": "Mines_10",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-King's_Pass": {
     "Name": "Grimmkin_Flame-King's_Pass",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Resting_Grounds": {
     "Name": "Grimmkin_Flame-Resting_Grounds",
     "SceneName": "RestingGrounds_06",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Kingdom's_Edge": {
     "Name": "Grimmkin_Flame-Kingdom's_Edge",
     "SceneName": "Deepnest_East_03",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Fungal_Core": {
     "Name": "Grimmkin_Flame-Fungal_Core",
     "SceneName": "Fungus2_30",
-    "TitledArea": "Fungal Core",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Ancient_Basin": {
     "Name": "Grimmkin_Flame-Ancient_Basin",
     "SceneName": "Abyss_02",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Hive": {
     "Name": "Grimmkin_Flame-Hive",
     "SceneName": "Hive_03",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Grimmkin_Flame-Brumm": {
     "Name": "Grimmkin_Flame-Brumm",
     "SceneName": "Room_spider_small",
-    "TitledArea": "Distant Village",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Hunter's_Journal": {
     "Name": "Hunter's_Journal",
     "SceneName": "Fungus1_08",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Journal_Entry-Void_Tendrils": {
     "Name": "Journal_Entry-Void_Tendrils",
     "SceneName": "Abyss_09",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Journal_Entry-Charged_Lumafly": {
     "Name": "Journal_Entry-Charged_Lumafly",
     "SceneName": "Fungus3_archive_02",
-    "TitledArea": "Teacher's Archives",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Journal_Entry-Goam": {
     "Name": "Journal_Entry-Goam",
     "SceneName": "Crossroads_52",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Journal_Entry-Garpede": {
     "Name": "Journal_Entry-Garpede",
     "SceneName": "Deepnest_44",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Journal_Entry-Seal_of_Binding": {
     "Name": "Journal_Entry-Seal_of_Binding",
     "SceneName": "White_Palace_20",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Elevator_Pass": {
     "Name": "Elevator_Pass",
     "SceneName": "Crossroads_49b",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Split_Mothwing_Cloak": {
     "Name": "Split_Mothwing_Cloak",
     "SceneName": "Fungus1_04",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Left_Mantis_Claw": {
     "Name": "Left_Mantis_Claw",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Right_Mantis_Claw": {
     "Name": "Right_Mantis_Claw",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Leftslash": {
     "Name": "Leftslash",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Rightslash": {
     "Name": "Rightslash",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Upslash": {
     "Name": "Upslash",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Split_Crystal_Heart": {
     "Name": "Split_Crystal_Heart",
     "SceneName": "Mines_31",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Broken_Elevator_1": {
     "Name": "Geo_Rock-Broken_Elevator_1",
     "SceneName": "Abyss_01",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Broken_Elevator_2": {
     "Name": "Geo_Rock-Broken_Elevator_2",
     "SceneName": "Abyss_01",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Broken_Elevator_3": {
     "Name": "Geo_Rock-Broken_Elevator_3",
     "SceneName": "Abyss_01",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Broken_Bridge_Upper": {
     "Name": "Geo_Rock-Broken_Bridge_Upper",
     "SceneName": "Abyss_02",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Broken_Bridge_Lower": {
     "Name": "Geo_Rock-Broken_Bridge_Lower",
     "SceneName": "Abyss_02",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Broken_Bridge_Lower_Dupe": {
     "Name": "Geo_Rock-Broken_Bridge_Lower_Dupe",
     "SceneName": "Abyss_02",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Abyss_1": {
     "Name": "Geo_Rock-Abyss_1",
     "SceneName": "Abyss_06_Core",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Abyss_2": {
     "Name": "Geo_Rock-Abyss_2",
     "SceneName": "Abyss_06_Core",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Abyss_3": {
     "Name": "Geo_Rock-Abyss_3",
     "SceneName": "Abyss_06_Core",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Basin_Tunnel": {
     "Name": "Geo_Rock-Basin_Tunnel",
     "SceneName": "Abyss_18",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Basin_Grub": {
     "Name": "Geo_Rock-Basin_Grub",
     "SceneName": "Abyss_19",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Basin_Before_Broken_Vessel": {
     "Name": "Geo_Rock-Basin_Before_Broken_Vessel",
     "SceneName": "Abyss_19",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Cliffs_Main_1": {
     "Name": "Geo_Rock-Cliffs_Main_1",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Cliffs_Main_2": {
     "Name": "Geo_Rock-Cliffs_Main_2",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Cliffs_Main_3": {
     "Name": "Geo_Rock-Cliffs_Main_3",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Cliffs_Main_4": {
     "Name": "Geo_Rock-Cliffs_Main_4",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Below_Gorb_Dupe": {
     "Name": "Geo_Rock-Below_Gorb_Dupe",
     "SceneName": "Cliffs_02",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Below_Gorb": {
     "Name": "Geo_Rock-Below_Gorb",
     "SceneName": "Cliffs_02",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Well": {
     "Name": "Geo_Rock-Crossroads_Well",
     "SceneName": "Crossroads_01",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Center_Grub": {
     "Name": "Geo_Rock-Crossroads_Center_Grub",
     "SceneName": "Crossroads_05",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Root": {
     "Name": "Geo_Rock-Crossroads_Root",
     "SceneName": "Crossroads_07",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Root_Dupe_1": {
     "Name": "Geo_Rock-Crossroads_Root_Dupe_1",
     "SceneName": "Crossroads_07",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Root_Dupe_2": {
     "Name": "Geo_Rock-Crossroads_Root_Dupe_2",
     "SceneName": "Crossroads_07",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Aspid_Arena": {
     "Name": "Geo_Rock-Crossroads_Aspid_Arena",
     "SceneName": "Crossroads_08",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Aspid_Arena_Dupe_1": {
     "Name": "Geo_Rock-Crossroads_Aspid_Arena_Dupe_1",
     "SceneName": "Crossroads_08",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Aspid_Arena_Dupe_2": {
     "Name": "Geo_Rock-Crossroads_Aspid_Arena_Dupe_2",
     "SceneName": "Crossroads_08",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Aspid_Arena_Hidden": {
     "Name": "Geo_Rock-Crossroads_Aspid_Arena_Hidden",
     "SceneName": "Crossroads_08",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Above_False_Knight": {
     "Name": "Geo_Rock-Crossroads_Above_False_Knight",
     "SceneName": "Crossroads_10",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Before_Acid_Grub": {
     "Name": "Geo_Rock-Crossroads_Before_Acid_Grub",
     "SceneName": "Crossroads_12",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Below_Goam_Mask_Shard": {
     "Name": "Geo_Rock-Crossroads_Below_Goam_Mask_Shard",
     "SceneName": "Crossroads_13",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_After_Goam_Mask_Shard": {
     "Name": "Geo_Rock-Crossroads_After_Goam_Mask_Shard",
     "SceneName": "Crossroads_13",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Above_Lever": {
     "Name": "Geo_Rock-Crossroads_Above_Lever",
     "SceneName": "Crossroads_16",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Before_Fungal": {
     "Name": "Geo_Rock-Crossroads_Before_Fungal",
     "SceneName": "Crossroads_18",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Before_Fungal_Dupe_1": {
     "Name": "Geo_Rock-Crossroads_Before_Fungal_Dupe_1",
     "SceneName": "Crossroads_18",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Before_Fungal_Dupe_2": {
     "Name": "Geo_Rock-Crossroads_Before_Fungal_Dupe_2",
     "SceneName": "Crossroads_18",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Before_Shops": {
     "Name": "Geo_Rock-Crossroads_Before_Shops",
     "SceneName": "Crossroads_19",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Before_Glowing_Womb": {
     "Name": "Geo_Rock-Crossroads_Before_Glowing_Womb",
     "SceneName": "Crossroads_21",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Above_Tram": {
     "Name": "Geo_Rock-Crossroads_Above_Tram",
     "SceneName": "Crossroads_27",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Above_Mawlek": {
     "Name": "Geo_Rock-Crossroads_Above_Mawlek",
     "SceneName": "Crossroads_36",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Vessel_Fragment": {
     "Name": "Geo_Rock-Crossroads_Vessel_Fragment",
     "SceneName": "Crossroads_37",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Goam_Alcove": {
     "Name": "Geo_Rock-Crossroads_Goam_Alcove",
     "SceneName": "Crossroads_42",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Goam_Damage_Boost": {
     "Name": "Geo_Rock-Crossroads_Goam_Damage_Boost",
     "SceneName": "Crossroads_42",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Tram": {
     "Name": "Geo_Rock-Crossroads_Tram",
     "SceneName": "Crossroads_46",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Goam_Journal": {
     "Name": "Geo_Rock-Crossroads_Goam_Journal",
     "SceneName": "Crossroads_52",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crossroads_Goam_Journal_Dupe": {
     "Name": "Geo_Rock-Crossroads_Goam_Journal_Dupe",
     "SceneName": "Crossroads_52",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Ancestral_Mound": {
     "Name": "Geo_Rock-Ancestral_Mound",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Ancestral_Mound_Dupe": {
     "Name": "Geo_Rock-Ancestral_Mound_Dupe",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Ancestral_Mound_Tree": {
     "Name": "Geo_Rock-Ancestral_Mound_Tree",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Ancestral_Mound_Tree_Dupe": {
     "Name": "Geo_Rock-Ancestral_Mound_Tree_Dupe",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Moss_Prophet": {
     "Name": "Geo_Rock-Moss_Prophet",
     "SceneName": "Deepnest_01",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Moss_Prophet_Dupe": {
     "Name": "Geo_Rock-Moss_Prophet_Dupe",
     "SceneName": "Deepnest_01",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Below_Mimics": {
     "Name": "Geo_Rock-Deepnest_Below_Mimics",
     "SceneName": "Deepnest_02",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Below_Mimics_Dupe": {
     "Name": "Geo_Rock-Deepnest_Below_Mimics_Dupe",
     "SceneName": "Deepnest_02",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Below_Spike_Grub": {
     "Name": "Geo_Rock-Deepnest_Below_Spike_Grub",
     "SceneName": "Deepnest_03",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Below_Spike_Grub_Dupe": {
     "Name": "Geo_Rock-Deepnest_Below_Spike_Grub_Dupe",
     "SceneName": "Deepnest_03",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Spike_Grub_Right": {
     "Name": "Geo_Rock-Deepnest_Spike_Grub_Right",
     "SceneName": "Deepnest_03",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo": {
     "Name": "Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo",
     "SceneName": "Deepnest_16",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo_Dupe": {
     "Name": "Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo_Dupe",
     "SceneName": "Deepnest_16",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1": {
     "Name": "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1",
     "SceneName": "Deepnest_16",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_2": {
     "Name": "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_2",
     "SceneName": "Deepnest_16",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_3": {
     "Name": "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_3",
     "SceneName": "Deepnest_16",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Nosk_1": {
     "Name": "Geo_Rock-Deepnest_Nosk_1",
     "SceneName": "Deepnest_31",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Nosk_2": {
     "Name": "Geo_Rock-Deepnest_Nosk_2",
     "SceneName": "Deepnest_31",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Nosk_3": {
     "Name": "Geo_Rock-Deepnest_Nosk_3",
     "SceneName": "Deepnest_31",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Above_Galien": {
     "Name": "Geo_Rock-Deepnest_Above_Galien",
     "SceneName": "Deepnest_35",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Galien_Spike": {
     "Name": "Geo_Rock-Deepnest_Galien_Spike",
     "SceneName": "Deepnest_35",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Garpede_1": {
     "Name": "Geo_Rock-Deepnest_Garpede_1",
     "SceneName": "Deepnest_37",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Garpede_2": {
     "Name": "Geo_Rock-Deepnest_Garpede_2",
     "SceneName": "Deepnest_37",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Dark_Deepnest_Above_Grub_1": {
     "Name": "Geo_Rock-Dark_Deepnest_Above_Grub_1",
     "SceneName": "Deepnest_39",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Dark_Deepnest_Above_Grub_2": {
     "Name": "Geo_Rock-Dark_Deepnest_Above_Grub_2",
     "SceneName": "Deepnest_39",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Dark_Deepnest_Bottom_Left": {
     "Name": "Geo_Rock-Dark_Deepnest_Bottom_Left",
     "SceneName": "Deepnest_39",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Above_Mask_Maker_1": {
     "Name": "Geo_Rock-Above_Mask_Maker_1",
     "SceneName": "Deepnest_43",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Above_Mask_Maker_2": {
     "Name": "Geo_Rock-Above_Mask_Maker_2",
     "SceneName": "Deepnest_43",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Lower_Kingdom's_Edge_1": {
     "Name": "Geo_Rock-Lower_Kingdom's_Edge_1",
     "SceneName": "Deepnest_East_01",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Lower_Kingdom's_Edge_2": {
     "Name": "Geo_Rock-Lower_Kingdom's_Edge_2",
     "SceneName": "Deepnest_East_01",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Lower_Kingdom's_Edge_3": {
     "Name": "Geo_Rock-Lower_Kingdom's_Edge_3",
     "SceneName": "Deepnest_East_02",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Lower_Kingdom's_Edge_Dive": {
     "Name": "Geo_Rock-Lower_Kingdom's_Edge_Dive",
     "SceneName": "Deepnest_East_02",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_Below_Bardoon": {
     "Name": "Geo_Rock-Kingdom's_Edge_Below_Bardoon",
     "SceneName": "Deepnest_East_04",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_Oro_Far_Left": {
     "Name": "Geo_Rock-Kingdom's_Edge_Oro_Far_Left",
     "SceneName": "Deepnest_East_06",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_Oro_Middle_Left": {
     "Name": "Geo_Rock-Kingdom's_Edge_Oro_Middle_Left",
     "SceneName": "Deepnest_East_06",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_Above_Root": {
     "Name": "Geo_Rock-Kingdom's_Edge_Above_Root",
     "SceneName": "Deepnest_East_07",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_Above_Tower": {
     "Name": "Geo_Rock-Kingdom's_Edge_Above_Tower",
     "SceneName": "Deepnest_East_07",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_Below_Colosseum": {
     "Name": "Geo_Rock-Kingdom's_Edge_Below_Colosseum",
     "SceneName": "Deepnest_East_08",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_Above_420_Geo_Rock": {
     "Name": "Geo_Rock-Kingdom's_Edge_Above_420_Geo_Rock",
     "SceneName": "Deepnest_East_17",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Kingdom's_Edge_420_Geo_Rock": {
     "Name": "Geo_Rock-Kingdom's_Edge_420_Geo_Rock",
     "SceneName": "Deepnest_East_17",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_Above_Trilobite": {
     "Name": "Geo_Rock-Beast's_Den_Above_Trilobite",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe": {
     "Name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_Below_Herrah": {
     "Name": "Geo_Rock-Beast's_Den_Below_Herrah",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_Below_Egg": {
     "Name": "Geo_Rock-Beast's_Den_Below_Egg",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_Below_Egg_Dupe": {
     "Name": "Geo_Rock-Beast's_Den_Below_Egg_Dupe",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_Bottom": {
     "Name": "Geo_Rock-Beast's_Den_Bottom",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_Bottom_Dupe": {
     "Name": "Geo_Rock-Beast's_Den_Bottom_Dupe",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Beast's_Den_After_Herrah": {
     "Name": "Geo_Rock-Beast's_Den_After_Herrah",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Entrance": {
     "Name": "Geo_Rock-Greenpath_Entrance",
     "SceneName": "Fungus1_01",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Waterfall": {
     "Name": "Geo_Rock-Greenpath_Waterfall",
     "SceneName": "Fungus1_01b",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Below_Skip_Squit": {
     "Name": "Geo_Rock-Greenpath_Below_Skip_Squit",
     "SceneName": "Fungus1_02",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Skip_Squit": {
     "Name": "Geo_Rock-Greenpath_Skip_Squit",
     "SceneName": "Fungus1_02",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Second_Skip_Fool_Eater": {
     "Name": "Geo_Rock-Greenpath_Second_Skip_Fool_Eater",
     "SceneName": "Fungus1_03",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Second_Skip_Fool_Eater_Dupe": {
     "Name": "Geo_Rock-Greenpath_Second_Skip_Fool_Eater_Dupe",
     "SceneName": "Fungus1_03",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Second_Skip_Lower": {
     "Name": "Geo_Rock-Greenpath_Second_Skip_Lower",
     "SceneName": "Fungus1_03",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Below_Hornet": {
     "Name": "Geo_Rock-Greenpath_Below_Hornet",
     "SceneName": "Fungus1_04",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Above_Thorns": {
     "Name": "Geo_Rock-Greenpath_Above_Thorns",
     "SceneName": "Fungus1_05",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Hunter's_Journal": {
     "Name": "Geo_Rock-Greenpath_Hunter's_Journal",
     "SceneName": "Fungus1_07",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Acid_Bridge": {
     "Name": "Geo_Rock-Greenpath_Acid_Bridge",
     "SceneName": "Fungus1_10",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_After_MMC_Hidden": {
     "Name": "Geo_Rock-Greenpath_After_MMC_Hidden",
     "SceneName": "Fungus1_12",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_After_MMC": {
     "Name": "Geo_Rock-Greenpath_After_MMC",
     "SceneName": "Fungus1_12",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_After_MMC_Dupe": {
     "Name": "Geo_Rock-Greenpath_After_MMC_Dupe",
     "SceneName": "Fungus1_12",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Obbles_Fool_Eater": {
     "Name": "Geo_Rock-Greenpath_Obbles_Fool_Eater",
     "SceneName": "Fungus1_19",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Moss_Knights": {
     "Name": "Geo_Rock-Greenpath_Moss_Knights",
     "SceneName": "Fungus1_21",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Moss_Knights_Dupe_1": {
     "Name": "Geo_Rock-Greenpath_Moss_Knights_Dupe_1",
     "SceneName": "Fungus1_21",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Moss_Knights_Dupe_2": {
     "Name": "Geo_Rock-Greenpath_Moss_Knights_Dupe_2",
     "SceneName": "Fungus1_21",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Below_Stag": {
     "Name": "Geo_Rock-Greenpath_Below_Stag",
     "SceneName": "Fungus1_22",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Below_Stag_Fool_Eater": {
     "Name": "Geo_Rock-Greenpath_Below_Stag_Fool_Eater",
     "SceneName": "Fungus1_22",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Baldur_Shell_Top_Left": {
     "Name": "Geo_Rock-Baldur_Shell_Top_Left",
     "SceneName": "Fungus1_28",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Baldur_Shell_Alcove": {
     "Name": "Geo_Rock-Baldur_Shell_Alcove",
     "SceneName": "Fungus1_28",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_MMC": {
     "Name": "Geo_Rock-Greenpath_MMC",
     "SceneName": "Fungus1_29",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Below_Toll": {
     "Name": "Geo_Rock-Greenpath_Below_Toll",
     "SceneName": "Fungus1_31",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Toll_Hidden": {
     "Name": "Geo_Rock-Greenpath_Toll_Hidden",
     "SceneName": "Fungus1_31",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Greenpath_Toll_Hidden_Dupe": {
     "Name": "Geo_Rock-Greenpath_Toll_Hidden_Dupe",
     "SceneName": "Fungus1_31",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Below_Shrumal_Ogres": {
     "Name": "Geo_Rock-Fungal_Below_Shrumal_Ogres",
     "SceneName": "Fungus2_04",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Above_Cloth": {
     "Name": "Geo_Rock-Fungal_Above_Cloth",
     "SceneName": "Fungus2_08",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_After_Cloth": {
     "Name": "Geo_Rock-Fungal_After_Cloth",
     "SceneName": "Fungus2_10",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Below_Pilgrim's_Way": {
     "Name": "Geo_Rock-Fungal_Below_Pilgrim's_Way",
     "SceneName": "Fungus2_11",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Below_Pilgrim's_Way_Dupe": {
     "Name": "Geo_Rock-Fungal_Below_Pilgrim's_Way_Dupe",
     "SceneName": "Fungus2_11",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Outskirts_Guarded": {
     "Name": "Geo_Rock-Mantis_Outskirts_Guarded",
     "SceneName": "Fungus2_13",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Outskirts_Guarded_Dupe": {
     "Name": "Geo_Rock-Mantis_Outskirts_Guarded_Dupe",
     "SceneName": "Fungus2_13",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Outskirts_Alcove": {
     "Name": "Geo_Rock-Mantis_Outskirts_Alcove",
     "SceneName": "Fungus2_13",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Village_After_Lever": {
     "Name": "Geo_Rock-Mantis_Village_After_Lever",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Village_Above_Claw": {
     "Name": "Geo_Rock-Mantis_Village_Above_Claw",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Village_Above_Claw_Dupe": {
     "Name": "Geo_Rock-Mantis_Village_Above_Claw_Dupe",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Village_Below_Lore": {
     "Name": "Geo_Rock-Mantis_Village_Below_Lore",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Mantis_Village_Above_Lever": {
     "Name": "Geo_Rock-Mantis_Village_Above_Lever",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Above_Mantis_Lords_1": {
     "Name": "Geo_Rock-Above_Mantis_Lords_1",
     "SceneName": "Fungus2_15",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Above_Mantis_Lords_2": {
     "Name": "Geo_Rock-Above_Mantis_Lords_2",
     "SceneName": "Fungus2_15",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_After_Bouncy_Grub": {
     "Name": "Geo_Rock-Fungal_After_Bouncy_Grub",
     "SceneName": "Fungus2_18",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_After_Bouncy_Grub_Dupe": {
     "Name": "Geo_Rock-Fungal_After_Bouncy_Grub_Dupe",
     "SceneName": "Fungus2_18",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Bouncy_Grub_Lever": {
     "Name": "Geo_Rock-Fungal_Bouncy_Grub_Lever",
     "SceneName": "Fungus2_18",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_After_Cornifer": {
     "Name": "Geo_Rock-Fungal_After_Cornifer",
     "SceneName": "Fungus2_18",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Above_City_Entrance": {
     "Name": "Geo_Rock-Fungal_Above_City_Entrance",
     "SceneName": "Fungus2_21",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_By_Mantis_Lords_1": {
     "Name": "Geo_Rock-Deepnest_By_Mantis_Lords_1",
     "SceneName": "Fungus2_25",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_By_Mantis_Lords_2": {
     "Name": "Geo_Rock-Deepnest_By_Mantis_Lords_2",
     "SceneName": "Fungus2_25",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Deepnest_Lower_Cornifer": {
     "Name": "Geo_Rock-Deepnest_Lower_Cornifer",
     "SceneName": "Fungus2_25",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Core_Entrance": {
     "Name": "Geo_Rock-Fungal_Core_Entrance",
     "SceneName": "Fungus2_29",
-    "TitledArea": "Fungal Core",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Core_Hidden": {
     "Name": "Geo_Rock-Fungal_Core_Hidden",
     "SceneName": "Fungus2_30",
-    "TitledArea": "Fungal Core",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fungal_Core_Above_Elder": {
     "Name": "Geo_Rock-Fungal_Core_Above_Elder",
     "SceneName": "Fungus2_30",
-    "TitledArea": "Fungal Core",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Queen's_Gardens_Acid_Entrance": {
     "Name": "Geo_Rock-Queen's_Gardens_Acid_Entrance",
     "SceneName": "Fungus3_03",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Queen's_Gardens_Below_Stag": {
     "Name": "Geo_Rock-Queen's_Gardens_Below_Stag",
     "SceneName": "Fungus3_10",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fog_Canyon_East": {
     "Name": "Geo_Rock-Fog_Canyon_East",
     "SceneName": "Fungus3_26",
-    "TitledArea": "Fog Canyon",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Love_Key": {
     "Name": "Geo_Rock-Love_Key",
     "SceneName": "Fungus3_39",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Love_Key_Dupe": {
     "Name": "Geo_Rock-Love_Key_Dupe",
     "SceneName": "Fungus3_39",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Queen's_Gardens_Above_Marmu": {
     "Name": "Geo_Rock-Queen's_Gardens_Above_Marmu",
     "SceneName": "Fungus3_48",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Pale_Lurker": {
     "Name": "Geo_Rock-Pale_Lurker",
     "SceneName": "GG_Lurker",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Godhome_Pipeway": {
     "Name": "Geo_Rock-Godhome_Pipeway",
     "SceneName": "GG_Pipeway",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Entrance": {
     "Name": "Geo_Rock-Hive_Entrance",
     "SceneName": "Hive_01",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Outside_Bench": {
     "Name": "Geo_Rock-Hive_Outside_Bench",
     "SceneName": "Hive_02",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Below_Root": {
     "Name": "Geo_Rock-Hive_Below_Root",
     "SceneName": "Hive_02",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_After_Root": {
     "Name": "Geo_Rock-Hive_After_Root",
     "SceneName": "Hive_02",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Below_Stash": {
     "Name": "Geo_Rock-Hive_Below_Stash",
     "SceneName": "Hive_03",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Stash": {
     "Name": "Geo_Rock-Hive_Stash",
     "SceneName": "Hive_03",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Stash_Dupe": {
     "Name": "Geo_Rock-Hive_Stash_Dupe",
     "SceneName": "Hive_03",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Below_Grub": {
     "Name": "Geo_Rock-Hive_Below_Grub",
     "SceneName": "Hive_04",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hive_Above_Mask": {
     "Name": "Geo_Rock-Hive_Above_Mask",
     "SceneName": "Hive_04",
-    "TitledArea": "Hive",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Lower_Middle": {
     "Name": "Geo_Rock-Crystal_Peak_Lower_Middle",
     "SceneName": "Mines_02",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Lower_Conveyer_1": {
     "Name": "Geo_Rock-Crystal_Peak_Lower_Conveyer_1",
     "SceneName": "Mines_02",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Lower_Conveyer_2": {
     "Name": "Geo_Rock-Crystal_Peak_Lower_Conveyer_2",
     "SceneName": "Mines_02",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Before_Dark_Room": {
     "Name": "Geo_Rock-Crystal_Peak_Before_Dark_Room",
     "SceneName": "Mines_04",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Before_Dark_Room_Dupe": {
     "Name": "Geo_Rock-Crystal_Peak_Before_Dark_Room_Dupe",
     "SceneName": "Mines_04",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Above_Spike_Grub": {
     "Name": "Geo_Rock-Crystal_Peak_Above_Spike_Grub",
     "SceneName": "Mines_05",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Mimic_Grub": {
     "Name": "Geo_Rock-Crystal_Peak_Mimic_Grub",
     "SceneName": "Mines_16",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Dive_Egg": {
     "Name": "Geo_Rock-Crystal_Peak_Dive_Egg",
     "SceneName": "Mines_20",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Dive_Egg_Dupe": {
     "Name": "Geo_Rock-Crystal_Peak_Dive_Egg_Dupe",
     "SceneName": "Mines_20",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Conga_Line": {
     "Name": "Geo_Rock-Crystal_Peak_Conga_Line",
     "SceneName": "Mines_20",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hallownest_Crown_Dive": {
     "Name": "Geo_Rock-Hallownest_Crown_Dive",
     "SceneName": "Mines_25",
-    "TitledArea": "Hallownest's Crown",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hallownest_Crown_Dive_Dupe": {
     "Name": "Geo_Rock-Hallownest_Crown_Dive_Dupe",
     "SceneName": "Mines_25",
-    "TitledArea": "Hallownest's Crown",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hallownest_Crown_Hidden": {
     "Name": "Geo_Rock-Hallownest_Crown_Hidden",
     "SceneName": "Mines_25",
-    "TitledArea": "Hallownest's Crown",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hallownest_Crown_Hidden_Dupe_1": {
     "Name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_1",
     "SceneName": "Mines_25",
-    "TitledArea": "Hallownest's Crown",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Hallownest_Crown_Hidden_Dupe_2": {
     "Name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_2",
     "SceneName": "Mines_25",
-    "TitledArea": "Hallownest's Crown",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Before_Crystal_Heart": {
     "Name": "Geo_Rock-Crystal_Peak_Before_Crystal_Heart",
     "SceneName": "Mines_31",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Entrance": {
     "Name": "Geo_Rock-Crystal_Peak_Entrance",
     "SceneName": "Mines_33",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Entrance_Dupe_1": {
     "Name": "Geo_Rock-Crystal_Peak_Entrance_Dupe_1",
     "SceneName": "Mines_33",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Entrance_Dupe_2": {
     "Name": "Geo_Rock-Crystal_Peak_Entrance_Dupe_2",
     "SceneName": "Mines_33",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Above_Crushers_Lower": {
     "Name": "Geo_Rock-Crystal_Peak_Above_Crushers_Lower",
     "SceneName": "Mines_37",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Crystal_Peak_Above_Crushers_Higher": {
     "Name": "Geo_Rock-Crystal_Peak_Above_Crushers_Higher",
     "SceneName": "Mines_37",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Resting_Grounds_Catacombs_Grub": {
     "Name": "Geo_Rock-Resting_Grounds_Catacombs_Grub",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe": {
     "Name": "Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Resting_Grounds_Catacombs_Left": {
     "Name": "Geo_Rock-Resting_Grounds_Catacombs_Left",
     "SceneName": "RestingGrounds_10",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Overgrown_Mound": {
     "Name": "Geo_Rock-Overgrown_Mound",
     "SceneName": "Room_Fungus_Shaman",
-    "TitledArea": "Overgrown Mound",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fluke_Hermit_Dupe": {
     "Name": "Geo_Rock-Fluke_Hermit_Dupe",
     "SceneName": "Room_GG_Shortcut",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Fluke_Hermit": {
     "Name": "Geo_Rock-Fluke_Hermit",
     "SceneName": "Room_GG_Shortcut",
-    "TitledArea": "Junk Pit",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Pleasure_House": {
     "Name": "Geo_Rock-Pleasure_House",
     "SceneName": "Ruins_Elevator",
-    "TitledArea": "Pleasure House",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-City_of_Tears_Quirrel": {
     "Name": "Geo_Rock-City_of_Tears_Quirrel",
     "SceneName": "Ruins1_03",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-City_of_Tears_Lemm": {
     "Name": "Geo_Rock-City_of_Tears_Lemm",
     "SceneName": "Ruins1_05b",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-City_of_Tears_Above_Lemm": {
     "Name": "Geo_Rock-City_of_Tears_Above_Lemm",
     "SceneName": "Ruins1_05c",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Soul_Sanctum": {
     "Name": "Geo_Rock-Soul_Sanctum",
     "SceneName": "Ruins1_32",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Watcher's_Spire": {
     "Name": "Geo_Rock-Watcher's_Spire",
     "SceneName": "Ruins2_01",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Above_King's_Station": {
     "Name": "Geo_Rock-Above_King's_Station",
     "SceneName": "Ruins2_05",
-    "TitledArea": "King's Station",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-King's_Station": {
     "Name": "Geo_Rock-King's_Station",
     "SceneName": "Ruins2_06",
-    "TitledArea": "King's Station",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-King's_Pass_Left": {
     "Name": "Geo_Rock-King's_Pass_Left",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-King's_Pass_Below_Fury": {
     "Name": "Geo_Rock-King's_Pass_Below_Fury",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-King's_Pass_Hidden": {
     "Name": "Geo_Rock-King's_Pass_Hidden",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-King's_Pass_Collapse": {
     "Name": "Geo_Rock-King's_Pass_Collapse",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-King's_Pass_Above_Fury": {
     "Name": "Geo_Rock-King's_Pass_Above_Fury",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Waterways_Tuk": {
     "Name": "Geo_Rock-Waterways_Tuk",
     "SceneName": "Waterways_01",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Waterways_Tuk_Alcove": {
     "Name": "Geo_Rock-Waterways_Tuk_Alcove",
     "SceneName": "Waterways_01",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Waterways_Left": {
     "Name": "Geo_Rock-Waterways_Left",
     "SceneName": "Waterways_04b",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Waterways_East": {
     "Name": "Geo_Rock-Waterways_East",
     "SceneName": "Waterways_07",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Geo_Rock-Waterways_Flukemarm": {
     "Name": "Geo_Rock-Waterways_Flukemarm",
     "SceneName": "Waterways_08",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Massive_Moss_Charger": {
     "Name": "Boss_Geo-Massive_Moss_Charger",
     "SceneName": "Fungus1_29",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Gorgeous_Husk": {
     "Name": "Boss_Geo-Gorgeous_Husk",
     "SceneName": "Ruins_House_02",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Sanctum_Soul_Warrior": {
     "Name": "Boss_Geo-Sanctum_Soul_Warrior",
     "SceneName": "Ruins1_23",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Elegant_Soul_Warrior": {
     "Name": "Boss_Geo-Elegant_Soul_Warrior",
     "SceneName": "Ruins1_31b",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Crystal_Guardian": {
     "Name": "Boss_Geo-Crystal_Guardian",
     "SceneName": "Mines_18",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Enraged_Guardian": {
     "Name": "Boss_Geo-Enraged_Guardian",
     "SceneName": "Mines_32",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Gruz_Mother": {
     "Name": "Boss_Geo-Gruz_Mother",
     "SceneName": "Crossroads_04",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Boss_Geo-Vengefly_King": {
     "Name": "Boss_Geo-Vengefly_King",
     "SceneName": "Fungus1_20_v02",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Basin": {
     "Name": "Soul_Totem-Basin",
     "SceneName": "Abyss_04",
-    "TitledArea": "Ancient Basin",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Cliffs_Main": {
     "Name": "Soul_Totem-Cliffs_Main",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Cliffs_Gorb": {
     "Name": "Soul_Totem-Cliffs_Gorb",
     "SceneName": "Cliffs_02",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Cliffs_Joni's": {
     "Name": "Soul_Totem-Cliffs_Joni's",
     "SceneName": "Cliffs_04",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crossroads_Goam_Journal": {
     "Name": "Soul_Totem-Crossroads_Goam_Journal",
     "SceneName": "Crossroads_18",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crossroads_Shops": {
     "Name": "Soul_Totem-Crossroads_Shops",
     "SceneName": "Crossroads_19",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crossroads_Mawlek_Upper": {
     "Name": "Soul_Totem-Crossroads_Mawlek_Upper",
     "SceneName": "Crossroads_25",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crossroads_Acid": {
     "Name": "Soul_Totem-Crossroads_Acid",
     "SceneName": "Crossroads_35",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crossroads_Mawlek_Lower": {
     "Name": "Soul_Totem-Crossroads_Mawlek_Lower",
     "SceneName": "Crossroads_36",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crossroads_Myla": {
     "Name": "Soul_Totem-Crossroads_Myla",
     "SceneName": "Crossroads_45",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Ancestral_Mound": {
     "Name": "Soul_Totem-Ancestral_Mound",
     "SceneName": "Crossroads_ShamanTemple",
-    "TitledArea": "Ancestral Mound",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Distant_Village": {
     "Name": "Soul_Totem-Distant_Village",
     "SceneName": "Deepnest_10",
-    "TitledArea": "Distant Village",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Deepnest_Vessel": {
     "Name": "Soul_Totem-Deepnest_Vessel",
     "SceneName": "Deepnest_38",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Mask_Maker": {
     "Name": "Soul_Totem-Mask_Maker",
     "SceneName": "Deepnest_42",
-    "TitledArea": "Deepnest",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Lower_Kingdom's_Edge_1": {
     "Name": "Soul_Totem-Lower_Kingdom's_Edge_1",
     "SceneName": "Deepnest_East_01",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Lower_Kingdom's_Edge_2": {
     "Name": "Soul_Totem-Lower_Kingdom's_Edge_2",
     "SceneName": "Deepnest_East_02",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Upper_Kingdom's_Edge": {
     "Name": "Soul_Totem-Upper_Kingdom's_Edge",
     "SceneName": "Deepnest_East_07",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Kingdom's_Edge_Camp": {
     "Name": "Soul_Totem-Kingdom's_Edge_Camp",
     "SceneName": "Deepnest_East_11",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Oro_Dive_2": {
     "Name": "Soul_Totem-Oro_Dive_2",
     "SceneName": "Deepnest_East_14",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Oro_Dive_1": {
     "Name": "Soul_Totem-Oro_Dive_1",
     "SceneName": "Deepnest_East_14",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Oro": {
     "Name": "Soul_Totem-Oro",
     "SceneName": "Deepnest_East_16",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-420_Geo_Rock": {
     "Name": "Soul_Totem-420_Geo_Rock",
     "SceneName": "Deepnest_East_17",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Beast's_Den": {
     "Name": "Soul_Totem-Beast's_Den",
     "SceneName": "Deepnest_Spider_Town",
-    "TitledArea": "Beast's Den",
-    "MapArea": "Deepnest",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Greenpath_Hunter's_Journal": {
     "Name": "Soul_Totem-Greenpath_Hunter's_Journal",
     "SceneName": "Fungus1_07",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Greenpath_MMC": {
     "Name": "Soul_Totem-Greenpath_MMC",
     "SceneName": "Fungus1_29",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Greenpath_Below_Toll": {
     "Name": "Soul_Totem-Greenpath_Below_Toll",
     "SceneName": "Fungus1_30",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Before_Pilgrim's_Way": {
     "Name": "Soul_Totem-Before_Pilgrim's_Way",
     "SceneName": "Fungus2_10",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Pilgrim's_Way": {
     "Name": "Soul_Totem-Pilgrim's_Way",
     "SceneName": "Fungus2_21",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Fungal_Core": {
     "Name": "Soul_Totem-Fungal_Core",
     "SceneName": "Fungus2_29",
-    "TitledArea": "Fungal Core",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Top_Left_Queen's_Gardens": {
     "Name": "Soul_Totem-Top_Left_Queen's_Gardens",
     "SceneName": "Fungus3_21",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Below_Marmu": {
     "Name": "Soul_Totem-Below_Marmu",
     "SceneName": "Fungus3_40",
-    "TitledArea": "Queen's Gardens",
-    "MapArea": "Queen's Gardens",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Upper_Crystal_Peak": {
     "Name": "Soul_Totem-Upper_Crystal_Peak",
     "SceneName": "Mines_20",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Hallownest_Crown": {
     "Name": "Soul_Totem-Hallownest_Crown",
     "SceneName": "Mines_25",
-    "TitledArea": "Hallownest's Crown",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Outside_Crystallized_Mound": {
     "Name": "Soul_Totem-Outside_Crystallized_Mound",
     "SceneName": "Mines_28",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crystal_Heart_1": {
     "Name": "Soul_Totem-Crystal_Heart_1",
     "SceneName": "Mines_31",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crystal_Heart_2": {
     "Name": "Soul_Totem-Crystal_Heart_2",
     "SceneName": "Mines_31",
-    "TitledArea": "Crystal Peak",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Crystallized_Mound": {
     "Name": "Soul_Totem-Crystallized_Mound",
     "SceneName": "Mines_35",
-    "TitledArea": "Crystallized Mound",
-    "MapArea": "Crystal Peak",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Resting_Grounds": {
     "Name": "Soul_Totem-Resting_Grounds",
     "SceneName": "RestingGrounds_05",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Below_Xero": {
     "Name": "Soul_Totem-Below_Xero",
     "SceneName": "RestingGrounds_06",
-    "TitledArea": "Resting Grounds",
-    "MapArea": "Resting Grounds",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Sanctum_Below_Soul_Master": {
     "Name": "Soul_Totem-Sanctum_Below_Soul_Master",
     "SceneName": "Ruins1_24",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Sanctum_Below_Chest": {
     "Name": "Soul_Totem-Sanctum_Below_Chest",
     "SceneName": "Ruins1_32",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Sanctum_Above_Grub": {
     "Name": "Soul_Totem-Sanctum_Above_Grub",
     "SceneName": "Ruins1_32",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Waterways_Entrance": {
     "Name": "Soul_Totem-Waterways_Entrance",
     "SceneName": "Waterways_01",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Top_Left_Waterways": {
     "Name": "Soul_Totem-Top_Left_Waterways",
     "SceneName": "Waterways_04b",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Waterways_East": {
     "Name": "Soul_Totem-Waterways_East",
     "SceneName": "Waterways_07",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Waterways_Flukemarm": {
     "Name": "Soul_Totem-Waterways_Flukemarm",
     "SceneName": "Waterways_08",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-White_Palace_Entrance": {
     "Name": "Soul_Totem-White_Palace_Entrance",
     "SceneName": "White_Palace_02",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-White_Palace_Hub": {
     "Name": "Soul_Totem-White_Palace_Hub",
     "SceneName": "White_Palace_03_hub",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-White_Palace_Left": {
     "Name": "Soul_Totem-White_Palace_Left",
     "SceneName": "White_Palace_04",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-White_Palace_Final": {
     "Name": "Soul_Totem-White_Palace_Final",
     "SceneName": "White_Palace_09",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-White_Palace_Right": {
     "Name": "Soul_Totem-White_Palace_Right",
     "SceneName": "White_Palace_15",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Path_of_Pain_Below_Lever": {
     "Name": "Soul_Totem-Path_of_Pain_Below_Lever",
     "SceneName": "White_Palace_17",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Path_of_Pain_Left_of_Lever": {
     "Name": "Soul_Totem-Path_of_Pain_Left_of_Lever",
     "SceneName": "White_Palace_17",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Path_of_Pain_Entrance": {
     "Name": "Soul_Totem-Path_of_Pain_Entrance",
     "SceneName": "White_Palace_18",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Path_of_Pain_Second": {
     "Name": "Soul_Totem-Path_of_Pain_Second",
     "SceneName": "White_Palace_18",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Path_of_Pain_Hidden": {
     "Name": "Soul_Totem-Path_of_Pain_Hidden",
     "SceneName": "White_Palace_19",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Path_of_Pain_Below_Thornskip": {
     "Name": "Soul_Totem-Path_of_Pain_Below_Thornskip",
     "SceneName": "White_Palace_19",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Path_of_Pain_Final": {
     "Name": "Soul_Totem-Path_of_Pain_Final",
     "SceneName": "White_Palace_20",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Soul_Totem-Pale_Lurker": {
     "Name": "Soul_Totem-Pale_Lurker",
     "SceneName": "GG_Lurker",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-City_Entrance": {
     "Name": "Lore_Tablet-City_Entrance",
     "SceneName": "Ruins1_02",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Pleasure_House": {
     "Name": "Lore_Tablet-Pleasure_House",
     "SceneName": "Ruins_Elevator",
-    "TitledArea": "Pleasure House",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Sanctum_Entrance": {
     "Name": "Lore_Tablet-Sanctum_Entrance",
     "SceneName": "Ruins1_23",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Sanctum_Past_Soul_Master": {
     "Name": "Lore_Tablet-Sanctum_Past_Soul_Master",
     "SceneName": "Ruins1_32",
-    "TitledArea": "Soul Sanctum",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Watcher's_Spire": {
     "Name": "Lore_Tablet-Watcher's_Spire",
     "SceneName": "Ruins2_Watcher_Room",
-    "TitledArea": "City of Tears",
-    "MapArea": "City of Tears",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Archives_Upper": {
     "Name": "Lore_Tablet-Archives_Upper",
     "SceneName": "Fungus3_archive_02",
-    "TitledArea": "Teacher's Archives",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Archives_Left": {
     "Name": "Lore_Tablet-Archives_Left",
     "SceneName": "Fungus3_archive_02",
-    "TitledArea": "Teacher's Archives",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Archives_Right": {
     "Name": "Lore_Tablet-Archives_Right",
     "SceneName": "Fungus3_archive_02",
-    "TitledArea": "Teacher's Archives",
-    "MapArea": "Fog Canyon",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Pilgrim's_Way_1": {
     "Name": "Lore_Tablet-Pilgrim's_Way_1",
     "SceneName": "Crossroads_11_alt",
-    "TitledArea": "Forgotten Crossroads",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Pilgrim's_Way_2": {
     "Name": "Lore_Tablet-Pilgrim's_Way_2",
     "SceneName": "Fungus2_21",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Mantis_Outskirts": {
     "Name": "Lore_Tablet-Mantis_Outskirts",
     "SceneName": "Fungus2_12",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Mantis_Village": {
     "Name": "Lore_Tablet-Mantis_Village",
     "SceneName": "Fungus2_14",
-    "TitledArea": "Mantis Village",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Greenpath_Upper_Hidden": {
     "Name": "Lore_Tablet-Greenpath_Upper_Hidden",
     "SceneName": "Fungus1_17",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Greenpath_Below_Toll": {
     "Name": "Lore_Tablet-Greenpath_Below_Toll",
     "SceneName": "Fungus1_30",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Greenpath_Lifeblood": {
     "Name": "Lore_Tablet-Greenpath_Lifeblood",
     "SceneName": "Fungus1_32",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Greenpath_Stag": {
     "Name": "Lore_Tablet-Greenpath_Stag",
     "SceneName": "Fungus1_21",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Greenpath_QG": {
     "Name": "Lore_Tablet-Greenpath_QG",
     "SceneName": "Fungus1_13",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Greenpath_Lower_Hidden": {
     "Name": "Lore_Tablet-Greenpath_Lower_Hidden",
     "SceneName": "Fungus1_19",
-    "TitledArea": "Greenpath",
-    "MapArea": "Greenpath",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Dung_Defender": {
     "Name": "Lore_Tablet-Dung_Defender",
     "SceneName": "Waterways_07",
-    "TitledArea": "Royal Waterways",
-    "MapArea": "Royal Waterways",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Spore_Shroom": {
     "Name": "Lore_Tablet-Spore_Shroom",
     "SceneName": "Fungus2_20",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Fungal_Wastes_Hidden": {
     "Name": "Lore_Tablet-Fungal_Wastes_Hidden",
     "SceneName": "Fungus2_07",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
     "Name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
     "SceneName": "Fungus2_04",
-    "TitledArea": "Fungal Wastes",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Fungal_Core": {
     "Name": "Lore_Tablet-Fungal_Core",
     "SceneName": "Fungus2_30",
-    "TitledArea": "Fungal Core",
-    "MapArea": "Fungal Wastes",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Ancient_Basin": {
     "Name": "Lore_Tablet-Ancient_Basin",
     "SceneName": "Abyss_06_Core",
-    "TitledArea": "Abyss",
-    "MapArea": "Ancient Basin",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-King's_Pass_Focus": {
     "Name": "Lore_Tablet-King's_Pass_Focus",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-King's_Pass_Fury": {
     "Name": "Lore_Tablet-King's_Pass_Fury",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-King's_Pass_Exit": {
     "Name": "Lore_Tablet-King's_Pass_Exit",
     "SceneName": "Tutorial_01",
-    "TitledArea": "King's Pass",
-    "MapArea": "Dirtmouth",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-World_Sense": {
     "Name": "Lore_Tablet-World_Sense",
-    "SceneName": "Room_Final_Boss_Atrium",
-    "TitledArea": "Black Egg Temple",
-    "MapArea": "Forgotten Crossroads",
-    "Multi": false
+    "SceneName": "Room_temple",
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Howling_Cliffs": {
     "Name": "Lore_Tablet-Howling_Cliffs",
     "SceneName": "Cliffs_01",
-    "TitledArea": "Howling Cliffs",
-    "MapArea": "Howling Cliffs",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Kingdom's_Edge": {
     "Name": "Lore_Tablet-Kingdom's_Edge",
     "SceneName": "Deepnest_East_17",
-    "TitledArea": "Kingdom's Edge",
-    "MapArea": "Kingdom's Edge",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Palace_Workshop": {
     "Name": "Lore_Tablet-Palace_Workshop",
     "SceneName": "White_Palace_08",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Palace_Throne": {
     "Name": "Lore_Tablet-Palace_Throne",
     "SceneName": "White_Palace_09",
-    "TitledArea": "White Palace",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   },
   "Lore_Tablet-Path_of_Pain_Entrance": {
     "Name": "Lore_Tablet-Path_of_Pain_Entrance",
     "SceneName": "White_Palace_18",
-    "TitledArea": "Path of Pain",
-    "MapArea": "White Palace",
-    "Multi": false
+    "FlexibleCount": false,
+    "AdditionalProgressionPenalty": false
   }
 }

@@ -2,7 +2,7 @@
 
 namespace RandomizerMod.RandomizerData
 {
-    public class StartDef
+    public record StartDef
     {
         public string Name { get; init; }
 

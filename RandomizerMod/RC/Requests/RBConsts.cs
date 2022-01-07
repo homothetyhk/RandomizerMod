@@ -29,6 +29,11 @@
         public const string GrubMimicGroup = "Grub Mimic Group";
 
         /// <summary>
+        /// Prefix used for split groups. The label is formed by appending an integer between 1 and 99 according to the setting.
+        /// </summary>
+        public const string SplitGroupPrefix = "Split Group ";
+
+        /// <summary>
         /// Label for the corresponding matched transition group.
         /// </summary>
         public const string InLeftOutRightGroup = "Left -> Right";

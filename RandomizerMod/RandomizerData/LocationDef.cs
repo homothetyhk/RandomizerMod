@@ -1,26 +1,25 @@
-﻿namespace RandomizerMod.RandomizerData
+﻿using Newtonsoft.Json;
+
+namespace RandomizerMod.RandomizerData
 {
-    public class LocationDef
+    public record LocationDef
     {
         public string Name { get; init; }
         public string SceneName { get; init; }
-        public string TitledArea { get; set; }
-        public string MapArea { get; set; }
-        /*
+        [JsonIgnore]  public string TitledArea { get => Data.GetRoomDef(SceneName)?.TitledArea; }
+        [JsonIgnore] public string MapArea { get => Data.GetRoomDef(SceneName)?.MapArea; }
+        /// <summary>
+        /// If true, copies of this location after the first may be shuffled among other flexible count locations by the RequestBuilder.
+        /// </summary>
         public bool FlexibleCount { get; init; }
-        public AdditionalProgressionPenalty AdditionalProgressionPenalty { get; init; }
-        */
-        public bool Multi { get; init; }
+        /// <summary>
+        /// If true, copies of this location after the first will receive severe penalties to prevent multiple progression items.
+        /// </summary>
+        public bool AdditionalProgressionPenalty { get; init; }
     }
 
+    // Incomplete ideas for potential enhancements below:
     /*
-    public enum AdditionalProgressionPenalty
-    {
-        None,
-        Random,
-        Full
-    }
-
     [Flags]
     public enum LocationPoolFlags : long
     {

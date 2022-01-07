@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using MenuChanger.Extensions;
 using System.Text;
 
 namespace RandomizerMod.Settings.Presets
@@ -332,5 +330,24 @@ namespace RandomizerMod.Settings.Presets
             return "For more information, see the Duplicate Items page in Advanced Settings.";
         }
 
+        public static string Caption(this SplitGroupSettings sgs)
+        {
+            var groups = SplitGroupSettings.Fields.Values.Select(fi => (fi, (int)fi.GetValue(sgs)))
+                .Where(p => p.Item2 >= 0)
+                .GroupBy(p => p.Item2);
+
+            StringBuilder sb = new();
+            foreach (var g in groups)
+            {
+                sb.Append(g.Key);
+                sb.Append(": ");
+                sb.Append(string.Join(", ", g.Select(p => p.fi.GetMenuName())));
+                sb.Append(". ");
+            }
+
+            if (sb.Length == 0) sb.Append("Disabled.");
+
+            return sb.ToString();
+        }
     }
 }

@@ -41,8 +41,6 @@ namespace RandomizerMod.RandomizerData
         public static ItemDef GetItemDef(string name)
         {
             if (_items.TryGetValue(name, out var def)) return def;
-            
-            LogDebug($"Unable to find ItemDef for {name}.");
             return null;
         }
 
@@ -83,8 +81,6 @@ namespace RandomizerMod.RandomizerData
         public static TransitionDef GetTransitionDef(string name)
         {
             if (_transitions.TryGetValue(name, out TransitionDef def)) return def;
-
-            LogDebug($"Unable to find TransitionDef for {name}.");
             return null;
         }
 
@@ -140,12 +136,10 @@ namespace RandomizerMod.RandomizerData
         {
             if (name is null)
             {
-                LogDebug("Null name passed to GetRoomDef");
                 return null;
             }
             if (!_rooms.TryGetValue(name, out RoomDef def))
             {
-                LogDebug($"Unable to find RoomDef for {name}.");
                 return null;
             }
             return def;
@@ -167,10 +161,7 @@ namespace RandomizerMod.RandomizerData
 
         public static StartDef GetStartDef(string str)
         {
-            if (_starts.TryGetValue(str, out var def) && def is StartDef) return def;
-            else if (_starts.ContainsKey(str)) LogWarn("Null start " + str);
-
-            LogWarn($"Unable to find StartDef for {str}.");
+            if (_starts.TryGetValue(str, out StartDef def)) return def;
             return null;
         }
 
@@ -193,9 +184,9 @@ namespace RandomizerMod.RandomizerData
             return _logicSettings.Keys.ToArray();
         }
 
-        public static IEnumerable<string> GetApplicableLogicSettings(Settings.GenerationSettings settings)
+        public static IEnumerable<string> GetApplicableLogicSettings(GenerationSettings settings)
         {
-            return _logicSettings.Where(kvp => (bool)Settings.Util.Get(settings, kvp.Value)).Select(kvp => kvp.Key);
+            return _logicSettings.Where(kvp => (bool)Util.Get(settings, kvp.Value)).Select(kvp => kvp.Key);
         }
 
         #endregion
@@ -213,15 +204,15 @@ namespace RandomizerMod.RandomizerData
         }
         public static void Load()
         {
-            _items = JsonUtil.Deserialize<Dictionary<string, ItemDef>>("RandomizerMod.Resources.items.json");
-            _locations = JsonUtil.Deserialize<Dictionary<string, LocationDef>>("RandomizerMod.Resources.locations.json");
-            _logicSettings = JsonUtil.Deserialize<Dictionary<string, string>>("RandomizerMod.Resources.logic_settings.json");
-            __pools = JsonUtil.Deserialize<PoolDef[]>("RandomizerMod.Resources.pools.json");
+            _items = JsonUtil.Deserialize<Dictionary<string, ItemDef>>("RandomizerMod.Resources.Data.items.json");
+            _locations = JsonUtil.Deserialize<Dictionary<string, LocationDef>>("RandomizerMod.Resources.Data.locations.json");
+            _logicSettings = JsonUtil.Deserialize<Dictionary<string, string>>("RandomizerMod.Resources.Data.logic_settings.json");
+            __pools = JsonUtil.Deserialize<PoolDef[]>("RandomizerMod.Resources.Data.pools.json");
             _pools = __pools.ToDictionary(def => def.Name);
-            _starts = JsonUtil.Deserialize<Dictionary<string, StartDef>>("RandomizerMod.Resources.starts.json");
-            _transitions = JsonUtil.Deserialize<Dictionary<string, TransitionDef>>("RandomizerMod.Resources.transitions.json");
-            _rooms = JsonUtil.Deserialize<Dictionary<string, RoomDef>>("RandomizerMod.Resources.rooms.json");
-            _costs = JsonUtil.Deserialize<Dictionary<string, CostDef>>("RandomizerMod.Resources.costs.json");
+            _starts = JsonUtil.Deserialize<Dictionary<string, StartDef>>("RandomizerMod.Resources.Data.starts.json");
+            _transitions = JsonUtil.Deserialize<Dictionary<string, TransitionDef>>("RandomizerMod.Resources.Data.transitions.json");
+            _rooms = JsonUtil.Deserialize<Dictionary<string, RoomDef>>("RandomizerMod.Resources.Data.rooms.json");
+            _costs = JsonUtil.Deserialize<Dictionary<string, CostDef>>("RandomizerMod.Resources.Data.costs.json");
         }
 
     }

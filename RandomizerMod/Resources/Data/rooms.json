@@ -4,6 +4,11 @@
     "MapArea": "Start",
     "TitledArea": "Start"
   },
+  "Unknown": {
+    "SceneName": "Unknown",
+    "MapArea": "Unknown",
+    "TitledArea": "Unknown"
+  },
   "Abyss_03": {
     "SceneName": "Abyss_03",
     "MapArea": "Ancient Basin",
@@ -599,11 +604,6 @@
     "MapArea": "Dirtmouth",
     "TitledArea": "Dirtmouth"
   },
-  "Room_Bretta_Basement": {
-    "SceneName": "Room_Bretta_Basement",
-    "MapArea": "Dirtmouth",
-    "TitledArea": "Dirtmouth"
-  },
   "Room_mapper": {
     "SceneName": "Room_mapper",
     "MapArea": "Dirtmouth",
@@ -616,11 +616,6 @@
   },
   "Room_shop": {
     "SceneName": "Room_shop",
-    "MapArea": "Dirtmouth",
-    "TitledArea": "Dirtmouth"
-  },
-  "Room_Sly_Storeroom": {
-    "SceneName": "Room_Sly_Storeroom",
     "MapArea": "Dirtmouth",
     "TitledArea": "Dirtmouth"
   },
@@ -941,11 +936,6 @@
   },
   "Room_temple": {
     "SceneName": "Room_temple",
-    "MapArea": "Forgotten Crossroads",
-    "TitledArea": "Black Egg Temple"
-  },
-  "Room_Final_Boss_Atrium": {
-    "SceneName": "Room_Final_Boss_Atrium",
     "MapArea": "Forgotten Crossroads",
     "TitledArea": "Black Egg Temple"
   },
@@ -1651,11 +1641,6 @@
   },
   "Ruins2_10": {
     "SceneName": "Ruins2_10",
-    "MapArea": "Resting Grounds",
-    "TitledArea": "Resting Grounds"
-  },
-  "Dream_Nailcollection": {
-    "SceneName": "Dream_Nailcollection",
     "MapArea": "Resting Grounds",
     "TitledArea": "Resting Grounds"
   },

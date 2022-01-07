@@ -1,21 +1,18 @@
-﻿namespace RandomizerMod.RandomizerData
-{
-    public class TransitionDef
-    {
-        [Newtonsoft.Json.JsonIgnore]
-        public string Name => $"{SceneName}[{DoorName}]";
+﻿using Newtonsoft.Json;
 
+namespace RandomizerMod.RandomizerData
+{
+    public record TransitionDef
+    {
+        [JsonIgnore] public string Name => $"{SceneName}[{DoorName}]";
         public string SceneName { get; init; }
         public string DoorName { get; init; }
-        public string TitledArea { get; init; }
-        public string MapArea { get; init; }
+        [JsonIgnore] public string TitledArea { get => Data.GetRoomDef(SceneName)?.TitledArea; }
+        [JsonIgnore] public string MapArea { get => Data.GetRoomDef(SceneName)?.MapArea; }
         public string VanillaTarget { get; init; }
         public TransitionDirection Direction { get; init; }
-
         public bool IsTitledAreaTransition { get; init; }
         public bool IsMapAreaTransition { get; init; }
-        public bool Isolated { get; init; }
-        public bool DeadEnd { get; init; }
         public TransitionSides Sides { get; init; }
     }
 

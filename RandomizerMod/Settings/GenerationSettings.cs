@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 
 namespace RandomizerMod.Settings
 {
@@ -22,6 +18,7 @@ namespace RandomizerMod.Settings
         public MiscSettings MiscSettings = Presets.MiscPresetData.Standard.Clone() as MiscSettings;
         public ProgressionDepthSettings ProgressionDepthSettings = new();
         public DuplicateItemSettings DuplicateItemSettings = Presets.DuplicateItemPresetData.DuplicateMajorItems.Clone() as DuplicateItemSettings;
+        public SplitGroupSettings SplitGroupSettings = Presets.SplitGroupPresetData.Disabled.Clone() as SplitGroupSettings;
 
         public GenerationSettings()
         {
@@ -40,7 +37,7 @@ namespace RandomizerMod.Settings
         {
             if (!code.StartsWith(RandomizerMod.Version))
             {
-                LogHelper.LogWarn("Invalid settings code: incorrect version.");
+                LogWarn("Invalid settings code: incorrect version.");
                 return null;
             }
             else code = code.Substring(RandomizerMod.Version.Length);
@@ -51,7 +48,7 @@ namespace RandomizerMod.Settings
 
             if (pieces.Length != fields.Length)
             {
-                LogHelper.LogWarn("Invalid settings code: not enough pieces.");
+                LogWarn("Invalid settings code: not enough pieces.");
                 return null;
             }
 
