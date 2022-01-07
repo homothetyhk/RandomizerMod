@@ -770,58 +770,184 @@
     "Name": "Glowing_Womb"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Fragile_Heart",
+      "logic": "Fragile_Heart"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
+      "Effects": [
+        {
+          "Term": "Fragile_Heart",
+          "Value": 1
+        },
+        {
+          "Term": "CHARMS",
+          "Value": 1
+        }
+      ],
+      "Name": "Fragile_Heart"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
         "Term": "Fragile_Heart",
         "Value": 1
       },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Fragile_Heart",
-      "Value": 1
+      "Name": "Fragile_Heart"
     },
     "Name": "Fragile_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Unbreakable_Heart",
+      "logic": "Fragile_Heart"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
+      "Effects": [
+        {
+          "Term": "Fragile_Heart",
+          "Value": 1
+        },
+        {
+          "Term": "CHARMS",
+          "Value": 1
+        }
+      ],
+      "Name": "Unbreakable_Heart"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
+        "Term": "Fragile_Heart",
+        "Value": 1
+      },
+      "Name": "Unbreakable_Heart"
+    },
+    "Name": "Unbreakable_Heart"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Fragile_Greed",
+      "logic": "Fragile_Greed"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
+      "Effects": [
+        {
+          "Term": "Fragile_Greed",
+          "Value": 1
+        },
+        {
+          "Term": "CHARMS",
+          "Value": 1
+        }
+      ],
+      "Name": "Fragile_Greed"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
         "Term": "Fragile_Greed",
         "Value": 1
       },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Fragile_Greed",
-      "Value": 1
+      "Name": "Fragile_Greed"
     },
     "Name": "Fragile_Greed"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Unbreakable_Greed",
+      "logic": "Fragile_Greed"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
+      "Effects": [
+        {
+          "Term": "Fragile_Greed",
+          "Value": 1
+        },
+        {
+          "Term": "CHARMS",
+          "Value": 1
+        }
+      ],
+      "Name": "Unbreakable_Greed"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
+        "Term": "Fragile_Greed",
+        "Value": 1
+      },
+      "Name": "Unbreakable_Greed"
+    },
+    "Name": "Unbreakable_Greed"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Fragile_Strength",
+      "logic": "Fragile_Strength"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
+      "Effects": [
+        {
+          "Term": "Fragile_Strength",
+          "Value": 1
+        },
+        {
+          "Term": "CHARMS",
+          "Value": 1
+        }
+      ],
+      "Name": "Fragile_Strength"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
         "Term": "Fragile_Strength",
         "Value": 1
       },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Fragile_Strength",
-      "Value": 1
+      "Name": "Fragile_Strength"
     },
     "Name": "Fragile_Strength"
+  },
+  {
+    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
+    "Logic": {
+      "name": "Unbreakable_Strength",
+      "logic": "Fragile_Strength"
+    },
+    "FalseItem": {
+      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
+      "Effects": [
+        {
+          "Term": "Fragile_Strength",
+          "Value": 1
+        },
+        {
+          "Term": "CHARMS",
+          "Value": 1
+        }
+      ],
+      "Name": "Unbreakable_Strength"
+    },
+    "TrueItem": {
+      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+      "Effect": {
+        "Term": "Fragile_Strength",
+        "Value": 1
+      },
+      "Name": "Unbreakable_Strength"
+    },
+    "Name": "Unbreakable_Strength"
   },
   {
     "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",

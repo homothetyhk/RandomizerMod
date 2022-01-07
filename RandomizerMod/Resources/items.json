@@ -383,6 +383,14 @@
     "itemCandidate": false,
     "majorItem": false
   },
+  "Unbreakable_Heart": {
+    "name": "Unbreakable_Heart",
+    "pool": "Charm",
+    "priceCap": 500,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
   "Fragile_Greed": {
     "name": "Fragile_Greed",
     "pool": "Charm",
@@ -391,8 +399,24 @@
     "itemCandidate": false,
     "majorItem": false
   },
+  "Unbreakable_Greed": {
+    "name": "Unbreakable_Greed",
+    "pool": "Charm",
+    "priceCap": 500,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
   "Fragile_Strength": {
     "name": "Fragile_Strength",
+    "pool": "Charm",
+    "priceCap": 500,
+    "progression": false,
+    "itemCandidate": false,
+    "majorItem": false
+  },
+  "Unbreakable_Strength": {
+    "name": "Unbreakable_Strength",
     "pool": "Charm",
     "priceCap": 500,
     "progression": false,

@@ -25,7 +25,10 @@ namespace RandomizerMod.RC
         public readonly RandoMonitor rm;
         public readonly SettingsPM pm;
         public readonly Random rng;
-        private LogArguments args;
+        public LogArguments args;
+        public RandomizationStage[] stages;
+        public List<List<RandoPlacement>[]> stagedPlacements;
+        public Randomizer randomizer;
 
         public RandoController(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
         {
@@ -44,8 +47,8 @@ namespace RandomizerMod.RC
             ctx.LM = RCData.GetNewLogicManager(gs);
             rb = new(gs, ctx.LM, rm);
             rb.Run(out RandomizationStage[] stages, out ctx.Vanilla, out ctx.itemPlacements);
-            Randomizer randomizer = new(new Random(gs.Seed), ctx, stages, rm);
-            List<List<RandoPlacement>[]> stagedPlacements = randomizer.Run();
+            randomizer = new(new Random(gs.Seed), ctx, stages, rm);
+            stagedPlacements = randomizer.Run();
             for (int i = 0; i < stagedPlacements.Count; i++)
             {
                 for (int j = 0; j < stagedPlacements[i].Length; j++)

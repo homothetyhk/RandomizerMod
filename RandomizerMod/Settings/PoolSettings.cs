@@ -4,7 +4,6 @@ using RandomizerCore.Extensions;
 
 namespace RandomizerMod.Settings
 {
-    [Serializable]
     public class PoolSettings : SettingsModule
     {
         public bool Dreamers;

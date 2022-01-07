@@ -226,7 +226,10 @@
       "Sprintmaster",
       "Dreamshield",
       "Weaversong",
-      "Grimmchild2"
+      "Grimmchild2",
+      "Unbreakable_Heart",
+      "Unbreakable_Greed",
+      "Unbreakable_Strength"
     ],
     "includeLocations": [
       "Grubfather",
@@ -270,7 +273,10 @@
       "Salubra",
       "Leg_Eater",
       "Leg_Eater",
-      "Leg_Eater"
+      "Leg_Eater",
+      "Unbreakable_Heart",
+      "Unbreakable_Greed",
+      "Unbreakable_Strength"
     ],
     "vanilla": [
       {
@@ -440,6 +446,18 @@
       {
         "item": "Fragile_Strength",
         "location": "Leg_Eater"
+      },
+      {
+        "item": "Unbreakable_Heart",
+        "location": "Unbreakable_Heart"
+      },
+      {
+        "item": "Unbreakable_Greed",
+        "location": "Unbreakable_Greed"
+      },
+      {
+        "item": "Unbreakable_Strength",
+        "location": "Unbreakable_Strength"
       }
     ]
   },

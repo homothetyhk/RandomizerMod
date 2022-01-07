@@ -398,6 +398,27 @@
     "MapArea": "Dirtmouth",
     "Multi": false
   },
+  "Unbreakable_Heart": {
+    "Name": "Unbreakable_Heart",
+    "SceneName": "Grimm_Divine",
+    "TitledArea": "Dirtmouth",
+    "MapArea": "Dirtmouth",
+    "Multi": false
+  },
+  "Unbreakable_Greed": {
+    "Name": "Unbreakable_Greed",
+    "SceneName": "Grimm_Divine",
+    "TitledArea": "Dirtmouth",
+    "MapArea": "Dirtmouth",
+    "Multi": false
+  },
+  "Unbreakable_Strength": {
+    "Name": "Unbreakable_Strength",
+    "SceneName": "Grimm_Divine",
+    "TitledArea": "Dirtmouth",
+    "MapArea": "Dirtmouth",
+    "Multi": false
+  },
   "City_Crest": {
     "Name": "City_Crest",
     "SceneName": "Crossroads_10",

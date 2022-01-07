@@ -220,6 +220,18 @@
     "logic": "Nightmare_Lantern_Lit + Grimm_Main_Tent[left1]"
   },
   {
+    "name": "Unbreakable_Heart",
+    "logic": "Grimm_Divine[left1] + Fragile_Heart"
+  },
+  {
+    "name": "Unbreakable_Greed",
+    "logic": "Grimm_Divine[left1] + Fragile_Greed"
+  },
+  {
+    "name": "Unbreakable_Strength",
+    "logic": "Grimm_Divine[left1] + Fragile_Strength"
+  },
+  {
     "name": "City_Crest",
     "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight"
   },

@@ -43,6 +43,19 @@
     "term": "DREAMNAIL",
     "amount": 1
   },
+  // unbreakables at 5% of vanilla price
+  "Unbreakable_Heart": {
+    "term": "GEO",
+    "amount": 600
+  },
+  "Unbreakable_Greed": {
+    "term": "GEO",
+    "amount": 450
+  },
+  "Unbreakable_Strength": {
+    "term": "GEO",
+    "amount": 750
+  },
   "Godtuner": {
     "term": "SIMPLE",
     "amount": 1
