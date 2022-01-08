@@ -183,8 +183,6 @@ namespace RandomizerMod.RC
                 if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
                 gs.StartLocationSettings.StartLocation = rng.Next(startNames);
             }
-
-            LogHelper.LogDebug(gs.StartLocationSettings.StartLocation);
         }
 
         private void AssignNotchCosts()

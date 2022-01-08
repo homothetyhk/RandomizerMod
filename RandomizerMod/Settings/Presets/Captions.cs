@@ -332,7 +332,9 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this SplitGroupSettings sgs)
         {
-            var groups = SplitGroupSettings.Fields.Values.Select(fi => (fi, (int)fi.GetValue(sgs)))
+            if (sgs.RandomizeOnStart) return "Group settings will be randomized.";
+
+            var groups = SplitGroupSettings.IntFields.Values.Select(fi => (fi, (int)fi.GetValue(sgs)))
                 .Where(p => p.Item2 >= 0)
                 .GroupBy(p => p.Item2);
 

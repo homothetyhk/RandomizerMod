@@ -361,6 +361,8 @@ namespace RandomizerMod.RC
 
         public static void ApplySplitGroupResolver(RequestBuilder rb)
         {
+            if (rb.gs.SplitGroupSettings.RandomizeOnStart) rb.gs.SplitGroupSettings.Randomize(rb.rng);
+
             Dictionary<int, ItemGroupBuilder> splitGroups = new();
             Dictionary<string, Bucket<int>> itemWeightBuilder = new();
             Dictionary<string, Bucket<int>> locationWeightBuilder = new();
@@ -465,7 +467,7 @@ namespace RandomizerMod.RC
 
         public static void ApplyGrubfatherDef(RequestBuilder rb)
         {
-            rb.EditLocationRequest("Grubfather", info =>
+            rb.EditLocationRequest(LocationNames.Grubfather, info =>
             {
                 info.onRandoLocationCreation += (factory, rl) =>
                 {
@@ -476,7 +478,7 @@ namespace RandomizerMod.RC
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
-                    if (factory.TryFetchPlacement("Grubfather", out AbstractPlacement p)) return p;
+                    if (factory.TryFetchPlacement(LocationNames.Grubfather, out AbstractPlacement p)) return p;
                     return IC.Grubfather.GetGrubfatherPlacement(factory);
                 };
             });
@@ -484,7 +486,7 @@ namespace RandomizerMod.RC
 
         public static void ApplySeerDef(RequestBuilder rb)
         {
-            rb.EditLocationRequest("Seer", info =>
+            rb.EditLocationRequest(LocationNames.Seer, info =>
             {
                 info.onRandoLocationCreation += (factory, rl) =>
                 {
@@ -495,7 +497,7 @@ namespace RandomizerMod.RC
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
-                    if (factory.TryFetchPlacement("Seer", out AbstractPlacement p)) return p;
+                    if (factory.TryFetchPlacement(LocationNames.Seer, out AbstractPlacement p)) return p;
                     return IC.Seer.GetSeerPlacement(factory);
                 };
             });
@@ -967,8 +969,8 @@ namespace RandomizerMod.RC
                 (LocationNames.Iselda, lls.GeoShopPreview),
                 (LocationNames.Salubra, lls.GeoShopPreview),
                 (LocationNames.Leg_Eater, lls.GeoShopPreview),
-                ("Grubfather", lls.GrubfatherPreview),
-                ("Seer", lls.SeerPreview),
+                (LocationNames.Grubfather, lls.GrubfatherPreview),
+                (LocationNames.Seer, lls.SeerPreview),
                 (LocationNames.Egg_Shop, lls.EggShopPreview),
             };
 

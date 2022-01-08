@@ -94,9 +94,10 @@
             T[] values = _buckets.Where(kvp => kvp.Value > 0).Select(kvp => kvp.Key).ToArray();
             double total = GetTotal();
             double[] weights = new double[values.Length];
+            double previous = 0.0;
             for (int i = 0; i < values.Length; i++)
             {
-                weights[i] = _buckets[values[i]] / total;
+                previous = weights[i] = previous + _buckets[values[i]] / total;
             }
             return new(values, weights);
         }

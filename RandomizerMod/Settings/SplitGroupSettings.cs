@@ -6,6 +6,8 @@ namespace RandomizerMod.Settings
 {
     public class SplitGroupSettings : SettingsModule
     {
+        public bool RandomizeOnStart;
+
         [MenuRange(-1, 99)]
         public int Dreamers;
         [MenuRange(-1, 99)]
@@ -55,13 +57,19 @@ namespace RandomizerMod.Settings
         [MenuRange(-1, 99)]
         public int LoreTablets;
 
-        public static readonly Dictionary<string, FieldInfo> Fields = typeof(SplitGroupSettings)
+        public override void Randomize(Random rng)
+        {
+            foreach (FieldInfo fi in IntFields.Values) fi.SetValue(this, rng.Next(3));
+        }
+
+        public static readonly Dictionary<string, FieldInfo> IntFields = typeof(SplitGroupSettings)
             .GetFields(BindingFlags.Instance | BindingFlags.Public)
+            .Where(fi => fi.FieldType == typeof(int))
             .ToDictionary(fi => fi.Name);
 
         public bool TryGetValue(PoolDef def, out int value)
         {
-            if (def.Group != null && Fields.TryGetValue(def.Group, out FieldInfo fi))
+            if (def.Group != null && IntFields.TryGetValue(def.Group, out FieldInfo fi))
             {
                 int i = (int)fi.GetValue(this);
                 if (i >= 0)

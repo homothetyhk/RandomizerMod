@@ -221,15 +221,15 @@
   },
   {
     "name": "Unbreakable_Heart",
-    "logic": "Grimm_Divine[left1] + Fragile_Heart"
+    "logic": "Grimm_Divine[left1] + FRAGILEHEART"
   },
   {
     "name": "Unbreakable_Greed",
-    "logic": "Grimm_Divine[left1] + Fragile_Greed"
+    "logic": "Grimm_Divine[left1] + FRAGILEGREED"
   },
   {
     "name": "Unbreakable_Strength",
-    "logic": "Grimm_Divine[left1] + Fragile_Strength"
+    "logic": "Grimm_Divine[left1] + FRAGILESTRENGTH"
   },
   {
     "name": "City_Crest",

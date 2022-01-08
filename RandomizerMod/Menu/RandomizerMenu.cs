@@ -255,7 +255,9 @@ namespace RandomizerMod.Menu
 
         Subpage SplitGroupSubpage;
         MenuElementFactory<SplitGroupSettings> splitGroupMEF;
-        GridItemPanel splitGroupPanel;
+        GridItemPanel splitGroupInnerPanel;
+        VerticalItemPanel splitGroupOuterPanel;
+        SmallButton splitGroupRandomizeButton;
 
         #endregion
 
@@ -522,8 +524,11 @@ namespace RandomizerMod.Menu
             DuplicateItemSubpage.Add(duplicateItemPanel);
 
             SplitGroupSubpage = new Subpage(AdvancedSettingsPage, "Split Group Randomizer");
-            splitGroupPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 4, 75f, 400f, false, splitGroupMEF.Elements);
-            SplitGroupSubpage.Add(splitGroupPanel);
+            splitGroupInnerPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 4, 75f, 400f, false, splitGroupMEF.Elements.Skip(1).ToArray());
+            splitGroupRandomizeButton = new SmallButton(AdvancedSettingsPage, "Randomize Now");
+            splitGroupOuterPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 75f, false,
+                splitGroupRandomizeButton, splitGroupMEF.ElementLookup[nameof(SplitGroupSettings.RandomizeOnStart)], splitGroupInnerPanel);
+            SplitGroupSubpage.Add(splitGroupOuterPanel);
 
             AdvancedSettingsViewer = new OrderedItemViewer(AdvancedSettingsPage, AdvancedSettingsSubpages);
 
@@ -609,6 +614,12 @@ namespace RandomizerMod.Menu
                 startLocationSwitch.ChangeSelection(rng.NextWhere(startLocationSwitch.Elements, e => !e.Locked));
             };
             UpdateStartLocation();
+
+            splitGroupRandomizeButton.OnClick += () =>
+            {
+                Settings.SplitGroupSettings.Randomize(rng);
+                splitGroupMEF.SetMenuValues(Settings.SplitGroupSettings);
+            };
 
             ToManageSettingsPageButton.AddHideAndShowEvent(JumpPage, ManageSettingsPage);
             DefaultSettingsButton.OnClick += () => ApplySettingsToMenu(new GenerationSettings()); // Proper defaults please!
@@ -827,12 +838,8 @@ namespace RandomizerMod.Menu
             RandomizerCore.RandoMonitor rm = new();
             rm.OnSendEvent += (t, m) =>
             {
-                Log($"[{t}]  {m}");
+                Log($"Randomizer Event: [{t}]");
                 if (t == RandomizerCore.RandoEventType.NewAttempt) ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
-                else if (t == RandomizerCore.RandoEventType.Finished)
-                {
-
-                }
                 if (!string.IsNullOrEmpty(m))
                 {
                     ThreadSupport.BeginInvoke(() =>

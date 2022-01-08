@@ -9,19 +9,7 @@ namespace RandomizerMod.IC
     {
         public static AbstractPlacement GetGrubfatherPlacement(ICFactory factory)
         {
-            ContainerLocation chest = (ContainerLocation)factory.MakeLocation(LocationNames.Grubberflys_Elegy);
-            PlaceableLocation tablet = (PlaceableLocation)factory.MakeLocation(LocationNames.Mask_Shard_5_Grubs);
-            if (chest == null || tablet == null)
-            {
-                throw new InvalidOperationException("Error constructing Grubfather location!");
-            }
-
-            chest.name = tablet.name = "Grubfather";
-            var p = new ItemChanger.Placements.CostChestPlacement("Grubfather")
-            {
-                chestLocation = chest,
-                tabletLocation = tablet,
-            };
+            AbstractPlacement p = factory.MakeLocation(LocationNames.Grubfather).Wrap();
             p.AddTag<ItemChanger.Tags.DestroyGrubRewardTag>().destroyRewards = GetRandomizedGrubRewards(factory.gs);
             return p;
         }

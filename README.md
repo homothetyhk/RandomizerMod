@@ -211,3 +211,5 @@ Items or locations in more than one pool, such as shops, will be randomly divide
 
 In summary, use these settings to arrange pools so that the pools with the same number are randomized with each other.
 
+The Randomize On Start option sets each pool setting to one of 0, 1, or 2, randomly and uniformly.
+- It is recommended to disable Duplicate Items with this setting. If skills end up in a group with few locations, there is a high likelihood of several skills being forced into a shop.

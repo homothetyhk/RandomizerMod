@@ -5,6 +5,9 @@
         public readonly T[] values;
         public readonly double[] weights;
 
+        /// <summary>
+        /// Creates a new WeightedArray with the given values. Weights should have the same positive length as values, and the entries of weights should be increasing from 0 to 1.
+        /// </summary>
         public WeightedArray(T[] values, double[] weights)
         {
             this.values = values;

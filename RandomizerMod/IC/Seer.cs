@@ -9,24 +9,10 @@ namespace RandomizerMod.IC
     {
         public static AbstractPlacement GetSeerPlacement(ICFactory factory)
         {
-            ContainerLocation chest = (ContainerLocation)factory.MakeLocation(LocationNames.Vessel_Fragment_Seer);
-            PlaceableLocation tablet = (PlaceableLocation)factory.MakeLocation(LocationNames.Hallownest_Seal_Seer);
-            if (chest == null || tablet == null)
-            {
-                throw new InvalidOperationException("Error constructing Seer location!");
-            }
-
-            chest.name = tablet.name = "Seer";
-            var p = new ItemChanger.Placements.CostChestPlacement("Seer")
-            {
-                chestLocation = chest,
-                tabletLocation = tablet,
-            };
+            AbstractPlacement p = factory.MakeLocation(LocationNames.Seer).Wrap();
             p.AddTag<ItemChanger.Tags.DestroySeerRewardTag>().destroyRewards = GetRandomizedSeerRewards(factory.gs);
             return p;
         }
-
-
         public static SeerRewards GetRandomizedSeerRewards(GenerationSettings gs)
         {
             SeerRewards sr = SeerRewards.None;

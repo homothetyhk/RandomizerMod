@@ -47,10 +47,6 @@ namespace RandomizerMod.IC
             {
                 ItemChangerMod.Modules.Add<ItemChanger.Modules.ReversePathOfPainSaw>();
             }
-            if (sourceNames.Contains($"{SceneNames.Town}[room_grimm]") || sourceNames.Contains($"{SceneNames.Town}[room_divine]"))
-            {
-                ItemChangerMod.Modules.Add<ItemChanger.Modules.GrimmTroupeTentUnlock>();
-            }
         }
 
 
