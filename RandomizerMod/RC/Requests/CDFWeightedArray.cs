@@ -1,17 +1,17 @@
 ﻿namespace RandomizerMod.RC
 {
-    public struct WeightedArray<T>
+    public struct CDFWeightedArray<T>
     {
         public readonly T[] values;
-        public readonly double[] weights;
+        public readonly double[] cumulativeDensities;
 
         /// <summary>
-        /// Creates a new WeightedArray with the given values. Weights should have the same positive length as values, and the entries of weights should be increasing from 0 to 1.
+        /// Creates a new CDFWeightedArray with the given values. Densities should have the same positive length as values, and its entries should be increasing between 0 and 1.
         /// </summary>
-        public WeightedArray(T[] values, double[] weights)
+        public CDFWeightedArray(T[] values, double[] cumulativeDensities)
         {
             this.values = values;
-            this.weights = weights;
+            this.cumulativeDensities = cumulativeDensities;
         }
 
         public T Next(Random rng)
@@ -21,7 +21,7 @@
             double d = rng.NextDouble();
             for (int i = 0; i < values.Length; i++)
             {
-                if (weights[i] < d) return values[i];
+                if (cumulativeDensities[i] < d) return values[i];
             }
             return values[values.Length - 1];
         }

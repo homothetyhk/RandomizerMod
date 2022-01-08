@@ -388,8 +388,8 @@ namespace RandomizerMod.RC
                 }
             }
 
-            Dictionary<string, WeightedArray<int>> itemGroups = itemWeightBuilder.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToWeightedArray());
-            Dictionary<string, WeightedArray<int>> locationGroups = locationWeightBuilder.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToWeightedArray());
+            Dictionary<string, CDFWeightedArray<int>> itemGroups = itemWeightBuilder.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToWeightedArray());
+            Dictionary<string, CDFWeightedArray<int>> locationGroups = locationWeightBuilder.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToWeightedArray());
 
             bool TryGetSplitGroup(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb)
             {
@@ -400,7 +400,7 @@ namespace RandomizerMod.RC
                 }
                 if (type == ElementType.Item)
                 {
-                    if (itemGroups.TryGetValue(item, out WeightedArray<int> arr) && splitGroups.TryGetValue(arr.Next(rb.rng), out ItemGroupBuilder igb))
+                    if (itemGroups.TryGetValue(item, out CDFWeightedArray<int> arr) && splitGroups.TryGetValue(arr.Next(rb.rng), out ItemGroupBuilder igb))
                     {
                         gb = igb;
                         return true;
@@ -408,7 +408,7 @@ namespace RandomizerMod.RC
                 }
                 if (type == ElementType.Location)
                 {
-                    if (locationGroups.TryGetValue(item, out WeightedArray<int> arr) && splitGroups.TryGetValue(arr.Next(rb.rng), out ItemGroupBuilder igb))
+                    if (locationGroups.TryGetValue(item, out CDFWeightedArray<int> arr) && splitGroups.TryGetValue(arr.Next(rb.rng), out ItemGroupBuilder igb))
                     {
                         gb = igb;
                         return true;

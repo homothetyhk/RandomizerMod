@@ -89,17 +89,17 @@
             }
         }
 
-        public WeightedArray<T> ToWeightedArray()
+        public CDFWeightedArray<T> ToWeightedArray()
         {
             T[] values = _buckets.Where(kvp => kvp.Value > 0).Select(kvp => kvp.Key).ToArray();
             double total = GetTotal();
-            double[] weights = new double[values.Length];
+            double[] cumulativeDensities = new double[values.Length];
             double previous = 0.0;
             for (int i = 0; i < values.Length; i++)
             {
-                previous = weights[i] = previous + _buckets[values[i]] / total;
+                previous = cumulativeDensities[i] = previous + _buckets[values[i]] / total;
             }
-            return new(values, weights);
+            return new(values, cumulativeDensities);
         }
 
         public int GetTotal() => _buckets.Values.Sum();

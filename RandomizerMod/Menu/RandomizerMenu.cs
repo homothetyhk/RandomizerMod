@@ -623,9 +623,8 @@ namespace RandomizerMod.Menu
 
             ToManageSettingsPageButton.AddHideAndShowEvent(JumpPage, ManageSettingsPage);
             DefaultSettingsButton.OnClick += () => ApplySettingsToMenu(new GenerationSettings()); // Proper defaults please!
-            OpenReadmeButton.OnClick += () => OpenFile(OpenReadmeButton, "README.md", DirectoryOptions.DllFolder);
-            OpenLogicReadmeButton.OnClick += () => OpenFile(OpenLogicReadmeButton, "LOGIC_README.md", DirectoryOptions.DllFolder);
-            // TODO: export readmes to html for release.
+            OpenReadmeButton.OnClick += () => OpenFile(OpenReadmeButton, "README.html", DirectoryOptions.DllFolder);
+            OpenLogicReadmeButton.OnClick += () => OpenFile(OpenLogicReadmeButton, "LOGIC_README.html", DirectoryOptions.DllFolder);
 
             GenerateCodeButton.OnClick += () => SettingsCodeField.SetValue(Settings.Serialize());
             ApplyCodeButton.OnClick += () =>

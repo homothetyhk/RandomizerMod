@@ -19,14 +19,14 @@ This file serves to document the randomizer logic.
 - Interactive objects such as spikes, enemies, or bounce shrooms are not included in this category.
 - In logic, Background Object Pogos are indicated with the **BACKGROUNDPOGOS** token.
 - Examples include:
-    -
+    - Pogoing to reach the Watcher's Spire without wings.
     
 ### Enemy Pogos
 - Enemy Pogos are skips which require pogoing killable enemies or their projectiles.
 - Pogoing spikes, Garpedes, or Wingsmoulds is not considered a skip. Pogoing the shade or its projectiles is classified under Shade Skips, and not Enemy Pogos.
 - In logic, Enemy Pogos are indicated with the **ENEMYPOGOS** token.
 - Examples include:
-    -
+    - 
     
 ### Obscure Skips
 - Obscure Skips are progression paths which are subjectively determined to be too obscure for a new randomizer player to be expected to know.
@@ -44,44 +44,53 @@ This file serves to document the randomizer logic.
 - Some shade skips are only conditionally in logic, depending on the transition randomizer setting. Limitations of the randomizer make it infeasible to calculate bench accessibility for setting up shade skips in every location.
 - In logic, Shade Skips are indicated with the **SHADESKIPS** token. More commonly, the **ITEMSHADESKIPS**, **AREASHADESKIPS**, or **ROOMSHADESKIPS** macros are used.
 - Examples include:
-    -
+    - Pogoing the shade in a number of places to gain extra height. Most notably, shade skips can be used to reach Salubra with no items, or Blue Lake with vertical movement.
     
 ### Infection Skips
 - Infection Skips are skips which are only possible after Forgotten Crossroads has been infected. These skips most commonly involve pogoing infection bubbles or Furious Vengeflies.
 - In logic, Infection Skips are indicated with the **INFECTIONSKIPS** token. More commonly, the **INFECTED** macro is used.
 - Examples include:
-    -
+    - Pogoing infection bubbles to reach the Crossroads entrance to Fungal Wastes with no other items.
+	- Pogoing the Furious Vengefly to reach Salubra or the Crossroads entrance to Blue Lake with no other items.
+	- Pogoing the Furious Vengefly to reach *Hallownest_Seal-Crossroads_Well* with wings or dash and airstall.
 
 ### Fireball Skips
 - Fireball Skips are skips which use Vengeful Spirit or Howling Wraiths (or their upgrades) to reset fall speed midair.
 - Generally, Fireball Skips in logic require at most 3 consecutive casts of a spell, meaning that Spell Twister skips are not in logic.
 - In logic, Fireball Skips are indicated with the **FIREBALLSKIPS** token. More commonly, the **AIRSTALL** macro is used.
 - Examples include:
-    -
+    - Using airstall to reach Salubra after Gruz Mother with no other movement.
+	- Using airstall to cross Queen's Station from left to right with no other movement.
 
 ### Acid Skips
 - Acid Skips are skips which involve crossing over a pool of acid (or water, when the Swim ability is removed).
 - In logic, Acid Skips are indicated with the **ACIDSKIPS** token. More commonly, the **LEFTSKIPACID** or **RIGHTSKIPACID** macros are used.
 - Examples include:
-    -
+    - Using a low height wallcling Crystal Heart to cross several acid pools, such as at the Crossroads entrance to Fog Canyon or the Fog Canyon entrance to Queen's Gardens.
     
 ### Spike Tunnels
 - Spike Tunnels are skips which involve crossing through a narrow passage lined with spikes.
 - In logic, Spike Tunnels are indicated with the **SPIKETUNNELS** token. More commonly, the **LEFTTUNNEL** or **RIGHTTUNNEL** macros are used.
 - Examples include:
-    -
+    - Crossing the spike tunnel on the way to Glowing Womb with dash and airstall or Dashmaster.
+	- Entering the spike tunnels in the Waterways broken elevator shaft, using several possible item combinations.
+	- Passing through the spike tunnel before the grub in Crystal Peak, which allows reaching the upper area with wings but no claw.
 
 ### Dark Rooms
 - Dark Rooms are skips which involve passing through a dark room without Lumafly Lantern.
 - In logic, Dark Rooms are indicated with the **DARKROOMS** token.
 - Examples include:
-    -
+    - Passing through the dark Deepnest rooms.
+	- Passing through the dark Howling Cliffs room before Joni's Blessing.
+	- Passing through the dark Stone Sanctuary room before the No Eyes mask shard.
+	- Passing through the dark Crystal Peak room before Crystallized Mound.
     
 ### Damage Boosts
 - Damage Boosts are skips which involve intentionally taking damage from a hazard or enemy.
 - In logic, Damage Boosts are indicated with the **DAMAGEBOOSTS** token.
 - Examples include:
-    -
+    - Jumping into the Charged Lumaflies at the top of the room to boost to *Hallownest_Seal-Fog_Canyon_East* with no other movement.
+	- Jumping into the acid or thorn hazards to reach *Vessel_Fragment-Greenpath* with wings but no claw.
 
 ### Dangerous Skips:
 - Dangerous Skips are skips which carry a high risk of taking damage, due to aggressive enemies or other sources.
@@ -138,7 +147,7 @@ This file serves to document the randomizer logic.
 		- Shade Skips are allowed in any mode where there is bench access after the skip.
 		- Most resources become available once Dream Gate and essence is obtained, provided it is possible to set a Dream Gate in the room in question.
 			- Again, note that the randomizer does not track spent essence. Logic expects that essence exceeding the essence tolerance is reachable before requiring Dream Gate, and expects the player to choose a tolerance which will be sufficient for all required warps.
-	- An exhaustive list of exceptions follows:
+	- A list of exceptions follows:
 		- Shade Skips:
 			- In item randomizer, the shade skip in *Crossroads_04* to Blue Lake is allowed. Airstall can also be required for the shade skip. Shade skips are not required in Blue Lake unless the player can reach the bench in Resting Grounds.
 			- In item or area randomizers, the shade skip in *Fungus1_11*, the room before Massive Moss Charger, is allowed when *Fungus1_11[left1]* is not reachable otherwise, since there are no itemless skips in the following rooms which require a shade.
@@ -176,7 +185,6 @@ This file serves to document the randomizer logic.
 			- In item or area randomizers, Sharp Shadow can be required for the right to left King's Station swim skip. The player is expected to bench afterward at the King's Station Stag.
 			- In item randomizer, Sharp Shadow can be required for the left to right King's Station swim skip. The player is expected to bench afterward at Oro.
 			- In item or area randomizers, Sharp Shadow can be required for the right to left Lake of Unn acid skip. Any skips which require other charms in Unn's room will adjust logic accordingly.
-			- 
 
 ## Local Logic Edits
 

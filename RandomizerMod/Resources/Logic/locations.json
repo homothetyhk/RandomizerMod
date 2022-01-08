@@ -493,7 +493,7 @@
   },
   {
     "name": "Rancid_Egg-Tuk_Defender's_Crest",
-    "logic": "Waterways_03[left1] + Defender's_Crest"
+    "logic": "Waterways_03[left1] + DEFENDERSCREST"
   },
   {
     "name": "Wanderer's_Journal-Cliffs",

@@ -26,6 +26,7 @@ Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduc
     - Vengeful Spirit, Shade Soul
     - Desolate Dive, Descending Dark
     - Howling Wraiths, Abyss Shriek
+	- Fragile Heart, Unbreakable Heart, and likewise for the other fragile charms
 - Grimmchild has special behavior: collecting it automatically activates the Nightmare Lantern. Additionally, if Charms are randomized and Grimmkin Flames are not randomized, collecting Grimmchild gives the first 6 Grimmkin Flames.
 - The lifeblood door in Abyss opens if you enter the room with a single lifeblood mask. In logic, it requires a lifeblood charm.
 - The randomizer adds extra platforms to various places that prevent softlocks. For example, there are several platforms added to Ancient Basin to prevent having to quit-out after checking certain locations without vertical movement. These platforms may disappear once the player has sufficient abilities to no longer need them.
@@ -38,6 +39,9 @@ Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduc
     - Helper Log: this log computes which locations/transitions are accessible with your current equipment.
 		- Tip: if you sequence break out of logic, locations and transitions which are put into logic by the sequence break will be labeled with an asterisk until they are reachable without sequence breaks.
     - Spoiler Log: this log lists the exact locations of every randomized item and/or transition.
+- For players of Randomizer 3, some new items and locations have been added to the old pools:
+	- Charms now includes Fragile and Unbreakable charms. Fragile charms can be repaired at Leg Eater. Divine sells 3 items, one for each Unbreakable charm. To purchase an item from Divine, you must equip the corresponding Heart, Greed, or Strength charm as in vanilla, and pay 5% of the vanilla geo cost (600 for Heart, 450 for Greed, 750 for Strength).
+	- Rancid Eggs now includes the Tuk Defender's Crest egg. To obtain Tuk's item, you must talk to Tuk with Defender's Crest equipped.
 
 ## Settings
 
@@ -86,7 +90,7 @@ These settings add new and unusual features to the randomizer:
 - Split Claw: Replaces Mantis Claw with two items, a "Left Mantis Claw" that works only on left walls, and a "Right Mantis Claw" that works only on the right. Replaces the Mantis Claw location with two locations in Mantis Village.
 - Split Cloak: Replaces Mothwing Cloak with two items, a "Left Mothwing Cloak" that lets you dash to the left, and a "Right Mothwing Cloak" that dashes to the right. Also adds a new location dropped after defeating Hornet in Greenpath. Shade Cloak is not split, meaning that there are effectively 3 dash upgrades in this mode: the ability to dash left, to dash right, and to shadowdash.
     - Dash items remain progressive. In this mode, Shade Cloak has a random directional bias, and will give the dash of that direction if it has not yet been obtained.
-- Split Superdahs: Replaces Crystal Heart with two items, a "Left Crystal Heart" that lets you superdash to the left, and a "Right Crystal Heart" that superdashes to the right. Also adds a new location left of the bridge next to the Crystal Heart location.
+- Split Superdash: Replaces Crystal Heart with two items, a "Left Crystal Heart" that lets you superdash to the left, and a "Right Crystal Heart" that superdashes to the right. Also adds a new location left of the bridge next to the Crystal Heart location.
 - Egg Shop: instead of summoning your shade, Jiji will now let you buy items for rancid eggs. If you've given her enough rancid eggs, any items you've reached the cost for will be summoned.
 
 ### Cost Settings
@@ -185,22 +189,35 @@ Some important Room Randomizer tips:
 ### Progression Depth Settings
 
 These settings control how item-location placements are determined at the end of the randomizer:
-- Multi Location Penalty: for each multi location (e.g. shops, Grubfather, Seer), moves all but one of its placements to the end of the location list, to strongly reduce its chances of having multiple progression items.
+- Multi Location Penalty: for a location among the following: *Sly*, *Sly_(Key)*, *Iselda*, *Salubra*, or *Leg_Eater*, moves all but one of its placements to the end of the location list, to strongly reduce its chances of having multiple progression items.
 - Duplicate Item Penalty: for each item invisible to logic (e.g. those added by Duplicate Items), moves it to the front of the item list. This means that these items are placed immediately after progression, generally in deep non-shop locations.
 
 The remaining settings relate to the depth priority transform. Briefly, this determines whether locations which became reachable later in randomization should be weighted more strongly than other locations. For example, a Transform Type of Linear and a Coefficient of 3 imply that a location placed one step later in randomization should be advanced past 3% of the locations relative to the original order.
 
-TODO: A more complete explanation of the settings.
+To elaborate, randomization proceeds in steps, where a step forces certain items to be placed which unlock new locations. The depth of an item is the number of steps before it is placed, and the depth of a location is the number of steps before it becomes reachable. 
+
+For each randomization group, its items and locations begin with randomized priorities evenly spaced from 0 to 1. Without any restrictions, item placements would be done by selecting the lowest priority required item and placing it at the lowest priority reachable location. However, the depth priority transform uses the depth and priority of the item, and the depth of the candidate location to modify the location's priority before determining the minimum priority location.
+
+The first component of the depth priority transform is the Item Location Priority Interaction. For an item, the item priority depth is a number calculated as the number of steps in which the average priorities of the forced items is less than the priority of the current item. In other words, item priority depth is at most the depth of the item, and is smaller by the number of spheres in which on average, higher priority items were forced. The Item Location Priority Interaction determines how item priority depth should be factored into the transform. It has the following values:
+- Cliff: if the item priority depth is **less** than the location depth, then the priority transform has no effect. Otherwise, item priority depth does not modify the transform.
+- Fade: Location depth is adjusted downward by the item priority depth for the second part of the transform. Specifically, location depth is unmodified when it is less than the item priority depth, and linearly fades to 0 from the item priority depth to 2 times the item priority depth.
+- Cap: Location depth is capped above by the item priority depth for the second part of the transform.
+- Ignore: Item priority depth does not modify the transform.
+In general, the idea for this setting is to weight low priority items to be placed in earlier locations, even when the item was forced very late in randomization. For example, before this setting was added, the depth priority transform produced a seed where Spore Shroom was placed very late, and then in a subsequent step, Lurien, Monomon, and Herrah were all put in Spore Shroom-required lore tablets. With this setting, the effect of the depth priority transform would not have to be the same for all 3 dreamers, and so it would be less likely to produce such a predictable placement.
+
+The Priority Transform Type controls how the location priority is modified according to the location depth (subject to the interactions above). In general, with a Priority Transform Coefficient *a* and a Transform Type corresponding to a function *f* (identity, square, square root, natural log), the formula is *newPriority = oldPriority - (a/100)\*f(depth)*.
+
+The above comments all extend to transitions accordingly, where "items" are target transitions and "locations" are source transitions.
 
 ### Duplicate Item Settings
 
-These settings control which important items are duplicated. Duplicate items generated by the randomizer are modified to be invisible to logic, and may be penalized in randomization depending on the Progression Depth Settings. When there are not enough locations for the number of items, extra locations are created from the randomized shops.
+These settings control which important items are duplicated. Duplicate items generated by the randomizer are modified to be invisible to logic, and may be penalized in randomization depending on the Progression Depth Settings. **When there are not enough locations for the number of items, extra locations are created from the randomized shops**, meaning normal shops, Grubfather, Seer, or Egg Shop. If somehow none of these shops are present in the randomization group, extra copies of Sly are added.
 
 However, there is one important exception: the default Simple Key Handling is to create two Simple Keys which are identical to normal Simple Keys. This increases the odds of Simple Key progression, to make up for the fact that all Simple Key locks require 4 Simple Keys in logic in Randomizer 4.
 
 ### Split Group Randomizer Settings
 
-These settings allow controlling the randomization groups. Normally, items and locations are randomized in one group, so that any item can end up at any location. With split groups, the items in a group can only end up at the locations of that group. These settings do not control which items and locations are randomized--for that, see Pool Settings. Rather, these settings control what group an item or location would be placed in if it were randomized.
+These settings allow controlling the randomization groups. Normally, items and locations are randomized in one group, so that any item can end up at any location. With split groups, the items in a group can only end up at the locations of that group. **These settings do not control which items and locations are randomized**--for that, see Pool Settings. Rather, these settings control what group an item or location would be placed in if it were randomized.
 
 The settings consist of numeric fields for each pool.
 - Entering -1 for a pool will cause that pool to be ignored by split group rando.
@@ -213,3 +230,29 @@ In summary, use these settings to arrange pools so that the pools with the same 
 
 The Randomize On Start option sets each pool setting to one of 0, 1, or 2, randomly and uniformly.
 - It is recommended to disable Duplicate Items with this setting. If skills end up in a group with few locations, there is a high likelihood of several skills being forced into a shop.
+
+The definitions used for these settings are slightly broader than those in pool settings, to accomodate other settings that add items:
+- Dreamers
+- Skills, including split skills, Swim, Focus
+- Charms
+- Keys, including Elevator Pass, Egg Shop
+- Mask Shards
+- Vessel Fragments
+- Charm Notches, including Salubra Notches
+- Pale Ore
+- Geo Chests, including Junk Pit Chests
+- Rancid Eggs
+- Relics
+- Whispering Roots
+- Boss Essence
+- Grubs
+- Mimics
+- Maps
+- Stags
+- Lifeblood Cocoons
+- Grimmkin Flames
+- Journal Entries
+- Geo Rocks
+- Boss Geo
+- Soul Totems
+- Lore Tablets

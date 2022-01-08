@@ -52,6 +52,7 @@
   "FRAGILEHEART": "Fragile_Heart + Can_Bench + (Can_Repair_Fragile_Charms | Fragile_Heart>1)",
   "FRAGILEGREED": "Fragile_Greed + Can_Bench + (Can_Repair_Fragile_Charms | Fragile_Greed>1)",
   "FRAGILESTRENGTH": "Fragile_Strength + Can_Bench + (Can_Repair_Fragile_Charms | Fragile_Strength>1)",
+  "DEFENDERSCREST": "Defender's_Crest + Can_Bench",
 
   "DASHMASTER": "Dashmaster + Can_Bench",
   "LEFTSHARPSHADOW": "Sharp_Shadow + LEFTSHADOWDASH + Can_Bench",
