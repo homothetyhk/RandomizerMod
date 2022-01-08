@@ -16,14 +16,34 @@ namespace RandomizerMod.RC
     {
         public const string Prefix = "Placeholder-";
 
-        public PlaceholderItem(RandoModItem innerItem)
+        public PlaceholderItem(RandoModItem innerItem, bool wrapped = true)
         {
             this.innerItem = innerItem;
             this.info = innerItem.info?.Clone() ?? new();
             this.info.realItemCreator ??= ((factory, next) => factory.MakeItemWithEvents(innerItem.Name, next));
-            base.item = new EmptyItem($"Placeholder-{innerItem.Name}");
+            if (wrapped) Wrap();
+            else Unwrap();
+        }
+
+        /// <summary>
+        /// Hides the innerItem of the PlaceholderItem from logic.
+        /// </summary>
+        public void Wrap()
+        {
+            wrapped = true;
+            item = new EmptyItem($"Placeholder-{innerItem.Name}");
+        }
+
+        /// <summary>
+        /// Makes the innerItem of the PlaceholderItem visible to logic.
+        /// </summary>
+        public void Unwrap()
+        {
+            wrapped = false;
+            item = innerItem.item;
         }
 
         public readonly RandoModItem innerItem;
+        public bool wrapped;
     }
 }

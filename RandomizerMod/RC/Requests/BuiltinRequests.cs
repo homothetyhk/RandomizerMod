@@ -79,6 +79,7 @@ namespace RandomizerMod.RC
                     info = new ItemRequestInfo
                     {
                         randoItemCreator = factory => factory.MakeWrappedItem(name.Substring(PlaceholderItem.Prefix.Length)),
+                        onRandomizerFinish = (placement) => ((PlaceholderItem)placement.Item).Unwrap(),
                         getItemDef = () => rb.TryGetItemDef(name.Substring(PlaceholderItem.Prefix.Length), out ItemDef def) ? def : null,
                     };
                     return true;
