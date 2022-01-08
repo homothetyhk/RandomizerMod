@@ -71,6 +71,7 @@
             Fearless = new SkipSettings
             {
                 PreciseMovement = true,
+                ProficientCombat = true,
                 BackgroundObjectPogos = true,
                 EnemyPogos = true,
                 ObscureSkips = true,
@@ -89,6 +90,7 @@
             Foolish = new SkipSettings
             {
                 PreciseMovement = true,
+                ProficientCombat = true,
                 BackgroundObjectPogos = true,
                 EnemyPogos = true,
                 ObscureSkips = true,

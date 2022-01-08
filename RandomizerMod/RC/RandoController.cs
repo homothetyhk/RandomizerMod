@@ -89,30 +89,30 @@ namespace RandomizerMod.RC
         public int Hash()
         {
             using System.Security.Cryptography.SHA256Managed sHA256 = new();
-            StringBuilder sb = new();
-            sb.Append(JsonUtil.Serialize(gs));
-
-            if (ctx.notchCosts != null) sb.Append(string.Join(";", ctx.notchCosts));
-
-            if (ctx.itemPlacements != null)
+            using StringWriter sw = new();
+            JsonSerializer js = new()
             {
-                foreach (var p in ctx.itemPlacements)
-                {
-                    sb.Append(p.item.Name);
-                    sb.Append(p.location.Name);
-                    sb.Append(';');
-                }
-            }
+                DefaultValueHandling = DefaultValueHandling.Include,
+                Formatting = Formatting.None,
+                TypeNameHandling = TypeNameHandling.Auto,
+            };
+            js.Converters.Add(new RandomizerCore.Json.TermConverter() { LM = ctx.LM });
+            js.Converters.Add(new RandomizerCore.Json.LogicDefConverter() { LM = ctx.LM });
 
-            if (ctx.transitionPlacements != null)
-            {
-                foreach (var p in ctx.transitionPlacements)
-                {
-                    sb.Append(p.source.Name);
-                    sb.Append(p.target.Name);
-                    sb.Append(';');
-                }
-            }
+            js.Serialize(sw, gs);
+
+            if (ctx.notchCosts != null) js.Serialize(sw, ctx.notchCosts);
+            else sw.Write("\"notchCosts\": null,");
+
+            if (ctx.itemPlacements != null) js.Serialize(sw, ctx.itemPlacements);
+            else sw.Write("\"itemPlacements\": null,");
+
+            if (ctx.transitionPlacements != null) js.Serialize(sw, ctx.transitionPlacements);
+            else sw.Write("\"transitionPlacements\": null,");
+
+            StringBuilder sb = sw.GetStringBuilder();
+            sb.Replace("\r", string.Empty);
+            sb.Replace("\n", string.Empty);
 
             byte[] sha = sHA256.ComputeHash(Encoding.UTF8.GetBytes(sb.ToString()));
 
