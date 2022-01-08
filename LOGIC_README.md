@@ -26,7 +26,7 @@ This file serves to document the randomizer logic.
 - Pogoing spikes, Garpedes, or Wingsmoulds is not considered a skip. Pogoing the shade or its projectiles is classified under Shade Skips, and not Enemy Pogos.
 - In logic, Enemy Pogos are indicated with the **ENEMYPOGOS** token.
 - Examples include:
-    - 
+    - Pogoing a Vengefly in Blue Lake to each the rancid egg with wings.
     
 ### Obscure Skips
 - Obscure Skips are progression paths which are subjectively determined to be too obscure for a new randomizer player to be expected to know.

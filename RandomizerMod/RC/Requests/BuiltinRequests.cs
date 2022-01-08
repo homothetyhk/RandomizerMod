@@ -540,8 +540,11 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.PoolSettings.LoreTablets)
             {
+                rb.EditLocationRequest(LocationNames.World_Sense, info => info.randoLocationCreator = (factory) => factory.MakeLocation(LocationNames.Lore_Tablet_World_Sense));
+                /*
                 rb.EditLocationRequest(LocationNames.World_Sense, info => info.customPlacementFetch =
                     (factory, next) => factory.FetchOrMakePlacementWithEvents(LocationNames.Lore_Tablet_World_Sense, next));
+                */
             }
         }
 
@@ -549,8 +552,11 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.PoolSettings.LoreTablets)
             {
+                rb.EditLocationRequest(LocationNames.Focus, info => info.randoLocationCreator = (factory) => factory.MakeLocation(LocationNames.Lore_Tablet_Kings_Pass_Focus));
+                /*
                 rb.EditLocationRequest(LocationNames.Focus, info => info.customPlacementFetch =
                     (factory, next) => factory.FetchOrMakePlacementWithEvents(LocationNames.Lore_Tablet_Kings_Pass_Focus, next));
+                */
             }
         }
 
