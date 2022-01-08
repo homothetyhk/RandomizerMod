@@ -5,7 +5,7 @@ This file serves to document the randomizer logic.
 ### Precise Movement
 - Precise Movement is a skip category used for ordinary movement with a very low margin of error. Precise Movement cases often, but not always, have a large penalty for failure.
 - In logic, Precise Movement is indicated with the **PRECISEMOVEMENT** token.
-- More advanced skips such as Fireball Skips or Acid Skips generally do not include the Precise Movement modifier, but rather one of OBSCURESKIPS, COMPLEXSKIPS, or DIFFICULTSKIPS as appropriate.
+- More advanced skips such as Fireball Skips or Acid Skips generally do not include the Precise Movement modifier, but rather one of Obscure Skips, Complex Skips, or Difficult Skips as appropriate.
 - Examples include:
     - Jumping to *Hallownest_Seal-Fungal_Wastes_Sporgs* with no items.
     - Jumping to *Ancient_Basin_Map* with no items.
@@ -13,6 +13,21 @@ This file serves to document the randomizer logic.
 	- Coyote jump to reach the warp to Palace Grounds in White_Palace_03 (logic for *Warp-White_Palace_Atrium_to_Palace_Grounds*).
 	- Coyote jump and right dash to reach the platform in lower King's Station, from the bottom left entrance without Swim (logic for transitions in *Ruins2_06* from *Ruins2_06[left2]*).
 	- Using Mantis Claw and Crystal Heart to pass under conveyors (logic for *Mines_37*, including *Geo_Chest-Crystal_Peak*). Also considered an Obscure Skip.
+
+### Proficient Combat
+- Proficient Combat is a skip category used for ordinary combat with limited items or movement. Precise Combat is combat that should be doable after casual play, with at most a small amount of practice necessary.
+- In logic, Proficient Combat is indicated with the **PROFICIENTCOMBAT** token. More commonly, the equivalent **MILDCOMBATSKIPS** macro is used, or the **SPICYCOMBATSKIPS** macro which also requires Difficult Skips.
+- A nearly complete list of combat logic usage is located at the bottom of the macros.json file.
+- Examples of **MILDCOMBATSKIPS** include:
+    - Fighting bosses with the **AERIALMINIBOSS** modifier (dream warriors, Uumuu, various others) without a dash item.
+    - Fighting bosses with the **BOSS** modifier (most bosses that would usually be encountered after wings) without a dash item.
+	- Fighting Flukemarm without Shade Soul or Abyss Shriek, but instead normal **BOSS** requirements.
+	- Using Cyclone Slash or Great Slash for nail combat (rather than right or left or up slashes, when nail is randomized).
+- Examples of **SPICYCOMBATSKIPS** include:
+	- Fighting bosses with the **MINIBOSS** modifier without a spell.
+	- Fighting bosses with the **AERIALMINIBOSS** modifier without Vengeful Spirit or Howling Wraiths.
+	- Fighting bosses with the **AERIALMINIBOSS** modifier with Cyclone Slash or Great Slash (rather than right or left or up slashes, when nail is randomized).
+	- Using downslash only for nail combat.
     
 ### Background Object Pogos
 - Background Object Pogos are as the name suggests.
