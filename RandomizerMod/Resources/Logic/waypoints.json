@@ -613,7 +613,7 @@
   },
   {
     "name": "Ruins1_28",
-    "logic": "Ruins1_28[left1] | Ruins1_28[right1] | Ruins1_28[bot1]"
+    "logic": "Ruins1_28[left1] + (RIGHTCLAW | WINGS | RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | BACKGROUNDPOGOS | AREASHADESKIPS) | Ruins1_28[bot1] | Ruins1_28[bot1]"
   },
   {
     "name": "Ruins1_30",

@@ -65,7 +65,7 @@
   },
   {
     "name": "Shade_Cloak",
-    "logic": "Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | (VOIDHEART + (RIGHTDASH | RIGHTSUPERDASH | SWIM | WINGS | FULLCLAW)) | (WINGS + SHADESKIPS + 4MASKS))"
+    "logic": "(Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTCLAW | WINGS + SHADESKIPS + 4MASKS)) + (WINGS | RIGHTSUPERDASH | RIGHTDASH + (LEFTCLAW | PRECISEMOVEMENT | BACKGROUNDPOGOS)) | (Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1]) + (RIGHTSHADOWDASH | VOIDHEART + (RIGHTDASH | RIGHTSUPERDASH | SWIM | WINGS | FULLCLAW)) + (WINGS | LEFTCLAW + RIGHTSUPERDASH | LEFTCLAW + RIGHTDASH | BACKGROUNDPOGOS + RIGHTDASH)"
   },
   {
     "name": "Isma's_Tear",
@@ -533,7 +533,7 @@
   },
   {
     "name": "Wanderer's_Journal-City_Storerooms",
-    "logic": "Ruins1_28"
+    "logic": "Ruins1_28 | Ruins1_28[left1]"
   },
   {
     "name": "Wanderer's_Journal-Ancient_Basin",
