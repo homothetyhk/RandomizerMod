@@ -13,8 +13,9 @@ namespace RandomizerMod.IC
         {
             if (orig is MsgUIDef msgDef)
             {
-                return new MsgUIDef
+                return new SplitUIDef
                 {
+                    preview = new BoxedString(msgDef.GetPreviewName()),
                     name = new BoxedString($"{geoAmount} ({msgDef.GetPostviewName()})"),
                     shopDesc = msgDef.shopDesc?.Clone(),
                     sprite = msgDef.sprite?.Clone(),
@@ -48,6 +49,9 @@ namespace RandomizerMod.IC
         public override Sprite GetSprite() => Inner is not null
             ? Inner.GetSprite()
             : base.GetSprite();
+        public override string GetPreviewName() => Inner is not null
+            ? Inner.GetPreviewName()
+            : base.GetPreviewName();
         public override string GetPostviewName() => Inner is not null 
             ? $"{GeoAmount} Geo ({Inner?.GetPostviewName()})"
             : base.GetPostviewName();
