@@ -2550,7 +2550,7 @@
   {
     "sceneName": "Deepnest_30",
     "gateName": "left1",
-    "logic": "Deepnest_30[left1] | Deepnest_30[right1] | (Deepnest_30[top1] + (ANYCLAW | WINGS))",
+    "logic": "Deepnest_30[left1] | Deepnest_30[right1] | Deepnest_30[top1] + (ANYCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_30[left1]"
   },
@@ -2564,7 +2564,7 @@
   {
     "sceneName": "Deepnest_30",
     "gateName": "right1",
-    "logic": "Deepnest_30[right1] | Deepnest_30[left1] + (Deepnest_30[top1] + (ANYCLAW | WINGS))",
+    "logic": "Deepnest_30[right1] | Deepnest_30[left1] | Deepnest_30[top1] + (ANYCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_30[right1]"
   },

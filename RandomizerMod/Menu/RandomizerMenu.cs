@@ -916,6 +916,8 @@ namespace RandomizerMod.Menu
                 {
                     rc = new(Settings, pm, rm);
                     rc.Run();
+                    string[] hash = Hash.GetHash(rc.Hash());
+                    
                     ThreadSupport.BeginInvoke(() =>
                     {
                         RandomizationTimer.Stop();
@@ -924,7 +926,6 @@ namespace RandomizerMod.Menu
                         OutputLabel.Text.alignment = TextAnchor.UpperCenter;
                         OutputLabel.Show();
 
-                        string[] hash = Hash.GetHash(rc.Hash());
                         for (int i = 0; i < Hash.Length; i++)
                         {
                             HashLabels[1 + i].Text.text = Localize(hash[i]);

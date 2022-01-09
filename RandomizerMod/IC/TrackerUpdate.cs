@@ -72,6 +72,14 @@ namespace RandomizerMod.IC
             OnFinishedUpdate?.Invoke();
         }
 
+        /// <summary>
+        /// Static method intended to allow updating found transitions by external callers.
+        /// </summary>
+        public static void SendTransitionFound(Transition t)
+        {
+            if (ItemChangerMod.Modules.Get<TrackerUpdate>() is TrackerUpdate instance) instance.OnBeginSceneTransition(t);
+        }
+
         private void OnBeginSceneTransition(Transition t)
         {
             string target = t.ToString();

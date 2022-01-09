@@ -96,7 +96,7 @@ namespace RandomizerMod.IC
                     for (int i = 0; i < mprt.previewTexts.Length; i++)
                     {
                         string t = mprt.previewTexts[i];
-                        if (!string.IsNullOrEmpty(t) && i < p.Items.Count && !p.Items[i].IsObtained())
+                        if (!string.IsNullOrEmpty(t) && i < p.Items.Count && !p.Items[i].WasEverObtained())
                         {
                             sb.Append(' ', 4);
                             sb.AppendLine(t);
