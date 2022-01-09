@@ -135,7 +135,7 @@ namespace RandomizerMod.Menu
         SmallButton OpenReadmeButton;
         SmallButton OpenLogicReadmeButton;
         GridItemPanel SubJumpPanel;
-        IMenuElement[] SubJumpElements => new IMenuElement[]
+        SmallButton[] SubJumpElements => new SmallButton[]
         {
             DefaultSettingsButton,
             ToManageSettingsPageButton,
@@ -300,7 +300,7 @@ namespace RandomizerMod.Menu
         SmallButton openLogFolderButton;
         SmallButton openTrackerButton;
         SmallButton openHelperButton;
-        IMenuElement[] resumeElements => new IMenuElement[]
+        SmallButton[] resumeElements => new SmallButton[]
         {
             openLogFolderButton,
             openTrackerButton,
@@ -325,6 +325,7 @@ namespace RandomizerMod.Menu
             MakePanels();
             AddEvents();
             Arrange();
+            LocalizeMenu();
 
             ResumeMenu.AddResumePage("Randomizer", ResumePage);
             SeedEntryField.SetValue(rng.Next(0, 999999999));
@@ -385,11 +386,11 @@ namespace RandomizerMod.Menu
 
             PoolPreset = new MenuPreset<PoolSettings>(StartPage, "Randomized Items", 
                 PoolPresetData.PoolPresets, Settings.PoolSettings,
-                (ps) => string.Join(", ", typeof(PoolSettings).GetFields().Where(f => (bool)f.GetValue(ps)).Select(f => f.Name.FromCamelCase()).ToArray()),
+                Captions.Caption,
                 poolMEF);
             SkipPreset = new MenuPreset<SkipSettings>(StartPage, "Required Skips", 
                 SkipPresetData.SkipPresets, Settings.SkipSettings,
-                (sk) => string.Join(", ", typeof(SkipSettings).GetFields().Where(f => (bool)f.GetValue(sk)).Select(f => f.Name.FromCamelCase()).ToArray()),
+                Captions.Caption,
                 skipMEF);
             NoveltyPreset = new MenuPreset<NoveltySettings>(StartPage, "Novelties", NoveltyPresetData.NoveltyPresets, Settings.NoveltySettings, Captions.Caption, novMEF);
             CostPreset = new MenuPreset<CostSettings>(StartPage, "Cost Randomization", CostPresetData.CostPresets, Settings.CostSettings, Captions.Caption, costMEF);
@@ -442,9 +443,9 @@ namespace RandomizerMod.Menu
             ProfileNameField = new TextEntryField(ManageSettingsPage, "Profile Name");
 
             // Final Page
-            InfoPanelTitle = new MenuLabel(FinalPage, "Randomizer Progress");
-            AttemptCounter = new CounterLabel(FinalPage, "Attempts");
-            RandomizationTimer = new TimerLabel(FinalPage, "Time Elapsed");
+            InfoPanelTitle = new MenuLabel(FinalPage, Localize("Randomizer Progress"));
+            AttemptCounter = new CounterLabel(FinalPage, Localize("Attempts"));
+            RandomizationTimer = new TimerLabel(FinalPage, Localize("Time Elapsed"));
             OutputLabel = new MenuLabel(FinalPage, "", new Vector2(800, 800));
             OutputLabel.Hide();
 
@@ -733,6 +734,59 @@ namespace RandomizerMod.Menu
             SubJumpPanel.SymSetNeighbor(Neighbor.Down, JumpPage.backButton);
         }
 
+        private void LocalizeMenu()
+        {
+            Localize(poolMEF);
+            Localize(skipMEF);
+            Localize(novMEF);
+            Localize(costMEF);
+            Localize(longLocationMEF);
+            Localize(startLocationTypeSwitch);
+            Localize(randomFixedStartButton);
+            Localize(startItemMEF);
+            Localize(startLocationSwitch);
+            Localize(startItemMEF);
+            Localize(miscMEF);
+            Localize(cursedMEF);
+            Localize(transitionMEF);
+            Localize(progressionDepthMEF);
+            Localize(duplicateItemMEF);
+            Localize(splitGroupMEF);
+            Localize(splitGroupRandomizeButton);
+
+            foreach (MenuItem mi in PresetButtons)
+            {
+                Localize(mi);
+            }
+
+            Localize(SeedEntryField);
+            Localize(RandomSeedButton);
+            Localize(GenerateButton);
+
+            foreach (SmallButton sb in StartCornerButtons) Localize(sb);
+            foreach (SmallButton sb in JumpButtons) Localize(sb);
+            foreach (SmallButton sb in SubJumpElements) Localize(sb);
+            foreach (Subpage sp in AdvancedSettingsSubpages) Localize(sp);
+
+            Localize(GenerateCodeButton);
+            Localize(ApplyCodeButton);
+
+            Localize(ProfileSwitch);
+            Localize(OverwriteProfileButton);
+            Localize(DeleteProfileButton);
+            Localize(SaveAsNewProfileButton);
+            Localize(ApplyProfileButton);
+
+            Localize(emptyConnectionsPanelLabel);
+
+            Localize(StartButton);
+            Localize(ProceedButton);
+            Localize(redirectStartButton);
+
+            Localize(resumeButton);
+            foreach (SmallButton sb in resumeElements) Localize(sb);
+        }
+
         private void UpdateStartLocationSwitch(StartLocationSettings.RandomizeStartLocationType type, string loc)
         {
             switch (type)
@@ -861,14 +915,14 @@ namespace RandomizerMod.Menu
                     {
                         RandomizationTimer.Stop();
                         OutputLabel.Text.color = Color.white;
-                        OutputLabel.Text.text = "Randomization completed successfully!";
+                        OutputLabel.Text.text = Localize("Randomization completed successfully!");
                         OutputLabel.Text.alignment = TextAnchor.UpperCenter;
                         OutputLabel.Show();
 
                         string[] hash = Hash.GetHash(rc.Hash());
                         for (int i = 0; i < Hash.Length; i++)
                         {
-                            HashLabels[1 + i].Text.text = hash[i];
+                            HashLabels[1 + i].Text.text = Localize(hash[i]);
                         }
                         HashVIP.Show();
 
@@ -884,13 +938,16 @@ namespace RandomizerMod.Menu
                     {
                         RandomizationTimer.Stop();
                         OutputLabel.Text.color = Color.red;
-                        OutputLabel.Text.text = "Randomization terminated due to error:\n" + e;
+                        OutputLabel.Text.text = Localize("Randomization terminated due to error") + ":\n" + e;
                         OutputLabel.Text.alignment = TextAnchor.UpperLeft;
                         OutputLabel.Show();
                         Log("Randomization terminated due to error:\n" + e);
                     });
                 }
-            });
+            })
+            {
+
+            };
             RandomizerThread.Start();
         }
 
@@ -1019,7 +1076,7 @@ namespace RandomizerMod.Menu
 
                 if (self != null)
                 {
-                    self.Text.text = "Error: See ModLog";
+                    self.Text.text = Localize("Error: See ModLog");
                     self.Lock();
                 }
             }
@@ -1028,7 +1085,7 @@ namespace RandomizerMod.Menu
                 LogError(e.ToString());
                 if (self != null)
                 {
-                    self.Text.text = "Error: See ModLog";
+                    self.Text.text = Localize("Error: See ModLog");
                     self.Lock();
                 }
             }

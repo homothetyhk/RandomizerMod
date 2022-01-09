@@ -5,13 +5,23 @@ namespace RandomizerMod.Settings.Presets
 {
     public static class Captions
     {
+        public static string Caption(this PoolSettings ps)
+        {
+            return string.Join(", ", typeof(PoolSettings).GetFields().Where(f => (bool)f.GetValue(ps)).Select(f => Localize(f.GetMenuName())));
+        }
+
+        public static string Caption(this SkipSettings ss)
+        {
+            return string.Join(", ", typeof(SkipSettings).GetFields().Where(f => (bool)f.GetValue(ss)).Select(f => Localize(f.GetMenuName())));
+        }
+
         public static string Caption(this CostSettings cs)
         {
             StringBuilder sb = new();
-            sb.AppendLine($"Grub costs may be randomized in [{cs.MinimumGrubCost}, {cs.MaximumGrubCost}] (tol:{cs.GrubTolerance})");
-            sb.AppendLine($"Essence costs may be randomized in [{cs.MinimumEssenceCost}, {cs.MaximumEssenceCost}] (tol:{cs.EssenceTolerance})");
-            sb.AppendLine($"Egg shop costs may be randomized in [{cs.MinimumEggCost}, {cs.MaximumEggCost}] (tol:{cs.EggTolerance})");
-            sb.AppendLine($"Salubra charm costs may be randomized in [{cs.MinimumCharmCost}, {cs.MaximumCharmCost}] (tol:{cs.CharmTolerance})");
+            sb.AppendLine(Localize("Grub costs may be randomized in ") + $"[{cs.MinimumGrubCost}, {cs.MaximumGrubCost}] (tol:{cs.GrubTolerance})");
+            sb.AppendLine(Localize("Essence costs may be randomized in ") + $"[{cs.MinimumEssenceCost}, {cs.MaximumEssenceCost}] (tol:{cs.EssenceTolerance})");
+            sb.AppendLine(Localize("Egg shop costs may be randomized in ") + $"[{cs.MinimumEggCost}, {cs.MaximumEggCost}] (tol:{cs.EggTolerance})");
+            sb.AppendLine(Localize("Salubra charm costs may be randomized in ") + $"[{cs.MinimumCharmCost}, {cs.MaximumCharmCost}] (tol:{cs.CharmTolerance})");
             return sb.ToString();
         }
 
@@ -21,25 +31,25 @@ namespace RandomizerMod.Settings.Presets
             switch (ll.RandomizationInWhitePalace)
             {
                 case LongLocationSettings.WPSetting.ExcludePathOfPain:
-                    sb.Append("Locations (such as soul totems) in Path of Pain will not be randomized. ");
+                    sb.Append(Localize("Locations (such as soul totems) in Path of Pain will not be randomized. "));
                     break;
                 case LongLocationSettings.WPSetting.ExcludeWhitePalace:
-                    sb.Append("Locations (such as King Fragment and soul totems) in White Palace will not be randomized. ");
+                    sb.Append(Localize("Locations (such as King Fragment and soul totems) in White Palace will not be randomized. "));
                     break;
             }
             switch (ll.BossEssenceRandomization)
             {
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses when Settings.PoolSettings.BossEssence:
-                    sb.Append("Dream Boss essence rewards will not be randomized. ");
+                    sb.Append(Localize("Dream Boss essence rewards will not be randomized. "));
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamWarriors when Settings.PoolSettings.BossEssence:
-                    sb.Append("Dream Warrior essence rewards will not be randomized. ");
+                    sb.Append(Localize("Dream Warrior essence rewards will not be randomized. "));
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender when Settings.PoolSettings.BossEssence:
-                    sb.Append("Grey Prince Zote and White Defender essence rewards will not be randomized. ");
+                    sb.Append(Localize("Grey Prince Zote and White Defender essence rewards will not be randomized. "));
                     break;
             }
-            sb.Append("See Long Location Options for details regarding location previews.");
+            sb.Append(Localize("See Long Location Options for details regarding location previews."));
 
             return sb.ToString();
         }
@@ -49,29 +59,29 @@ namespace RandomizerMod.Settings.Presets
             StringBuilder sb = new();
             List<string> terms = new();
 
-            if (ns.RandomizeSwim) terms.Add("swim");
-            if (ns.RandomizeElevatorPass) terms.Add("ride elevators");
-            if (ns.RandomizeFocus) terms.Add("heal");
-            if (ns.RandomizeNail) terms.Add("attack left or right or up");
+            if (ns.RandomizeSwim) terms.Add(Localize("swim"));
+            if (ns.RandomizeElevatorPass) terms.Add(Localize("ride elevators"));
+            if (ns.RandomizeFocus) terms.Add(Localize("heal"));
+            if (ns.RandomizeNail) terms.Add(Localize("attack left or right or up"));
             if (terms.Count > 0)
             {
                 string ability = terms.Count > 1 ? "abilities" : "ability";
-                sb.Append($"The {ability} to ");
+                sb.Append(Localize($"The {ability} to "));
                 for (int i = 0; i < terms.Count - 1; i++)
                 {
                     sb.Append(terms[i]);
                     sb.Append(", ");
                 }
                 if (terms.Count == 2) sb.Remove(sb.Length - 2, 1);
-                if (terms.Count > 1) sb.Append("and ");
+                if (terms.Count > 1) sb.Append(Localize("and "));
                 sb.Append(terms[terms.Count - 1]);
-                sb.Append(" will be removed and randomized.");
+                sb.Append(Localize(" will be removed and randomized."));
             }
             terms.Clear();
-            if (ns.SplitClaw) sb.Append("The abilities to walljump from left and right slopes will be separated. ");
-            if (ns.SplitCloak) sb.Append("The abilities to dash left and right will be separated. ");
-            if (ns.SplitSuperdash) sb.Append("The abilities to superdash left and right will be separated. ");
-            if (ns.EggShop) sb.Append("Jiji will trade items for rancid eggs. ");
+            if (ns.SplitClaw) sb.Append(Localize("The abilities to walljump from left and right slopes will be separated. "));
+            if (ns.SplitCloak) sb.Append(Localize("The abilities to dash left and right will be separated. "));
+            if (ns.SplitSuperdash) sb.Append(Localize("The abilities to superdash left and right will be separated. "));
+            if (ns.EggShop) sb.Append(Localize("Jiji will trade items for rancid eggs. "));
 
             return sb.ToString();
         }
@@ -79,13 +89,13 @@ namespace RandomizerMod.Settings.Presets
         public static string Caption(this CursedSettings cs)
         {
             StringBuilder sb = new();
-            if (cs.ReplaceJunkWithOneGeo) sb.Append("Luxury items like mask shards and pale ore and the like are replaced with 1 geo pickups. ");
-            if (cs.RemoveSpellUpgrades) sb.Append("Spell upgrades are completely removed. ");
-            if (cs.LongerProgressionChains) sb.Append("Progression items are harder to find on average. ");
-            if (cs.Deranged) sb.Append("Placements are much less likely to be vanilla. ");
-            if (cs.CursedMasks) sb.Append("Start with only 1 mask. ");
-            if (cs.CursedNotches) sb.Append("Start with only 1 charm notch. ");
-            if (cs.RandomizeMimics) sb.Append("Some grub bottles may contain a surprise...");
+            if (cs.ReplaceJunkWithOneGeo) sb.Append(Localize("Luxury items like mask shards and pale ore and the like are replaced with 1 geo pickups. "));
+            if (cs.RemoveSpellUpgrades) sb.Append(Localize("Spell upgrades are completely removed. "));
+            if (cs.LongerProgressionChains) sb.Append(Localize("Progression items are harder to find on average. "));
+            if (cs.Deranged) sb.Append(Localize("Placements are much less likely to be vanilla. "));
+            if (cs.CursedMasks) sb.Append(Localize("Start with only 1 mask. "));
+            if (cs.CursedNotches) sb.Append(Localize("Start with only 1 charm notch. "));
+            if (cs.RandomizeMimics) sb.Append(Localize("Some grub bottles may contain a surprise..."));
 
             return sb.ToString();
         }
@@ -108,19 +118,19 @@ namespace RandomizerMod.Settings.Presets
                 case StartItemSettings.StartVerticalType.None:
                     break;
                 case StartItemSettings.StartVerticalType.ZeroOrMore:
-                    sb.Append("May start with random vertical movement items. ");
+                    sb.Append(Localize("May start with random vertical movement items. "));
                     break;
                 case StartItemSettings.StartVerticalType.MantisClaw:
-                    sb.Append("Start with Mantis Claw. ");
+                    sb.Append(Localize("Start with Mantis Claw. "));
                     break;
                 case StartItemSettings.StartVerticalType.MonarchWings:
-                    sb.Append("Start with Monarch Wings. ");
+                    sb.Append(Localize("Start with Monarch Wings. "));
                     break;
                 case StartItemSettings.StartVerticalType.OneRandomItem:
-                    sb.Append("Start with a random vertical movement item. ");
+                    sb.Append(Localize("Start with a random vertical movement item. "));
                     break;
                 case StartItemSettings.StartVerticalType.All:
-                    sb.Append("Start with all vertical movement. ");
+                    sb.Append(Localize("Start with all vertical movement. "));
                     break;
             }
 
@@ -130,19 +140,19 @@ namespace RandomizerMod.Settings.Presets
                 case StartItemSettings.StartHorizontalType.None:
                     break;
                 case StartItemSettings.StartHorizontalType.ZeroOrMore:
-                    sb.Append("May start with random horizontal movement items. ");
+                    sb.Append(Localize("May start with random horizontal movement items. "));
                     break;
                 case StartItemSettings.StartHorizontalType.MothwingCloak:
-                    sb.Append("Start with Mothwing Cloak. ");
+                    sb.Append(Localize("Start with Mothwing Cloak. "));
                     break;
                 case StartItemSettings.StartHorizontalType.CrystalHeart:
-                    sb.Append("Start with Crystal Heart. ");
+                    sb.Append(Localize("Start with Crystal Heart. "));
                     break;
                 case StartItemSettings.StartHorizontalType.OneRandomItem:
-                    sb.Append("Start with a random horizontal movement item. ");
+                    sb.Append(Localize("Start with a random horizontal movement item. "));
                     break;
                 case StartItemSettings.StartHorizontalType.All:
-                    sb.Append("Start with all horizontal movement. ");
+                    sb.Append(Localize("Start with all horizontal movement. "));
                     break;
             }
 
@@ -152,10 +162,10 @@ namespace RandomizerMod.Settings.Presets
                 case StartItemSettings.StartCharmType.None:
                     break;
                 case StartItemSettings.StartCharmType.ZeroOrMore:
-                    sb.Append("May start with random equipped charms. ");
+                    sb.Append(Localize("May start with random equipped charms. "));
                     break;
                 case StartItemSettings.StartCharmType.OneRandomItem:
-                    sb.Append("Start with a random equipped charm. ");
+                    sb.Append(Localize("Start with a random equipped charm. "));
                     break;
             }
 
@@ -165,19 +175,19 @@ namespace RandomizerMod.Settings.Presets
                 case StartItemSettings.StartStagType.None:
                     break;
                 case StartItemSettings.StartStagType.DirtmouthStag:
-                    sb.Append("Start with Dirtmouth Stag door unlocked. ");
+                    sb.Append(Localize("Start with Dirtmouth Stag door unlocked. "));
                     break;
                 case StartItemSettings.StartStagType.ZeroOrMoreRandomStags:
-                    sb.Append("May start with some random stags. ");
+                    sb.Append(Localize("May start with some random stags. "));
                     break;
                 case StartItemSettings.StartStagType.OneRandomStag:
-                    sb.Append("Start with a random stag. ");
+                    sb.Append(Localize("Start with a random stag. "));
                     break;
                 case StartItemSettings.StartStagType.ManyRandomStags:
-                    sb.Append("Start with several random stags. ");
+                    sb.Append(Localize("Start with several random stags. "));
                     break;
                 case StartItemSettings.StartStagType.AllStags:
-                    sb.Append("Start with all stags. ");
+                    sb.Append(Localize("Start with all stags. "));
                     break;
             }
 
@@ -187,16 +197,16 @@ namespace RandomizerMod.Settings.Presets
                 case StartItemSettings.StartMiscItems.None:
                     break;
                 case StartItemSettings.StartMiscItems.DreamNail:
-                    sb.Append("Start with Dream Nail. ");
+                    sb.Append(Localize("Start with Dream Nail. "));
                     break;
                 case StartItemSettings.StartMiscItems.DreamNailAndMore:
-                    sb.Append("Start with Dream Nail and a random assortment of useful items. ");
+                    sb.Append(Localize("Start with Dream Nail and a random assortment of useful items. "));
                     break;
                 case StartItemSettings.StartMiscItems.ZeroOrMore:
-                    sb.Append("May start with a random assortment of useful items. ");
+                    sb.Append(Localize("May start with a random assortment of useful items. "));
                     break;
                 case StartItemSettings.StartMiscItems.Many:
-                    sb.Append("Start with many random useful items. ");
+                    sb.Append(Localize("Start with many random useful items. "));
                     break;
             }
 
@@ -209,12 +219,12 @@ namespace RandomizerMod.Settings.Presets
             {
                 default:
                 case StartLocationSettings.RandomizeStartLocationType.Fixed:
-                    return $"The randomizer will start at {sl.StartLocation}";
+                    return Localize("The randomizer will start at ") + Localize(sl.StartLocation);
                 case StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP:
-                    return $"The randomizer will start at a random location. " +
-                        $"It will not start at King's Pass or any location that requires additional items.";
+                    return Localize("The randomizer will start at a random location.") +
+                        Localize(" It will not start at King's Pass or any location that requires additional items.");
                 case StartLocationSettings.RandomizeStartLocationType.Random:
-                    return $"The randomizer will start at a random location.";
+                    return Localize("The randomizer will start at a random location.");
             }
         }
 
@@ -226,25 +236,25 @@ namespace RandomizerMod.Settings.Presets
             switch (ts.Mode)
             {
                 case TransitionSettings.TransitionMode.MapAreaRandomizer:
-                    sb.Append("Transitions between areas with different maps (e.g. Greenpath, Fog Canyon) will be randomized. ");
+                    sb.Append(Localize("Transitions between areas with different maps (e.g. Greenpath, Fog Canyon) will be randomized. "));
                     break;
                 case TransitionSettings.TransitionMode.FullAreaRandomizer:
-                    sb.Append("Transitions between areas with different titles (e.g. Greenpath, Lake of Unn) will be randomized. ");
+                    sb.Append(Localize("Transitions between areas with different titles (e.g. Greenpath, Lake of Unn) will be randomized. "));
                     break;
                 case TransitionSettings.TransitionMode.RoomRandomizer:
-                    sb.Append("Transitions between rooms will be randomized. ");
+                    sb.Append(Localize("Transitions between rooms will be randomized. "));
                     break;
             }
             switch (ts.TransitionMatching)
             {
                 case TransitionSettings.TransitionMatchingSetting.MatchingDirections:
-                    sb.Append("Transition directions will be preserved. ");
+                    sb.Append(Localize("Transition directions will be preserved. "));
                     break;
                 case TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor:
-                    sb.Append("Transition directions will be preserved, and doors will not map to doors. ");
+                    sb.Append(Localize("Transition directions will be preserved, and doors will not map to doors. "));
                     break;
                 default:
-                    sb.Append("Transition directions will be randomized. ");
+                    sb.Append(Localize("Transition directions will be randomized. "));
                     break;
             }
             switch (ts.AreaConstraint)
@@ -252,14 +262,14 @@ namespace RandomizerMod.Settings.Presets
                 case TransitionSettings.AreaConstraintSetting.None:
                     break;
                 case TransitionSettings.AreaConstraintSetting.MoreConnectedMapAreas:
-                    sb.Append("Where possible, transitions will connect to the same map area. ");
+                    sb.Append(Localize("Where possible, transitions will connect to the same map area. "));
                     break;
                 case TransitionSettings.AreaConstraintSetting.MoreConnectedTitledAreas:
-                    sb.Append("Where possible, transitions will connect to the same titled area. ");
+                    sb.Append(Localize("Where possible, transitions will connect to the same titled area. "));
                     break;
             }
-            if (ts.Coupled) sb.Append("Transitions will be reversible.");
-            else sb.Append("Transitions may not be reversible.");
+            if (ts.Coupled) sb.Append(Localize("Transitions will be reversible."));
+            else sb.Append(Localize("Transitions may not be reversible."));
             return sb.ToString();
         }
 
@@ -268,35 +278,35 @@ namespace RandomizerMod.Settings.Presets
             StringBuilder sb = new();
             if (ms.RandomizeNotchCosts)
             {
-                sb.Append("Notch costs of charms will be randomized. ");
+                sb.Append(Localize("Notch costs of charms will be randomized. "));
             }
             else
             {
-                sb.Append("Notch costs of charms will not be randomized. ");
+                sb.Append(Localize("Notch costs of charms will not be randomized. "));
             }
 
             if (ms.ExtraPlatforms)
             {
-                sb.Append("Extra platforms will be added in certain places to prevent softlocks. ");
+                sb.Append(Localize("Extra platforms will be added in certain places to prevent softlocks. "));
             }
             else
             {
-                sb.Append("Softlock-prevention platforms will not be provided. ");
+                sb.Append(Localize("Softlock-prevention platforms will not be provided. "));
             }
 
             switch (ms.SalubraNotches)
             {
                 case MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool:
-                    sb.Append("Salubra notches will behave like other charm notches. ");
+                    sb.Append(Localize("Salubra notches will behave like other charm notches. "));
                     break;
                 case MiscSettings.SalubraNotchesSetting.Vanilla:
-                    sb.Append("Salubra notches will never be randomized. ");
+                    sb.Append(Localize("Salubra notches will never be randomized. "));
                     break;
                 case MiscSettings.SalubraNotchesSetting.Randomized:
-                    sb.Append("Salubra notches will always be randomized. ");
+                    sb.Append(Localize("Salubra notches will always be randomized. "));
                     break;
                 case MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold:
-                    sb.Append("Salubra notches will be automatically given. ");
+                    sb.Append(Localize("Salubra notches will be automatically given. "));
                     break;
             }
             switch (ms.MaskShards)
@@ -304,10 +314,10 @@ namespace RandomizerMod.Settings.Presets
                 case MiscSettings.MaskShardType.FourShardsPerMask:
                     break;
                 case MiscSettings.MaskShardType.TwoShardsPerMask:
-                    sb.Append("Mask Shards will be consolidated to double shards. ");
+                    sb.Append(Localize("Mask Shards will be consolidated to double shards. "));
                     break;
                 case MiscSettings.MaskShardType.OneShardPerMask:
-                    sb.Append("Mask Shards will be consolidated to quadruple shards. ");
+                    sb.Append(Localize("Mask Shards will be consolidated to quadruple shards. "));
                     break;
             }
             switch (ms.VesselFragments)
@@ -315,10 +325,10 @@ namespace RandomizerMod.Settings.Presets
                 case MiscSettings.VesselFragmentType.ThreeFragmentsPerVessel:
                     break;
                 case MiscSettings.VesselFragmentType.TwoFragmentsPerVessel:
-                    sb.Append("Vessel Fragments will be consolidated to double fragments. ");
+                    sb.Append(Localize("Vessel Fragments will be consolidated to double fragments. "));
                     break;
                 case MiscSettings.VesselFragmentType.OneFragmentPerVessel:
-                    sb.Append("Vessel Fragments will be consolidated to triple fragments. ");
+                    sb.Append(Localize("Vessel Fragments will be consolidated to triple fragments. "));
                     break;
             }
 
@@ -327,12 +337,12 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this DuplicateItemSettings ds)
         {
-            return "For more information, see the Duplicate Items page in Advanced Settings.";
+            return Localize("For more information, see the Duplicate Items page in Advanced Settings.");
         }
 
         public static string Caption(this SplitGroupSettings sgs)
         {
-            if (sgs.RandomizeOnStart) return "Group settings will be randomized.";
+            if (sgs.RandomizeOnStart) return Localize("Group settings will be randomized.");
 
             var groups = SplitGroupSettings.IntFields.Values.Select(fi => (fi, (int)fi.GetValue(sgs)))
                 .Where(p => p.Item2 >= 0)
@@ -343,11 +353,11 @@ namespace RandomizerMod.Settings.Presets
             {
                 sb.Append(g.Key);
                 sb.Append(": ");
-                sb.Append(string.Join(", ", g.Select(p => p.fi.GetMenuName())));
+                sb.Append(string.Join(", ", g.Select(p => Localize(p.fi.GetMenuName()))));
                 sb.Append(". ");
             }
 
-            if (sb.Length == 0) sb.Append("Disabled.");
+            if (sb.Length == 0) sb.Append(Localize("Disabled."));
 
             return sb.ToString();
         }

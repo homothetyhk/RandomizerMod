@@ -565,11 +565,8 @@ namespace RandomizerMod.RC
         {
             int minGeo = rb.gs.StartItemSettings.MinimumStartGeo;
             int maxGeo = rb.gs.StartItemSettings.MaximumStartGeo;
-            if (minGeo < maxGeo)
-            {
-                int geo = rb.rng.Next(minGeo, maxGeo);
-                rb.AddToStart($"{geo}_Geo");
-            }
+            int geo = minGeo < maxGeo ? rb.rng.Next(minGeo, maxGeo) : minGeo;
+            if (geo > 0) rb.AddToStart($"{geo}_Geo");
         }
 
         public static void ApplyStartItemSettings(RequestBuilder rb)

@@ -31,6 +31,11 @@ namespace RandomizerMod
             OnLog?.Invoke(message);
         }
 
+        public static void LogError(object message)
+        {
+            OnLog?.Invoke(message.ToString());
+        }
+
         public static void LogWarn(string message)
         {
             OnLog?.Invoke(message);

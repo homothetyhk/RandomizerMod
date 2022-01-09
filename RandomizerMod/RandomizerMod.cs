@@ -26,6 +26,7 @@ namespace RandomizerMod
             LogHelper.OnLog += Log;
             RandomizerCore.LogHelper.OnLog += Log;
             Logging.LogManager.Initialize();
+            LocalizationData.Load();
             SpriteManager.LoadEmbeddedPngs("RandomizerMod.Resources.");
 
             try

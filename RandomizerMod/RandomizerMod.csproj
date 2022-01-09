@@ -17,6 +17,7 @@
     <Using Remove="System.Threading" />
     <Using Remove="System.Threading.Tasks" />
     <Using Include="RandomizerMod.LogHelper" Static="true" />
+    <Using Include="RandomizerMod.Localization" Static="true" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\**\*.json" />
