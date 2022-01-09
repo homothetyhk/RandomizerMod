@@ -811,13 +811,13 @@ namespace RandomizerMod.RC
                     rb.RemoveItemByName(ItemNames.Soul_Totem_Path_of_Pain);
                     rb.RemoveItemByName(ItemNames.Journal_Entry_Seal_of_Binding);
                     rb.RemoveItemByName(ItemNames.Lore_Tablet_Path_of_Pain_Entrance);
-                    rb.RemoveLocationsWhere(s => s != LocationNames.King_Fragment && Data.GetLocationDef(s)?.MapArea == "White Palace");
+                    rb.RemoveLocationsWhere(s => s != LocationNames.King_Fragment && rb.TryGetLocationDef(s, out LocationDef def) && def?.MapArea == "White Palace");
                     break;
                 case LongLocationSettings.WPSetting.ExcludePathOfPain:
                     rb.RemoveItemByName(ItemNames.Soul_Totem_Path_of_Pain);
                     rb.RemoveItemByName(ItemNames.Journal_Entry_Seal_of_Binding);
                     rb.RemoveItemByName(ItemNames.Lore_Tablet_Path_of_Pain_Entrance);
-                    rb.RemoveLocationsWhere(s => s != LocationNames.King_Fragment && Data.GetLocationDef(s)?.TitledArea == "Path of Pain");
+                    rb.RemoveLocationsWhere(s => s != LocationNames.King_Fragment && rb.TryGetLocationDef(s, out LocationDef def) && def?.TitledArea == "Path of Pain");
                     break;
             }
 

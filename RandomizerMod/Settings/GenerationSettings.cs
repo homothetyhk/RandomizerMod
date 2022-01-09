@@ -37,8 +37,7 @@ namespace RandomizerMod.Settings
         {
             if (!code.StartsWith(RandomizerMod.Version))
             {
-                LogWarn("Invalid settings code: incorrect version.");
-                return null;
+                throw new ArgumentException("Invalid settings code: outdated RandomizerMod version.");
             }
             else code = code.Substring(RandomizerMod.Version.Length);
 
@@ -48,8 +47,7 @@ namespace RandomizerMod.Settings
 
             if (pieces.Length != fields.Length)
             {
-                LogWarn("Invalid settings code: not enough pieces.");
-                return null;
+                throw new ArgumentException("Invalid settings code: not enough pieces.");
             }
 
             for (int i = 0; i < fields.Length; i++)

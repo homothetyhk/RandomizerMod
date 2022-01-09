@@ -526,7 +526,9 @@ namespace RandomizerMod.RC
                     TakeFromBucket(_set, stgb.Group1, selector);
                     foreach (string s in _set) EnsureVanillaSourceTransition(s);
                     _set.Clear();
-                    RemoveFromBucket(stgb.Group2, selector);
+                    TakeFromBucket(_set, stgb.Group2, selector);
+                    foreach (string s in _set) EnsureVanillaSourceTransition(s);
+                    _set.Clear();
                 }
                 else if (gb is SelfDualTransitionGroupBuilder sdtgb)
                 {

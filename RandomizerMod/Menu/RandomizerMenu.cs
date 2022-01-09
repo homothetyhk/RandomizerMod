@@ -630,9 +630,14 @@ namespace RandomizerMod.Menu
             GenerateCodeButton.OnClick += () => SettingsCodeField.SetValue(Settings.Serialize());
             ApplyCodeButton.OnClick += () =>
             {
-                if (GenerationSettings.Deserialize(SettingsCodeField.Value) is GenerationSettings gs)
+                try
                 {
+                    GenerationSettings gs = GenerationSettings.Deserialize(SettingsCodeField.Value);
                     ApplySettingsToMenu(gs);
+                }
+                catch (Exception e)
+                {
+                    SettingsCodeField.SetValue(e.Message);
                 }
             };
 
