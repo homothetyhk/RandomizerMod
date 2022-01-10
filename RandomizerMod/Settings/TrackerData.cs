@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using RandomizerCore;
 using RandomizerCore.Logic;
-using RandomizerCore.Randomization;
-using RandomizerMod.RC;
+using RandomizerMod.Logging;
 
 namespace RandomizerMod.Settings
 {
@@ -60,23 +55,48 @@ namespace RandomizerMod.Settings
         [JsonIgnore] public LogicManager lm;
         [JsonIgnore] public RandoContext ctx;
         private MainUpdater mu;
+        public string logFileName;
 
         public void Setup(GenerationSettings gs, RandoContext ctx)
         {
             this.ctx = ctx;
             lm = ctx.LM;
 
+            List<RandoItem> items = obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].item).ToList();
+            List<LogicTransition> transitions = visitedTransitions.Keys.Concat(visitedTransitions.Values).Where(t => !outOfLogicVisitedTransitions.Contains(t)).Distinct().Select(t => lm.GetTransition(t)).ToList();
+
             pm = new(lm, ctx);
-            pm.Add(obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].item));
-            pm.Add(visitedTransitions.Keys.Where(t => !outOfLogicVisitedTransitions.Contains(t)).Select(t => lm.GetTransition(t)));
-            pm.Add(visitedTransitions.Values.Where(t => !outOfLogicVisitedTransitions.Contains(t)).Select(t => lm.GetTransition(t)));
+            pm.Add(items);
+            pm.Add(transitions);
+            LogManager.Write(tw =>
+            {
+                tw.WriteLine("Setting up TrackerData...");
+                foreach ((RandoItem ri, RandoLocation rl) in obtainedItems
+                    .Where(i => !outOfLogicObtainedItems.Contains(i))
+                    .Select(i => ctx.itemPlacements[i]))
+                {
+                    tw.WriteLine($"Adding randomized item obtained from {rl.Name} to progression: {ri.Name}");
+                }
+                foreach (LogicTransition lt in transitions)
+                {
+                    tw.WriteLine("Adding randomized transition to progression: " + lt.Name);
+                }
+            }, logFileName);
 
             // note: location costs are ignored in the tracking, to prevent providing unintended information, by using p.location.logic rather than p.location
             // it is assumed that no information is divulged from the regular location logic and transition logic
 
             mu = new(lm);
-            mu.AddPlacements(lm.Waypoints);
-            mu.AddPlacements(ctx.Vanilla);
+            mu.AddEntries(lm.Waypoints.Select(w => new DelegateUpdateEntry(w, pm =>
+            {
+                AppendWaypointToDebug(w);
+                pm.Add(w);
+            })));
+            mu.AddEntries(ctx.Vanilla.Select(v => new DelegateUpdateEntry(v.Location, pm =>
+            {
+                AppendVanillaToDebug(v);
+                pm.Add(v.Item);
+            })));
             if (ctx.itemPlacements != null)
             {
                 mu.AddEntries(ctx.itemPlacements.Select((p, id) => new DelegateUpdateEntry(p.location.logic, OnCanGetLocation(id))));
@@ -95,8 +115,10 @@ namespace RandomizerMod.Settings
             return pm =>
             {
                 (RandoItem item, RandoLocation location) = ctx.itemPlacements[id];
+                AppendRandoLocationToDebug(location);
                 if (outOfLogicObtainedItems.Remove(id))
                 {
+                    AppendRandoItemToDebug(item, location);
                     pm.Add(item);
                 }
                 if (!clearedLocations.Contains(location.Name) && !previewedLocations.Contains(location.Name))
@@ -111,11 +133,20 @@ namespace RandomizerMod.Settings
             return pm =>
             {
                 (RandoTransition source, RandoTransition target) = ctx.transitionPlacements[id];
-                pm.Add(source);
-                if (outOfLogicVisitedTransitions.Remove(source.Name))
+                AppendReachableTransitionToDebug(source.lt);
+                
+                if (!pm.Has(source.lt.term))
                 {
+                    AppendProgressionTransitionToDebug(source.lt);
+                    pm.Add(source);
+                }
+                
+                if (outOfLogicVisitedTransitions.Remove(source.Name) && !pm.Has(target.lt.term))
+                {
+                    AppendProgressionTransitionToDebug(target.lt);
                     pm.Add(target);
                 }
+
                 if (!visitedTransitions.ContainsKey(source.Name))
                 {
                     uncheckedReachableTransitions.Add(source.Name);
@@ -129,6 +160,7 @@ namespace RandomizerMod.Settings
             obtainedItems.Add(id);
             if (AllowSequenceBreaks || rl.CanGet(pm))
             {
+                AppendRandoItemToDebug(ri, rl);
                 pm.Add(ri);
             }
             else
@@ -159,13 +191,57 @@ namespace RandomizerMod.Settings
             if (AllowSequenceBreaks || st.CanGet(pm))
             {
                 LogicTransition tt = lm.GetTransition(target);
-                if (!pm.Has(st.term)) pm.Add(st);
-                if (!pm.Has(tt.term)) pm.Add(tt);
+                if (!pm.Has(st.term))
+                {
+                    AppendProgressionTransitionToDebug(st);
+                    pm.Add(st);
+                }
+
+                if (!pm.Has(tt.term))
+                {
+                    AppendProgressionTransitionToDebug(tt);
+                    pm.Add(tt);
+                }
             }
             else
             {
                 outOfLogicVisitedTransitions.Add(source);
             }
+        }
+
+        private void AppendToDebug(string line)
+        {
+            LogManager.Append(line + Environment.NewLine, logFileName);
+        }
+
+        private void AppendWaypointToDebug(LogicWaypoint w)
+        {
+            AppendToDebug("New reachable waypoint: " + w.Name);
+        }
+
+        private void AppendVanillaToDebug(GeneralizedPlacement v)
+        {
+            AppendToDebug($"New reachable vanilla placement: {v.Item.Name} at {v.Location.Name}");
+        }
+
+        private void AppendRandoItemToDebug(RandoItem ri, RandoLocation rl)
+        {
+            AppendToDebug($"Adding randomized item obtained from {rl.Name} to progression: {ri.Name}");
+        }
+
+        private void AppendRandoLocationToDebug(RandoLocation rl)
+        {
+            AppendToDebug("New reachable randomized location: " + rl.Name);
+        }
+
+        private void AppendReachableTransitionToDebug(LogicTransition lt)
+        {
+            AppendToDebug("New reachable randomized transition: " + lt.Name);
+        }
+
+        private void AppendProgressionTransitionToDebug(LogicTransition lt)
+        {
+            AppendToDebug("Adding randomized transition to progression: " + lt.Name);
         }
 
         public bool HasVisited(string transition) => visitedTransitions.ContainsKey(transition);

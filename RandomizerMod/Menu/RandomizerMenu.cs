@@ -741,6 +741,14 @@ namespace RandomizerMod.Menu
 
         private void LocalizeMenu()
         {
+            Localize(EntryButton);
+            Localize(StartPage.backButton);
+            Localize(JumpPage.backButton);
+            Localize(AdvancedSettingsPage.backButton);
+            Localize(ConnectionsPage.backButton);
+            Localize(FinalPage.backButton);
+            Localize(PostGenerationRedirectPage.backButton);
+
             Localize(poolMEF);
             Localize(skipMEF);
             Localize(novMEF);
@@ -775,12 +783,14 @@ namespace RandomizerMod.Menu
 
             Localize(GenerateCodeButton);
             Localize(ApplyCodeButton);
+            Localize(SettingsCodeField);
 
             Localize(ProfileSwitch);
             Localize(OverwriteProfileButton);
             Localize(DeleteProfileButton);
             Localize(SaveAsNewProfileButton);
             Localize(ApplyProfileButton);
+            Localize(ProfileNameField);
 
             Localize(emptyConnectionsPanelLabel);
 

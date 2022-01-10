@@ -138,8 +138,8 @@ namespace RandomizerMod.RC
                 GenerationSettings = gs,
                 Context = ctx,
                 ProfileID = GameManager.instance.profileID,
-                TrackerData = new() { AllowSequenceBreaks = true, },
-                TrackerDataWithoutSequenceBreaks = new() { AllowSequenceBreaks = false, }
+                TrackerData = new() { AllowSequenceBreaks = true, logFileName = "TrackerDataDebugHistory.txt", },
+                TrackerDataWithoutSequenceBreaks = new() { AllowSequenceBreaks = false, logFileName = "TrackerDataWithoutSequenceBreaksDebugHistory.txt", }
             };
 
             Export.BeginExport(gs, ctx);

@@ -108,6 +108,7 @@ namespace RandomizerMod.Logging
                     using FileStream fs = File.OpenWrite(userPath);
                     using StreamWriter sr = new(fs);
                     a?.Invoke(sr);
+                    sr.Close();
 
                     string recentPath = Path.Combine(RecentDirectory, fileName);
                     Directory.CreateDirectory(Path.GetDirectoryName(recentPath));
