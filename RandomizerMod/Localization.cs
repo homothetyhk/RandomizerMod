@@ -53,7 +53,6 @@ namespace RandomizerMod
         {
             if (value != null)
             {
-                if (value.EndsWith("\n")) throw new Exception();
                 if (LocalizationData.textLookup.TryGetValue(value, out string result))
                 {
                     return result;

@@ -36,17 +36,27 @@ namespace RandomizerMod.Settings
 
         public bool ColosseumPreview;
         public bool KingFragmentPreview;
+
         public bool FlowerQuestPreview;
         public bool GreyPrinceZotePreview;
+
         public bool WhisperingRootPreview;
+        public bool DreamerPreview;
+
         public bool AbyssShriekPreview;
         public bool VoidHeartPreview;
-        public bool DreamerPreview;
+
+        public bool GodtunerPreview;
+        public bool LoreTabletPreview;
+
         public bool BasinFountainPreview;
         public bool NailmasterPreview;
+
         public bool StagPreview;
         public bool MapPreview;
-        public bool LoreTabletPreview;
+        
+        public bool DivinePreview;
+
         public CostItemHintSettings GeoShopPreview;
         public CostItemHintSettings GrubfatherPreview;
         public CostItemHintSettings SeerPreview;

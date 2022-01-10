@@ -93,7 +93,7 @@
   },
   {
     "name": "Defeated_Sanctum_Warrior",
-    "logic": "COMBAT[Sanctum_Warrior]"
+    "logic": "((Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + ENEMYPOGOS))) | Ruins1_23[top1]) + COMBAT[Sanctum_Warrior]"
   },
   {
     "name": "Defeated_Soul_Master",

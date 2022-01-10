@@ -936,6 +936,10 @@ namespace RandomizerMod.RC
                 hintRemoveLocations.Add(LocationNames.Monomon);
                 hintRemoveLocations.Add(LocationNames.Herrah);
             }
+            if (!lls.GodtunerPreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Godtuner);
+            }
             if (!lls.BasinFountainPreview)
             {
                 hintRemoveLocations.Add(LocationNames.Vessel_Fragment_Basin);
@@ -960,6 +964,13 @@ namespace RandomizerMod.RC
                 // but might as well block previews on all of them
                 hintRemoveLocations.AddRange(Data.GetPoolDef(PoolNames.Lore).IncludeLocations);
             }
+            if (!lls.DivinePreview)
+            {
+                hintRemoveLocations.Add(LocationNames.Unbreakable_Heart);
+                hintRemoveLocations.Add(LocationNames.Unbreakable_Greed);
+                hintRemoveLocations.Add(LocationNames.Unbreakable_Strength);
+            }
+
 
             foreach (string s in hintRemoveLocations)
             {

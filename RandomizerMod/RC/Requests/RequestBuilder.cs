@@ -176,7 +176,7 @@ namespace RandomizerMod.RC
         /// </summary>
         public GroupBuilder GetGroupFor(string name, ElementType type = ElementType.Unknown)
         {
-            foreach (GroupResolver resolver in _onGetGroupForOwner.GetSubscriberList())
+            foreach (GroupResolver resolver in _onGetGroupForOwner.GetSubscribers())
             {
                 if (resolver(this, name, type, out GroupBuilder gb)) return gb;
             }
@@ -603,7 +603,7 @@ namespace RandomizerMod.RC
         private static readonly PriorityEvent<RequestBuilderUpdateHandler>.IPriorityEventOwner _onUpdateOwner;
         protected void HandleUpdateEvents()
         {
-            foreach (var d in _onUpdateOwner?.GetSubscriberList())
+            foreach (var d in _onUpdateOwner?.GetSubscribers())
             {
                 d?.Invoke(this);
             }

@@ -55,17 +55,25 @@ namespace RandomizerMod.RC
                 {
                     List<FileInfo> macros = new();
                     List<FileInfo> logic = new();
+                    List<FileInfo> substs = new();
 
                     foreach (FileInfo fi in di.EnumerateFiles())
                     {
                         if (!fi.Extension.ToLower().EndsWith("json")) continue;
-                        else if (fi.Name.ToLower().StartsWith("macro")) macros.Add(fi);
+                        string fileName = fi.Name.ToLower();
+                        if (fileName.StartsWith("macro")) macros.Add(fi);
+                        else if (fileName.StartsWith("subst")) substs.Add(fi);
                         else logic.Add(fi);
                     }
                     foreach (FileInfo fi in macros)
                     {
                         using FileStream fs = fi.OpenRead();
                         lmb.DeserializeJson(LogicManagerBuilder.JsonType.MacroEdit, fs);
+                    }
+                    foreach (FileInfo fi in substs)
+                    {
+                        using FileStream fs = fi.OpenRead();
+                        lmb.DeserializeJson(LogicManagerBuilder.JsonType.LogicSubst, fs);
                     }
                     foreach (FileInfo fi in logic)
                     {
@@ -86,8 +94,19 @@ namespace RandomizerMod.RC
         public static LogicManager GetNewLogicManager(GenerationSettings gs)
         {
             LogicManagerBuilder lmb = GetNewBuilder();
+            foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberRange(float.NegativeInfinity, 0))
+            {
+                try
+                {
+                    a?.Invoke(gs, lmb);
+                }
+                catch (Exception e)
+                {
+                    Log("Error invoking logic override event:\n" + e);
+                }
+            }
             ApplyLocalLogicChanges(lmb);
-            foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberList())
+            foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberRange(float.Epsilon, float.PositiveInfinity))
             {
                 try
                 {
@@ -102,6 +121,11 @@ namespace RandomizerMod.RC
             return new(lmb);
         }
 
+        /// <summary>
+        /// Event invoked when building the LogicManager for randomization.
+        /// <br/>A subscriber with a nonpositive key is invoked before local logic edits.
+        /// <br/>A subscriber with a positive key is invoked after local logic edits.
+        /// </summary>
         public static readonly PriorityEvent<Action<GenerationSettings, LogicManagerBuilder>> RuntimeLogicOverride = new(out _runtimeLogicOverrideOwner);
         private static readonly PriorityEvent<Action<GenerationSettings, LogicManagerBuilder>>.IPriorityEventOwner _runtimeLogicOverrideOwner;
     }

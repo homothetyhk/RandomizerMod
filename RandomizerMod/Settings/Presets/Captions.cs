@@ -18,10 +18,10 @@ namespace RandomizerMod.Settings.Presets
         public static string Caption(this CostSettings cs)
         {
             StringBuilder sb = new();
-            sb.AppendLine(Localize("Grub costs may be randomized in ") + $"[{cs.MinimumGrubCost}, {cs.MaximumGrubCost}] (tol:{cs.GrubTolerance})");
-            sb.AppendLine(Localize("Essence costs may be randomized in ") + $"[{cs.MinimumEssenceCost}, {cs.MaximumEssenceCost}] (tol:{cs.EssenceTolerance})");
-            sb.AppendLine(Localize("Egg shop costs may be randomized in ") + $"[{cs.MinimumEggCost}, {cs.MaximumEggCost}] (tol:{cs.EggTolerance})");
-            sb.AppendLine(Localize("Salubra charm costs may be randomized in ") + $"[{cs.MinimumCharmCost}, {cs.MaximumCharmCost}] (tol:{cs.CharmTolerance})");
+            sb.AppendLine(Localize("Grub costs may be randomized in ") + $"[{cs.MinimumGrubCost}, {cs.MaximumGrubCost}] ({Localize("tol")}:{cs.GrubTolerance})");
+            sb.AppendLine(Localize("Essence costs may be randomized in ") + $"[{cs.MinimumEssenceCost}, {cs.MaximumEssenceCost}] ({Localize("tol")}:{cs.EssenceTolerance})");
+            sb.AppendLine(Localize("Egg shop costs may be randomized in ") + $"[{cs.MinimumEggCost}, {cs.MaximumEggCost}] ({Localize("tol")}:{cs.EggTolerance})");
+            sb.AppendLine(Localize("Salubra charm costs may be randomized in ") + $"[{cs.MinimumCharmCost}, {cs.MaximumCharmCost}] ({Localize("tol")}:{cs.CharmTolerance})");
             return sb.ToString();
         }
 

@@ -3222,7 +3222,7 @@
   {
     "sceneName": "Hive_01",
     "gateName": "right1",
-    "logic": "Hive_01[right1] | Hive_01[left1] + ANYCLAW + WINGS | (RIGHTCLAW | WINGS | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)) + ENEMYPOGOS",
+    "logic": "Hive_01[right1] | Hive_01[left1] + (ANYCLAW + WINGS | ENEMYPOGOS + (RIGHTCLAW | WINGS | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)))",
     "oneWayType": "TwoWay",
     "Name": "Hive_01[right1]"
   },
