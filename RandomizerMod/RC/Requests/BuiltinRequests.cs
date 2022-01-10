@@ -1040,6 +1040,10 @@ namespace RandomizerMod.RC
             {
                 dupes.Add(ItemNames.Dream_Nail);
             }
+            if (ds.VoidHeart)
+            {
+                dupes.Add(ItemNames.Void_Heart);
+            }
             if (ds.Dreamer && !rb.IsAtStart(ItemNames.Dreamer))
             {
                 dupes.Add(ItemNames.Dreamer);

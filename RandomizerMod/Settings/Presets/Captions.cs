@@ -34,7 +34,7 @@ namespace RandomizerMod.Settings.Presets
                     sb.Append(Localize("Locations (such as soul totems) in Path of Pain will not be randomized. "));
                     break;
                 case LongLocationSettings.WPSetting.ExcludeWhitePalace:
-                    sb.Append(Localize("Locations (such as King Fragment and soul totems) in White Palace will not be randomized. "));
+                    sb.Append(Localize("Locations (such as soul totems or lore tablets) in White Palace will not be randomized. "));
                     break;
             }
             switch (ll.BossEssenceRandomization)
@@ -105,11 +105,11 @@ namespace RandomizerMod.Settings.Presets
             StringBuilder sb = new();
             if (si.MinimumStartGeo == si.MaximumStartGeo)
             {
-                sb.Append($"Start with {si.MinimumStartGeo} geo. ");
+                sb.Append($"{Localize("Start with")} {si.MinimumStartGeo} {Localize("geo")}. ");
             }
             else
             {
-                sb.Append($"Start with random geo between {si.MinimumStartGeo} and {si.MaximumStartGeo}. ");
+                sb.Append($"{Localize("Start with random geo between")} {si.MinimumStartGeo} {Localize("and")} {si.MaximumStartGeo}. ");
             }
 
             switch (si.VerticalMovement)

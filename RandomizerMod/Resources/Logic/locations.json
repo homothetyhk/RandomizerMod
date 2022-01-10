@@ -2197,7 +2197,7 @@
   },
   {
     "name": "Soul_Totem-Crystallized_Mound",
-    "logic": "Mines_35[left1] + QUAKE + (LEFTCLAW | (RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | AIRSTALL)) | WINGS)"
+    "logic": "Mines_35[left1] + QUAKE + (LEFTCLAW | (RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | AIRSTALL)) | WINGS) + (WINGS | LEFTDASH | BACKGROUNDPOGOS)"
   },
   {
     "name": "Soul_Totem-Resting_Grounds",

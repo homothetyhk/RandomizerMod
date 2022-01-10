@@ -57,6 +57,7 @@ This file serves to document the randomizer logic.
 - Shade Skips are skips which utilize the shade, often by pogoing it or using it for damage boosts.
 - Generally, shade skips which require shade fireballs are not in logic, due to their RNG-dependence and relative obscurity.
 - Some shade skips are only conditionally in logic, depending on the transition randomizer setting. Limitations of the randomizer make it infeasible to calculate bench accessibility for setting up shade skips in every location.
+- With Void Heart, shade skips (and Sibling pogos) require unequipping Void Heart, which causes the enemies to become hostile again. Void Tendrils are not currently affected by unequipping Void Heart.
 - In logic, Shade Skips are indicated with the **SHADESKIPS** token. More commonly, the **ITEMSHADESKIPS**, **AREASHADESKIPS**, or **ROOMSHADESKIPS** macros are used.
 - Examples include:
     - Pogoing the shade in a number of places to gain extra height. Most notably, shade skips can be used to reach Salubra with no items, or Blue Lake with vertical movement.

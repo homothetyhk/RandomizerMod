@@ -235,7 +235,7 @@ The definitions used for these settings are slightly broader than those in pool 
 - Dreamers
 - Skills, including split skills, Swim, Focus
 - Charms
-- Keys, including Elevator Pass, Egg Shop
+- Keys: City Crest, Lumafly Lantern, Tram Pass, Simple Keys, Shopkeeper's Key, Elegant Key, Love Key, King's Brand, Godtuner, and Collector's Map
 - Mask Shards
 - Vessel Fragments
 - Charm Notches, including Salubra Notches
