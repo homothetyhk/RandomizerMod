@@ -458,7 +458,7 @@ namespace RandomizerMod.Menu
 
             int hashLength = 1 + 4;
             HashLabels = new MenuLabel[hashLength];
-            HashLabels[0] = new MenuLabel(FinalPage, "Hash");
+            HashLabels[0] = new MenuLabel(FinalPage, Localize("Hash"));
             for (int i = 1; i < hashLength; i++)
             {
                 HashLabels[i] = new MenuLabel(FinalPage, "", MenuLabel.Style.Body);

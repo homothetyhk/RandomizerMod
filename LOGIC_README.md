@@ -204,8 +204,26 @@ This file serves to document the randomizer logic.
 
 ## Local Logic Edits
 
-The randomizer supports editing logic in local files. To do so, navigate to the RandomizerMod folder in the Mods folder in the game files. Create the Logic folder within the RandomizerMod folder if it does not already exist, and navigate to this folder. Any JSON file within this folder will be parsed for logic edits, with two format options:
-- The Dictionary<string, string> format used by the macros.json file in the randomizer logic source code. In this case, the name of the file should start with "macro" and the file will be parsed before other logic edits to allow creating new macros (e.g. for use in a location logic edit file) or overriding existing macros.
-- The RawLogicDef[] format used by the locations.json file in the randomizer logic source code. In this case, the name of the file should not start with "macro", and the file will be parsed to edit location, waypoint, or transition logic.
+The randomizer supports editing logic in local files. To do so, navigate to the RandomizerMod folder in the Mods folder in the game files. Create the Logic folder within the RandomizerMod folder if it does not already exist, and navigate to this folder. Any JSON file within this folder will be parsed for logic edits, with the following options:
+- Macro Edits
+  - This option allows modifying current macros or defining new macros.
+  - The json file in this case must have a name beginning with "macro" (case-insensitive).
+  - The json file must have the Dictionary<string, string> format, meaning the document is enclosed in curly braces and its entries have the form "key": "value" (comma-separated).
+  - If modifying an existing macro, the **ORIG** token can be used to refer to the current logic of the macro. If defining a new macro, trying to use **ORIG** is an error.
+    - For example, the **BOSS** macro could be edited to **ORIG + FULLCLAW** to change boss logic to additionally require full claw.
+- Subst Edits
+  - This option allows substituting for a term inside a macro or logic def.
+  - The json file in this case must have a name beginning with "subst" (case-insensitive).
+  - The json file must have the RawSubstDef[] format. This means the document is enclosed in square braces [], and its entries are comma-separated objects enclosed in curly braces {}, with the fields "name", "old", and "replacement".
+  - The "name" field must correspond to a defined macro or logic entry.
+  - The "old" field must be a single token. In other words, the term "SIMPLE", the macro "SIMPLE4", or the comparison "SIMPLE>3" are valid tokens, but "SIMPLE | ANYCLAW" is not a single token.
+  - The "replacement" field must be a valid logic string.
+  - The result of an entry is to substitute "replacement" for all occurences of "old" in the logic of "name".
+  - The **ORIG** token cannot be used for Subst Edits.
+- Logic Edits
+  - This option allows directly modifying a logic def.
+  - The json file in this case must be in the RawLogicDef[] format, meaning the document is enclosed in square braces [], and its entries are comma-separated objects enclosed in curly braces {}, with the fields "name" and "logic"
+  - The "name" field must correspond to a logic entry. It cannot refer to a macro.
+  - The **ORIG** token can be used to refer to the current logic.
 
-With either type of edit, only the logic definitions which are being edited need to be included in the file. Additionally, in any edit, the **ORIG** token can be used to refer to the current value of the randomizer logic with the same name. For example, the **BOSS** macro could be edited to **ORIG + FULLCLAW** to change boss logic to additionally require full claw.
+Only the logic definitions which are being edited need to be included in the file. 
