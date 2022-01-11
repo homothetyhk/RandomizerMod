@@ -12,7 +12,6 @@ namespace RandomizerMod.RC
     public static class RCData
     {
         public static bool Loaded = false;
-        private static LogicManagerBuilder _combinedLMB;
 
         private static readonly (LogicManagerBuilder.JsonType type, string fileName)[] files = new[]
         {
@@ -23,27 +22,6 @@ namespace RandomizerMod.RC
             (LogicManagerBuilder.JsonType.Locations, "locations"),
             (LogicManagerBuilder.JsonType.Items, "items"),
         };
-
-        public static void Load()
-        {
-            if (Loaded) return;
-            Loaded = true;
-
-            _combinedLMB = new();
-            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
-            {
-                _combinedLMB.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Logic.{fileName}.json"));
-            }
-        }
-
-        /// <summary>
-        /// Clones and returns the builder for the LogicManager.
-        /// </summary>
-        public static LogicManagerBuilder GetNewBuilder()
-        {
-            if (!Loaded) Load();
-            return new(_combinedLMB);
-        }
 
         public static void ApplyLocalLogicChanges(LogicManagerBuilder lmb)
         {
@@ -93,7 +71,13 @@ namespace RandomizerMod.RC
         /// </summary>
         public static LogicManager GetNewLogicManager(GenerationSettings gs)
         {
-            LogicManagerBuilder lmb = GetNewBuilder();
+            LogicManagerBuilder lmb = new();
+
+            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
+            {
+                lmb.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Logic.{fileName}.json"));
+            }
+
             foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberRange(float.NegativeInfinity, 0))
             {
                 try
@@ -117,7 +101,7 @@ namespace RandomizerMod.RC
                     Log("Error invoking logic override event:\n" + e);
                 }
             }
-            
+
             return new(lmb);
         }
 

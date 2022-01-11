@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
 using RandomizerCore;
 using RandomizerCore.Json;
-using RandomizerCore.Logic;
-using RandomizerMod.RC;
-using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.Settings
 {
@@ -48,8 +37,8 @@ namespace RandomizerMod.Settings
                 }
                 try
                 {
-                    TrackerData.Setup(GenerationSettings, Context);
-                    TrackerDataWithoutSequenceBreaks.Setup(GenerationSettings, Context);
+                    TrackerData?.Setup(GenerationSettings, Context);
+                    TrackerDataWithoutSequenceBreaks?.Setup(GenerationSettings, Context);
                 }
                 catch (Exception e)
                 {

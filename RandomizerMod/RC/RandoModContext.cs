@@ -31,6 +31,11 @@ namespace RandomizerMod.RC
             StartDef start = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
             Setters.Add(new(lm.GetTerm(start.Transition), 1));
 
+            Setters.Add(new(lm.GetTerm("GRUBS"), -gs.CostSettings.GrubTolerance));
+            Setters.Add(new(lm.GetTerm("ESSENCE"), -gs.CostSettings.EssenceTolerance));
+            Setters.Add(new(lm.GetTerm("RANCIDEGGS"), -gs.CostSettings.EggTolerance));
+            Setters.Add(new(lm.GetTerm("CHARMS"), -gs.CostSettings.CharmTolerance));
+
             // use these baseline numbers for cursed settings and add shards/notches as vanilla items at start if necessary
             Setters.Add(new(lm.GetTerm("MASKSHARDS"), 4));
             Setters.Add(new(lm.GetTerm("NOTCHES"), 1));

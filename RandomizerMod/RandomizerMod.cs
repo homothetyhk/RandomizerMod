@@ -39,16 +39,6 @@ namespace RandomizerMod
                 throw;
             }
 
-            try
-            {
-                RCData.Load();
-            }
-            catch (Exception e)
-            {
-                LogError($"Error loading RCData!\n{e}");
-                throw;
-            }
-
             MenuChanger.ModeMenu.AddMode(new Menu.RandomizerMenuConstructor());
             Log("Initialization complete.");
         }
@@ -63,7 +53,7 @@ namespace RandomizerMod
 
         public void OnLoadGlobal(GlobalSettings s)
         {
-            GS = s;
+            GS = !GlobalSettings.IsInvalid(s) ? s : new();
         }
 
         public GlobalSettings OnSaveGlobal()
