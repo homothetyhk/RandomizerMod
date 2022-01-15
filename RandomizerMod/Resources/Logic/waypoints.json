@@ -193,7 +193,7 @@
   },
   {
     "name": "Defeated_Soul_Tyrant",
-    "logic": "(Ruins1_24[right1] | Ruins1_24[left1]) + Defeated_Soul_Master + (LEFTCLAW | WINGS | LEFTDASH) + DREAMNAIL + COMBAT[Soul_Tyrant]"
+    "logic": "(Ruins1_24[right1] | Ruins1_24[left1]) + Defeated_Soul_Master + (LEFTCLAW + PRECISEMOVEMENT | WINGS | LEFTDASH) + DREAMNAIL + COMBAT[Soul_Tyrant]"
   },
   {
     "name": "Defeated_Lost_Kin",

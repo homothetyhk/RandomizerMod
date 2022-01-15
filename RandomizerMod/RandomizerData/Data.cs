@@ -60,8 +60,6 @@ namespace RandomizerMod.RandomizerData
         public static LocationDef GetLocationDef(string name)
         {
             if (_locations.TryGetValue(name, out var def)) return def;
-
-            LogWarn($"Unable to find LocationDef for {name}.");
             return null;
         }
 

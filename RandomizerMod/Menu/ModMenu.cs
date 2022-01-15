@@ -7,10 +7,10 @@ namespace RandomizerMod.Menu
     {
         public static MenuScreen GetRandomizerMenuScreen(MenuScreen modListMenu)
         {
-            ModMenuScreenBuilder builder = new("Randomizer 4", modListMenu);
-            builder.AddButton("Open Log Folder", null, () => RandomizerMenu.OpenFile(null, String.Empty, DirectoryOptions.RecentLogFolder));
-            builder.AddButton("Open Helper Log", null, () => RandomizerMenu.OpenFile(null, "HelperLog.txt", DirectoryOptions.RecentLogFolder));
-            builder.AddButton("Open Tracker Log", null, () => RandomizerMenu.OpenFile(null, "TrackerLog.txt", DirectoryOptions.RecentLogFolder));
+            ModMenuScreenBuilder builder = new(Localize("Randomizer 4"), modListMenu);
+            builder.AddButton(Localize("Open Log Folder"), null, () => RandomizerMenu.OpenFile(null, string.Empty, DirectoryOptions.RecentLogFolder));
+            builder.AddButton(Localize("Open Helper Log"), null, () => RandomizerMenu.OpenFile(null, "HelperLog.txt", DirectoryOptions.RecentLogFolder));
+            builder.AddButton(Localize("Open Tracker Log"), null, () => RandomizerMenu.OpenFile(null, "TrackerLog.txt", DirectoryOptions.RecentLogFolder));
             return builder.CreateMenuScreen();
         }
     }

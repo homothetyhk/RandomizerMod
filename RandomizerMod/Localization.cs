@@ -65,12 +65,6 @@ namespace RandomizerMod
             return value;
         }
 
-        public static void Localize(MenuItem mi)
-        {
-            mi.Formatter = new LocalizedMenuItemFormatter(mi.Formatter);
-            Localize((SmallButton)mi);
-        }
-
         public static void Localize(Text t)
         {
             string text = t.text;
@@ -84,6 +78,7 @@ namespace RandomizerMod
 
         public static void Localize(SmallButton sb)
         {
+            if (sb is MenuItem mi) mi.Formatter = new LocalizedMenuItemFormatter(mi.Formatter);
             Localize(sb.Text);
         }
 

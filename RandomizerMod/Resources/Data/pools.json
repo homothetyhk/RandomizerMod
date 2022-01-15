@@ -2336,12 +2336,7 @@
     "IncludeLocations": [
       "Elevator_Pass"
     ],
-    "Vanilla": [
-      {
-        "item": "Elevator_Pass",
-        "location": "Start"
-      }
-    ]
+    "Vanilla": []
   },
   {
     "Group": "Skills",

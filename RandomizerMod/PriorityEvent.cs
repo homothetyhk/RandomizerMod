@@ -2,34 +2,27 @@
 
 namespace RandomizerMod
 {
-    public class PriorityEvent<T> where T : Delegate
+    public class PriorityEvent<T>
     {
         public PriorityEvent(out IPriorityEventOwner p)
         {
             p = new PriorityEventOwner(this);
         }
 
-        private readonly SortedArrayList<float> _keys = new();
-        private readonly SortedDictionary<float, T> _events = new();
-        private KeyValuePair<float, T>[] _cachedSubscriberArray;
+        private readonly SortedArrayList<PriorityEntry> _entries = new(Comparer<PriorityEntry>.Default, EqualityComparer<PriorityEntry>.Default);
+        private PriorityEntry[] _cachedSubscriberArray;
         private bool _cacheInvalidated = true;
 
-        public void Subscribe(float key, T subscriber)
+        public void Subscribe(float key, T value)
         {
-            if (!_events.TryGetValue(key, out T current))
-            {
-                _keys.Add(key);
-            }
-
-            _events[key] = (T)Delegate.Combine(current, subscriber);
+            _entries.Add(new(key, value));
             _cacheInvalidated = true;
         }
 
-        public void Unsubscribe(float key, T subscriber)
+        public void Unsubscribe(float key, T value)
         {
-            if (_events.TryGetValue(key, out T current))
+            if (_entries.Remove(new(key, value)))
             {
-                _events[key] = (T)Delegate.Remove(current, subscriber);
                 _cacheInvalidated = true;
             }
         }
@@ -40,10 +33,6 @@ namespace RandomizerMod
             /// Returns an ordered enumerable of the event's subscribers at the moment of the request. 
             /// </summary>
             IEnumerable<T> GetSubscribers();
-            /// <summary>
-            /// Returns an ordered enumerable of the event's subscribers and their priority keys at the moment of the request. 
-            /// </summary>
-            IEnumerable<KeyValuePair<float, T>> GetKeyedSubscribers();
             /// <summary>
             /// Returns an ordered enumerable of the event's subscribers in the specified priority range, with inclusive bounds.
             /// </summary>
@@ -59,7 +48,7 @@ namespace RandomizerMod
             {
                 if (_parent._cacheInvalidated)
                 {
-                    _parent._cachedSubscriberArray = _parent._events.ToArray();
+                    _parent._cachedSubscriberArray = _parent._entries.ToArray();
                     _parent._cacheInvalidated = false;
                 }
 
@@ -68,21 +57,20 @@ namespace RandomizerMod
 
             public IEnumerable<T> GetSubscriberRange(float min, float max)
             {
-                int lb = _parent._keys.FindInclusiveLowerBound(min);
-                int ub = _parent._keys.FindExclusiveUpperBound(max);
+                int lb = _parent._entries.FindInclusiveLowerBound(new (min, default));
+                int ub = _parent._entries.FindExclusiveUpperBound(new (max, default));
 
-                return Enumerable.Range(lb, ub - lb).Select(i => _parent._events[_parent._keys[i]]).ToList();
+                T[] result = new T[ub - lb];
+                for (int i = lb; i < ub; i++) result[i - lb] = _parent._entries[i].Value;
+                return result;
             }
+        }
 
-            public IEnumerable<KeyValuePair<float, T>> GetKeyedSubscribers()
+        public readonly record struct PriorityEntry(float Key, T Value) : IComparable<PriorityEntry>
+        {
+            public int CompareTo(PriorityEvent<T>.PriorityEntry other)
             {
-                if (_parent._cacheInvalidated)
-                {
-                    _parent._cachedSubscriberArray = _parent._events.ToArray();
-                    _parent._cacheInvalidated = false;
-                }
-
-                return _parent._cachedSubscriberArray;
+                return Key.CompareTo(other.Key);
             }
         }
     }

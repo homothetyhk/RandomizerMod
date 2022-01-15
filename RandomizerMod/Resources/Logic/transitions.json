@@ -3810,7 +3810,7 @@
   {
     "sceneName": "Waterways_04b",
     "gateName": "right2",
-    "logic": "Waterways_04b[right2] | Waterways_04b[left1] + ((LEFTCLAW + LEFTSUPERDASH) | SWIM) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + ((LEFTCLAW + LEFTSUPERDASH) | SWIM)",
+    "logic": "Waterways_04b[right2] | Waterways_04b[left1] + ((LEFTCLAW + RIGHTSUPERDASH) | SWIM) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + ((LEFTCLAW + RIGHTSUPERDASH) | SWIM)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_04b[right2]"
   },
@@ -5359,7 +5359,7 @@
   {
     "sceneName": "Mines_23",
     "gateName": "left1",
-    "logic": "Mines_23[left1] | Mines_23[right1] | Mines_23[top1] | Mines_23[right2] + (LEFTDASH | WINGS | (LEFTCLAW + LEFTSUPERDASH))",
+    "logic": "Mines_23[left1] | Mines_23[right1] + (LEFTDASH | WINGS | LEFTSUPERDASH | LEFTCLAW | PRECISEMOVEMENT | ENEMYPOGOS) | Mines_23[top1] | Mines_23[right2] + (LEFTDASH | WINGS | (LEFTCLAW + LEFTSUPERDASH))",
     "oneWayType": "TwoWay",
     "Name": "Mines_23[left1]"
   },

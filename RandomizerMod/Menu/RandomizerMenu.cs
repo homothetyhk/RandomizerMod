@@ -891,6 +891,7 @@ namespace RandomizerMod.Menu
             novMEF.SetMenuValues(settings.NoveltySettings);
             progressionDepthMEF.SetMenuValues(settings.ProgressionDepthSettings);
             duplicateItemMEF.SetMenuValues(settings.DuplicateItemSettings);
+            splitGroupMEF.SetMenuValues(settings.SplitGroupSettings);
 
             foreach (IMenuPreset preset in PresetButtons) preset.UpdatePreset();
         }

@@ -953,6 +953,7 @@ namespace RandomizerMod.RC
             if (!lls.StagPreview)
             {
                 hintRemoveLocations.AddRange(Data.GetPoolDef(PoolNames.Stag).IncludeLocations);
+                hintRemoveLocations.Add(LocationNames.Elevator_Pass);
             }
             if (!lls.MapPreview)
             {
