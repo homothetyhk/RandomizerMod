@@ -499,7 +499,7 @@ namespace RandomizerMod.Menu
             CostSubpage.Add(costGIP);
 
             LongLocationSubpage = new Subpage(AdvancedSettingsPage, "Long Location Options");
-            longLocationPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 800f, false, longLocationMEF.Elements);
+            longLocationPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 900f, false, longLocationMEF.Elements);
             LongLocationSubpage.Add(longLocationPanel);
 
             StartLocationSubpage = new Subpage(AdvancedSettingsPage, "Start Location");

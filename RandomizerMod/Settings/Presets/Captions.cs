@@ -28,7 +28,7 @@ namespace RandomizerMod.Settings.Presets
         public static string Caption(this LongLocationSettings ll, GenerationSettings Settings)
         {
             StringBuilder sb = new();
-            switch (ll.RandomizationInWhitePalace)
+            switch (ll.WhitePalaceRando)
             {
                 case LongLocationSettings.WPSetting.ExcludePathOfPain:
                     sb.Append(Localize("Locations (such as soul totems) in Path of Pain will not be randomized. "));
@@ -37,7 +37,7 @@ namespace RandomizerMod.Settings.Presets
                     sb.Append(Localize("Locations (such as soul totems or lore tablets) in White Palace will not be randomized. "));
                     break;
             }
-            switch (ll.BossEssenceRandomization)
+            switch (ll.BossEssenceRando)
             {
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses when Settings.PoolSettings.BossEssence:
                     sb.Append(Localize("Dream Boss essence rewards will not be randomized. "));
@@ -45,7 +45,7 @@ namespace RandomizerMod.Settings.Presets
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamWarriors when Settings.PoolSettings.BossEssence:
                     sb.Append(Localize("Dream Warrior essence rewards will not be randomized. "));
                     break;
-                case LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender when Settings.PoolSettings.BossEssence:
+                case LongLocationSettings.BossEssenceSetting.ExcludeZoteAndWhiteDefender when Settings.PoolSettings.BossEssence:
                     sb.Append(Localize("Grey Prince Zote and White Defender essence rewards will not be randomized. "));
                     break;
             }

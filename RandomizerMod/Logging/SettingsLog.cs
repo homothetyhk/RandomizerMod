@@ -11,6 +11,7 @@ namespace RandomizerMod.Logging
         {
             LogManager.Write(tw =>
             {
+                tw.WriteLine("Logging RandomizerMod GenerationSettings:");
                 using JsonTextWriter jtw = new(tw);
                 JsonUtil._js.Serialize(jtw, args.gs);
                 tw.WriteLine();

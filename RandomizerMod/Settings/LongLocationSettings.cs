@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace RandomizerMod.Settings
+﻿namespace RandomizerMod.Settings
 {
-    [Serializable]
     public class LongLocationSettings : SettingsModule
     {
         public enum WPSetting
@@ -18,7 +12,7 @@ namespace RandomizerMod.Settings
         public enum BossEssenceSetting
         {
             All,
-            ExcludeGreyPrinceZoteAndWhiteDefender,
+            ExcludeZoteAndWhiteDefender,
             ExcludeAllDreamBosses,
             ExcludeAllDreamWarriors
         }
@@ -31,8 +25,8 @@ namespace RandomizerMod.Settings
             None
         }
 
-        public WPSetting RandomizationInWhitePalace;
-        public BossEssenceSetting BossEssenceRandomization;
+        public WPSetting WhitePalaceRando;
+        public BossEssenceSetting BossEssenceRando;
 
         public bool ColosseumPreview;
         public bool KingFragmentPreview;

@@ -19,8 +19,8 @@ namespace RandomizerMod.Settings.Presets
         {
             Standard = new LongLocationSettings
             {
-                RandomizationInWhitePalace = LongLocationSettings.WPSetting.Allowed,
-                BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.All,
+                WhitePalaceRando = LongLocationSettings.WPSetting.Allowed,
+                BossEssenceRando = LongLocationSettings.BossEssenceSetting.All,
                 ColosseumPreview = true,
                 KingFragmentPreview = true,
                 FlowerQuestPreview = true,
@@ -44,8 +44,8 @@ namespace RandomizerMod.Settings.Presets
 
             Easier = new LongLocationSettings
             {
-                RandomizationInWhitePalace = LongLocationSettings.WPSetting.ExcludePathOfPain,
-                BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender,
+                WhitePalaceRando = LongLocationSettings.WPSetting.ExcludePathOfPain,
+                BossEssenceRando = LongLocationSettings.BossEssenceSetting.ExcludeZoteAndWhiteDefender,
                 ColosseumPreview = true,
                 KingFragmentPreview = true,
                 FlowerQuestPreview = true,
@@ -69,8 +69,8 @@ namespace RandomizerMod.Settings.Presets
 
             FewerHints = new LongLocationSettings
             {
-                RandomizationInWhitePalace = LongLocationSettings.WPSetting.Allowed,
-                BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.All,
+                WhitePalaceRando = LongLocationSettings.WPSetting.Allowed,
+                BossEssenceRando = LongLocationSettings.BossEssenceSetting.All,
                 ColosseumPreview = true,
                 KingFragmentPreview = true,
                 FlowerQuestPreview = true,
@@ -94,8 +94,8 @@ namespace RandomizerMod.Settings.Presets
 
             DAB = new LongLocationSettings
             {
-                RandomizationInWhitePalace = LongLocationSettings.WPSetting.ExcludeWhitePalace,
-                BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses,
+                WhitePalaceRando = LongLocationSettings.WPSetting.ExcludeWhitePalace,
+                BossEssenceRando = LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses,
                 ColosseumPreview = true,
                 KingFragmentPreview = true,
                 FlowerQuestPreview = true,
@@ -119,8 +119,8 @@ namespace RandomizerMod.Settings.Presets
 
             NoPreviews = new LongLocationSettings
             {
-                RandomizationInWhitePalace = LongLocationSettings.WPSetting.Allowed,
-                BossEssenceRandomization = LongLocationSettings.BossEssenceSetting.All,
+                WhitePalaceRando = LongLocationSettings.WPSetting.Allowed,
+                BossEssenceRando = LongLocationSettings.BossEssenceSetting.All,
                 ColosseumPreview = false,
                 KingFragmentPreview = false,
                 FlowerQuestPreview = false,

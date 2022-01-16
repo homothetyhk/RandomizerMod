@@ -102,7 +102,7 @@ namespace RandomizerMod.RC
                 gb = default;
                 return false;
             }
-            rb.OnGetGroupFor.Subscribe(-100f, TryResolveGroup);
+            rb.OnGetGroupFor.Subscribe(100f, TryResolveGroup);
         }
 
         public static void ApplyCustomGeoMatch(RequestBuilder rb)
@@ -822,7 +822,7 @@ namespace RandomizerMod.RC
 
         public static void ApplyPalaceLongLocationSetting(RequestBuilder rb)
         {
-            switch (rb.gs.LongLocationSettings.RandomizationInWhitePalace)
+            switch (rb.gs.LongLocationSettings.WhitePalaceRando)
             {
                 case LongLocationSettings.WPSetting.ExcludeWhitePalace:
                     rb.RemoveItemByName(ItemNames.Soul_Totem_Palace);
@@ -841,11 +841,11 @@ namespace RandomizerMod.RC
                     break;
             }
 
-            if (rb.gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludeWhitePalace)
+            if (rb.gs.LongLocationSettings.WhitePalaceRando == LongLocationSettings.WPSetting.ExcludeWhitePalace)
             {
                 rb.UnrandomizeTransitionsWhere(t => Data.GetTransitionDef(t)?.MapArea == "White Palace");
             }
-            else if (rb.gs.LongLocationSettings.RandomizationInWhitePalace == LongLocationSettings.WPSetting.ExcludePathOfPain)
+            else if (rb.gs.LongLocationSettings.WhitePalaceRando == LongLocationSettings.WPSetting.ExcludePathOfPain)
             {
                 rb.UnrandomizeTransitionsWhere(t => Data.GetTransitionDef(t)?.TitledArea == "Path of Pain");
                 rb.UnrandomizeTransitionByName("White_Palace_06[left1]");
@@ -859,7 +859,7 @@ namespace RandomizerMod.RC
                 return;
             }
 
-            switch (rb.gs.LongLocationSettings.BossEssenceRandomization)
+            switch (rb.gs.LongLocationSettings.BossEssenceRando)
             {
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamWarriors:
                     PoolDef warriors = Data.GetPoolDef(PoolNames.DreamWarrior);
@@ -873,7 +873,7 @@ namespace RandomizerMod.RC
                     foreach (string loc in bosses.IncludeLocations) rb.RemoveLocationByName(loc);
                     foreach (PoolDef.StringILP p in bosses.Vanilla) rb.AddToVanilla(p.item, p.location);
                     break;
-                case LongLocationSettings.BossEssenceSetting.ExcludeGreyPrinceZoteAndWhiteDefender:
+                case LongLocationSettings.BossEssenceSetting.ExcludeZoteAndWhiteDefender:
                     rb.RemoveItemByName(ItemNames.Boss_Essence_White_Defender);
                     rb.RemoveItemByName(ItemNames.Boss_Essence_Grey_Prince_Zote);
                     rb.RemoveLocationByName(LocationNames.Boss_Essence_White_Defender);
