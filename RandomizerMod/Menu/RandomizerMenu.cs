@@ -290,6 +290,7 @@ namespace RandomizerMod.Menu
         VerticalItemPanel generationInfoVIP;
 
         MenuLabel[] HashLabels;
+        SmallButton CopyHashButton;
         VerticalItemPanel HashVIP;
 
         #endregion
@@ -464,6 +465,12 @@ namespace RandomizerMod.Menu
                 HashLabels[i] = new MenuLabel(FinalPage, "", MenuLabel.Style.Body);
                 HashLabels[i].Text.alignment = TextAnchor.UpperCenter;
             }
+            CopyHashButton = new SmallButton(FinalPage, "Copy Hash");
+            CopyHashButton.OnClick += () =>
+            {
+                GUIUtility.systemCopyBuffer = string.Join(", ", HashLabels.Skip(1).Select(l => l.Text.text.Replace("\n", "")));
+            };
+            CopyHashButton.Hide();
 
             resumeButton = new BigButton(ResumePage, "Resume");
             openLogFolderButton = new SmallButton(ResumePage, "Open Log Folder");
@@ -553,7 +560,7 @@ namespace RandomizerMod.Menu
             emptyConnectionsPanelLabel = new MenuLabel(ConnectionsPage, "This page is currently empty. " +
                 "Mods connected to the randomizer can link menus here.", MenuLabel.Style.Title);
             emptyConnectionsPanelLabel.MoveTo(new(0, 400));
-            connectionsPanel = new MultiGridItemPanel(ConnectionsPage, 6, 4, 50f, 400f, new(0, 300), Array.Empty<IMenuElement>());
+            connectionsPanel = new MultiGridItemPanel(ConnectionsPage, 5, 3, 60f, 650f, new(0, 300), Array.Empty<IMenuElement>());
             // note - connection entries are constructed after menu construction!
 
             CodeVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(-400, 300), 100, true, CodeElements);
@@ -720,6 +727,7 @@ namespace RandomizerMod.Menu
             RandomSeedButton.MoveTo(new Vector2(650, -400));
 
             StartButton.MoveTo(new Vector2(0, -200));
+            CopyHashButton.MoveTo(new Vector2(400, 25));
 
             // buttons not in panels need navigation
             GenerateButton.SymSetNeighbor(Neighbor.Up, StartGIP);
@@ -797,6 +805,7 @@ namespace RandomizerMod.Menu
             Localize(StartButton);
             Localize(ProceedButton);
             Localize(redirectStartButton);
+            Localize(CopyHashButton);
 
             Localize(resumeButton);
             foreach (SmallButton sb in resumeElements) Localize(sb);
@@ -942,11 +951,14 @@ namespace RandomizerMod.Menu
                             HashLabels[1 + i].Text.text = Localize(hash[i]);
                         }
                         HashVIP.Show();
+                        CopyHashButton.Show();
 
                         BigButton nextButton = RebuildPostGenerationRedirectPanel() ? ProceedButton : StartButton;
                         nextButton.Show();
                         nextButton.MoveTo(new(0f, -200f));
                         FinalPage.backButton.SymSetNeighbor(Neighbor.Up, nextButton);
+                        CopyHashButton.SymSetNeighbor(Neighbor.Down, nextButton);
+                        CopyHashButton.SymSetNeighbor(Neighbor.Up, FinalPage.backButton);
                     });
                 }
                 catch (Exception e)
@@ -993,10 +1005,17 @@ namespace RandomizerMod.Menu
             RandomizerThread?.Join();
             ThreadSupport.BeginInvoke(ResetOutputLabel); // the thread will schedule ThreadSupport to send an error to the label
             HashVIP.Hide();
+            CopyHashButton.Hide();
             StartButton.Hide();
             ProceedButton.Hide();
             FinalPage.backButton.SetNeighbor(Neighbor.Up, null);
+            FinalPage.backButton.SetNeighbor(Neighbor.Down, null);
             StartButton.SetNeighbor(Neighbor.Down, null);
+            StartButton.SetNeighbor(Neighbor.Up, null);
+            ProceedButton.SetNeighbor(Neighbor.Down, null);
+            ProceedButton.SetNeighbor(Neighbor.Up, null);
+            CopyHashButton.SetNeighbor(Neighbor.Up, null);
+            CopyHashButton.SetNeighbor(Neighbor.Down, null);
         }
 
         private void ResetOutputLabel()

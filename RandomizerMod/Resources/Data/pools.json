@@ -35,6 +35,16 @@
     ]
   },
   {
+    "Group": "Dreamers",
+    "Name": "FakeDreamer",
+    "Path": "False",
+    "IncludeItems": [
+      "Dreamer"
+    ],
+    "IncludeLocations": [],
+    "Vanilla": []
+  },
+  {
     "Group": "Skills",
     "Name": "Skill",
     "Path": "PoolSettings.Skills",

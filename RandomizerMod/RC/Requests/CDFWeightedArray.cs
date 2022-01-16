@@ -21,7 +21,7 @@
             double d = rng.NextDouble();
             for (int i = 0; i < values.Length; i++)
             {
-                if (cumulativeDensities[i] < d) return values[i];
+                if (cumulativeDensities[i] > d) return values[i];
             }
             return values[values.Length - 1];
         }

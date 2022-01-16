@@ -59,8 +59,6 @@ namespace RandomizerMod.IC
                 StringBuilder sb = new("Starting tracker log for new randomizer file.");
                 sb.AppendLine();
                 sb.AppendLine();
-                sb.AppendLine(RandomizerData.JsonUtil.Serialize(RandomizerMod.RS.GenerationSettings));
-                sb.AppendLine();
                 AppendToTracker(sb.ToString());
             }
         }

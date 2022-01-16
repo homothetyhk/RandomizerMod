@@ -15,6 +15,7 @@ namespace RandomizerMod.Logging
         /// </summary>
         private static readonly List<RandoLogger> loggers = new()
         {
+            new SettingsLog(),
             new ItemSpoilerLog(),
             new TransitionSpoilerLog(),
         };

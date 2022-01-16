@@ -12,6 +12,11 @@ namespace RandomizerMod.RC
 {
     public class ProgressionInitializer : ILogicItem
     {
+        /// <summary>
+        /// Event invoked after base randomizer term modifiers are added to the initializer.
+        /// </summary>
+        public static event Action<LogicManager, GenerationSettings, ProgressionInitializer> OnCreateProgressionInitializer;
+
         public ProgressionInitializer() { }
         public ProgressionInitializer(LogicManager lm, GenerationSettings gs)
         {
@@ -39,6 +44,15 @@ namespace RandomizerMod.RC
             // use these baseline numbers for cursed settings and add shards/notches as vanilla items at start if necessary
             Setters.Add(new(lm.GetTerm("MASKSHARDS"), 4));
             Setters.Add(new(lm.GetTerm("NOTCHES"), 1));
+
+            try
+            {
+                OnCreateProgressionInitializer?.Invoke(lm, gs, this);
+            }
+            catch (Exception e)
+            {
+                LogError($"Error invoking OnCreateProgressionInitializer:\n{e}");
+            }
         }
 
         public List<TermValue> Setters = new();

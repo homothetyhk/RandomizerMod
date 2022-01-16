@@ -91,6 +91,18 @@ namespace RandomizerMod.RC
                 }
             }
             rb.ItemMatchers.Add(TryMatch);
+
+            bool TryResolveGroup(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb)
+            {
+                if ((type == ElementType.Item || type == ElementType.Unknown) && item.StartsWith(PlaceholderItem.Prefix))
+                {
+                    gb = rb.GetItemGroupFor(item.Substring(PlaceholderItem.Prefix.Length));
+                    return true;
+                }
+                gb = default;
+                return false;
+            }
+            rb.OnGetGroupFor.Subscribe(-100f, TryResolveGroup);
         }
 
         public static void ApplyCustomGeoMatch(RequestBuilder rb)
@@ -368,6 +380,14 @@ namespace RandomizerMod.RC
             Dictionary<string, Bucket<int>> itemWeightBuilder = new();
             Dictionary<string, Bucket<int>> locationWeightBuilder = new();
             splitGroups.Add(0, rb.MainItemGroup);
+            foreach (ItemGroupBuilder igb in rb.EnumerateItemGroups()) // compatibility in case something else already made split groups
+            {
+                if (igb.label.StartsWith(RBConsts.SplitGroupPrefix) && int.TryParse(igb.label.Substring(RBConsts.SplitGroupPrefix.Length), out int splitGroupIndex) && splitGroupIndex > 0)
+                {
+                    splitGroups[splitGroupIndex] = igb;
+                }
+            }
+
             foreach (PoolDef def in Data.Pools)
             {
                 if (rb.gs.SplitGroupSettings.TryGetValue(def, out int value))
@@ -1483,7 +1503,7 @@ namespace RandomizerMod.RC
             {
                 if (gb.onPermute == null) gb.onPermute = PostPermute;
                 // is it a good idea to put this on every item group?
-            } 
+            }
 
             void PostPermute(Random rng, RandomizationGroup group)
             {
@@ -1496,9 +1516,8 @@ namespace RandomizerMod.RC
                 {
                     for (int i = 0; i < items.Count; i++)
                     {
-                        if (majorPenalty && (Data.GetItemDef(items[i].Name)?.MajorItem ?? false))
+                        if (majorPenalty && rb.TryGetItemDef(items[i].Name, out ItemDef def) && def.MajorItem)
                         {
-                            
                             items[i].Priority += rng.Next(items.Count - i) / (float)items.Count;
                         }
 
