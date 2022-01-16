@@ -63,11 +63,18 @@ namespace RandomizerMod.Settings
             lm = ctx.LM;
 
             List<RandoItem> items = obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].item).ToList();
-            List<LogicTransition> transitions = visitedTransitions.Keys.Concat(visitedTransitions.Values).Where(t => !outOfLogicVisitedTransitions.Contains(t)).Distinct().Select(t => lm.GetTransition(t)).ToList();
+
+            HashSet<string> transitionProgression = new();
+            foreach (KeyValuePair<string, string> kvp in visitedTransitions)
+            {
+                if (outOfLogicVisitedTransitions.Contains(kvp.Key)) continue;
+                transitionProgression.Add(kvp.Key);
+                transitionProgression.Add(kvp.Value);
+            }
 
             pm = new(lm, ctx);
             pm.Add(items);
-            pm.Add(transitions);
+            pm.Add(transitionProgression.Select(t => lm.GetTransition(t)));
             LogManager.Write(tw =>
             {
                 tw.WriteLine("Setting up TrackerData...");
@@ -77,9 +84,9 @@ namespace RandomizerMod.Settings
                 {
                     tw.WriteLine($"Adding randomized item obtained from {rl.Name} to progression: {ri.Name}");
                 }
-                foreach (LogicTransition lt in transitions)
+                foreach (string t in transitionProgression)
                 {
-                    tw.WriteLine("Adding randomized transition to progression: " + lt.Name);
+                    tw.WriteLine("Adding randomized transition to progression: " + t);
                 }
             }, logFileName);
 
