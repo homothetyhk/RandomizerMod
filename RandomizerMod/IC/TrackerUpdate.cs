@@ -9,8 +9,8 @@ namespace RandomizerMod.IC
         {
             RandoItemTag.AfterRandoItemGive += AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged += OnRandoPlacementVisitStateChanged;
-            Events.OnBeginSceneTransition += OnBeginSceneTransition;
-            transitionInverse ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.target.Name, p => p.source.Name) ?? new();
+            Events.OnTransitionOverride += OnTransitionOverride;
+            transitionLookup ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.source.Name, p => p.target.Name) ?? new();
             
             OnItemObtained += TD.OnItemObtained;
             OnItemObtained += TD_WSB.OnItemObtained;
@@ -26,7 +26,7 @@ namespace RandomizerMod.IC
         {
             RandoItemTag.AfterRandoItemGive -= AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged -= OnRandoPlacementVisitStateChanged;
-            Events.OnBeginSceneTransition -= OnBeginSceneTransition;
+            Events.OnTransitionOverride -= OnTransitionOverride;
 
             OnItemObtained -= TD.OnItemObtained;
             OnItemObtained -= TD_WSB.OnItemObtained;
@@ -46,7 +46,7 @@ namespace RandomizerMod.IC
 
         private TrackerData TD => RandomizerMod.RS.TrackerData;
         private TrackerData TD_WSB => RandomizerMod.RS.TrackerDataWithoutSequenceBreaks;
-        private Dictionary<string, string> transitionInverse;
+        private Dictionary<string, string> transitionLookup;
 
         private void OnRandoPlacementVisitStateChanged(VisitStateChangedEventArgs args)
         {
@@ -73,27 +73,31 @@ namespace RandomizerMod.IC
         }
 
         /// <summary>
-        /// Static method intended to allow updating found transitions by external callers.
+        /// Static method intended to allow updating visited source transitions by external callers.
         /// </summary>
-        public static void SendTransitionFound(Transition t)
+        public static void SendTransitionFound(Transition source)
         {
-            if (ItemChangerMod.Modules.Get<TrackerUpdate>() is TrackerUpdate instance) instance.OnBeginSceneTransition(t);
+            if (ItemChangerMod.Modules.Get<TrackerUpdate>() is TrackerUpdate instance) instance.OnTransitionFound(source.ToString());
         }
 
-        private void OnBeginSceneTransition(Transition t)
+        private void OnTransitionOverride(Transition source, Transition origTarget, ITransition newTarget)
         {
-            string target = t.ToString();
-            if (transitionInverse.TryGetValue(target, out string source) && !TD.HasVisited(source))
-            {
-                OnTransitionVisited?.Invoke(source, target);
+            OnTransitionFound(source.ToString());
+        }
 
-                if (RandomizerMod.RS.GenerationSettings.TransitionSettings.Coupled && transitionInverse.ContainsKey(source))
+        private void OnTransitionFound(string sourceName)
+        {
+            if (transitionLookup.TryGetValue(sourceName, out string targetName) && !TD.HasVisited(sourceName))
+            {
+                OnTransitionVisited?.Invoke(sourceName, targetName);
+                if (RandomizerMod.RS.GenerationSettings.TransitionSettings.Coupled && transitionLookup.ContainsKey(targetName))
                 {
-                    OnTransitionVisited?.Invoke(target, source);
+                    OnTransitionVisited?.Invoke(targetName, sourceName);
                 }
 
                 OnFinishedUpdate?.Invoke();
             }
         }
+
     }
 }
