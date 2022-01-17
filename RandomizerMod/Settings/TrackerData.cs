@@ -165,7 +165,7 @@ namespace RandomizerMod.Settings
         {
             (RandoItem ri, RandoLocation rl) = ctx.itemPlacements[id];
             obtainedItems.Add(id);
-            if (AllowSequenceBreaks || rl.CanGet(pm))
+            if (AllowSequenceBreaks || rl.logic.CanGet(pm))
             {
                 AppendRandoItemToDebug(ri, rl);
                 pm.Add(ri);

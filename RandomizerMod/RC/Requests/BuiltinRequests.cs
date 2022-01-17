@@ -39,6 +39,9 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(1f, ApplyMultiLocationRebalancing);
             OnUpdate.Subscribe(2f, ApplyGrubMimicRando);
 
+            OnUpdate.Subscribe(4f, ApplyRandomizeCursedMasks);
+            OnUpdate.Subscribe(4f, ApplyRandomizeCursedNotches);
+
             OnUpdate.Subscribe(5f, ApplyStartGeo);
             OnUpdate.Subscribe(5f, ApplyDownslashStart);
             OnUpdate.Subscribe(5f, ApplyStartItemSettings);
@@ -1495,6 +1498,16 @@ namespace RandomizerMod.RC
                 gb.Items.Remove(ItemNames.Grub, extraMimics);
                 gb.Items.Increment(ItemNames.Mimic_Grub, extraMimics);
             }
+        }
+
+        public static void ApplyRandomizeCursedMasks(RequestBuilder rb)
+        {
+            for (int i = 0; i < rb.gs.CursedSettings.CursedMasks * 4; i++) rb.AddItemByName(ItemNames.Mask_Shard);
+        }
+
+        private static void ApplyRandomizeCursedNotches(RequestBuilder rb)
+        {
+            for (int i = 0; i < rb.gs.CursedSettings.CursedNotches; i++) rb.AddItemByName(ItemNames.Charm_Notch);
         }
 
         public static void ApplyItemPostPermuteEvents(RequestBuilder rb)

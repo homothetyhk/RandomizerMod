@@ -17,7 +17,5 @@
   "RANDOMNAIL": "NoveltySettings.RandomizeNail",
   "CURSED": "CursedSettings.RemoveSpellUpgrades",
   "RANDOMFOCUS": "NoveltySettings.RandomizeFocus",
-  "CURSEDMASKS": "CursedSettings.CursedMasks",
-  "CURSEDNOTCHES": "CursedSettings.CursedNotches",
   "RANDOMELEVATORS": "NoveltySettings.RandomizeElevatorPass"
 }

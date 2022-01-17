@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using MenuChanger.Attributes;
 using RandomizerCore.Extensions;
 
 namespace RandomizerMod.Settings
@@ -10,8 +11,10 @@ namespace RandomizerMod.Settings
         public bool ReplaceJunkWithOneGeo;
         public bool RemoveSpellUpgrades;
         public bool Deranged;
-        public bool CursedMasks;
-        public bool CursedNotches;
+        [MenuRange(0, 4)]
+        public int CursedMasks;
+        [MenuRange(0, 2)]
+        public int CursedNotches;
         public bool RandomizeMimics;
         public int MaximumGrubsReplacedByMimics;
 

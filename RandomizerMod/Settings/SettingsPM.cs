@@ -77,7 +77,7 @@ namespace RandomizerMod.Settings
                 "SWIM" => !GS.NoveltySettings.RandomizeSwim,
                 "ELEVATOR" => !GS.NoveltySettings.RandomizeElevatorPass,
 
-                "2MASKS" => !GS.CursedSettings.CursedMasks,
+                "2MASKS" => GS.CursedSettings.CursedMasks < 4,
                 
                 "VERTICAL" => GS.StartItemSettings.VerticalMovement != StartItemSettings.StartVerticalType.None 
                     && GS.StartItemSettings.VerticalMovement != StartItemSettings.StartVerticalType.ZeroOrMore,

@@ -22,8 +22,8 @@ namespace RandomizerMod.Settings.Presets
                 RemoveSpellUpgrades = false,
                 LongerProgressionChains = false,
                 Deranged = false,
-                CursedMasks = false,
-                CursedNotches = false,
+                CursedMasks = 0,
+                CursedNotches = 0,
                 RandomizeMimics = false,
                 MaximumGrubsReplacedByMimics = 0,
             };
@@ -33,8 +33,8 @@ namespace RandomizerMod.Settings.Presets
                 RemoveSpellUpgrades = true,
                 LongerProgressionChains = true,
                 Deranged = false,
-                CursedMasks = false,
-                CursedNotches = false,
+                CursedMasks = 0,
+                CursedNotches = 0,
                 RandomizeMimics = false,
                 MaximumGrubsReplacedByMimics = 0,
             };
@@ -44,8 +44,8 @@ namespace RandomizerMod.Settings.Presets
                 RemoveSpellUpgrades = false,
                 LongerProgressionChains = false,
                 Deranged = true,
-                CursedMasks = true,
-                CursedNotches = true,
+                CursedMasks = 4,
+                CursedNotches = 2,
                 RandomizeMimics = true,
                 MaximumGrubsReplacedByMimics = 10,
             };
@@ -55,8 +55,8 @@ namespace RandomizerMod.Settings.Presets
                 RemoveSpellUpgrades = true,
                 LongerProgressionChains = true,
                 Deranged = true,
-                CursedMasks = true,
-                CursedNotches = true,
+                CursedMasks = 4,
+                CursedNotches = 2,
                 RandomizeMimics = true,
                 MaximumGrubsReplacedByMimics = 10,
             };
@@ -69,7 +69,5 @@ namespace RandomizerMod.Settings.Presets
                 { "Ultra Cursed", UltraCursed },
             };
         }
-
-
     }
 }

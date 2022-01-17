@@ -150,11 +150,11 @@ namespace RandomizerMod.RC
                 for (int i = 0; i < ctx.notchCosts.Count; i++) PlayerData.instance.SetInt($"charmCost_{i + 1}", ctx.notchCosts[i]);
             }
 
-            if (gs.CursedSettings.CursedNotches) PlayerData.instance.SetInt(nameof(PlayerData.charmSlots), 1);
-            if (gs.CursedSettings.CursedMasks)
+            if (gs.CursedSettings.CursedNotches > 0) PlayerData.instance.SetInt(nameof(PlayerData.charmSlots), 3 - gs.CursedSettings.CursedNotches);
+            if (gs.CursedSettings.CursedMasks > 0)
             {
-                PlayerData.instance.SetInt(nameof(PlayerData.maxHealth), 1);
-                PlayerData.instance.SetInt(nameof(PlayerData.maxHealthBase), 1);
+                PlayerData.instance.SetInt(nameof(PlayerData.maxHealth), 5 - gs.CursedSettings.CursedMasks);
+                PlayerData.instance.SetInt(nameof(PlayerData.maxHealthBase), 5 - gs.CursedSettings.CursedMasks);
             }
 
             LogManager.WriteLogs(args);

@@ -93,8 +93,16 @@ namespace RandomizerMod.Settings.Presets
             if (cs.RemoveSpellUpgrades) sb.Append(Localize("Spell upgrades are completely removed. "));
             if (cs.LongerProgressionChains) sb.Append(Localize("Progression items are harder to find on average. "));
             if (cs.Deranged) sb.Append(Localize("Placements are much less likely to be vanilla. "));
-            if (cs.CursedMasks) sb.Append(Localize("Start with only 1 mask. "));
-            if (cs.CursedNotches) sb.Append(Localize("Start with only 1 charm notch. "));
+            if (cs.CursedMasks > 0)
+            {
+                if (cs.CursedMasks == 4) sb.Append(Localize($"Start with only 1 mask. "));
+                else sb.Append(Localize($"Start with only {5 - cs.CursedMasks} masks. "));
+            }
+            if (cs.CursedNotches > 0)
+            {
+                if (cs.CursedNotches == 2) sb.Append(Localize("Start with only 1 charm notch. "));
+                else sb.Append(Localize($"Start with only {3 - cs.CursedNotches} charm notches. "));
+            }
             if (cs.RandomizeMimics) sb.Append(Localize("Some grub bottles may contain a surprise..."));
 
             return sb.ToString();

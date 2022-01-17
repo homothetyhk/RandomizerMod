@@ -673,96 +673,6 @@
     ]
   },
   {
-    "Group": "MaskShards",
-    "Name": "CursedMask",
-    "Path": "CursedSettings.CursedMasks",
-    "IncludeItems": [
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard",
-      "Mask_Shard"
-    ],
-    "IncludeLocations": [],
-    "Vanilla": [
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      },
-      {
-        "item": "Mask_Shard",
-        "location": "Start"
-      }
-    ]
-  },
-  {
     "Group": "VesselFragments",
     "Name": "Vessel",
     "Path": "PoolSettings.VesselFragments",
@@ -894,26 +804,6 @@
       {
         "item": "Charm_Notch",
         "location": "Salubra"
-      }
-    ]
-  },
-  {
-    "Group": "CharmNotches",
-    "Name": "CursedNotch",
-    "Path": "CursedSettings.CursedNotches",
-    "IncludeItems": [
-      "Charm_Notch",
-      "Charm_Notch"
-    ],
-    "IncludeLocations": [],
-    "Vanilla": [
-      {
-        "item": "Charm_Notch",
-        "location": "Start"
-      },
-      {
-        "item": "Charm_Notch",
-        "location": "Start"
       }
     ]
   },
