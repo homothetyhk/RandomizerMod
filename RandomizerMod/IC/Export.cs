@@ -78,8 +78,8 @@ namespace RandomizerMod.IC
 
                 // Drop the vine platforms and add small platforms for jumping up.
                 case "Far Greenpath":
-                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Fungus1_13, X = 45f, Y = 16.5f, Test = PlatformList.lacksLeftVertical });
-                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Fungus1_13, X = 64f, Y = 16.5f, Test = PlatformList.lacksRightVertical });
+                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Fungus1_13, X = 45f, Y = 16.5f, Test = PlatformList.lacksLeftClaw });
+                    ItemChangerMod.AddDeployer(new SmallPlatform { SceneName = SceneNames.Fungus1_13, X = 64f, Y = 16.5f, Test = PlatformList.lacksRightClaw });
                     SD.Save(SceneNames.Fungus1_13, "Vine Platform (1)");
                     SD.Save(SceneNames.Fungus1_13, "Vine Platform (2)");
                     break;
