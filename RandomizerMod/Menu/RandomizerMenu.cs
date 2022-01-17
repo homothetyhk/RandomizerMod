@@ -926,6 +926,10 @@ namespace RandomizerMod.Menu
                     });
                 }
             };
+            rm.OnError += e =>
+            {
+                Log(e.Message);
+            };
 
             RandomizationTimer.Reset();
             RandomizationTimer.Start();

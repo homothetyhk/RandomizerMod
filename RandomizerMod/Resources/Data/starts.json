@@ -170,7 +170,7 @@
     "y": 4.4,
     "zone": "OUTSKIRTS",
     "transition": "Deepnest_East_15[left1]",
-    "logic": "(ITEMRANDO + ENEMYPOGOS + SWIM) | MAPAREARANDO | FULLAREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "(ITEMRANDO + ENEMYPOGOS + SWIM) | MAPAREARANDO | FULLAREARANDO | ROOMRANDO"
       // first branch: ensure King's Station Stag is reachable
   },
   "Hallownest's Crown": {
@@ -189,7 +189,7 @@
     "y": 30.4,
     "zone": "WATERWAYS",
     "transition": "Waterways_09[left1]",
-    "logic": "(ITEMRANDO + ENEMYPOGOS + SHADESKIPS + 2MASKS) | MAPAREARANDO | FULLAREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "(ITEMRANDO + ENEMYPOGOS + SHADESKIPS + 2MASKS) | MAPAREARANDO | FULLAREARANDO | ROOMRANDO"
   },
   "Queen's Gardens": {
     "name": "Queen's Gardens",
@@ -208,7 +208,7 @@
     "y": 13.4,
     "zone": "DEEPNEST",
     "transition": "Room_spider_small[left1]",
-    "logic": "FULLAREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "FULLAREARANDO | ROOMRANDO"
   },
   "Far Greenpath": {
     "name": "Far Greenpath",
@@ -217,7 +217,7 @@
     "y": 23.4,
     "zone": "GREEN_PATH",
     "transition": "Fungus1_13[left1]",
-    "logic": "MAPAREARANDO | FULLAREARANDO | ROOMRANDO | VERTICAL"
+    "logic": "MAPAREARANDO | FULLAREARANDO | ROOMRANDO"
   },
   "Hive": {
     "name": "Hive",
@@ -226,7 +226,7 @@
     "y": 142.7,
     "zone": "HIVE",
     "transition": "Hive_03[right1]",
-    "logic": "ROOMRANDO | VERTICAL"
+    "logic": "ROOMRANDO"
   },
   "Royal Waterways": {
     "name": "Royal Waterways",
@@ -235,7 +235,7 @@
     "y": 4.4,
     "zone": "WATERWAYS",
     "transition": "Waterways_03[left1]",
-    "logic": "ROOMRANDO | VERTICAL"
+    "logic": "ROOMRANDO"
   },
   "City of Tears": {
     "name": "City of Tears",
@@ -244,7 +244,7 @@
     "y": 6.4,
     "zone": "CITY",
     "transition": "Ruins1_27[left1]",
-    "logic": "ROOMRANDO | VERTICAL"
+    "logic": "ROOMRANDO"
   },
   "Abyss": {
     "name": "Abyss",
@@ -262,6 +262,6 @@
     "y": 21.4,
     "zone": "WASTES",
     "transition": "Fungus2_30[top1]",
-    "logic": "VERTICAL"
+    "logic": "ROOMRANDO"
   }
 }

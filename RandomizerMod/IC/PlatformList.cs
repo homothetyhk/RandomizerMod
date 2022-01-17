@@ -94,6 +94,12 @@ namespace RandomizerMod.IC
                plats.Add(new() { SceneName = SceneNames.Fungus3_05, X = 65.7f, Y = 11f + 4.5f * i, Test = lacksRightClaw });
             }
 
+            if (gs.StartLocationSettings.StartLocation != "Hive")
+            {
+                plats.Add(new() { SceneName = SceneNames.Hive_03, X = 58.5f, Y = 134f, Test = lacksAnyVertical });
+                plats.Add(new() { SceneName = SceneNames.Hive_03, X = 58.5f, Y = 138.5f, Test = lacksAnyVertical });
+            }
+
             // Move the load in colo downward to prevent bench soft lock
             if (!targetNames.Contains($"{SceneNames.Room_Colosseum_02}[top2]")
                 && !targetNames.Contains($"{SceneNames.Room_Colosseum_Spectate}[right1]"))
