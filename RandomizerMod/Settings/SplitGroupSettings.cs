@@ -59,7 +59,12 @@ namespace RandomizerMod.Settings
 
         public override void Randomize(Random rng)
         {
-            foreach (FieldInfo fi in IntFields.Values) fi.SetValue(this, rng.Next(3));
+            foreach (FieldInfo fi in IntFields.Values)
+            {
+                int e = (int)fi.GetValue(this);
+                if (e < 0 || e > 2) continue;
+                fi.SetValue(this, rng.Next(3));
+            }
         }
 
         public static readonly Dictionary<string, FieldInfo> IntFields = typeof(SplitGroupSettings)

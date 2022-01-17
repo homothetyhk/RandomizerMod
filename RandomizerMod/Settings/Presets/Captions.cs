@@ -350,19 +350,34 @@ namespace RandomizerMod.Settings.Presets
 
         public static string Caption(this SplitGroupSettings sgs)
         {
-            if (sgs.RandomizeOnStart) return Localize("Group settings will be randomized.");
-
             var groups = SplitGroupSettings.IntFields.Values.Select(fi => (fi, (int)fi.GetValue(sgs)))
                 .Where(p => p.Item2 >= 0)
                 .GroupBy(p => p.Item2);
 
             StringBuilder sb = new();
-            foreach (var g in groups)
+
+            if (sgs.RandomizeOnStart)
             {
-                sb.Append(g.Key);
-                sb.Append(": ");
-                sb.Append(string.Join(", ", g.Select(p => Localize(p.fi.GetMenuName()))));
+                sb.Append("Randomized: ");
+                sb.Append(string.Join(", ", groups.Where(g => g.Key < 3).SelectMany(g => g.Select(p => Localize(p.fi.GetMenuName())))));
                 sb.Append(". ");
+                foreach (var g in groups.Where(g => g.Key >= 3))
+                {
+                    sb.Append(g.Key);
+                    sb.Append(": ");
+                    sb.Append(string.Join(", ", g.Select(p => Localize(p.fi.GetMenuName()))));
+                    sb.Append(". ");
+                }
+            }
+            else
+            {
+                foreach (var g in groups)
+                {
+                    sb.Append(g.Key);
+                    sb.Append(": ");
+                    sb.Append(string.Join(", ", g.Select(p => Localize(p.fi.GetMenuName()))));
+                    sb.Append(". ");
+                }
             }
 
             if (sb.Length == 0) sb.Append(Localize("Disabled."));
