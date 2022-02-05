@@ -89,6 +89,7 @@ namespace RandomizerMod.RC
                 {
                     case "ESSENCE":
                     case "GRUBS":
+                        break;
                     case "SIMPLE":
                         rl.AddCost(new SimpleCost(lm.GetTerm("SIMPLE"), 1));
                         break;
@@ -99,6 +100,8 @@ namespace RandomizerMod.RC
                         rl.AddCost(new LogicGeoCost(lm, def.Amount));
                         break;
                     default:
+                        Log(name);
+                        Log(def);
                         rl.AddCost(new SimpleCost(lm.GetTerm(def.Term), def.Amount));
                         break;
                 }
@@ -110,6 +113,45 @@ namespace RandomizerMod.RC
             }
 
             return rl;
+        }
+
+        public RandoPlacement MakeVanillaPlacement(VanillaDef def)
+        {
+            if (lm.TransitionLookup.TryGetValue(def.Item, out LogicTransition lt))
+            {
+                RandoTransition target = new(lt);
+                RandoTransition source = new(lm.GetTransition(def.Location));
+                return new(target, source);
+            }
+
+            RandoItem ri = new() { item = lm.GetItem(def.Item) };
+            RandoLocation rl = new() { logic = lm.GetLogicDef(def.Location) };
+            void ApplyCost(CostDef cost)
+            {
+                switch (cost.Term)
+                {
+                    case "GEO":
+                        rl.AddCost(new LogicGeoCost(lm, cost.Amount));
+                        break;
+                    default:
+                        rl.AddCost(new SimpleCost(lm.GetTerm(cost.Term), cost.Amount));
+                        break;
+                }
+            }
+
+            if (Data.TryGetCost(def.Location, out CostDef baseCost))
+            {
+                ApplyCost(baseCost);
+            }
+            if (def.Costs != null)
+            {
+                foreach (CostDef cost in def.Costs)
+                {
+                    ApplyCost(cost);
+                }
+            }
+
+            return new(ri, rl);
         }
 
         public IRandoCouple MakeTransition(string name)

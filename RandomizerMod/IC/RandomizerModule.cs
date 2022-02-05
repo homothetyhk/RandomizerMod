@@ -1,33 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using ItemChanger;
+﻿using ItemChanger;
 using ItemChanger.Extensions;
-using ItemChanger.Modules;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UObject = UnityEngine.Object;
-using SD = ItemChanger.Util.SceneDataUtil;
 using Module = ItemChanger.Modules.Module;
-using static RandomizerMod.LogHelper;
+using System.Collections.ObjectModel;
 
 namespace RandomizerMod.IC
 {
     public class RandomizerModule : Module
     {
+        /// <summary>
+        /// Event which is invoked during ItemChanger.Events.OnEnterGame, to allow access to the item and placement lookups after all items and placements have loaded.
+        /// </summary>
+        public static event Action OnLoadComplete;
+
+        /// <summary>
+        /// Item lookup indexed parallel to the RandoContext item placement list. Refreshed on entering the game.
+        /// </summary>
+        public static ReadOnlyDictionary<int, AbstractItem> Items { get; } = new(_items = new());
+        private static readonly Dictionary<int, AbstractItem> _items;
+
+        /// <summary>
+        /// Placement lookup indexed parallel to the RandoContext item placement list. Refreshed on entering the game.
+        /// </summary>
+        public static ReadOnlyDictionary<int, AbstractPlacement> Placements { get; } = new(_placements = new());
+        private static readonly Dictionary<int, AbstractPlacement> _placements;
+
         public override void Initialize()
         {
             AbstractItem.ModifyRedundantItemGlobal += ModifyRedundantItem;
             ToggleSceneHooks(true);
+            Events.OnEnterGame += InvokeOnLoadComplete;
+            RandoItemTag.OnLoad += RecordItem;
+            RandoPlacementTag.OnLoad += RecordPlacement;
+
+            _items.Clear();
+            _placements.Clear();
         }
 
         public override void Unload()
         {
             AbstractItem.ModifyRedundantItemGlobal -= ModifyRedundantItem;
             ToggleSceneHooks(false);
+            Events.OnEnterGame -= InvokeOnLoadComplete;
+            RandoItemTag.OnLoad -= RecordItem;
+            RandoPlacementTag.OnLoad -= RecordPlacement;
+
+            _items.Clear();
+            _placements.Clear();
+        }
+
+        private static void InvokeOnLoadComplete()
+        {
+            try
+            {
+                OnLoadComplete?.Invoke();
+            }
+            catch (Exception e)
+            {
+                LogError($"Error invoking RandomizerModule.OnLoadComplete:\n{e}");
+            }
+        }
+
+        private static void RecordItem(AbstractItem item, RandoItemTag tag)
+        {
+            _items[tag.id] = item;
+        }
+
+        private static void RecordPlacement(AbstractPlacement placement, RandoPlacementTag tag)
+        {
+            if (tag.ids != null)
+            {
+                foreach (int id in tag.ids) _placements[id] = placement;
+            }
         }
 
         private static void ModifyRedundantItem(GiveEventArgs args)

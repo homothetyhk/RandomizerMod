@@ -16,20 +16,7 @@
         public string Path { get; init; }
         public string[] IncludeItems { get; init; }
         public string[] IncludeLocations { get; init; }
-        public StringILP[] Vanilla { get; init; }
-
-        public readonly struct StringILP
-        {
-            public readonly string item;
-            public readonly string location;
-
-            [Newtonsoft.Json.JsonConstructor]
-            public StringILP(string item, string location)
-            {
-                this.item = item;
-                this.location = location;
-            }
-        }
+        public VanillaDef[] Vanilla { get; init; }
 
         public bool IsIncluded(Settings.GenerationSettings gs)
         {

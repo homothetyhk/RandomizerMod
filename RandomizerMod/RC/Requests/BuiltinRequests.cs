@@ -455,10 +455,6 @@ namespace RandomizerMod.RC
             {
                 rb.EditLocationRequest(s, info =>
                 {
-                    info.onRandoLocationCreation += (factory, rl) =>
-                    {
-                        rl.AddCost(new LogicGeoCost(factory.lm, -1));
-                    };
                     info.customPlacementFetch = (factory, placement) =>
                     {
                         if (factory.TryFetchPlacement(s, out AbstractPlacement ap)) return ap;
@@ -816,9 +812,9 @@ namespace RandomizerMod.RC
                 {
                     if (pool.Name == PoolNames.Flame && rb.gs.PoolSettings.Charms)
                     {
-                        foreach (PoolDef.StringILP p in pool.Vanilla.Skip(6)) rb.AddToVanilla(p.item, p.location);
+                        foreach (VanillaDef def in pool.Vanilla.Skip(6)) rb.AddToVanilla(def.Item, def.Location);
                     }
-                    else foreach (PoolDef.StringILP p in pool.Vanilla) rb.AddToVanilla(p.item, p.location);
+                    else foreach (VanillaDef def in pool.Vanilla) rb.AddToVanilla(def.Item, def.Location);
                 }
             }
         }
@@ -868,13 +864,13 @@ namespace RandomizerMod.RC
                     PoolDef warriors = Data.GetPoolDef(PoolNames.DreamWarrior);
                     foreach (string item in warriors.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in warriors.IncludeLocations) rb.RemoveLocationByName(loc);
-                    foreach (PoolDef.StringILP p in warriors.Vanilla) rb.AddToVanilla(p.item, p.location);
+                    foreach (VanillaDef def in warriors.Vanilla) rb.AddToVanilla(def.Item, def.Location);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses:
                     PoolDef bosses = Data.GetPoolDef(PoolNames.DreamBoss);
                     foreach (string item in bosses.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in bosses.IncludeLocations) rb.RemoveLocationByName(loc);
-                    foreach (PoolDef.StringILP p in bosses.Vanilla) rb.AddToVanilla(p.item, p.location);
+                    foreach (VanillaDef def in bosses.Vanilla) rb.AddToVanilla(def.Item, def.Location);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeZoteAndWhiteDefender:
                     rb.RemoveItemByName(ItemNames.Boss_Essence_White_Defender);
@@ -1461,10 +1457,10 @@ namespace RandomizerMod.RC
             {
                 PoolDef mimicPool = Data.GetPoolDef(PoolNames.Mimic);
                 PoolDef grubPool = Data.GetPoolDef(PoolNames.Grub);
-
+                
                 rb.RemoveItemByName(ItemNames.Mimic_Grub);
                 foreach (string loc in mimicPool.IncludeLocations) rb.RemoveLocationByName(loc);
-                foreach (PoolDef.StringILP ilp in grubPool.Vanilla) rb.Vanilla.RemoveAll(new(ilp.item, ilp.location));
+                foreach (VanillaDef def in grubPool.Vanilla) rb.RemoveFromVanilla(def.Item, def.Location);
 
                 StageBuilder sb = rb.AddStage(RBConsts.GrubMimicStage);
                 ItemGroupBuilder gb = sb.AddItemGroup(RBConsts.GrubMimicGroup);
@@ -1697,7 +1693,7 @@ namespace RandomizerMod.RC
 
             Dictionary<string, HashSet<string>> vanillaLookup = Data.Pools
                 .SelectMany(p => p.Vanilla)
-                .GroupBy(v => v.location, v => v.item)
+                .GroupBy(v => v.Location, v => v.Item)
                 .ToDictionary(g => g.Key, g => new HashSet<string>(g));
             bool NotVanillaLocation(IRandoItem item, IRandoLocation location)
             {

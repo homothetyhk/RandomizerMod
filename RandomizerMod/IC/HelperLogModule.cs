@@ -90,7 +90,7 @@ namespace RandomizerMod.IC
                 sb.Append(' ', 2);
                 sb.AppendLine(s);
                 AbstractPlacement p = GetPlacement(s);
-                if (p.GetTag<ItemChanger.Tags.MultiPreviewRecordTag>() is ItemChanger.Tags.MultiPreviewRecordTag mprt 
+                if (p.GetTag<ItemChanger.Tags.MultiPreviewRecordTag>() is ItemChanger.Tags.MultiPreviewRecordTag mprt
                     && mprt.previewTexts != null)
                 {
                     for (int i = 0; i < mprt.previewTexts.Length; i++)
@@ -104,7 +104,7 @@ namespace RandomizerMod.IC
                     }
                 }
                 else if (p.GetTag<ItemChanger.Tags.PreviewRecordTag>() is ItemChanger.Tags.PreviewRecordTag prt
-                    && !string.IsNullOrEmpty(prt.previewText))
+                    && !string.IsNullOrEmpty(prt.previewText) && !p.Items.All(i => i.WasEverObtained()))
                 {
                     sb.Append(' ', 4);
                     sb.AppendLine(prt.previewText);

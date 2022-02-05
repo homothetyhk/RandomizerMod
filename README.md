@@ -142,6 +142,7 @@ Settings which do not fit into the other classifications.
 - Randomize Notch Costs: This setting randomizes the costs of all 40 charms uniformly so that the costs add to a total between 70 and 110. The notch cost will subsequently be displayed as part of the charm name. This does not affect future cost modifications, such as when Carefree Melody or Void Heart are obtained.
 - Extra Platforms: Adds small platforms near locations where the player would otherwise softlock, mainly in areas like Royal Waterways or Ancient Basin where vertical movement is often needed.
 - Salubra Notches: Allows the player to choose whether Salubra Charm Notches are randomized as part of the Charm Notches pool, are always vanilla or random, or should behave as in Randomizer 2 and 3, where each notch is automatically given when the player collects 5, 10, 18, and 25 notches.
+  - Salubra's Blessing will now be randomized as well when the Salubra Notches are randomized (or randomized with the Charm Notches pool). On other settings, Salubra's Blessing will be sold as usual once the player has 40 charms.
 - Mask Shards: Allows replacing randomized mask shards with double or quadruple shards, adding up to the same number of masks.
 - Vessel Fragments: Allows replacing randomized vessel fragments with double or triple fragments, adding up to the same number of vessels.
     - These last two settings may be desired to reduce the number of items, particularly in opposition to Duplicate Items.
@@ -228,7 +229,7 @@ Items or locations in more than one pool, such as shops, will be randomly divide
 
 In summary, use these settings to arrange pools so that the pools with the same number are randomized with each other.
 
-The Randomize On Start option sets each pool setting to one of 0, 1, or 2, randomly and uniformly.
+The Randomize On Start option sets each pool setting to one of 0, 1, or 2, randomly and uniformly. Randomization is only applied to pools which were already set to one of 0, 1, or 2, to allow selecting pools to be unaffected by randomization.
 - It is recommended to disable Duplicate Items with this setting. If skills end up in a group with few locations, there is a high likelihood of several skills being forced into a shop.
 
 The definitions used for these settings are slightly broader than those in pool settings, to accomodate other settings that add items:

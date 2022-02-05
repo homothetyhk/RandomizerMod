@@ -1,4 +1,28 @@
 {
+  // This file documents nonrandomized costs.
+  // Vanilla costs for randomizable costs are found in the vanilla sections of the pools.json.
+  // Note: the amount on a geo cost does not affect its logic. 
+  // A negative geo cost on one of the 5 base shop locations is randomized at the end of randomization.
+  "Sly": {
+    "term": "GEO",
+    "amount": -1
+  },
+  "Sly_(Key)": {
+    "term": "GEO",
+    "amount": -1
+  },
+  "Iselda": {
+    "term": "GEO",
+    "amount": -1
+  },
+  "Salubra": {
+    "term": "GEO",
+    "amount": -1
+  },
+  "Leg_Eater": {
+    "term": "GEO",
+    "amount": -1
+  },
   "Lurien": {
     "term": "DREAMNAIL",
     "amount": 1
@@ -11,14 +35,6 @@
     "term": "DREAMNAIL",
     "amount": 1
   },
-  "Dream_Gate": {
-    "term": "ESSENCE",
-    "amount": 900
-  },
-  "Awoken_Dream_Nail": {
-    "term": "ESSENCE",
-    "amount": 1800
-  },
   "Abyss_Shriek": {
     "term": "SCREAM",
     "amount": 1
@@ -26,18 +42,6 @@
   "Dash_Slash": {
     "term": "GEO",
     "amount": 800
-  },
-  "Grubsong": {
-    "term": "GRUBS",
-    "amount": 10
-  },
-  "Dream_Wielder": {
-    "term": "ESSENCE",
-    "amount": 500
-  },
-  "Grubberfly's_Elegy": {
-    "term": "GRUBS",
-    "amount": 46
   },
   "Void_Heart": {
     "term": "DREAMNAIL",
@@ -60,49 +64,9 @@
     "term": "SIMPLE",
     "amount": 1
   },
-  "Mask_Shard-Seer": {
-    "term": "ESSENCE",
-    "amount": 1500
-  },
-  "Mask_Shard-5_Grubs": {
-    "term": "GRUBS",
-    "amount": 5
-  },
-  "Vessel_Fragment-Seer": {
-    "term": "ESSENCE",
-    "amount": 700
-  },
   "Vessel_Fragment-Basin": {
     "term": "GEO",
     "amount": 3000
-  },
-  "Pale_Ore-Seer": {
-    "term": "ESSENCE",
-    "amount": 300
-  },
-  "Pale_Ore-Grubs": {
-    "term": "GRUBS",
-    "amount": 31
-  },
-  "Rancid_Egg-Grubs": {
-    "term": "GRUBS",
-    "amount": 16
-  },
-  "Hallownest_Seal-Grubs": {
-    "term": "GRUBS",
-    "amount": 23
-  },
-  "Hallownest_Seal-Seer": {
-    "term": "ESSENCE",
-    "amount": 100
-  },
-  "King's_Idol-Grubs": {
-    "term": "GRUBS",
-    "amount": 38
-  },
-  "Arcane_Egg-Seer": {
-    "term": "ESSENCE",
-    "amount": 1200
   },
   "Crossroads_Map": {
     "term": "GEO",

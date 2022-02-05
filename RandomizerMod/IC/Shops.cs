@@ -16,7 +16,6 @@ namespace RandomizerMod.IC
 
             items |= DefaultShopItems.IseldaMapPins;
             items |= DefaultShopItems.IseldaMapMarkers;
-            items |= DefaultShopItems.SalubraBlessing;
             items |= DefaultShopItems.LegEaterRepair;
 
             if (!gs.PoolSettings.Keys)
@@ -57,9 +56,11 @@ namespace RandomizerMod.IC
             }
 
             if (!gs.PoolSettings.CharmNotches && gs.MiscSettings.SalubraNotches == MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool
-                || gs.MiscSettings.SalubraNotches == MiscSettings.SalubraNotchesSetting.Vanilla)
+                || gs.MiscSettings.SalubraNotches == MiscSettings.SalubraNotchesSetting.Vanilla
+                || gs.MiscSettings.SalubraNotches == MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold)
             {
                 items |= DefaultShopItems.SalubraNotches;
+                items |= DefaultShopItems.SalubraBlessing;
             }
 
             return items;

@@ -527,6 +527,12 @@
     "PriceCap": 1500,
     "MajorItem": false
   },
+  "Salubra's_Blessing": {
+    "Name": "Salubra's_Blessing",
+    "Pool": "Notch",
+    "PriceCap": 1500,
+    "MajorItem": false
+  },
   "Pale_Ore": {
     "Name": "Pale_Ore",
     "Pool": "Ore",

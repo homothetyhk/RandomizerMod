@@ -25,11 +25,7 @@ namespace RandomizerMod.RC
             stages = Stages.Select(s => s.ToRandomizationStage(factory)).ToArray();
             foreach (RandomizationStage stage in stages) rng.PermuteInPlace(stage.groups); // random tiebreakers between groups
 
-            vanilla = Vanilla.EnumerateWithMultiplicity()
-                .Select(v => !Data.IsTransition(v.Item)
-                ? new RandoPlacement(factory.MakeItem(v.Item), factory.MakeLocation(v.Location))
-                : new RandoPlacement(factory.MakeTransition(v.Item), factory.MakeTransition(v.Location)))
-                .ToList();
+            vanilla = Vanilla.Values.SelectMany(v => v).Select(v => factory.MakeVanillaPlacement(v)).ToList();
             start = StartItems.EnumerateWithMultiplicity()
                 .Select(i => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation(LocationNames.Start)))
                 .ToList();
@@ -77,7 +73,11 @@ namespace RandomizerMod.RC
         public readonly List<LocationMatchHandler> LocationMatchers = new();
 
         public readonly Bucket<string> StartItems = new();
-        public readonly Bucket<VanillaRequest> Vanilla = new();
+
+        /// <summary>
+        /// List of vanilla requests, with indexing for fast lookup by location/source transition name.
+        /// </summary>
+        public readonly Dictionary<string, List<VanillaDef>> Vanilla = new();
 
         public readonly GenerationSettings gs;
         public readonly LogicManager lm;
@@ -538,11 +538,76 @@ namespace RandomizerMod.RC
                 }
             }
         }
-      
 
         public void AddToVanilla(string item, string location)
         {
-            Vanilla.Add(new(item, location));
+            if (!Vanilla.TryGetValue(location, out List<VanillaDef> defs))
+            {
+                Vanilla.Add(location, defs = new(1));
+            }
+
+            defs.Add(new VanillaDef(item, location));
+        }
+
+        public void AddToVanilla(VanillaDef def)
+        {
+            if (!Vanilla.TryGetValue(def.Location, out List<VanillaDef> defs))
+            {
+                Vanilla.Add(def.Location, defs = new(1));
+            }
+
+            defs.Add(def);
+        }
+
+        /// <summary>
+        /// Ensures that the Vanilla bucket contains the placement of the transition's VanillaTarget at the transition.
+        /// <br/>Has no effect on a transition without a VanillaTarget, such as a OneWayOut transition.
+        /// <br/>Only ensures one side of a coupled transition is vanilla.
+        /// </summary>
+        public void EnsureVanillaSourceTransition(string source)
+        {
+            if (Data.GetTransitionDef(source)?.VanillaTarget is string target)
+            {
+                if (!Vanilla.TryGetValue(source, out List<VanillaDef> defs))
+                {
+                    Vanilla.Add(source, defs = new(1));
+                }
+
+                if (defs.Count == 0)
+                {
+                    defs.Add(new VanillaDef(target, source));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes all vanilla placements for the specified location or source transition.
+        /// </summary>
+        public void RemoveFromVanilla(string location)
+        {
+            Vanilla.Remove(location);
+        }
+
+        /// <summary>
+        /// Removes all vanilla placements for the specified location or source transition, matching the specified item or target transition.
+        /// </summary>
+        public void RemoveFromVanilla(string location, string item)
+        {
+            if (Vanilla.TryGetValue(location, out List<VanillaDef> defs))
+            {
+                defs.RemoveAll(def => def.Item == item);
+            }
+        }
+
+        /// <summary>
+        /// Removes all vanilla placements matching the defined location, item, and cost list (compared sequentially).
+        /// </summary>
+        public void RemoveFromVanilla(VanillaDef def)
+        {
+            if (Vanilla.TryGetValue(def.Location, out List<VanillaDef> defs))
+            {
+                defs.RemoveAll(def => def.Equals(def));
+            }
         }
 
         public void AddToStart(string item)
@@ -553,19 +618,6 @@ namespace RandomizerMod.RC
         public void AddToStart(string item, int count)
         {
             StartItems.Increment(item, count);
-        }
-
-        /// <summary>
-        /// Ensures that the Vanilla bucket contains the placement of the transition's VanillaTarget at the transition.
-        /// <br/>Has no effect on a transition without a VanillaTarget, such as a OneWayOut transition.
-        /// <br/>Only ensures one side of a coupled transition is vanilla.
-        /// </summary>
-        public void EnsureVanillaSourceTransition(string transition)
-        {
-            if (Data.GetTransitionDef(transition)?.VanillaTarget is string target)
-            {
-                Vanilla.Set(new(target, transition), 1);
-            }
         }
 
         public void RemoveFromStart(string item)

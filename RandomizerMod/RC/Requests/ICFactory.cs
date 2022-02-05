@@ -47,14 +47,14 @@ namespace RandomizerMod.RC
             if (rl.info?.customAddToPlacement != null)
             {
                 rl.info.customAddToPlacement(this, new(ri, rl), placement, item);
-                if (item.GetTag<RandoItemTag>() is not RandoItemTag tag || tag.id != index) item.AddTag<RandoItemTag>().id = index;
             }
             else
             {
                 if (rl.costs != null) CostConversion.HandleCosts(rl.costs, item, placement);
-                item.AddTag<RandoItemTag>().id = index;
                 placement.Add(item);
             }
+            item.GetOrAddTag<RandoItemTag>().id = index;
+            placement.GetOrAddTag<RandoPlacementTag>().ids.Add(index);
         }
 
         /// <summary>

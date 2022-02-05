@@ -119,11 +119,23 @@
       },
       {
         "item": "Dream_Gate",
-        "location": "Seer"
+        "location": "Seer",
+        "costs": [
+          {
+            "term": "ESSENCE",
+            "amount": 900
+          }
+        ]
       },
       {
         "item": "Awoken_Dream_Nail",
-        "location": "Seer"
+        "location": "Seer",
+        "costs": [
+          {
+            "term": "ESSENCE",
+            "amount": 1800
+          }
+        ]
       },
       {
         "item": "Vengeful_Spirit",
@@ -296,7 +308,13 @@
     "Vanilla": [
       {
         "item": "Grubsong",
-        "location": "Grubfather"
+        "location": "Grubfather",
+        "costs": [
+          {
+            "term": "GRUBS",
+            "amount": 10
+          }
+        ]
       },
       {
         "item": "Baldur_Shell",
@@ -364,7 +382,13 @@
       },
       {
         "item": "Dream_Wielder",
-        "location": "Seer"
+        "location": "Seer",
+        "cost": [
+          {
+            "term": "ESSENCE",
+            "amount": 500
+          }
+        ]
       },
       {
         "item": "Dashmaster",
@@ -384,7 +408,13 @@
       },
       {
         "item": "Grubberfly's_Elegy",
-        "location": "Grubfather"
+        "location": "Grubfather",
+        "costs": [
+          {
+            "term": "GRUBS",
+            "amount": 46
+          }
+        ]
       },
       {
         "item": "Queen_Fragment",
@@ -608,11 +638,23 @@
     "Vanilla": [
       {
         "item": "Mask_Shard",
-        "location": "Seer"
+        "location": "Seer",
+        "costs": [
+          {
+            "term": "ESSENCE",
+            "amount": "1500"
+          }
+        ]
       },
       {
         "item": "Mask_Shard",
-        "location": "Grubfather"
+        "location": "Grubfather",
+        "costs": [
+          {
+            "term": "GRUBS",
+            "amount": 5
+          }
+        ]
       },
       {
         "item": "Mask_Shard",
@@ -701,7 +743,13 @@
     "Vanilla": [
       {
         "item": "Vessel_Fragment",
-        "location": "Seer"
+        "location": "Seer",
+        "costs": [
+          {
+            "term": "ESSENCE",
+            "amount": 700
+          }
+        ]
       },
       {
         "item": "Vessel_Fragment",
@@ -780,9 +828,11 @@
       "Charm_Notch",
       "Charm_Notch",
       "Charm_Notch",
-      "Charm_Notch"
+      "Charm_Notch",
+      "Salubra's_Blessing"
     ],
     "IncludeLocations": [
+      "Salubra_(Requires_Charms)",
       "Salubra_(Requires_Charms)",
       "Salubra_(Requires_Charms)",
       "Salubra_(Requires_Charms)",
@@ -791,19 +841,53 @@
     "Vanilla": [
       {
         "item": "Charm_Notch",
-        "location": "Salubra"
+        "location": "Salubra",
+        "costs": [
+          {
+            "term": "CHARMS",
+            "amount": 5
+          }
+        ]
       },
       {
         "item": "Charm_Notch",
-        "location": "Salubra"
+        "location": "Salubra",
+        "costs": [
+          {
+            "term": "CHARMS",
+            "amount": 10
+          }
+        ]
       },
       {
         "item": "Charm_Notch",
-        "location": "Salubra"
+        "location": "Salubra",
+        "costs": [
+          {
+            "term": "CHARMS",
+            "amount": 18
+          }
+        ]
       },
       {
         "item": "Charm_Notch",
-        "location": "Salubra"
+        "location": "Salubra",
+        "costs": [
+          {
+            "term": "CHARMS",
+            "amount": 25
+          }
+        ]
+      },
+      {
+        "item": "Salubra's_Blessing",
+        "location": "Salubra",
+        "costs": [
+          {
+            "term": "CHARMS",
+            "amount": 40
+          }
+        ]
       }
     ]
   },
@@ -842,11 +926,23 @@
       },
       {
         "item": "Pale_Ore",
-        "location": "Seer"
+        "location": "Seer",
+        "costs": [
+          {
+            "term": "ESSENCE",
+            "amount": 300
+          }
+        ]
       },
       {
         "item": "Pale_Ore",
-        "location": "Grubfather"
+        "location": "Grubfather",
+        "costs": [
+          {
+            "term": "GRUBS",
+            "amount": 31
+          }
+        ]
       },
       {
         "item": "Pale_Ore",
@@ -1007,7 +1103,13 @@
     "Vanilla": [
       {
         "item": "Rancid_Egg",
-        "location": "Grubfather"
+        "location": "Grubfather",
+        "costs": [
+          {
+            "term": "GRUBS",
+            "amount": 16
+          }
+        ]
       },
       {
         "item": "Rancid_Egg",
@@ -1272,7 +1374,13 @@
       },
       {
         "item": "Hallownest_Seal",
-        "location": "Seer"
+        "location": "Seer",
+        "costs": [
+          {
+            "term": "ESSENCE",
+            "amount": 100
+          }
+        ]
       },
       {
         "item": "Hallownest_Seal",
@@ -1308,7 +1416,13 @@
       },
       {
         "item": "King's_Idol",
-        "location": "Grubfather"
+        "location": "Grubfather",
+        "costs": [
+          {
+            "term": "GRUBS",
+            "amount": 38
+          }
+        ]
       },
       {
         "item": "King's_Idol",
@@ -1340,7 +1454,13 @@
       },
       {
         "item": "Arcane_Egg",
-        "location": "Seer"
+        "location": "Seer",
+        "costs": [
+          {
+            "term": "ESSENCE",
+            "amount": 1200
+          }
+        ]
       },
       {
         "item": "Arcane_Egg",
