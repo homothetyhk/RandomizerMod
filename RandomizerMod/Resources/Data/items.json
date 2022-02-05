@@ -581,26 +581,26 @@
     "PriceCap": 1,
     "MajorItem": false
   },
-  "Geo_Chest_Junk_Pit_1": {
-    "Name": "Geo_Chest_Junk_Pit_1",
+  "Geo_Chest-Junk_Pit_1": {
+    "Name": "Geo_Chest-Junk_Pit_1",
     "Pool": "JunkPitChest",
     "PriceCap": 1,
     "MajorItem": false
   },
-  "Geo_Chest_Junk_Pit_2": {
-    "Name": "Geo_Chest_Junk_Pit_2",
+  "Geo_Chest-Junk_Pit_2": {
+    "Name": "Geo_Chest-Junk_Pit_2",
     "Pool": "JunkPitChest",
     "PriceCap": 1,
     "MajorItem": false
   },
-  "Geo_Chest_Junk_Pit_3": {
-    "Name": "Geo_Chest_Junk_Pit_3",
+  "Geo_Chest-Junk_Pit_3": {
+    "Name": "Geo_Chest-Junk_Pit_3",
     "Pool": "JunkPitChest",
     "PriceCap": 1,
     "MajorItem": false
   },
-  "Geo_Chest_Junk_Pit_5": {
-    "Name": "Geo_Chest_Junk_Pit_5",
+  "Geo_Chest-Junk_Pit_5": {
+    "Name": "Geo_Chest-Junk_Pit_5",
     "Pool": "JunkPitChest",
     "PriceCap": 1,
     "MajorItem": false

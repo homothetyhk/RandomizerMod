@@ -2326,7 +2326,7 @@
   {
     "sceneName": "Deepnest_02",
     "gateName": "right1",
-    "logic": "Deepnest_02[right1] | Deepnest_02",
+    "logic": "Deepnest_02[right1] | Deepnest_02[left1] | Deepnest_02 + (ANYCLAW | WINGS | ENEMYPOGOS | BACKGROUNDPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_02[right1]"
   },

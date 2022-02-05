@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MenuChanger.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -27,16 +28,24 @@ namespace RandomizerMod.Settings
                     int maxValue = int.MaxValue - 1;
                     int minValue = int.MinValue;
 
-                    if (T.GetCustomAttribute<MaxValueAttribute>() is MaxValueAttribute max) maxValue = max.Value;
-                    else if (T.IsEnum)
+                    if (T.GetCustomAttribute<MenuRangeAttribute>() is MenuRangeAttribute range)
                     {
-                        maxValue = Enum.GetValues(T).Cast<int>().Max();
+                        maxValue = (int)range.max;
+                        minValue = (int)range.min;
                     }
-
-                    if (T.GetCustomAttribute<MinValueAttribute>() is MinValueAttribute min) minValue = min.Value;
-                    else if (T.IsEnum)
+                    else
                     {
-                        minValue = Enum.GetValues(T).Cast<int>().Min();
+                        if (T.GetCustomAttribute<MaxValueAttribute>() is MaxValueAttribute max) maxValue = max.Value;
+                        else if (T.IsEnum)
+                        {
+                            maxValue = Enum.GetValues(T).Cast<int>().Max();
+                        }
+
+                        if (T.GetCustomAttribute<MinValueAttribute>() is MinValueAttribute min) minValue = min.Value;
+                        else if (T.IsEnum)
+                        {
+                            minValue = Enum.GetValues(T).Cast<int>().Min();
+                        }
                     }
 
                     f.SetValue(this, rng.Next(minValue, maxValue + 1));

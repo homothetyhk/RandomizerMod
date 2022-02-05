@@ -573,7 +573,7 @@
   },
   {
     "name": "Hallownest_Seal-Fungal_Wastes_Sporgs",
-    "logic": "Fungus2_03 + (ANYCLAW | WINGS | LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS)"
+    "logic": "Fungus2_03 + (ANYCLAW | WINGS | LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS) + (RIGHTDASH | RIGHTCLAW | WINGS | LEFTCLAW | PRECISEMOVEMENT | ENEMYPOGOS + DANGEROUSSKIPS)"
   },
   {
     "name": "Hallownest_Seal-Mantis_Lords",
@@ -1865,7 +1865,7 @@
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Mimic_Grub",
-    "logic": "Mines_16[top1]"
+    "logic": "Mines_16[top1] + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS)"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Dive_Egg",
@@ -2409,7 +2409,7 @@
   },
   {
     "name": "Lore_Tablet-Palace_Workshop",
-    "logic": "White_Palace_08[right1] | (White_Palace_08[left1] + (ANYCLAW | WINGS))"
+    "logic": "White_Palace_08[right1] | White_Palace_08[left1] + ANYCLAW + WINGS"
   },
   {
     "name": "Lore_Tablet-Palace_Throne",
