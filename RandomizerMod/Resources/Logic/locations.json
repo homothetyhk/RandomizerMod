@@ -313,7 +313,7 @@
   },
   {
     "name": "Vessel_Fragment-Greenpath",
-    "logic": "Fungus1_13[right1] + (LEFTCLAW | (DAMAGEBOOSTS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)))"
+    "logic": "Fungus1_13[right1] + (LEFTCLAW | (DAMAGEBOOSTS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH))) | $StartLocation[Lower Greenpath]"
   },
   {
     "name": "Vessel_Fragment-City",
@@ -969,7 +969,7 @@
   },
   {
     "name": "Fog_Canyon_Map",
-    "logic": "((Fungus3_25[left1] + RIGHTSHADOWDASH) | Fungus3_25[right1]) + ((LEFTCLAW + LEFTDASH + ENEMYPOGOS) | WINGS)"
+    "logic": "((Fungus3_25[left1] + RIGHTSHADOWDASH) | Fungus3_25[right1]) + ((LEFTCLAW + LEFTDASH + ENEMYPOGOS) | WINGS) | $StartLocation[East Fog Canyon] + LEFTDASH + LEFTCLAW"
   },
   {
     "name": "Fungal_Wastes_Map",
@@ -997,7 +997,7 @@
   },
   {
     "name": "Royal_Waterways_Map",
-    "logic": "(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | ((LEFTDASH | LEFTSUPERDASH) + RIGHTCLAW) | WINGS)"
+    "logic": "(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | ((LEFTDASH | LEFTSUPERDASH) + RIGHTCLAW) | WINGS) | $StartLocation[West Waterways]"
   },
   {
     "name": "Howling_Cliffs_Map",
@@ -2353,7 +2353,7 @@
   },
   {
     "name": "Lore_Tablet-Greenpath_QG",
-    "logic": "(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | ((WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + 2MASKS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))"
+    "logic": "(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | ((WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + 2MASKS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))  | $StartLocation[Lower Greenpath] + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash))"
   },
   {
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",

@@ -14,6 +14,10 @@ namespace RandomizerMod.RC
     {
         public static void ApplyAll()
         {
+            OnSelectStart.Subscribe(float.PositiveInfinity, SelectStart);
+
+            OnUpdate.Subscribe(-10000f, AssignNotchCosts);
+
             OnUpdate.Subscribe(-2000f, ApplyPlaceholderMatch);
             OnUpdate.Subscribe(-2000f, ApplyCustomGeoMatch);
 
@@ -71,6 +75,31 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(100f, ApplyConnectAreasPostPermuteEvent);
             OnUpdate.Subscribe(100f, ApplyAreaConstraint);
             OnUpdate.Subscribe(100f, ApplyDerangedConstraint);
+        }
+
+        public static bool SelectStart(Random rng, GenerationSettings gs, SettingsPM pm, out RandomizerData.StartDef def)
+        {
+            StartLocationSettings.RandomizeStartLocationType type = gs.StartLocationSettings.StartLocationType;
+            if (type != StartLocationSettings.RandomizeStartLocationType.Fixed)
+            {
+                List<string> startNames = new(Data.GetStartNames().Where(s => pm.Evaluate(Data.GetStartDef(s).Logic)));
+                if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
+                gs.StartLocationSettings.StartLocation = rng.Next(startNames);
+            }
+            def = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
+            return true;
+        }
+
+        public static void AssignNotchCosts(RequestBuilder rb)
+        {
+            if (!rb.gs.MiscSettings.RandomizeNotchCosts)
+            {
+                rb.ctx.notchCosts = Enumerable.Range(1, 40).Select(i => CharmNotchCosts.GetVanillaCost(i)).ToList();
+            }
+            else
+            {
+                rb.ctx.notchCosts = CharmNotchCosts.GetUniformlyRandomCosts(rb.rng, 70, 110).ToList();
+            }
         }
 
         public static void ApplyPlaceholderMatch(RequestBuilder rb)

@@ -52,23 +52,14 @@ namespace RandomizerMod.IC
 
         public static void ExportStart(GenerationSettings gs, RandoModContext ctx)
         {
-            string startName = gs.StartLocationSettings.StartLocation;
-            if (!string.IsNullOrEmpty(startName) && Data.GetStartDef(startName) is RandomizerData.StartDef def)
+            if (ctx.StartDef?.ToItemChangerStartDef() is ItemChanger.StartDef def)
             {
-                ItemChangerMod.ChangeStartGame(new ItemChanger.StartDef
-                {
-                    SceneName = def.SceneName,
-                    X = def.X,
-                    Y = def.Y,
-                    MapZone = (int)def.Zone,
-                    SpecialEffects = SpecialStartEffects.Default | SpecialStartEffects.SlowSoulRefill,
-                    RespawnFacingRight = true,
-                });
+                ItemChangerMod.ChangeStartGame(def);
             }
 
             foreach (SmallPlatform p in PlatformList.GetPlatformList(gs, ctx)) ItemChangerMod.AddDeployer(p); 
 
-            switch (startName)
+            switch (gs.StartLocationSettings.StartLocation)
             {
                 // Platforms to allow escaping the Hive start regardless of difficulty or initial items
                 case "Hive":

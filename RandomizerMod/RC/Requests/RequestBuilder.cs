@@ -6,6 +6,7 @@ using RandomizerCore.Randomization;
 using RandomizerCore.Logic;
 using System.Collections.ObjectModel;
 using ItemChanger;
+using StartDef = RandomizerMod.RandomizerData.StartDef;
 
 namespace RandomizerMod.RC
 {
@@ -17,7 +18,7 @@ namespace RandomizerMod.RC
     /// </summary>
     public class RequestBuilder
     {
-        public void Run(out RandomizationStage[] stages, out List<GeneralizedPlacement> vanilla, out List<ItemPlacement> start) 
+        public void Run(out RandomizationStage[] stages, out RandoModContext ctx) 
         {
             HandleUpdateEvents();
 
@@ -25,8 +26,9 @@ namespace RandomizerMod.RC
             stages = Stages.Select(s => s.ToRandomizationStage(factory)).ToArray();
             foreach (RandomizationStage stage in stages) rng.PermuteInPlace(stage.groups); // random tiebreakers between groups
 
-            vanilla = Vanilla.Values.SelectMany(v => v).Select(v => factory.MakeVanillaPlacement(v)).ToList();
-            start = StartItems.EnumerateWithMultiplicity()
+            ctx = this.ctx;
+            ctx.Vanilla = Vanilla.Values.SelectMany(v => v).Select(v => factory.MakeVanillaPlacement(v)).ToList();
+            ctx.itemPlacements = StartItems.EnumerateWithMultiplicity()
                 .Select((i, j) => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation(LocationNames.Start)) { Index = j })
                 .ToList();
         }
@@ -80,18 +82,24 @@ namespace RandomizerMod.RC
         public readonly Dictionary<string, List<VanillaDef>> Vanilla = new();
 
         public readonly GenerationSettings gs;
+        public readonly SettingsPM pm;
         public readonly LogicManager lm;
         public readonly Random rng;
         public readonly RandoMonitor rm;
+        public readonly RandoModContext ctx;
 
         private static readonly List<string> _set = new(); // used as a utility for several methods
 
-        public RequestBuilder(GenerationSettings gs, LogicManager lm, RandoMonitor rm)
+        public RequestBuilder(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
         {
             this.gs = gs;
-            this.lm = lm;
-            rng = new(gs.Seed + 11);
+            this.pm = pm;
+            this.rng = new(gs.Seed + 11);
             this.rm = rm;
+
+            ctx = new(gs, SelectStart());
+            lm = ctx.LM;
+            
             _stages = new();
             Stages = new(_stages);
 
@@ -650,9 +658,28 @@ namespace RandomizerMod.RC
         public readonly PriorityEvent<GroupResolver> OnGetGroupFor;
         private readonly PriorityEvent<GroupResolver>.IPriorityEventOwner _onGetGroupForOwner;
 
+        public delegate bool StartResolver(Random rng, GenerationSettings gs, SettingsPM pm, out StartDef def);
+        public static readonly PriorityEvent<StartResolver> OnSelectStart = new(out _onSelectStartOwner);
+        private static readonly PriorityEvent<StartResolver>.IPriorityEventOwner _onSelectStartOwner;
+
+        protected StartDef SelectStart()
+        {
+            StartDef def = null;
+            foreach (StartResolver d in _onSelectStartOwner.GetSubscribers())
+            {
+                if (d(rng, gs, pm, out def))
+                {
+                    break;
+                }
+            }
+
+            return def;
+        }
+
         public delegate void RequestBuilderUpdateHandler(RequestBuilder rb);
         public static readonly PriorityEvent<RequestBuilderUpdateHandler> OnUpdate = new(out _onUpdateOwner);
         private static readonly PriorityEvent<RequestBuilderUpdateHandler>.IPriorityEventOwner _onUpdateOwner;
+
         protected void HandleUpdateEvents()
         {
             foreach (var d in _onUpdateOwner?.GetSubscribers())

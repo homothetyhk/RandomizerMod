@@ -13,7 +13,7 @@ namespace RandomizerMod.RC
         public static event Action<LogicManager, GenerationSettings, ProgressionInitializer> OnCreateProgressionInitializer;
 
         public ProgressionInitializer() { }
-        public ProgressionInitializer(LogicManager lm, GenerationSettings gs)
+        public ProgressionInitializer(LogicManager lm, GenerationSettings gs, StartDef startDef)
         {
             foreach (string setting in Data.GetApplicableLogicSettings(gs))
             {
@@ -28,8 +28,7 @@ namespace RandomizerMod.RC
                 _ => "ROOMRANDO",
             }), 1));
 
-            StartDef start = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
-            Setters.Add(new(lm.GetTerm(start.Transition), 1));
+            Setters.AddRange(startDef.GetStartLocationProgression(lm));
 
             Setters.Add(new(lm.GetTerm("GRUBS"), -gs.CostSettings.GrubTolerance));
             Setters.Add(new(lm.GetTerm("ESSENCE"), -gs.CostSettings.EssenceTolerance));

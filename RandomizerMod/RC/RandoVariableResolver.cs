@@ -1,4 +1,5 @@
 ﻿using RandomizerCore.Logic;
+using RandomizerMod.RC.LogicInts;
 using System.Text.RegularExpressions;
 
 namespace RandomizerMod.RC
@@ -13,6 +14,20 @@ namespace RandomizerMod.RC
             if (match.Success)
             {
                 variable = new NotchCostInt(match.Groups[1].Value.Split(',').Select(s => int.Parse(s)).ToArray());
+                return true;
+            }
+
+            match = Regex.Match(term, @"^\$SafeNotchCost\[(.+)\]$");
+            if (match.Success)
+            {
+                variable = new SafeNotchCostInt(match.Groups[1].Value.Split(',').Select(s => int.Parse(s)).ToArray());
+                return true;
+            }
+
+            match = Regex.Match(term, @"^\$StartLocation\[(.+)\]$");
+            if (match.Success)
+            {
+                variable = new StartLocationDelta(match.Groups[1].Value);
                 return true;
             }
 

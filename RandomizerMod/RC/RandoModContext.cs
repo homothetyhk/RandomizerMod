@@ -1,5 +1,6 @@
 ﻿using RandomizerCore;
 using RandomizerCore.Logic;
+using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
 
 namespace RandomizerMod.RC
@@ -8,10 +9,15 @@ namespace RandomizerMod.RC
     {
         public RandoModContext(LogicManager LM) : base(LM) { }
 
-        public RandoModContext(GenerationSettings gs) : base(RCData.GetNewLogicManager(gs))
+        public RandoModContext(GenerationSettings gs, StartDef startDef) : base(RCData.GetNewLogicManager(gs))
         {
-            base.InitialProgression = new ProgressionInitializer(LM, gs);
+            base.InitialProgression = new ProgressionInitializer(LM, gs, startDef);
+            this.GenerationSettings = gs;
+            this.StartDef = startDef;
         }
+
+        public GenerationSettings GenerationSettings { get; init; }
+        public StartDef StartDef { get; init; }
 
         public List<GeneralizedPlacement> Vanilla;
         public List<ItemPlacement> itemPlacements;

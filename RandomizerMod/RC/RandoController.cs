@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using Newtonsoft.Json;
 using RandomizerCore;
-using RandomizerCore.Extensions;
-using RandomizerCore.Logic;
 using RandomizerCore.Randomization;
-using RandomizerMod.Extensions;
 using RandomizerMod.IC;
 using RandomizerMod.Logging;
 using RandomizerMod.RandomizerData;
@@ -30,6 +22,11 @@ namespace RandomizerMod.RC
         public List<List<RandoPlacement>[]> stagedPlacements;
         public Randomizer randomizer;
 
+        /// <summary>
+        /// Event invoked on the RandoController immediately after sending all data to ItemChanger, but before printing logs and activating tracker data.
+        /// </summary>
+        public static event Action<RandoController> OnExportCompleted;
+
         public RandoController(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
         {
             this.gs = gs.Clone() as GenerationSettings;
@@ -41,11 +38,8 @@ namespace RandomizerMod.RC
         public void Run()
         {
             gs.Clamp();
-            SelectStart();
-            ctx = new(gs);
-            AssignNotchCosts();
-            rb = new(gs, ctx.LM, rm);
-            rb.Run(out stages, out ctx.Vanilla, out ctx.itemPlacements);
+            rb = new(gs, pm, rm);
+            rb.Run(out stages, out ctx);
             randomizer = new(new Random(gs.Seed), ctx, stages, rm);
             stagedPlacements = randomizer.Run();
             for (int i = 0; i < stagedPlacements.Count; i++)
@@ -146,6 +140,14 @@ namespace RandomizerMod.RC
                 PlayerData.instance.SetInt(nameof(PlayerData.maxHealth), 5 - gs.CursedSettings.CursedMasks);
                 PlayerData.instance.SetInt(nameof(PlayerData.maxHealthBase), 5 - gs.CursedSettings.CursedMasks);
             }
+            try
+            {
+                OnExportCompleted?.Invoke(this);
+            }
+            catch (Exception e)
+            {
+                LogError($"Error invoking OnExportCompleted:\n{e}");
+            }
 
             LogManager.WriteLogs(args);
             WriteRawSpoiler(gs, ctx); // write it here and not in LogManager so that it uses the permuted context // write it after LogManager so it doesn't get deleted
@@ -162,30 +164,5 @@ namespace RandomizerMod.RC
                 JsonUtil._js.Serialize(jtr, ctx);
             }, "RawSpoiler.json");
         }
-
-        private void SelectStart()
-        {
-            var type = gs.StartLocationSettings.StartLocationType;
-            if (type != StartLocationSettings.RandomizeStartLocationType.Fixed)
-            {
-                List<string> startNames = new(Data.GetStartNames().Where(s => pm.Evaluate(Data.GetStartDef(s).Logic)));
-                if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
-                gs.StartLocationSettings.StartLocation = rng.Next(startNames);
-            }
-        }
-
-        private void AssignNotchCosts()
-        {
-            if (!gs.MiscSettings.RandomizeNotchCosts)
-            {
-                ctx.notchCosts = Enumerable.Range(1, 40).Select(i => CharmNotchCosts.GetVanillaCost(i)).ToList();
-            }
-            else
-            {
-                ctx.notchCosts = CharmNotchCosts.GetUniformlyRandomCosts(rng, 70, 110).ToList();
-            }
-        }
-
-
     }
 }

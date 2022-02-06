@@ -1,17 +1,20 @@
 ﻿using RandomizerCore.Logic;
 
-namespace RandomizerMod.RC
+namespace RandomizerMod.RC.LogicInts
 {
-    public class NotchCostInt : LogicInt
+    /// <summary>
+    /// LogicInt which returns 1 less than the number of notches needed to equip the charm without overcharming.
+    /// </summary>
+    public class SafeNotchCostInt : LogicInt
     {
         // the ids should correspond to the 1-40 charm nums (i.e. 1-indexed)
         public readonly int[] charmIDs;
 
-        public NotchCostInt(params int[] charmIDs)
+        public SafeNotchCostInt(params int[] charmIDs)
         {
             this.charmIDs = charmIDs;
             Array.Sort(charmIDs);
-            Name = $"$NotchCost[{string.Join(",", charmIDs)}]";
+            Name = $"$SafeNotchCost[{string.Join(",", charmIDs)}]";
         }
 
         public override string Name { get; }
@@ -21,11 +24,11 @@ namespace RandomizerMod.RC
             List<int> notchCosts = (pm.ctx as RandoModContext)?.notchCosts;
             if (notchCosts != null && notchCosts.Count >= charmIDs[charmIDs.Length - 1])
             {
-                return charmIDs.Sum(i => notchCosts[i - 1]) - charmIDs.Max(i => notchCosts[i - 1]);
+                return charmIDs.Sum(i => notchCosts[i - 1]) - 1;
             }
             else
             {
-                return charmIDs.Sum(i => CharmNotchCosts.GetVanillaCost(i)) - charmIDs.Max(i => CharmNotchCosts.GetVanillaCost(i));
+                return charmIDs.Sum(i => CharmNotchCosts.GetVanillaCost(i)) - 1;
             }
         }
 
