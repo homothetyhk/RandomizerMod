@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RandomizerCore;
 using RandomizerCore.Json;
+using RandomizerMod.RC;
 
 namespace RandomizerMod.Settings
 {
@@ -11,7 +12,7 @@ namespace RandomizerMod.Settings
         public TrackerData TrackerData;
         public TrackerData TrackerDataWithoutSequenceBreaks;
         [JsonIgnore]
-        public RandoContext Context;
+        public RandoModContext Context;
 
         public void Setup()
         {
@@ -29,7 +30,7 @@ namespace RandomizerMod.Settings
                 using JsonTextReader jtr = new(sr);
                 try
                 {
-                    Context = JsonUtil.Deserialize<RandoContext>(jtr);
+                    Context = JsonUtil.Deserialize<RandoModContext>(jtr);
                 }
                 catch (Exception e)
                 {

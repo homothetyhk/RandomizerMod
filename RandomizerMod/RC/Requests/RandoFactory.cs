@@ -37,19 +37,21 @@ namespace RandomizerMod.RC
 
         public RandoModItem MakeItem(string name)
         {
-            RandoModItem item;
-            if (rb.TryGetItemRequest(name, out ItemRequestInfo info) && info.randoItemCreator != null)
+            RandoModItem ri;
+            if (!rb.TryGetItemRequest(name, out ItemRequestInfo info))
             {
-                item = info.randoItemCreator(this);
+                ri = MakeItemInternal(name);
+                ri.ItemDef = Data.GetItemDef(name);
             }
             else
             {
-                item = MakeItemInternal(name);
+                ri = info.randoItemCreator != null ? info.randoItemCreator(this) : MakeItemInternal(name);
+                info.AppendTo(ri.info ??= new());
+                ri.ItemDef = info.getItemDef != null ? info.getItemDef() : Data.GetItemDef(name);
+                info.onRandoItemCreation?.Invoke(this, ri);
             }
-
-            info?.AppendTo(item.info ??= new());
-
-            return item;
+            
+            return ri;
         }
 
         public RandoModItem MakeItemInternal(string name)
@@ -64,16 +66,21 @@ namespace RandomizerMod.RC
 
         public RandoModLocation MakeLocation(string name)
         {
+            RandoModLocation rl;
             if (!rb.TryGetLocationRequest(name, out LocationRequestInfo info))
             {
-                return MakeLocationInternal(name);
+                rl = MakeLocationInternal(name);
+                rl.LocationDef = Data.GetLocationDef(name);
             }
             else
             {
-                RandoModLocation rl = info.randoLocationCreator?.Invoke(this) ?? MakeLocationInternal(name);
+                rl = info.randoLocationCreator?.Invoke(this) ?? MakeLocationInternal(name);
+                info.AppendTo(rl.info ??= new());
+                rl.LocationDef = info?.getLocationDef != null ? info.getLocationDef() : Data.GetLocationDef(name);
                 info.onRandoLocationCreation?.Invoke(this, rl);
-                return rl;
             }
+            
+            return rl;
         }
 
         private RandoModLocation MakeLocationInternal(string name)
@@ -100,31 +107,23 @@ namespace RandomizerMod.RC
                         rl.AddCost(new LogicGeoCost(lm, def.Amount));
                         break;
                     default:
-                        Log(name);
-                        Log(def);
                         rl.AddCost(new SimpleCost(lm.GetTerm(def.Term), def.Amount));
                         break;
                 }
-            }
-           
-            if (rb.TryGetLocationRequest(name, out LocationRequestInfo info))
-            {
-                info.AppendTo(rl.info ??= new());
             }
 
             return rl;
         }
 
-        public RandoPlacement MakeVanillaPlacement(VanillaDef def)
+        public GeneralizedPlacement MakeVanillaPlacement(VanillaDef def)
         {
-            if (lm.TransitionLookup.TryGetValue(def.Item, out LogicTransition lt))
+            if (lm.TransitionLookup.TryGetValue(def.Item, out LogicTransition target))
             {
-                RandoTransition target = new(lt);
-                RandoTransition source = new(lm.GetTransition(def.Location));
+                LogicTransition source = lm.GetTransition(def.Location);
                 return new(target, source);
             }
 
-            RandoItem ri = new() { item = lm.GetItem(def.Item) };
+            LogicItem li = lm.GetItem(def.Item);
             RandoLocation rl = new() { logic = lm.GetLogicDef(def.Location) };
             void ApplyCost(CostDef cost)
             {
@@ -151,12 +150,12 @@ namespace RandomizerMod.RC
                 }
             }
 
-            return new(ri, rl);
+            return rl.costs == null ? new(li, rl.logic) : new(li, rl);
         }
 
         public IRandoCouple MakeTransition(string name)
         {
-            return new RandoModTransition(lm.GetTransition(name));
+            return new RandoModTransition(lm.GetTransition(name), Data.GetTransitionDef(name));
         }
     }
 }

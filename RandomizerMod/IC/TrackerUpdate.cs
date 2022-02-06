@@ -10,7 +10,7 @@ namespace RandomizerMod.IC
             RandoItemTag.AfterRandoItemGive += AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged += OnRandoPlacementVisitStateChanged;
             Events.OnTransitionOverride += OnTransitionOverride;
-            transitionLookup ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.source.Name, p => p.target.Name) ?? new();
+            transitionLookup ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.Source.Name, p => p.Target.Name) ?? new();
             
             OnItemObtained += TD.OnItemObtained;
             OnItemObtained += TD_WSB.OnItemObtained;

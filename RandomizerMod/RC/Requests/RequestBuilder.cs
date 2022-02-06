@@ -17,7 +17,7 @@ namespace RandomizerMod.RC
     /// </summary>
     public class RequestBuilder
     {
-        public void Run(out RandomizationStage[] stages, out List<RandoPlacement> vanilla, out List<ItemPlacement> start) 
+        public void Run(out RandomizationStage[] stages, out List<GeneralizedPlacement> vanilla, out List<ItemPlacement> start) 
         {
             HandleUpdateEvents();
 
@@ -27,7 +27,7 @@ namespace RandomizerMod.RC
 
             vanilla = Vanilla.Values.SelectMany(v => v).Select(v => factory.MakeVanillaPlacement(v)).ToList();
             start = StartItems.EnumerateWithMultiplicity()
-                .Select(i => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation(LocationNames.Start)))
+                .Select((i, j) => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation(LocationNames.Start)) { Index = j })
                 .ToList();
         }
 

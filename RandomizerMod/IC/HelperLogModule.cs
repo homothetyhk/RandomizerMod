@@ -10,6 +10,8 @@ namespace RandomizerMod.IC
     {
         private void PrintHelper()
         {
+            if (!ready) return;
+
             LogManager.Write(BuildHelper(), "HelperLog.txt");
             LogManager.Write(TD.pm.ToString(), "TrackerDataPM.txt");
             LogManager.Write(TD_WSB.pm.ToString(), "TrackerDataWithoutSequenceBreaksPM.txt");
@@ -17,24 +19,23 @@ namespace RandomizerMod.IC
 
         private TrackerData TD => RandomizerMod.RS.TrackerData;
         private TrackerData TD_WSB => RandomizerMod.RS.TrackerDataWithoutSequenceBreaks;
+        private bool ready = false;
 
         public override void Initialize()
         {
-            SetUpLog();
+            RandomizerModule.OnLoadComplete += SetUpLog;
             TrackerUpdate.OnFinishedUpdate += PrintHelper;
         }
 
         public override void Unload()
         {
+            RandomizerModule.OnLoadComplete -= SetUpLog;
             TrackerUpdate.OnFinishedUpdate -= PrintHelper;
         }
 
-        private string GetItemPreviewName(int id, string placement)
+        private string GetItemPreviewName(int id)
         {
-            // very good and normal code to print item names
-            return ItemChanger.Internal.Ref.Settings.Placements[placement]
-                .Items
-                .First(i => i.GetTag<RandoItemTag>()?.id == id)
+            return RandomizerModule.Items[id]
                 .GetResolvedUIDef()
                 .GetPreviewName();
         }
@@ -46,15 +47,14 @@ namespace RandomizerMod.IC
 
         private bool IsPersistent(int id)
         {
-            return ItemChanger.Internal.Ref.Settings.Placements[TD.ctx.itemPlacements[id].location.Name]
-                .Items
-                .First(i => i.GetTag<RandoItemTag>()?.id == id)
+            return RandomizerModule.Items[id]
                 .GetTags<ItemChanger.Tags.IPersistenceTag>()
                 .Any(t => t is not ItemChanger.Tags.PersistentItemTag { Persistence: Persistence.Single });
         }
 
         private void SetUpLog()
         {
+            ready = true;
             PrintHelper();
         }
 
@@ -82,8 +82,8 @@ namespace RandomizerMod.IC
             sb.AppendLine();
 
             var previewLookup = Enumerable.Range(0, TD.ctx.itemPlacements.Count)
-                .Where(i => !TD.obtainedItems.Contains(i) && TD.previewedLocations.Contains(TD.ctx.itemPlacements[i].location.Name))
-                .ToLookup(i => TD.ctx.itemPlacements[i].location.Name);
+                .Where(i => !TD.obtainedItems.Contains(i) && TD.previewedLocations.Contains(TD.ctx.itemPlacements[i].Location.Name))
+                .ToLookup(i => TD.ctx.itemPlacements[i].Location.Name);
             sb.AppendLine("PREVIEWED LOCATIONS");
             foreach (string s in TD.previewedLocations)
             {
@@ -147,9 +147,9 @@ namespace RandomizerMod.IC
                 foreach (int i in persistentItems)
                 {
                     sb.Append(' ', 2);
-                    sb.Append(TD.ctx.itemPlacements[i].location.Name);
+                    sb.Append(TD.ctx.itemPlacements[i].Location.Name);
                     sb.Append(" - ");
-                    sb.AppendLine(GetItemPreviewName(i, TD.ctx.itemPlacements[i].location.Name));
+                    sb.AppendLine(GetItemPreviewName(i));
                 }
                 sb.AppendLine();
             }

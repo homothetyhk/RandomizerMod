@@ -1,4 +1,5 @@
 ﻿using RandomizerCore;
+using RandomizerMod.RC;
 using RandomizerMod.Settings;
 
 namespace RandomizerMod.Logging
@@ -7,6 +8,6 @@ namespace RandomizerMod.Logging
     {
         public object randomizer { get; init; }
         public GenerationSettings gs { get; init; }
-        public RandoContext ctx { get; init; }
+        public RandoModContext ctx { get; init; }
     }
 }

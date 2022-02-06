@@ -478,7 +478,7 @@ namespace RandomizerMod.RC
             {
                 double pow = 1.2; // setting?
 
-                int cap = item.TryGetItemDef(out ItemDef def) ? def.PriceCap : 500;
+                int cap = item.ItemDef is not null ? item.ItemDef.PriceCap : 500;
                 if (cap <= 100) return cap;
                 if (item.Required) return rng.PowerLaw(pow, 100, Math.Min(cap, 500)).ClampToMultipleOf(5);
                 return rng.PowerLaw(pow, 100, cap).ClampToMultipleOf(5);
@@ -1546,7 +1546,7 @@ namespace RandomizerMod.RC
                     for (int i = 0; i < locations.Count; i++)
                     {
                         if (locations[i] is not RandoModLocation rl) continue;
-                        if (rl.TryGetLocationDef(out LocationDef def) && def.AdditionalProgressionPenalty)
+                        if (rl.LocationDef is not null && rl.LocationDef.AdditionalProgressionPenalty)
                         {
                             // shops keep their lowest priority slot, but all other slots are moved to the end.
                             if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, 1f);

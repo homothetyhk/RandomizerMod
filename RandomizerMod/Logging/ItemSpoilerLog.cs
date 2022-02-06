@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RandomizerCore;
+using RandomizerMod.RC;
 
 namespace RandomizerMod.Logging
 {
@@ -13,9 +14,9 @@ namespace RandomizerMod.Logging
 
             public SpoilerEntry(ItemPlacement p)
             {
-                item = p.item.Name;
-                location = p.location.Name;
-                costs = p.location.costs?.Select(c => c.ToString())?.ToArray();
+                item = p.Item.Name;
+                location = p.Location.Name;
+                costs = p.Location.costs?.Select(c => c.ToString())?.ToArray();
             }
         }
 

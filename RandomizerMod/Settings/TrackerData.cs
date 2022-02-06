@@ -2,6 +2,7 @@
 using RandomizerCore;
 using RandomizerCore.Logic;
 using RandomizerMod.Logging;
+using RandomizerMod.RC;
 
 namespace RandomizerMod.Settings
 {
@@ -53,16 +54,16 @@ namespace RandomizerMod.Settings
         /// </summary>
         [JsonIgnore] public ProgressionManager pm;
         [JsonIgnore] public LogicManager lm;
-        [JsonIgnore] public RandoContext ctx;
+        [JsonIgnore] public RandoModContext ctx;
         private MainUpdater mu;
         public string logFileName;
 
-        public void Setup(GenerationSettings gs, RandoContext ctx)
+        public void Setup(GenerationSettings gs, RandoModContext ctx)
         {
             this.ctx = ctx;
             lm = ctx.LM;
 
-            List<RandoItem> items = obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].item).ToList();
+            List<RandoModItem> items = obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].Item).ToList();
 
             HashSet<string> transitionProgression = new();
             foreach (KeyValuePair<string, string> kvp in visitedTransitions)
@@ -106,12 +107,12 @@ namespace RandomizerMod.Settings
             })));
             if (ctx.itemPlacements != null)
             {
-                mu.AddEntries(ctx.itemPlacements.Select((p, id) => new DelegateUpdateEntry(p.location.logic, OnCanGetLocation(id))));
+                mu.AddEntries(ctx.itemPlacements.Select((p, id) => new DelegateUpdateEntry(p.Location.logic, OnCanGetLocation(id))));
             }
 
             if (ctx.transitionPlacements != null)
             {
-                mu.AddEntries(ctx.transitionPlacements.Select((p, id) => new DelegateUpdateEntry(p.source, OnCanGetTransition(id))));
+                mu.AddEntries(ctx.transitionPlacements.Select((p, id) => new DelegateUpdateEntry(p.Source, OnCanGetTransition(id))));
             }
 
             mu.Hook(pm); // automatically handle tracking reachable unobtained locations/transitions and adding vanilla progression to pm
@@ -139,7 +140,7 @@ namespace RandomizerMod.Settings
         {
             return pm =>
             {
-                (RandoTransition source, RandoTransition target) = ctx.transitionPlacements[id];
+                (RandoTransition target, RandoTransition source) = ctx.transitionPlacements[id];
                 AppendReachableTransitionToDebug(source.lt);
                 
                 if (!pm.Has(source.lt.term))

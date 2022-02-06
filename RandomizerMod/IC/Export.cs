@@ -39,8 +39,8 @@ namespace RandomizerMod.IC
                 ItemChangerMod.Modules.Add<ItemChanger.Modules.AutoSalubraNotches>();
             }
 
-            HashSet<string> sourceNames = new(ctx.transitionPlacements?.Select(x => x.source.Name) ?? Enumerable.Empty<string>());
-            HashSet<string> targetNames = new(ctx.transitionPlacements?.Select(x => x.target.Name) ?? Enumerable.Empty<string>());
+            HashSet<string> sourceNames = new(ctx.transitionPlacements?.Select(x => x.Source.Name) ?? Enumerable.Empty<string>());
+            HashSet<string> targetNames = new(ctx.transitionPlacements?.Select(x => x.Target.Name) ?? Enumerable.Empty<string>());
             if (targetNames.Contains($"{SceneNames.White_Palace_18}[top1]")
                 || targetNames.Contains($"{SceneNames.White_Palace_17}[right1]")
                 || targetNames.Contains($"{SceneNames.White_Palace_19}[top1]"))
@@ -92,16 +92,14 @@ namespace RandomizerMod.IC
             }
         }
 
-        public static void ExportItemPlacements(RequestBuilder rb, IReadOnlyList<ItemPlacement> randoPlacements)
+        public static void ExportItemPlacements(RequestBuilder rb, IReadOnlyList<ItemPlacement> itemPlacements)
         {
             Dictionary<string, AbstractPlacement> export = new();
             ICFactory factory = new(rb, export);
 
-            for(int j = 0; j < randoPlacements.Count; j++)
+            foreach (ItemPlacement p in itemPlacements)
             {
-                RandoModItem item = (RandoModItem)randoPlacements[j].item;
-                RandoModLocation location = (RandoModLocation)randoPlacements[j].location;
-                factory.HandlePlacement(j, item, location);
+                factory.HandlePlacement(p.Index, p.Item, p.Location);
             }
 
             ItemChangerMod.AddPlacements(export.Select(kvp => kvp.Value));
@@ -109,7 +107,12 @@ namespace RandomizerMod.IC
 
         public static void ExportTransitionPlacements(IEnumerable<TransitionPlacement> ps)
         {
-            foreach (var p in ps) ItemChangerMod.AddTransitionOverride(new Transition(p.source.lt.data.SceneName, p.source.lt.data.GateName), new Transition(p.target.lt.data.SceneName, p.target.lt.data.GateName));
+            foreach ((RandoModTransition target, RandoModTransition source) in ps)
+            {
+                ItemChangerMod.AddTransitionOverride(
+                    new Transition(source.TransitionDef.SceneName, source.TransitionDef.DoorName), 
+                    new Transition(target.TransitionDef.SceneName, target.TransitionDef.DoorName));
+            }
         }
     }
 }

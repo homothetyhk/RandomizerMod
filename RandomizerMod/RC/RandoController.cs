@@ -58,12 +58,12 @@ namespace RandomizerMod.RC
                         {
                             item.info?.onRandomizerFinish?.Invoke(placement);
                             location.info?.onRandomizerFinish?.Invoke(placement);
-                            ctx.itemPlacements.Add(new(item, location));
+                            ctx.itemPlacements.Add(new(item, location) { Index = ctx.itemPlacements.Count });
                         }
                         else if (placement.Item is RandoModTransition target && placement.Location is RandoModTransition source)
                         {
                             ctx.transitionPlacements ??= new();
-                            ctx.transitionPlacements.Add(new(source, target));
+                            ctx.transitionPlacements.Add(new(target, source));
                         }
                         else
                         {
@@ -74,7 +74,7 @@ namespace RandomizerMod.RC
             }
             args = new()
             {
-                ctx = new RandoContext // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
+                ctx = new RandoModContext(ctx.LM) // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
                 {
                     notchCosts = ctx.notchCosts?.ToList(),
                     itemPlacements = ctx.itemPlacements?.ToList(),
@@ -122,16 +122,6 @@ namespace RandomizerMod.RC
 
         public void Save()
         {
-            // We permute the ctx elements to reduce risk of leaking information if handled sloppily
-            if (ctx.itemPlacements != null)
-            {
-                rng.PermuteInPlace(ctx.itemPlacements);
-            }
-            if (ctx.transitionPlacements != null)
-            {
-                rng.PermuteInPlace(ctx.transitionPlacements);
-            }
-
             RandomizerMod.RS = new()
             {
                 GenerationSettings = gs,

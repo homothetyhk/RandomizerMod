@@ -71,7 +71,7 @@ namespace RandomizerMod.RC
         /// </summary>
         public static LogicManager GetNewLogicManager(GenerationSettings gs)
         {
-            LogicManagerBuilder lmb = new();
+            LogicManagerBuilder lmb = new() { VariableResolver = new RandoVariableResolver() };
 
             foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
             {

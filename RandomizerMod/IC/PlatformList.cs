@@ -26,7 +26,7 @@ namespace RandomizerMod.IC
 
         public static List<SmallPlatform> GetPlatformList(GenerationSettings gs, RandoModContext ctx)
         {
-            HashSet<string> targetNames = new(ctx.transitionPlacements?.Select(x => x.target.Name) ?? Enumerable.Empty<string>());
+            HashSet<string> targetNames = new(ctx.transitionPlacements?.Select(x => x.Target.Name) ?? Enumerable.Empty<string>());
 
             List<SmallPlatform> plats = new();
 

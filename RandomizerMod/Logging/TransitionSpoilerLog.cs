@@ -1,4 +1,5 @@
 ﻿using RandomizerCore;
+using RandomizerMod.RC;
 
 namespace RandomizerMod.Logging
 {
@@ -11,8 +12,8 @@ namespace RandomizerMod.Logging
 
             public SpoilerEntry(TransitionPlacement p)
             {
-                source = p.source.Name;
-                target = p.target.Name;
+                source = p.Source.Name;
+                target = p.Target.Name;
             }
         }
 
