@@ -2025,7 +2025,7 @@
   {
     "sceneName": "Fungus2_13",
     "gateName": "left3",
-    "logic": "Fungus2_13[left3] | Fungus2_13",
+    "logic": "Fungus2_13[left3] | Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_13[left3]"
   },
@@ -5058,7 +5058,7 @@
   {
     "sceneName": "Mines_02",
     "gateName": "top2",
-    "logic": "Mines_02[top2] | Mines_02 + (ANYCLAW | WINGS)",
+    "logic": "Mines_02 + (ANYCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Mines_02[top2]"
   },
@@ -5765,7 +5765,7 @@
   {
     "sceneName": "Fungus3_40",
     "gateName": "right1",
-    "logic": "Fungus3_40[right1] | Fungus3_40[top1] | (Can_Stag + Queen's_Gardens_Stag)",
+    "logic": "Fungus3_40[right1] | Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | TERMINALSHADESKIPS | AIRSTALL + ROOMSOUL) | (Can_Stag + Queen's_Gardens_Stag)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_40[right1]"
   },
