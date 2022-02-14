@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections;
 using System.Text;
 using System.Reflection;
-using System.IO;
 using MenuChanger.Attributes;
-using MenuChanger.Extensions;
 
 namespace RandomizerMod.Settings
 {
@@ -65,7 +60,7 @@ namespace RandomizerMod.Settings
     public static class BinaryFormatting
     {
         public const char CLASS_SEPARATOR = ';';
-        public const char STRING_SEPARATOR = '`';
+        public const char STRING_SEPARATOR = '\'';
 
         public class ReflectionData
         {

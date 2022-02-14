@@ -994,7 +994,7 @@ namespace RandomizerMod.Menu
             }
             catch (Exception e)
             {
-                Log("Start Game terminated due to error:\n" + e);
+                LogError("Start Game terminated due to error:\n" + e);
                 FinalPage.Show();
                 OutputLabel.Text.color = Color.red;
                 OutputLabel.Text.text = "Start Game terminated due to error:\n" + e;
@@ -1107,7 +1107,7 @@ namespace RandomizerMod.Menu
                 switch (w.NativeErrorCode)
                 {
                     case 2:
-                        Log($"Error opening Logic Readme: File {fileName} was not found.");
+                        LogError($"Error opening Logic Readme: File {fileName} was not found.");
                         break;
                     default:
                         LogError(w.ToString());

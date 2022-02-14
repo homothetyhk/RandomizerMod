@@ -24,6 +24,7 @@ namespace RandomizerMod.RC
                     Locations = ts.ToArray<IRandoLocation>(),
                     Label = label,
                     Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
+                    Validator = new WeakTransitionValidator(),
                 };
                 g.Dual = g;
                 groups.Add(g);

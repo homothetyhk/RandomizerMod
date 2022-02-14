@@ -37,6 +37,7 @@ namespace RandomizerMod.RC
                     Locations = t2s.ToArray<IRandoLocation>(),
                     Label = label,
                     Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
+                    Validator = new WeakTransitionValidator(),
                 };
                 CoupledRandomizationGroup g2 = new()
                 {
@@ -44,6 +45,7 @@ namespace RandomizerMod.RC
                     Locations = t1s.ToArray<IRandoLocation>(),
                     Label = reverseLabel,
                     Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
+                    Validator = new WeakTransitionValidator(),
                 };
                 g1.Dual = g2;
                 g2.Dual = g1;

@@ -86,7 +86,7 @@ namespace RandomizerMod.RC
                 }
                 catch (Exception e)
                 {
-                    Log("Error invoking logic override event:\n" + e);
+                    LogError("Error invoking logic override event:\n" + e);
                 }
             }
             ApplyLocalLogicChanges(lmb);
@@ -98,7 +98,7 @@ namespace RandomizerMod.RC
                 }
                 catch (Exception e)
                 {
-                    Log("Error invoking logic override event:\n" + e);
+                    LogError("Error invoking logic override event:\n" + e);
                 }
             }
 

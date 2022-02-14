@@ -166,7 +166,7 @@ namespace RandomizerMod.Logging
             }
             catch (Exception e)
             {
-                Log($"Error initializing user logging directory:\n{e}");
+                LogError($"Error initializing user logging directory:\n{e}");
                 return;
             }
 
@@ -181,7 +181,7 @@ namespace RandomizerMod.Logging
             }
             catch (Exception e)
             {
-                Log($"Error initializing recent logging directory:\n{e}");
+                LogError($"Error initializing recent logging directory:\n{e}");
                 return;
             }
 

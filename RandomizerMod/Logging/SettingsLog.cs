@@ -15,6 +15,8 @@ namespace RandomizerMod.Logging
                 using JsonTextWriter jtw = new(tw);
                 JsonUtil._js.Serialize(jtw, args.gs);
                 tw.WriteLine();
+                tw.WriteLine("Logging GenerationSettings code:");
+                tw.WriteLine(args.gs.Serialize());
                 try
                 {
                     AfterLogSettings?.Invoke(args, tw);

@@ -2032,7 +2032,7 @@
   {
     "sceneName": "Fungus2_14",
     "gateName": "top1",
-    "logic": "Fungus2_14[top1] + (ANYCLAW | WINGS) | Fungus2_14 + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + ENEMYPOGOS))",
+    "logic": "Fungus2_14[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Fungus2_14 + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + ENEMYPOGOS))",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_14[top1]"
   },
@@ -2214,7 +2214,7 @@
   {
     "sceneName": "Fungus2_30",
     "gateName": "top1",
-    "logic": "Fungus2_30[top1] + (ANYCLAW | WINGS)",
+    "logic": "Fungus2_30[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_30[top1]"
   },
@@ -3096,7 +3096,7 @@
   {
     "sceneName": "Deepnest_East_14",
     "gateName": "top2",
-    "logic": "Deepnest_East_14[top2] + (ANYCLAW | WINGS)",
+    "logic": "Deepnest_East_14[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_14[top2]"
   },
@@ -3348,14 +3348,14 @@
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top1",
-    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS) | Room_Colosseum_02[top2] + ANYCLAW",
+    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top2] + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top1]"
   },
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top2",
-    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS) | Room_Colosseum_02[top1] + ANYCLAW",
+    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top1] + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top2]"
   },
@@ -3509,7 +3509,7 @@
   {
     "sceneName": "Abyss_06_Core",
     "gateName": "top1",
-    "logic": "Abyss_06_Core[top1] + (RIGHTCLAW | WINGS)",
+    "logic": "Abyss_06_Core[top1] + (RIGHTCLAW | WINGS + (LEFTCLAW | PRECISEMOVEMENT))",
     "oneWayType": "TwoWay",
     "Name": "Abyss_06_Core[top1]"
   },
@@ -3600,7 +3600,7 @@
   {
     "sceneName": "Abyss_15",
     "gateName": "top1",
-    "logic": "Abyss_15[top1] + (ANYCLAW | WINGS)",
+    "logic": "Abyss_15[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_15[top1]"
   },
@@ -3705,7 +3705,7 @@
   {
     "sceneName": "Waterways_01",
     "gateName": "top1",
-    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS) | Waterways_01 + Opened_Waterways_Manhole + ANYCLAW",
+    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_01 + Opened_Waterways_Manhole + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "Waterways_01[top1]"
   },
@@ -3733,7 +3733,7 @@
   {
     "sceneName": "Waterways_02",
     "gateName": "top1",
-    "logic": "Waterways_02[top1] + (ANYCLAW | WINGS) | Waterways_02 + (ANYCLAW | (ENEMYPOGOS + WINGS))",
+    "logic": "Waterways_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_02 + (ANYCLAW | (ENEMYPOGOS + WINGS))",
     "oneWayType": "TwoWay",
     "Name": "Waterways_02[top1]"
   },
@@ -3747,7 +3747,7 @@
   {
     "sceneName": "Waterways_02",
     "gateName": "top3",
-    "logic": "Waterways_02[top3] + ANYCLAW",
+    "logic": "Waterways_02[top3] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_02[top3]"
   },
@@ -3964,7 +3964,7 @@
   {
     "sceneName": "Waterways_15",
     "gateName": "top1",
-    "logic": "Waterways_15[top1] + (ANYCLAW | WINGS)",
+    "logic": "Waterways_15[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_15[top1]"
   },
@@ -4104,7 +4104,7 @@
   {
     "sceneName": "Ruins1_05b",
     "gateName": "top1",
-    "logic": "Ruins1_05b[top1] + (ANYCLAW | WINGS)",
+    "logic": "Ruins1_05b[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05b[top1]"
   },
@@ -4139,7 +4139,7 @@
   {
     "sceneName": "Ruins1_05c",
     "gateName": "top1",
-    "logic": "Ruins1_05c[top1] + (ANYCLAW | WINGS) | Ruins1_05c + ((WINGS + (ANYCLAW | ENEMYPOGOS + DIFFICULTSKIPS)) | (FULLCLAW + (FULLDASH | WINGS | FULLSUPERDASH | ENEMYPOGOS | Ruins1_05c[top2])))",
+    "logic": "Ruins1_05c[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Ruins1_05c + ((WINGS + (ANYCLAW | ENEMYPOGOS + DIFFICULTSKIPS)) | (FULLCLAW + (FULLDASH | WINGS | FULLSUPERDASH | ENEMYPOGOS | Ruins1_05c[top2])))",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05c[top1]"
   },
@@ -4195,7 +4195,7 @@
   {
     "sceneName": "Ruins1_05",
     "gateName": "top1",
-    "logic": "Ruins1_05[top1] + (RIGHTCLAW | WINGS + LEFTCLAW) | Ruins1_05 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | LEFTCLAW | Ruins1_05[right1])",
+    "logic": "Ruins1_05[top1] + (RIGHTCLAW | WINGS + (ANYCLAW | PRECISEMOVEMENT)) | Ruins1_05 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | LEFTCLAW | Ruins1_05[right1])",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05[top1]"
   },
@@ -4272,7 +4272,7 @@
   {
     "sceneName": "Ruins1_23",
     "gateName": "top1",
-    "logic": "Ruins1_23[top1] + WINGS | Ruins1_23 + WINGS + Defeated_Sanctum_Warrior + Broke_Sanctum_Glass_Floor",
+    "logic": "Ruins1_23[top1] + WINGS + PRECISEMOVEMENT | Ruins1_23 + Defeated_Sanctum_Warrior + Broke_Sanctum_Glass_Floor + WINGS + (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH) | RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH) | BACKGROUNDPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_23[top1]"
   },
@@ -4995,14 +4995,14 @@
   {
     "sceneName": "RestingGrounds_10",
     "gateName": "top1",
-    "logic": "RestingGrounds_10[top1] + (ANYCLAW | WINGS)",
+    "logic": "RestingGrounds_10[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_10[top1]"
   },
   {
     "sceneName": "RestingGrounds_10",
     "gateName": "top2",
-    "logic": "RestingGrounds_10[top2] + (LEFTCLAW | WINGS) | RestingGrounds_10 + (LEFTCLAW | (WINGS + RIGHTCLAW)) + UPWALLBREAK",
+    "logic": "RestingGrounds_10[top2] + (LEFTCLAW | WINGS + (RIGHTCLAW | PRECISEMOVEMENT)) | RestingGrounds_10 + (LEFTCLAW | (WINGS + RIGHTCLAW)) + UPWALLBREAK",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_10[top2]"
   },
@@ -5401,7 +5401,7 @@
   {
     "sceneName": "Mines_25",
     "gateName": "top1",
-    "logic": "Mines_25[top1] + (WINGS | ANYCLAW + ENEMYPOGOS + COMPLEXSKIPS) | Mines_25[left1] + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (WINGS | ENEMYPOGOS + COMPLEXSKIPS)",
+    "logic": "Mines_25[top1] + (WINGS + (ANYCLAW | PRECISEMOVEMENT) | ANYCLAW + ENEMYPOGOS + COMPLEXSKIPS) | Mines_25[left1] + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (WINGS | ENEMYPOGOS + COMPLEXSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Mines_25[top1]"
   },
@@ -5604,7 +5604,7 @@
   {
     "sceneName": "Fungus3_08",
     "gateName": "top1",
-    "logic": "Fungus3_08[top1] + (LEFTCLAW | WINGS) | (Fungus3_08[right1] | Fungus3_08[left1]) + (LEFTCLAW | (WINGS + (RIGHTCLAW | ENEMYPOGOS)))",
+    "logic": "Fungus3_08[top1] + (LEFTCLAW | WINGS + (ANYCLAW | PRECISEMOVEMENT)) | (Fungus3_08[right1] | Fungus3_08[left1]) + (LEFTCLAW | (WINGS + (RIGHTCLAW | ENEMYPOGOS)))",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_08[top1]"
   },

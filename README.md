@@ -12,7 +12,7 @@ Randomizer 4 requires the following to run:
 - The RandomizerCore library.
 
 Additionally, the following mods are strongly recommended:
-- Benchwarp, which can be required by randomizer logic for warping to the start location.
+- Benchwarp, which can be required by randomizer logic for warping to the start location. Also, in transition randomizer only, the "deploy bench" feature may be required to complete Flower Quest.
 - QoL, which can be required to restore skips expected in certain modes.
 
 ## Tips
@@ -106,9 +106,9 @@ For each category, there is a minimum, maximum, and tolerance. The costs will be
 ### Long Location Settings
 
 Settings which allow selectively not randomizing certain long locations, or modifying certain item previews.
-- Randomization In White Palace: Allows removing all randomized items and locations in Path of Pain, or White Palace as a whole, and leaving them vanilla. For historical reasons, the King Fragment item and location are not affected by this setting, and are always randomized with the Charms pool.
+- White Palace Rando: Allows removing all randomized items and locations in Path of Pain, or White Palace as a whole, and leaving them vanilla. For historical reasons, the King Fragment item and location are not affected by this setting, and are always randomized with the Charms pool.
     - In transition randomizer, this setting also unrandomizes transitions. The Exclude Path of Pain setting unrandomizes all transitions in Path of Pain and the transition leading to Path of Pain. The Exclude White Palace setting unrandomizes all transitions in White Palace and Path of Pain.
-- Boss Essence Randomization: Allows selecting which bosses are included in the Boss Essence pool; for example, giving the option to remove White Defender and Grey Prince Zote, or to remove all Dream Bosses leaving only Dream Warriors.
+- Boss Essence Rando: Allows selecting which bosses are included in the Boss Essence pool; for example, giving the option to remove White Defender and Grey Prince Zote, or to remove all Dream Bosses leaving only Dream Warriors.
 
 For each preview setting, toggling the setting off will result in the corresponding location(s) no longer allowing preview of their items. For locations which carry randomized costs, the preview setting has four options:
 - Cost And Name: default preview behavior
