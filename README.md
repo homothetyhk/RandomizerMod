@@ -42,6 +42,9 @@ Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduc
 - For players of Randomizer 3, some new items and locations have been added to the old pools:
 	- Charms now includes Fragile and Unbreakable charms. Fragile charms can be repaired at Leg Eater. Divine sells 3 items, one for each Unbreakable charm. To purchase an item from Divine, you must equip the corresponding Heart, Greed, or Strength charm as in vanilla, and pay 5% of the vanilla geo cost (600 for Heart, 450 for Greed, 750 for Strength).
 	- Rancid Eggs now includes the Tuk Defender's Crest egg. To obtain Tuk's item, you must talk to Tuk with Defender's Crest equipped.
+- Multiple items at one location: Randomizer/ItemChanger support placing any number of items at a given location. This is usually not used by the randomizer except for a few special cases.
+	- Focus and Lore_Tablet-Focus are both randomized. Then the Focus location does not exist, and two items are placed at Lore_Tablet-Focus.
+	- World_Sense and Lore_Tablet-World_Sense are both randomized. Then the World_Sense location does not exist, and two items are placed at Lore_Tablet-World_Sense.
 
 ## Settings
 

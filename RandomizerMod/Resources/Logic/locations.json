@@ -429,7 +429,7 @@
   },
   {
     "name": "Rancid_Egg-Queen's_Gardens",
-    "logic": "(Fungus3_34 + (RIGHTCLAW | WINGS | FULLDASH)) | (Fungus3_34[left1] + RIGHTDASH)"
+    "logic": "(Fungus3_34 + (RIGHTCLAW + BACKGROUNDPOGOS | WINGS | FULLDASH)) | (Fungus3_34[left1] + RIGHTDASH)"
   },
   {
     "name": "Rancid_Egg-Blue_Lake",

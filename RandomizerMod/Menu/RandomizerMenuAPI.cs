@@ -12,6 +12,7 @@ namespace RandomizerMod.Menu
     public delegate void OnRandomizerMenuConstructionHandler(MenuPage landingPage);
     public delegate bool TryGetMenuButtonHandler(MenuPage landingPage, out SmallButton button);
     public delegate bool OverrideRandomizerStartHandler(RandoController rc, MenuPage landingPage, out BaseButton button);
+    public delegate void StartLocationDictModifier(Dictionary<string, RandomizerData.StartDef> startDefs);
     internal readonly record struct RandoMenuPageConstructor
             (OnRandomizerMenuConstructionHandler ConstructionHandler, TryGetMenuButtonHandler ButtonHandler);
     internal readonly record struct RandoStartOverride
@@ -42,6 +43,21 @@ namespace RandomizerMod.Menu
         public static void RemoveStartGameOverride(OnRandomizerMenuConstructionHandler constructionHandler, OverrideRandomizerStartHandler startHandler)
         {
             randoStartOverrides.Remove(new(constructionHandler, startHandler));
+        }
+
+        public static event StartLocationDictModifier OnGenerateStartLocationDict;
+        public static Dictionary<string, RandomizerData.StartDef> GenerateStartLocationDict()
+        {
+            Dictionary<string, RandomizerData.StartDef> starts = RandomizerData.Data.GetStartNames().ToDictionary(s => s, s => RandomizerData.Data.GetStartDef(s));
+            try
+            {
+                OnGenerateStartLocationDict?.Invoke(starts);
+            }
+            catch (Exception e)
+            {
+                LogError($"Error invoking OnGenerateStartLocationList:\n{e}");
+            }
+            return starts;
         }
     }
 

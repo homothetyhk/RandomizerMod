@@ -79,14 +79,23 @@ namespace RandomizerMod.RC
 
         public static bool SelectStart(Random rng, GenerationSettings gs, SettingsPM pm, out RandomizerData.StartDef def)
         {
+            Dictionary<string, RandomizerData.StartDef> startDefs = Menu.RandomizerMenuAPI.GenerateStartLocationDict();
+
             StartLocationSettings.RandomizeStartLocationType type = gs.StartLocationSettings.StartLocationType;
             if (type != StartLocationSettings.RandomizeStartLocationType.Fixed)
             {
-                List<string> startNames = new(Data.GetStartNames().Where(s => pm.Evaluate(Data.GetStartDef(s).Logic)));
+                List<string> startNames = new(startDefs.Values.Where(s => s.CanBeRandomized(pm)).Select(s => s.Name));
                 if (type == StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP) startNames.Remove("King's Pass");
                 gs.StartLocationSettings.StartLocation = rng.Next(startNames);
             }
-            def = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
+
+            if (gs.StartLocationSettings.StartLocation == null || !startDefs.TryGetValue(gs.StartLocationSettings.StartLocation, out def))
+            {
+                LogWarn($"Unknown start location {gs.StartLocationSettings.StartLocation} selected in BuiltinRequests.SelectStart, falling back to King's Pass");
+                gs.StartLocationSettings.StartLocation = Data.GetStartNames().First();
+                def = Data.GetStartDef(gs.StartLocationSettings.StartLocation);
+            }
+
             return true;
         }
 

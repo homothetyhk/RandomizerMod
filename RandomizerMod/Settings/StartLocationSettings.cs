@@ -23,9 +23,9 @@ namespace RandomizerMod.Settings
         public override void Clamp(GenerationSettings gs)
         {
             base.Clamp(gs);
-            if (StartLocationType == RandomizeStartLocationType.Fixed && Data.GetStartDef(StartLocation) == null)
+            if (StartLocationType == RandomizeStartLocationType.Fixed && StartLocation == null)
             {
-                LogHelper.LogWarn("Found invalid fixed start location during Clamp.");
+                LogWarn("Found null fixed start location during Clamp.");
                 StartLocation = Data.GetStartNames().First();
             }
         }

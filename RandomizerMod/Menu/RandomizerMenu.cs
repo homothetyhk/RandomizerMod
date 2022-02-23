@@ -64,7 +64,7 @@ namespace RandomizerMod.Menu
         public BigButton EntryButton;
         GenerationSettings Settings => RandomizerMod.GS.DefaultMenuSettings;
         List<MenuProfile> Profiles => RandomizerMod.GS.Profiles;
-        readonly StartDef[] StartDefs;
+        readonly Dictionary<string, StartDef> StartDefs;
 
         readonly MenuPage ModePage;
         readonly SettingsPM pm;
@@ -227,7 +227,7 @@ namespace RandomizerMod.Menu
         SmallButton randomFixedStartButton;
         RadioSwitch startLocationSwitch;
         VerticalItemPanel startLocationVIP;
-        GridItemPanel startLocationGIP;
+        IMenuPanel startLocationPanel;
 
         Subpage StartItemSubpage;
         MenuElementFactory<StartItemSettings> startItemMEF;
@@ -318,8 +318,8 @@ namespace RandomizerMod.Menu
         {
             ModePage = modePage;
 
-            StartDefs = Data.GetStartNames().Select(s => Data.GetStartDef(s)).ToArray();
             pm = new(Settings);
+            StartDefs = RandomizerMenuAPI.GenerateStartLocationDict();
 
             MakeMenuPages();
             MakeMenuElements();
@@ -375,7 +375,7 @@ namespace RandomizerMod.Menu
                 typeof(StartLocationSettings).GetField(nameof(StartLocationSettings.StartLocationType)));
             randomFixedStartButton = new SmallButton(AdvancedSettingsPage, "Random Fixed Start");
 
-            startLocationSwitch = new RadioSwitch(AdvancedSettingsPage, StartDefs.Select(def => def.Name).ToArray());
+            startLocationSwitch = new RadioSwitch(AdvancedSettingsPage, StartDefs.Values.Where(def => def.DisplayInMenu(pm)).Select(def => def.Name).ToArray());
             startItemMEF = new MenuElementFactory<StartItemSettings>(AdvancedSettingsPage, Settings.StartItemSettings);
 
             miscMEF = new MenuElementFactory<MiscSettings>(AdvancedSettingsPage, Settings.MiscSettings);
@@ -503,8 +503,17 @@ namespace RandomizerMod.Menu
             LongLocationSubpage.Add(longLocationPanel);
 
             StartLocationSubpage = new Subpage(AdvancedSettingsPage, "Start Location");
-            startLocationGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, 50f, 600f, false, startLocationSwitch.Elements);
-            startLocationVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, startLocationTypeSwitch, randomFixedStartButton, startLocationGIP);
+            if (StartDefs.Count <= 33)
+            {
+                startLocationPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, 50f, 600f, false, startLocationSwitch.Elements);
+            }
+            else
+            {
+                // will this actually work? let's hope we never find out
+                startLocationPanel = new MultiGridItemPanel(AdvancedSettingsPage, 3, 10, 50f, 600f, new Vector2(0, 150), new(-600f, -350f), new(0f, 350f), new(600f, 350f), startLocationSwitch.Elements);
+            }
+
+            startLocationVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, startLocationTypeSwitch, randomFixedStartButton, startLocationPanel);
             StartLocationSubpage.Add(startLocationVIP);
 
             StartItemSubpage = new Subpage(AdvancedSettingsPage, "Start Items");
@@ -824,10 +833,10 @@ namespace RandomizerMod.Menu
                     }
                     break;
                 case StartLocationSettings.RandomizeStartLocationType.Random:
-                    startLocationSwitch.MatchPredicateAndLock(button => CanSelectStart(button.Name));
+                    startLocationSwitch.MatchPredicateAndLock(button => CanRandomizeStart(button.Name));
                     break;
                 case StartLocationSettings.RandomizeStartLocationType.RandomExcludingKP:
-                    startLocationSwitch.MatchPredicateAndLock(button => button.Name != "King's Pass" && CanSelectStart(button.Name));
+                    startLocationSwitch.MatchPredicateAndLock(button => button.Name != "King's Pass" && CanRandomizeStart(button.Name));
                     break;
             }
         }
@@ -1031,8 +1040,24 @@ namespace RandomizerMod.Menu
 
         private bool CanSelectStart(string name)
         {
-            StartDef def = Data.GetStartDef(name);
-            return pm.Evaluate(def.Logic);
+            if (name == null || !StartDefs.TryGetValue(name, out StartDef def))
+            {
+                LogWarn($"Unknown start {name} passed to CanSelectStart");
+                return false;
+            }
+
+            return def.CanBeSelected(pm);
+        }
+
+        private bool CanRandomizeStart(string name)
+        {
+            if (name == null || !StartDefs.TryGetValue(name, out StartDef def))
+            {
+                LogWarn($"Unknown start {name} passed to CanRandomizeStart");
+                return false;
+            }
+
+            return def.CanBeRandomized(pm);
         }
 
         public void RebuildConnectionsPanel()

@@ -1323,6 +1323,10 @@
       {
         "Term": "FLAMES",
         "Value": 6
+      },
+      {
+        "Term": "First_Grimmchild_Upgrade",
+        "Value": 1
       }
     ],
     "Cap": {

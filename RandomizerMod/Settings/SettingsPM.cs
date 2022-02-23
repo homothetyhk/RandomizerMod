@@ -7,9 +7,14 @@ namespace RandomizerMod.Settings
     /// </summary>
     public class SettingsPM : StringPM
     {
-        public GenerationSettings GS;
+        public readonly GenerationSettings GS;
 
         public SettingsPM(GenerationSettings gs) => GS = gs;
+
+        public delegate bool BoolTermResolver(string term, out bool result);
+        public static event BoolTermResolver OnResolveBoolTerm;
+        public delegate bool IntTermResolver(string term, out int result);
+        public static event IntTermResolver OnResolveIntTerm;
 
         public override bool Evaluate(TermToken token)
         {
@@ -40,6 +45,14 @@ namespace RandomizerMod.Settings
         public int GetInt(string name)
         {
             if (int.TryParse(name, out int value)) return value;
+            if (OnResolveIntTerm != null)
+            {
+                foreach (IntTermResolver d in OnResolveIntTerm.GetInvocationList())
+                {
+                    if (d(name, out int result)) return result;
+                }
+            }
+
             return name switch
             {
                 _ => throw new NotImplementedException(),
@@ -48,6 +61,14 @@ namespace RandomizerMod.Settings
 
         public bool GetBool(string name)
         {
+            if (OnResolveBoolTerm != null)
+            {
+                foreach (BoolTermResolver d in OnResolveBoolTerm.GetInvocationList())
+                {
+                    if (d(name, out bool result)) return result;
+                }
+            }
+
             return name switch
             {
                 "PRECISEMOVEMENT" => GS.SkipSettings.PreciseMovement,

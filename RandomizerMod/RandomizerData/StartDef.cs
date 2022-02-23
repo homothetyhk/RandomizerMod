@@ -1,6 +1,7 @@
 ﻿using GlobalEnums;
 using RandomizerCore;
 using RandomizerCore.Logic;
+using RandomizerMod.Settings;
 
 namespace RandomizerMod.RandomizerData
 {
@@ -19,6 +20,21 @@ namespace RandomizerMod.RandomizerData
 
         // Primitive logic -- check SettingsPM
         public string Logic { get; init; }
+
+        public virtual bool CanBeSelected(SettingsPM pm)
+        {
+            return pm.Evaluate(Logic);
+        }
+
+        public virtual bool CanBeRandomized(SettingsPM pm)
+        {
+            return CanBeSelected(pm);
+        }
+
+        public virtual bool DisplayInMenu(SettingsPM pm)
+        {
+            return true;
+        }
 
         public virtual IEnumerable<TermValue> GetStartLocationProgression(LogicManager lm)
         {

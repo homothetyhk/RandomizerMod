@@ -45,7 +45,7 @@ namespace RandomizerMod
         {
             if (orig is DefaultMenuItemFormatter or MenuItemEnumFormatter)
             {
-                return orig.GetText(Localize(prefix), Localize(value?.ToString()));
+                return Localize(orig.GetText(Localize(prefix), Localize(value?.ToString())));
             }
             else
             {
