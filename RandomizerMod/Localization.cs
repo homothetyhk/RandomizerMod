@@ -43,12 +43,29 @@ namespace RandomizerMod
 
         public override string GetText(string prefix, object value)
         {
-            if (orig is DefaultMenuItemFormatter or MenuItemEnumFormatter)
+            if (orig is DefaultMenuItemFormatter)
             {
-                return Localize(orig.GetText(Localize(prefix), Localize(value?.ToString())));
+                string s1 = prefix;
+                string s2 = value?.ToString() ?? string.Empty;
+                string s3 = prefix + ": " + s2;
+                string s4 = Localize(s3);
+                if (s4 != s3) return s4;
+                return Localize(s1) + ": " + Localize(s2);
+            }
+            else if (orig is MenuItemEnumFormatter mief)
+            {
+                string s1 = prefix;
+                string s2 = mief.GetEnumName(value);
+                string s3 = prefix + ": " + s2;
+                string s4 = Localize(s3);
+                if (s4 != s3) return s4;
+                return Localize(s1) + ": " + Localize(s2);
             }
             else
             {
+                string s1 = orig.GetText(prefix, value);
+                string s2 = Localize(orig.GetText(prefix, value));
+                if (s1 != s2) return s2;
                 return Localize(orig.GetText(Localize(prefix), value));
             }
         }

@@ -23,49 +23,6 @@ namespace RandomizerMod.RC
             (LogicManagerBuilder.JsonType.Items, "items"),
         };
 
-        public static void ApplyLocalLogicChanges(LogicManagerBuilder lmb)
-        {
-            string directory = Path.Combine(RandomizerMod.Folder, "Logic");
-            try
-            {
-                DirectoryInfo di = new(directory);
-                if (di.Exists)
-                {
-                    List<FileInfo> macros = new();
-                    List<FileInfo> logic = new();
-                    List<FileInfo> substs = new();
-
-                    foreach (FileInfo fi in di.EnumerateFiles())
-                    {
-                        if (!fi.Extension.ToLower().EndsWith("json")) continue;
-                        string fileName = fi.Name.ToLower();
-                        if (fileName.StartsWith("macro")) macros.Add(fi);
-                        else if (fileName.StartsWith("subst")) substs.Add(fi);
-                        else logic.Add(fi);
-                    }
-                    foreach (FileInfo fi in macros)
-                    {
-                        using FileStream fs = fi.OpenRead();
-                        lmb.DeserializeJson(LogicManagerBuilder.JsonType.MacroEdit, fs);
-                    }
-                    foreach (FileInfo fi in substs)
-                    {
-                        using FileStream fs = fi.OpenRead();
-                        lmb.DeserializeJson(LogicManagerBuilder.JsonType.LogicSubst, fs);
-                    }
-                    foreach (FileInfo fi in logic)
-                    {
-                        using FileStream fs = fi.OpenRead();
-                        lmb.DeserializeJson(LogicManagerBuilder.JsonType.LogicEdit, fs);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                LogError("Error fetching local logic changes:\n" + e);
-            }
-        }
-
         /// <summary>
         /// Creates a new LogicManager, allowing edits from local files and runtime hooks.
         /// </summary>
@@ -78,19 +35,7 @@ namespace RandomizerMod.RC
                 lmb.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Logic.{fileName}.json"));
             }
 
-            foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberRange(float.NegativeInfinity, 0))
-            {
-                try
-                {
-                    a?.Invoke(gs, lmb);
-                }
-                catch (Exception e)
-                {
-                    LogError("Error invoking logic override event:\n" + e);
-                }
-            }
-            ApplyLocalLogicChanges(lmb);
-            foreach (var a in _runtimeLogicOverrideOwner.GetSubscriberRange(float.Epsilon, float.PositiveInfinity))
+            foreach (var a in _runtimeLogicOverrideOwner.GetSubscribers())
             {
                 try
                 {
