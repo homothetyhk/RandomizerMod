@@ -104,6 +104,10 @@ namespace RandomizerMod.Settings
             {
                 AppendVanillaToDebug(v);
                 pm.Add(v.Item);
+                if (v.Location is ILogicItem li) // e.g. add vanilla source transition term to progression
+                {
+                    pm.Add(li);
+                }
             })));
             if (ctx.itemPlacements != null)
             {
