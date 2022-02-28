@@ -28,20 +28,20 @@ namespace RandomizerMod.Settings
                     int maxValue = int.MaxValue - 1;
                     int minValue = int.MinValue;
 
-                    if (T.GetCustomAttribute<MenuRangeAttribute>() is MenuRangeAttribute range)
+                    if (f.GetCustomAttribute<MenuRangeAttribute>() is MenuRangeAttribute range)
                     {
                         maxValue = (int)range.max;
                         minValue = (int)range.min;
                     }
                     else
                     {
-                        if (T.GetCustomAttribute<MaxValueAttribute>() is MaxValueAttribute max) maxValue = max.Value;
+                        if (f.GetCustomAttribute<MaxValueAttribute>() is MaxValueAttribute max) maxValue = max.Value;
                         else if (T.IsEnum)
                         {
                             maxValue = Enum.GetValues(T).Cast<int>().Max();
                         }
 
-                        if (T.GetCustomAttribute<MinValueAttribute>() is MinValueAttribute min) minValue = min.Value;
+                        if (f.GetCustomAttribute<MinValueAttribute>() is MinValueAttribute min) minValue = min.Value;
                         else if (T.IsEnum)
                         {
                             minValue = Enum.GetValues(T).Cast<int>().Min();

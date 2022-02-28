@@ -92,6 +92,8 @@ namespace RandomizerMod.Menu
         MenuPreset<DuplicateItemSettings> DuplicateItemPreset;
         MenuPreset<SplitGroupSettings> SplitGroupPreset;
 
+        MenuPreset<ProgressionDepthSettings> ProgressionDepthPreset; // not on main page!
+
         SmallButton[] PresetButtons => new SmallButton[]
         {
             PoolPreset,
@@ -427,6 +429,9 @@ namespace RandomizerMod.Menu
             SplitGroupPreset = new MenuPreset<SplitGroupSettings>(StartPage, "Split Group Randomizer", SplitGroupPresetData.Presets,
                 Settings.SplitGroupSettings, Captions.Caption, splitGroupMEF);
 
+            ProgressionDepthPreset = new MenuPreset<ProgressionDepthSettings>(AdvancedSettingsPage, "Presets", ProgressionDepthPresetData.Presets, Settings.ProgressionDepthSettings,
+                _ => string.Empty, progressionDepthMEF);
+
             DefaultSettingsButton = new SmallButton(JumpPage, "Restore Default Settings");
             ToManageSettingsPageButton = new SmallButton(JumpPage, "Manage Settings Profiles");
             OpenReadmeButton = new SmallButton(JumpPage, "Open Main Readme");
@@ -533,7 +538,7 @@ namespace RandomizerMod.Menu
             TransitionSubpage.Add(transitionPanel);
 
             ProgressionDepthSubpage = new Subpage(AdvancedSettingsPage, "Progression Depth");
-            progressionDepthPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 75f, false, progressionDepthMEF.Elements);
+            progressionDepthPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 75f, false, progressionDepthMEF.Elements.Prepend<IMenuElement>(ProgressionDepthPreset).ToArray());
             ProgressionDepthSubpage.Add(progressionDepthPanel);
 
             DuplicateItemSubpage = new Subpage(AdvancedSettingsPage, "Duplicate Items");
