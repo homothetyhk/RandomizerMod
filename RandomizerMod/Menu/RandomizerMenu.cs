@@ -429,7 +429,7 @@ namespace RandomizerMod.Menu
             SplitGroupPreset = new MenuPreset<SplitGroupSettings>(StartPage, "Split Group Randomizer", SplitGroupPresetData.Presets,
                 Settings.SplitGroupSettings, Captions.Caption, splitGroupMEF);
 
-            ProgressionDepthPreset = new MenuPreset<ProgressionDepthSettings>(AdvancedSettingsPage, "Presets", ProgressionDepthPresetData.Presets, Settings.ProgressionDepthSettings,
+            ProgressionDepthPreset = new MenuPreset<ProgressionDepthSettings>(AdvancedSettingsPage, "Preset", ProgressionDepthPresetData.Presets, Settings.ProgressionDepthSettings,
                 _ => string.Empty, progressionDepthMEF);
 
             DefaultSettingsButton = new SmallButton(JumpPage, "Restore Default Settings");
@@ -793,6 +793,7 @@ namespace RandomizerMod.Menu
             {
                 Localize(mi);
             }
+            Localize(ProgressionDepthPreset);
 
             Localize(SeedEntryField);
             Localize(RandomSeedButton);
