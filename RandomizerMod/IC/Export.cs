@@ -47,6 +47,21 @@ namespace RandomizerMod.IC
             {
                 ItemChangerMod.Modules.Add<ItemChanger.Modules.ReversePathOfPainSaw>();
             }
+
+            var pde = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.PlayerDataEditModule>();
+            if (ctx.notchCosts != null)
+            {
+                for (int i = 0; i < ctx.notchCosts.Count; i++) pde.AddPDEdit($"charmCost_{i + 1}", ctx.notchCosts[i]);
+            }
+            if (gs.CursedSettings.CursedNotches > 0)
+            {
+                pde.AddPDEdit(nameof(PlayerData.charmSlots), 3 - gs.CursedSettings.CursedNotches);
+            }
+            if (gs.CursedSettings.CursedMasks > 0)
+            {
+                pde.AddPDEdit(nameof(PlayerData.maxHealth), 5 - gs.CursedSettings.CursedMasks);
+                pde.AddPDEdit(nameof(PlayerData.maxHealthBase), 5 - gs.CursedSettings.CursedMasks);
+            }
         }
 
 

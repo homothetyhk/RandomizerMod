@@ -102,8 +102,14 @@ namespace RandomizerMod
 
         public static void Localize(SmallButton sb)
         {
-            if (sb is MenuItem mi) mi.Formatter = new LocalizedMenuItemFormatter(mi.Formatter);
-            Localize(sb.Text);
+            if (sb is MenuItem mi)
+            {
+                mi.Formatter = new LocalizedMenuItemFormatter(mi.Formatter);
+            }
+            else
+            {
+                Localize(sb.Text);
+            }
         }
 
         public static void Localize(BigButton bb)

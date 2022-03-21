@@ -129,17 +129,7 @@ namespace RandomizerMod.RC
             Export.ExportStart(gs, ctx);
             if (ctx.itemPlacements != null) Export.ExportItemPlacements(rb, ctx.itemPlacements);
             if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(ctx.transitionPlacements);
-            if (ctx.notchCosts != null)
-            {
-                for (int i = 0; i < ctx.notchCosts.Count; i++) PlayerData.instance.SetInt($"charmCost_{i + 1}", ctx.notchCosts[i]);
-            }
 
-            if (gs.CursedSettings.CursedNotches > 0) PlayerData.instance.SetInt(nameof(PlayerData.charmSlots), 3 - gs.CursedSettings.CursedNotches);
-            if (gs.CursedSettings.CursedMasks > 0)
-            {
-                PlayerData.instance.SetInt(nameof(PlayerData.maxHealth), 5 - gs.CursedSettings.CursedMasks);
-                PlayerData.instance.SetInt(nameof(PlayerData.maxHealthBase), 5 - gs.CursedSettings.CursedMasks);
-            }
             try
             {
                 OnExportCompleted?.Invoke(this);

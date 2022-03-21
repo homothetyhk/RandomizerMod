@@ -64,7 +64,7 @@ namespace RandomizerMod.IC
 
             OnItemObtained?.Invoke(id, itemName, placementName);
             
-            if (args.Placement.AllObtained())
+            if (args.Placement.GetTag<RandoPlacementTag>() is RandoPlacementTag rpt && rpt.ids.All(i => RandomizerModule.Items[i].WasEverObtained()))
             {
                 OnPlacementCleared?.Invoke(placementName);
             }

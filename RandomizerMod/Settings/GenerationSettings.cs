@@ -30,7 +30,7 @@ namespace RandomizerMod.Settings
 
         public string Serialize()
         {
-            return RandomizerMod.Version + string.Join(BinaryFormatting.CLASS_SEPARATOR.ToString(), modules.Select(o => BinaryFormatting.Serialize(o)).ToArray());
+            return RandomizerMod.Version + string.Join(BinaryFormatting.CLASS_SEPARATOR.ToString(), modules.Select(o => BinaryFormatting.Serialize(o)).ToArray()) + BinaryFormatting.CLASS_SEPARATOR + Seed;
         }
 
         public static GenerationSettings Deserialize(string code)
@@ -45,15 +45,22 @@ namespace RandomizerMod.Settings
             string[] pieces = code.Split(BinaryFormatting.CLASS_SEPARATOR);
             object[] fields = gs.modules;
 
-            if (pieces.Length != fields.Length)
+            if (pieces.Length < fields.Length)
             {
                 throw new ArgumentException("Invalid settings code: not enough pieces.");
+            }
+            else if (pieces.Length > fields.Length + 1)
+            {
+                throw new ArgumentException("Invalid settings code: too many pieces.");
             }
 
             for (int i = 0; i < fields.Length; i++)
             {
                 BinaryFormatting.Deserialize(pieces[i], fields[i]);
             }
+
+            if (pieces.Length == fields.Length + 1 && int.TryParse(pieces[fields.Length], out int seed)) gs.Seed = seed;
+            else gs.Seed = int.MinValue;
 
             return gs;
         }

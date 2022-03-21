@@ -655,6 +655,7 @@ namespace RandomizerMod.Menu
                 {
                     GenerationSettings gs = GenerationSettings.Deserialize(SettingsCodeField.Value);
                     ApplySettingsToMenu(gs);
+                    if (gs.Seed != int.MinValue) SeedEntryField.SetValue(gs.Seed);
                 }
                 catch (Exception e)
                 {

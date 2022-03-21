@@ -13,6 +13,10 @@ namespace RandomizerMod
 {
     public class RandomizerMod : Mod, IGlobalSettings<GlobalSettings>, ILocalSettings<RandomizerSettings>, ICustomMenuMod
     {
+        /// <summary>
+        /// Returns true if the currently loaded settings contain valid RandomizerMod data.
+        /// </summary>
+        public static bool IsRandoSave { get => RS != null && RS.GenerationSettings != null && RS.ProfileID >= 0; }
         public override string GetVersion() => Version;
 
         public static GlobalSettings GS { get; private set; } = new();
