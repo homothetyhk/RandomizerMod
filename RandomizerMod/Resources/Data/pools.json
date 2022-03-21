@@ -823,7 +823,7 @@
   {
     "Group": "CharmNotches",
     "Name": "SalubraNotch",
-    "Path": "PoolSettings.CharmNotches",
+    "Path": "",
     "IncludeItems": [
       "Charm_Notch",
       "Charm_Notch",

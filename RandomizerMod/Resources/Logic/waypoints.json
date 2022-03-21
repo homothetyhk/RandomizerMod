@@ -293,7 +293,7 @@
   },
   {
     "name": "Opened_Tramway_Exit_Gate",
-    "logic": "WINGS | (LEFTCLAW + (RIGHTDASH | ENEMYPOGOS))"
+    "logic": "Deepnest_26b[right2] + (WINGS | LEFTCLAW + (RIGHTDASH | ENEMYPOGOS))"
   },
   {
     "name": "Broke_Sanctum_Glass_Floor",
@@ -317,7 +317,7 @@
   },
   {
     "name": "Opened_Waterways_Exit",
-    "logic": "(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)))"
+    "logic": "(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH))) | $StartLocation[West Waterways]"
   },
   {
     "name": "Palace_Entrance_Lantern_Lit",

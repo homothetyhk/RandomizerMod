@@ -1254,26 +1254,21 @@ namespace RandomizerMod.RC
 
         public static void ApplySalubraNotchesSetting(RequestBuilder rb)
         {
+            PoolDef pool = Data.GetPoolDef("SalubraNotch");
             switch (rb.gs.MiscSettings.SalubraNotches)
             {
                 default:
-                case MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool: 
+                    throw new NotImplementedException();
+                case MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool when rb.gs.PoolSettings.CharmNotches:
+                case MiscSettings.SalubraNotchesSetting.Randomized:
+                    foreach (string item in pool.IncludeItems) rb.AddItemByName(item);
+                    foreach (string location in pool.IncludeLocations) rb.AddLocationByName(location);
                     return;
-                case MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold when rb.gs.PoolSettings.CharmNotches:
-                case MiscSettings.SalubraNotchesSetting.Vanilla when rb.gs.PoolSettings.CharmNotches:
-                    {
-                        ItemGroupBuilder gb = rb.GetItemGroupFor(ItemNames.Charm_Notch);
-                        gb.Items.Remove(ItemNames.Charm_Notch, 4);
-                        gb.Locations.Remove("Salubra_(Requires_Charms)", 4);
-                    }
-                    break;
-                case MiscSettings.SalubraNotchesSetting.Randomized when !rb.gs.PoolSettings.CharmNotches:
-                    {
-                        ItemGroupBuilder gb = rb.GetItemGroupFor(ItemNames.Charm_Notch);
-                        gb.Items.Increment(ItemNames.Charm_Notch, 4);
-                        gb.Locations.Increment("Salubra_(Requires_Charms)", 4);
-                    }
-                    break;
+                case MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold:
+                case MiscSettings.SalubraNotchesSetting.Vanilla:
+                case MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool when !rb.gs.PoolSettings.CharmNotches:
+                    foreach (VanillaDef def in pool.Vanilla) rb.AddToVanilla(def.Item, def.Location);
+                    return;
             }
         }
 
@@ -1498,7 +1493,7 @@ namespace RandomizerMod.RC
                 
                 rb.RemoveItemByName(ItemNames.Mimic_Grub);
                 foreach (string loc in mimicPool.IncludeLocations) rb.RemoveLocationByName(loc);
-                foreach (VanillaDef def in grubPool.Vanilla) rb.RemoveFromVanilla(def.Item, def.Location);
+                foreach (VanillaDef def in grubPool.Vanilla) rb.RemoveFromVanilla(def.Location, def.Item);
 
                 StageBuilder sb = rb.AddStage(RBConsts.GrubMimicStage);
                 ItemGroupBuilder gb = sb.AddItemGroup(RBConsts.GrubMimicGroup);

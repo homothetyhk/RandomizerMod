@@ -16,6 +16,7 @@ namespace RandomizerMod.Settings
         [MenuRange(0, 2)]
         public int CursedNotches;
         public bool RandomizeMimics;
+        [MinValue(0)]
         public int MaximumGrubsReplacedByMimics;
 
         public string ToMultiline()
