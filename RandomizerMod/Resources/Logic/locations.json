@@ -2009,7 +2009,7 @@
   },
   {
     "name": "Geo_Rock-Waterways_Left",
-    "logic": " Waterways_04b[left1] | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS)) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))"
+    "logic": "Waterways_04b[left1] | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS)) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))"
   },
   {
     "name": "Geo_Rock-Waterways_East",
