@@ -529,7 +529,7 @@
   },
   "Charm_Notch-Colosseum": {
     "Name": "Charm_Notch-Colosseum",
-    "SceneName": "Room_Colosseum_Bronze",
+    "SceneName": "Room_Colosseum_01",
     "FlexibleCount": false,
     "AdditionalProgressionPenalty": false
   },
@@ -559,7 +559,7 @@
   },
   "Pale_Ore-Colosseum": {
     "Name": "Pale_Ore-Colosseum",
-    "SceneName": "Room_Colosseum_Silver",
+    "SceneName": "Room_Colosseum_01",
     "FlexibleCount": false,
     "AdditionalProgressionPenalty": false
   },
