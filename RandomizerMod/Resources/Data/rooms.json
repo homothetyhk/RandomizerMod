@@ -1454,21 +1454,6 @@
     "MapArea": "Kingdom's Edge",
     "TitledArea": "Colosseum"
   },
-  "Room_Colosseum_Bronze": {
-    "SceneName": "Room_Colosseum_Bronze",
-    "MapArea": "Kingdom's Edge",
-    "TitledArea": "Colosseum"
-  },
-  "Room_Colosseum_Silver": {
-    "SceneName": "Room_Colosseum_Silver",
-    "MapArea": "Kingdom's Edge",
-    "TitledArea": "Colosseum"
-  },
-  "Room_Colosseum_Gold": {
-    "SceneName": "Room_Colosseum_Gold",
-    "MapArea": "Kingdom's Edge",
-    "TitledArea": "Colosseum"
-  },
   "Room_nailmaster_03": {
     "SceneName": "Room_nailmaster_03",
     "MapArea": "Kingdom's Edge",
