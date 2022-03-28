@@ -26,6 +26,12 @@ namespace RandomizerMod.RC
         /// Event invoked on the RandoController immediately after sending all data to ItemChanger, but before printing logs and activating tracker data.
         /// </summary>
         public static event Action<RandoController> OnExportCompleted;
+        /// <summary>
+        /// Event which allows external subscribers to modify the hash. Each subscriber is invoked separately, and the results are combined into the hash seed.
+        /// <br/>The second argument is the base hash seed, depending only on the generation settings and the placement data.
+        /// </summary>
+        public static event Func<RandoController, int, int> OnCalculateHash;
+
 
         public RandoController(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
         {
@@ -111,6 +117,25 @@ namespace RandomizerMod.RC
 
             int seed = 17;
             for (int i = 0; i < sha.Length; i++) seed = 31 * seed ^ sha[i];
+
+            if (OnCalculateHash != null)
+            {
+                int modSeed = seed;
+                foreach (Func<RandoController, int, int> f in OnCalculateHash.GetInvocationList())
+                {
+                    try
+                    {
+                        modSeed += f(this, seed) * 1566083941;
+                    }
+                    catch (Exception e)
+                    {
+                        LogError($"Error invoking delegate {f.Method.Name} in OnCalculateHash:\n{e}");
+                        continue;
+                    }
+                }
+                seed += modSeed << 16; // preserve the lower 16 bits from the original hash
+            }
+
             return seed;
         }
 

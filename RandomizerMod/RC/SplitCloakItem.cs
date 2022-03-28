@@ -34,26 +34,41 @@ namespace RandomizerMod.RC
             bool hasRightDash = pm.Has(RightDashTerm.Id);
             bool hasAnyShadowDash = pm.Has(LeftDashTerm.Id, 2) || pm.Has(RightDashTerm.Id, 2);
 
-            if (hasLeftDash && hasRightDash) // full shade cloak behavior
+            if (hasLeftDash && hasRightDash && hasAnyShadowDash)
+            {
+                return; // dupe
+            }
+            else if (hasLeftDash && hasRightDash) // full shade cloak behavior
             {
                 pm.Incr(LeftDashTerm.Id, 1);
                 pm.Incr(RightDashTerm.Id, 1);
+                return;
             }
-            if (LeftBiased)
+            else if (LeftBiased)
             {
                 if (!hasLeftDash && hasAnyShadowDash) // left shade cloak behavior
                 {
                     pm.Incr(LeftDashTerm.Id, 2);
+                    return;
                 }
-                else pm.Incr(LeftDashTerm.Id, 1); // left cloak behavior
+                else  // left cloak behavior
+                {
+                    pm.Incr(LeftDashTerm.Id, 1);
+                    return;
+                }
             }
             else
             {
                 if (!hasRightDash && hasAnyShadowDash) // right shade cloak behavior
                 {
                     pm.Incr(RightDashTerm.Id, 2);
+                    return;
                 }
-                else pm.Incr(RightDashTerm.Id, 1); // right cloak behavior
+                else // right cloak behavior
+                {
+                    pm.Incr(RightDashTerm.Id, 1);
+                    return;
+                }
             }
         }
 

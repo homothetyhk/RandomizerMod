@@ -1359,7 +1359,7 @@ namespace RandomizerMod.RC
                         if (ri.item is SplitCloakItem cloak) leftBiased = cloak.LeftBiased;
                         else leftBiased = factory.rb.rng.NextBool();
 
-                        item.GetTag<ItemChanger.Tags.ItemChainTag>().predecessor = leftBiased ? ItemNames.Left_Mothwing_Cloak : ItemNames.Right_Mothwing_Cloak;
+                        item.GetTag<ItemChanger.Tags.ItemTreeTag>().predecessors = leftBiased ? new[] { ItemNames.Left_Mothwing_Cloak } : new[] { ItemNames.Right_Mothwing_Cloak };
                         return item;
                     };
                 });
