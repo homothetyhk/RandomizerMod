@@ -22,6 +22,8 @@ namespace RandomizerMod
         public static GlobalSettings GS { get; private set; } = new();
         public static RandomizerSettings RS { get; internal set; } = new();
 
+        public static ItemChanger.Internal.SpriteManager SpriteManager { get; private set; }
+
         public RandomizerMod() : base("Randomizer 4") { }
 
         public override void Initialize()
@@ -31,7 +33,7 @@ namespace RandomizerMod
             RandomizerCore.LogHelper.OnLog += Log;
             Logging.LogManager.Initialize();
             LocalizationData.Load();
-            SpriteManager.LoadEmbeddedPngs("RandomizerMod.Resources.");
+            SpriteManager = new(Assembly, "RandomizerMod.Resources.");
 
             try
             {

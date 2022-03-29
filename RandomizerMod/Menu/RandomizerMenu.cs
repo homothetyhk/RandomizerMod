@@ -352,7 +352,7 @@ namespace RandomizerMod.Menu
 
         private void MakeMenuElements()
         {
-            EntryButton = new BigButton(ModePage, SpriteManager.GetSprite("logo"), "Randomizer");
+            EntryButton = new BigButton(ModePage, RandomizerMod.SpriteManager.GetSprite("logo"), "Randomizer");
             // Start Page
 
             JumpToJumpPageButton = new SmallButton(StartPage, "More Randomizer Settings");
@@ -455,12 +455,12 @@ namespace RandomizerMod.Menu
             OutputLabel = new MenuLabel(FinalPage, "", new Vector2(800, 800));
             OutputLabel.Hide();
 
-            StartButton = new BigButton(FinalPage, SpriteManager.GetSprite("logo"), "Start Game");
+            StartButton = new BigButton(FinalPage, RandomizerMod.SpriteManager.GetSprite("logo"), "Start Game");
             StartButton.Hide();
             ProceedButton = new BigButton(FinalPage, "Proceed");
             ProceedButton.Hide();
 
-            redirectStartButton = new BigButton(PostGenerationRedirectPage, SpriteManager.GetSprite("logo"), "Start Rando Normally");
+            redirectStartButton = new BigButton(PostGenerationRedirectPage, RandomizerMod.SpriteManager.GetSprite("logo"), "Start Rando Normally");
 
             int hashLength = 1 + 4;
             HashLabels = new MenuLabel[hashLength];

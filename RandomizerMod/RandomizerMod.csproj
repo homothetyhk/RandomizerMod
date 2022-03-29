@@ -4,8 +4,8 @@
     <TargetFramework>net472</TargetFramework>
     <AssemblyTitle>RandomizerMod</AssemblyTitle>
     <RootNamespace>RandomizerMod</RootNamespace>
-    <AssemblyVersion>4.0.3</AssemblyVersion>
-    <FileVersion>4.0.3</FileVersion>
+    <AssemblyVersion>4.0.4</AssemblyVersion>
+    <FileVersion>4.0.4</FileVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>latest</LangVersion>
     <Deterministic>true</Deterministic>
