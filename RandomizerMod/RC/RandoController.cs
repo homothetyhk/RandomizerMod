@@ -28,6 +28,7 @@ namespace RandomizerMod.RC
         public static event Action<RandoController> OnExportCompleted;
         /// <summary>
         /// Event which allows external subscribers to modify the hash. Each subscriber is invoked separately, and the results are combined into the hash seed.
+        /// <br/>Return values of 0 are ignored, and do not modify the hash.
         /// <br/>The second argument is the base hash seed, depending only on the generation settings and the placement data.
         /// </summary>
         public static event Func<RandoController, int, int> OnCalculateHash;
@@ -120,12 +121,16 @@ namespace RandomizerMod.RC
 
             if (OnCalculateHash != null)
             {
-                int modSeed = seed;
+                int modSeed = 0;
                 foreach (Func<RandoController, int, int> f in OnCalculateHash.GetInvocationList())
                 {
                     try
                     {
-                        modSeed += f(this, seed) * 1566083941;
+                        int result = f(this, seed);
+                        if (result != 0)
+                        {
+                            modSeed = modSeed * 1566083941 + result;
+                        }
                     }
                     catch (Exception e)
                     {
@@ -133,7 +138,7 @@ namespace RandomizerMod.RC
                         continue;
                     }
                 }
-                seed += modSeed << 16; // preserve the lower 16 bits from the original hash
+                seed += modSeed << 16; // preserve the lower 16 bits from the original hash. If all results are 0, then modSeed is 0 and seed is unmodified.
             }
 
             return seed;
