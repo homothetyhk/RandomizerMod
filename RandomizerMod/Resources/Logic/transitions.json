@@ -1885,7 +1885,7 @@
   {
     "sceneName": "Fungus2_06",
     "gateName": "right1",
-    "logic": "Fungus2_06[right1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | RIGHTSUPERDASH | AIRSTALL + AREASOUL | Fungus2_06[top1])",
+    "logic": "Fungus2_06[right1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW + PRECISEMOVEMENT | RIGHTSUPERDASH | AIRSTALL + AREASOUL | Fungus2_06[top1])",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_06[right1]"
   },
