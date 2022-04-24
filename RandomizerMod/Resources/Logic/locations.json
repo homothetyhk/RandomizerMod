@@ -537,7 +537,7 @@
   },
   {
     "name": "Wanderer's_Journal-Ancient_Basin",
-    "logic": "(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))) + (RIGHTDASH | SPIKETUNNELS)"
+    "logic": "(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))) + ((LEFTCLAW + RIGHTSUPERDASH) | RIGHTDASH | SPIKETUNNELS)"
   },
   {
     "name": "Wanderer's_Journal-Kingdom's_Edge_Entrance",
