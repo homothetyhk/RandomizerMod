@@ -339,6 +339,10 @@ namespace RandomizerMod.Settings.Presets
                     sb.Append(Localize("Vessel Fragments will be consolidated to triple fragments. "));
                     break;
             }
+            if (ms.SteelSoul)
+            {
+                sb.Append(Localize("Steel soul mode will be enabled. "));
+            }
 
             return sb.ToString();
         }

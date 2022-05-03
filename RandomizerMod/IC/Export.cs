@@ -62,6 +62,10 @@ namespace RandomizerMod.IC
                 pde.AddPDEdit(nameof(PlayerData.maxHealth), 5 - gs.CursedSettings.CursedMasks);
                 pde.AddPDEdit(nameof(PlayerData.maxHealthBase), 5 - gs.CursedSettings.CursedMasks);
             }
+            if (gs.MiscSettings.SteelSoul)
+            {
+                pde.AddPDEdit(nameof(PlayerData.permadeathMode), 1);
+            }
         }
 
 

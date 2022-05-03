@@ -7,6 +7,7 @@
         public SalubraNotchesSetting SalubraNotches;
         public MaskShardType MaskShards;
         public VesselFragmentType VesselFragments;
+        public bool SteelSoul;
 
         public enum MaskShardType
         {
@@ -28,6 +29,12 @@
             Vanilla,
             Randomized,
             AutoGivenAtCharmThreshold
-        }   
+        }
+
+        public override void Clamp(GenerationSettings gs)
+        {
+            base.Clamp(gs);
+            if (gs.SkipSettings.ShadeSkips) gs.SkipSettings.ShadeSkips = false;
+        }
     }
 }

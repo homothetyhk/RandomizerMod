@@ -171,7 +171,7 @@ namespace RandomizerMod.RC
             Export.BeginExport(gs, ctx);
             Export.ExportStart(gs, ctx);
             if (ctx.itemPlacements != null) Export.ExportItemPlacements(rb, ctx.itemPlacements);
-            if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(ctx.transitionPlacements);
+            if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(rb, ctx.transitionPlacements);
 
             try
             {

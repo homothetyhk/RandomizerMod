@@ -149,6 +149,7 @@ Settings which do not fit into the other classifications.
 - Mask Shards: Allows replacing randomized mask shards with double or quadruple shards, adding up to the same number of masks.
 - Vessel Fragments: Allows replacing randomized vessel fragments with double or triple fragments, adding up to the same number of vessels.
     - These last two settings may be desired to reduce the number of items, particularly in opposition to Duplicate Items.
+- Steel Soul: if enabled, starts the game in Steel Soul (perma-death) mode. The Shade Skips setting will be automatically disabled.
 
 
 ### Cursed Settings

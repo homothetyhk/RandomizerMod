@@ -21,6 +21,7 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeNotchCosts = true,
                 ExtraPlatforms = true,
                 SalubraNotches = MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool,
+                SteelSoul = false,
             };
 
             Classic = new MiscSettings
@@ -30,6 +31,7 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeNotchCosts = false,
                 ExtraPlatforms = true,
                 SalubraNotches = MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold,
+                SteelSoul = false,
             };
 
             ConsolidatedItems = new MiscSettings
@@ -39,6 +41,7 @@ namespace RandomizerMod.Settings.Presets
                 RandomizeNotchCosts = true,
                 ExtraPlatforms = true,
                 SalubraNotches = MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool,
+                SteelSoul = false,
             };
 
             MiscPresets = new Dictionary<string, MiscSettings>

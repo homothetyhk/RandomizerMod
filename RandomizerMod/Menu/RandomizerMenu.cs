@@ -637,6 +637,15 @@ namespace RandomizerMod.Menu
             };
             UpdateStartLocation();
 
+            miscMEF.ElementLookup[nameof(MiscSettings.SteelSoul)].SelfChanged += (e) => RefreshSteelSoulLock();
+            SkipPreset.OnSetPreset += (s) =>
+            {
+                if (s.ShadeSkips && Settings.MiscSettings.SteelSoul)
+                {
+                    Settings.SkipSettings.ShadeSkips = false;
+                }
+            };
+
             splitGroupRandomizeButton.OnClick += () =>
             {
                 Settings.SplitGroupSettings.Randomize(rng);
@@ -902,6 +911,25 @@ namespace RandomizerMod.Menu
         private void UpdateStartLocation(object o)
         {
             UpdateStartLocation();
+        }
+
+        public void RefreshSteelSoulLock()
+        {
+            ToggleButton shadeSkips = (ToggleButton)skipMEF.ElementLookup[nameof(SkipSettings.ShadeSkips)];
+            ToggleButton steelSoul = (ToggleButton)miscMEF.ElementLookup[nameof(MiscSettings.SteelSoul)];
+            if (!steelSoul.Value)
+            {
+                shadeSkips.Unlock();
+            }
+            else
+            {
+                if (shadeSkips.Value)
+                {
+                    if (shadeSkips.Locked) shadeSkips.Unlock();
+                    shadeSkips.SetValue(false);
+                }
+                shadeSkips.Lock();
+            }
         }
 
         private void ApplySettingsToMenu(GenerationSettings settings)
