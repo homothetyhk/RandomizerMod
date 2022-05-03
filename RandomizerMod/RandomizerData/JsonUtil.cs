@@ -43,6 +43,11 @@ namespace RandomizerMod.RandomizerData
             }
         }
 
+        public static void Serialize(TextWriter tw, object o)
+        {
+            _js.Serialize(tw, o);
+        }
+
         static JsonUtil()
         {
             _js = new JsonSerializer

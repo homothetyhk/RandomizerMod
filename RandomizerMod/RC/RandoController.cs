@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using Newtonsoft.Json;
 using RandomizerCore;
+using RandomizerCore.Extensions;
 using RandomizerCore.Randomization;
 using RandomizerMod.IC;
 using RandomizerMod.Logging;
@@ -59,7 +60,7 @@ namespace RandomizerMod.RC
                         {
                             item.info?.onRandomizerFinish?.Invoke(placement);
                             location.info?.onRandomizerFinish?.Invoke(placement);
-                            ctx.itemPlacements.Add(new(item, location) { Index = ctx.itemPlacements.Count });
+                            ctx.itemPlacements.Add(new(item, location));
                         }
                         else if (placement.Item is RandoModTransition target && placement.Location is RandoModTransition source)
                         {
@@ -146,6 +147,16 @@ namespace RandomizerMod.RC
 
         public void Save()
         {
+            if (ctx.itemPlacements != null)
+            {
+                rng.PermuteInPlace(ctx.itemPlacements);
+                for (int i = 0; i < ctx.itemPlacements.Count; i++) ctx.itemPlacements[i] = ctx.itemPlacements[i] with { Index = i };
+            }
+            if (ctx.transitionPlacements != null)
+            {
+                rng.PermuteInPlace(ctx.transitionPlacements);
+            }
+
             RandomizerMod.RS = new()
             {
                 GenerationSettings = gs,

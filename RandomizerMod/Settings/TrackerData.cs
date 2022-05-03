@@ -3,6 +3,7 @@ using RandomizerCore;
 using RandomizerCore.Logic;
 using RandomizerMod.Logging;
 using RandomizerMod.RC;
+using TrackerUpdate = RandomizerMod.IC.TrackerUpdate;
 
 namespace RandomizerMod.Settings
 {
@@ -63,6 +64,12 @@ namespace RandomizerMod.Settings
             this.ctx = ctx;
             lm = ctx.LM;
 
+            Reset();
+            HookTrackerUpdate();
+        }
+
+        public void Reset()
+        {
             List<RandoModItem> items = obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].Item).ToList();
 
             HashSet<string> transitionProgression = new();
@@ -120,6 +127,28 @@ namespace RandomizerMod.Settings
             }
 
             mu.Hook(pm); // automatically handle tracking reachable unobtained locations/transitions and adding vanilla progression to pm
+        }
+
+        private void HookTrackerUpdate()
+        {
+            TrackerUpdate.OnItemObtained += OnItemObtained;
+            TrackerUpdate.OnPlacementPreviewed += OnPlacementPreviewed;
+            TrackerUpdate.OnPlacementCleared += OnPlacementCleared;
+            TrackerUpdate.OnTransitionVisited += OnTransitionVisited;
+            TrackerUpdate.OnPreviewsCleared += OnPreviewsCleared;
+            TrackerUpdate.OnFoundTransitionsCleared += OnFoundTransitionsCleared;
+            TrackerUpdate.OnUnload += UnhookTrackerUpdate;
+        }
+
+        public void UnhookTrackerUpdate()
+        {
+            TrackerUpdate.OnItemObtained -= OnItemObtained;
+            TrackerUpdate.OnPlacementPreviewed -= OnPlacementPreviewed;
+            TrackerUpdate.OnPlacementCleared -= OnPlacementCleared;
+            TrackerUpdate.OnTransitionVisited -= OnTransitionVisited;
+            TrackerUpdate.OnPreviewsCleared -= OnPreviewsCleared;
+            TrackerUpdate.OnFoundTransitionsCleared -= OnFoundTransitionsCleared;
+            TrackerUpdate.OnUnload -= UnhookTrackerUpdate;
         }
 
         private Action<ProgressionManager> OnCanGetLocation(int id)
@@ -219,6 +248,21 @@ namespace RandomizerMod.Settings
             {
                 outOfLogicVisitedTransitions.Add(source);
             }
+        }
+
+        public void OnPreviewsCleared()
+        {
+            previewedLocations.Clear();
+            Reset();
+        }
+
+        public void OnFoundTransitionsCleared()
+        {
+            visitedTransitions.Clear();
+            outOfLogicVisitedTransitions.Clear();
+            uncheckedReachableTransitions.Clear();
+            uncheckedReachableLocations.Clear();
+            Reset();
         }
 
         private void AppendToDebug(string line)

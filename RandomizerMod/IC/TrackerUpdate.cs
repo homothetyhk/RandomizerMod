@@ -11,15 +11,6 @@ namespace RandomizerMod.IC
             RandoPlacementTag.OnRandoPlacementVisitStateChanged += OnRandoPlacementVisitStateChanged;
             Events.OnTransitionOverride += OnTransitionOverride;
             transitionLookup ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.Source.Name, p => p.Target.Name) ?? new();
-            
-            OnItemObtained += TD.OnItemObtained;
-            OnItemObtained += TD_WSB.OnItemObtained;
-            OnPlacementPreviewed += TD.OnPlacementPreviewed;
-            OnPlacementPreviewed += TD_WSB.OnPlacementPreviewed;
-            OnPlacementCleared += TD.OnPlacementCleared;
-            OnPlacementCleared += TD_WSB.OnPlacementCleared;
-            OnTransitionVisited += TD.OnTransitionVisited;
-            OnTransitionVisited += TD_WSB.OnTransitionVisited;
         }
 
         public override void Unload()
@@ -27,15 +18,7 @@ namespace RandomizerMod.IC
             RandoItemTag.AfterRandoItemGive -= AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged -= OnRandoPlacementVisitStateChanged;
             Events.OnTransitionOverride -= OnTransitionOverride;
-
-            OnItemObtained -= TD.OnItemObtained;
-            OnItemObtained -= TD_WSB.OnItemObtained;
-            OnPlacementPreviewed -= TD.OnPlacementPreviewed;
-            OnPlacementPreviewed -= TD_WSB.OnPlacementPreviewed;
-            OnPlacementCleared -= TD.OnPlacementCleared;
-            OnPlacementCleared -= TD_WSB.OnPlacementCleared;
-            OnTransitionVisited -= TD.OnTransitionVisited;
-            OnTransitionVisited -= TD_WSB.OnTransitionVisited;
+            OnUnload?.Invoke();
         }
 
         public static event Action<string> OnPlacementPreviewed;
@@ -43,6 +26,9 @@ namespace RandomizerMod.IC
         public static event Action<int, string, string> OnItemObtained;
         public static event Action<string, string> OnTransitionVisited;
         public static event Action OnFinishedUpdate;
+        public static event Action OnFoundTransitionsCleared;
+        public static event Action OnPreviewsCleared;
+        public static event Action OnUnload;
 
         private TrackerData TD => RandomizerMod.RS.TrackerData;
         private TrackerData TD_WSB => RandomizerMod.RS.TrackerDataWithoutSequenceBreaks;
@@ -78,6 +64,18 @@ namespace RandomizerMod.IC
         public static void SendTransitionFound(Transition source)
         {
             if (ItemChangerMod.Modules.Get<TrackerUpdate>() is TrackerUpdate instance) instance.OnTransitionFound(source.ToString());
+        }
+
+        public static void ClearFoundTransitions()
+        {
+            OnFoundTransitionsCleared?.Invoke();
+            OnFinishedUpdate?.Invoke();
+        }
+
+        public static void ClearPreviewedPlacements() 
+        {
+            OnPreviewsCleared?.Invoke();
+            OnFinishedUpdate?.Invoke();
         }
 
         private void OnTransitionOverride(Transition source, Transition origTarget, ITransition newTarget)

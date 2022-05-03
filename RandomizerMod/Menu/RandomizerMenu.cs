@@ -827,7 +827,11 @@ namespace RandomizerMod.Menu
             foreach (SmallButton sb in resumeElements) Localize(sb);
         }
 
-        private void UpdateStartLocationSwitch(StartLocationSettings.RandomizeStartLocationType type, string loc)
+        /// <summary>
+        /// Applies the parameter settings to the start location page, and refreshes all button states.
+        /// <br/>Exercise caution, as this triggers several button events and can easily lead to infinite recursion.
+        /// </summary>
+        public void UpdateStartLocationSwitch(StartLocationSettings.RandomizeStartLocationType type, string loc)
         {
             switch (type)
             {
@@ -862,7 +866,11 @@ namespace RandomizerMod.Menu
                 Settings.StartLocationSettings.StartLocation);
         }
 
-        private void UpdateStartLocationSwitch()
+        /// <summary>
+        /// Applies the current start location settings to the start location page, and refreshes all button states.
+        /// <br/>Exercise caution, as this triggers several button events and can easily lead to infinite recursion.
+        /// </summary>
+        public void UpdateStartLocationSwitch()
         {
             UpdateStartLocationSwitch(Settings.StartLocationSettings.StartLocationType, Settings.StartLocationSettings.StartLocation);
         }

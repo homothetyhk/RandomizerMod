@@ -30,7 +30,7 @@ namespace RandomizerMod.IC
 
         private void TrackItemObtained(int id, string item, string location)
         {
-            string line = $"ITEM OBTAINED --- {{{item}}} at {{{location}}}{Environment.NewLine}";
+            string line = $"ITEM OBTAINED --- {{{item}}} at {{{location}}} with id {{{id}}}{Environment.NewLine}";
             AppendToTracker(line);
         }
 
