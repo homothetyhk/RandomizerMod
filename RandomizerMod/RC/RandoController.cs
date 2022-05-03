@@ -65,6 +65,8 @@ namespace RandomizerMod.RC
                         else if (placement.Item is RandoModTransition target && placement.Location is RandoModTransition source)
                         {
                             ctx.transitionPlacements ??= new();
+                            target.info?.onRandomizerFinish?.Invoke(placement);
+                            source.info?.onRandomizerFinish?.Invoke(placement);
                             ctx.transitionPlacements.Add(new(target, source));
                         }
                         else

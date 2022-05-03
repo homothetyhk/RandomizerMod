@@ -179,13 +179,18 @@ namespace RandomizerMod.RC
 
             if (ts.Mode == TransitionSettings.TransitionMode.None) return;
             StageBuilder sb = rb.AddStage(RBConsts.MainTransitionStage);
-            IEnumerable<TransitionDef> transitions = (ts.Mode switch
+
+            List<TransitionDef> transitions = new();
+            foreach (string t in ts.Mode switch
             {
                 TransitionSettings.TransitionMode.RoomRandomizer => Data.GetRoomTransitionNames(),
                 TransitionSettings.TransitionMode.FullAreaRandomizer => Data.GetAreaTransitionNames(),
                 TransitionSettings.TransitionMode.MapAreaRandomizer => Data.GetMapAreaTransitionNames(),
                 _ => Enumerable.Empty<string>(),
-            }).Select(t => Data.GetTransitionDef(t));
+            })
+            {
+                if (rb.TryGetTransitionDef(t, out TransitionDef def)) transitions.Add(def);
+            }
 
             TransitionGroupBuilder oneWays = new()
             {
@@ -288,10 +293,10 @@ namespace RandomizerMod.RC
 
                 if (ts.TransitionMatching == TransitionSettings.TransitionMatchingSetting.MatchingDirectionsAndNoDoorToDoor)
                 {
-                    static bool NotDoorToDoor(IRandoItem item, IRandoLocation location)
+                    bool NotDoorToDoor(IRandoItem item, IRandoLocation location)
                     {
-                        if (Data.GetTransitionDef(item.Name) is not TransitionDef t1
-                            || Data.GetTransitionDef(location.Name) is not TransitionDef t2)
+                        if (!rb.TryGetTransitionDef(item.Name, out TransitionDef t1)
+                            || !rb.TryGetTransitionDef(location.Name, out TransitionDef t2))
                         {
                             return true;
                         }
@@ -307,22 +312,20 @@ namespace RandomizerMod.RC
 
                 bool MatchedTryResolveGroup(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb)
                 {
-                    bool isTransition = type == ElementType.Transition || Data.IsTransition(item);
-                    if (isTransition)
+                    if (type is ElementType.Transition or ElementType.Unknown && rb.TryGetTransitionDef(item, out TransitionDef def))
                     {
                         bool isModeTransition = rb.gs.TransitionSettings.Mode switch
                         {
-                            TransitionSettings.TransitionMode.MapAreaRandomizer => Data.IsMapAreaTransition(item),
-                            TransitionSettings.TransitionMode.FullAreaRandomizer => Data.IsAreaTransition(item),
+                            TransitionSettings.TransitionMode.MapAreaRandomizer => def.IsMapAreaTransition,
+                            TransitionSettings.TransitionMode.FullAreaRandomizer => def.IsTitledAreaTransition,
                             TransitionSettings.TransitionMode.RoomRandomizer => true,
                             _ => false,
                         };
                         if (isModeTransition)
                         {
-                            TransitionDef def = Data.GetTransitionDef(item);
                             gb = def.Sides != TransitionSides.Both
                                 ? oneWays
-                                : Data.GetTransitionDef(item).Direction switch
+                                : def.Direction switch
                                 {
                                     TransitionDirection.Top or
                                     TransitionDirection.Bot => vertical,
@@ -368,19 +371,17 @@ namespace RandomizerMod.RC
 
                 bool NonMatchedTryResolveGroup(RequestBuilder rb, string item, ElementType type, out GroupBuilder gb)
                 {
-                    bool isTransition = type == ElementType.Transition || Data.IsTransition(item);
-                    if (isTransition)
+                    if (type is ElementType.Transition or ElementType.Unknown && rb.TryGetTransitionDef(item, out TransitionDef def))
                     {
                         bool isModeTransition = rb.gs.TransitionSettings.Mode switch
                         {
-                            TransitionSettings.TransitionMode.MapAreaRandomizer => Data.IsMapAreaTransition(item),
-                            TransitionSettings.TransitionMode.FullAreaRandomizer => Data.IsAreaTransition(item),
+                            TransitionSettings.TransitionMode.MapAreaRandomizer => def.IsMapAreaTransition,
+                            TransitionSettings.TransitionMode.FullAreaRandomizer => def.IsTitledAreaTransition,
                             TransitionSettings.TransitionMode.RoomRandomizer => true,
                             _ => false,
                         };
                         if (isModeTransition)
                         {
-                            TransitionDef def = Data.GetTransitionDef(item);
                             gb = def.Sides != TransitionSides.Both ? oneWays : twoWays;
                             return true;
                         }
@@ -397,14 +398,17 @@ namespace RandomizerMod.RC
             var mode = rb.gs.TransitionSettings.Mode;
             bool IsVanillaInMode(string s)
             {
-                TransitionDef def = Data.GetTransitionDef(s);
-                return mode switch
+                if (rb.TryGetTransitionDef(s, out TransitionDef def))
                 {
-                    TransitionSettings.TransitionMode.MapAreaRandomizer => !def.IsMapAreaTransition,
-                    TransitionSettings.TransitionMode.FullAreaRandomizer => !def.IsTitledAreaTransition,
-                    TransitionSettings.TransitionMode.RoomRandomizer => false,
-                    _ => true,
-                };
+                    return mode switch
+                    {
+                        TransitionSettings.TransitionMode.MapAreaRandomizer => !def.IsMapAreaTransition,
+                        TransitionSettings.TransitionMode.FullAreaRandomizer => !def.IsTitledAreaTransition,
+                        TransitionSettings.TransitionMode.RoomRandomizer => false,
+                        _ => true,
+                    };
+                }
+                return true;
             }
 
             foreach (string t in Data.GetRoomTransitionNames())
@@ -880,11 +884,11 @@ namespace RandomizerMod.RC
 
             if (rb.gs.LongLocationSettings.WhitePalaceRando == LongLocationSettings.WPSetting.ExcludeWhitePalace)
             {
-                rb.UnrandomizeTransitionsWhere(t => Data.GetTransitionDef(t)?.MapArea == "White Palace");
+                rb.UnrandomizeTransitionsWhere(t => rb.TryGetTransitionDef(t, out TransitionDef def) && def?.MapArea == "White Palace");
             }
             else if (rb.gs.LongLocationSettings.WhitePalaceRando == LongLocationSettings.WPSetting.ExcludePathOfPain)
             {
-                rb.UnrandomizeTransitionsWhere(t => Data.GetTransitionDef(t)?.TitledArea == "Path of Pain");
+                rb.UnrandomizeTransitionsWhere(t => rb.TryGetTransitionDef(t, out TransitionDef def) && def?.TitledArea == "Path of Pain");
                 rb.UnrandomizeTransitionByName("White_Palace_06[left1]");
             }
         }
@@ -1645,10 +1649,11 @@ namespace RandomizerMod.RC
 
                 string GetAreaName(string transition)
                 {
+                    rb.TryGetTransitionDef(transition, out TransitionDef def);
                     return areaConstraint switch
                     {
-                        TransitionSettings.AreaConstraintSetting.MoreConnectedMapAreas => Data.GetTransitionDef(transition)?.MapArea,
-                        TransitionSettings.AreaConstraintSetting.MoreConnectedTitledAreas => Data.GetTransitionDef(transition)?.TitledArea,
+                        TransitionSettings.AreaConstraintSetting.MoreConnectedMapAreas => def?.MapArea,
+                        TransitionSettings.AreaConstraintSetting.MoreConnectedTitledAreas => def?.TitledArea,
                         _ => throw new NotImplementedException(),
                     };
                 }
@@ -1684,8 +1689,8 @@ namespace RandomizerMod.RC
                 TransitionSettings.AreaConstraintSetting areaConstraint = rb.gs.TransitionSettings.AreaConstraint;
                 bool AreasMatch(IRandoItem item, IRandoLocation location)
                 {
-                    if (Data.GetTransitionDef(item.Name) is not TransitionDef t1
-                        || Data.GetTransitionDef(location.Name) is not TransitionDef t2)
+                    if (!rb.TryGetTransitionDef(item.Name, out TransitionDef t1)
+                        || !rb.TryGetTransitionDef(location.Name, out TransitionDef t2))
                     {
                         return true;
                     }
@@ -1714,9 +1719,9 @@ namespace RandomizerMod.RC
         {
             if (!rb.gs.CursedSettings.Deranged) return;
 
-            static bool NotVanillaTransition(IRandoItem item, IRandoLocation location)
+            bool NotVanillaTransition(IRandoItem item, IRandoLocation location)
             {
-                if (Data.GetTransitionDef(location.Name) is not TransitionDef source)
+                if (!rb.TryGetTransitionDef(location.Name, out TransitionDef source))
                 {
                     return true;
                 }

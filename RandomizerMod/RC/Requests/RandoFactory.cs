@@ -155,7 +155,27 @@ namespace RandomizerMod.RC
 
         public IRandoCouple MakeTransition(string name)
         {
-            return new RandoModTransition(lm.GetTransition(name), Data.GetTransitionDef(name));
+            RandoModTransition rt;
+            if (!rb.TryGetTransitionRequest(name, out TransitionRequestInfo info))
+            {
+                rt = MakeTransitionInternal(name);
+                rt.TransitionDef = Data.GetTransitionDef(name);
+            }
+            else
+            {
+                rt = info.randoTransitionCreator != null ? info.randoTransitionCreator(this) : MakeTransitionInternal(name);
+                info.AppendTo(rt.info ??= new());
+                rt.TransitionDef = info?.getTransitionDef != null ? info.getTransitionDef() : Data.GetTransitionDef(name);
+                info.onRandoTransitionCreation?.Invoke(this, rt);
+            }
+
+            return rt;
+        }
+
+        private RandoModTransition MakeTransitionInternal(string name)
+        {
+            RandoModTransition rt = new(lm.GetTransition(name));
+            return rt;
         }
     }
 }

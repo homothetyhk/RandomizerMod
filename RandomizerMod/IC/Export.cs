@@ -111,13 +111,31 @@ namespace RandomizerMod.IC
             ItemChangerMod.AddPlacements(export.Select(kvp => kvp.Value));
         }
 
-        public static void ExportTransitionPlacements(IEnumerable<TransitionPlacement> ps)
+        public static void ExportTransitionPlacements(RequestBuilder rb, IEnumerable<TransitionPlacement> ps)
         {
             foreach ((RandoModTransition target, RandoModTransition source) in ps)
             {
-                ItemChangerMod.AddTransitionOverride(
-                    new Transition(source.TransitionDef.SceneName, source.TransitionDef.DoorName), 
-                    new Transition(target.TransitionDef.SceneName, target.TransitionDef.DoorName));
+                ITransition realTarget;
+                Transition realSource;
+                if (target.info?.realTargetCreator != null)
+                {
+                    realTarget = target.info.realTargetCreator(rb, new(target, source));
+                }
+                else
+                {
+                    realTarget = new Transition(target.TransitionDef.SceneName, target.TransitionDef.DoorName);
+                }
+
+                if (source.info?.realSourceCreator != null)
+                {
+                    realSource = source.info.realSourceCreator(rb, new(target, source));
+                }
+                else
+                {
+                    realSource = new Transition(source.TransitionDef.SceneName, source.TransitionDef.DoorName);
+                }
+
+                ItemChangerMod.AddTransitionOverride(realSource, realTarget);
             }
         }
     }

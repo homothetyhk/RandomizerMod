@@ -12,6 +12,7 @@ namespace RandomizerMod.RC
 {
     public delegate bool ItemMatchHandler(string name, out ItemRequestInfo info);
     public delegate bool LocationMatchHandler(string name, out LocationRequestInfo info);
+    public delegate bool TransitionMatchHandler(string name, out TransitionRequestInfo info);
 
     /// <summary>
     /// Class used to build the request that is passed to the randomizer. The OnUpdate event allows modification of the request as it is built.
@@ -73,6 +74,9 @@ namespace RandomizerMod.RC
 
         public readonly Dictionary<string, LocationRequestInfo> LocationRequests = new();
         public readonly List<LocationMatchHandler> LocationMatchers = new();
+
+        public readonly Dictionary<string, TransitionRequestInfo> TransitionRequests = new();
+        public readonly List<TransitionMatchHandler> TransitionMatchers = new();
 
         public readonly Bucket<string> StartItems = new();
 
@@ -457,6 +461,44 @@ namespace RandomizerMod.RC
             _set.Clear();
         }
 
+        public bool TryGetTransitionRequest(string name, out TransitionRequestInfo info)
+        {
+            if (TransitionRequests.TryGetValue(name, out info))
+            {
+                return true;
+            }
+            else
+            {
+                foreach (TransitionMatchHandler matcher in TransitionMatchers)
+                {
+                    if (matcher(name, out info))
+                    {
+                        TransitionRequests.Add(name, info);
+                        return true;
+                    }
+                }
+            }
+            info = default;
+            return false;
+        }
+
+        public void EditTransitionRequest(string name, Action<TransitionRequestInfo> edit)
+        {
+            if (!TransitionRequests.TryGetValue(name, out TransitionRequestInfo info))
+            {
+                TransitionRequests.Add(name, info = new());
+            }
+            edit(info);
+        }
+
+        public bool TryGetTransitionDef(string name, out TransitionDef def)
+        {
+            def = TryGetTransitionRequest(name, out TransitionRequestInfo info) && info.getTransitionDef != null
+                ? info.getTransitionDef()
+                : Data.GetTransitionDef(name);
+            return def is not null;
+        }
+
         /// <summary>
         /// Removes the transition by name from all transition groups.
         /// </summary>
@@ -574,7 +616,7 @@ namespace RandomizerMod.RC
         /// </summary>
         public void EnsureVanillaSourceTransition(string source)
         {
-            if (Data.GetTransitionDef(source)?.VanillaTarget is string target)
+            if (TryGetTransitionDef(source, out TransitionDef def) && def?.VanillaTarget is string target)
             {
                 if (!Vanilla.TryGetValue(source, out List<VanillaDef> defs))
                 {
