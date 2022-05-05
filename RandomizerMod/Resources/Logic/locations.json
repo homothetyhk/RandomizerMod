@@ -41,7 +41,7 @@
   },
   {
     "name": "Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | FULLCLAW + COMBAT[Left_Devout]) + DREAMNAIL + (COMBAT[Right_Devout] | Herrah)"
   },
   {
     "name": "World_Sense",
@@ -457,7 +457,7 @@
   },
   {
     "name": "Rancid_Egg-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) + COMBAT[Left_Devout])"
   },
   {
     "name": "Rancid_Egg-Dark_Deepnest",
@@ -825,7 +825,7 @@
   },
   {
     "name": "Grub-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) + COMBAT[Left_Devout])"
   },
   {
     "name": "Grub-Kingdom's_Edge_Oro",
@@ -1533,23 +1533,23 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Egg",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Egg_Dupe",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + SHADESKIPS + 4MASKS) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Bottom",
@@ -1561,7 +1561,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_After_Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | FULLCLAW + COMBAT[Left_Devout]) + DREAMNAIL + (COMBAT[Right_Devout] | Herrah)"
   },
   {
     "name": "Geo_Rock-Greenpath_Entrance",
@@ -2141,7 +2141,7 @@
   },
   {
     "name": "Soul_Totem-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (LEFTCLAW | WINGS)"
+    "logic": "Deepnest_Spider_Town[left1] + (LEFTCLAW | WINGS) + COMBAT[Left_Devout]"
   },
   {
     "name": "Soul_Totem-Greenpath_Hunter's_Journal",

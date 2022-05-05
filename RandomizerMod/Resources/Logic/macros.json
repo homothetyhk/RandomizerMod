@@ -170,5 +170,7 @@
   "COMBAT[West_Queen's_Gardens_Arena]": "MINIBOSS",
   "COMBAT[King's_Station_Arena]": "MINIBOSS",
   "COMBAT[White_Palace_Arenas]": "MINIBOSS",
-  "COMBAT[Path_of_Pain_Arena]": "BOSS"
+  "COMBAT[Path_of_Pain_Arena]": "BOSS",
+  "COMBAT[Right_Devout]": "RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | MINIBOSS",
+  "COMBAT[Left_Devout]": "LEFTSLASH | LEFTSHADOWDASH | RIGHTDASH | MINIBOSS"
 }

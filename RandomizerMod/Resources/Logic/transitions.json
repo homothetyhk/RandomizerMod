@@ -3852,7 +3852,7 @@
   {
     "sceneName": "Waterways_06",
     "gateName": "top1",
-    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH) + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW)) | WINGS)",
+    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH) + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW + PRECISEMOVEMENT)) | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_06[top1]"
   },
