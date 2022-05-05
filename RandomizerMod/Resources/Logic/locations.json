@@ -717,7 +717,7 @@
   },
   {
     "name": "Boss_Essence-Xero",
-    "logic": "RestingGrounds_02 + DREAMNAIL + Defeated_Xero"
+    "logic": "RestingGrounds_02 + (RestingGrounds_02[top1] | ANYCLAW | WINGS | RIGHTSUPERDASH | BACKGROUNDPOGOS) + DREAMNAIL + Defeated_Xero"
   },
   {
     "name": "Boss_Essence-Gorb",

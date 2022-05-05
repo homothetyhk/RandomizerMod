@@ -34,7 +34,7 @@
         public override void Clamp(GenerationSettings gs)
         {
             base.Clamp(gs);
-            if (gs.SkipSettings.ShadeSkips) gs.SkipSettings.ShadeSkips = false;
+            if (SteelSoul) gs.SkipSettings.ShadeSkips = false;
         }
     }
 }

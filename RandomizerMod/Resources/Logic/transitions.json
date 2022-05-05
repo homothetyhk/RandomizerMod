@@ -3173,7 +3173,7 @@
   {
     "sceneName": "Deepnest_East_18",
     "gateName": "right2",
-    "logic": "Deepnest_East_18[right2] | Deepnest_East_18 + RIGHTSHADOWDASH",
+    "logic": "Deepnest_East_18[right2] | Deepnest_East_18 + (RIGHTCLAW | WINGS | BACKGROUNDPOGOS | ENEMYPOGOS | SHADESKIPS) + RIGHTSHADOWDASH",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_18[right2]"
   },

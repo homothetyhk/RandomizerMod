@@ -1158,6 +1158,7 @@ namespace RandomizerMod.RC
                 if (!rb.IsAtStart(ItemNames.Elegant_Key)) dupes.Add(ItemNames.Elegant_Key);
                 if (!rb.IsAtStart(ItemNames.Love_Key)) dupes.Add(ItemNames.Love_Key);
                 if (!rb.IsAtStart(ItemNames.Kings_Brand)) dupes.Add(ItemNames.Kings_Brand);
+                if (ns.RandomizeElevatorPass && !rb.IsAtStart(ItemNames.Elevator_Pass)) dupes.Add(ItemNames.Elevator_Pass);
             }
             switch (ds.SimpleKeyHandling)
             {
