@@ -656,7 +656,7 @@ namespace RandomizerMod.RC
         {
             if (Vanilla.TryGetValue(def.Location, out List<VanillaDef> defs))
             {
-                defs.RemoveAll(def => def.Equals(def));
+                defs.RemoveAll(def1 => def1.Equals(def));
             }
         }
 

@@ -383,7 +383,7 @@
       {
         "item": "Dream_Wielder",
         "location": "Seer",
-        "cost": [
+        "costs": [
           {
             "term": "ESSENCE",
             "amount": 500

@@ -82,7 +82,11 @@ namespace RandomizerMod.RC
                 {
                     notchCosts = ctx.notchCosts?.ToList(),
                     itemPlacements = ctx.itemPlacements?.ToList(),
-                    transitionPlacements = ctx.transitionPlacements?.ToList()
+                    transitionPlacements = ctx.transitionPlacements?.ToList(),
+                    StartDef = ctx.StartDef,
+                    InitialProgression = ctx.InitialProgression,
+                    Vanilla = ctx.Vanilla.ToList(),
+                    GenerationSettings = ctx.GenerationSettings,
                 },
                 gs = gs,
                 randomizer = randomizer,
