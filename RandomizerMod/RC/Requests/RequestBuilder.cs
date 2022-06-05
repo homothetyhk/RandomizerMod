@@ -116,6 +116,7 @@ namespace RandomizerMod.RC
             _stages.Add(MainItemStage);
 
             OnGetGroupFor = new(out _onGetGroupForOwner);
+            CostConverters = new(out _costConvertersOwner);
         }
 
         public enum ElementType
@@ -716,6 +717,20 @@ namespace RandomizerMod.RC
             }
 
             return def;
+        }
+
+        public delegate bool CostConverter(LogicCost logicCost, out Cost cost);
+        public readonly PriorityEvent<CostConverter> CostConverters;
+        private readonly PriorityEvent<CostConverter>.IPriorityEventOwner _costConvertersOwner;
+
+        public bool TryConvertCost(LogicCost logicCost, out Cost cost)
+        {
+            foreach (CostConverter d in _costConvertersOwner.GetSubscribers())
+            {
+                if (d(logicCost, out cost)) return true;
+            }
+            cost = null;
+            return false;
         }
 
         public delegate void RequestBuilderUpdateHandler(RequestBuilder rb);

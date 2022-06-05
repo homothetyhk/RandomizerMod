@@ -50,7 +50,7 @@ namespace RandomizerMod.RC
             }
             else
             {
-                if (rl.costs != null) CostConversion.HandleCosts(rl.costs, item, placement);
+                if (rl.costs != null) CostConversion.HandleCosts(this, rl.costs, item, placement);
                 placement.Add(item);
             }
             item.GetOrAddTag<RandoItemTag>().id = index;
@@ -154,7 +154,7 @@ namespace RandomizerMod.RC
             RandoLocation rl = (RandoLocation)next.Location;
             if (rl.costs != null)
             {
-                CostConversion.HandleCosts(rl.costs, item, placement);
+                CostConversion.HandleCosts(this, rl.costs, item, placement);
             }
             placement.Add(item);
         }
