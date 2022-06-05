@@ -286,7 +286,7 @@ namespace RandomizerMod.Settings.Presets
             StringBuilder sb = new();
             if (ms.RandomizeNotchCosts)
             {
-                sb.Append(Localize("Notch costs of charms will be randomized. "));
+                sb.Append(Localize($"Notch costs of charms will be randomized to a total in [{ms.MinRandomNotchTotal},{ms.MaxRandomNotchTotal}]. "));
             }
             else
             {

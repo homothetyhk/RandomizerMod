@@ -18,6 +18,7 @@ namespace RandomizerMod.Logging
             new SettingsLog(),
             new ItemSpoilerLog(),
             new TransitionSpoilerLog(),
+            new NotchCostSpoilerLog(),
         };
 
         public static void AddLogger(RandoLogger rl)

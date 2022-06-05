@@ -526,7 +526,7 @@ namespace RandomizerMod.Menu
             StartItemSubpage.Add(startItemGIP);
 
             MiscSubpage = new Subpage(AdvancedSettingsPage, "Miscellaneous");
-            miscVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, miscMEF.Elements);
+            miscVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, miscMEF.Elements);
             MiscSubpage.Add(miscVIP);
 
             CursedSubpage = new Subpage(AdvancedSettingsPage, "Curse Options");

@@ -9,9 +9,9 @@
         public static int[] GetUniformlyRandomCosts(Random rng, int min, int max)
         {
             if (max > 240) throw new ArgumentOutOfRangeException(nameof(max));
-            if (min < 0 || min >= max) throw new ArgumentOutOfRangeException(nameof(min));
+            if (min < 0 || min > max) throw new ArgumentOutOfRangeException(nameof(min));
 
-            int count = rng.Next(min, max);
+            int count = rng.Next(min, max + 1);
             int[] costs = new int[40];
 
             for (int i = 0; i < count; i++)

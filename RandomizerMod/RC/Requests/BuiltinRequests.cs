@@ -107,7 +107,7 @@ namespace RandomizerMod.RC
             }
             else
             {
-                rb.ctx.notchCosts = CharmNotchCosts.GetUniformlyRandomCosts(rb.rng, 70, 110).ToList();
+                rb.ctx.notchCosts = CharmNotchCosts.GetUniformlyRandomCosts(rb.rng, rb.gs.MiscSettings.MinRandomNotchTotal, rb.gs.MiscSettings.MaxRandomNotchTotal).ToList();
             }
         }
 
