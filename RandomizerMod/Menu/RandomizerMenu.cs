@@ -981,6 +981,10 @@ namespace RandomizerMod.Menu
             rm.OnError += e =>
             {
                 Log(e.Message);
+                if (e is RandomizerCore.Exceptions.UnreachableLocationException ule)
+                {
+                    Log(ule.GetVerboseMessage());
+                }
             };
 
             RandomizationTimer.Reset();

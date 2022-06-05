@@ -104,6 +104,11 @@ namespace RandomizerMod.IC
                     if (toggle) Events.AddSceneChangeEdit(SceneNames.Fungus2_30, CreateBounceShroomsForFungalCoreStart);
                     else Events.RemoveSceneChangeEdit(SceneNames.Fungus2_30, CreateBounceShroomsForFungalCoreStart);
                     break;
+
+                case "West Crossroads":
+                    if (toggle) Events.AddSceneChangeEdit(SceneNames.Crossroads_36, MoveShadeMarkerForWestCrossroadsStart);
+                    else Events.RemoveSceneChangeEdit(SceneNames.Crossroads_36, MoveShadeMarkerForWestCrossroadsStart);
+                    break;
             }
 
 
@@ -133,6 +138,12 @@ namespace RandomizerMod.IC
             GameObject s2 = UObject.Instantiate(bounceShroom);
             s2.transform.SetPosition3D(21.7f, 133f, 0f);
             s2.SetActive(true);
+        }
+
+        private static void MoveShadeMarkerForWestCrossroadsStart(Scene to)
+        {
+            GameObject marker = to.FindGameObject("_Props/Hollow_Shade Marker 1");
+            marker.transform.position = new(46.2f, 28f);
         }
     }
 }
