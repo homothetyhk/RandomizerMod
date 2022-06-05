@@ -1010,7 +1010,7 @@
   {
     "sceneName": "Fungus1_06",
     "gateName": "bot1",
-    "logic": "Fungus1_06[bot1] | Fungus1_06[left1]",
+    "logic": "Fungus1_06[bot1] | Fungus1_06[left1] + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS | RIGHTCLAW | WINGS | AIRSTALL + ROOMSOUL)",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_06[bot1]"
   },
@@ -6017,7 +6017,7 @@
   {
     "sceneName": "White_Palace_05",
     "gateName": "left1",
-    "logic": "White_Palace_05[left1] | White_Palace_05[right1] + (FULLCLAW | WINGS) + FULLDASH",
+    "logic": "White_Palace_05[left1] | White_Palace_05[right1] + ((FULLCLAW | WINGS) + FULLDASH | (RIGHTCLAW | WINGS) + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_05[left1]"
   },
@@ -6031,7 +6031,7 @@
   {
     "sceneName": "White_Palace_05",
     "gateName": "right1",
-    "logic": "White_Palace_05[right1] | White_Palace_05[left1] + (LEFTCLAW | WINGS) + FULLDASH",
+    "logic": "White_Palace_05[right1] | White_Palace_05[left1] + (LEFTCLAW | WINGS) + (FULLDASH | PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_05[right1]"
   },

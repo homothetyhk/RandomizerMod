@@ -105,7 +105,7 @@
   },
   {
     "name": "Dash_Slash",
-    "logic": "Room_nailmaster_03[left1] + Ruins1_05b[top1]"
+    "logic": "Room_nailmaster_03[left1] + Can_Visit_Lemm"
   },
   {
     "name": "Great_Slash",
@@ -325,7 +325,7 @@
   },
   {
     "name": "Vessel_Fragment-Basin",
-    "logic": "Abyss_04 + Ruins1_05b[top1] + (FULLCLAW | (WINGS + (Abyss_04[top1] | ENEMYPOGOS)))"
+    "logic": "Abyss_04 + Can_Visit_Lemm + (FULLCLAW | (WINGS + (Abyss_04[top1] | ENEMYPOGOS)))"
   },
   {
     "name": "Vessel_Fragment-Deepnest",
@@ -965,7 +965,7 @@
   },
   {
     "name": "Greenpath_Map",
-    "logic": "Fungus1_06[left1] | Fungus1_06[bot1]"
+    "logic": "Fungus1_06[bot1] | Fungus1_06[left1] + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS | RIGHTCLAW | WINGS | AIRSTALL + ROOMSOUL)"
   },
   {
     "name": "Fog_Canyon_Map",
@@ -1957,7 +1957,7 @@
   },
   {
     "name": "Geo_Rock-City_of_Tears_Lemm",
-    "logic": "Ruins1_05b"
+    "logic": "Ruins1_05b + (ANYCLAW | WINGS)"
   },
   {
     "name": "Geo_Rock-City_of_Tears_Above_Lemm",
