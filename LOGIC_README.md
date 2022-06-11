@@ -140,6 +140,10 @@ This file serves to document the randomizer logic.
     - Item rando shade skip from chest above Baldur Shell to Howling Cliffs (logic for *Fungus1_28[left1]*).
 	- Pogoing a falling Gluttinous Husk to reach the bottom left transition in lower King's Station without Swim (logic for *Ruins2_06[left2]*).
 
+## Geo Logic
+Since geo is a consumable resource that can be used or lost in many ways (and is not available from randomized items, with some cursed settings), the randomizer does not track exact numbers of geo or relics in logic. However, any location which requires geo has logic to ensure that the player can farm geo off of respawning enemies. Additionally,
+- The mid-expensive locations *Dash_Slash*, *Unbreakable_Heart*, *Unbreakable_Greed*, and *Unbreakable_Strength* also have logic to require the ability to visit Lemm, to reduce the odds of required farming.
+- The most expensive location *Vessel_Fragment-Basin* has logic to require the ability to visit Lemm, one vertical movement item, **and** the ability to complete the first colosseum trial. Thus, the logic guarantees the ability to farm large amounts of geo through the colosseum, while the other requirements reduce the likelihood that this is necessary.
 
 ## Terminal Logic and Nonterminal Logic
 - Briefly, logic is terminal if it represents a goal which has a permanently saved effect. In other words, after achieving that, the player could return to start and fully reset before continuing. Terminal logic includes:

@@ -221,15 +221,15 @@
   },
   {
     "name": "Unbreakable_Heart",
-    "logic": "Grimm_Divine[left1] + FRAGILEHEART"
+    "logic": "Grimm_Divine[left1] + FRAGILEHEART + Can_Visit_Lemm"
   },
   {
     "name": "Unbreakable_Greed",
-    "logic": "Grimm_Divine[left1] + FRAGILEGREED"
+    "logic": "Grimm_Divine[left1] + FRAGILEGREED + Can_Visit_Lemm"
   },
   {
     "name": "Unbreakable_Strength",
-    "logic": "Grimm_Divine[left1] + FRAGILESTRENGTH"
+    "logic": "Grimm_Divine[left1] + FRAGILESTRENGTH + Can_Visit_Lemm"
   },
   {
     "name": "City_Crest",
@@ -325,7 +325,7 @@
   },
   {
     "name": "Vessel_Fragment-Basin",
-    "logic": "Abyss_04 + Can_Visit_Lemm + (FULLCLAW | (WINGS + (Abyss_04[top1] | ENEMYPOGOS)))"
+    "logic": "Abyss_04 + (FULLCLAW | (WINGS + (Abyss_04[top1] | ENEMYPOGOS))) + Can_Visit_Lemm + Defeated_Colosseum_1"
   },
   {
     "name": "Vessel_Fragment-Deepnest",

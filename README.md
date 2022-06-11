@@ -30,6 +30,7 @@ Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduc
 - Grimmchild has special behavior: collecting it automatically activates the Nightmare Lantern. Additionally, if Charms are randomized and Grimmkin Flames are not randomized, collecting Grimmchild gives the first 6 Grimmkin Flames.
 - The lifeblood door in Abyss opens if you enter the room with a single lifeblood mask. In logic, it requires a lifeblood charm.
 - The randomizer adds extra platforms to various places that prevent softlocks. For example, there are several platforms added to Ancient Basin to prevent having to quit-out after checking certain locations without vertical movement. These platforms may disappear once the player has sufficient abilities to no longer need them.
+- If the player waits at the start location without waking up, the soul meter will be filled. This can be required at start locations which may not have soul. The player can return to start using the "Set Start" and "Warp" functions of Benchwarp.
 - With skips allowed, the player is advised to take care to not get locked out of certain required pogos. Obtain:
     - No more than 1 nail upgrade before claw or wings
     - No more than 3 nail upgrades before claw
