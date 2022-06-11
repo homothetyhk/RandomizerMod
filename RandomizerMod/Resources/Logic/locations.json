@@ -141,7 +141,7 @@
   },
   {
     "name": "Mark_of_Pride",
-    "logic": "Fungus2_31[left1] + Defeated_Mantis_Lords + (LEFTCLAW | WINGS | (RIGHTCLAW + SHADESKIPS))"
+    "logic": "Fungus2_31[left1] + Defeated_Mantis_Lords + (LEFTCLAW | WINGS | RIGHTCLAW + (BACKGROUNDPOGOS | TERMINALSHADESKIPS))"
   },
   {
     "name": "Sharp_Shadow",
@@ -393,7 +393,7 @@
   },
   {
     "name": "Geo_Chest-Crystal_Peak",
-    "logic": "(ANYCLAW | (WINGS + Grubberfly's_Elegy + LEFTSLASH + SHADESKIPS + COMPLEXSKIPS)) + ((Mines_37[top1] + (FULLDASH | FULLSUPERDASH + RIGHTCLAW + OBSCURESKIPS + PRECISEMOVEMENT | DASHSPRINT + OBSCURESKIPS)) | Mines_37[bot1])"
+    "logic": "(ANYCLAW | (WINGS + GRUBBERFLYSELEGY + (Mines_37[bot1] | NOTCHES>$NotchCost[31,35,37]) + LEFTSLASH + SHADESKIPS + COMPLEXSKIPS) | (WINGS + GLOWINGWOMB + (Mines_37[bot1] | NOTCHES>$NotchCost[22,31,37]) + 4MASKS + SHADESKIPS + COMPLEXSKIPS)) + ((Mines_37[top1] + (FULLDASH | FULLSUPERDASH + RIGHTCLAW + OBSCURESKIPS + PRECISEMOVEMENT | DASHSPRINT + OBSCURESKIPS)) | Mines_37[bot1])"
   },
   {
     "name": "Geo_Chest-Weavers_Den",
@@ -437,7 +437,7 @@
   },
   {
     "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
-    "logic": "(Mines_01[left1] + QUAKE + (RIGHTDASH | WINGS | (LEFTCLAW + RIGHTSUPERDASH))) | (Mines_01[bot1] + ((ANYCLAW + WINGS) | (FULLCLAW + FULLSUPERDASH) | (LEFTCLAW + FULLDASH + PRECISEMOVEMENT) | (LEFTCLAW + WINGS + (RIGHTDASH | RIGHTSUPERDASH))))"
+    "logic": "Mines_01[left1] + QUAKE + (RIGHTDASH | WINGS | LEFTCLAW + RIGHTSUPERDASH | RIGHTCLAW + AIRSTALL) | Mines_01[bot1] + (ANYCLAW + WINGS | FULLCLAW + FULLSUPERDASH | LEFTCLAW + FULLDASH + PRECISEMOVEMENT | LEFTCLAW + WINGS + (RIGHTDASH | RIGHTSUPERDASH))"
   },
   {
     "name": "Rancid_Egg-Crystal_Peak_Dark_Room",
@@ -465,7 +465,7 @@
   },
   {
     "name": "Rancid_Egg-Weaver's_Den",
-    "logic": "Deepnest_45_v02[left1] + (SPIKETUNNELS | LEFTDASH)"
+    "logic": "Deepnest_45_v02[left1] + (SPIKETUNNELS | LEFTDASH) + (LANTERN | DARKROOMS)"
   },
   {
     "name": "Rancid_Egg-Near_Quick_Slash",
@@ -657,7 +657,7 @@
   },
   {
     "name": "Whispering_Root-Greenpath",
-    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | (2MASKS + DAMAGEBOOSTS)))) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | (FULLDASH + Dash_Slash))"
+    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | 2MASKS + DAMAGEBOOSTS)) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Whispering_Root-Leg_Eater",
@@ -781,11 +781,11 @@
   },
   {
     "name": "Grub-Greenpath_Cornifer",
-    "logic": "(Fungus1_06[left1] | Fungus1_06[bot1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTCLAW | WINGS | RIGHTSUPERDASH | ENEMYPOGOS)"
+    "logic": "(Fungus1_06[left1] | Fungus1_06[bot1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS | RIGHTCLAW | WINGS | RIGHTSUPERDASH | ENEMYPOGOS)"
   },
   {
     "name": "Grub-Greenpath_Journal",
-    "logic": "(Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | (ACID + (RIGHTCLAW | ENEMYPOGOS)) | ENEMYPOGOS + DIFFICULTSKIPS)"
+    "logic": "(Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | LEFTDASHSLASH | WINGS | (ACID + (RIGHTCLAW | ENEMYPOGOS)) | ENEMYPOGOS + DIFFICULTSKIPS)"
   },
   {
     "name": "Grub-Greenpath_MMC",
@@ -841,7 +841,7 @@
   },
   {
     "name": "Grub-Hive_Internal",
-    "logic": "(Hive_04[left1] | Hive_04[right1]) + ANYCLAW + WINGS + ((LEFTCLAW + RIGHTSUPERDASH) | (RIGHTCLAW + LEFTSUPERDASH) | ENEMYPOGOS + DIFFICULTSKIPS)"
+    "logic": "(Hive_04[left1] | Hive_04[right1]) + (ANYCLAW + WINGS + (LEFTCLAW + RIGHTSUPERDASH | RIGHTCLAW + LEFTSUPERDASH | ENEMYPOGOS + DIFFICULTSKIPS) | FULLCLAW + LEFTSUPERDASH + OBSCURESKIPS + PRECISEMOVEMENT)"
   },
   {
     "name": "Grub-Basin_Requires_Wings",
@@ -965,7 +965,7 @@
   },
   {
     "name": "Greenpath_Map",
-    "logic": "Fungus1_06[bot1] | Fungus1_06[left1] + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS | RIGHTCLAW | WINGS | AIRSTALL + ROOMSOUL)"
+    "logic": "Fungus1_06[bot1] | Fungus1_06[left1] + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | LEFTDASHSLASH | RIGHTSUPERDASH | ENEMYPOGOS | RIGHTCLAW | WINGS | AIRSTALL + ROOMSOUL)"
   },
   {
     "name": "Fog_Canyon_Map",
@@ -1081,7 +1081,7 @@
   },
   {
     "name": "Lifeblood_Cocoon-Failed_Tramway",
-    "logic": "Deepnest_26 + (LEFTCLAW | (WINGS + (ENEMYPOGOS | SHADESKIPS)))"
+    "logic": "(Deepnest_26 + (LEFTCLAW | WINGS + ENEMYPOGOS) | Deepnest_26[left1] + Opened_Tramway_Exit_Gate) + (LEFTCLAW | WINGS + (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | OBSCURESKIPS + PRECISEMOVEMENT) | ENEMYPOGOS | TERMINALSHADESKIPS))"
   },
   {
     "name": "Lifeblood_Cocoon-Galien",
@@ -1605,7 +1605,7 @@
   },
   {
     "name": "Geo_Rock-Greenpath_Acid_Bridge",
-    "logic": "(Fungus1_10[left1] | Fungus1_10[right1] | Fungus1_10[top1]) + (ANYDASH | RIGHTCLAW | WINGS | AIRSTALL | SHADESKIPS)"
+    "logic": "(Fungus1_10[left1] | Fungus1_10[right1] | Fungus1_10[top1]) + (ANYDASH | RIGHTCLAW | WINGS | AIRSTALL | SHADESKIPS | LEFTCLAW + OBSCURESKIPS + PRECISEMOVEMENT)"
   },
   {
     "name": "Geo_Rock-Greenpath_After_MMC_Hidden",
@@ -2353,7 +2353,7 @@
   },
   {
     "name": "Lore_Tablet-Greenpath_QG",
-    "logic": "(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | ((WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + 2MASKS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))  | $StartLocation[Lower Greenpath] + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash))"
+    "logic": "Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + 2MASKS) + (SIDESLASH | Cyclone_Slash | Great_Slash | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | Cyclone_Slash | Great_Slash | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",

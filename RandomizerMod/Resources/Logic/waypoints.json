@@ -217,7 +217,7 @@
   },
   {
     "name": "Defeated_Shrumal_Ogre_Arena",
-    "logic": "(Fungus2_05[bot1] | Fungus2_05[right1]) + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)"
+    "logic": "(Fungus2_05[bot1] | Fungus2_05[right1]) + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS | SPICYCOMBATSKIPS)"
   },
   {
     "name": "Defeated_King's_Station_Arena",
