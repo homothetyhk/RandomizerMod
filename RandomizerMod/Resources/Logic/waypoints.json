@@ -77,7 +77,7 @@
   },
   {
     "name": "Defeated_False_Knight",
-    "logic": "(Crossroads_10[right1] | Crossroads_10[left1] + ANYCLAW) + COMBAT[False_Knight]"
+    "logic": "(Crossroads_10[right1] | Crossroads_10[left1] + (ANYCLAW | WINGS)) + COMBAT[False_Knight]"
   },
   {
     "name": "Defeated_Brooding_Mawlek",

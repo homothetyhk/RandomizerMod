@@ -2074,14 +2074,14 @@
   {
     "sceneName": "Fungus2_17",
     "gateName": "left1",
-    "logic": "Fungus2_17[left1] | Fungus2_17 + (LEFTCLAW | WINGS | (LEFTDASH + Fungus2_17[right1]))",
+    "logic": "Fungus2_17[left1] | Fungus2_17 + LEFTCLAW | Fungus2_17[right1] + (LEFTDASH | WINGS) | Fungus2_17[bot1] + WINGS + ENEMYPOGOS",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_17[left1]"
   },
   {
     "sceneName": "Fungus2_17",
     "gateName": "right1",
-    "logic": "Fungus2_17[right1] | Fungus2_17 + (WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)))",
+    "logic": "Fungus2_17[right1] | Fungus2_17 + RIGHTCLAW | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH) | Fungus2_17[left1] + WINGS | Fungus2_17[bot1] + WINGS + ENEMYPOGOS",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_17[right1]"
   },
@@ -2732,14 +2732,14 @@
   {
     "sceneName": "Deepnest_41",
     "gateName": "right1",
-    "logic": "Deepnest_41[right1] | Deepnest_41[left1] + (LANTERN | DARKROOMS) + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)) | (LEFTCLAW + ENEMYPOGOS)) | Deepnest_41[left2] + (LANTERN | DARKROOMS) + (FULLCLAW | (WINGS + ANYCLAW))",
+    "logic": "Deepnest_41[right1] | Deepnest_41[left1] + (LANTERN | DARKROOMS) + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS) | LEFTCLAW + ENEMYPOGOS) | Deepnest_41[left2] + (LANTERN | DARKROOMS) + (FULLCLAW | WINGS + (LEFTCLAW + ENEMYPOGOS | RIGHTCLAW))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_41[right1]"
   },
   {
     "sceneName": "Deepnest_41",
     "gateName": "left1",
-    "logic": "Deepnest_41[left1] | Deepnest_41[right1] + (LANTERN | DARKROOMS) + (LEFTCLAW | (WINGS + (RIGHTCLAW | ENEMYPOGOS)) | (RIGHTCLAW + ENEMYPOGOS)) | Deepnest_41[left2] + (LANTERN | DARKROOMS) + (FULLCLAW | (WINGS + ANYCLAW))",
+    "logic": "Deepnest_41[left1] | Deepnest_41[right1] + (LANTERN | DARKROOMS) + (LEFTCLAW | WINGS + (RIGHTCLAW | ENEMYPOGOS) | RIGHTCLAW + ENEMYPOGOS) | Deepnest_41[left2] + (LANTERN | DARKROOMS) + (FULLCLAW | WINGS + (LEFTCLAW + ENEMYPOGOS | RIGHTCLAW))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_41[left1]"
   },
@@ -3054,7 +3054,7 @@
   {
     "sceneName": "Deepnest_East_11",
     "gateName": "left1",
-    "logic": "Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | Deepnest_East_11[bot1] + (RIGHTCLAW | LEFTCLAW + ENEMYPOGOS | WINGS | FULLDASH + ENEMYPOGOS | ENEMYPOGOS + DANGEROUSSKIPS)",
+    "logic": "Deepnest_East_11[left1] | Deepnest_East_11[top1] + (SIDESLASH | Cyclone_Slash | Great_Slash | FIREBALL | QUAKE) | Deepnest_East_11[right1] | Deepnest_East_11[bot1] + (RIGHTCLAW | LEFTCLAW + ENEMYPOGOS | WINGS | FULLDASH + ENEMYPOGOS | ENEMYPOGOS + DANGEROUSSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_11[left1]"
   },
@@ -3068,7 +3068,7 @@
   {
     "sceneName": "Deepnest_East_11",
     "gateName": "bot1",
-    "logic": "Deepnest_East_11[bot1] | Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1]",
+    "logic": "Deepnest_East_11[bot1] | Deepnest_East_11[left1] | Deepnest_East_11[top1] + (SIDESLASH | Cyclone_Slash | Great_Slash | FIREBALL | QUAKE) | Deepnest_East_11[right1]",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_11[bot1]"
   },
@@ -3775,14 +3775,14 @@
   {
     "sceneName": "Waterways_04",
     "gateName": "bot1",
-    "logic": "Waterways_04[bot1] | Waterways_04[right1] + QUAKE | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + QUAKE | Waterways_04[left2] + (RIGHTCLAW | WINGS) + (SWIM | RIGHTSKIPACID) + QUAKE",
+    "logic": "Waterways_04[bot1] | Waterways_04[right1] + QUAKE | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + QUAKE | Waterways_04[left2] + (RIGHTCLAW | WINGS + ENEMYPOGOS) + (SWIM | RIGHTSKIPACID) + QUAKE",
     "oneWayType": "TwoWay",
     "Name": "Waterways_04[bot1]"
   },
   {
     "sceneName": "Waterways_04",
     "gateName": "right1",
-    "logic": "Waterways_04[right1] | Waterways_04[left1] + (RIGHTCLAW | WINGS) | Waterways_04[left2] + (RIGHTCLAW | WINGS) + (SWIM | RIGHTSKIPACID)",
+    "logic": "Waterways_04[right1] | Waterways_04[left1] + (RIGHTCLAW | WINGS) | Waterways_04[left2] + (RIGHTCLAW | WINGS + ENEMYPOGOS) + (SWIM | RIGHTSKIPACID)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_04[right1]"
   },
@@ -4181,7 +4181,7 @@
   {
     "sceneName": "Ruins1_05",
     "gateName": "right1",
-    "logic": "Ruins1_05[right1] | Ruins1_05 + (LEFTCLAW | WINGS | Ruins1_05[top1])",
+    "logic": "Ruins1_05[right1] | Ruins1_05[top1] | Ruins1_05 + (LEFTCLAW | WINGS + (RIGHTCLAW | BACKGROUNDPOGOS))",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05[right1]"
   },
