@@ -257,7 +257,7 @@
   },
   {
     "name": "Love_Key",
-    "logic": "Fungus3_39[left1] + (ACID | RIGHTSKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (COMPLEXSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))"
+    "logic": "Fungus3_39[left1] + (ACID | RIGHTSKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (DASHMASTER | AIRSTALL)) | (COMPLEXSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))"
   },
   {
     "name": "King's_Brand",
@@ -449,7 +449,7 @@
   },
   {
     "name": "Rancid_Egg-City_of_Tears_Left",
-    "logic": "Ruins1_05c + (ANYCLAW | WINGS | BACKGROUNDPOGOS)"
+    "logic": "Ruins1_05c + (ANYCLAW | WINGS | BACKGROUNDPOGOS | DAMAGEBOOSTS + 3MASKS)"
   },
   {
     "name": "Rancid_Egg-City_of_Tears_Pleasure_House",
@@ -557,7 +557,7 @@
   },
   {
     "name": "Hallownest_Seal-Greenpath",
-    "logic": "(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (LEFTDASH + (AIRSTALL | Dashmaster + OBSCURESKIPS | WINGS | LEFTCLAW)) | LEFTSUPERDASH)"
+    "logic": "(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (LEFTDASH + (AIRSTALL | DASHMASTER + OBSCURESKIPS | WINGS | LEFTCLAW)) | LEFTSUPERDASH)"
   },
   {
     "name": "Hallownest_Seal-Fog_Canyon_West",
@@ -1941,11 +1941,11 @@
   },
   {
     "name": "Geo_Rock-Fluke_Hermit_Dupe",
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + ENEMYPOGOS + (LEFTDASH | LEFTSUPERDASH)))"
+    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)"
   },
   {
     "name": "Geo_Rock-Fluke_Hermit",
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + ENEMYPOGOS + (LEFTDASH | LEFTSUPERDASH)))"
+    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT) + (ANYCLAW | WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Pleasure_House",
@@ -1957,7 +1957,7 @@
   },
   {
     "name": "Geo_Rock-City_of_Tears_Lemm",
-    "logic": "Ruins1_05b + (ANYCLAW | WINGS)"
+    "logic": "Ruins1_05b + (ANYCLAW | WINGS | BACKGROUNDPOGOS)"
   },
   {
     "name": "Geo_Rock-City_of_Tears_Above_Lemm",
@@ -2001,15 +2001,15 @@
   },
   {
     "name": "Geo_Rock-Waterways_Tuk",
-    "logic": "Waterways_01 + (Waterways_01[right1] | RIGHTCLAW | WINGS | ENEMYPOGOS)"
+    "logic": "Waterways_01[right1] | Waterways_01 + (RIGHTCLAW | WINGS | ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Waterways_Tuk_Alcove",
-    "logic": "Waterways_01"
+    "logic": "Waterways_01[top1] | Waterways_01[right1] | Waterways_01 + (ANYCLAW | WINGS | ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Waterways_Left",
-    "logic": " Waterways_04b[left1] | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS)) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))"
+    "logic": "Waterways_04b[left1] | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) | Waterways_04b[right2] + (WINGS | (LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS)) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))"
   },
   {
     "name": "Geo_Rock-Waterways_East",
@@ -2069,7 +2069,7 @@
   },
   {
     "name": "Soul_Totem-Crossroads_Goam_Journal",
-    "logic": "(Crossroads_18[right1] + (LEFTDASH | WINGS | (LEFTCLAW + (AIRSTALL | INFECTED)))) | ((Crossroads_18[bot1] | Crossroads_18[right2]) + (LEFTDASH | WINGS | LEFTCLAW))"
+    "logic": "Crossroads_18 + (LEFTDASH | WINGS | LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH + OBSCURESKIPS)"
   },
   {
     "name": "Soul_Totem-Crossroads_Shops",
@@ -2221,7 +2221,7 @@
   },
   {
     "name": "Soul_Totem-Waterways_Entrance",
-    "logic": "(Waterways_01 + (ANYCLAW | WINGS)) | ((Waterways_01[top1] | Waterways_01[right1]) + (LEFTDASH | ENEMYPOGOS | AIRSTALL | SHADESKIPS))"
+    "logic": "Waterways_01 + (ANYCLAW | WINGS) | (Waterways_01[top1] | Waterways_01[right1]) + (LEFTDASH | ENEMYPOGOS | AIRSTALL | SHADESKIPS)"
   },
   {
     "name": "Soul_Totem-Top_Left_Waterways",
@@ -2365,19 +2365,19 @@
   },
   {
     "name": "Lore_Tablet-Spore_Shroom",
-    "logic": "(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTDASH | RIGHTSUPERDASH | WINGS) + Spore_Shroom"
+    "logic": "(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTDASH | RIGHTSUPERDASH | WINGS) + SPORESHROOM"
   },
   {
     "name": "Lore_Tablet-Fungal_Wastes_Hidden",
-    "logic": "(Fungus2_07[left1] | Fungus2_07[right1]) + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom"
+    "logic": "(Fungus2_07[left1] | Fungus2_07[right1]) + (LEFTCLAW | WINGS + (RIGHTCLAW | ENEMYPOGOS)) + SPORESHROOM"
   },
   {
     "name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
-    "logic": "Fungus2_04 + Spore_Shroom"
+    "logic": "Fungus2_04 + SPORESHROOM"
   },
   {
     "name": "Lore_Tablet-Fungal_Core",
-    "logic": "Fungus2_30[top1] + Spore_Shroom"
+    "logic": "Fungus2_30[top1] + SPORESHROOM"
   },
   {
     "name": "Lore_Tablet-Ancient_Basin",
@@ -2405,7 +2405,7 @@
   },
   {
     "name": "Lore_Tablet-Kingdom's_Edge",
-    "logic": "Deepnest_East_17[left1] + QUAKE + Spore_Shroom"
+    "logic": "Deepnest_East_17[left1] + QUAKE + SPORESHROOM"
   },
   {
     "name": "Lore_Tablet-Palace_Workshop",

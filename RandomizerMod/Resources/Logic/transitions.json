@@ -3852,7 +3852,7 @@
   {
     "sceneName": "Waterways_06",
     "gateName": "top1",
-    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH) + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW + PRECISEMOVEMENT)) | WINGS)",
+    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH) + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW + PRECISEMOVEMENT)) | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_06[top1]"
   },
@@ -4006,7 +4006,7 @@
   {
     "sceneName": "Room_GG_Shortcut",
     "gateName": "top1",
-    "logic": "Room_GG_Shortcut[top1] + (WINGS | LEFTCLAW) | Room_GG_Shortcut[left1] + (WINGS | LEFTCLAW) + ((RIGHTCLAW + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | RIGHTDASH + SWIM)) | (LEFTCLAW + WINGS + ENEMYPOGOS + (LEFTDASH | LEFTSUPERDASH)))",
+    "logic": "Room_GG_Shortcut[top1] + (WINGS | LEFTCLAW) | Room_GG_Shortcut[left1]  + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT) + (LEFTCLAW | RIGHTCLAW + WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Room_GG_Shortcut[top1]"
   },
@@ -6010,7 +6010,7 @@
   {
     "sceneName": "White_Palace_04",
     "gateName": "right2",
-    "logic": "White_Palace_04[right2] | White_Palace_04[top1] + FULLDASH + WINGS",
+    "logic": "White_Palace_04[right2] | White_Palace_04[top1] + RIGHTDASH + WINGS",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_04[right2]"
   },
