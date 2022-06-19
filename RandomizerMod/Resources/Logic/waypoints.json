@@ -369,7 +369,7 @@
   },
   {
     "name": "Crossroads_18",
-    "logic": "Crossroads_18[right1] + (LEFTDASH | WINGS | INFECTED | LEFTCLAW + AIRSTALL) | Crossroads_18[bot1] | Crossroads_18[right2]"
+    "logic": "Crossroads_18[right1] + (LEFTDASH | WINGS | INFECTED | LEFTCLAW + AIRSTALL + ITEMSOUL) | Crossroads_18[bot1] | Crossroads_18[right2]"
   },
   {
     "name": "Crossroads_19",
@@ -441,7 +441,7 @@
   },
   {
     "name": "Fungus2_13",
-    "logic": "Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | AIRSTALL + ROOMSOUL | TERMINALSHADESKIPS))"
+    "logic": "Fungus2_13[top1] | Fungus2_13[left2] | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | AIRSTALL + ROOMSOUL | TERMINALSHADESKIPS + PRECISEMOVEMENT)"
   },
   {
     "name": "Fungus2_14",

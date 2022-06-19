@@ -3761,7 +3761,7 @@
   {
     "sceneName": "Waterways_02",
     "gateName": "bot2",
-    "logic": "Waterways_02[bot2] | Waterways_02[top1] | Waterways_02[top2] | Waterways_02[top3] + QUAKE + (ANYCLAW | WINGS | RIGHTSUPERDASH | (ENEMYPOGOS + SWIM) | (ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH)) | Waterways_02[bot1] + (ANYCLAW | WINGS | (ENEMYPOGOS + SWIM) | (ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH)) | Waterways_02[bot2]",
+    "logic": "Waterways_02[bot2] | Waterways_02[top1] | Waterways_02[top2] | Waterways_02[top3] + QUAKE + (ANYCLAW | WINGS | RIGHTSUPERDASH | SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH) | Waterways_02[bot1] + (ANYCLAW | WINGS | ENEMYPOGOS + SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH) | Waterways_02[bot2]",
     "oneWayType": "TwoWay",
     "Name": "Waterways_02[bot2]"
   },
