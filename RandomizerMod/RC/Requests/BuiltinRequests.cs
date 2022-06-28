@@ -854,9 +854,9 @@ namespace RandomizerMod.RC
                 {
                     if (pool.Name == PoolNames.Flame && rb.gs.PoolSettings.Charms)
                     {
-                        foreach (VanillaDef def in pool.Vanilla.Skip(6)) rb.AddToVanilla(def.Item, def.Location);
+                        foreach (VanillaDef def in pool.Vanilla.Skip(6)) rb.AddToVanilla(def);
                     }
-                    else foreach (VanillaDef def in pool.Vanilla) rb.AddToVanilla(def.Item, def.Location);
+                    else foreach (VanillaDef def in pool.Vanilla) rb.AddToVanilla(def);
                 }
             }
         }
@@ -906,13 +906,13 @@ namespace RandomizerMod.RC
                     PoolDef warriors = Data.GetPoolDef(PoolNames.DreamWarrior);
                     foreach (string item in warriors.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in warriors.IncludeLocations) rb.RemoveLocationByName(loc);
-                    foreach (VanillaDef def in warriors.Vanilla) rb.AddToVanilla(def.Item, def.Location);
+                    foreach (VanillaDef def in warriors.Vanilla) rb.AddToVanilla(def);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeAllDreamBosses:
                     PoolDef bosses = Data.GetPoolDef(PoolNames.DreamBoss);
                     foreach (string item in bosses.IncludeItems) rb.RemoveItemByName(item);
                     foreach (string loc in bosses.IncludeLocations) rb.RemoveLocationByName(loc);
-                    foreach (VanillaDef def in bosses.Vanilla) rb.AddToVanilla(def.Item, def.Location);
+                    foreach (VanillaDef def in bosses.Vanilla) rb.AddToVanilla(def);
                     break;
                 case LongLocationSettings.BossEssenceSetting.ExcludeZoteAndWhiteDefender:
                     rb.RemoveItemByName(ItemNames.Boss_Essence_White_Defender);
@@ -1272,7 +1272,7 @@ namespace RandomizerMod.RC
                 case MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold:
                 case MiscSettings.SalubraNotchesSetting.Vanilla:
                 case MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool when !rb.gs.PoolSettings.CharmNotches:
-                    foreach (VanillaDef def in pool.Vanilla) rb.AddToVanilla(def.Item, def.Location);
+                    foreach (VanillaDef def in pool.Vanilla) rb.AddToVanilla(def);
                     return;
             }
         }

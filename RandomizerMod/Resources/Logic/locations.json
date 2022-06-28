@@ -977,7 +977,7 @@
   },
   {
     "name": "Deepnest_Map-Upper",
-    "logic": "Deepnest_01b"
+    "logic": "Deepnest_01b | Deepnest_01b[bot1]"
   },
   {
     "name": "Deepnest_Map-Right",

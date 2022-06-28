@@ -22,7 +22,7 @@ namespace RandomizerMod.IC
 
                 foreach (LogicCost lc in lcs)
                 {
-                    Cost cost = Convert(lc);
+                    Cost cost = Convert(factory, lc);
                     if (IsRequiredCost(existingCosts, cost))
                     {
                         i.GetTag<CostTag>().Cost += cost;
@@ -35,7 +35,7 @@ namespace RandomizerMod.IC
 
                 foreach (LogicCost lc in lcs)
                 {
-                    Cost cost = Convert(lc);
+                    Cost cost = Convert(factory, lc);
                     if (IsRequiredCost(existingCosts, cost))
                     {
                         iscp.Cost += cost;
