@@ -2081,7 +2081,7 @@
   {
     "sceneName": "Fungus2_17",
     "gateName": "right1",
-    "logic": "Fungus2_17[right1] | Fungus2_17 + RIGHTCLAW | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH) | Fungus2_17[left1] + WINGS | Fungus2_17[bot1] + WINGS + ENEMYPOGOS",
+    "logic": "Fungus2_17[right1] | Fungus2_17 + (RIGHTCLAW | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)) | Fungus2_17[left1] + WINGS | Fungus2_17[bot1] + WINGS + ENEMYPOGOS",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_17[right1]"
   },
