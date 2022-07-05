@@ -149,7 +149,7 @@
   },
   {
     "name": "Defeated_Collector",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTDASH + RIGHTCLAW | WINGS) + COMBAT[Collector]"
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (RIGHTDASH | PRECISEMOVEMENT) | WINGS) + COMBAT[Collector]"
   },
   {
     "name": "Defeated_Hive_Knight",
@@ -281,7 +281,7 @@
   },
   {
     "name": "Opened_Gardens_Stag_Exit",
-    "logic": "Fungus3_40[top1] | Fungus3_40[right1] | Queen's_Gardens_Stag + Can_Stag"
+    "logic": "Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | TERMINALSHADESKIPS | AIRSTALL + ROOMSOUL) | Fungus3_40[right1] | Queen's_Gardens_Stag + Can_Stag"
   },
   {
     "name": "Opened_Mawlek_Wall",
@@ -525,7 +525,7 @@
   },
   {
     "name": "Deepnest_East_04",
-    "logic": "(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | LEFTDASH | WINGS | AIRSTALL + ROOMSOUL | 2MASKS))"
+    "logic": "(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | LEFTDASH | WINGS | AIRSTALL + ROOMSOUL | 2HITS + DAMAGEBOOSTS + DGBENCH))"
   },
   {
     "name": "Deepnest_East_07",

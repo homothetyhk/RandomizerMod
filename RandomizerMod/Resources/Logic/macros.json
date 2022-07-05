@@ -38,7 +38,6 @@
   "SHADOWDASH": "FULLSHADOWDASH",
   "DREAMER3": "DREAMER>2",
   "AWOKEN": "DREAMNAIL>2",
-  "LIFEBLOOD": "Lifeblood_Heart | Lifeblood_Core | Joni's_Blessing",
 
   // macros for charms with the ability to equip
   "GLOWINGWOMB": "Glowing_Womb + Can_Bench",
@@ -49,9 +48,12 @@
   "LONGNAIL": "Longnail + Can_Bench",
   "LONGMARK": "Longnail + Mark_of_Pride + NOTCHES>$NotchCost[13,18] + Can_Bench",
 
-  "FRAGILEHEART": "Fragile_Heart + Can_Bench + (Can_Repair_Fragile_Charms | Fragile_Heart>1)",
-  "FRAGILEGREED": "Fragile_Greed + Can_Bench + (Can_Repair_Fragile_Charms | Fragile_Greed>1)",
-  "FRAGILESTRENGTH": "Fragile_Strength + Can_Bench + (Can_Repair_Fragile_Charms | Fragile_Strength>1)",
+  "UHEART": "Fragile_Heart>1 + Can_Bench",
+  "UGREED": "Fragile_Greed>1 + Can_Bench",
+  "USTRENGTH": "Fragile_Strength>1 + Can_Bench",
+  "FRAGILEHEART": "Fragile_Heart + Can_Bench + Can_Repair_Fragile_Charms | UHEART",
+  "FRAGILEGREED": "Fragile_Greed + Can_Bench + Can_Repair_Fragile_Charms | UGREED",
+  "FRAGILESTRENGTH": "Fragile_Strength + Can_Bench + Can_Repair_Fragile_Charms | USTRENGTH",
   "DEFENDERSCREST": "Defender's_Crest + Can_Bench",
 
   "DASHMASTER": "Dashmaster + Can_Bench",
@@ -62,19 +64,29 @@
   "KINGSOUL": "WHITEFRAGMENT>1 + Can_Bench | WHITEFRAGMENT>2",
   "VOIDHEART": "WHITEFRAGMENT>2",
   "DASHSPRINT": "Dashmaster + Sprintmaster + NOTCHES>$NotchCost[31,37] + Can_Bench",
+  "LIFEBLOOD": "(Lifeblood_Heart | Lifeblood_Core | Joni's_Blessing) + Can_Bench",
 
-  // macros for comparisons
+  // macros for simple comparisons
   "6FLAMES": "FLAMES>5",
   "3FLAMES": "FLAMES>2",
   "200ESSENCE": "ESSENCE>199",
-  "2MASKS": "MASKSHARDS>7",
-  "3MASKS": "MASKSHARDS>11",
-  "4MASKS": "MASKSHARDS>15",
-  "6MASKS": "MASKSHARDS>23",
   "SIMPLE1": "SIMPLE",
   "SIMPLE3": "SIMPLE>2",
   "SIMPLE4": "SIMPLE>3",
   "ALLSTAGS": "STAGS>8",
+
+  // mask comparisons for checking shade health
+  // use UHEART instead of FRAGILEHEART: it is generally unreasonable to require breaking and repairing fragile heart for shade skips
+  // there are also logic issues with FRAGILEHEART since Can_Repair_Fragile_Charms is nonterminal
+  "2MASKS": "MASKSHARDS>7 | UHEART",
+  "3MASKS": "MASKSHARDS>11 | UHEART",
+  "4MASKS": "MASKSHARDS>15 | MASKSHARDS>7 + UHEART",
+  "6MASKS": "MASKSHARDS>23 | MASKSHARDS>15 + UHEART",
+
+  // macros for the ability to take a certain number of hits. Due to inclusion of lifeblood, these cannot be used in nonterminal logic without the DGBENCH (or similar) requirement
+  "2HITS": "MASKSHARDS>7 | Can_Bench + (FRAGILEHEART | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core | Joni's_Blessing + NOTCHES>$SafeNotchCost[27])",
+  "3HITS": "MASKSHARDS>11 | MASKSHARDS>7 + Can_Bench + Joni's_Blessing + NOTCHES>$SafeNotchCost[27] | Can_Bench + (FRAGILEHEART + NOTCHES>$SafeNotchCost[23] | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core)",
+  "4HITS": "MASKSHARDS>15 | MASKSHARDS>11 + Can_Bench + (Lifeblood_Core | Joni's_Blessing + NOTCHES>$SafeNotchCost[27]) | MASKSHARDS>7 + Can_Bench + (FRAGILEHEART + NOTCHES>$SafeNotchCost[23] | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core + NOTCHES>$SafeNotchCost[9])",
 
   // macros for the next nearest place where the player can move respawn, in nonterminal logic
   "DGSHADESKIPS": "DREAMGATE + SHADESKIPS",

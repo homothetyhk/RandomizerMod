@@ -145,7 +145,7 @@
   },
   {
     "name": "Sharp_Shadow",
-    "logic": "Deepnest_44[top1] + RIGHTSHADOWDASH + (LEFTSHADOWDASH | 4MASKS)"
+    "logic": "Deepnest_44[top1] + RIGHTSHADOWDASH + (LEFTSHADOWDASH | DAMAGEBOOSTS + (4HITS | LEFTDASH + 3HITS | QUAKE + 2HITS))"
   },
   {
     "name": "Spore_Shroom",
@@ -269,7 +269,7 @@
   },
   {
     "name": "Collector's_Map",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + COMPLEXSKIPS)) + Defeated_Collector"
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
   },
   {
     "name": "Mask_Shard-Brooding_Mawlek",
@@ -313,7 +313,7 @@
   },
   {
     "name": "Vessel_Fragment-Greenpath",
-    "logic": "Fungus1_13[right1] + (LEFTCLAW | (DAMAGEBOOSTS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH))) | $StartLocation[Lower Greenpath]"
+    "logic": "Fungus1_13[right1] + (LEFTCLAW | (DAMAGEBOOSTS + 2HITS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH))) | $StartLocation[Lower Greenpath]"
   },
   {
     "name": "Vessel_Fragment-City",
@@ -353,7 +353,7 @@
   },
   {
     "name": "Pale_Ore-Basin",
-    "logic": "Abyss_17[top1] + (ANYCLAW | WINGS | (LEFTDASH + OBSCURESKIPS) | (DAMAGEBOOSTS + 2MASKS))"
+    "logic": "Abyss_17[top1] + (ANYCLAW | WINGS | LEFTDASH + OBSCURESKIPS | DAMAGEBOOSTS + 2HITS)"
   },
   {
     "name": "Pale_Ore-Crystal_Peak",
@@ -449,7 +449,7 @@
   },
   {
     "name": "Rancid_Egg-City_of_Tears_Left",
-    "logic": "Ruins1_05c + (ANYCLAW | WINGS | BACKGROUNDPOGOS | DAMAGEBOOSTS + 3MASKS)"
+    "logic": "Ruins1_05c + (ANYCLAW | WINGS | BACKGROUNDPOGOS | DAMAGEBOOSTS + 3HITS)"
   },
   {
     "name": "Rancid_Egg-City_of_Tears_Pleasure_House",
@@ -565,7 +565,7 @@
   },
   {
     "name": "Hallownest_Seal-Fog_Canyon_East",
-    "logic": "(Fungus3_26 + (Fungus3_26[top1] | ANYCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + ENEMYPOGOS))) + (LEFTCLAW | WINGS | LEFTSUPERDASH | LEFTDASH | (DAMAGEBOOSTS + 2MASKS))"
+    "logic": "Fungus3_26 + (Fungus3_26[top1] | ANYCLAW | WINGS | RIGHTDASH + (LEFTDASH | AIRSTALL) + ENEMYPOGOS) + (LEFTCLAW | WINGS | LEFTSUPERDASH | LEFTDASH | DAMAGEBOOSTS + 2HITS)"
   },
   {
     "name": "Hallownest_Seal-Queen's_Station",
@@ -657,7 +657,7 @@
   },
   {
     "name": "Whispering_Root-Greenpath",
-    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | 2MASKS + DAMAGEBOOSTS)) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | 2HITS + DAMAGEBOOSTS)) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Whispering_Root-Leg_Eater",
@@ -933,15 +933,15 @@
   },
   {
     "name": "Grub-Collector_1",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + COMPLEXSKIPS)) + Defeated_Collector"
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
   },
   {
     "name": "Grub-Collector_2",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + COMPLEXSKIPS)) + Defeated_Collector"
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
   },
   {
     "name": "Grub-Collector_3",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + COMPLEXSKIPS)) + Defeated_Collector"
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
   },
   {
     "name": "Mimic_Grub-Deepnest_1",
@@ -1357,7 +1357,7 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Goam_Damage_Boost",
-    "logic": "(Crossroads_42[left1] | Crossroads_42[right1]) + (2MASKS | LIFEBLOOD)"
+    "logic": "(Crossroads_42[left1] | Crossroads_42[right1]) + 2HITS"
   },
   {
     "name": "Geo_Rock-Crossroads_Tram",
@@ -1781,7 +1781,7 @@
   },
   {
     "name": "Geo_Rock-Fog_Canyon_East",
-    "logic": "Fungus3_26 + (4MASKS | FIREBALL)"
+    "logic": "Fungus3_26 + (FIREBALL | RIGHTDASHSLASH | DAMAGEBOOSTS + 3HITS)"
   },
   {
     "name": "Geo_Rock-Love_Key",
@@ -2353,7 +2353,7 @@
   },
   {
     "name": "Lore_Tablet-Greenpath_QG",
-    "logic": "Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + 2MASKS) + (SIDESLASH | Cyclone_Slash | Great_Slash | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | Cyclone_Slash | Great_Slash | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + 2HITS) + (SIDESLASH | Cyclone_Slash | Great_Slash | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | Cyclone_Slash | Great_Slash | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",
