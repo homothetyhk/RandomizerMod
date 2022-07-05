@@ -1,4 +1,5 @@
 ﻿using RandomizerMod.Settings;
+using System.Collections.ObjectModel;
 
 namespace RandomizerMod.RandomizerData
 {
@@ -12,29 +13,38 @@ namespace RandomizerMod.RandomizerData
     public static class Data
     {
         // Items
+        public static ReadOnlyDictionary<string, ItemDef> Items { get; private set; }
         private static Dictionary<string, ItemDef> _items;
 
         // Locations
+        public static ReadOnlyDictionary<string, LocationDef> Locations { get; private set; }
         private static Dictionary<string, LocationDef> _locations;
 
         // Transitions
+        public static ReadOnlyDictionary<string, TransitionDef> Transitions { get; private set; }
         private static Dictionary<string, TransitionDef> _transitions;
 
         // Rooms
+        public static ReadOnlyDictionary<string, RoomDef> Rooms { get; private set; }
         private static Dictionary<string, RoomDef> _rooms;
 
         // Starts
+        public static ReadOnlyDictionary<string, StartDef> Starts { get; private set; }
         private static Dictionary<string, StartDef> _starts;
 
         // Logic Settings
+        public static ReadOnlyDictionary<string, string> LogicSettings { get; private set; }
         private static Dictionary<string, string> _logicSettings; // name in logic --> settings path
 
         // Costs
+        public static ReadOnlyDictionary<string, CostDef> Costs { get; private set; }
         private static Dictionary<string, CostDef> _costs;
 
+        public static ReadOnlyDictionary<string, PoolDef> PoolLookup { get; private set; }
         private static Dictionary<string, PoolDef> _pools;
+        public static ReadOnlyCollection<PoolDef> PoolList { get; private set; }
         private static PoolDef[] __pools;
-        public static IEnumerable<PoolDef> Pools => __pools;
+        public static IEnumerable<PoolDef> Pools => PoolList;
 
         #region Item Methods
 
@@ -200,17 +210,40 @@ namespace RandomizerMod.RandomizerData
             if (_pools.TryGetValue(name, out var def)) return def;
             return null;
         }
+
+        private static bool _loaded;
         public static void Load()
         {
+            if (_loaded) return;
+
             _items = JsonUtil.Deserialize<Dictionary<string, ItemDef>>("RandomizerMod.Resources.Data.items.json");
+            Items = new(_items);
+
             _locations = JsonUtil.Deserialize<Dictionary<string, LocationDef>>("RandomizerMod.Resources.Data.locations.json");
+            Locations = new(_locations);
+
             _logicSettings = JsonUtil.Deserialize<Dictionary<string, string>>("RandomizerMod.Resources.Data.logic_settings.json");
+            LogicSettings = new(_logicSettings);
+
             __pools = JsonUtil.Deserialize<PoolDef[]>("RandomizerMod.Resources.Data.pools.json");
+            PoolList = new(__pools);
+
             _pools = __pools.ToDictionary(def => def.Name);
+            PoolLookup = new(_pools);
+
             _starts = JsonUtil.Deserialize<Dictionary<string, StartDef>>("RandomizerMod.Resources.Data.starts.json");
+            Starts = new(_starts);
+
             _transitions = JsonUtil.Deserialize<Dictionary<string, TransitionDef>>("RandomizerMod.Resources.Data.transitions.json");
+            Transitions = new(_transitions);
+
             _rooms = JsonUtil.Deserialize<Dictionary<string, RoomDef>>("RandomizerMod.Resources.Data.rooms.json");
+            Rooms = new(_rooms);
+
             _costs = JsonUtil.Deserialize<Dictionary<string, CostDef>>("RandomizerMod.Resources.Data.costs.json");
+            Costs = new(_costs);
+
+            _loaded = true;
         }
 
     }

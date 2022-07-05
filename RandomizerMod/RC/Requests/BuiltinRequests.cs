@@ -40,7 +40,6 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(0f, ApplySplitCloakShadeCloakRandomize);
             OnUpdate.Subscribe(0f, ApplyProgressiveSplitClaw);
             OnUpdate.Subscribe(0f, ApplySalubraNotchesSetting);
-            OnUpdate.Subscribe(1f, ApplyMultiLocationRebalancing);
             OnUpdate.Subscribe(2f, ApplyGrubMimicRando);
 
             OnUpdate.Subscribe(4f, ApplyRandomizeCursedMasks);
@@ -66,6 +65,8 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(30f, ApplyPalaceLongLocationSetting);
             OnUpdate.Subscribe(30f, ApplyBossEssenceLongLocationSetting);
             OnUpdate.Subscribe(30f, ApplyLongLocationPreviewSettings);
+
+            OnUpdate.Subscribe(50f, ApplyMultiLocationRebalancing);
 
             OnUpdate.Subscribe(99f, ApplyItemPlacementStrategy);
             OnUpdate.Subscribe(99f, ApplyTransitionPlacementStrategy);
@@ -1473,14 +1474,21 @@ namespace RandomizerMod.RC
                     if (rb.TryGetLocationDef(l, out LocationDef def) && def.FlexibleCount)
                     {
                         multiSet.Add(l);
-                        count += gb.Locations.GetCount(l) - 1;
+                        count += gb.Locations.GetCount(l);
+
                     }
                 }
                 string[] multi = multiSet.OrderBy(s => s).ToArray();
                 foreach (string l in multi)
                 {
                     gb.Locations.Set(l, 1);
+                    count -= 1;
                 }
+
+                // ordinarily, we end with as many multi locations as we started with, and let the LocationPadder deal with it
+                // however, the result of padding with too many multi locations is undesirable
+                // so we restrict the number of multi locations when Items - Locations is small
+                count = Math.Min(count, Math.Max(0, gb.Items.GetTotal() - gb.Locations.GetTotal()));
                 while (count-- > 0)
                 {
                     gb.Locations.Add(rb.rng.Next(multi));
