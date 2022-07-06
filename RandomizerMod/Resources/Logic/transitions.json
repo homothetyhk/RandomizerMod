@@ -968,14 +968,14 @@
   {
     "sceneName": "Fungus1_04",
     "gateName": "left1",
-    "logic": "Fungus1_04[left1] | Fungus1_04[right1] + Defeated_Hornet_1 + (((LEFTDASH | LEFTSUPERDASH) + (RIGHTDASH | RIGHTSUPERDASH)) | WINGS | ACID)",
+    "logic": "Fungus1_04[left1] | Fungus1_04[right1] + Defeated_Hornet_1 + ((LEFTDASH | LEFTSUPERDASH) + (RIGHTDASH | RIGHTSUPERDASH | LEFTCLAW + PRECISEMOVEMENT) | WINGS | ACID | AIRSTALL + DGSOUL)",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_04[left1]"
   },
   {
     "sceneName": "Fungus1_04",
     "gateName": "right1",
-    "logic": "Fungus1_04[right1] | Fungus1_04[left1] + (FULLDASH | WINGS | ACID + RIGHTCLAW | FULLSUPERDASH + FULLCLAW | RIGHTDASH + LEFTCLAW + PRECISEMOVEMENT)",
+    "logic": "Fungus1_04[right1] | Fungus1_04[left1] + (FULLDASH | WINGS | FULLSUPERDASH + FULLCLAW | RIGHTCLAW + (ACID | RIGHTDASH | RIGHTSUPERDASH + PRECISEMOVEMENT | AIRSTALL + DGSOUL) | LEFTCLAW + (RIGHTDASH + PRECISEMOVEMENT | AIRSTALL + DGSOUL + COMPLEXSKIPS))",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_04[right1]"
   },
