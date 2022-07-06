@@ -15,8 +15,8 @@ namespace RandomizerMod.IC
             LogManager.Write(BuildHelper(), "HelperLog.txt");
             LogManager.Write(TD.pm.ToString(), "TrackerDataPM.txt");
             LogManager.Write(TD_WSB.pm.ToString(), "TrackerDataWithoutSequenceBreaksPM.txt");
-            LogManager.Write(tw => RandomizerData.JsonUtil.Serialize(tw, TD), "TrackerData.json");
-            LogManager.Write(tw => RandomizerData.JsonUtil.Serialize(tw, TD_WSB), "TrackerDataWithoutSequenceBreaks.json");
+            LogManager.Write(RandomizerData.JsonUtil.Serialize(TD), "TrackerData.json");
+            LogManager.Write(RandomizerData.JsonUtil.Serialize(TD_WSB), "TrackerDataWithoutSequenceBreaks.json");
         }
 
         private TrackerData TD => RandomizerMod.RS.TrackerData;

@@ -393,7 +393,7 @@
   },
   {
     "name": "Fungus1_21",
-    "logic": "Fungus1_21[left1] | Fungus1_21[top1] | (Fungus1_21[right1] + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH)) | Fungus1_21[bot1]"
+    "logic": "Fungus1_21[left1] | Fungus1_21[top1] | Fungus1_21[right1] + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH | Cyclone_Slash | Great_Slash) | Fungus1_21[bot1]"
   },
   {
     "name": "Fungus1_30",

@@ -357,7 +357,7 @@
   },
   {
     "name": "Pale_Ore-Crystal_Peak",
-    "logic": "Mines_34[bot1] + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (WINGS | FULLDASH | FULLSUPERDASH)"
+    "logic": "Mines_34[bot1] + (LEFTCLAW + (WINGS | RIGHTDASH | RIGHTSUPERDASH | SPIKETUNNELS) | RIGHTCLAW + (WINGS | ENEMYPOGOS + (RIGHTDASH | SPIKETUNNELS)))"
   },
   {
     "name": "Pale_Ore-Nosk",
@@ -897,7 +897,7 @@
   },
   {
     "name": "Grub-Crystal_Peak_Spike",
-    "logic": "Mines_03 + ((FULLCLAW + FULLDASH) | (WINGS + SPIKETUNNELS + (FULLDASH | AIRSTALL)))"
+    "logic": "Mines_03 + (FULLCLAW + FULLDASH | SPIKETUNNELS + (FULLCLAW + ((LEFTDASH | LEFTSUPERDASH) + (RIGHTDASH | RIGHTSUPERDASH) | AIRSTALL) | WINGS + (FULLDASH | AIRSTALL)))"
   },
   {
     "name": "Grub-Crystal_Peak_Mimic",
@@ -909,7 +909,7 @@
   },
   {
     "name": "Grub-Crystal_Heart",
-    "logic": "Mines_31[left1] + ((LEFTCLAW + RIGHTSUPERDASH) | WINGS | (FULLCLAW + RIGHTDASH + AIRSTALL))"
+    "logic": "Mines_31[left1] + (LEFTCLAW + RIGHTSUPERDASH | WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW | BACKGROUNDPOGOS) | FULLCLAW + RIGHTDASH + AIRSTALL)"
   },
   {
     "name": "Grub-Hallownest_Crown",
@@ -1593,7 +1593,7 @@
   },
   {
     "name": "Geo_Rock-Greenpath_Below_Hornet",
-    "logic": "(Fungus1_04[left1] | Fungus1_04[right1] + Defeated_Hornet_1) + (RIGHTDASH | WINGS | ((RIGHTSUPERDASH | ACID) + RIGHTCLAW))"
+    "logic": "(Fungus1_04[left1] | Fungus1_04[right1] + Defeated_Hornet_1) + (RIGHTDASH | WINGS | (RIGHTSUPERDASH | ACID) + RIGHTCLAW | AIRSTALL) | Fungus1_04[left1] + ACID + LEFTCLAW | Fungus1_04[right1] + Defeated_Hornet_1 + LEFTCLAW + PRECISEMOVEMENT"
   },
   {
     "name": "Geo_Rock-Greenpath_Above_Thorns",

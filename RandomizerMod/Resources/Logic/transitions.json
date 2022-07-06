@@ -3992,7 +3992,7 @@
   {
     "sceneName": "GG_Waterways",
     "gateName": "door1",
-    "logic": "GG_Waterways[door1] | GG_Waterways[right1] + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH + RIGHTCLAW)) | WINGS + RIGHTCLAW + PRECISEMOVEMENT)) | (WINGS + RIGHTDASH + RIGHTCLAW + DIFFICULTSKIPS))",
+    "logic": "GG_Waterways[door1] | GG_Waterways[right1] + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH + RIGHTCLAW | AIRSTALL + DGSOUL)) | WINGS + RIGHTCLAW + PRECISEMOVEMENT)) | (WINGS + RIGHTDASH + RIGHTCLAW + DIFFICULTSKIPS))",
     "oneWayType": "TwoWay",
     "Name": "GG_Waterways[door1]"
   },
@@ -5408,7 +5408,7 @@
   {
     "sceneName": "Mines_28",
     "gateName": "left1",
-    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | (WINGS + LEFTDASH) | AIRSTALL + AREASOUL + (WINGS | LEFTDASH))",
+    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | WINGS + LEFTDASH | FULLCLAW + LEFTDASH + PRECISEMOVEMENT | AIRSTALL + AREASOUL + (WINGS | LEFTDASH))",
     "oneWayType": "TwoWay",
     "Name": "Mines_28[left1]"
   },
