@@ -265,7 +265,7 @@
   },
   {
     "name": "Godtuner",
-    "logic": "(GG_Waterways[door1] | (GG_Waterways[right1] + (LEFTSUPERDASH | SWIM))) + GODTUNERUNLOCK"
+    "logic": "GG_Waterways + GODTUNERUNLOCK"
   },
   {
     "name": "Collector's_Map",
@@ -401,23 +401,23 @@
   },
   {
     "name": "Geo_Chest-Junk_Pit_1",
-    "logic": "GG_Waterways[door1] | (GG_Waterways[right1] + (LEFTSUPERDASH | SWIM))"
+    "logic": "GG_Waterways"
   },
   {
     "name": "Geo_Chest-Junk_Pit_2",
-    "logic": "GG_Waterways[door1] | (GG_Waterways[right1] + (LEFTSUPERDASH | SWIM))"
+    "logic": "GG_Waterways"
   },
   {
     "name": "Geo_Chest-Junk_Pit_3",
-    "logic": "GG_Waterways[door1] | (GG_Waterways[right1] + (LEFTSUPERDASH | SWIM))"
+    "logic": "GG_Waterways"
   },
   {
     "name": "Geo_Chest-Junk_Pit_5",
-    "logic": "GG_Waterways[door1] | (GG_Waterways[right1] + (LEFTSUPERDASH | SWIM))"
+    "logic": "GG_Waterways"
   },
   {
     "name": "Lumafly_Escape-Junk_Pit_Chest_4",
-    "logic": "GG_Waterways[door1] | (GG_Waterways[right1] + (LEFTSUPERDASH | SWIM))"
+    "logic": "GG_Waterways"
   },
   {
     "name": "Rancid_Egg-Sheo",

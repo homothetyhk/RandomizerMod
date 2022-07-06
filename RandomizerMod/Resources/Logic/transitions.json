@@ -3985,14 +3985,14 @@
   {
     "sceneName": "GG_Waterways",
     "gateName": "right1",
-    "logic": "GG_Waterways[right1] | GG_Waterways[door1] + ((LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH)) | (WINGS + RIGHTCLAW))",
+    "logic": "GG_Waterways[right1] | GG_Waterways[door1] + (LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH) | WINGS + RIGHTCLAW) | GG_Waterways + (SWIM + RIGHTCLAW + WINGS | FULLCLAW + RIGHTSUPERDASH)",
     "oneWayType": "TwoWay",
     "Name": "GG_Waterways[right1]"
   },
   {
     "sceneName": "GG_Waterways",
     "gateName": "door1",
-    "logic": "GG_Waterways[door1] | GG_Waterways[right1] + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH + RIGHTCLAW | AIRSTALL + DGSOUL)) | WINGS + RIGHTCLAW + PRECISEMOVEMENT)) | (WINGS + RIGHTDASH + RIGHTCLAW + DIFFICULTSKIPS))",
+    "logic": "GG_Waterways[door1] | GG_Waterways + (LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH + RIGHTCLAW | AIRSTALL + DGSOUL) | WINGS + RIGHTCLAW + PRECISEMOVEMENT) | GG_Waterways[right1] + WINGS + RIGHTDASH + RIGHTCLAW + DIFFICULTSKIPS",
     "oneWayType": "TwoWay",
     "Name": "GG_Waterways[door1]"
   },
