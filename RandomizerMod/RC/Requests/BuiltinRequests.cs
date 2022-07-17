@@ -639,7 +639,7 @@ namespace RandomizerMod.RC
 
             void AddUniformlyFrom(IList<string> items, double rate, int cap)
             {
-                rb.rng.PermuteInPlace(items);
+                items = rb.rng.Permute(items); // don't modify the input
 
                 int toAdd = 0;
                 for (int i = 0; i < items.Count; i++)
@@ -723,7 +723,7 @@ namespace RandomizerMod.RC
                 }
             }
             {
-                string[] stags = Data.GetPoolDef(PoolNames.Stag).IncludeItems;
+                string[] stags = Data.GetPoolDef(PoolNames.Stag).IncludeItems.ToArray();
                 switch (ss.Stags)
                 {
                     case StartItemSettings.StartStagType.None:
