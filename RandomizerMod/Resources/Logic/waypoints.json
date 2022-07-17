@@ -452,6 +452,10 @@
     "logic": "Fungus2_17[right1] | Fungus2_17[left1] | Fungus2_17[bot1]"
   },
   {
+    "name": "Fungus2_18",
+    "logic": "Fungus2_18[top1] | Fungus2_18[right1] + (LEFTDASH | LEFTCLAW | WINGS | RIGHTCLAW | ENEMYPOGOS) | Fungus2_18[bot1] + (RIGHTCLAW | WINGS)"
+  },
+  {
     "name": "Fungus2_20",
     "logic": "Fungus2_20[left1] | Fungus2_20[right1]"
   },
@@ -721,7 +725,7 @@
   },
   {
     "name": "Fungus3_11",
-    "logic": "Fungus3_11[left1] | (Fungus3_11[left2] + (LEFTCLAW | (RIGHTCLAW + WINGS))) | (Fungus3_11[right1] + (LEFTCLAW | WINGS))"
+    "logic": "Fungus3_11[left1] | Fungus3_11[left2] + (LEFTCLAW | RIGHTCLAW + WINGS) | Fungus3_11[right1] + (LEFTCLAW | WINGS | RIGHTCLAW + ENEMYPOGOS)"
   },
   {
     "name": "Fungus3_13",

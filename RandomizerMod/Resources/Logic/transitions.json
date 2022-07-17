@@ -2102,14 +2102,14 @@
   {
     "sceneName": "Fungus2_18",
     "gateName": "bot1",
-    "logic": "Fungus2_18[bot1] | ((Fungus2_18[right1] + (LEFTDASH | LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH) | ENEMYPOGOS)) | Fungus2_18[top1]) + (ANYCLAW | (WINGS + (ENEMYPOGOS + OBSCURESKIPS | ITEMSHADESKIPS)))",
+    "logic": "Fungus2_18[bot1] | Fungus2_18 + (ANYCLAW | WINGS + (ENEMYPOGOS + OBSCURESKIPS | ITEMSHADESKIPS))",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_18[bot1]"
   },
   {
     "sceneName": "Fungus2_18",
     "gateName": "top1",
-    "logic": "Fungus2_18[top1] | (Fungus2_18[right1] + (LEFTDASH | LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH) | ENEMYPOGOS)) | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))",
+    "logic": "Fungus2_18[top1] | Fungus2_18",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_18[top1]"
   },
@@ -3103,14 +3103,14 @@
   {
     "sceneName": "Deepnest_East_14",
     "gateName": "left1",
-    "logic": "Deepnest_East_14[left1] | ((Deepnest_East_14[top2] + (RIGHTCLAW | WINGS) + QUAKE) | Deepnest_East_14[door1]) + (LEFTDASH | SPIKETUNNELS)",
+    "logic": "Deepnest_East_14[left1] | Deepnest_East_14[top2] + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS) + QUAKE + (LEFTDASH | SPIKETUNNELS) | Deepnest_East_14[door1] + (LEFTDASH | SPIKETUNNELS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_14[left1]"
   },
   {
     "sceneName": "Deepnest_East_14",
     "gateName": "door1",
-    "logic": "Deepnest_East_14[door1] | (Deepnest_East_14[top2] + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | PRECISEMOVEMENT)) | (Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS))",
+    "logic": "Deepnest_East_14[door1] | Deepnest_East_14[top2] + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS) + QUAKE + (RIGHTDASH | PRECISEMOVEMENT) | Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_14[door1]"
   },
@@ -4272,7 +4272,7 @@
   {
     "sceneName": "Ruins1_23",
     "gateName": "top1",
-    "logic": "Ruins1_23[top1] + WINGS + PRECISEMOVEMENT | Ruins1_23 + Defeated_Sanctum_Warrior + Broke_Sanctum_Glass_Floor + WINGS + (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH) | RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH) | BACKGROUNDPOGOS)",
+    "logic": "Ruins1_23[top1] + WINGS + PRECISEMOVEMENT | (Ruins1_23[top1] | Ruins1_23 + Defeated_Sanctum_Warrior + Broke_Sanctum_Glass_Floor) + WINGS + (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH) | RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH) | BACKGROUNDPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_23[top1]"
   },
@@ -4750,7 +4750,7 @@
   {
     "sceneName": "Ruins2_10b",
     "gateName": "right1",
-    "logic": "Ruins2_10b[right1] | (Right_Elevator | Ruins2_10b[right2]) + (LEFTCLAW + WINGS | RIGHTCLAW + WINGS + LEFTDASH | FULLCLAW) | Ruins2_10b[left1] + (LEFTCLAW | RIGHTCLAW + WINGS + LEFTDASH)",
+    "logic": "Ruins2_10b[right1] | (Right_Elevator | Ruins2_10b[right2]) + (LEFTCLAW + WINGS | RIGHTCLAW + WINGS | FULLCLAW) | Ruins2_10b[left1] + (LEFTCLAW | RIGHTCLAW + WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_10b[right1]"
   },
@@ -5583,7 +5583,7 @@
   {
     "sceneName": "Fungus3_05",
     "gateName": "right2",
-    "logic": "Fungus3_05[right2] | (Fungus3_05[left1] | Fungus3_05[right1]) + ((LEFTDASH + (RIGHTDASH | RIGHTSUPERDASH)) | ((RIGHTCLAW | WINGS) + LEFTSUPERDASH + (RIGHTDASH | RIGHTSUPERDASH)))",
+    "logic": "Fungus3_05[right2] | (Fungus3_05[left1] | Fungus3_05[right1]) + (WINGS | (LEFTDASH | RIGHTCLAW + LEFTSUPERDASH) + (RIGHTDASH | RIGHTSUPERDASH))",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_05[right2]"
   },
@@ -6234,7 +6234,7 @@
   {
     "sceneName": "White_Palace_19",
     "gateName": "left1",
-    "logic": "White_Palace_19[left1] | White_Palace_19[top1] + FULLDASH + FULLCLAW + FULLSUPERDASH + WINGS",
+    "logic": "White_Palace_19[left1] | White_Palace_19[top1] + RIGHTDASH + (RIGHTCLAW + WINGS | (RIGHTCLAW | WINGS) + PRECISEMOVEMENT | DIFFICULTSKIPS + DANGEROUSSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_19[left1]"
   },

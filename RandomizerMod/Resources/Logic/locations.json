@@ -37,7 +37,7 @@
   },
   {
     "name": "Monomon",
-    "logic": "Fungus3_archive_02[top1] + DREAMNAIL + Defeated_Uumuu + ((ACID + (LEFTCLAW | (WINGS + RIGHTCLAW))) | (LEFTSUPERDASH + FULLCLAW))"
+    "logic": "Fungus3_archive_02[top1] + DREAMNAIL + Defeated_Uumuu + (ACID + LEFTCLAW | ACID + RIGHTCLAW + WINGS | LEFTSUPERDASH + FULLCLAW | LEFTSUPERDASH + RIGHTCLAW + WINGS | RIGHTSUPERDASH + LEFTCLAW + WINGS | FULLCLAW + WINGS + FULLSHARPSHADOW + FIREBALL + FIREBALLSKIPS + ACIDSKIPS + COMPLEXSKIPS)"
   },
   {
     "name": "Herrah",
@@ -469,7 +469,7 @@
   },
   {
     "name": "Rancid_Egg-Near_Quick_Slash",
-    "logic": "Deepnest_East_14[top2] + QUAKE + (RIGHTCLAW | WINGS)"
+    "logic": "Deepnest_East_14[top2] + QUAKE + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS)"
   },
   {
     "name": "Rancid_Egg-Upper_Kingdom's_Edge",
@@ -645,7 +645,7 @@
   },
   {
     "name": "Arcane_Egg-Shade_Cloak",
-    "logic": "Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTSHADOWDASH | (VOIDHEART + (SWIM | RIGHTDASH | RIGHTSUPERDASH | FULLCLAW | WINGS)))"
+    "logic": "Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTSHADOWDASH | VOIDHEART + (SWIM | RIGHTDASH | RIGHTSUPERDASH | FULLCLAW | WINGS) | (RIGHTCLAW | WINGS + SHADESKIPS + 4MASKS) + (LEFTSHADOWDASH | VOIDHEART + (LEFTDASH | LEFTSUPERDASH)))"
   },
   {
     "name": "Arcane_Egg-Birthplace",
@@ -673,7 +673,7 @@
   },
   {
     "name": "Whispering_Root-Queens_Gardens",
-    "logic": "Fungus3_11 + LEFTCLAW + DREAMNAIL"
+    "logic": "Fungus3_11 + (LEFTCLAW | WINGS | RIGHTCLAW + ENEMYPOGOS) + DREAMNAIL"
   },
   {
     "name": "Whispering_Root-Kingdoms_Edge",
@@ -829,7 +829,7 @@
   },
   {
     "name": "Grub-Kingdom's_Edge_Oro",
-    "logic": "(ANYCLAW | WINGS) + ((Deepnest_East_14[top2] + QUAKE + (PRECISEMOVEMENT | RIGHTDASH)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | RIGHTDASH)) | Deepnest_East_14[door1])"
+    "logic": "(Deepnest_East_14[door1] | Deepnest_East_14[top2] + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS) + QUAKE + (RIGHTDASH | PRECISEMOVEMENT) | Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS)) + (ANYCLAW | WINGS | TERMINALSHADESKIPS + ENEMYPOGOS + 4MASKS + (ANYDASH | AIRSTALL))"
   },
   {
     "name": "Grub-Kingdom's_Edge_Camp",
@@ -845,7 +845,7 @@
   },
   {
     "name": "Grub-Basin_Requires_Wings",
-    "logic": "Abyss_19 + WINGS + (RIGHTCLAW | (AIRSTALL + ENEMYPOGOS))"
+    "logic": "Abyss_19 + WINGS + (ANYCLAW | ENEMYPOGOS)"
   },
   {
     "name": "Grub-Basin_Requires_Dive",
@@ -881,7 +881,7 @@
   },
   {
     "name": "Grub-King's_Station",
-    "logic": "Ruins2_07[left1] + (SWIM | RIGHTSKIPACID) | Ruins2_07[top1] + (LEFTDASH | (RIGHTCLAW + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + PRECISEMOVEMENT)) | Ruins2_07[right1] + (LEFTDASH | SWIM | ((RIGHTCLAW + (LEFTCLAW | WINGS)) + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + PRECISEMOVEMENT))"
+    "logic": "(Ruins2_07[left1] + (SWIM | RIGHTSKIPACID) | Ruins2_07[top1] | Ruins2_07[right1] + (LEFTDASH | SWIM | LEFTCLAW | WINGS)) + (LEFTDASH | SWIM | RIGHTCLAW + LEFTSUPERDASH | WINGS + LEFTSUPERDASH | RIGHTCLAW + WINGS + PRECISEMOVEMENT | WINGS + AIRSTALL)"
   },
   {
     "name": "Grub-Resting_Grounds",
@@ -973,7 +973,7 @@
   },
   {
     "name": "Fungal_Wastes_Map",
-    "logic": "Fungus2_18[top1] | Fungus2_18[right1] | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))"
+    "logic": "Fungus2_18"
   },
   {
     "name": "Deepnest_Map-Upper",
@@ -1741,7 +1741,7 @@
   },
   {
     "name": "Geo_Rock-Fungal_After_Cornifer",
-    "logic": "Fungus2_18[top1] | Fungus2_18[right1] | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))"
+    "logic": "Fungus2_18"
   },
   {
     "name": "Geo_Rock-Fungal_Above_City_Entrance",
@@ -2125,7 +2125,7 @@
   },
   {
     "name": "Soul_Totem-Oro_Dive_2",
-    "logic": "Deepnest_East_14[top2] + QUAKE + (RIGHTCLAW | WINGS)"
+    "logic": "Deepnest_East_14[top2] + QUAKE + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS)"
   },
   {
     "name": "Soul_Totem-Oro_Dive_1",
@@ -2277,7 +2277,7 @@
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Below_Thornskip",
-    "logic": "White_Palace_19[left1] | (White_Palace_19[top1] + FULLCLAW + WINGS + FULLDASH)"
+    "logic": "White_Palace_19[left1] | White_Palace_19[top1] + RIGHTDASH + (RIGHTCLAW + WINGS | (RIGHTCLAW | WINGS) + PRECISEMOVEMENT | DIFFICULTSKIPS + DANGEROUSSKIPS)"
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Final",
