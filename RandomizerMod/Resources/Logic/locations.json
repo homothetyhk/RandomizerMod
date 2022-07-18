@@ -285,7 +285,7 @@
   },
   {
     "name": "Mask_Shard-Queen's_Station",
-    "logic": "Fungus2_01 + ((FULLCLAW + (LEFTDASH | LEFTSUPERDASH)) | WINGS | (RIGHTDASH + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH) + OBSCURESKIPS))"
+    "logic": "Fungus2_01 + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH) | WINGS)"
   },
   {
     "name": "Mask_Shard-Deepnest",
