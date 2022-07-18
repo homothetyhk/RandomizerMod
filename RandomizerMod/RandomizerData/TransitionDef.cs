@@ -7,8 +7,8 @@ namespace RandomizerMod.RandomizerData
         [JsonIgnore] public string Name => $"{SceneName}[{DoorName}]";
         public string SceneName { get; init; }
         public string DoorName { get; init; }
-        [JsonIgnore] public string TitledArea { get => Data.GetRoomDef(SceneName)?.TitledArea; }
-        [JsonIgnore] public string MapArea { get => Data.GetRoomDef(SceneName)?.MapArea; }
+        [JsonIgnore] public virtual string TitledArea { get => Data.GetRoomDef(SceneName)?.TitledArea; }
+        [JsonIgnore] public virtual string MapArea { get => Data.GetRoomDef(SceneName)?.MapArea; }
         public string VanillaTarget { get; init; }
         public TransitionDirection Direction { get; init; }
         public bool IsTitledAreaTransition { get; init; }
