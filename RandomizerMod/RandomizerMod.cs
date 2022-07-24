@@ -30,7 +30,7 @@ namespace RandomizerMod
         {
             base.Initialize();
             LogHelper.OnLog += Log;
-            RandomizerCore.LogHelper.OnLog += Log;
+            RandomizerCore.LogHelper.OnLog += new SimpleLogger(nameof(RandomizerCore)).Log;
             Logging.LogManager.Initialize();
             LocalizationData.Load();
             SpriteManager = new(Assembly, "RandomizerMod.Resources.");
