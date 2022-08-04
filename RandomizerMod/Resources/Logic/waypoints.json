@@ -513,7 +513,7 @@
   },
   {
     "name": "Deepnest_41",
-    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_41[left1] + (RIGHTCLAW | ((LEFTCLAW | WINGS) + ENEMYPOGOS))) | (Deepnest_41[left2] + (FULLCLAW | (WINGS + ANYCLAW))) | (Deepnest_41[right1] + (LEFTCLAW | WINGS)))"
+    "logic": "(LANTERN | DARKROOMS) + (Deepnest_41[left1] + (RIGHTCLAW | LEFTCLAW + WINGS | (LEFTCLAW | WINGS) + ENEMYPOGOS) | Deepnest_41[left2] + (FULLCLAW | WINGS + ANYCLAW) | Deepnest_41[right1] + (LEFTCLAW | WINGS))"
   },
   {
     "name": "Deepnest_42",
@@ -586,10 +586,6 @@
   {
     "name": "Waterways_02",
     "logic": "Waterways_02[top1] | Waterways_02[top2] | (Waterways_02[top3] + QUAKE) | Waterways_02[bot1] | Waterways_02[bot2]"
-  },
-  {
-    "name": "Waterways_04",
-    "logic": "Waterways_04[right1] | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) | Waterways_04[left2]"
   },
   {
     "name": "Waterways_04b",
@@ -705,7 +701,7 @@
   },
   {
     "name": "Mines_11",
-    "logic": "(Mines_11[bot1] + (ANYCLAW | WINGS)) | Mines_11[right1] | Mines_11[top1]"
+    "logic": "Mines_11[bot1] + (LEFTCLAW | WINGS | RIGHTCLAW + BACKGROUNDPOGOS) | Mines_11[right1] | Mines_11[top1]"
   },
   {
     "name": "Mines_18",
@@ -749,7 +745,7 @@
   },
   {
     "name": "Cliffs_02",
-    "logic": "Cliffs_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS))) | Cliffs_02[door1] | Cliffs_02[left1] | Cliffs_02[left2]"
+    "logic": "Cliffs_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS))) | (Cliffs_02[door1] | Cliffs_02[left1]) + (ANYCLAW | WINGS | ENEMYPOGOS) | Cliffs_02[left2]"
   },
   {
     "name": "White_Palace_01",

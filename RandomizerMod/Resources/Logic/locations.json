@@ -353,7 +353,7 @@
   },
   {
     "name": "Pale_Ore-Basin",
-    "logic": "Abyss_17[top1] + (ANYCLAW | WINGS | LEFTDASH + OBSCURESKIPS | DAMAGEBOOSTS + 2HITS)"
+    "logic": "Abyss_17[top1] + (ANYCLAW | WINGS | DAMAGEBOOSTS + 2HITS)"
   },
   {
     "name": "Pale_Ore-Crystal_Peak",
@@ -901,7 +901,7 @@
   },
   {
     "name": "Grub-Crystal_Peak_Mimic",
-    "logic": "Mines_16[top1] + (LEFTCLAW | WINGS)"
+    "logic": "Mines_16[top1] + (LEFTCLAW | WINGS | RIGHTCLAW + (LEFTDASH | AIRSTALL))"
   },
   {
     "name": "Grub-Crystal_Peak_Crushers",
@@ -1761,7 +1761,7 @@
   },
   {
     "name": "Geo_Rock-Fungal_Core_Entrance",
-    "logic": "(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))"
+    "logic": "Fungus2_29[right1] + ANYCLAW + WINGS | Fungus2_29[bot1] + (LEFTCLAW | WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Fungal_Core_Hidden",
@@ -2061,7 +2061,7 @@
   },
   {
     "name": "Soul_Totem-Cliffs_Gorb",
-    "logic": "Cliffs_02"
+    "logic": "Cliffs_02 | Cliffs_02[left1] | Cliffs_02[door1]"
   },
   {
     "name": "Soul_Totem-Cliffs_Joni's",

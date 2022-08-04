@@ -3376,7 +3376,7 @@
   {
     "sceneName": "Abyss_01",
     "gateName": "left1",
-    "logic": "Abyss_01[left1] | Abyss_01 + Opened_Dung_Defender_Wall + ((RIGHTCLAW + FULLDASH | LEFTSUPERDASH | ENEMYPOGOS) | (LEFTCLAW + FULLDASH) | WINGS | Abyss_01[right1])",
+    "logic": "Abyss_01[left1] | Abyss_01 + Opened_Dung_Defender_Wall + (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS) | LEFTCLAW + LEFTDASH | WINGS | Abyss_01[right1])",
     "oneWayType": "TwoWay",
     "Name": "Abyss_01[left1]"
   },
@@ -4048,7 +4048,7 @@
   {
     "sceneName": "Ruins1_03",
     "gateName": "top1",
-    "logic": "Ruins1_03[top1] + (ANYCLAW | WINGS) | Ruins1_03 + (ANYCLAW | WINGS)",
+    "logic": "Ruins1_03[top1] + (ANYCLAW | WINGS) | Ruins1_03 + (ANYCLAW | WINGS | ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_03[top1]"
   },
@@ -4076,7 +4076,7 @@
   {
     "sceneName": "Ruins1_04",
     "gateName": "right1",
-    "logic": "Ruins1_04[right1] | Ruins1_04[door1] | Ruins1_04[bot1] + (ENEMYPOGOS | RIGHTDASH | RIGHTSUPERDASH | WINGS | RIGHTCLAW | LEFTCLAW + PRECISEMOVEMENT)",
+    "logic": "Ruins1_04[right1] | Ruins1_04[door1] | Ruins1_04[bot1] + (ENEMYPOGOS | RIGHTDASH | RIGHTSUPERDASH | WINGS | RIGHTCLAW | PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_04[right1]"
   },
@@ -5695,7 +5695,7 @@
   {
     "sceneName": "Fungus3_22",
     "gateName": "right1",
-    "logic": "Fungus3_22[right1] | Fungus3_22 + (ANYCLAW | WINGS)",
+    "logic": "Fungus3_22[right1] | Fungus3_22 + (RIGHTCLAW | WINGS | LEFTCLAW + BACKGROUNDPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_22[right1]"
   },
@@ -5877,14 +5877,14 @@
   {
     "sceneName": "Cliffs_02",
     "gateName": "door1",
-    "logic": "Cliffs_02[door1] | Cliffs_02",
+    "logic": "Cliffs_02[door1] | Cliffs_02 | Cliffs_02[left1] | Cliffs_02[door1]",
     "oneWayType": "TwoWay",
     "Name": "Cliffs_02[door1]"
   },
   {
     "sceneName": "Cliffs_02",
     "gateName": "left1",
-    "logic": "Cliffs_02[left1] | Cliffs_02",
+    "logic": "Cliffs_02[left1] | Cliffs_02 | Cliffs_02[left1] | Cliffs_02[door1]",
     "oneWayType": "TwoWay",
     "Name": "Cliffs_02[left1]"
   },
