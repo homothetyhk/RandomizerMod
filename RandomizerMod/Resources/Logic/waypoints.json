@@ -349,7 +349,7 @@
   },
   {
     "name": "Town",
-    "logic": "Town[left1] | Town[top1] | Town[bot1] | Town[right1] | Town[door_station] | Town[door_sly] | Town[door_mapper] | Town[door_bretta] | Town[door_jiji]"
+    "logic": "Town[left1] | Town[top1] | Town[bot1] | Town[right1] | Town[door_station] | Town[door_sly] | Town[door_mapper] | Town[door_bretta] | Town[door_jiji] | Town[room_grimm] | Town[room_divine]"
   },
   {
     "name": "Crossroads_03",
