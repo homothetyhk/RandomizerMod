@@ -105,7 +105,7 @@
   },
   {
     "name": "Defeated_Crystal_Guardian",
-    "logic": "(Mines_18[left1] | Mines_18[right1] | Mines_18[top1]) + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash)) + COMBAT[Crystal_Guardian]"
+    "logic": "(Mines_18[left1] | Mines_18[right1] | Mines_18[top1]) + (SIDESLASH | UPSLASH | GREATSLASH | CYCLONE | ANYDASHSLASH) + COMBAT[Crystal_Guardian]"
   },
   {
     "name": "Defeated_Enraged_Guardian",
@@ -145,7 +145,7 @@
   },
   {
     "name": "Defeated_Grimm",
-    "logic": "Grimm_Main_Tent[left1] + Grimmchild + 6FLAMES + COMBAT[Grimm]"
+    "logic": "Grimm_Main_Tent[left1] + GRIMMCHILD + 6FLAMES + COMBAT[Grimm]"
   },
   {
     "name": "Defeated_Collector",
@@ -217,7 +217,7 @@
   },
   {
     "name": "Defeated_Shrumal_Ogre_Arena",
-    "logic": "(Fungus2_05[bot1] | Fungus2_05[right1]) + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS | SPICYCOMBATSKIPS)"
+    "logic": "(Fungus2_05[bot1] | Fungus2_05[right1]) + (SIDESLASH | UPSLASH | CYCLONE | GREATSLASH | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS | SPICYCOMBATSKIPS)"
   },
   {
     "name": "Defeated_King's_Station_Arena",
@@ -249,15 +249,15 @@
   },
   {
     "name": "First_Grimmchild_Upgrade",
-    "logic": "Grimm_Main_Tent[left1] + Grimmchild + 3FLAMES"
+    "logic": "Grimm_Main_Tent[left1] + GRIMMCHILD + 3FLAMES"
   },
   {
     "name": "Second_Grimmchild_Upgrade",
-    "logic": "Grimm_Main_Tent[left1] + Grimmchild + 6FLAMES + Defeated_Grimm"
+    "logic": "Grimm_Main_Tent[left1] + GRIMMCHILD + 6FLAMES + Defeated_Grimm"
   },
   {
     "name": "Nightmare_Lantern_Lit",
-    "logic": "Cliffs_06[left1] + DREAMNAIL | Grimmchild"
+    "logic": "Cliffs_06[left1] + DREAMNAIL | GRIMMCHILD"
   },
   {
     "name": "Opened_Waterways_Manhole",
@@ -393,7 +393,7 @@
   },
   {
     "name": "Fungus1_21",
-    "logic": "Fungus1_21[left1] | Fungus1_21[top1] | Fungus1_21[right1] + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH | Cyclone_Slash | Great_Slash) | Fungus1_21[bot1]"
+    "logic": "Fungus1_21[left1] | Fungus1_21[top1] | Fungus1_21[right1] + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH | CYCLONE | GREATSLASH) | Fungus1_21[bot1]"
   },
   {
     "name": "Fungus1_30",
@@ -537,7 +537,7 @@
   },
   {
     "name": "Deepnest_East_11",
-    "logic": "Deepnest_East_11[left1] | Deepnest_East_11[bot1] | Deepnest_East_11[top1] + (SIDESLASH | Cyclone_Slash | Great_Slash | FIREBALL | QUAKE) | Deepnest_East_11[right1]"
+    "logic": "Deepnest_East_11[left1] | Deepnest_East_11[bot1] | Deepnest_East_11[top1] + (SIDESLASH | CYCLONE | GREATSLASH | FIREBALL | QUAKE) | Deepnest_East_11[right1]"
   },
   {
     "name": "Deepnest_East_18",

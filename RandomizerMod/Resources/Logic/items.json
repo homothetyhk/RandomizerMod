@@ -307,12 +307,12 @@
     "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
     "Effects": [
       {
-        "Term": "CYCLONE",
+        "Term": "Cyclone_Slash",
         "Value": 1
       }
     ],
     "Cap": {
-      "Term": "CYCLONE",
+      "Term": "Cyclone_Slash",
       "Value": 1
     },
     "Name": "Cyclone_Slash"
@@ -1295,7 +1295,7 @@
     "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
     "Effects": [
       {
-        "Term": "GRIMMCHILD",
+        "Term": "Grimmchild",
         "Value": 1
       },
       {
@@ -1304,7 +1304,7 @@
       }
     ],
     "Cap": {
-      "Term": "GRIMMCHILD",
+      "Term": "Grimmchild",
       "Value": 1
     },
     "Name": "Grimmchild1"
@@ -1313,7 +1313,7 @@
     "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
     "Effects": [
       {
-        "Term": "GRIMMCHILD",
+        "Term": "Grimmchild",
         "Value": 1
       },
       {
@@ -1330,7 +1330,7 @@
       }
     ],
     "Cap": {
-      "Term": "GRIMMCHILD",
+      "Term": "Grimmchild",
       "Value": 1
     },
     "Name": "Grimmchild2"
@@ -1399,12 +1399,12 @@
     "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
     "Effects": [
       {
-        "Term": "LOVE",
+        "Term": "Love_Key",
         "Value": 1
       }
     ],
     "Cap": {
-      "Term": "LOVE",
+      "Term": "Love_Key",
       "Value": 1
     },
     "Name": "Love_Key"
@@ -1413,12 +1413,12 @@
     "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
     "Effects": [
       {
-        "Term": "BRAND",
+        "Term": "King's_Brand",
         "Value": 1
       }
     ],
     "Cap": {
-      "Term": "BRAND",
+      "Term": "King's_Brand",
       "Value": 1
     },
     "Name": "King's_Brand"
