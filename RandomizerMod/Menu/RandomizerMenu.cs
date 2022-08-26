@@ -344,7 +344,7 @@ namespace RandomizerMod.Menu
             ConnectionsPage = new MenuPage("Randomizer Game Settings Page", StartPage);
             FinalPage = new MenuPage("Randomizer Final Page", StartPage);
             FinalPage.backButton.Text.text = "Abort";
-            FinalPage.backButton.OnClick += Abort;
+            FinalPage.AfterGoBack += Abort;
             PostGenerationRedirectPage = new MenuPage("Randomizer Post Generation Redirect Page", FinalPage);
 
             ResumePage = new MenuPage("Randomizer Resume Page");
