@@ -5947,14 +5947,14 @@
   {
     "sceneName": "White_Palace_01",
     "gateName": "right1",
-    "logic": "White_Palace_01[right1] | White_Palace_01",
+    "logic": "White_Palace_01[right1] | White_Palace_01 + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | WINGS) | White_Palace_01[top1] + Palace_Entrance_Lantern_Lit",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_01[right1]"
   },
   {
     "sceneName": "White_Palace_01",
     "gateName": "top1",
-    "logic": "White_Palace_01[top1] | White_Palace_01 + Palace_Entrance_Lantern_Lit",
+    "logic": "White_Palace_01[top1] | White_Palace_01 + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | WINGS) + Palace_Entrance_Lantern_Lit + (LEFTCLAW | RIGHTCLAW + WINGS)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_01[top1]"
   },

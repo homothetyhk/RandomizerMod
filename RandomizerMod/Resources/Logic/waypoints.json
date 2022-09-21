@@ -749,7 +749,7 @@
   },
   {
     "name": "White_Palace_01",
-    "logic": "(White_Palace_01[left1] + (WINGS | (RIGHTCLAW + RIGHTDASH)))  | (White_Palace_01[right1] + (LEFTDASH + (BACKGROUNDPOGOS | LEFTCLAW) | (FULLCLAW + LEFTSUPERDASH) | WINGS)) | (White_Palace_01[top1] + Palace_Entrance_Lantern_Lit)"
+    "logic": "White_Palace_01[left1] + (WINGS | RIGHTCLAW + ANYDASH)  | (White_Palace_01[right1] + (LEFTDASH | LEFTSUPERDASH + RIGHTCLAW | LEFTCLAW + PRECISEMOVEMENT | WINGS) | White_Palace_01[top1] + Palace_Entrance_Lantern_Lit) + (LEFTDASH + (BACKGROUNDPOGOS | LEFTCLAW) | LEFTSUPERDASH + RIGHTCLAW | WINGS)"
   },
   {
     "name": "White_Palace_03_hub",
