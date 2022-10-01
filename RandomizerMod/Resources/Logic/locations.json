@@ -601,7 +601,7 @@
   },
   {
     "name": "Hallownest_Seal-Deepnest_By_Mantis_Lords",
-    "logic": "Deepnest_16[bot1] + (LEFTCLAW | (ANYCLAW + WINGS))"
+    "logic": "Deepnest_16[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS)"
   },
   {
     "name": "Hallownest_Seal-Beast's_Den",
@@ -1745,7 +1745,7 @@
   },
   {
     "name": "Geo_Rock-Fungal_Above_City_Entrance",
-    "logic": "Fungus2_21[right1] + ((FULLCLAW + (LEFTDASH | LEFTSUPERDASH)) | (ANYCLAW + WINGS))"
+    "logic": "Fungus2_21[right1] + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH | AIRSTALL | PRECISEMOVEMENT + OBSCURESKIPS) | ANYCLAW + WINGS)"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_1",
@@ -1925,15 +1925,15 @@
   },
   {
     "name": "Geo_Rock-Resting_Grounds_Catacombs_Grub",
-    "logic": "RestingGrounds_10[top1] + (LEFTCLAW | WINGS) + UPWALLBREAK"
+    "logic": "RestingGrounds_10 + (LEFTCLAW | WINGS) + UPWALLBREAK"
   },
   {
     "name": "Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe",
-    "logic": "RestingGrounds_10[top1] + UPWALLBREAK"
+    "logic": "RestingGrounds_10 + UPWALLBREAK"
   },
   {
     "name": "Geo_Rock-Resting_Grounds_Catacombs_Left",
-    "logic": "RestingGrounds_10[top1] + UPWALLBREAK"
+    "logic": "RestingGrounds_10 + UPWALLBREAK"
   },
   {
     "name": "Geo_Rock-Overgrown_Mound",
