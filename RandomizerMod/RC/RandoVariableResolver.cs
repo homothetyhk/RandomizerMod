@@ -1,12 +1,13 @@
 ﻿using RandomizerCore.Logic;
 using RandomizerMod.RC.LogicInts;
+using RandomizerMod.RC.StateVariables;
 using System.Text.RegularExpressions;
 
 namespace RandomizerMod.RC
 {
     public class RandoVariableResolver : VariableResolver
     {
-        public override bool TryMatch(LogicManager lm, string term, out LogicInt variable)
+        public override bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
         {
             if (base.TryMatch(lm, term, out variable)) return true;
 
@@ -30,6 +31,13 @@ namespace RandomizerMod.RC
                 variable = new StartLocationDelta(match.Groups[1].Value);
                 return true;
             }
+
+            if (BenchResetVariable.TryMatch(lm, term, out variable)) return true;
+            if (CastSpellVariable.TryMatch(lm, term, out variable)) return true;
+            if (EquipCharmVariable.TryMatch(lm, term, out variable)) return true;
+            if (HotSpringResetVariable.TryMatch(lm, term, out variable)) return true;
+            if (ShadeStateVariable.TryMatch(lm, term, out variable)) return true;
+            if (TakeDamageVariable.TryMatch(lm, term, out variable)) return true;
 
             return false;
         }

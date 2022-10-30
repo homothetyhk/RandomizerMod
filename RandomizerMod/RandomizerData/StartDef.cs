@@ -61,6 +61,10 @@ namespace RandomizerMod.RandomizerData
             return !ExcludeFromMenu;
         }
 
+        /// <summary>
+        /// Returns a sequence of term values which will be treated as setters by the ProgressionInitializer.
+        /// <br/>State-valued terms in the sequence will be treated as full state terms, regardless of the int parameter.
+        /// </summary>
         public virtual IEnumerable<TermValue> GetStartLocationProgression(LogicManager lm)
         {
             yield return new(lm.GetTerm(Transition), 1);

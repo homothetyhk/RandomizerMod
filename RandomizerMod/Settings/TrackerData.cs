@@ -101,7 +101,7 @@ namespace RandomizerMod.Settings
             // note: location costs are ignored in the tracking, to prevent providing unintended information, by using p.location.logic rather than p.location
             // it is assumed that no information is divulged from the regular location logic and transition logic
 
-            mu = new(lm);
+            mu = pm.mu;
             mu.AddEntries(lm.Waypoints.Select(w => new DelegateUpdateEntry(w, pm =>
             {
                 AppendWaypointToDebug(w);
@@ -126,7 +126,7 @@ namespace RandomizerMod.Settings
                 mu.AddEntries(ctx.transitionPlacements.Select((p, id) => new DelegateUpdateEntry(p.Source, OnCanGetTransition(id))));
             }
 
-            mu.Hook(pm); // automatically handle tracking reachable unobtained locations/transitions and adding vanilla progression to pm
+            mu.StartUpdating(); // automatically handle tracking reachable unobtained locations/transitions and adding vanilla progression to pm
         }
 
         private void HookTrackerUpdate()

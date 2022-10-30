@@ -1508,7 +1508,11 @@
     "Name": "Charm_Notch"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
+    "Effect": {
+      "Term": "Salubra's_Blessing",
+      "Value": 1
+    },
     "Name": "Salubra's_Blessing"
   },
   {

@@ -964,19 +964,17 @@ namespace RandomizerMod.Menu
         private void Randomize()
         {
             AttemptCounter.Set(0);
+            RandomizationTimer.SetPrefix(Localize("Setting up"));
+            OutputLabel.Text.text = string.Empty;
+            OutputLabel.Text.color = Color.white;
+            OutputLabel.Text.alignment = TextAnchor.UpperCenter;
+            OutputLabel.Show();
 
             RandomizerCore.RandoMonitor rm = new();
             rm.OnSendEvent += (t, m) =>
             {
                 Log($"Randomizer Event: [{t}]");
                 if (t == RandomizerCore.RandoEventType.NewAttempt) ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
-                if (!string.IsNullOrEmpty(m))
-                {
-                    ThreadSupport.BeginInvoke(() =>
-                    {
-                        OutputLabel.Text.text = m;
-                    });
-                }
             };
             rm.OnError += e =>
             {
@@ -990,6 +988,18 @@ namespace RandomizerMod.Menu
             RandomizationTimer.Reset();
             RandomizationTimer.Start();
 
+            void SplitTimer(string newPrefix, string lastSplitLabel)
+            {
+                newPrefix = Localize(newPrefix);
+                lastSplitLabel = Localize(lastSplitLabel);
+                string time = RandomizationTimer.Split(newPrefix);
+                OutputLabel.Text.text += $"{lastSplitLabel}: {time}\n";
+            }
+            rm.OnSendEvent += (e, m) =>
+            {
+                if (e == RandomizerCore.RandoEventType.Initializing) ThreadSupport.BeginInvoke(() => SplitTimer("Time Randomizing", "Finished setup"));
+            };
+
             RandomizerThread = new Thread(() =>
             {
                 try
@@ -1001,10 +1011,7 @@ namespace RandomizerMod.Menu
                     ThreadSupport.BeginInvoke(() =>
                     {
                         RandomizationTimer.Stop();
-                        OutputLabel.Text.color = Color.white;
-                        OutputLabel.Text.text = Localize("Randomization completed successfully!");
-                        OutputLabel.Text.alignment = TextAnchor.UpperCenter;
-                        OutputLabel.Show();
+                        OutputLabel.Text.text += Localize("Randomization completed successfully!");
 
                         for (int i = 0; i < Hash.Length; i++)
                         {

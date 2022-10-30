@@ -21,6 +21,7 @@ namespace RandomizerMod.RC
             (LogicManagerBuilder.JsonType.Transitions, "transitions"),
             (LogicManagerBuilder.JsonType.Locations, "locations"),
             (LogicManagerBuilder.JsonType.Items, "items"),
+            (LogicManagerBuilder.JsonType.StateFields, "state"),
         };
 
         /// <summary>
@@ -44,6 +45,7 @@ namespace RandomizerMod.RC
                 catch (Exception e)
                 {
                     LogError("Error invoking logic override event:\n" + e);
+                    throw;
                 }
             }
 
