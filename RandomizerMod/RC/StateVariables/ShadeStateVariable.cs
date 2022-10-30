@@ -9,9 +9,12 @@ namespace RandomizerMod.RC.StateVariables
         public Term ShadeskipTerm;
         public Term DreamgateTerm;
         public Term EssenceTerm;
+        public Term MaskShardsTerm;
         public bool canDreamgate;
         public StateBool UsedShadeBool;
         public StateBool CannotShadeSkip;
+        public EquipCharmVariable FragileHeartEquip;
+        public int requiredShadeHealth;
         public const string Prefix = "$SHADESKIP";
 
         public ShadeStateVariable(string name)
@@ -23,14 +26,21 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
             {
+                bool canDreamgate = !parameters.Contains("noDG");
+                int requiredShadeHealth = 1;
+                for (int i = 0; i < parameters.Length; i++) if (parameters[i].EndsWith("HITS")) requiredShadeHealth = int.Parse(parameters[i].Substring(0, parameters[i].Length - 4));
+
                 ShadeStateVariable ssv = new(term)
                 {
-                    canDreamgate = !parameters.Contains("noDG"),
+                    canDreamgate = canDreamgate,
+                    requiredShadeHealth = requiredShadeHealth,
                     ShadeskipTerm = lm.GetTerm("SHADESKIPS"),
                     DreamgateTerm = lm.GetTerm("DREAMNAIL"),
                     EssenceTerm = lm.GetTerm("ESSENCE"),
+                    MaskShardsTerm = lm.GetTerm("MASKSHARDS"),
                     UsedShadeBool = lm.StateManager.GetBool("USEDSHADE"),
                     CannotShadeSkip = lm.StateManager.GetBool("CANNOTSHADESKIP"),
+                    FragileHeartEquip = (EquipCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Fragile_Heart")),
                 };
                 variable = ssv;
                 return true;
@@ -44,16 +54,17 @@ namespace RandomizerMod.RC.StateVariables
             yield return ShadeskipTerm;
             yield return DreamgateTerm;
             yield return EssenceTerm;
+            if (requiredShadeHealth > 1) yield return MaskShardsTerm;
         }
 
         public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
         {
             if (!pm.Has(ShadeskipTerm)) return FALSE;
-            if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm)) return TRUE;
+            if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm)) return CheckHealthRequirementDG(pm) ? TRUE : FALSE;
             if (localState is null) return FALSE;
             for (int i = 0; i < localState.Count; i++)
             {
-                if (!localState[i].GetBool(UsedShadeBool) && !localState[i].GetBool(CannotShadeSkip)) return TRUE;
+                if (!localState[i].GetBool(UsedShadeBool) && !localState[i].GetBool(CannotShadeSkip) && CheckHealthRequirement(pm, localState[i])) return TRUE;
             }
             return FALSE;
         }
@@ -61,9 +72,53 @@ namespace RandomizerMod.RC.StateVariables
         public override bool ModifyState(object sender, ProgressionManager pm, ref LazyStateBuilder state)
         {
             if (!pm.Has(ShadeskipTerm)) return false;
-            if (canDreamgate && pm.Has(DreamgateTerm, 2)) return true;
+            if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm) && CheckHealthRequirementDG(pm)) return true;
             if (state.GetBool(CannotShadeSkip)) return false;
-            return state.TrySetBoolTrue(UsedShadeBool);
+            return CheckHealthRequirement(pm, state) && state.TrySetBoolTrue(UsedShadeBool);
         }
+
+        public bool CheckHealthRequirement(ProgressionManager pm, State state)
+        {
+            if (requiredShadeHealth == 1)
+            {
+                return true;
+            }
+            else
+            {
+                int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
+                if (hp >= requiredShadeHealth || requiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
+                return false;
+            }
+        }
+
+        public bool CheckHealthRequirement(ProgressionManager pm, LazyStateBuilder state)
+        {
+            if (requiredShadeHealth == 1)
+            {
+                return true;
+            }
+            else
+            {
+                int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
+                if (hp >= requiredShadeHealth || requiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
+                return false;
+            }
+        }
+
+        public bool CheckHealthRequirementDG(ProgressionManager pm)
+        {
+            if (requiredShadeHealth == 1)
+            {
+                return true;
+            }
+            else
+            {
+                int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
+                if (hp >= requiredShadeHealth) return true;
+                else if (requiredShadeHealth == hp + 1 && FragileHeartEquip.HasCharmRequirements(pm)) return true;
+                return false;
+            }
+        }
+
     }
 }

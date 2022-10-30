@@ -163,8 +163,6 @@ namespace RandomizerMod.RC.StateVariables
             }
         }
 
-        // TODO: fix monotonicity issue with hits remaining
-
         public bool TakeDamage(ProgressionManager pm, ref LazyStateBuilder state, int damage)
         {
             bool dg = canDreamgate && pm.Has(dreamnail, 2) && pm.Has(essence);
@@ -238,31 +236,31 @@ namespace RandomizerMod.RC.StateVariables
             switch (damage)
             {
                 case 1:
-                    if (lbCore.TryEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
-                    if (heart.TryEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
-                    if (lbHeart.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
-                    if (joni.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
+                    if (lbCore.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
+                    if (heart.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
+                    if (lbHeart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
+                    if (joni.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
                     return false;
                 case 2:
-                    if (lbCore.TryEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
-                    if (heart.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
-                    if (lbHeart.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
+                    if (lbCore.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
+                    if (heart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
+                    if (lbHeart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
                     if (pm.Get(maskShards) > 7 && (
-                        joni.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm ||
-                        canRegen && hiveblood.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm)) return true;
+                        joni.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm ||
+                        canRegen && hiveblood.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm)) return true;
                     return false;
                 case 3:
-                    if (lbCore.TryEquip(pm, state) switch
+                    if (lbCore.CanEquip(pm, state) switch
                     {
                         EquipCharmVariable.EquipResult.Nonovercharm => true,
                         EquipCharmVariable.EquipResult.Overcharm => pm.Get(maskShards) > 11,
                         _ => false,
                     }) return true;
                     if (pm.Get(maskShards) > 7 && (
-                        heart.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm || 
-                        lbHeart.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm ||
-                        canRegen && hiveblood.TryEquip(pm ,state) == EquipCharmVariable.EquipResult.Nonovercharm)) return true;
-                    if (pm.Get(maskShards) > 11 && joni.TryEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
+                        heart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm || 
+                        lbHeart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm ||
+                        canRegen && hiveblood.CanEquip(pm ,state) == EquipCharmVariable.EquipResult.Nonovercharm)) return true;
+                    if (pm.Get(maskShards) > 11 && joni.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
                     return false;
             }
             return false;
