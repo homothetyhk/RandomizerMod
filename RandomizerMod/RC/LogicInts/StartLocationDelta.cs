@@ -19,7 +19,7 @@ namespace RandomizerMod.RC.LogicInts
 
         public override StateUnion? GetInputState(object sender, ProgressionManager pm)
         {
-            return pm.lm.StateManager.AbsorbingSet;
+            return pm.lm.StateManager.StartStateSingleton;
         }
 
         public override IEnumerable<Term> GetTerms()

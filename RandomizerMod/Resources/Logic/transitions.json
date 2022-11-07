@@ -5030,7 +5030,7 @@
   {
     "sceneName": "Room_Mansion",
     "gateName": "left1",
-    "logic": "Room_Mansion[left1]",
+    "logic": "Room_Mansion[left1] + $FLOWERGET",
     "oneWayType": "TwoWay",
     "Name": "Room_Mansion[left1]"
   },

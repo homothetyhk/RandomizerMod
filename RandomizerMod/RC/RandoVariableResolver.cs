@@ -38,6 +38,10 @@ namespace RandomizerMod.RC
             if (HotSpringResetVariable.TryMatch(lm, term, out variable)) return true;
             if (ShadeStateVariable.TryMatch(lm, term, out variable)) return true;
             if (TakeDamageVariable.TryMatch(lm, term, out variable)) return true;
+            if (StagStateVariable.TryMatch(lm, term, out variable)) return true;
+            if (FlowerProviderVariable.TryMatch(lm, term, out variable)) return true;
+            if (RequireFlowerVariable.TryMatch(lm, term, out variable)) return true;
+            if (EquipMultipleCharmsVariable.TryMatch(lm, term, out variable)) return true;
 
             return false;
         }

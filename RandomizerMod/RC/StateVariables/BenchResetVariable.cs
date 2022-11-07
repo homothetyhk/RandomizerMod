@@ -16,6 +16,7 @@ namespace RandomizerMod.RC.StateVariables
         public Term essence;
         public Term vesselFragments;
         public StateBool usedShade;
+        public State resetState;
 
         public BenchResetVariable(string name)
         {
@@ -37,11 +38,19 @@ namespace RandomizerMod.RC.StateVariables
                     essence = lm.GetTerm("ESSENCE"),
                     vesselFragments = lm.GetTerm("VESSELFRAGMENTS"),
                     usedShade = lm.StateManager.GetBool("USEDSHADE"),
+                    resetState = GetResetState(lm.StateManager),
                 };
                 return true;
             }
             variable = default;
             return false;
+        }
+
+        public static State GetResetState(StateManager sm)
+        {
+            StateBuilder sb = new(sm.StartState);
+            sb.SetBool(sm.GetBool("CANNOTBENCH"), false);
+            return new(sb);
         }
 
         public override IEnumerable<Term> GetTerms()
@@ -67,19 +76,20 @@ namespace RandomizerMod.RC.StateVariables
                     state.SetInt(spentReserveSoul, pm.Get(vesselFragments) / 3 * 33);
                 }
             }
-            if (!state.IsZero)
+
+            if (!LazyStateBuilder.IsComparablyLE(state, resetState))
             {
                 if (!pm.Has(salubrasBlessing))
                 {
                     int soul = state.GetInt(spentSoul);
                     int rSoul = state.GetInt(spentReserveSoul);
-                    state = new(pm.lm.StateManager.Zero);
+                    state = new(resetState);
                     if (soul > 0) state.SetInt(spentSoul, soul);
                     if (rSoul > 0) state.SetInt(spentReserveSoul, rSoul);
                 }
                 else
                 {
-                    state = new(pm.lm.StateManager.Zero);
+                    state = new(resetState);
                 }
             }
             return true;

@@ -30,7 +30,7 @@ namespace RandomizerMod.RC
 
             foreach (TermValue tv in startDef.GetStartLocationProgression(lm))
             {
-                if (tv.Term.Type == TermType.State) FullStateTerms.Add(tv.Term);
+                if (tv.Term.Type == TermType.State) StartStateTerms.Add(tv.Term);
                 else Setters.Add(tv);
             }
 
@@ -54,7 +54,7 @@ namespace RandomizerMod.RC
 
         public List<TermValue> Setters = new();
         public List<TermValue> Increments = new();
-        public List<Term> FullStateTerms = new();
+        public List<Term> StartStateTerms = new();
 
         public string Name => "Progression Initializer";
 
@@ -62,14 +62,14 @@ namespace RandomizerMod.RC
         {
             foreach (TermValue tv in Setters) pm.Set(tv);
             foreach (TermValue tv in Increments) pm.Incr(tv);
-            foreach (Term t in FullStateTerms) pm.SetState(t, pm.lm.StateManager.AbsorbingSet);
+            foreach (Term t in StartStateTerms) pm.SetState(t, pm.lm.StateManager.StartStateSingleton);
         }
 
         public IEnumerable<Term> GetAffectedTerms()
         {
             foreach (TermValue tv in Setters) yield return tv.Term;
             foreach (TermValue tv in Increments) yield return tv.Term;
-            foreach (Term t in FullStateTerms) yield return t;
+            foreach (Term t in StartStateTerms) yield return t;
         }
     }
 }

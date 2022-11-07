@@ -12,6 +12,7 @@ namespace RandomizerMod.RC.StateVariables
         public bool canRegen;
         public StateBool overcharmed;
         public StateBool hasTakenDamage;
+        public StateBool noFlower;
         public StateInt spentHP;
         public StateInt spentBlueHP;
         /* someday, today it was too cursed
@@ -47,6 +48,7 @@ namespace RandomizerMod.RC.StateVariables
                     canRegen = !parameters.Contains("noRegen"),
                     overcharmed = lm.StateManager.GetBool("OVERCHARMED"),
                     hasTakenDamage = lm.StateManager.GetBool("HASTAKENDAMAGE"),
+                    noFlower = lm.StateManager.GetBool("NOFLOWER"),
                     spentHP = lm.StateManager.GetInt("SPENTHP"),
                     spentBlueHP = lm.StateManager.GetInt("SPENTBLUEHP"),
                     dreamnail = lm.GetTerm("DREAMNAIL"),
@@ -64,8 +66,6 @@ namespace RandomizerMod.RC.StateVariables
             variable = default;
             return false;
         }
-
-
 
         public override IEnumerable<Term> GetTerms()
         {
@@ -186,6 +186,7 @@ namespace RandomizerMod.RC.StateVariables
             {
                 state.Increment(spentBlueHP, !oc ? damage : 2 * damage);
                 state.SetBool(hasTakenDamage, true);
+                state.SetBool(noFlower, true);
                 return true;
             }
             
@@ -199,6 +200,7 @@ namespace RandomizerMod.RC.StateVariables
                 }
                 state.Increment(spentHP, !oc ? damage : 2 * damage);
                 state.SetBool(hasTakenDamage, true);
+                state.SetBool(noFlower, true);
                 return true;
             }
             return false;

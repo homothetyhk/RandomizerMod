@@ -303,7 +303,7 @@
   },
   {
     "name": "Can_Stag",
-    "logic": "Room_Town_Stag_Station[left1] | Crossroads_47[right1] | Fungus1_16_alt[right1] | Fungus2_02[right1] | (Fungus3_40[top1] | Fungus3_40[right1]) | Ruins1_29[left1] | Ruins2_08[left1] | RestingGrounds_09[left1] | Deepnest_09[left1] | Abyss_22[left1]"
+    "logic": "(Room_Town_Stag_Station[left1] | Crossroads_47[right1] | Fungus1_16_alt[right1] | Fungus2_02[right1] | (Fungus3_40[top1] | Fungus3_40[right1]) | Ruins1_29[left1] | Ruins2_08[left1] | RestingGrounds_09[left1] | Deepnest_09[left1] | Abyss_22[left1]) + $STAGSTATEMODIFIER"
   },
   {
     "name": "Can_Visit_Lemm",
@@ -313,6 +313,11 @@
   {
     "name": "Can_Repair_Fragile_Charms",
     "logic": "Fungus2_26[left1] + Can_Replenish_Geo",
+    "Stateless": true
+  },
+  {
+    "name": "Can_Deliver_Flower",
+    "logic": "Fungus3_49[right1] + (LEFTDASH | LEFTSUPERDASH + (RIGHTCLAW | WINGS) | WINGS + DIFFICULTSKIPS) + $FLOWER",
     "Stateless": true
   },
   {

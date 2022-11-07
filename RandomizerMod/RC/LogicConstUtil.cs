@@ -26,7 +26,7 @@ namespace RandomizerMod.RC
         static LogicConstUtil()
         {
             // TODO: const string fields?
-            _charmTerms = JsonUtil.Deserialize<Dictionary<string, List<string>>>("RandomizerMod.Resources.Logic.terms.json")["Byte"].GetRange(52 - 3, 40).ToArray();
+            _charmTerms = JsonUtil.Deserialize<Dictionary<string, List<string>>>("RandomizerMod.Resources.Logic.terms.json")["Byte"].GetRange(51 - 3, 40).ToArray();
             _charmIDs = _charmTerms.Select((s, i) => (s, i)).ToDictionary(p => p.s, p => p.i + 1);
             _charmIDs["White_Fragment"] = _charmIDs["Queen_Fragment"] = _charmIDs["King_Fragment"] = _charmIDs["Kingsoul"] = _charmIDs["Void_Heart"] = 36; // aliases of WHITEFRAGMENT
         }

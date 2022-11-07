@@ -305,7 +305,7 @@
   },
   {
     "name": "Mask_Shard-Grey_Mourner",
-    "logic": "Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + FULLSUPERDASH + FULLSHADOWDASH + (SIDESLASH | UPSLASH)"
+    "logic": "Room_Mansion[left1] + Can_Deliver_Flower"
   },
   {
     "name": "Mask_Shard-Bretta",

@@ -48,7 +48,6 @@
     "Great_Slash",
     "FOCUS",
     "SWIM",
-    "CHARMS",
     "Gathering_Swarm",
     "Wayward_Compass",
     "Grubsong",
@@ -147,7 +146,8 @@
     "GEO",
     "GRUBS",
     "ESSENCE",
-    "RANCIDEGGS"
+    "RANCIDEGGS",
+    "CHARMS"
   ],
   "State": []
 }
