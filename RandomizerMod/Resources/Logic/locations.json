@@ -117,7 +117,7 @@
   },
   {
     "name": "Baldur_Shell",
-    "logic": "RIGHTBALDURS + (Fungus1_28[left1] | (Fungus1_28[left2] + (FULLCLAW | WINGS | RIGHTDASH | RIGHTSUPERDASH | $SHADESKIP)))"
+    "logic": "(Fungus1_28[left1] | (Fungus1_28[left2] + (FULLCLAW | WINGS | RIGHTDASH | RIGHTSUPERDASH | $SHADESKIP))) + Defeated_Cliffs_Right_Baldur"
   },
   {
     "name": "Fury_of_the_Fallen",
@@ -145,7 +145,7 @@
   },
   {
     "name": "Sharp_Shadow",
-    "logic": "Deepnest_44[top1] + RIGHTSHADOWDASH + (LEFTSHADOWDASH | DAMAGEBOOSTS + (4HITS | LEFTDASH + 3HITS | QUAKE + 2HITS))"
+    "logic": "Deepnest_44[top1] + RIGHTSHADOWDASH + (LEFTSHADOWDASH | DAMAGEBOOSTS + ($TAKEDAMAGE[3] | LEFTDASH + $TAKEDAMAGE[2] | QUAKE + $TAKEDAMAGE))"
   },
   {
     "name": "Spore_Shroom",
@@ -153,7 +153,7 @@
   },
   {
     "name": "Soul_Catcher",
-    "logic": "Crossroads_ShamanTemple[left1] + (ANYCLAW | LEFTBALDURS | WINGS + $SHADESKIP) + (UPWALLBREAK | LEFTBALDURS + (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)"
+    "logic": "Crossroads_ShamanTemple[left1] + (ANYCLAW | Defeated_Ancestral_Mound_Baldur | WINGS + $SHADESKIP) + (UPWALLBREAK | Defeated_Ancestral_Mound_Baldur + (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)"
   },
   {
     "name": "Soul_Eater",
@@ -313,7 +313,7 @@
   },
   {
     "name": "Vessel_Fragment-Greenpath",
-    "logic": "Fungus1_13[right1] + (LEFTCLAW | (DAMAGEBOOSTS + 2HITS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH))) | $StartLocation[Lower Greenpath]"
+    "logic": "Fungus1_13[right1] + (LEFTCLAW | (DAMAGEBOOSTS + $TAKEDAMAGE + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH))) | $StartLocation[Lower Greenpath]"
   },
   {
     "name": "Vessel_Fragment-City",
@@ -341,7 +341,7 @@
   },
   {
     "name": "Charm_Notch-Fog_Canyon",
-    "logic": "Fungus3_28[right1] + (ACID | ACIDSKIPS + (LEFTSKIPACID | WINGS + LEFTDASH | WINGS + RIGHTCLAW + AIRSTALL | DAMAGEBOOSTS + FULLCLAW + FULLDASH)) + (RIGHTCLAW | LEFTCLAW + WINGS | LEFTCLAW + ENEMYPOGOS)"
+    "logic": "Fungus3_28[right1] + (ACID | ACIDSKIPS + (LEFTSKIPACID | WINGS + LEFTDASH | WINGS + RIGHTCLAW + AIRSTALL | DAMAGEBOOSTS + $TAKEDAMAGE + FULLCLAW + FULLDASH)) + (RIGHTCLAW | LEFTCLAW + WINGS | LEFTCLAW + ENEMYPOGOS)"
   },
   {
     "name": "Charm_Notch-Colosseum",
@@ -353,7 +353,7 @@
   },
   {
     "name": "Pale_Ore-Basin",
-    "logic": "Abyss_17[top1] + (ANYCLAW | WINGS | DAMAGEBOOSTS + 2HITS)"
+    "logic": "Abyss_17[top1] + (ANYCLAW | WINGS | DAMAGEBOOSTS + $TAKEDAMAGE)"
   },
   {
     "name": "Pale_Ore-Crystal_Peak",
@@ -449,7 +449,7 @@
   },
   {
     "name": "Rancid_Egg-City_of_Tears_Left",
-    "logic": "Ruins1_05c + (ANYCLAW | WINGS | BACKGROUNDPOGOS | DAMAGEBOOSTS + 3HITS)"
+    "logic": "Ruins1_05c + (ANYCLAW | WINGS | BACKGROUNDPOGOS | DAMAGEBOOSTS + $TAKEDAMAGE[2])"
   },
   {
     "name": "Rancid_Egg-City_of_Tears_Pleasure_House",
@@ -565,7 +565,7 @@
   },
   {
     "name": "Hallownest_Seal-Fog_Canyon_East",
-    "logic": "Fungus3_26 + (Fungus3_26[top1] | ANYCLAW | WINGS | RIGHTDASH + (LEFTDASH | AIRSTALL) + ENEMYPOGOS) + (LEFTCLAW | WINGS | LEFTSUPERDASH | LEFTDASH | DAMAGEBOOSTS + 2HITS)"
+    "logic": "Fungus3_26 + (Fungus3_26[top1] | ANYCLAW | WINGS | RIGHTDASH + (LEFTDASH | AIRSTALL) + ENEMYPOGOS) + (LEFTCLAW | WINGS | LEFTSUPERDASH | LEFTDASH | DAMAGEBOOSTS + $TAKEDAMAGE)"
   },
   {
     "name": "Hallownest_Seal-Queen's_Station",
@@ -657,7 +657,7 @@
   },
   {
     "name": "Whispering_Root-Greenpath",
-    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | 2HITS + DAMAGEBOOSTS)) + DREAMNAIL + (SIDESLASH | GREATSLASH | CYCLONE | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE)) + DREAMNAIL + (SIDESLASH | GREATSLASH | CYCLONE | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Whispering_Root-Leg_Eater",
@@ -705,7 +705,7 @@
   },
   {
     "name": "Whispering_Root-Ancestral_Mound",
-    "logic": "Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + ENEMYPOGOS)) + (ANYCLAW | LEFTBALDURS) + DREAMNAIL + UPWALLBREAK"
+    "logic": "Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + ENEMYPOGOS)) + (ANYCLAW | Defeated_Ancestral_Mound_Baldur) + DREAMNAIL + UPWALLBREAK"
   },
   {
     "name": "Whispering_Root-Hive",
@@ -917,7 +917,7 @@
   },
   {
     "name": "Grub-Howling_Cliffs",
-    "logic": "Fungus1_28[left1] | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW)))"
+    "logic": "Fungus1_28[left1] | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + Defeated_Cliffs_Right_Baldur) | (WINGS + LEFTCLAW)))"
   },
   {
     "name": "Grub-Queen's_Gardens_Stag",
@@ -1781,7 +1781,7 @@
   },
   {
     "name": "Geo_Rock-Fog_Canyon_East",
-    "logic": "Fungus3_26 + (FIREBALL | RIGHTDASHSLASH | DAMAGEBOOSTS + 3HITS)"
+    "logic": "Fungus3_26 + (FIREBALL | RIGHTDASHSLASH | DAMAGEBOOSTS + $TAKEDAMAGE[2])"
   },
   {
     "name": "Geo_Rock-Love_Key",
@@ -2353,7 +2353,7 @@
   },
   {
     "name": "Lore_Tablet-Greenpath_QG",
-    "logic": "Fungus1_13[left1] + (SIDESLASH | CYCLONE | GREATSLASH | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + 2HITS) + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + (SIDESLASH | CYCLONE | GREATSLASH | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + $TAKEDAMAGE) + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",

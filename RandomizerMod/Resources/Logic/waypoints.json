@@ -277,6 +277,21 @@
     "Stateless": true
   },
   {
+    "name": "Defeated_Ancestral_Mound_Baldur",
+    "logic": "Crossroads_ShamanTemple[left1] + LEFTBALDURS + (UPWALLBREAK | (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)",
+    "Stateless": true
+  },
+  {
+    "name": "Defeated_Crossroads_Baldur",
+    "logic": "Crossroads_11_alt[right1] + LEFTBALDURS",
+    "Stateless": true
+  },
+  {
+    "name": "Defeated_Cliffs_Right_Baldur",
+    "logic": "RIGHTBALDURS + (Fungus1_28[left1] | (Fungus1_28[left2] + (FULLCLAW | WINGS | RIGHTDASH | RIGHTSUPERDASH | $SHADESKIP)))",
+    "Stateless": true
+  },
+  {
     "name": "Defeated_Shrumal_Ogre_Arena",
     "logic": "(Fungus2_05[bot1] | Fungus2_05[right1]) + (SIDESLASH | UPSLASH | CYCLONE | GREATSLASH | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS | SPICYCOMBATSKIPS)",
     "Stateless": true
@@ -626,7 +641,7 @@
   },
   {
     "name": "Deepnest_East_04",
-    "logic": "(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | LEFTDASH | WINGS | AIRSTALL + ROOMSOUL | 2HITS + DAMAGEBOOSTS + DGBENCH))"
+    "logic": "(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | LEFTDASH | WINGS | AIRSTALL + ROOMSOUL | DAMAGEBOOSTS + $TAKEDAMAGE))"
   },
   {
     "name": "Deepnest_East_07",

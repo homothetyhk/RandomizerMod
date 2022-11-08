@@ -415,7 +415,7 @@
   {
     "sceneName": "Crossroads_11_alt",
     "gateName": "left1",
-    "logic": "Crossroads_11_alt[left1] | Crossroads_11_alt[right1] + LEFTBALDURS",
+    "logic": "Crossroads_11_alt[left1] | Crossroads_11_alt[right1] + Defeated_Crossroads_Baldur",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_11_alt[left1]"
   },
@@ -1150,7 +1150,7 @@
   {
     "sceneName": "Fungus1_15",
     "gateName": "door1",
-    "logic": "Fungus1_15[door1] | Fungus1_15[right1] + (RIGHTCLAW + WINGS | RIGHTSUPERDASH + (LEFTCLAW | WINGS | $SHADESKIP[2HITS] + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + ROOMBENCH) | $SHADESKIP[3HITS]) | RIGHTDASH + (LEFTCLAW | WINGS | RIGHTCLAW + (2HITS + DAMAGEBOOSTS + ROOMBENCH | PRECISEMOVEMENT + OBSCURESKIPS) | $SHADESKIP + (LEFTDASH | LEFTSUPERDASH | 2HITS + DAMAGEBOOSTS + ROOMBENCH) | $SHADESKIP[2HITS]))",
+    "logic": "Fungus1_15[door1] | Fungus1_15[right1] + (RIGHTCLAW + WINGS | RIGHTSUPERDASH + (LEFTCLAW | WINGS | $SHADESKIP[2HITS] + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[3HITS]) | RIGHTDASH + (LEFTCLAW | WINGS | RIGHTCLAW + (DAMAGEBOOSTS + $TAKEDAMAGE | PRECISEMOVEMENT + OBSCURESKIPS) | $SHADESKIP + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[2HITS]))",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_15[door1]"
   },
@@ -1332,7 +1332,7 @@
   {
     "sceneName": "Fungus1_28",
     "gateName": "left1",
-    "logic": "Fungus1_28[left1] | Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW) | WINGS + (ANYDASH | AIRSTALL + AREASOUL) + DIFFICULTSKIPS + $SHADESKIP[2HITS])",
+    "logic": "Fungus1_28[left1] | Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + Defeated_Right_Cliffs_Baldur) | (WINGS + LEFTCLAW) | WINGS + (ANYDASH | AIRSTALL + AREASOUL) + DIFFICULTSKIPS + $SHADESKIP[2HITS])",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_28[left1]"
   },
