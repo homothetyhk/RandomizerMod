@@ -7,7 +7,7 @@ namespace RandomizerMod.RC.StateVariables
     public class TakeDamageVariable : StateSplittingVariable
     {
         public override string Name { get; }
-        public int amount;
+        public int amount; // TODO: properly separate into int[] of amount per hit
         public bool canDreamgate;
         public bool canRegen;
         public StateBool overcharmed;
@@ -15,10 +15,12 @@ namespace RandomizerMod.RC.StateVariables
         public StateBool noFlower;
         public StateInt spentHP;
         public StateInt spentBlueHP;
-        /* someday, today it was too cursed
+        /* TODO: someday? today it was too cursed
         public StateInt spentSoul;
         public StateInt spentReserveSoul;
         public Term focus;
+        public EquipCharmVariable deepFocus;
+        public EquipCharmVariable grubsong;
         */
         public Term dreamnail;
         public Term essence;
@@ -45,7 +47,7 @@ namespace RandomizerMod.RC.StateVariables
                 {
                     amount = amount,
                     canDreamgate = !parameters.Contains("noDG"),
-                    canRegen = !parameters.Contains("noRegen"),
+                    canRegen = parameters.Contains("canRegen"),
                     overcharmed = lm.StateManager.GetBool("OVERCHARMED"),
                     hasTakenDamage = lm.StateManager.GetBool("HASTAKENDAMAGE"),
                     noFlower = lm.StateManager.GetBool("NOFLOWER"),

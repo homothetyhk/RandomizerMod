@@ -14,8 +14,9 @@ namespace RandomizerMod.RC.StateVariables
         public StateBool UsedShadeBool;
         public StateBool CannotShadeSkip;
         public StateBool NoFlower;
+        public StateInt MaxRequiredSoul;
         public FragileCharmVariable FragileHeartEquip;
-        public int requiredShadeHealth;
+        public int RequiredShadeHealth;
         public const string Prefix = "$SHADESKIP";
 
         public ShadeStateVariable(string name)
@@ -34,7 +35,7 @@ namespace RandomizerMod.RC.StateVariables
                 ShadeStateVariable ssv = new(term)
                 {
                     canDreamgate = canDreamgate,
-                    requiredShadeHealth = requiredShadeHealth,
+                    RequiredShadeHealth = requiredShadeHealth,
                     ShadeskipTerm = lm.GetTerm("SHADESKIPS"),
                     DreamgateTerm = lm.GetTerm("DREAMNAIL"),
                     EssenceTerm = lm.GetTerm("ESSENCE"),
@@ -42,6 +43,7 @@ namespace RandomizerMod.RC.StateVariables
                     UsedShadeBool = lm.StateManager.GetBool("USEDSHADE"),
                     CannotShadeSkip = lm.StateManager.GetBool("CANNOTSHADESKIP"),
                     NoFlower = lm.StateManager.GetBool("NOFLOWER"),
+                    MaxRequiredSoul = lm.StateManager.GetInt("MAXREQUIREDSOUL"),
                     FragileHeartEquip = (FragileCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Fragile_Heart")),
                 };
 
@@ -57,7 +59,7 @@ namespace RandomizerMod.RC.StateVariables
             yield return ShadeskipTerm;
             yield return DreamgateTerm;
             yield return EssenceTerm;
-            if (requiredShadeHealth > 1) yield return MaskShardsTerm;
+            if (RequiredShadeHealth > 1) yield return MaskShardsTerm;
         }
 
         public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
@@ -67,7 +69,7 @@ namespace RandomizerMod.RC.StateVariables
             if (localState is null) return FALSE;
             for (int i = 0; i < localState.Count; i++)
             {
-                if (!localState[i].GetBool(UsedShadeBool) && !localState[i].GetBool(CannotShadeSkip) && CheckHealthRequirement(pm, localState[i])) return TRUE;
+                if (!localState[i].GetBool(UsedShadeBool) && !localState[i].GetBool(CannotShadeSkip) && CheckSoulRequirement(localState[i]) && CheckHealthRequirement(pm, localState[i])) return TRUE;
             }
             return FALSE;
         }
@@ -77,34 +79,34 @@ namespace RandomizerMod.RC.StateVariables
             if (!pm.Has(ShadeskipTerm)) return false;
             if (!state.GetBool(NoFlower)) state.SetBool(NoFlower, true); // don't require flower shade skips, also avoids thorny issues with reacquiring flower after setting up the shade.
             if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm) && CheckHealthRequirementDG(pm)) return true;
-            if (state.GetBool(CannotShadeSkip)) return false;
+            if (state.GetBool(CannotShadeSkip) || !CheckSoulRequirement(state)) return false;
             return CheckHealthRequirement(pm, ref state) && state.TrySetBoolTrue(UsedShadeBool);
         }
 
         public bool CheckHealthRequirement(ProgressionManager pm, State state)
         {
-            if (requiredShadeHealth == 1)
+            if (RequiredShadeHealth == 1)
             {
                 return true;
             }
             else
             {
                 int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
-                if (hp >= requiredShadeHealth || requiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
+                if (hp >= RequiredShadeHealth || RequiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
                 return false;
             }
         }
 
         public bool CheckHealthRequirement(ProgressionManager pm, ref LazyStateBuilder state)
         {
-            if (requiredShadeHealth == 1)
+            if (RequiredShadeHealth == 1)
             {
                 return true;
             }
             else
             {
                 int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
-                if (hp >= requiredShadeHealth || requiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None)
+                if (hp >= RequiredShadeHealth || RequiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None)
                 {
                     FragileHeartEquip.BreakCharm(pm, ref state);
                     return true;
@@ -116,32 +118,30 @@ namespace RandomizerMod.RC.StateVariables
 
         public bool CheckHealthRequirementDG(ProgressionManager pm)
         {
-            if (requiredShadeHealth == 1)
+            if (RequiredShadeHealth == 1)
             {
                 return true;
             }
             else
             {
                 int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
-                if (hp >= requiredShadeHealth) return true;
-                else if (requiredShadeHealth == hp + 1 && FragileHeartEquip.HasCharmProgression(pm)) return true;
+                if (hp >= RequiredShadeHealth) return true;
+                else if (RequiredShadeHealth == hp + 1 && FragileHeartEquip.HasCharmProgression(pm)) return true;
                 return false;
             }
         }
-
-        // TODO: broke fragile charm state fields, so that BENCHRESET, etc know not to revert anticharm bool
         
         public bool CheckHealthRequirementDG(ProgressionManager pm, ref LazyStateBuilder state)
         {
-            if (requiredShadeHealth == 1)
+            if (RequiredShadeHealth == 1)
             {
                 return true;
             }
             else
             {
                 int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
-                if (hp >= requiredShadeHealth) return true;
-                else if (requiredShadeHealth == hp + 1 && FragileHeartEquip.HasCharmProgression(pm))
+                if (hp >= RequiredShadeHealth) return true;
+                else if (RequiredShadeHealth == hp + 1 && FragileHeartEquip.HasCharmProgression(pm))
                 {
                     FragileHeartEquip.BreakCharm(pm, ref state);
                     return true;
@@ -149,6 +149,11 @@ namespace RandomizerMod.RC.StateVariables
 
                 return false;
             }
+        }
+
+        public bool CheckSoulRequirement<T>(T state) where T : IState
+        {
+            return state.GetInt(MaxRequiredSoul) <= 66;
         }
     }
 }

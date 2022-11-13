@@ -75,20 +75,18 @@
   "SIMPLE4": "SIMPLE>3",
   "ALLSTAGS": "STAGS>8",
 
-  // mask comparisons for checking shade health
-  // use UHEART instead of FRAGILEHEART: it is generally unreasonable to require breaking and repairing fragile heart for shade skips
-  // there are also logic issues with FRAGILEHEART since Can_Repair_Fragile_Charms is nonterminal
+  // deprecated mask comparisons for checking shade health
   "2MASKS": "MASKSHARDS>7 | UHEART",
   "3MASKS": "MASKSHARDS>11 | UHEART",
   "4MASKS": "MASKSHARDS>15 | MASKSHARDS>7 + UHEART",
   "6MASKS": "MASKSHARDS>23 | MASKSHARDS>15 + UHEART",
 
-  // macros for the ability to take a certain number of hits. Due to inclusion of lifeblood, these cannot be used in nonterminal logic without the DGBENCH (or similar) requirement
+  // deprecated macros for the ability to take a certain number of hits. Due to inclusion of lifeblood, these cannot be used in nonterminal logic without the DGBENCH (or similar) requirement
   "2HITS": "MASKSHARDS>7 | Can_Bench + (FRAGILEHEART | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core | Joni's_Blessing + NOTCHES>$SafeNotchCost[27])",
   "3HITS": "MASKSHARDS>11 | MASKSHARDS>7 + Can_Bench + Joni's_Blessing + NOTCHES>$SafeNotchCost[27] | Can_Bench + (FRAGILEHEART + NOTCHES>$SafeNotchCost[23] | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core)",
   "4HITS": "MASKSHARDS>15 | MASKSHARDS>11 + Can_Bench + (Lifeblood_Core | Joni's_Blessing + NOTCHES>$SafeNotchCost[27]) | MASKSHARDS>7 + Can_Bench + (FRAGILEHEART + NOTCHES>$SafeNotchCost[23] | Lifeblood_Heart + NOTCHES>$SafeNotchCost[8] | Lifeblood_Core + NOTCHES>$SafeNotchCost[9])",
 
-  // macros for the next nearest place where the player can move respawn, in nonterminal logic
+  // deprecated macros for the next nearest place where the player can move respawn, in nonterminal logic
   "DGSHADESKIPS": "DREAMGATE + SHADESKIPS",
   "ITEMSHADESKIPS": "ITEMRANDO + SHADESKIPS | DGSHADESKIPS",
   "MAPAREASHADESKIPS": "(ITEMRANDO | MAPAREARANDO) + SHADESKIPS | DGSHADESKIPS",
@@ -96,7 +94,7 @@
   "ROOMSHADESKIPS": "SHADESKIPS",
   "TERMINALSHADESKIPS": "SHADESKIPS",
 
-  // macros for the next nearest place where the player can refill soul, in nonterminal logic
+  // deprecated macros for the next nearest place where the player can refill soul, in nonterminal logic 
   "DGSOUL": "DREAMGATE",
   "ITEMSOUL": "ITEMRANDO | DGSOUL",
   "MAPAREASOUL": "ITEMRANDO | MAPAREARANDO | DGSOUL",
@@ -104,7 +102,7 @@
   "ROOMSOUL": "ANY",
   "TERMINALSOUL": "ANY",
 
-  // macros for the next nearest bench where the player can change charms, in nonterminal logic
+  // deprecated macros for the next nearest bench where the player can change charms, in nonterminal logic
   "DGBENCH": "DREAMGATE",
   "ITEMBENCH": "ITEMRANDO | DGBENCH",
   "MAPAREABENCH": "ITEMRANDO | MAPAREARANDO | DGBENCH",
@@ -119,11 +117,12 @@
 
   // macros for common skip combos
   "INFECTED": "INFECTIONSKIPS + DREAMER",
-  "AIRSTALL": "FIREBALLSKIPS + (FIREBALL | SCREAM)",
+  "AIRSTALL": "FIREBALLSKIPS + (FIREBALL | SCREAM)", // deprecated
+  "SPELLAIRSTALL": "FIREBALLSKIPS + (FIREBALL | SCREAM)",
   "LEFTTUNNEL": "SPIKETUNNELS + LEFTDASH + (DASHMASTER | AIRSTALL)",
   "RIGHTTUNNEL": "SPIKETUNNELS + RIGHTDASH + (DASHMASTER | AIRSTALL)",
-  "TUNNEL": "LEFTTUNNEL + RIGHTTUNNEL",
-  "SKIPACID": "FULLCLAW + FULLDASH + SUPERDASH + ACIDSKIPS",
+  "TUNNEL": "LEFTTUNNEL + RIGHTTUNNEL", // deprecated
+  "SKIPACID": "FULLCLAW + FULLDASH + SUPERDASH + ACIDSKIPS", // deprecated
   "LEFTSKIPACID": "FULLCLAW + FULLDASH + LEFTSUPERDASH + ACIDSKIPS",
   "RIGHTSKIPACID": "FULLCLAW + FULLDASH + RIGHTSUPERDASH + ACIDSKIPS",
   "FULLSKIPACID": "FULLCLAW + FULLDASH + FULLSUPERDASH + ACIDSKIPS",
