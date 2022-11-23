@@ -3,6 +3,11 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $STAGSTATEMODIFIER
+     * Required Parameters: none
+     * Optiional Parameters: none
+    */
     public class StagStateVariable : StateModifyingVariable
     {
         public override string Name { get; }
@@ -13,19 +18,29 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (term == Prefix)
             {
-                variable = new StagStateVariable(term)
-                {
-                    NoFlower = lm.StateManager.GetBool("NOFLOWER"),
-                };
+                variable = new StagStateVariable(term, lm);
                 return true;
             }
             variable = default;
             return false;
         }
 
-        public StagStateVariable(string name)
+        protected StagStateVariable(string name)
         {
             Name = name;
+        }
+
+        public StagStateVariable(string name, LogicManager lm)
+        {
+            Name = name;
+            try
+            {
+                NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing StagStateVariable", e);
+            }
         }
 
         public override IEnumerable<Term> GetTerms()

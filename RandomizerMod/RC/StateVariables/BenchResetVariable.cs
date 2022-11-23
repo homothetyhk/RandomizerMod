@@ -3,6 +3,11 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $BENCHRESET
+     * Required Parameters: none
+     * Optiional Parameters: none
+    */
     public class BenchResetVariable : StateModifyingVariable
     {
         public override string Name { get; }
@@ -18,28 +23,38 @@ namespace RandomizerMod.RC.StateVariables
         public StateBool usedShade;
         public State resetState;
 
-        public BenchResetVariable(string name)
+        protected BenchResetVariable(string name)
         {
             Name = name;
+        }
+
+        public BenchResetVariable(string name, bool fromBenchwarp, bool canDreamgate, LogicManager lm)
+        {
+            Name = name;
+            this.fromBenchwarp = fromBenchwarp;
+            this.canDreamgate = canDreamgate;
+            try
+            {
+                spentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
+                spentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
+                salubrasBlessing = lm.GetTermStrict("Salubra's_Blessing");
+                dreamnail = lm.GetTermStrict("DREAMNAIL");
+                essence = lm.GetTermStrict("ESSENCE");
+                vesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
+                usedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
+                resetState = GetResetState(lm.StateManager);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing BenchResetVariable", e);
+            }
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
         {
             if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
             {
-                variable = new BenchResetVariable(term)
-                {
-                    fromBenchwarp = parameters.Contains("WARP"),
-                    canDreamgate = !parameters.Contains("noDG"),
-                    spentSoul = lm.StateManager.GetInt("SPENTSOUL"),
-                    spentReserveSoul = lm.StateManager.GetInt("SPENTRESERVESOUL"),
-                    salubrasBlessing = lm.GetTerm("Salubra's_Blessing"),
-                    dreamnail = lm.GetTerm("DREAMNAIL"),
-                    essence = lm.GetTerm("ESSENCE"),
-                    vesselFragments = lm.GetTerm("VESSELFRAGMENTS"),
-                    usedShade = lm.StateManager.GetBool("USEDSHADE"),
-                    resetState = GetResetState(lm.StateManager),
-                };
+                variable = new BenchResetVariable(term, parameters.Contains("WARP"), !parameters.Contains("noDG"), lm);
                 return true;
             }
             variable = default;
@@ -49,7 +64,7 @@ namespace RandomizerMod.RC.StateVariables
         public static State GetResetState(StateManager sm)
         {
             StateBuilder sb = new(sm.StartState);
-            sb.SetBool(sm.GetBool("CANNOTBENCH"), false);
+            // TODO: bench resettable field tag?
             return new(sb);
         }
 

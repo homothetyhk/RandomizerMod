@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RandomizerCore;
+﻿using RandomizerCore;
 using RandomizerCore.Logic;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
@@ -58,7 +53,7 @@ namespace RandomizerMod.RC
         {
             RandoModItem item = new()
             {
-                item = lm.GetItem(name),
+                item = lm.GetItemStrict(name),
             };
 
             return item;
@@ -87,7 +82,7 @@ namespace RandomizerMod.RC
         {
             RandoModLocation rl = new()
             {
-                logic = lm.GetLogicDef(name),
+                logic = lm.GetLogicDefStrict(name),
             };
 
             if (Data.TryGetCost(name, out CostDef def))
@@ -98,16 +93,16 @@ namespace RandomizerMod.RC
                     case "GRUBS":
                         break;
                     case "SIMPLE":
-                        rl.AddCost(new SimpleCost(lm.GetTerm("SIMPLE"), 1));
+                        rl.AddCost(new SimpleCost(lm.GetTermStrict("SIMPLE"), 1));
                         break;
                     case "Spore_Shroom":
-                        rl.AddCost(new SimpleCost(lm.GetTerm("Spore_Shroom"), 1));
+                        rl.AddCost(new SimpleCost(lm.GetTermStrict("Spore_Shroom"), 1));
                         break;
                     case "GEO":
                         rl.AddCost(new LogicGeoCost(lm, def.Amount));
                         break;
                     default:
-                        rl.AddCost(new SimpleCost(lm.GetTerm(def.Term), def.Amount));
+                        rl.AddCost(new SimpleCost(lm.GetTermStrict(def.Term), def.Amount));
                         break;
                 }
             }
@@ -119,12 +114,12 @@ namespace RandomizerMod.RC
         {
             if (lm.TransitionLookup.TryGetValue(def.Item, out LogicTransition target))
             {
-                LogicTransition source = lm.GetTransition(def.Location);
+                LogicTransition source = lm.GetTransitionStrict(def.Location);
                 return new(target, source);
             }
 
-            LogicItem li = lm.GetItem(def.Item);
-            RandoLocation rl = new() { logic = lm.GetLogicDef(def.Location) };
+            LogicItem li = lm.GetItemStrict(def.Item);
+            RandoLocation rl = new() { logic = lm.GetLogicDefStrict(def.Location) };
             void ApplyCost(CostDef cost)
             {
                 switch (cost.Term)
@@ -133,7 +128,7 @@ namespace RandomizerMod.RC
                         rl.AddCost(new LogicGeoCost(lm, cost.Amount));
                         break;
                     default:
-                        rl.AddCost(new SimpleCost(lm.GetTerm(cost.Term), cost.Amount));
+                        rl.AddCost(new SimpleCost(lm.GetTermStrict(cost.Term), cost.Amount));
                         break;
                 }
             }
@@ -174,7 +169,7 @@ namespace RandomizerMod.RC
 
         private RandoModTransition MakeTransitionInternal(string name)
         {
-            RandoModTransition rt = new(lm.GetTransition(name));
+            RandoModTransition rt = new(lm.GetTransitionStrict(name));
             return rt;
         }
     }

@@ -16,7 +16,7 @@ namespace RandomizerMod.RC
 
         public LogicGeoCost(LogicManager lm, int amount)
         {
-            CanReplenishGeoWaypoint = lm.GetTerm("Can_Replenish_Geo");
+            CanReplenishGeoWaypoint = lm.GetTermStrict("Can_Replenish_Geo");
             GeoAmount = amount;
         }
 

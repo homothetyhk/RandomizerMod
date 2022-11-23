@@ -3,6 +3,11 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $FLOWERGET
+     * Required Parameters: none
+     * Optiional Parameters: none
+    */
     public class FlowerProviderVariable : StateModifyingVariable
     {
         public override string Name { get; }
@@ -13,17 +18,27 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (term == Prefix)
             {
-                variable = new FlowerProviderVariable(term)
-                {
-                    NoFlower = lm.StateManager.GetBool("NOFLOWER"),
-                };
+                variable = new FlowerProviderVariable(term, lm);
                 return true;
             }
             variable = default;
             return false;
         }
 
-        public FlowerProviderVariable(string name)
+        public FlowerProviderVariable(string name, LogicManager lm)
+        {
+            Name = name;
+            try
+            {
+                NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing FlowerProviderVariable", e);
+            }
+        }
+
+        protected FlowerProviderVariable(string name)
         {
             Name = name;
         }

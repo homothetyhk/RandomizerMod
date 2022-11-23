@@ -268,14 +268,14 @@
   {
     "sceneName": "Crossroads_04",
     "gateName": "door_charmshop",
-    "logic": "Crossroads_04[door_charmshop] | Crossroads_04[right1] | ((Crossroads_04[door1] | Crossroads_04[door_Mender_House] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW | RIGHTDASH | WINGS | RIGHTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL] | $SHADESKIP | INFECTED))",
+    "logic": "Crossroads_04[door_charmshop] | Crossroads_04[right1] | (Crossroads_04[door1] | Crossroads_04[door_Mender_House] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW | RIGHTDASH | WINGS | RIGHTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL] | $SHADESKIP | INFECTED)",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_04[door_charmshop]"
   },
   {
     "sceneName": "Crossroads_04",
     "gateName": "right1",
-    "logic": "Crossroads_04[right1] | (Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + ((RIGHTCLAW + WINGS) | (LEFTCLAW + RIGHTSUPERDASH) | INFECTED | ($SHADESKIP + (RIGHTCLAW | WINGS | (COMPLEXSKIPS + FULLDASH + ITEMSOUL))))", // TODO: AIRSTALL?
+    "logic": "Crossroads_04[right1] | (Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW + WINGS | LEFTCLAW + RIGHTSUPERDASH | INFECTED | $SHADESKIP + (RIGHTCLAW | WINGS) | COMPLEXSKIPS + AIRSTALL + $STCONJ[$SHADESKIP,$CASTSPELL[2,before:ROOMSOUL]])",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_04[right1]"
   },

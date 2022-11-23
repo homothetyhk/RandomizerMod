@@ -67,7 +67,7 @@ namespace RandomizerMod.RandomizerData
         /// </summary>
         public virtual IEnumerable<TermValue> GetStartLocationProgression(LogicManager lm)
         {
-            yield return new(lm.GetTerm(Transition), 1);
+            yield return new(lm.GetTermStrict(Transition), 1);
         }
 
         public virtual ItemChanger.StartDef ToItemChangerStartDef()

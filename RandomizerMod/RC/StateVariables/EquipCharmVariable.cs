@@ -1,41 +1,14 @@
-﻿using RandomizerCore.Extensions;
-using RandomizerCore.Logic;
+﻿using RandomizerCore.Logic;
 using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
-    public class FragileCharmVariable : EquipCharmVariable
-    {
-        public Term repairTerm;
-        public StateBool breakBool;
-
-        public FragileCharmVariable(string name) : base(name) { }
-
-        public override IEnumerable<Term> GetTerms()
-        {
-            return base.GetTerms().Append(repairTerm);
-        }
-
-        protected override bool HasStateRequirements<T>(ProgressionManager pm, T state)
-        {
-            return base.HasStateRequirements<T>(pm, state) && (pm.Has(charmTerm, 2) || !state.GetBool(breakBool) && pm.Has(repairTerm));
-        }
-
-        public void BreakCharm(ProgressionManager pm, ref LazyStateBuilder state)
-        {
-            if (pm.Has(charmTerm, 2)) return;
-            if (state.GetBool(charmBool))
-            {
-                state.SetBool(charmBool, false);
-                state.Increment(usedNotchesInt, -((RandoModContext)pm.ctx).notchCosts[charmID - 1]);
-                if (state.GetBool(overcharmBool)) state.SetBool(overcharmBool, false);
-            }
-            state.SetBool(anticharmBool, true);
-            state.SetBool(breakBool, true);
-        }
-
-    }
-
+    /*
+     * Prefix: $EQUIPPEDCHARM
+     * Required Parameters:
+     *   - First parameter MUST be either: the name of the charm term (e.g. Gathering_Swarm) or the 1-based charm ID (for Gathering Swarm, 1).
+     * Optional Parameters: none
+    */
     public class EquipCharmVariable : StateModifyingVariable
     {
         public override string Name { get; }
@@ -51,9 +24,30 @@ namespace RandomizerMod.RC.StateVariables
 
         public const string Prefix = "$EQUIPPEDCHARM";
 
-        public EquipCharmVariable(string name)
+        protected EquipCharmVariable(string name)
         {
             Name = name;
+        }
+
+        public EquipCharmVariable(string name, string charmName, int charmID, LogicManager lm)
+        {
+            Name = name;
+            this.charmID = charmID;
+            try
+            {
+                charmTerm = lm.GetTermStrict(charmName);
+                canBenchTerm = lm.GetTermStrict("Can_Bench");
+                notchesTerm = lm.GetTermStrict("NOTCHES");
+                charmBool = lm.StateManager.GetBoolStrict("CHARM" + charmID);
+                anticharmBool = lm.StateManager.GetBoolStrict("noCHARM" + charmID);
+                hasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
+                overcharmBool = lm.StateManager.GetBoolStrict("OVERCHARMED");
+                usedNotchesInt = lm.StateManager.GetIntStrict("USEDNOTCHES");
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing EquipCharmVariable", e);
+            }
         }
 
         public static string GetName(string charmTermName)
@@ -70,48 +64,26 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
             {
-                if (!int.TryParse(parameters[0], out int charmID))
+                int charmID;
+                string charmName;
+
+                if (!int.TryParse(parameters[0], out charmID))
                 {
-                    charmID = LogicConstUtil.GetCharmID(parameters[0]);
+                    charmID = LogicConstUtil.GetCharmID(charmName = parameters[0]);
+                }
+                else
+                {
+                    charmName = LogicConstUtil.GetCharmTerm(charmID);
                 }
 
                 EquipCharmVariable ecv;
                 if (23 <= charmID && charmID <= 25)
                 {
-                    ecv = new FragileCharmVariable(term)
-                    {
-                        charmID = charmID,
-                        charmTerm = lm.Terms.GetTerm(LogicConstUtil.GetCharmTerm(charmID)),
-                        canBenchTerm = lm.GetTerm("Can_Bench"),
-                        notchesTerm = lm.GetTerm("NOTCHES"),
-                        charmBool = lm.StateManager.GetBool("CHARM" + charmID),
-                        anticharmBool = lm.StateManager.GetBool("noCHARM" + charmID) ?? throw new NullReferenceException(),
-                        overcharmBool = lm.StateManager.GetBool("OVERCHARMED"),
-                        hasTakenDamage = lm.StateManager.GetBool("HASTAKENDAMAGE"),
-                        usedNotchesInt = lm.StateManager.GetInt("USEDNOTCHES"),
-                        repairTerm = lm.GetTerm("Can_Repair_Fragile_Charms"),
-                        breakBool = charmID switch
-                        {
-                            23 => lm.StateManager.GetBool("BROKEHEART"),
-                            24 => lm.StateManager.GetBool("BROKEGREED"),
-                            _ => lm.StateManager.GetBool("BROKESTRENGTH"),
-                        },
-                    };
+                    ecv = new FragileCharmVariable(term, charmName, charmID, lm);
                 }
                 else 
                 {
-                    ecv = new EquipCharmVariable(term)
-                    {
-                        charmID = charmID,
-                        charmTerm = lm.Terms.GetTerm(LogicConstUtil.GetCharmTerm(charmID)),
-                        canBenchTerm = lm.GetTerm("Can_Bench"),
-                        notchesTerm = lm.GetTerm("NOTCHES"),
-                        charmBool = lm.StateManager.GetBool("CHARM" + charmID),
-                        anticharmBool = lm.StateManager.GetBool("noCHARM" + charmID) ?? throw new NullReferenceException(),
-                        hasTakenDamage = lm.StateManager.GetBool("HASTAKENDAMAGE"),
-                        overcharmBool = lm.StateManager.GetBool("OVERCHARMED"),
-                        usedNotchesInt = lm.StateManager.GetInt("USEDNOTCHES"),
-                    };
+                    ecv = new EquipCharmVariable(term, charmName, charmID, lm);
                 }
 
                 variable = ecv;

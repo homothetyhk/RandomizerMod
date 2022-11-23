@@ -3,6 +3,11 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $FLOWER
+     * Required Parameters: none
+     * Optiional Parameters: none
+    */
     public class RequireFlowerVariable : StateVariable
     {
         public override string Name { get; }
@@ -13,19 +18,29 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (term == Prefix)
             {
-                variable = new RequireFlowerVariable(term)
-                {
-                    NoFlower = lm.StateManager.GetBool("NOFLOWER"),
-                };
+                variable = new RequireFlowerVariable(term, lm);
                 return true;
             }
             variable = default;
             return false;
         }
 
-        public RequireFlowerVariable(string name)
+        protected RequireFlowerVariable(string name)
         {
             Name = name;
+        }
+
+        public RequireFlowerVariable(string name, LogicManager lm)
+        {
+            Name = name;
+            try
+            {
+                NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing RequireFlowerVariable", e);
+            }
         }
 
         public override IEnumerable<Term> GetTerms()

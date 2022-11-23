@@ -3,6 +3,16 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $CASTSPELL
+     * Required Parameters: none
+     * Optional Parameters:
+     *   - any integer parameters: parses to an array of ints, which represent number of spell casts, where time passes between different entries of the array (i.e. soul reserves can refill, etc).
+     *                             If missing, number of casts is new int[]{1}
+     *   - a parameter beginning with "before:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available before any spells are cast.
+     *   - a parameter beginning with "after:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available after all spells are cast.
+     *   - a parameter equal to "noDG": indicates that dream gate is not possible after the cast.
+    */
     public class CastSpellVariable : StateSplittingVariable
     {
         public enum NearbySoul
@@ -15,7 +25,7 @@ namespace RandomizerMod.RC.StateVariables
         }
 
         public override string Name { get; }
-        public int[] spellCasts; // TODO: field for whether spell casts are all at once, or if reserves can fill soul between casts
+        public int[] spellCasts;
         public bool canDreamgate;
         public NearbySoul beforeSoul;
         public NearbySoul afterSoul;
@@ -38,9 +48,42 @@ namespace RandomizerMod.RC.StateVariables
         public State dgState;
         public const string Prefix = "$CASTSPELL";
 
-        public CastSpellVariable(string name)
+        protected CastSpellVariable(string name)
         {
             Name = name;
+        }
+
+        public CastSpellVariable(string name, LogicManager lm, int[] spellCasts, bool canDreamgate, NearbySoul beforeSoul, NearbySoul afterSoul)
+        {
+            Name = name;
+            this.spellCasts = spellCasts;
+            this.canDreamgate = canDreamgate;
+            this.beforeSoul = beforeSoul;
+            this.afterSoul = afterSoul;
+            try
+            {
+                spentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
+                spentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
+                soulLimiter = lm.StateManager.GetIntStrict("SOULLIMITER");
+                maxRequiredSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
+                usedNotches = lm.StateManager.GetIntStrict("USEDNOTCHES");
+                usedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
+                cannotRegainSoul = lm.StateManager.GetBoolStrict("CANNOTREGAINSOUL");
+                noFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
+                vesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
+                dreamnail = lm.GetTermStrict("DREAMNAIL");
+                essence = lm.GetTermStrict("ESSENCE");
+                itemRando = lm.GetTermStrict("ITEMRANDO");
+                mapAreaRando = lm.GetTermStrict("MAPAREARANDO");
+                areaRando = lm.GetTermStrict("FULLAREARANDO");
+                roomRando = lm.GetTermStrict("ROOMRANDO");
+                equipSpellTwister = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Spell_Twister"));
+                dgState = GetDGState(lm.StateManager);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing CastSpellVariable", e);
+            }
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -75,41 +118,24 @@ namespace RandomizerMod.RC.StateVariables
                     }
                     else throw new ArgumentException($"Could not parse {parameters[i]} to CastSpellVariable argument.");
                 }
-                CastSpellVariable csv = new(term)
-                {
-                    spellCasts = spellCasts.Count == 0 ? new int[] { 1 } : spellCasts.ToArray(),
-                    canDreamgate = canDreamgate,
-                    beforeSoul = beforeSoul,
-                    afterSoul = afterSoul,
-                    spentSoul = lm.StateManager.GetInt("SPENTSOUL"),
-                    spentReserveSoul = lm.StateManager.GetInt("SPENTRESERVESOUL"),
-                    soulLimiter = lm.StateManager.GetInt("SOULLIMITER"),
-                    maxRequiredSoul = lm.StateManager.GetInt("MAXREQUIREDSOUL"),
-                    usedNotches = lm.StateManager.GetInt("USEDNOTCHES"),
-                    usedShade = lm.StateManager.GetBool("USEDSHADE"),
-                    cannotRegainSoul = lm.StateManager.GetBool("CANNOTREGAINSOUL"),
-                    noFlower = lm.StateManager.GetBool("NOFLOWER"),
-                    vesselFragments = lm.GetTerm("VESSELFRAGMENTS"),
-                    dreamnail = lm.GetTerm("DREAMNAIL"),
-                    essence = lm.GetTerm("ESSENCE"),
-                    itemRando = lm.GetTerm("ITEMRANDO"),
-                    mapAreaRando = lm.GetTerm("MAPAREARANDO"),
-                    areaRando = lm.GetTerm("FULLAREARANDO"),
-                    roomRando = lm.GetTerm("ROOMRANDO"),
-                    equipSpellTwister = (EquipCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Spell_Twister")),
-                    dgState = lm.StateManager.StartState,
-                };
-                if (!csv.dgState.GetBool(csv.noFlower))
-                {
-                    StateBuilder dgSB = new(lm.StateManager.StartState);
-                    dgSB.SetBool(csv.noFlower, true);
-                    csv.dgState = new(dgSB);
-                }
-                variable = csv;
+                if (spellCasts.Count == 0) spellCasts.Add(1);
+                variable = new CastSpellVariable(term, lm, spellCasts.ToArray(), canDreamgate, beforeSoul, afterSoul);
                 return true;
             }
             variable = default;
             return false;
+        }
+
+        private static State GetDGState(StateManager sm)
+        {
+            LazyStateBuilder lsb = new(sm.StartState);
+
+            if (lsb.GetBool(sm.GetBoolStrict("NOFLOWER")))
+            {
+                lsb.SetBool(sm.GetBoolStrict("NOFLOWER"), false);
+            }
+            // TODO: dg-resetable field tag?
+            return lsb.GetState();
         }
 
         public override IEnumerable<Term> GetTerms()
@@ -259,7 +285,7 @@ namespace RandomizerMod.RC.StateVariables
             }
             else if (reserveDiff > 0)
             {
-                state.SetInt(reserveDiff, 0);
+                state.SetInt(spentReserveSoul, 0);
                 amount -= reserveDiff;
             }
         }

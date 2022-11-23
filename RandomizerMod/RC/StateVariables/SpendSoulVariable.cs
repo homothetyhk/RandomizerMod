@@ -3,6 +3,7 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    [Obsolete("Not fully implemented.")] // TODO: decide whether to keep this?
     public class SpendSoulVariable : StateModifyingVariable
     {
         public override string Name { get; }
@@ -16,7 +17,7 @@ namespace RandomizerMod.RC.StateVariables
         public int spendAmount;
         public bool canDreamgate;
 
-        public SpendSoulVariable(string name)
+        protected SpendSoulVariable(string name)
         {
             Name = name;
         }

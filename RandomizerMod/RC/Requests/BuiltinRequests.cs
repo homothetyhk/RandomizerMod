@@ -537,7 +537,7 @@ namespace RandomizerMod.RC
                     LogicManager lm = factory.lm;
                     Random rng = factory.rng;
                     GenerationSettings gs = factory.gs;
-                    rl.AddCost(new SimpleCost(lm.GetTerm("GRUBS"), rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
+                    rl.AddCost(new SimpleCost(lm.GetTermStrict("GRUBS"), rng.Next(gs.CostSettings.MinimumGrubCost, gs.CostSettings.MaximumGrubCost + 1)));
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
@@ -556,7 +556,7 @@ namespace RandomizerMod.RC
                     LogicManager lm = factory.lm;
                     Random rng = factory.rng;
                     GenerationSettings gs = factory.gs;
-                    rl.AddCost(new SimpleCost(lm.GetTerm("ESSENCE"), rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
+                    rl.AddCost(new SimpleCost(lm.GetTermStrict("ESSENCE"), rng.Next(gs.CostSettings.MinimumEssenceCost, gs.CostSettings.MaximumEssenceCost + 1)));
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
@@ -576,7 +576,7 @@ namespace RandomizerMod.RC
                     LogicManager lm = factory.lm;
                     Random rng = factory.rng;
                     GenerationSettings gs = factory.gs;
-                    rl.AddCost(new SimpleCost(lm.GetTerm("CHARMS"), rng.Next(gs.CostSettings.MinimumCharmCost, gs.CostSettings.MaximumCharmCost + 1)));
+                    rl.AddCost(new SimpleCost(lm.GetTermStrict("CHARMS"), rng.Next(gs.CostSettings.MinimumCharmCost, gs.CostSettings.MaximumCharmCost + 1)));
                 };
                 info.customPlacementFetch = (factory, placement) =>
                 {
@@ -594,7 +594,7 @@ namespace RandomizerMod.RC
                     LogicManager lm = factory.lm;
                     Random rng = factory.rng;
                     GenerationSettings gs = factory.gs;
-                    rl.AddCost(new SimpleCost(lm.GetTerm("RANCIDEGGS"), rng.Next(gs.CostSettings.MinimumEggCost, gs.CostSettings.MaximumEggCost + 1)));
+                    rl.AddCost(new SimpleCost(lm.GetTermStrict("RANCIDEGGS"), rng.Next(gs.CostSettings.MinimumEggCost, gs.CostSettings.MaximumEggCost + 1)));
                 };
             });
         }

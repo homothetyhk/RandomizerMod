@@ -4,6 +4,14 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $TAKEDAMAGE
+     * Required Parameters:
+         - If any parameters are provided, the first parameter must parse to int to give the damage amount. If absent, defaults to 1.
+     * Optional Parameters:
+     *   - "noDG": indicates that dream gate after taking damage is not possible.
+     *   - "canRegen": indicates that pausing to regain health is possible between hits.
+    */
     public class TakeDamageVariable : StateSplittingVariable
     {
         public override string Name { get; }
@@ -33,9 +41,37 @@ namespace RandomizerMod.RC.StateVariables
 
         public const string Prefix = "$TAKEDAMAGE";
 
-        public TakeDamageVariable(string name)
+        protected TakeDamageVariable(string name)
         {
             Name = name;
+        }
+
+        public TakeDamageVariable(string name, LogicManager lm, int amount, bool canDreamgate, bool canRegen)
+        {
+            Name = name;
+            this.amount = amount;
+            this.canDreamgate = canDreamgate;
+            this.canRegen = canRegen;
+            try
+            {
+                overcharmed = lm.StateManager.GetBoolStrict("OVERCHARMED");
+                hasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
+                noFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
+                spentHP = lm.StateManager.GetIntStrict("SPENTHP");
+                spentBlueHP = lm.StateManager.GetIntStrict("SPENTBLUEHP");
+                dreamnail = lm.GetTermStrict("DREAMNAIL");
+                essence = lm.GetTermStrict("ESSENCE");
+                maskShards = lm.GetTermStrict("MASKSHARDS");
+                hiveblood = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Hiveblood"));
+                lbHeart = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Lifeblood_Heart"));
+                lbCore = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Lifeblood_Core"));
+                joni = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Joni's_Blessing"));
+                heart = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing TakeDamageVariable", e);
+            }
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -43,25 +79,9 @@ namespace RandomizerMod.RC.StateVariables
             if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
             {
                 int amount = parameters.Length == 0 ? 1 : int.Parse(parameters[0]);
-                variable = new TakeDamageVariable(term)
-                {
-                    amount = amount,
-                    canDreamgate = !parameters.Contains("noDG"),
-                    canRegen = parameters.Contains("canRegen"),
-                    overcharmed = lm.StateManager.GetBool("OVERCHARMED"),
-                    hasTakenDamage = lm.StateManager.GetBool("HASTAKENDAMAGE"),
-                    noFlower = lm.StateManager.GetBool("NOFLOWER"),
-                    spentHP = lm.StateManager.GetInt("SPENTHP"),
-                    spentBlueHP = lm.StateManager.GetInt("SPENTBLUEHP"),
-                    dreamnail = lm.GetTerm("DREAMNAIL"),
-                    essence = lm.GetTerm("ESSENCE"),
-                    maskShards = lm.GetTerm("MASKSHARDS"),
-                    hiveblood = (EquipCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Hiveblood")),
-                    lbHeart = (EquipCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Lifeblood_Heart")),
-                    lbCore = (EquipCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Lifeblood_Core")),
-                    joni = (EquipCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Joni's_Blessing")),
-                    heart = (EquipCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Fragile_Heart")),
-                };
+                bool canDreamgate = !parameters.Contains("noDG");
+                bool canRegen = parameters.Contains("canRegen");
+                variable = new TakeDamageVariable(term, lm, amount, canDreamgate, canRegen);
                 return true;
             }
 

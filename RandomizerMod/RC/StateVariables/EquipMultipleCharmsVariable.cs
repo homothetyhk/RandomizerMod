@@ -3,15 +3,25 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $EQUIPPEDCHARMS
+     * Required Parameters:
+     *   - any parameters which match either: parses to int, or is the term name of a charm, 
+    */
     public class EquipMultipleCharmsVariable : StateModifyingVariable
     {
         public override string Name { get; }
         public EquipCharmVariable[] charms;
         public const string Prefix = "$EQUIPPEDCHARMS";
 
-        public EquipMultipleCharmsVariable(string name)
+        protected EquipMultipleCharmsVariable(string name)
         {
             Name = name;
+        }
+
+        public EquipMultipleCharmsVariable(string name, EquipCharmVariable[] charms) : this(name)
+        {
+            this.charms = charms;
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -23,18 +33,15 @@ namespace RandomizerMod.RC.StateVariables
                     if (int.TryParse(p, out int id))
                     {
                         EquipCharmVariable.TryMatch(lm, EquipCharmVariable.GetName(id), out LogicVariable var1);
-                        return var1 as EquipCharmVariable;
+                        return (EquipCharmVariable)var1 ?? throw new ArgumentException($"Error parsing EMCV {term}: could not parse parameter {p} to ECV.");
                     }
                     else
                     {
-                        EquipCharmVariable.TryMatch(lm, EquipCharmVariable.GetName(id), out LogicVariable var1);
-                        return var1 as EquipCharmVariable;
+                        EquipCharmVariable.TryMatch(lm, EquipCharmVariable.GetName(p), out LogicVariable var1);
+                        return (EquipCharmVariable)var1 ?? throw new ArgumentException($"Error parsing EMCV {term}: could not parse parameter {p} to ECV.");
                     }
                 }).ToArray();
-                variable = new EquipMultipleCharmsVariable(term)
-                {
-                    charms = charms,
-                };
+                variable = new EquipMultipleCharmsVariable(term, charms);
                 return true;
             }
             variable = default;

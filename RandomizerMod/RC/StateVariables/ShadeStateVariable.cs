@@ -3,6 +3,13 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $SHADESKIP
+     * Required Parameters: none
+     * Optional Parameters:
+     *   - a parameter equal to "noDG": indicates that dream gate is not possible after the skip
+     *   - a parameter ending in "HITS": the head of the parameter must parse to int, and is the required shade hp. Defaults to 1.
+    */
     public class ShadeStateVariable : StateModifyingVariable
     {
         public override string Name { get; }
@@ -14,14 +21,37 @@ namespace RandomizerMod.RC.StateVariables
         public StateBool UsedShadeBool;
         public StateBool CannotShadeSkip;
         public StateBool NoFlower;
-        public StateInt MaxRequiredSoul;
+        public StateInt RequiredMaxSoul;
         public FragileCharmVariable FragileHeartEquip;
         public int RequiredShadeHealth;
         public const string Prefix = "$SHADESKIP";
 
-        public ShadeStateVariable(string name)
+        protected ShadeStateVariable(string name)
         {
             Name = name;
+        }
+
+        public ShadeStateVariable(string name, LogicManager lm, bool canDreamgate, int requiredShadeHealth)
+        {
+            Name = name;
+            this.canDreamgate = canDreamgate;
+            RequiredShadeHealth = requiredShadeHealth;
+            try
+            {
+                ShadeskipTerm = lm.GetTermStrict("SHADESKIPS");
+                DreamgateTerm = lm.GetTermStrict("DREAMNAIL");
+                EssenceTerm = lm.GetTermStrict("ESSENCE");
+                MaskShardsTerm = lm.GetTermStrict("MASKSHARDS");
+                UsedShadeBool = lm.StateManager.GetBoolStrict("USEDSHADE");
+                CannotShadeSkip = lm.StateManager.GetBoolStrict("CANNOTSHADESKIP");
+                NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
+                RequiredMaxSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
+                FragileHeartEquip = (FragileCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing ShadeStateVariable", e);
+            }
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -32,22 +62,7 @@ namespace RandomizerMod.RC.StateVariables
                 int requiredShadeHealth = 1;
                 for (int i = 0; i < parameters.Length; i++) if (parameters[i].EndsWith("HITS")) requiredShadeHealth = int.Parse(parameters[i].Substring(0, parameters[i].Length - 4));
 
-                ShadeStateVariable ssv = new(term)
-                {
-                    canDreamgate = canDreamgate,
-                    RequiredShadeHealth = requiredShadeHealth,
-                    ShadeskipTerm = lm.GetTerm("SHADESKIPS"),
-                    DreamgateTerm = lm.GetTerm("DREAMNAIL"),
-                    EssenceTerm = lm.GetTerm("ESSENCE"),
-                    MaskShardsTerm = lm.GetTerm("MASKSHARDS"),
-                    UsedShadeBool = lm.StateManager.GetBool("USEDSHADE"),
-                    CannotShadeSkip = lm.StateManager.GetBool("CANNOTSHADESKIP"),
-                    NoFlower = lm.StateManager.GetBool("NOFLOWER"),
-                    MaxRequiredSoul = lm.StateManager.GetInt("MAXREQUIREDSOUL"),
-                    FragileHeartEquip = (FragileCharmVariable)lm.GetVariable(EquipCharmVariable.GetName("Fragile_Heart")),
-                };
-
-                variable = ssv;
+                variable = new ShadeStateVariable(term, lm, canDreamgate, requiredShadeHealth);
                 return true;
             }
             variable = null;
@@ -153,7 +168,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public bool CheckSoulRequirement<T>(T state) where T : IState
         {
-            return state.GetInt(MaxRequiredSoul) <= 66;
+            return state.GetInt(RequiredMaxSoul) <= 66;
         }
     }
 }

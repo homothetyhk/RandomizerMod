@@ -3,6 +3,11 @@ using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /*
+     * Prefix: $HOTSPRINGRESET
+     * Required Parameters: none
+     * Optiional Parameters: none
+    */
     public class HotSpringResetVariable : StateModifyingVariable
     {
         public override string Name { get; }
@@ -14,23 +19,33 @@ namespace RandomizerMod.RC.StateVariables
         public StateBool cannotRegainSoul;
         public const string Prefix = "$HOTSPRINGRESET";
 
-        public HotSpringResetVariable(string name)
+        protected HotSpringResetVariable(string name)
         {
             Name = name;
+        }
+
+        public HotSpringResetVariable(string name, LogicManager lm)
+        {
+            Name = name;
+            try
+            {
+                spentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
+                spentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
+                spentHP = lm.StateManager.GetIntStrict("SPENTHP");
+                spentAllSoul = lm.StateManager.GetBoolStrict("SPENTALLSOUL");
+                cannotRegainSoul = lm.StateManager.GetBoolStrict("CANNOTREGAINSOUL");
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error constructing HotSpringResetVariable", e);
+            }
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
         {
             if (term == Prefix)
             {
-                variable = new HotSpringResetVariable(term)
-                {
-                    spentReserveSoul = lm.StateManager.GetInt("SPENTRESERVESOUL"),
-                    spentSoul = lm.StateManager.GetInt("SPENTSOUL"),
-                    spentHP = lm.StateManager.GetInt("SPENTHP"),
-                    spentAllSoul = lm.StateManager.GetBool("SPENTALLSOUL"),
-                    cannotRegainSoul = lm.StateManager.GetBool("CANNOTREGAINSOUL"),
-                };
+                variable = new HotSpringResetVariable(term, lm);
                 return true;
             }
             variable = default;
