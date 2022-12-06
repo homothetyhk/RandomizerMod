@@ -1,5 +1,5 @@
 {
-  "Byte": [
+  "SignedByte": [
     "ITEMRANDO",
     "MAPAREARANDO",
     "FULLAREARANDO",
@@ -98,16 +98,7 @@
     "King's_Brand",
     "Godtuner",
     "Collector's_Map",
-    "MASKSHARDS",
-    "VESSELFRAGMENTS",
-    "NOTCHES",
-    "PALEORE",
-    "WANDERERSJOURNALS",
-    "HALLOWNESTSEALS",
-    "KINGSIDOLS",
-    "ARCANEEGGS",
     "QUILL",
-    "MAPS",
     "Crossroads_Map",
     "Greenpath_Map",
     "Fog_Canyon_Map",
@@ -122,7 +113,6 @@
     "Queen's_Gardens_Map",
     "Resting_Grounds_Map",
     "Dirtmouth_Stag",
-    "STAGS",
     "Crossroads_Stag",
     "Greenpath_Stag",
     "Queen's_Station_Stag",
@@ -133,7 +123,6 @@
     "Distant_Village_Stag",
     "Hidden_Station_Stag",
     "Stag_Nest_Stag",
-    "FLAMES",
     "JOURNAL",
     "Salubra's_Blessing",
     "Elevator_Pass",
@@ -147,7 +136,18 @@
     "GRUBS",
     "ESSENCE",
     "RANCIDEGGS",
-    "CHARMS"
+    "CHARMS",
+    "MASKSHARDS",
+    "VESSELFRAGMENTS",
+    "NOTCHES",
+    "PALEORE",
+    "WANDERERSJOURNALS",
+    "HALLOWNESTSEALS",
+    "KINGSIDOLS",
+    "ARCANEEGGS",
+    "MAPS",
+    "STAGS",
+    "FLAMES"
   ],
   "State": []
 }
