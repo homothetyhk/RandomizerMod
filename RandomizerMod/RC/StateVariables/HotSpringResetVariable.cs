@@ -8,7 +8,7 @@ namespace RandomizerMod.RC.StateVariables
      * Required Parameters: none
      * Optiional Parameters: none
     */
-    public class HotSpringResetVariable : StateModifyingVariable
+    public class HotSpringResetVariable : StateModifier
     {
         public override string Name { get; }
 
@@ -57,12 +57,7 @@ namespace RandomizerMod.RC.StateVariables
             return Enumerable.Empty<Term>();
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
-        {
-            return TRUE;
-        }
-
-        public override bool ModifyState(object sender, ProgressionManager pm, ref LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             if (!state.GetBool(cannotRegainSoul))
             {
@@ -71,7 +66,7 @@ namespace RandomizerMod.RC.StateVariables
                 state.SetInt(spentReserveSoul, 0);
             }
             state.SetInt(spentHP, 0);
-            return true;
+            yield return state;
         }
     }
 }

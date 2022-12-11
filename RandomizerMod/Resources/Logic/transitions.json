@@ -275,7 +275,7 @@
   {
     "sceneName": "Crossroads_04",
     "gateName": "right1",
-    "logic": "Crossroads_04[right1] | (Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW + WINGS | LEFTCLAW + RIGHTSUPERDASH | INFECTED | $SHADESKIP + (RIGHTCLAW | WINGS) | COMPLEXSKIPS + AIRSTALL + $STCONJ[$SHADESKIP,$CASTSPELL[2,before:ROOMSOUL]])",
+    "logic": "Crossroads_04[right1] | (Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW + WINGS | LEFTCLAW + RIGHTSUPERDASH | INFECTED | $SHADESKIP + (RIGHTCLAW | WINGS) | COMPLEXSKIPS + AIRSTALL + $SHADESKIP + $CASTSPELL[2,before:ROOMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_04[right1]"
   },

@@ -13,7 +13,7 @@ namespace RandomizerMod.RC.StateVariables
      *   - a parameter beginning with "after:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available after all spells are cast.
      *   - a parameter equal to "noDG": indicates that dream gate is not possible after the cast.
     */
-    public class CastSpellVariable : StateSplittingVariable
+    public class CastSpellVariable : StateModifier
     {
         public enum NearbySoul
         {
@@ -150,33 +150,12 @@ namespace RandomizerMod.RC.StateVariables
             foreach (Term t in equipSpellTwister.GetTerms()) yield return t;
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
+        public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)
         {
-            if (localState is null) return FALSE;
-
-            if (canDreamgate && pm.Has(dreamnail, 2) && pm.Has(essence) && CheckDGState()) return TRUE;
-
-            for (int i = 0; i < localState.Count; i++)
-            {
-                int soul;
-                int reserves = GetReserves(pm, localState[i]);
-                int maxSoul = GetMaxSoul(localState[i]);
-                if (!localState[i].GetBool(cannotRegainSoul) && NearbySoulToBool(beforeSoul, pm))
-                {
-                    soul = GetMaxSoul(localState[i]);
-                }
-                else
-                {
-                    soul = GetSoul(localState[i]);
-                }
-
-                if (TryCastAll(33, maxSoul, reserves, soul)) return TRUE;
-                else if (TryCastAll(25, maxSoul, reserves, soul) && equipSpellTwister.CanEquip(pm, localState[i]) != EquipCharmVariable.EquipResult.None) return TRUE;
-            }
-            return FALSE;
+            return base.ProvideState(sender, pm);
         }
 
-        public override IEnumerable<LazyStateBuilder>? ModifyState(object sender, ProgressionManager pm, LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             if (canDreamgate && pm.Has(dreamnail, 2) && pm.Has(essence) && CheckDGState())
             {
@@ -208,14 +187,17 @@ namespace RandomizerMod.RC.StateVariables
                 yield return state33;
             }
 
-            if (equipSpellTwister.ModifyState(sender, pm, ref state) && TryCastAll(25, maxSoul, reserves, soul))
+            if (TryCastAll(25, maxSoul, reserves, soul))
             {
-                DoAllCasts(25, reserves, ref state);
-                if (!state.GetBool(cannotRegainSoul) && NearbySoulToBool(afterSoul, pm))
+                foreach (LazyStateBuilder STstate in equipSpellTwister.ModifyState(sender, pm, state))
                 {
-                    RecoverSoul(spellCasts.Sum() * 33, state); // recover the same amount of soul as in the normal path
+                    DoAllCasts(25, reserves, ref state);
+                    if (!state.GetBool(cannotRegainSoul) && NearbySoulToBool(afterSoul, pm))
+                    {
+                        RecoverSoul(spellCasts.Sum() * 33, state); // recover the same amount of soul as in the normal path
+                    }
+                    yield return state;
                 }
-                yield return state;
             }
         }
 

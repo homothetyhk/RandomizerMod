@@ -48,7 +48,7 @@ namespace RandomizerMod.RC.StateVariables
             return Enumerable.Empty<Term>();
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
+        public override int GetValue(object? sender, ProgressionManager pm, StateUnion? localState)
         {
             if (localState is null) return FALSE;
             for (int i = 0; i < localState.Count; i++)

@@ -19,7 +19,7 @@ namespace RandomizerMod.RC.LogicInts
 
         public override string Name { get; }
 
-        public override int GetValue(object sender, ProgressionManager pm)
+        public override int GetValue(object? sender, ProgressionManager pm)
         {
             List<int> notchCosts = (pm.ctx as RandoModContext)?.notchCosts;
             if (notchCosts != null && notchCosts.Count >= charmIDs[charmIDs.Length - 1])

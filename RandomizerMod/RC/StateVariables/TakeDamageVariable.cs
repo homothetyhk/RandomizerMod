@@ -12,7 +12,7 @@ namespace RandomizerMod.RC.StateVariables
      *   - "noDG": indicates that dream gate after taking damage is not possible.
      *   - "canRegen": indicates that pausing to regain health is possible between hits.
     */
-    public class TakeDamageVariable : StateSplittingVariable
+    public class TakeDamageVariable : StateModifier
     {
         public override string Name { get; }
         public int amount; // TODO: properly separate into int[] of amount per hit
@@ -101,23 +101,7 @@ namespace RandomizerMod.RC.StateVariables
             foreach (Term t in heart.GetTerms()) yield return t;
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
-        {
-            if (localState is null) return FALSE;
-
-            for (int i = 0; i < localState.Count; i++)
-            {
-                if (Survives(pm, localState[i], amount)) return TRUE;
-            }
-            for (int i = 0; i < localState.Count; i++)
-            {
-                if (SurvivesWithCharmOptimization(pm, localState[i], amount)) return TRUE;
-            }
-
-            return FALSE;
-        }
-
-        public override IEnumerable<LazyStateBuilder>? ModifyState(object sender, ProgressionManager pm, LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             if (state.GetBool(hasTakenDamage) || !pm.Has(lbCore.canBenchTerm))
             {
@@ -150,6 +134,7 @@ namespace RandomizerMod.RC.StateVariables
 
             List<int> notchCosts = ((RandoModContext)pm.ctx).notchCosts;
             List<EquipCharmVariable> helper = new();
+            List<LazyStateBuilder> lsbHelper = new();
             if (canRegen) AddECV(hiveblood);
             AddECV(lbHeart);
             AddECV(heart);
@@ -160,20 +145,25 @@ namespace RandomizerMod.RC.StateVariables
             int pow = 1 << helper.Count;
             for (int i = 0; i < pow; i++)
             {
-                LazyStateBuilder next = new(state);
+                lsbHelper.Clear();
+                lsbHelper.Add(new(state));
                 for (int j = 0; j < helper.Count; j++)
                 {
                     if ((i & (1 << j)) == (1 << j))
                     {
-                        if (!helper[j].ModifyState(null, pm, ref next)) goto SKIP;
+                        helper[j].ModifyAll(null, pm, lsbHelper);
+                        if (lsbHelper.Count == 0) break;
                     }
                 }
-                if (TakeDamage(pm, ref next, amount))
+                for (int j = 0; j < lsbHelper.Count; j++)
                 {
-                    DisableUnequippedHealthCharms(ref next);
-                    yield return next;
+                    LazyStateBuilder next = lsbHelper[j];
+                    if (TakeDamage(pm, ref next, amount))
+                    {
+                        DisableUnequippedHealthCharms(ref next);
+                        yield return next;
+                    }
                 }
-                SKIP: continue;
             }
 
             void AddECV(EquipCharmVariable ecv)

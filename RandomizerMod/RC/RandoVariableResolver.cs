@@ -41,7 +41,6 @@ namespace RandomizerMod.RC
             if (StagStateVariable.TryMatch(lm, term, out variable)) return true;
             if (FlowerProviderVariable.TryMatch(lm, term, out variable)) return true;
             if (RequireFlowerVariable.TryMatch(lm, term, out variable)) return true;
-            if (EquipMultipleCharmsVariable.TryMatch(lm, term, out variable)) return true;
 
             return false;
         }

@@ -4,7 +4,7 @@ using RandomizerCore.Logic.StateLogic;
 namespace RandomizerMod.RC.StateVariables
 {
     [Obsolete("Not fully implemented.")] // TODO: decide whether to keep this?
-    public class SpendSoulVariable : StateModifyingVariable
+    public class SpendSoulVariable : StateModifier
     {
         public override string Name { get; }
         public StateInt spentSoul;
@@ -27,22 +27,16 @@ namespace RandomizerMod.RC.StateVariables
             yield return vesselFragments;
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
-        {
-            if (spendAll) return TRUE;
-            else return CanSpendSoul(spendAmount, pm, localState, canDreamgate) ? TRUE : FALSE;
-        }
-
-        public override bool ModifyState(object sender, ProgressionManager pm, ref LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             if (spendAll)
             {
                 SpendAllSoul(pm, ref state, canDreamgate);
-                return true;
+                yield return state;
             }
             else
             {
-                return TrySpendSoul(spendAmount, pm, ref state, canDreamgate);
+                if (TrySpendSoul(spendAmount, pm, ref state, canDreamgate)) yield return state;
             }
         }
 

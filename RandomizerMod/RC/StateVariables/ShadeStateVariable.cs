@@ -10,7 +10,7 @@ namespace RandomizerMod.RC.StateVariables
      *   - a parameter equal to "noDG": indicates that dream gate is not possible after the skip
      *   - a parameter ending in "HITS": the head of the parameter must parse to int, and is the required shade hp. Defaults to 1.
     */
-    public class ShadeStateVariable : StateModifyingVariable
+    public class ShadeStateVariable : StateModifier
     {
         public override string Name { get; }
         public Term ShadeskipTerm;
@@ -77,25 +77,31 @@ namespace RandomizerMod.RC.StateVariables
             if (RequiredShadeHealth > 1) yield return MaskShardsTerm;
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
-        {
-            if (!pm.Has(ShadeskipTerm)) return FALSE;
-            if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm)) return CheckHealthRequirementDG(pm) ? TRUE : FALSE;
-            if (localState is null) return FALSE;
-            for (int i = 0; i < localState.Count; i++)
-            {
-                if (!localState[i].GetBool(UsedShadeBool) && !localState[i].GetBool(CannotShadeSkip) && CheckSoulRequirement(localState[i]) && CheckHealthRequirement(pm, localState[i])) return TRUE;
-            }
-            return FALSE;
-        }
 
-        public override bool ModifyState(object sender, ProgressionManager pm, ref LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
-            if (!pm.Has(ShadeskipTerm)) return false;
-            if (!state.GetBool(NoFlower)) state.SetBool(NoFlower, true); // don't require flower shade skips, also avoids thorny issues with reacquiring flower after setting up the shade.
-            if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm) && CheckHealthRequirementDG(pm)) return true;
-            if (state.GetBool(CannotShadeSkip) || !CheckSoulRequirement(state)) return false;
-            return CheckHealthRequirement(pm, ref state) && state.TrySetBoolTrue(UsedShadeBool);
+            if (!pm.Has(ShadeskipTerm))
+            {
+                yield break;
+            }
+
+            if (!state.GetBool(NoFlower))
+            {
+                state.SetBool(NoFlower, true); // don't require flower shade skips, also avoids thorny issues with reacquiring flower after setting up the shade.
+            }
+
+            if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm) && CheckHealthRequirementDG(pm))
+            {
+                yield return state;
+                yield break;
+            }
+
+            if (state.GetBool(CannotShadeSkip) || !CheckSoulRequirement(state) || !CheckHealthRequirement(pm, ref state) || !state.TrySetBoolTrue(UsedShadeBool))
+            {
+                yield break;
+            }
+
+            yield return state;
         }
 
         public bool CheckHealthRequirement(ProgressionManager pm, State state)

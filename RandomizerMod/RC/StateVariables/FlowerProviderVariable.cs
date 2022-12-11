@@ -8,7 +8,7 @@ namespace RandomizerMod.RC.StateVariables
      * Required Parameters: none
      * Optiional Parameters: none
     */
-    public class FlowerProviderVariable : StateModifyingVariable
+    public class FlowerProviderVariable : StateModifier
     {
         public override string Name { get; }
         public StateBool NoFlower;
@@ -48,15 +48,10 @@ namespace RandomizerMod.RC.StateVariables
             return Enumerable.Empty<Term>();
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
-        {
-            return TRUE;
-        }
-
-        public override bool ModifyState(object sender, ProgressionManager pm, ref LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             state.SetBool(NoFlower, false);
-            return true;
+            yield return state;
         }
     }
 }

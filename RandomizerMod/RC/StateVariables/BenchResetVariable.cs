@@ -8,7 +8,7 @@ namespace RandomizerMod.RC.StateVariables
      * Required Parameters: none
      * Optiional Parameters: none
     */
-    public class BenchResetVariable : StateModifyingVariable
+    public class BenchResetVariable : StateModifier
     {
         public override string Name { get; }
         public const string Prefix = "$BENCHRESET";
@@ -76,12 +76,7 @@ namespace RandomizerMod.RC.StateVariables
             yield return vesselFragments;
         }
 
-        public override int GetValue(object sender, ProgressionManager pm, StateUnion? localState)
-        {
-            return TRUE;
-        }
-
-        public override bool ModifyState(object sender, ProgressionManager pm, ref LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             if (fromBenchwarp && !pm.Has(salubrasBlessing))
             {
@@ -107,7 +102,7 @@ namespace RandomizerMod.RC.StateVariables
                     state = new(resetState);
                 }
             }
-            return true;
+            yield return state;
         }
     }
 }

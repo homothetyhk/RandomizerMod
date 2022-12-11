@@ -46,7 +46,7 @@
   "SPORESHROOM": "$EQUIPPEDCHARM[Spore_Shroom]",
   "MARKOFPRIDE": "$EQUIPPEDCHARM[Mark_of_Pride]",
   "LONGNAIL": "$EQUIPPEDCHARM[Longnail]",
-  "LONGMARK": "$EQUIPPEDCHARMS[Longnail,Mark_of_Pride]",
+  "LONGMARK": "$EQUIPPEDCHARM[Longnail] + $EQUIPPEDCHARM[Mark_of_Pride]",
 
   "FRAGILEHEART": "$EQUIPPEDCHARM[Fragile_Heart]",
   "FRAGILEGREED": "$EQUIPPEDCHARM[Fragile_Greed]",
