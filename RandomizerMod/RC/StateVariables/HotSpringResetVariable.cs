@@ -8,32 +8,20 @@ namespace RandomizerMod.RC.StateVariables
      * Required Parameters: none
      * Optiional Parameters: none
     */
-    public class HotSpringResetVariable : StateModifier
+    public class HotSpringResetVariable : StateResetter
     {
         public override string Name { get; }
-
-        public StateInt spentReserveSoul;
-        public StateInt spentSoul;
-        public StateInt spentHP;
-        public StateBool spentAllSoul;
-        public StateBool cannotRegainSoul;
+        protected override State ResetState { get; }
+        protected override string? ResetLogicProperty => "HotSpringResetCondition";
+        protected override bool OptIn => true;
         public const string Prefix = "$HOTSPRINGRESET";
 
-        protected HotSpringResetVariable(string name)
-        {
-            Name = name;
-        }
-
-        public HotSpringResetVariable(string name, LogicManager lm)
+        public HotSpringResetVariable(string name, LogicManager lm) : base(lm)
         {
             Name = name;
             try
             {
-                spentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
-                spentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
-                spentHP = lm.StateManager.GetIntStrict("SPENTHP");
-                spentAllSoul = lm.StateManager.GetBoolStrict("SPENTALLSOUL");
-                cannotRegainSoul = lm.StateManager.GetBoolStrict("CANNOTREGAINSOUL");
+                ResetState = lm.StateManager.GetNamedStateStrict("HotSpringResetState");
             }
             catch (Exception e)
             {
@@ -50,23 +38,6 @@ namespace RandomizerMod.RC.StateVariables
             }
             variable = default;
             return false;
-        }
-
-        public override IEnumerable<Term> GetTerms()
-        {
-            return Enumerable.Empty<Term>();
-        }
-
-        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
-        {
-            if (!state.GetBool(cannotRegainSoul))
-            {
-                state.SetBool(spentAllSoul, false);
-                state.SetInt(spentSoul, 0);
-                state.SetInt(spentReserveSoul, 0);
-            }
-            state.SetInt(spentHP, 0);
-            yield return state;
         }
     }
 }

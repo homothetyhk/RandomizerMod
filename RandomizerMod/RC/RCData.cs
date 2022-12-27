@@ -1,18 +1,10 @@
-﻿using System;
-using System.IO;
-using Newtonsoft.Json;
-using RandomizerCore;
-using RandomizerCore.Json;
-using RandomizerCore.Logic;
+﻿using RandomizerCore.Logic;
 using RandomizerMod.Settings;
-using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.RC
 {
     public static class RCData
     {
-        public static bool Loaded = false;
-
         private static readonly (LogicManagerBuilder.JsonType type, string fileName)[] files = new[]
         {
             (LogicManagerBuilder.JsonType.Terms, "terms"),
@@ -21,7 +13,7 @@ namespace RandomizerMod.RC
             (LogicManagerBuilder.JsonType.Transitions, "transitions"),
             (LogicManagerBuilder.JsonType.Locations, "locations"),
             (LogicManagerBuilder.JsonType.Items, "items"),
-            (LogicManagerBuilder.JsonType.StateFields, "state"),
+            (LogicManagerBuilder.JsonType.StateData, "state"),
         };
 
         /// <summary>

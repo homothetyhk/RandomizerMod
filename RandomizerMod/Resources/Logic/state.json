@@ -10,10 +10,7 @@
       "BROKEHEART",
       "BROKEGREED",
       "BROKESTRENGTH",
-      {
-        "Name": "NOFLOWER",
-        "DefaultValue": true
-      },
+      "NOFLOWER",
       "CHARM1",
       "CHARM2",
       "CHARM3",
@@ -105,11 +102,61 @@
       "SPENTHP",
       "SPENTBLUEHP",
       "USEDNOTCHES",
-      "MAXNOTCHCOST",
-      "HITSREMAINING"
+      "MAXNOTCHCOST"
     ]
   },
-  "Tags": {
-    
-  }
+  "Properties": {
+    "SPENTALLSOUL": {
+      "BenchResetCondition": "Salubra's_Blessing + CANNOTREGAINSOUL=0",
+      "HotSpringResetCondition": "CANNOTREGAINSOUL=0"
+    },
+    "CANNOTREGAINSOUL": {
+      "BenchResetCondition": "NONE"
+    },
+    "CANNOTSHADESKIP": {
+      "BenchResetCondition": "NONE"
+    },
+    "BROKEHEART": {
+      "BenchResetCondition": "NONE"
+    },
+    "BROKEGREED": {
+      "BenchResetCondition": "NONE"
+    },
+    "BROKESTRENGTH": {
+      "BenchResetCondition": "NONE"
+    },
+    "NOFLOWER": {
+      "DefaultValue": true,
+      "BenchResetCondition": "NONE"
+    },
+
+    "SPENTSOUL": {
+      "BenchResetCondition": "Salubra's_Blessing + CANNOTREGAINSOUL=0",
+      "HotSpringResetCondition": "CANNOTREGAINSOUL=0"
+    },
+    "SPENTRESERVESOUL": {
+      "BenchResetCondition": "Salubra's_Blessing + CANNOTREGAINSOUL=0",
+      "HotSpringResetCondition": "CANNOTREGAINSOUL=0"
+    },
+    "SOULLIMITER": {
+      "BenchResetCondition": "NONE"
+    },
+    "REQUIREDMAXSOUL": {
+      "BenchResetCondition": "NONE"
+    },
+    "SPENTHP": {
+      "HotSpringResetCondition": "ANY"
+    }
+  },
+  "NamedStates": {
+    "BenchResetState": {},
+    "BenchwarpResetState": {
+      "ModifiedBoolFields": {
+        "SPENTALLSOUL": true
+      }
+    },
+    "HotSpringResetState": {},
+    "DreamGateResetState": {}
+  },
+  "NamedStateUnions": {}
 }

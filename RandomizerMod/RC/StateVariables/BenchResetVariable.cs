@@ -6,43 +6,33 @@ namespace RandomizerMod.RC.StateVariables
     /*
      * Prefix: $BENCHRESET
      * Required Parameters: none
-     * Optiional Parameters: none
+     * Optional Parameters: "noDG" if dreamgate is not possible from the bench
     */
-    public class BenchResetVariable : StateModifier
+    public class BenchResetVariable : StateResetter
     {
         public override string Name { get; }
+        protected override State ResetState { get; }
+        protected override string ResetLogicProperty => "BenchResetCondition";
+
         public const string Prefix = "$BENCHRESET";
-        public bool fromBenchwarp;
         public bool canDreamgate;
-        public StateInt spentSoul;
-        public StateInt spentReserveSoul;
         public Term salubrasBlessing;
         public Term dreamnail;
         public Term essence;
-        public Term vesselFragments;
-        public StateBool usedShade;
-        public State resetState;
+        public State dgState;
 
-        protected BenchResetVariable(string name)
+        public BenchResetVariable(string name, bool canDreamgate, LogicManager lm) : base(lm)
         {
             Name = name;
-        }
-
-        public BenchResetVariable(string name, bool fromBenchwarp, bool canDreamgate, LogicManager lm)
-        {
-            Name = name;
-            this.fromBenchwarp = fromBenchwarp;
             this.canDreamgate = canDreamgate;
             try
             {
-                spentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
-                spentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
                 salubrasBlessing = lm.GetTermStrict("Salubra's_Blessing");
                 dreamnail = lm.GetTermStrict("DREAMNAIL");
                 essence = lm.GetTermStrict("ESSENCE");
-                vesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
-                usedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
-                resetState = GetResetState(lm.StateManager);
+
+                ResetState = lm.StateManager.GetNamedStateStrict("BenchResetState");
+                dgState = lm.StateManager.StartState;
             }
             catch (Exception e)
             {
@@ -54,18 +44,11 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
             {
-                variable = new BenchResetVariable(term, parameters.Contains("WARP"), !parameters.Contains("noDG"), lm);
+                variable = new BenchResetVariable(term, !parameters.Contains("noDG"), lm);
                 return true;
             }
             variable = default;
             return false;
-        }
-
-        public static State GetResetState(StateManager sm)
-        {
-            StateBuilder sb = new(sm.StartState);
-            // TODO: bench resettable field tag?
-            return new(sb);
         }
 
         public override IEnumerable<Term> GetTerms()
@@ -73,36 +56,15 @@ namespace RandomizerMod.RC.StateVariables
             yield return salubrasBlessing;
             yield return dreamnail;
             yield return essence;
-            yield return vesselFragments;
+            foreach (Term t in base.GetTerms()) yield return t;
         }
 
-        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)
         {
-            if (fromBenchwarp && !pm.Has(salubrasBlessing))
+            if (canDreamgate && pm.Has(dreamnail, 2) && pm.Has(essence))
             {
-                if (!canDreamgate || !pm.Has(dreamnail, 2) || !pm.Has(essence))
-                {
-                    state.SetInt(spentSoul, state.GetBool(usedShade) ? 66 : 99);
-                    state.SetInt(spentReserveSoul, pm.Get(vesselFragments) / 3 * 33);
-                }
+                yield return new(dgState);
             }
-
-            if (!LazyStateBuilder.IsComparablyLE(state, resetState))
-            {
-                if (!pm.Has(salubrasBlessing))
-                {
-                    int soul = state.GetInt(spentSoul);
-                    int rSoul = state.GetInt(spentReserveSoul);
-                    state = new(resetState);
-                    if (soul > 0) state.SetInt(spentSoul, soul);
-                    if (rSoul > 0) state.SetInt(spentReserveSoul, rSoul);
-                }
-                else
-                {
-                    state = new(resetState);
-                }
-            }
-            yield return state;
         }
     }
 }
