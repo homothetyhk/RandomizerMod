@@ -1,2 +1,10 @@
-- name: Introduction
+- name: Home
   href: intro.md
+- name: Connection Mod Guide
+  href: connection_guide.md
+- name: Request Builder Guide
+  href: request_builder.md
+- name: State Field Reference
+  href: state_field_ref.md
+- name: Logic Variable Reference
+  href: logic_variable_ref.md
