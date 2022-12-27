@@ -974,11 +974,11 @@ namespace RandomizerMod.Menu
             rm.OnSendEvent += (t, m) =>
             {
                 Log($"Randomizer Event: [{t}]");
+                if (m != null) Log(m);
                 if (t == RandomizerCore.RandoEventType.NewAttempt) ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
             };
             rm.OnError += e =>
             {
-                Log(e.Message);
                 if (e is RandomizerCore.Exceptions.UnreachableLocationException ule)
                 {
                     Log(ule.GetVerboseMessage());

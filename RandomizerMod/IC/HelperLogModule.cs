@@ -13,8 +13,8 @@ namespace RandomizerMod.IC
             if (!ready) return;
 
             LogManager.Write(BuildHelper(), "HelperLog.txt");
-            LogManager.Write(TD.pm.ToString(), "TrackerDataPM.txt");
-            LogManager.Write(TD_WSB.pm.ToString(), "TrackerDataWithoutSequenceBreaksPM.txt");
+            LogManager.Write(TD.pm.Dump(), "TrackerDataPM.txt");
+            LogManager.Write(TD_WSB.pm.Dump(), "TrackerDataWithoutSequenceBreaksPM.txt");
             LogManager.Write(RandomizerData.JsonUtil.Serialize(TD), "TrackerData.json");
             LogManager.Write(RandomizerData.JsonUtil.Serialize(TD_WSB), "TrackerDataWithoutSequenceBreaks.json");
         }

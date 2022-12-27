@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using RandomizerCore;
 using RandomizerCore.Logic;
+using RandomizerCore.Logic.StateLogic;
+using RandomizerCore.Updater;
 using RandomizerMod.Logging;
 using RandomizerMod.RC;
 using TrackerUpdate = RandomizerMod.IC.TrackerUpdate;
@@ -70,50 +72,39 @@ namespace RandomizerMod.Settings
 
         public void Reset()
         {
-            List<RandoModItem> items = obtainedItems.Where(i => !outOfLogicObtainedItems.Contains(i)).Select(i => ctx.itemPlacements[i].Item).ToList();
-
-            HashSet<string> transitionProgression = new();
-            foreach (KeyValuePair<string, string> kvp in visitedTransitions)
-            {
-                if (outOfLogicVisitedTransitions.Contains(kvp.Key)) continue;
-                transitionProgression.Add(kvp.Key);
-                transitionProgression.Add(kvp.Value);
-            }
-
+            LogManager.Write("Setting up TrackerData...", logFileName);
             pm = new(lm, ctx);
-            pm.Add(items);
-            pm.Add(transitionProgression.Select(t => lm.GetTransition(t)));
-            LogManager.Write(tw =>
-            {
-                tw.WriteLine("Setting up TrackerData...");
-                foreach ((RandoItem ri, RandoLocation rl) in obtainedItems
-                    .Where(i => !outOfLogicObtainedItems.Contains(i))
-                    .Select(i => ctx.itemPlacements[i]))
-                {
-                    tw.WriteLine($"Adding randomized item obtained from {rl.Name} to progression: {ri.Name}");
-                }
-                foreach (string t in transitionProgression)
-                {
-                    tw.WriteLine("Adding randomized transition to progression: " + t);
-                }
-            }, logFileName);
+
+            mu = pm.mu;
 
             // note: location costs are ignored in the tracking, to prevent providing unintended information, by using p.location.logic rather than p.location
             // it is assumed that no information is divulged from the regular location logic and transition logic
 
-            mu = pm.mu;
-            mu.AddEntries(lm.Waypoints.Select(w => new DelegateUpdateEntry(w, pm =>
+            pm.AfterAddItem += (i) =>
             {
-                AppendWaypointToDebug(w);
-                pm.Add(w);
-            })));
+                if (i is LogicWaypoint w && w.term.Type != TermType.State)
+                {
+                    AppendWaypointToDebug(w);
+                }
+                if (i is StateTransmittingUpdateEntry.StateSetter st)
+                {
+                    AppendTransmittedStateToDebug(st.term, st.value);
+                }
+                if (i is StateUpdateEntry.StateSetter su)
+                {
+                    AppendImprovedStateToDebug(su.term, su.value);
+                }
+            };
+
+            mu.AddWaypoints(lm.Waypoints);
+            mu.AddTransitions(lm.TransitionLookup.Values);
             mu.AddEntries(ctx.Vanilla.Select(v => new DelegateUpdateEntry(v.Location, pm =>
             {
                 AppendVanillaToDebug(v);
-                pm.Add(v.Item);
-                if (v.Location is ILogicItem li) // e.g. add vanilla source transition term to progression
+                pm.Add(v.Item, v.Location);
+                if (v.Location is ILocationWaypoint ilw)
                 {
-                    pm.Add(li);
+                    pm.Add(ilw.GetReachableEffect());
                 }
             })));
             if (ctx.itemPlacements != null)
@@ -127,6 +118,32 @@ namespace RandomizerMod.Settings
             }
 
             mu.StartUpdating(); // automatically handle tracking reachable unobtained locations/transitions and adding vanilla progression to pm
+
+            foreach (int i in obtainedItems)
+            {
+                if (outOfLogicObtainedItems.Contains(i)) continue;
+
+                (RandoModItem item, RandoModLocation loc) = ctx.itemPlacements[i];
+                AppendRandoItemToDebug(item, loc);
+                pm.Add(item, loc);
+            }
+
+            foreach (KeyValuePair<string, string> kvp in visitedTransitions)
+            {
+                if (outOfLogicVisitedTransitions.Contains(kvp.Key)) continue;
+
+                LogicTransition tt = lm.GetTransitionStrict(kvp.Value);
+                LogicTransition st = lm.GetTransitionStrict(kvp.Key);
+
+                if (!pm.Has(st.term))
+                {
+                    AppendProgressionTransitionToDebug(st);
+                    pm.Add(st.GetReachableEffect());
+                }
+
+                AppendTransitionTargetToDebug(tt, st);
+                pm.Add(tt, st);
+            }
         }
 
         private void HookTrackerUpdate()
@@ -157,10 +174,14 @@ namespace RandomizerMod.Settings
             {
                 (RandoItem item, RandoLocation location) = ctx.itemPlacements[id];
                 AppendRandoLocationToDebug(location);
+                if (location is ILocationWaypoint ilw)
+                {
+                    pm.Add(ilw.GetReachableEffect());
+                }
                 if (outOfLogicObtainedItems.Remove(id))
                 {
                     AppendRandoItemToDebug(item, location);
-                    pm.Add(item);
+                    pm.Add(item, location);
                 }
                 if (!clearedLocations.Contains(location.Name) && !previewedLocations.Contains(location.Name))
                 {
@@ -179,13 +200,13 @@ namespace RandomizerMod.Settings
                 if (!pm.Has(source.lt.term))
                 {
                     AppendProgressionTransitionToDebug(source.lt);
-                    pm.Add(source);
+                    pm.Add(source.GetReachableEffect());
                 }
                 
-                if (outOfLogicVisitedTransitions.Remove(source.Name) && !pm.Has(target.lt.term))
+                if (outOfLogicVisitedTransitions.Remove(source.Name))
                 {
-                    AppendProgressionTransitionToDebug(target.lt);
-                    pm.Add(target);
+                    AppendTransitionTargetToDebug(target.lt, source.lt);
+                    pm.Add(target, source);
                 }
 
                 if (!visitedTransitions.ContainsKey(source.Name))
@@ -202,7 +223,7 @@ namespace RandomizerMod.Settings
             if (AllowSequenceBreaks || rl.logic.CanGet(pm))
             {
                 AppendRandoItemToDebug(ri, rl);
-                pm.Add(ri);
+                pm.Add(ri, rl);
             }
             else
             {
@@ -235,14 +256,11 @@ namespace RandomizerMod.Settings
                 if (!pm.Has(st.term))
                 {
                     AppendProgressionTransitionToDebug(st);
-                    pm.Add(st);
+                    pm.Add(st.GetReachableEffect());
                 }
 
-                if (!pm.Has(tt.term))
-                {
-                    AppendProgressionTransitionToDebug(tt);
-                    pm.Add(tt);
-                }
+                AppendTransitionTargetToDebug(tt, st);
+                pm.Add(tt, st);
             }
             else
             {
@@ -298,6 +316,21 @@ namespace RandomizerMod.Settings
         private void AppendProgressionTransitionToDebug(LogicTransition lt)
         {
             AppendToDebug("Adding randomized transition to progression: " + lt.Name);
+        }
+
+        private void AppendTransitionTargetToDebug(LogicTransition target, LogicTransition source)
+        {
+            AppendToDebug($"Adding randomized transition pair {source.Name} --> {target.Name}");
+        }
+
+        private void AppendImprovedStateToDebug(Term target, StateUnion value)
+        {
+            AppendToDebug($"Improved {target.Name} state to {lm.StateManager.PrettyPrint(value)} via evaluation.");
+        }
+
+        private void AppendTransmittedStateToDebug(Term target, StateUnion value)
+        {
+            AppendToDebug($"Improved {target.Name} state to {lm.StateManager.PrettyPrint(value)} via transmission.");
         }
 
         public bool HasVisited(string transition) => visitedTransitions.ContainsKey(transition);

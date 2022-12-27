@@ -40,20 +40,20 @@ namespace RandomizerMod.RC
             }
             else if (hasLeftDash && hasRightDash) // full shade cloak behavior
             {
-                pm.Incr(LeftDashTerm.Id, 1);
-                pm.Incr(RightDashTerm.Id, 1);
+                pm.Incr(LeftDashTerm, 1);
+                pm.Incr(RightDashTerm, 1);
                 return;
             }
             else if (LeftBiased)
             {
                 if (!hasLeftDash && hasAnyShadowDash) // left shade cloak behavior
                 {
-                    pm.Incr(LeftDashTerm.Id, 2);
+                    pm.Incr(LeftDashTerm, 2);
                     return;
                 }
                 else  // left cloak behavior
                 {
-                    pm.Incr(LeftDashTerm.Id, 1);
+                    pm.Incr(LeftDashTerm, 1);
                     return;
                 }
             }
@@ -61,12 +61,12 @@ namespace RandomizerMod.RC
             {
                 if (!hasRightDash && hasAnyShadowDash) // right shade cloak behavior
                 {
-                    pm.Incr(RightDashTerm.Id, 2);
+                    pm.Incr(RightDashTerm, 2);
                     return;
                 }
                 else // right cloak behavior
                 {
-                    pm.Incr(RightDashTerm.Id, 1);
+                    pm.Incr(RightDashTerm, 1);
                     return;
                 }
             }
