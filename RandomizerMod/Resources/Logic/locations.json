@@ -141,7 +141,7 @@
   },
   {
     "name": "Mark_of_Pride",
-    "logic": "Fungus2_31[left1] + Defeated_Mantis_Lords + (LEFTCLAW | WINGS | RIGHTCLAW + (BACKGROUNDPOGOS | $SHADESKIP))"
+    "logic": "(Fungus2_31[left1] + Defeated_Mantis_Lords | Bench-Mantis_Village) + (LEFTCLAW | WINGS | RIGHTCLAW + (BACKGROUNDPOGOS | $SHADESKIP))"
   },
   {
     "name": "Sharp_Shadow",
@@ -385,7 +385,7 @@
   },
   {
     "name": "Geo_Chest-Mantis_Lords",
-    "logic": "Fungus2_31[left1] + Defeated_Mantis_Lords + (ANYCLAW | WINGS)"
+    "logic": "(Fungus2_31[left1] + Defeated_Mantis_Lords | Bench-Mantis_Village) + (ANYCLAW | WINGS)"
   },
   {
     "name": "Geo_Chest-Resting_Grounds",
@@ -481,7 +481,7 @@
   },
   {
     "name": "Rancid_Egg-Waterways_Main",
-    "logic": "Waterways_02 + (ANYCLAW | WINGS | Waterways_02[top1] | Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3)"
+    "logic": "Waterways_02 + (ANYCLAW | WINGS) | Waterways_02[top1] | Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Bench-Waterways"
   },
   {
     "name": "Rancid_Egg-Waterways_West_Bluggsac",
@@ -577,7 +577,7 @@
   },
   {
     "name": "Hallownest_Seal-Mantis_Lords",
-    "logic": "Fungus2_31[left1] + Defeated_Mantis_Lords + (ANYCLAW | WINGS)"
+    "logic": "(Fungus2_31[left1] + Defeated_Mantis_Lords | Bench-Mantis_Village) + (ANYCLAW | WINGS)"
   },
   {
     "name": "Hallownest_Seal-Resting_Grounds_Catacombs",
@@ -725,7 +725,7 @@
   },
   {
     "name": "Boss_Essence-Marmu",
-    "logic": "(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH))) + DREAMNAIL + Defeated_Marmu"
+    "logic": "(Fungus3_40[top1] | ((Fungus3_40[right1] | Can_Stag + Queen's_Gardens_Stag | Bench-Gardens_Stag) + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH))) + DREAMNAIL + Defeated_Marmu"
   },
   {
     "name": "Boss_Essence-No_Eyes",
@@ -1033,7 +1033,7 @@
   },
   {
     "name": "Queen's_Gardens_Stag",
-    "logic": "Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[2,before:ROOMSOUL]) | Fungus3_40[right1] | (Queen's_Gardens_Stag + Can_Stag)"
+    "logic": "Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[2,before:ROOMSOUL]) | Fungus3_40[right1] | Queen's_Gardens_Stag + Can_Stag | Bench-Gardens_Stag"
   },
   {
     "name": "City_Storerooms_Stag",
@@ -1533,11 +1533,11 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Herrah",
@@ -1697,7 +1697,7 @@
   },
   {
     "name": "Geo_Rock-Mantis_Outskirts_Alcove",
-    "logic": "Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL] | $SHADESKIP)"
+    "logic": "Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL] | $SHADESKIP) | Bench-Bretta"
   },
   {
     "name": "Geo_Rock-Mantis_Village_After_Lever",
@@ -2173,7 +2173,7 @@
   },
   {
     "name": "Soul_Totem-Below_Marmu",
-    "logic": "(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH)))"
+    "logic": "Fungus3_40[top1] | (Fungus3_40[right1] | Can_Stag + Queen's_Gardens_Stag | Bench-Gardens_Stag) + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH)"
   },
   {
     "name": "Soul_Totem-Upper_Crystal_Peak",

@@ -70,11 +70,11 @@
   },
   {
     "name": "Upper_Tram",
-    "logic": "TRAM + (Crossroads_46[left1] | Crossroads_46b[right1])"
+    "logic": "TRAM + (Crossroads_46[left1] | Crossroads_46b[right1]) | Bench-Upper_Tram"
   },
   {
     "name": "Lower_Tram",
-    "logic": "TRAM + (Abyss_03 | Abyss_03_b | Abyss_03_c)"
+    "logic": "TRAM + (Abyss_03 | Abyss_03_b | Abyss_03_c) | Bench-Lower_Tram"
   },
   {
     "name": "Left_Elevator",
@@ -317,7 +317,16 @@
   },
   {
     "name": "Can_Bench",
-    "logic": "Town | Room_nailmaster[left1] | Crossroads_30[left1] | Crossroads_47[right1] | Crossroads_04[door_charmshop] | Crossroads_ShamanTemple[left1] | Room_temple[left1] + Opened_Black_Egg_Temple | Fungus1_01b[left1] | Fungus1_37[left1] | Fungus1_31[bot1] | Fungus1_16_alt[right1] | Room_Slug_Shrine[left1] | Fungus1_15[door1] | Fungus3_archive[bot1] + (ANYCLAW | WINGS) | Fungus2_02[right1] | Fungus2_26[left1] | Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Fungus2_31[left1] + Defeated_Mantis_Lords | Ruins1_02[bot1] + (ANYCLAW | WINGS) | Ruins1_02[top1] | Ruins1_31[left1] + Can_Replenish_Geo | Ruins1_29[left1] | Ruins1_18[right2] | Ruins2_08[left1] | Ruins_Bathhouse[door1] | Deepnest_30[left1] | Deepnest_14[left1] | Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS])) | Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW)) | Abyss_18[right1] + Can_Replenish_Geo | Abyss_22[left1] | Deepnest_East_06[door1] | Deepnest_East_13[bot1] | Room_Colosseum_02[top1] | Room_Colosseum_02[top2] | Hive_01[right2] | Mines_29[left1] | Mines_18[left1] + Defeated_Crystal_Guardian | RestingGrounds_09[left1] | RestingGrounds_12[door_Mansion] | Fungus1_24[left1] + (ANYCLAW | WINGS) | Fungus3_50[right1] + Can_Replenish_Geo | Fungus3_40[right1] | White_Palace_01 | White_Palace_03_hub | White_Palace_06[top1] | Upper_Tram | Lower_Tram",
+    "logic": "Bench-Dirtmouth | Bench-Mato | Bench-Crossroads_Hot_Springs | Bench-Crossroads_Stag | Bench-Salubra | Bench-Black_Egg_Temple | Bench-Waterfall | Bench-Stone_Sanctuary | Bench-Greenpath_Toll | Bench-Greenpath_Stag | Bench-Lake_of_Unn | Bench-Sheo | Bench-Archives | Bench-Queen's_Station | Bench-Leg_Eater | Bench-Bretta | Bench-Mantis_Village | Bench-Quirrel | Bench-City_Toll | Bench-City_Storerooms | Bench-Watcher's_Spire | Bench-King's_Station | Bench-Pleasure_House | Bench-Waterways | Bench-Godhome_Atrium | Bench-Godhome_Roof | Bench-Hall_of_Gods | Bench-Deepnest_Hot_Springs | Bench-Failed_Tramway | Bench-Basin_Toll | Bench-Hidden_Station | Bench-Oro | Bench-Camp | Bench-Colosseum | Bench-Hive | Bench-Peak_Dark_Room | Bench-Crystal_Guardian | Bench-Grounds_Stag | Bench-Grey_Mourner | Bench-Gardens_Cornifer | Bench-Gardens_Toll | Bench-Gardens_Stag | Can_Warp_To_DG_Bench | Bench-Ancestral_Mound | Bench-Beast's_Den | Bench-Palace_Entrance | Bench-Palace_Atrium | Bench-Palace_Balcony | Bench-Upper_Tram | Bench-Lower_Tram"
+  },
+  {
+    "name": "Can_Warp_To_DG_Bench",
+    "logic": "INCLUDEBENCHWARPSELECT + (Bench-Dirtmouth | Bench-Mato | Bench-Crossroads_Hot_Springs | Bench-Crossroads_Stag | Bench-Salubra | Bench-Black_Egg_Temple | Bench-Waterfall | Bench-Stone_Sanctuary | Bench-Greenpath_Toll | Bench-Greenpath_Stag | Bench-Lake_of_Unn | Bench-Sheo | Bench-Archives | Bench-Queen's_Station | Bench-Leg_Eater | Bench-Bretta | Bench-Mantis_Village | Bench-Quirrel | Bench-City_Toll | Bench-City_Storerooms | Bench-Watcher's_Spire | Bench-King's_Station | Bench-Pleasure_House | Bench-Waterways | Bench-Godhome_Atrium | Bench-Godhome_Roof | Bench-Hall_of_Gods | Bench-Deepnest_Hot_Springs | Bench-Failed_Tramway | Bench-Basin_Toll | Bench-Hidden_Station | Bench-Oro | Bench-Camp | Bench-Colosseum | Bench-Hive | Bench-Peak_Dark_Room | Bench-Crystal_Guardian | Bench-Grounds_Stag | Bench-Grey_Mourner | Bench-Gardens_Cornifer | Bench-Gardens_Toll | Bench-Gardens_Stag)",
+    "Stateless": true
+  },
+  {
+    "name": "Can_Warp_To_Bench",
+    "logic": "INCLUDEBENCHWARPSELECT + (Can_Warp_To_DG_Bench | Bench-Ancestral_Mound | Bench-Beast's_Den | Bench-Palace_Entrance | Bench-Palace_Atrium | Bench-Palace_Balcony | Bench-Upper_Tram | Bench-Lower_Tram)",
     "Stateless": true
   },
   {
@@ -336,7 +345,7 @@
   },
   {
     "name": "Can_Deliver_Flower",
-    "logic": "Fungus3_49[right1] + (LEFTDASH | LEFTSUPERDASH + (RIGHTCLAW | WINGS) | WINGS + DIFFICULTSKIPS) + $FLOWER",
+    "logic": "Fungus3_49[right1] + (LEFTDASH | LEFTSUPERDASH + (RIGHTCLAW | WINGS) | WINGS + DIFFICULTSKIPS) + NOFLOWER=FALSE",
     "Stateless": true
   },
   {
@@ -649,13 +658,210 @@
     "logic": "Room_temple[left1] + DREAMER3",
     "Stateless": true
   },
+  // note: bench waypoints may be modified or removed by connections which modify benches. They should not be relied on as room waypoints.
+  {
+    "name": "Bench-Dirtmouth",
+    "logic": "Town + $BENCHRESET | WARPSTARTTOBENCH + Bench-Dirtmouth"
+  },
+  {
+    "name": "Bench-Mato",
+    "logic": "Room_nailmaster[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Mato"
+  },
+  {
+    "name": "Bench-Crossroads_Hot_Springs",
+    "logic": "Crossroads_30[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Crossroads_Hot_Springs"
+  },
+  {
+    "name": "Bench-Crossroads_Stag",
+    "logic": "Crossroads_47[right1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Crossroads_Stag"
+  },
+  {
+    "name": "Bench-Salubra",
+    "logic": "Crossroads_04[door_charmshop] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Salubra"
+  },
+  {
+    "name": "Bench-Ancestral_Mound",
+    "logic": "Crossroads_ShamanTemple[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Ancestral_Mound"
+  },
+  {
+    "name": "Bench-Black_Egg_Temple",
+    "logic": "Room_temple[left1] + Opened_Black_Egg_Temple + $BENCHRESET | WARPSTARTTOBENCH + Bench-Black_Egg_Temple"
+  },
+  {
+    "name": "Bench-Waterfall",
+    "logic": "(Fungus1_01b[left1] | Fungus1_01b[right1]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Waterfall"
+  },
+  {
+    "name": "Bench-Stone_Sanctuary",
+    "logic": "Fungus1_37[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Stone_Sanctuary"
+  },
+  {
+    "name": "Bench-Greenpath_Toll",
+    "logic": "(Fungus1_31[bot1] | Fungus1_31[right1] | Fungus1_31[top1]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Greenpath_Toll"
+  },
+  {
+    "name": "Bench-Greenpath_Stag",
+    "logic": "Fungus1_16_alt[right1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Greenpath_Stag"
+  },
+  {
+    "name": "Bench-Lake_of_Unn",
+    "logic": "Room_Slug_Shrine[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Lake_of_Unn"
+  },
+  {
+    "name": "Bench-Sheo",
+    "logic": "Fungus1_15[door1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Sheo"
+  },
+  {
+    "name": "Bench-Archives",
+    "logic": "Fungus3_archive[bot1] + (ANYCLAW | WINGS) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Archives"
+  },
+  {
+    "name": "Bench-Queen's_Station",
+    "logic": "Fungus2_02[right1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Queen's_Station"
+  },
+  {
+    "name": "Bench-Leg_Eater",
+    "logic": "Fungus2_26[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Leg_Eater"
+  },
+  {
+    "name": "Bench-Bretta",
+    "logic": "(Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | AIRSTALL + ROOMSOUL | TERMINALSHADESKIPS)) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Bretta"
+  },
+  {
+    "name": "Bench-Mantis_Village",
+    "logic": "Fungus2_31[left1] + Defeated_Mantis_Lords + $BENCHRESET | WARPSTARTTOBENCH + Bench-Mantis_Village"
+  },
+  {
+    "name": "Bench-Quirrel",
+    "logic": "(Ruins1_02[bot1] + (ANYCLAW | WINGS) | Ruins1_02[top1]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Quirrel"
+  },
+  {
+    "name": "Bench-City_Toll",
+    "logic": "Ruins1_31[left1] + Can_Replenish_Geo + $BENCHRESET | WARPSTARTTOBENCH + Bench-City_Toll"
+  },
+  {
+    "name": "Bench-City_Storerooms",
+    "logic": "Ruins1_29[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-City_Storerooms"
+  },
+  {
+    "name": "Bench-Watcher's_Spire",
+    "logic": "Ruins1_18[right2] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Watcher's_Spire"
+  },
+  {
+    "name": "Bench-King's_Station",
+    "logic": "Ruins2_08[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-King's_Station"
+  },
+  {
+    "name": "Bench-Pleasure_House",
+    "logic": "Ruins_Bathhouse[door1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Pleasure_House"
+  },
+  {
+    "name": "Bench-Waterways",
+    "logic": "(Waterways_02[top3] + QUAKE | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW))) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Waterways"
+  },
+  {
+    "name": "Bench-Godhome_Atrium",
+    "logic": "GG_Atrium + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | WINGS) | LEFTCLAW + WINGS) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Godhome_Atrium"
+  },
+  {
+    "name": "Bench-Godhome_Roof",
+    "logic": "FALSE + $BENCHRESET | WARPSTARTTOBENCH + Bench-Godhome_Roof"
+  },
+  {
+    "name": "Bench-Hall_of_Gods",
+    "logic": "GG_Workshop + ANYCLAW + $BENCHRESET | WARPSTARTTOBENCH + Bench-Hall_of_Gods"
+  },
+  {
+    "name": "Bench-Deepnest_Hot_Springs",
+    "logic": "Deepnest_30[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Deepnest_Hot_Springs"
+  },
+  {
+    "name": "Bench-Failed_Tramway",
+    "logic": "Deepnest_14[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Failed_Tramway"
+  },
+  {
+    "name": "Bench-Beast's_Den",
+    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | WINGS + ANYCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Beast's_Den"
+  },
+  {
+    "name": "Bench-Basin_Toll",
+    "logic": "Abyss_18[right1] + Can_Replenish_Geo + $BENCHRESET | WARPSTARTTOBENCH + Bench-Basin_Toll"
+  },
+  {
+    "name": "Bench-Hidden_Station",
+    "logic": "Abyss_22[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Hidden_Station"
+  },
+  {
+    "name": "Bench-Oro",
+    "logic": "Deepnest_East_06[door1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Oro"
+  },
+  {
+    "name": "Bench-Camp",
+    "logic": "Deepnest_East_13[bot1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Camp"
+  },
+  {
+    "name": "Bench-Colosseum",
+    "logic": "(Room_Colosseum_02[top1] | Room_Colosseum_02[top2]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Colosseum"
+  },
+  {
+    "name": "Bench-Hive",
+    "logic": "Hive_01[right2] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Hive"
+  },
+  {
+    "name": "Bench-Peak_Dark_Room",
+    "logic": "Mines_29[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Peak_Dark_Room"
+  },
+  {
+    "name": "Bench-Crystal_Guardian",
+    "logic": "Mines_18[left1] + Defeated_Crystal_Guardian + $BENCHRESET | WARPSTARTTOBENCH + Bench-Crystal_Guardian"
+  },
+  {
+    "name": "Bench-Grounds_Stag",
+    "logic": "RestingGrounds_09[left1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Grounds_Stag"
+  },
+  {
+    "name": "Bench-Grey_Mourner",
+    "logic": "RestingGrounds_12[door_Mansion] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Grey_Mourner"
+  },
+  {
+    "name": "Bench-Gardens_Cornifer",
+    "logic": "Fungus1_24[left1] + (ANYCLAW | WINGS) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Gardens_Cornifer"
+  },
+  {
+    "name": "Bench-Gardens_Toll",
+    "logic": "Fungus3_50[right1] + Can_Replenish_Geo + $BENCHRESET | WARPSTARTTOBENCH + Bench-Gardens_Toll"
+  },
+  {
+    "name": "Bench-Gardens_Stag",
+    "logic": "Fungus3_40[right1] | Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL,after:ROOMSOUL]) | Can_Stag + Queen's_Gardens_Stag"
+  },
+  {
+    "name": "Bench-Palace_Entrance",
+    "logic": "White_Palace_01 + $BENCHRESET | WARPSTARTTOBENCH + Bench-Palace_Entrance"
+  },
+  {
+    "name": "Bench-Palace_Atrium",
+    "logic": "White_Palace_03_hub + $BENCHRESET | WARPSTARTTOBENCH + Bench-Palace_Atrium"
+  },
+  {
+    "name": "Bench-Palace_Balcony",
+    "logic": "White_Palace_06[top1] + $BENCHRESET | WARPSTARTTOBENCH + Bench-Palace_Balcony"
+  },
+  {
+    "name": "Bench-Upper_Tram",
+    "logic": "Upper_Tram + $BENCHRESET | WARPSTARTTOBENCH + Bench-Upper_Tram"
+  },
+  {
+    "name": "Bench-Lower_Tram",
+    "logic": "Lower_Tram + $BENCHRESET | WARPSTARTTOBENCH + Bench-Lower_Tram"
+  },
   {
     "name": "Tutorial_01",
     "logic": "Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]"
   },
   {
     "name": "Town",
-    "logic": "Town[left1] | Town[top1] | Town[bot1] | Town[right1] | Town[door_station] | Town[door_sly] | Town[door_mapper] | Town[door_bretta] | Town[door_jiji] | Town[room_grimm] | Town[room_divine]"
+    "logic": "Town[left1] | Town[top1] | Town[bot1] | Town[right1] | Town[door_station] | Town[door_sly] | Town[door_mapper] | Town[door_bretta] | Town[door_jiji] | Town[room_grimm] | Town[room_divine] | Bench-Dirtmouth"
   },
   {
     "name": "Crossroads_03",
@@ -747,7 +953,7 @@
   },
   {
     "name": "Fungus2_13",
-    "logic": "Fungus2_13[top1] | Fungus2_13[left2] | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL,after:ROOMSOUL] | PRECISEMOVEMENT + $SHADESKIP)"
+    "logic": "Fungus2_13[top1] | Fungus2_13[left2] | Fungus2_13[left3] + (RIGHTDASH | ACID | WINGS | LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL,after:ROOMSOUL] | PRECISEMOVEMENT + $SHADESKIP) | Bench-Bretta + (RIGHTDASH | RIGHTSUPERDASH | ANYCLAW | WINGS | ENEMYPOGOS | PRECISEMOVEMENT)"
   },
   {
     "name": "Fungus2_14",
@@ -891,7 +1097,7 @@
   },
   {
     "name": "Waterways_02",
-    "logic": "Waterways_02[top1] | Waterways_02[top2] | Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Waterways_02[bot1] | Waterways_02[bot2]"
+    "logic": "Waterways_02[top1] | Waterways_02[top2] | Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Waterways_02[bot1] | Waterways_02[bot2] | Bench-Waterways"
   },
   {
     "name": "Waterways_04b",
@@ -915,11 +1121,11 @@
   },
   {
     "name": "GG_Atrium",
-    "logic": "Warp-Junk_Pit_to_Godhome + (RIGHTCLAW | WINGS | LEFTCLAW + RIGHTSUPERDASH) | GG_Workshop + (LEFTCLAW | RIGHTCLAW + WINGS)"
+    "logic": "Warp-Junk_Pit_to_Godhome + (RIGHTCLAW | WINGS | LEFTCLAW + RIGHTSUPERDASH) | GG_Workshop + (LEFTCLAW | RIGHTCLAW + WINGS) | Bench-Godhome_Atrium"
   },
   {
     "name": "GG_Workshop",
-    "logic": "GG_Atrium"
+    "logic": "GG_Atrium | Bench-Hall_of_Gods"
   },
   {
     "name": "Ruins1_03",
@@ -1055,11 +1261,11 @@
   },
   {
     "name": "White_Palace_01",
-    "logic": "White_Palace_01[left1] + (WINGS | RIGHTCLAW + ANYDASH)  | (White_Palace_01[right1] + (LEFTDASH | LEFTSUPERDASH + RIGHTCLAW | LEFTCLAW + PRECISEMOVEMENT | WINGS) | White_Palace_01[top1] + Palace_Entrance_Lantern_Lit) + (LEFTDASH + (BACKGROUNDPOGOS | LEFTCLAW) | LEFTSUPERDASH + RIGHTCLAW | WINGS)"
+    "logic": "White_Palace_01[left1] + (WINGS | RIGHTCLAW + ANYDASH)  | (White_Palace_01[right1] + (LEFTDASH | LEFTSUPERDASH + RIGHTCLAW | LEFTCLAW + PRECISEMOVEMENT | WINGS) | White_Palace_01[top1] + Palace_Entrance_Lantern_Lit) + (LEFTDASH + (BACKGROUNDPOGOS | LEFTCLAW) | LEFTSUPERDASH + RIGHTCLAW | WINGS) | Bench-Palace_Entrance"
   },
   {
     "name": "White_Palace_03_hub",
-    "logic": "White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + ANYCLAW) | White_Palace_03_hub[right1] | White_Palace_03_hub[top1] + Palace_Atrium_Gates_Opened"
+    "logic": "White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + ANYCLAW) | White_Palace_03_hub[right1] | White_Palace_03_hub[top1] + Palace_Atrium_Gates_Opened | Bench-Palace_Atrium"
   },
   {
     "name": "White_Palace_13",

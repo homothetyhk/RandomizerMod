@@ -2,7 +2,7 @@
   {
     "sceneName": "Room_temple",
     "gateName": "left1",
-    "logic": "Room_temple[left1]",
+    "logic": "Room_temple[left1] | Bench-Black_Egg_Temple",
     "oneWayType": "TwoWay",
     "Name": "Room_temple[left1]"
   },
@@ -268,7 +268,7 @@
   {
     "sceneName": "Crossroads_04",
     "gateName": "door_charmshop",
-    "logic": "Crossroads_04[door_charmshop] | Crossroads_04[right1] | (Crossroads_04[door1] | Crossroads_04[door_Mender_House] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW | RIGHTDASH | WINGS | RIGHTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL] | $SHADESKIP | INFECTED)",
+    "logic": "Crossroads_04[door_charmshop] | Crossroads_04[right1] | (Crossroads_04[door1] | Crossroads_04[door_Mender_House] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW | RIGHTDASH | WINGS | RIGHTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL] | $SHADESKIP | INFECTED) | Bench-Salubra",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_04[door_charmshop]"
   },
@@ -639,7 +639,7 @@
   {
     "sceneName": "Crossroads_30",
     "gateName": "left1",
-    "logic": "Crossroads_30[left1]",
+    "logic": "Crossroads_30[left1] | Bench-Crossroads_Hot_Springs",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_30[left1]"
   },
@@ -814,14 +814,14 @@
   {
     "sceneName": "Crossroads_ShamanTemple",
     "gateName": "left1",
-    "logic": "Crossroads_ShamanTemple[left1]",
+    "logic": "Crossroads_ShamanTemple[left1] | Bench-Ancestral_Mound",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_ShamanTemple[left1]"
   },
   {
     "sceneName": "Crossroads_47",
     "gateName": "right1",
-    "logic": "Crossroads_47[right1] | Can_Stag + Crossroads_Stag",
+    "logic": "Crossroads_47[right1] | Can_Stag + Crossroads_Stag | Bench-Crossroads_Stag",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_47[right1]"
   },
@@ -912,14 +912,14 @@
   {
     "sceneName": "Fungus1_01b",
     "gateName": "left1",
-    "logic": "Fungus1_01b[left1] | Fungus1_01b[right1]",
+    "logic": "Fungus1_01b[left1] | Fungus1_01b[right1] | Bench-Waterfall",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_01b[left1]"
   },
   {
     "sceneName": "Fungus1_01b",
     "gateName": "right1",
-    "logic": "Fungus1_01b[right1] | Fungus1_01b[left1]",
+    "logic": "Fungus1_01b[right1] | Fungus1_01b[left1] | Bench-Waterfall",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_01b[right1]"
   },
@@ -1150,7 +1150,7 @@
   {
     "sceneName": "Fungus1_15",
     "gateName": "door1",
-    "logic": "Fungus1_15[door1] | Fungus1_15[right1] + (RIGHTCLAW + WINGS | RIGHTSUPERDASH + (LEFTCLAW | WINGS | $SHADESKIP[2HITS] + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[3HITS]) | RIGHTDASH + (LEFTCLAW | WINGS | RIGHTCLAW + (DAMAGEBOOSTS + $TAKEDAMAGE | PRECISEMOVEMENT + OBSCURESKIPS) | $SHADESKIP + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[2HITS]))",
+    "logic": "Fungus1_15[door1] | Fungus1_15[right1] + (RIGHTCLAW + WINGS | RIGHTSUPERDASH + (LEFTCLAW | WINGS | $SHADESKIP[2HITS] + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[3HITS]) | RIGHTDASH + (LEFTCLAW | WINGS | RIGHTCLAW + (DAMAGEBOOSTS + $TAKEDAMAGE | PRECISEMOVEMENT + OBSCURESKIPS) | $SHADESKIP + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[2HITS])) | Bench-Sheo",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_15[door1]"
   },
@@ -1164,7 +1164,7 @@
   {
     "sceneName": "Fungus1_16_alt",
     "gateName": "right1",
-    "logic": "Fungus1_16_alt[right1] | Can_Stag + Greenpath_Stag",
+    "logic": "Fungus1_16_alt[right1] | Can_Stag + Greenpath_Stag | Bench-Greenpath_Stag",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_16_alt[right1]"
   },
@@ -1388,21 +1388,21 @@
   {
     "sceneName": "Fungus1_31",
     "gateName": "top1",
-    "logic": "Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]",
+    "logic": "Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1] | Bench-Greenpath_Toll",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_31[top1]"
   },
   {
     "sceneName": "Fungus1_31",
     "gateName": "bot1",
-    "logic": "Fungus1_31[bot1] | Fungus1_31[top1] | Fungus1_31[right1]",
+    "logic": "Fungus1_31[bot1] | Fungus1_31[top1] | Fungus1_31[right1] | Bench-Greenpath_Toll",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_31[bot1]"
   },
   {
     "sceneName": "Fungus1_31",
     "gateName": "right1",
-    "logic": "Fungus1_31[right1] | Fungus1_31[top1] | Fungus1_31[bot1]",
+    "logic": "Fungus1_31[right1] | Fungus1_31[top1] | Fungus1_31[bot1] | Bench-Greenpath_Toll",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_31[right1]"
   },
@@ -1465,7 +1465,7 @@
   {
     "sceneName": "Fungus1_37",
     "gateName": "left1",
-    "logic": "Fungus1_37[left1]",
+    "logic": "Fungus1_37[left1] | Bench-Stone_Sanctuary",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_37[left1]"
   },
@@ -1479,7 +1479,7 @@
   {
     "sceneName": "Room_Slug_Shrine",
     "gateName": "left1",
-    "logic": "Room_Slug_Shrine[left1]",
+    "logic": "Room_Slug_Shrine[left1] | Bench-Lake_of_Unn",
     "oneWayType": "TwoWay",
     "Name": "Room_Slug_Shrine[left1]"
   },
@@ -1738,14 +1738,14 @@
   {
     "sceneName": "Fungus3_archive",
     "gateName": "left1",
-    "logic": "Fungus3_archive[left1] | Fungus3_archive[bot1]",
+    "logic": "Fungus3_archive[left1] | Fungus3_archive[bot1] | Bench-Archives",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_archive[left1]"
   },
   {
     "sceneName": "Fungus3_archive",
     "gateName": "bot1",
-    "logic": "Fungus3_archive[bot1] | Fungus3_archive[left1]",
+    "logic": "Fungus3_archive[bot1] | Fungus3_archive[left1] | Bench-Archives",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_archive[bot1]"
   },
@@ -1787,7 +1787,7 @@
   {
     "sceneName": "Fungus2_02",
     "gateName": "right1",
-    "logic": "Fungus2_02[right1] | Can_Stag + Queen's_Station_Stag",
+    "logic": "Fungus2_02[right1] | Can_Stag + Queen's_Station_Stag | Bench-Queen's_Station",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_02[right1]"
   },
@@ -2025,7 +2025,7 @@
   {
     "sceneName": "Fungus2_13",
     "gateName": "left3",
-    "logic": "Fungus2_13[left3] | Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT)",
+    "logic": "Fungus2_13[left3] | Fungus2_13 + (LEFTDASH | LEFTSUPERDASH | ANYCLAW | WINGS | ACID | ENEMYPOGOS | PRECISEMOVEMENT) | Bench-Bretta",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_13[left3]"
   },
@@ -2172,7 +2172,7 @@
   {
     "sceneName": "Fungus2_26",
     "gateName": "left1",
-    "logic": "Fungus2_26[left1]",
+    "logic": "Fungus2_26[left1] | Bench-Leg_Eater",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_26[left1]"
   },
@@ -2221,7 +2221,7 @@
   {
     "sceneName": "Fungus2_31",
     "gateName": "left1",
-    "logic": "Fungus2_31[left1]",
+    "logic": "Fungus2_31[left1] | Bench-Mantis_Village + Defeated_Mantis_Lords",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_31[left1]"
   },
@@ -2410,7 +2410,7 @@
   {
     "sceneName": "Deepnest_Spider_Town",
     "gateName": "left1",
-    "logic": "Deepnest_Spider_Town[left1]",
+    "logic": "Deepnest_Spider_Town[left1] | Bench-Beast's_Den",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_Spider_Town[left1]"
   },
@@ -2424,7 +2424,7 @@
   {
     "sceneName": "Deepnest_14",
     "gateName": "left1",
-    "logic": "Deepnest_14[left1] | Deepnest_14 + (WINGS | ((RIGHTCLAW | RIGHTDASH | (LEFTCLAW + RIGHTSUPERDASH)) + (LEFTCLAW | LEFTDASH | (RIGHTCLAW + LEFTSUPERDASH))))",
+    "logic": "Deepnest_14[left1] | Deepnest_14 + (WINGS | ((RIGHTCLAW | RIGHTDASH | (LEFTCLAW + RIGHTSUPERDASH)) + (LEFTCLAW | LEFTDASH | (RIGHTCLAW + LEFTSUPERDASH)))) | Bench-Failed_Tramway",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_14[left1]"
   },
@@ -2550,7 +2550,7 @@
   {
     "sceneName": "Deepnest_30",
     "gateName": "left1",
-    "logic": "Deepnest_30[left1] | Deepnest_30[right1] | Deepnest_30[top1] + (ANYCLAW | WINGS)",
+    "logic": "Deepnest_30[left1] | Deepnest_30[right1] | Deepnest_30[top1] + (ANYCLAW | WINGS) | Bench-Deepnest_Hot_Springs",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_30[left1]"
   },
@@ -2956,7 +2956,7 @@
   {
     "sceneName": "Deepnest_East_06",
     "gateName": "door1",
-    "logic": "Deepnest_East_06[door1] | Deepnest_East_06[right1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[top1] | Deepnest_East_06[bot1]) + (RIGHTCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS)",
+    "logic": "Deepnest_East_06[door1] | Deepnest_East_06[right1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[top1] | Deepnest_East_06[bot1]) + (RIGHTCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS) | Bench-Oro",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_06[door1]"
   },
@@ -3089,7 +3089,7 @@
   {
     "sceneName": "Deepnest_East_13",
     "gateName": "bot1",
-    "logic": "Deepnest_East_13[bot1]",
+    "logic": "Deepnest_East_13[bot1] | Bench-Camp",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_13[bot1]"
   },
@@ -3229,7 +3229,7 @@
   {
     "sceneName": "Hive_01",
     "gateName": "right2",
-    "logic": "Hive_01[right2]",
+    "logic": "Hive_01[right2] | Bench-Hive",
     "oneWayType": "TwoWay",
     "Name": "Hive_01[right2]"
   },
@@ -3348,14 +3348,14 @@
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top1",
-    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top2] + ANYCLAW",
+    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top2] + ANYCLAW | Bench-Colosseum + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top1]"
   },
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top2",
-    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top1] + ANYCLAW",
+    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top1] + ANYCLAW | Bench-Colosseum + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top2]"
   },
@@ -3635,7 +3635,7 @@
   {
     "sceneName": "Abyss_18",
     "gateName": "right1",
-    "logic": "Abyss_18[right1] | Abyss_18[left1] + (RIGHTCLAW | WINGS | RIGHTSUPERDASH)",
+    "logic": "Abyss_18[right1] | Abyss_18[left1] + (RIGHTCLAW | WINGS | RIGHTSUPERDASH) | Bench-Basin_Toll",
     "oneWayType": "TwoWay",
     "Name": "Abyss_18[right1]"
   },
@@ -3691,7 +3691,7 @@
   {
     "sceneName": "Abyss_22",
     "gateName": "left1",
-    "logic": "Abyss_22[left1] | Can_Stag + Hidden_Station_Stag",
+    "logic": "Abyss_22[left1] | Can_Stag + Hidden_Station_Stag | Bench-Hidden_Station",
     "oneWayType": "TwoWay",
     "Name": "Abyss_22[left1]"
   },
@@ -3754,14 +3754,14 @@
   {
     "sceneName": "Waterways_02",
     "gateName": "bot1",
-    "logic": "Waterways_02[bot1] | (Waterways_02[top1] | Waterways_02[top2] + (ANYCLAW | WINGS | SWIM) | Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Waterways_02[bot1] | Waterways_02[bot2] + (ANYCLAW | WINGS | SWIM)) + Broke_Flukemarm_Quake_Floor",
+    "logic": "Waterways_02[bot1] | (Waterways_02[top1] | Waterways_02[top2] + (ANYCLAW | WINGS | SWIM) | (Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Bench-Waterways) | Waterways_02[bot1] | Waterways_02[bot2] + (ANYCLAW | WINGS | SWIM)) + Broke_Flukemarm_Quake_Floor",
     "oneWayType": "TwoWay",
     "Name": "Waterways_02[bot1]"
   },
   {
     "sceneName": "Waterways_02",
     "gateName": "bot2",
-    "logic": "Waterways_02[bot2] | Waterways_02[top1] | Waterways_02[top2] | Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 + (ANYCLAW | WINGS | RIGHTSUPERDASH | SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH) | Waterways_02[bot1] + (ANYCLAW | WINGS | ENEMYPOGOS + SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH) | Waterways_02[bot2]",
+    "logic": "Waterways_02[bot2] | Waterways_02[top1] | Waterways_02[top2] | (Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Bench-Waterways) + (ANYCLAW | WINGS | RIGHTSUPERDASH | SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH) | Waterways_02[bot1] + (ANYCLAW | WINGS | ENEMYPOGOS + SWIM | ENEMYPOGOS + DANGEROUSSKIPS + RIGHTDASH) | Waterways_02[bot2]",
     "oneWayType": "TwoWay",
     "Name": "Waterways_02[bot2]"
   },
@@ -4041,7 +4041,7 @@
   {
     "sceneName": "Ruins1_02",
     "gateName": "bot1",
-    "logic": "Ruins1_02[bot1] | Ruins1_02[top1]",
+    "logic": "Ruins1_02[bot1] | Ruins1_02[top1] | Bench-Quirrel",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_02[bot1]"
   },
@@ -4265,7 +4265,7 @@
   {
     "sceneName": "Ruins1_18",
     "gateName": "right2",
-    "logic": "Ruins1_18[right2]",
+    "logic": "Ruins1_18[right2] | Bench-Watcher's_Spire",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_18[right2]"
   },
@@ -4391,7 +4391,7 @@
   {
     "sceneName": "Ruins1_29",
     "gateName": "left1",
-    "logic": "Ruins1_29[left1] | Can_Stag + City_Storerooms_Stag",
+    "logic": "Ruins1_29[left1] | Can_Stag + City_Storerooms_Stag | Bench-City_Storerooms",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_29[left1]"
   },
@@ -4433,7 +4433,7 @@
   {
     "sceneName": "Ruins1_31",
     "gateName": "left1",
-    "logic": "Ruins1_31[left1] | Ruins1_31 | Ruins1_31[bot1]",
+    "logic": "Ruins1_31[left1] | Ruins1_31 | Ruins1_31[bot1] | Bench-City_Toll",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_31[left1]"
   },
@@ -4722,7 +4722,7 @@
   {
     "sceneName": "Ruins2_08",
     "gateName": "left1",
-    "logic": "Ruins2_08[left1] | Can_Stag + King's_Station_Stag",
+    "logic": "Ruins2_08[left1] | Can_Stag + King's_Station_Stag | Bench-King's_Station",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_08[left1]"
   },
@@ -4848,7 +4848,7 @@
   {
     "sceneName": "Ruins_Bathhouse",
     "gateName": "door1",
-    "logic": "Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1]",
+    "logic": "Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1] | Bench-Pleasure_House",
     "oneWayType": "TwoWay",
     "Name": "Ruins_Bathhouse[door1]"
   },
@@ -4981,7 +4981,7 @@
   {
     "sceneName": "RestingGrounds_09",
     "gateName": "left1",
-    "logic": "RestingGrounds_09[left1] | Can_Stag + Resting_Grounds_Stag",
+    "logic": "RestingGrounds_09[left1] | Can_Stag + Resting_Grounds_Stag | Bench-Grounds_Stag",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_09[left1]"
   },
@@ -5016,7 +5016,7 @@
   {
     "sceneName": "RestingGrounds_12",
     "gateName": "door_Mansion",
-    "logic": "RestingGrounds_12[door_Mansion] | RestingGrounds_12[bot1]",
+    "logic": "RestingGrounds_12[door_Mansion] | RestingGrounds_12[bot1] | Bench-Grey_Mourner",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_12[door_Mansion]"
   },
@@ -5289,7 +5289,7 @@
   {
     "sceneName": "Mines_18",
     "gateName": "left1",
-    "logic": "Mines_18[left1] | Mines_18",
+    "logic": "Mines_18[left1] | Mines_18 | Bench-Crystal_Guardian",
     "oneWayType": "TwoWay",
     "Name": "Mines_18[left1]"
   },
@@ -5429,7 +5429,7 @@
   {
     "sceneName": "Mines_29",
     "gateName": "left1",
-    "logic": "Mines_29[left1] | Mines_29[right1] | Mines_29[right2]",
+    "logic": "Mines_29[left1] | Mines_29[right1] | Mines_29[right2] | Bench-Peak_Dark_Room",
     "oneWayType": "TwoWay",
     "Name": "Mines_29[left1]"
   },
@@ -5765,14 +5765,14 @@
   {
     "sceneName": "Fungus3_40",
     "gateName": "right1",
-    "logic": "Fungus3_40[right1] | Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL,after:ROOMSOUL]) | (Can_Stag + Queen's_Gardens_Stag)",
+    "logic": "Fungus3_40[right1] | Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL,after:ROOMSOUL]) | (Can_Stag + Queen's_Gardens_Stag) | Bench-Gardens_Stag",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_40[right1]"
   },
   {
     "sceneName": "Fungus3_40",
     "gateName": "top1",
-    "logic": "Fungus3_40[top1] | (Fungus3_40[right1] | (Can_Stag + Queen's_Gardens_Stag)) + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH)",
+    "logic": "Fungus3_40[top1] | (Fungus3_40[right1] | Can_Stag + Queen's_Gardens_Stag | Bench-Gardens_Stag) + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_40[top1]"
   },
@@ -5814,7 +5814,7 @@
   {
     "sceneName": "Fungus3_50",
     "gateName": "right1",
-    "logic": "Fungus3_50[right1]",
+    "logic": "Fungus3_50[right1] | Bench-Gardens_Toll",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_50[right1]"
   },
@@ -5933,7 +5933,7 @@
   {
     "sceneName": "Room_nailmaster",
     "gateName": "left1",
-    "logic": "Room_nailmaster[left1]",
+    "logic": "Room_nailmaster[left1] | Bench-Mato",
     "oneWayType": "TwoWay",
     "Name": "Room_nailmaster[left1]"
   },
@@ -6052,14 +6052,14 @@
   {
     "sceneName": "White_Palace_06",
     "gateName": "top1",
-    "logic": "White_Palace_06[top1] | (White_Palace_06[left1] | White_Palace_06[bot1] | Warp-Path_of_Pain_Complete) + (RIGHTCLAW + (WINGS | LEFTCLAW))",
+    "logic": "White_Palace_06[top1] | (White_Palace_06[left1] | White_Palace_06[bot1] | Warp-Path_of_Pain_Complete) + (RIGHTCLAW + (WINGS | LEFTCLAW)) | Bench-Palace_Balcony + (LEFTCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_06[top1]"
   },
   {
     "sceneName": "White_Palace_06",
     "gateName": "bot1",
-    "logic": "White_Palace_06[bot1] | White_Palace_06[left1] | White_Palace_06[top1] | Warp-Path_of_Pain_Complete",
+    "logic": "White_Palace_06[bot1] | White_Palace_06[left1] | White_Palace_06[top1] | Warp-Path_of_Pain_Complete | Bench-Palace_Balcony",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_06[bot1]"
   },
