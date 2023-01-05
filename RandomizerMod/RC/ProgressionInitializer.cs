@@ -30,7 +30,7 @@ namespace RandomizerMod.RC
 
             foreach (TermValue tv in startDef.GetStartLocationProgression(lm))
             {
-                if (tv.Term.Type == TermType.State) StartStateTerms.Add(tv.Term);
+                if (tv.Term.Type == TermType.State) StartStateLinkedTerms.Add(tv.Term);
                 else Setters.Add(tv);
             }
 
@@ -41,6 +41,8 @@ namespace RandomizerMod.RC
 
             Setters.Add(new(lm.GetTermStrict("MASKSHARDS"), 20 - 4 * gs.CursedSettings.CursedMasks));
             Setters.Add(new(lm.GetTermStrict("NOTCHES"), 3 - gs.CursedSettings.CursedNotches));
+
+            StartStateTerm = lm.GetTerm("Start_State");
 
             try
             {
@@ -54,7 +56,8 @@ namespace RandomizerMod.RC
 
         public List<TermValue> Setters = new();
         public List<TermValue> Increments = new();
-        public List<Term> StartStateTerms = new();
+        public List<Term> StartStateLinkedTerms = new();
+        public Term? StartStateTerm;
 
         public string Name => "Progression Initializer";
 
@@ -62,14 +65,17 @@ namespace RandomizerMod.RC
         {
             foreach (TermValue tv in Setters) pm.Set(tv);
             foreach (TermValue tv in Increments) pm.Incr(tv);
-            foreach (Term t in StartStateTerms) pm.SetState(t, pm.lm.StateManager.StartStateSingleton);
+            if (StartStateTerm is not null)
+            {
+                foreach (Term t in StartStateLinkedTerms) pm.mu.LinkState(StartStateTerm, t);
+            }
         }
 
         public IEnumerable<Term> GetAffectedTerms()
         {
             foreach (TermValue tv in Setters) yield return tv.Term;
             foreach (TermValue tv in Increments) yield return tv.Term;
-            foreach (Term t in StartStateTerms) yield return t;
+            if (StartStateTerm is not null) yield return StartStateTerm;
         }
     }
 }

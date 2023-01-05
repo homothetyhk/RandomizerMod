@@ -1,5 +1,4 @@
-﻿using ItemChanger.Modules;
-using RandomizerCore.Logic;
+﻿using RandomizerCore.Logic;
 using RandomizerCore.Logic.StateLogic;
 
 namespace RandomizerMod.RC.StateVariables
@@ -13,16 +12,16 @@ namespace RandomizerMod.RC.StateVariables
     public class EquipCharmVariable : StateModifier
     {
         public override string Name { get; }
-        public int charmID;
-        public Term charmTerm;
-        public Term canBenchTerm;
-        public Term notchesTerm;
-        public StateBool charmBool;
-        public StateBool anticharmBool;
-        public StateBool overcharmBool;
-        public StateBool hasTakenDamage;
-        public StateInt usedNotchesInt;
-        public StateInt maxNotchCost;
+        public virtual int CharmID { get; }
+        protected readonly Term CharmTerm;
+        protected readonly StateBool NoPassedCharmEquip;
+        protected readonly Term NotchesTerm;
+        protected readonly StateBool CharmBool;
+        protected readonly StateBool AnticharmBool;
+        protected readonly StateBool OvercharmBool;
+        protected readonly StateBool HasTakenDamage;
+        protected readonly StateInt UsedNotchesInt;
+        protected readonly StateInt MaxNotchCost;
 
         public const string Prefix = "$EQUIPPEDCHARM";
 
@@ -34,18 +33,18 @@ namespace RandomizerMod.RC.StateVariables
         public EquipCharmVariable(string name, string charmName, int charmID, LogicManager lm)
         {
             Name = name;
-            this.charmID = charmID;
+            this.CharmID = charmID;
             try
             {
-                charmTerm = lm.GetTermStrict(charmName);
-                canBenchTerm = lm.GetTermStrict("Can_Bench");
-                notchesTerm = lm.GetTermStrict("NOTCHES");
-                charmBool = lm.StateManager.GetBoolStrict("CHARM" + charmID);
-                anticharmBool = lm.StateManager.GetBoolStrict("noCHARM" + charmID);
-                hasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
-                overcharmBool = lm.StateManager.GetBoolStrict("OVERCHARMED");
-                usedNotchesInt = lm.StateManager.GetIntStrict("USEDNOTCHES");
-                maxNotchCost = lm.StateManager.GetIntStrict("MAXNOTCHCOST");
+                CharmTerm = lm.GetTermStrict(charmName);
+                NotchesTerm = lm.GetTermStrict("NOTCHES");
+                NoPassedCharmEquip = lm.StateManager.GetBoolStrict("NOPASSEDCHARMEQUIP");
+                CharmBool = lm.StateManager.GetBoolStrict("CHARM" + charmID);
+                AnticharmBool = lm.StateManager.GetBoolStrict("noCHARM" + charmID);
+                HasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
+                OvercharmBool = lm.StateManager.GetBoolStrict("OVERCHARMED");
+                UsedNotchesInt = lm.StateManager.GetIntStrict("USEDNOTCHES");
+                MaxNotchCost = lm.StateManager.GetIntStrict("MAXNOTCHCOST");
             }
             catch (Exception e)
             {
@@ -84,6 +83,10 @@ namespace RandomizerMod.RC.StateVariables
                 {
                     ecv = new FragileCharmVariable(term, charmName, charmID, lm);
                 }
+                else if (charmID == 36)
+                {
+                    ecv = new WhiteFragmentEquipVariable(term, lm);
+                }
                 else 
                 {
                     ecv = new EquipCharmVariable(term, charmName, charmID, lm);
@@ -99,8 +102,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            yield return charmTerm;
-            yield return canBenchTerm;
+            yield return CharmTerm;
         }
 
         public enum EquipResult
@@ -112,17 +114,17 @@ namespace RandomizerMod.RC.StateVariables
 
         public virtual int GetNotchCost<T>(ProgressionManager pm, T state) where T : IState
         {
-            return ((RandoModContext)pm.ctx).notchCosts[charmID - 1];
+            return ((RandoModContext)pm.ctx).notchCosts[CharmID - 1];
         }
 
-        public virtual bool HasCharmProgression(ProgressionManager pm) => pm.Has(charmTerm) && pm.Has(canBenchTerm);
+        public virtual bool HasCharmProgression(ProgressionManager pm) => pm.Has(CharmTerm);
 
         /// <summary>
         /// Given that pm.HasCharmProgression returned true, this should determine whether the particular state supports equipping the charm, ignoring notch cost.
         /// </summary>
         protected virtual bool HasStateRequirements<T>(ProgressionManager pm, T state) where T : IState
         {
-            if (state.GetBool(anticharmBool)) return false; // cannotBenchBool is also required for midpath charm equips, which aren't covered here.
+            if (state.GetBool(NoPassedCharmEquip) || state.GetBool(AnticharmBool)) return false;
             return true;
         }
 
@@ -130,8 +132,8 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (HasStateRequirements(pm, state))
             {
-                if (state.GetBool(charmBool)) return !state.GetBool(overcharmBool);
-                if (state.GetInt(usedNotchesInt) + GetNotchCost(pm, state) <= pm.Get(notchesTerm)) return true;
+                if (state.GetBool(CharmBool)) return !state.GetBool(OvercharmBool);
+                if (state.GetInt(UsedNotchesInt) + GetNotchCost(pm, state) <= pm.Get(NotchesTerm)) return true;
             }
             return false;
         }
@@ -140,8 +142,8 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (HasStateRequirements(pm, state))
             {
-                if (state.GetBool(charmBool)) return true;
-                if (state.GetInt(usedNotchesInt) < pm.Get(notchesTerm)) return true;
+                if (state.GetBool(CharmBool)) return true;
+                if (state.GetInt(UsedNotchesInt) < pm.Get(NotchesTerm)) return true;
             }
             return false;
         }
@@ -174,55 +176,68 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
-            if (state.GetBool(charmBool))
+            if (TryEquip(sender, pm, ref state)) yield return state;
+        }
+
+        public virtual bool TryEquip(object? sender, ProgressionManager pm, ref LazyStateBuilder state)
+        {
+            if (state.GetBool(CharmBool))
             {
-                yield return state;
-                yield break;
+                return true;
             }
 
             if (!HasCharmProgression(pm) || !HasStateRequirements(pm, state))
             {
-                yield break;
+                return false;
             }
 
             int notchCost = GetNotchCost(pm, state);
             if (notchCost <= 0)
             {
                 DoEquipCharm(pm, notchCost, ref state);
-                yield return state;
-                yield break;
+                return true;
             }
 
-            int netNotches = pm.Get(notchesTerm) - state.GetInt(usedNotchesInt);
+            int netNotches = pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt);
 
             if (netNotches <= 0)
             {
-                int oldMaxNotch = state.GetInt(maxNotchCost);
+                int oldMaxNotch = state.GetInt(MaxNotchCost);
                 if (oldMaxNotch > notchCost && netNotches + oldMaxNotch > 0)
                 {
                     DoEquipCharm(pm, notchCost, ref state);
                 }
-                yield break;
+                return false;
             }
             else
             {
-                if (netNotches < notchCost && state.GetBool(hasTakenDamage))
+                if (netNotches < notchCost && state.GetBool(HasTakenDamage))
                 {
-                    yield break; // state cannot overcharm!
+                    return false; // state cannot overcharm!
                 }
                 DoEquipCharm(pm, notchCost, ref state);
-                yield return state;
-                yield break;
+                return true;
             }
         }
 
         private void DoEquipCharm(ProgressionManager pm, int notchCost, ref LazyStateBuilder state)
         {
-            state.Increment(usedNotchesInt, notchCost);
-            state.SetBool(charmBool, true);
-            state.SetInt(maxNotchCost, Math.Max(state.GetInt(maxNotchCost), notchCost));
-            if (state.GetInt(usedNotchesInt) > pm.Get(notchesTerm)) state.SetBool(overcharmBool, true);
+            state.Increment(UsedNotchesInt, notchCost);
+            state.SetBool(CharmBool, true);
+            state.SetInt(MaxNotchCost, Math.Max(state.GetInt(MaxNotchCost), notchCost));
+            if (state.GetInt(UsedNotchesInt) > pm.Get(NotchesTerm)) state.SetBool(OvercharmBool, true);
         }
 
+        public EquipResult GetCurrentEquipStatus<T>(T state) where T : IState
+        {
+            return state.GetBool(CharmBool) ? state.GetBool(OvercharmBool) ? EquipResult.Overcharm : EquipResult.Nonovercharm : EquipResult.None;
+        }
+
+        public bool IsEquipped(LazyStateBuilder state) => state.GetBool(CharmBool);
+        public void SetUnequippable(ref LazyStateBuilder state) => state.SetBool(AnticharmBool, true);
+        public int GetAvailableNotches(ProgressionManager pm, LazyStateBuilder state)
+        {
+            return pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt);
+        }
     }
 }

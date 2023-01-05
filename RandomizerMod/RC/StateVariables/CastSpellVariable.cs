@@ -13,7 +13,7 @@ namespace RandomizerMod.RC.StateVariables
      *   - a parameter beginning with "after:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available after all spells are cast.
      *   - a parameter equal to "noDG": indicates that dream gate is not possible after the cast.
     */
-    public class CastSpellVariable : StateModifier
+    public class CastSpellVariable : DGAwareStateModifier
     {
         public enum NearbySoul
         {
@@ -25,60 +25,47 @@ namespace RandomizerMod.RC.StateVariables
         }
 
         public override string Name { get; }
-        public int[] spellCasts;
-        public bool canDreamgate;
-        public NearbySoul beforeSoul;
-        public NearbySoul afterSoul;
-        public StateInt spentSoul;
-        public StateInt spentReserveSoul;
-        public StateInt soulLimiter;
-        public StateInt maxRequiredSoul;
-        public StateInt usedNotches;
-        public StateBool usedShade;
-        public StateBool cannotRegainSoul;
-        public StateBool noFlower;
-        public Term vesselFragments;
-        public Term dreamnail;
-        public Term essence;
-        public Term itemRando;
-        public Term mapAreaRando;
-        public Term areaRando;
-        public Term roomRando;
-        public EquipCharmVariable equipSpellTwister;
-        public State dgState;
+        protected readonly int[] SpellCasts;
+        protected readonly NearbySoul BeforeSoul;
+        protected readonly NearbySoul AfterSoul;
+        protected readonly StateInt SpentSoul;
+        protected readonly StateInt SpentReserveSoul;
+        protected readonly StateInt SoulLimiter;
+        protected readonly StateInt MaxRequiredSoul;
+        protected readonly StateInt UsedNotches;
+        protected readonly StateBool UsedShade;
+        protected readonly StateBool CannotRegainSoul;
+        protected readonly Term VesselFragments;
+        protected readonly Term ItemRando;
+        protected readonly Term MapAreaRando;
+        protected readonly Term AreaRando;
+        protected readonly Term RoomRando;
+        protected readonly EquipCharmVariable EquipSpellTwister;
         public const string Prefix = "$CASTSPELL";
 
-        protected CastSpellVariable(string name)
-        {
-            Name = name;
-        }
-
         public CastSpellVariable(string name, LogicManager lm, int[] spellCasts, bool canDreamgate, NearbySoul beforeSoul, NearbySoul afterSoul)
+            : base(lm)
         {
             Name = name;
-            this.spellCasts = spellCasts;
-            this.canDreamgate = canDreamgate;
-            this.beforeSoul = beforeSoul;
-            this.afterSoul = afterSoul;
+            this.SpellCasts = spellCasts;
+            base.CanDreamGate = canDreamgate;
+            this.BeforeSoul = beforeSoul;
+            this.AfterSoul = afterSoul;
             try
             {
-                spentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
-                spentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
-                soulLimiter = lm.StateManager.GetIntStrict("SOULLIMITER");
-                maxRequiredSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
-                usedNotches = lm.StateManager.GetIntStrict("USEDNOTCHES");
-                usedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
-                cannotRegainSoul = lm.StateManager.GetBoolStrict("CANNOTREGAINSOUL");
-                noFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
-                vesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
-                dreamnail = lm.GetTermStrict("DREAMNAIL");
-                essence = lm.GetTermStrict("ESSENCE");
-                itemRando = lm.GetTermStrict("ITEMRANDO");
-                mapAreaRando = lm.GetTermStrict("MAPAREARANDO");
-                areaRando = lm.GetTermStrict("FULLAREARANDO");
-                roomRando = lm.GetTermStrict("ROOMRANDO");
-                equipSpellTwister = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Spell_Twister"));
-                dgState = GetDGState(lm.StateManager);
+                SpentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
+                SpentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
+                SoulLimiter = lm.StateManager.GetIntStrict("SOULLIMITER");
+                MaxRequiredSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
+                UsedNotches = lm.StateManager.GetIntStrict("USEDNOTCHES");
+                UsedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
+                CannotRegainSoul = lm.StateManager.GetBoolStrict("CANNOTREGAINSOUL");
+                VesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
+                ItemRando = lm.GetTermStrict("ITEMRANDO");
+                MapAreaRando = lm.GetTermStrict("MAPAREARANDO");
+                AreaRando = lm.GetTermStrict("FULLAREARANDO");
+                RoomRando = lm.GetTermStrict("ROOMRANDO");
+                EquipSpellTwister = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Spell_Twister"));
             }
             catch (Exception e)
             {
@@ -126,48 +113,27 @@ namespace RandomizerMod.RC.StateVariables
             return false;
         }
 
-        private static State GetDGState(StateManager sm)
-        {
-            LazyStateBuilder lsb = new(sm.StartState);
-
-            if (lsb.GetBool(sm.GetBoolStrict("NOFLOWER")))
-            {
-                lsb.SetBool(sm.GetBoolStrict("NOFLOWER"), false);
-            }
-            // TODO: dg-resetable field tag?
-            return lsb.GetState();
-        }
-
         public override IEnumerable<Term> GetTerms()
         {
-            yield return vesselFragments;
-            yield return dreamnail;
-            yield return essence;
-            yield return itemRando;
-            yield return mapAreaRando;
-            yield return areaRando;
-            yield return roomRando;
-            foreach (Term t in equipSpellTwister.GetTerms()) yield return t;
+            yield return VesselFragments;
+            yield return ItemRando;
+            yield return MapAreaRando;
+            yield return AreaRando;
+            yield return RoomRando;
+            foreach (Term t in EquipSpellTwister.GetTerms()) yield return t;
+            foreach (Term t in base.GetTerms()) yield return t;
         }
 
-        public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)
+        /// <summary>
+        /// Applies the cast spell transformation without accounting for potential dream gate resets before and after.
+        /// </summary>
+        protected override IEnumerable<LazyStateBuilder> ModifyStateInternal(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
-            return base.ProvideState(sender, pm);
-        }
-
-        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
-        {
-            if (canDreamgate && pm.Has(dreamnail, 2) && pm.Has(essence) && CheckDGState())
-            {
-                // TODO: check if dgState satisfies soul requirement, for interop
-                yield return new(dgState);
-                if (LazyStateBuilder.IsComparablyLE(dgState, state)) yield break;
-            }
-
             int soul;
             int reserves = GetReserves(pm, state);
             int maxSoul = GetMaxSoul(state);
-            if (!state.GetBool(cannotRegainSoul) && NearbySoulToBool(beforeSoul, pm))
+            
+            if (!state.GetBool(CannotRegainSoul) && NearbySoulToBool(BeforeSoul, pm))
             {
                 soul = GetMaxSoul(state);
             }
@@ -176,56 +142,54 @@ namespace RandomizerMod.RC.StateVariables
                 soul = GetSoul(state);
             }
 
-            if (!state.GetBool(equipSpellTwister.charmBool) && TryCastAll(33, maxSoul, reserves, soul))
+            if (EquipSpellTwister.GetCurrentEquipStatus(state) == EquipCharmVariable.EquipResult.None && TryCastAll(33, maxSoul, reserves, soul))
             {
                 LazyStateBuilder state33 = new(state);
                 DoAllCasts(33, reserves, ref state33);
-                if (!state33.GetBool(cannotRegainSoul) && NearbySoulToBool(afterSoul, pm))
+                if (!state33.GetBool(CannotRegainSoul) && NearbySoulToBool(AfterSoul, pm))
                 {
-                    RecoverSoul(spellCasts.Sum() * 33, state33);
+                    RecoverSoul(SpellCasts.Sum() * 33, ref state33);
                 }
                 yield return state33;
             }
 
-            if (TryCastAll(25, maxSoul, reserves, soul))
+            LazyStateBuilder STstate = state;
+            if (TryCastAll(24, maxSoul, reserves, soul) && EquipSpellTwister.TryEquip(sender, pm, ref STstate))
             {
-                foreach (LazyStateBuilder STstate in equipSpellTwister.ModifyState(sender, pm, state))
+                DoAllCasts(24, reserves, ref state);
+                if (!state.GetBool(CannotRegainSoul) && NearbySoulToBool(AfterSoul, pm))
                 {
-                    DoAllCasts(25, reserves, ref state);
-                    if (!state.GetBool(cannotRegainSoul) && NearbySoulToBool(afterSoul, pm))
-                    {
-                        RecoverSoul(spellCasts.Sum() * 33, state); // recover the same amount of soul as in the normal path
-                    }
-                    yield return state;
+                    RecoverSoul(SpellCasts.Sum() * 33, ref state); // recover the same amount of soul as in the normal path
                 }
+                yield return state;
             }
         }
 
         public void DoAllCasts(int costPerCast, int currentReserve, ref LazyStateBuilder state)
         {
-            for (int i = 0; i < spellCasts.Length; i++) SpendSoul(costPerCast * spellCasts[i], ref currentReserve, ref state);
+            for (int i = 0; i < SpellCasts.Length; i++) SpendSoul(costPerCast * SpellCasts[i], ref currentReserve, ref state);
         }
 
         public void SpendSoul(int amount, ref int currentReserve, ref LazyStateBuilder state)
         {
             if (currentReserve >= amount)
             {
-                state.Increment(spentReserveSoul, amount);
+                state.Increment(SpentReserveSoul, amount);
                 currentReserve -= amount;
             }
             else if (currentReserve > 0)
             {
-                state.Increment(spentReserveSoul, currentReserve);
-                state.Increment(spentSoul, amount - currentReserve);
+                state.Increment(SpentReserveSoul, currentReserve);
+                state.Increment(SpentSoul, amount - currentReserve);
                 currentReserve = 0;
             }
             else
             {
-                state.Increment(spentSoul, amount);
+                state.Increment(SpentSoul, amount);
             }
-            if (amount > state.GetInt(maxRequiredSoul))
+            if (amount > state.GetInt(MaxRequiredSoul))
             {
-                state.SetInt(maxRequiredSoul, amount);
+                state.SetInt(MaxRequiredSoul, amount);
             }
         }
 
@@ -241,33 +205,33 @@ namespace RandomizerMod.RC.StateVariables
 
         private bool TryCastAll(int costPerCast, int maxSoul, int reserves, int soul)
         {
-            for (int i = 0; i < spellCasts.Length; i++)
+            for (int i = 0; i < SpellCasts.Length; i++)
             {
-                if (!TrySpendSoul(costPerCast * spellCasts[i], maxSoul, ref reserves, ref soul)) return false;
+                if (!TrySpendSoul(costPerCast * SpellCasts[i], maxSoul, ref reserves, ref soul)) return false;
             }
             return true;
         }
 
-        public void RecoverSoul(int amount, LazyStateBuilder state)
+        public void RecoverSoul(int amount, ref LazyStateBuilder state)
         {
-            int soulDiff = state.GetInt(spentSoul);
+            int soulDiff = state.GetInt(SpentSoul);
             if (soulDiff >= amount)
             {
-                state.Increment(spentSoul, -amount);
+                state.Increment(SpentSoul, -amount);
             }
             else if (soulDiff > 0)
             {
-                state.SetInt(spentSoul, 0);
+                state.SetInt(SpentSoul, 0);
                 amount -= soulDiff;
             }
-            int reserveDiff = state.GetInt(spentReserveSoul);
+            int reserveDiff = state.GetInt(SpentReserveSoul);
             if (reserveDiff >= amount)
             {
-                state.Increment(spentReserveSoul, -amount);
+                state.Increment(SpentReserveSoul, -amount);
             }
             else if (reserveDiff > 0)
             {
-                state.SetInt(spentReserveSoul, 0);
+                state.SetInt(SpentReserveSoul, 0);
                 amount -= reserveDiff;
             }
         }
@@ -284,40 +248,31 @@ namespace RandomizerMod.RC.StateVariables
 
         private NearbySoul GetMode(ProgressionManager pm)
         {
-            if (pm.Has(roomRando)) return NearbySoul.ROOMSOUL;
-            else if (pm.Has(areaRando)) return NearbySoul.AREASOUL;
-            else if (pm.Has(mapAreaRando)) return NearbySoul.MAPAREASOUL;
-            else if (pm.Has(itemRando)) return NearbySoul.ITEMSOUL;
+            if (pm.Has(RoomRando)) return NearbySoul.ROOMSOUL;
+            else if (pm.Has(AreaRando)) return NearbySoul.AREASOUL;
+            else if (pm.Has(MapAreaRando)) return NearbySoul.MAPAREASOUL;
+            else if (pm.Has(ItemRando)) return NearbySoul.ITEMSOUL;
             else return NearbySoul.NONE;
         }
 
         private int GetMaxSoul<T>(T state) where T : IState
         {
-            return 99 - state.GetInt(soulLimiter);
+            return 99 - state.GetInt(SoulLimiter);
         }
 
         private int GetSoul<T>(T state) where T : IState
         {
-            return GetMaxSoul(state) - state.GetInt(spentSoul);
+            return GetMaxSoul(state) - state.GetInt(SpentSoul);
         }
 
         private int GetMaxReserves(ProgressionManager pm)
         {
-            return (pm.Get(vesselFragments) / 3) * 33;
+            return (pm.Get(VesselFragments) / 3) * 33;
         }
 
         private int GetReserves<T>(ProgressionManager pm, T state) where T : IState
         {
-            return GetMaxReserves(pm) - state.GetInt(spentReserveSoul);
+            return GetMaxReserves(pm) - state.GetInt(SpentReserveSoul);
         }
-
-        private bool CheckDGState()
-        {
-            int soul = GetSoul(dgState);
-            if (soul >= spellCasts.Max() * 33) return true;
-            if (dgState.GetBool(equipSpellTwister.charmBool) && soul >= spellCasts.Max() * 25) return true;
-            return false; // too much work to consider bringing soul via dgate if the start doesn't have soul
-        }
-
     }
 }

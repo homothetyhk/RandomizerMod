@@ -10,63 +10,45 @@ namespace RandomizerMod.RC.StateVariables
          - If any parameters are provided, the first parameter must parse to int to give the damage amount. If absent, defaults to 1.
      * Optional Parameters:
      *   - "noDG": indicates that dream gate after taking damage is not possible.
-     *   - "canRegen": indicates that pausing to regain health is possible between hits.
     */
-    public class TakeDamageVariable : StateModifier
+    public class TakeDamageVariable : DGAwareStateModifier
     {
         public override string Name { get; }
-        public int amount; // TODO: properly separate into int[] of amount per hit
-        public bool canDreamgate;
-        public bool canRegen;
-        public StateBool overcharmed;
-        public StateBool hasTakenDamage;
-        public StateBool noFlower;
-        public StateInt spentHP;
-        public StateInt spentBlueHP;
-        /* TODO: someday? today it was too cursed
-        public StateInt spentSoul;
-        public StateInt spentReserveSoul;
-        public Term focus;
-        public EquipCharmVariable deepFocus;
-        public EquipCharmVariable grubsong;
-        */
-        public Term dreamnail;
-        public Term essence;
-        public Term maskShards;
-        public EquipCharmVariable hiveblood;
-        public EquipCharmVariable lbHeart;
-        public EquipCharmVariable lbCore;
-        public EquipCharmVariable joni;
-        public EquipCharmVariable heart;
+        protected readonly int Amount; // TODO: properly separate into int[] of amount per hit
+        protected readonly StateBool Overcharmed;
+        protected readonly StateBool HasTakenDamage;
+        protected readonly StateBool NoFlower;
+        protected readonly StateBool NoPassedCharmEquip;
+        protected readonly StateInt SpentHP;
+        protected readonly StateInt SpentBlueHP;
+        protected readonly Term MaskShards;
+        protected readonly EquipCharmVariable LifebloodHeart;
+        protected readonly EquipCharmVariable LifebloodCore;
+        protected readonly EquipCharmVariable JonisBlessing;
+        protected readonly EquipCharmVariable FragileHeart;
+        // not supported: hiveblood, focus, deep focus, grubsong
 
         public const string Prefix = "$TAKEDAMAGE";
 
-        protected TakeDamageVariable(string name)
+        public TakeDamageVariable(string name, LogicManager lm, int amount, bool canDreamgate)
+            : base(lm)
         {
             Name = name;
-        }
-
-        public TakeDamageVariable(string name, LogicManager lm, int amount, bool canDreamgate, bool canRegen)
-        {
-            Name = name;
-            this.amount = amount;
-            this.canDreamgate = canDreamgate;
-            this.canRegen = canRegen;
+            this.Amount = amount;
+            base.CanDreamGate = canDreamgate;
             try
             {
-                overcharmed = lm.StateManager.GetBoolStrict("OVERCHARMED");
-                hasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
-                noFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
-                spentHP = lm.StateManager.GetIntStrict("SPENTHP");
-                spentBlueHP = lm.StateManager.GetIntStrict("SPENTBLUEHP");
-                dreamnail = lm.GetTermStrict("DREAMNAIL");
-                essence = lm.GetTermStrict("ESSENCE");
-                maskShards = lm.GetTermStrict("MASKSHARDS");
-                hiveblood = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Hiveblood"));
-                lbHeart = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Lifeblood_Heart"));
-                lbCore = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Lifeblood_Core"));
-                joni = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Joni's_Blessing"));
-                heart = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
+                Overcharmed = lm.StateManager.GetBoolStrict("OVERCHARMED");
+                HasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
+                NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
+                NoPassedCharmEquip = lm.StateManager.GetBoolStrict("NOPASSEDCHARMEQUIP");
+                SpentHP = lm.StateManager.GetIntStrict("SPENTHP");
+                SpentBlueHP = lm.StateManager.GetIntStrict("SPENTBLUEHP");
+                MaskShards = lm.GetTermStrict("MASKSHARDS");
+                LifebloodHeart = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Lifeblood_Heart"));
+                LifebloodCore = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Lifeblood_Core"));
+                JonisBlessing = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Joni's_Blessing"));
+                FragileHeart = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
             }
             catch (Exception e)
             {
@@ -80,8 +62,7 @@ namespace RandomizerMod.RC.StateVariables
             {
                 int amount = parameters.Length == 0 ? 1 : int.Parse(parameters[0]);
                 bool canDreamgate = !parameters.Contains("noDG");
-                bool canRegen = parameters.Contains("canRegen");
-                variable = new TakeDamageVariable(term, lm, amount, canDreamgate, canRegen);
+                variable = new TakeDamageVariable(term, lm, amount, canDreamgate);
                 return true;
             }
 
@@ -91,21 +72,19 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            yield return dreamnail;
-            yield return essence;
-            yield return maskShards;
-            foreach (Term t in hiveblood.GetTerms()) yield return t;
-            foreach (Term t in lbHeart.GetTerms()) yield return t;
-            foreach (Term t in lbCore.GetTerms()) yield return t;
-            foreach (Term t in joni.GetTerms()) yield return t;
-            foreach (Term t in heart.GetTerms()) yield return t;
+            yield return MaskShards;
+            foreach (Term t in LifebloodHeart.GetTerms()) yield return t;
+            foreach (Term t in LifebloodCore.GetTerms()) yield return t;
+            foreach (Term t in JonisBlessing.GetTerms()) yield return t;
+            foreach (Term t in FragileHeart.GetTerms()) yield return t;
+            foreach (Term t in base.GetTerms()) yield return t;
         }
 
-        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        protected override IEnumerable<LazyStateBuilder> ModifyStateInternal(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
-            if (state.GetBool(hasTakenDamage) || !pm.Has(lbCore.canBenchTerm))
+            if (state.GetBool(HasTakenDamage) || state.GetBool(NoPassedCharmEquip))
             {
-                if (TakeDamage(pm, ref state, amount))
+                if (TakeDamage(pm, ref state, Amount))
                 {
                     DisableUnequippedHealthCharms(ref state);
                     return state.Yield();
@@ -120,27 +99,25 @@ namespace RandomizerMod.RC.StateVariables
 
         private void DisableUnequippedHealthCharms(ref LazyStateBuilder state)
         {
-            if (!state.GetBool(hiveblood.charmBool)) state.SetBool(hiveblood.anticharmBool, true);
-            if (!state.GetBool(lbHeart.charmBool)) state.SetBool(lbHeart.anticharmBool, true);
-            if (!state.GetBool(lbCore.charmBool)) state.SetBool(lbCore.anticharmBool, true);
-            if (!state.GetBool(joni.charmBool)) state.SetBool(joni.anticharmBool, true);
-            if (!state.GetBool(heart.charmBool)) state.SetBool(heart.anticharmBool, true);
+            if (!LifebloodHeart.IsEquipped(state)) LifebloodHeart.SetUnequippable(ref state);
+            if (!LifebloodCore.IsEquipped(state)) LifebloodCore.SetUnequippable(ref state);
+            if (!JonisBlessing.IsEquipped(state)) JonisBlessing.SetUnequippable(ref state);
+            if (!FragileHeart.IsEquipped(state)) FragileHeart.SetUnequippable(ref state);
         }
 
         public IEnumerable<LazyStateBuilder> GenerateCharmLoadouts(ProgressionManager pm, LazyStateBuilder state)
         {
-            int availableNotches = pm.Get(lbCore.notchesTerm) - state.GetInt(lbCore.usedNotchesInt);
+            int availableNotches = LifebloodCore.GetAvailableNotches(pm, state);
             if (availableNotches <= 0) yield break;
 
             List<int> notchCosts = ((RandoModContext)pm.ctx).notchCosts;
             List<EquipCharmVariable> helper = new();
             List<LazyStateBuilder> lsbHelper = new();
-            if (canRegen) AddECV(hiveblood);
-            AddECV(lbHeart);
-            AddECV(heart);
-            AddECV(lbCore);
-            AddECV(joni);
-            helper.Sort((p, q) => notchCosts[p.charmID - 1] - notchCosts[q.charmID - 1]);
+            AddECV(LifebloodHeart);
+            AddECV(FragileHeart);
+            AddECV(LifebloodCore);
+            AddECV(JonisBlessing);
+            helper.Sort((p, q) => notchCosts[p.CharmID - 1] - notchCosts[q.CharmID - 1]);
 
             int pow = 1 << helper.Count;
             for (int i = 0; i < pow; i++)
@@ -158,7 +135,7 @@ namespace RandomizerMod.RC.StateVariables
                 for (int j = 0; j < lsbHelper.Count; j++)
                 {
                     LazyStateBuilder next = lsbHelper[j];
-                    if (TakeDamage(pm, ref next, amount))
+                    if (TakeDamage(pm, ref next, Amount))
                     {
                         DisableUnequippedHealthCharms(ref next);
                         yield return next;
@@ -168,7 +145,7 @@ namespace RandomizerMod.RC.StateVariables
 
             void AddECV(EquipCharmVariable ecv)
             {
-                if (pm.Has(ecv.charmTerm))
+                if (ecv.HasCharmProgression(pm))
                 {
                     helper.Add(ecv);
                 }
@@ -177,28 +154,18 @@ namespace RandomizerMod.RC.StateVariables
 
         public bool TakeDamage(ProgressionManager pm, ref LazyStateBuilder state, int damage)
         {
-            bool dg = canDreamgate && pm.Has(dreamnail, 2) && pm.Has(essence);
-            bool oc = state.GetBool(overcharmed);
-            if (canRegen)
-            {
-                if (dg) return Survives(pm, state, damage);
-                else if (state.GetBool(hiveblood.charmBool))
-                {
-                    if (!oc) return Survives(pm, state, damage);
-                    else damage -= damage / 2;
-                }
-            }
+            bool oc = state.GetBool(Overcharmed);
 
-            int blueHP = -state.GetInt(spentBlueHP) + (state.GetBool(lbHeart.charmBool) ? 2 : 0) + (state.GetBool(lbCore.charmBool) ? 4 : 0);
-            int hp = pm.Get(maskShards) / 4 + (state.GetBool(heart.charmBool) ? 2 : 0);
-            if (state.GetBool(joni.charmBool)) hp = (int)(hp * 1.4f);
+            int blueHP = -state.GetInt(SpentBlueHP) + (LifebloodHeart.IsEquipped(state) ? 2 : 0) + (LifebloodCore.IsEquipped(state) ? 4 : 0);
+            int hp = pm.Get(MaskShards) / 4 + (FragileHeart.IsEquipped(state) ? 2 : 0);
+            if (JonisBlessing.IsEquipped(state)) hp = (int)(hp * 1.4f);
             int hits = oc ? blueHP / 2 + (hp - 1) / 2 : blueHP + hp - 1;
 
             if (!oc && blueHP >= damage || blueHP >= 2 * damage)
             {
-                state.Increment(spentBlueHP, !oc ? damage : 2 * damage);
-                state.SetBool(hasTakenDamage, true);
-                state.SetBool(noFlower, true);
+                state.Increment(SpentBlueHP, !oc ? damage : 2 * damage);
+                state.SetBool(HasTakenDamage, true);
+                state.SetBool(NoFlower, true);
                 return true;
             }
             
@@ -206,76 +173,14 @@ namespace RandomizerMod.RC.StateVariables
             {
                 if (blueHP > 0)
                 {
-                    state.Increment(spentBlueHP, blueHP);
+                    state.Increment(SpentBlueHP, blueHP);
                     damage -= oc ? blueHP / 2 : blueHP;
                     hits -= oc ? blueHP / 2 : blueHP;
                 }
-                state.Increment(spentHP, !oc ? damage : 2 * damage);
-                state.SetBool(hasTakenDamage, true);
-                state.SetBool(noFlower, true);
+                state.Increment(SpentHP, !oc ? damage : 2 * damage);
+                state.SetBool(HasTakenDamage, true);
+                state.SetBool(NoFlower, true);
                 return true;
-            }
-            return false;
-        }
-
-        public bool Survives<T>(ProgressionManager pm, T state, int damage) where T : IState
-        {
-            int hits = (state.GetBool(joni.charmBool) ? (int)(pm.Get(maskShards) / 4 * 1.4f) : pm.Get(maskShards) / 4) - state.GetInt(spentHP) - 1;
-            bool oc = state.GetBool(overcharmed);
-            if (oc) hits /= 2;
-            if (hits >= damage) return true; // do this check first to skip the charm checks less likely to be relevant
-            if (canRegen && canDreamgate && pm.Has(dreamnail, 2) && pm.Has(essence) && hits > 0) return true;
-            if (canRegen && state.GetBool(hiveblood.charmBool))
-            {
-                if (!oc && hits > 0) return true;
-                else
-                {
-                    hits = (state.GetBool(joni.charmBool) ? (int)(pm.Get(maskShards) / 4 * 1.4f) : pm.Get(maskShards) / 4) - state.GetInt(spentHP) - 2;
-                }
-            }
-
-            if (state.GetBool(heart.charmBool)) hits += oc ? 1 : 2;
-            int blueHP = (state.GetBool(lbHeart.charmBool) ? 2 : 0) + (state.GetBool(lbCore.charmBool) ? 4 : 0) - state.GetInt(spentBlueHP);
-            hits += oc ? blueHP / 2 : blueHP;
-            return hits >= damage;
-        }
-
-        // Returns whether the damage amount can be survived with the right charms.
-        // Assumes the damage amount cannot be survived with no charms.
-        // Skips checks and returns false if damage has previously been taken.
-        private bool SurvivesWithCharmOptimization(ProgressionManager pm, State state, int damage)
-        {
-            if (state.GetBool(hasTakenDamage) || state.GetBool(overcharmed) || !pm.Has(lbCore.canBenchTerm)) return false;
-
-            switch (damage)
-            {
-                case 1:
-                    if (lbCore.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
-                    if (heart.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
-                    if (lbHeart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
-                    if (joni.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
-                    return false;
-                case 2:
-                    if (lbCore.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
-                    if (heart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
-                    if (lbHeart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
-                    if (pm.Get(maskShards) > 7 && (
-                        joni.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm ||
-                        canRegen && hiveblood.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm)) return true;
-                    return false;
-                case 3:
-                    if (lbCore.CanEquip(pm, state) switch
-                    {
-                        EquipCharmVariable.EquipResult.Nonovercharm => true,
-                        EquipCharmVariable.EquipResult.Overcharm => pm.Get(maskShards) > 11,
-                        _ => false,
-                    }) return true;
-                    if (pm.Get(maskShards) > 7 && (
-                        heart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm || 
-                        lbHeart.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm ||
-                        canRegen && hiveblood.CanEquip(pm ,state) == EquipCharmVariable.EquipResult.Nonovercharm)) return true;
-                    if (pm.Get(maskShards) > 11 && joni.CanEquip(pm, state) == EquipCharmVariable.EquipResult.Nonovercharm) return true;
-                    return false;
             }
             return false;
         }

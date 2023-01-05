@@ -11,7 +11,7 @@ namespace RandomizerMod.RC.StateVariables
     public class FlowerProviderVariable : StateModifier
     {
         public override string Name { get; }
-        public StateBool NoFlower;
+        protected readonly StateBool NoFlower;
         public const string Prefix = "$FLOWERGET";
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)

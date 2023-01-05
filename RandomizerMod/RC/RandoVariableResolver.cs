@@ -1,7 +1,6 @@
 ﻿using RandomizerCore.Logic;
 using RandomizerMod.RC.LogicInts;
 using RandomizerMod.RC.StateVariables;
-using System.Text.RegularExpressions;
 
 namespace RandomizerMod.RC
 {
@@ -11,27 +10,7 @@ namespace RandomizerMod.RC
         {
             if (base.TryMatch(lm, term, out variable)) return true;
 
-            Match match = Regex.Match(term, @"^\$NotchCost\[(.+)\]$");
-            if (match.Success)
-            {
-                variable = new NotchCostInt(match.Groups[1].Value.Split(',').Select(s => int.Parse(s)).ToArray());
-                return true;
-            }
-
-            match = Regex.Match(term, @"^\$SafeNotchCost\[(.+)\]$");
-            if (match.Success)
-            {
-                variable = new SafeNotchCostInt(match.Groups[1].Value.Split(',').Select(s => int.Parse(s)).ToArray());
-                return true;
-            }
-
-            match = Regex.Match(term, @"^\$StartLocation\[(.+)\]$");
-            if (match.Success)
-            {
-                variable = new StartLocationDelta(match.Groups[1].Value);
-                return true;
-            }
-
+            if (StartLocationDelta.TryMatch(lm, term, out variable)) return true;
             if (BenchResetVariable.TryMatch(lm, term, out variable)) return true;
             if (CastSpellVariable.TryMatch(lm, term, out variable)) return true;
             if (EquipCharmVariable.TryMatch(lm, term, out variable)) return true;
@@ -40,7 +19,16 @@ namespace RandomizerMod.RC
             if (TakeDamageVariable.TryMatch(lm, term, out variable)) return true;
             if (StagStateVariable.TryMatch(lm, term, out variable)) return true;
             if (FlowerProviderVariable.TryMatch(lm, term, out variable)) return true;
-            if (RequireFlowerVariable.TryMatch(lm, term, out variable)) return true;
+            if (DreamGateResetVariable.TryMatch(lm, term, out variable)) return true;
+            if (SaveQuitResetVariable.TryMatch(lm, term, out variable)) return true;
+            if (StartRespawnResetVariable.TryMatch(lm, term, out variable)) return true;
+            if (WarpToStartResetVariable.TryMatch(lm, term, out variable)) return true;
+            if (WarpToBenchResetVariable.TryMatch(lm, term, out variable)) return true;
+
+#pragma warning disable CS0618 // Type or member is obsolete
+            if (NotchCostInt.TryMatch(lm, term, out variable)) return true;
+            if (SafeNotchCostInt.TryMatch(lm, term, out variable)) return true;
+#pragma warning restore CS0618 // Type or member is obsolete
 
             return false;
         }

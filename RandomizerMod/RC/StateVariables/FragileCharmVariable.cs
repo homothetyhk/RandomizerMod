@@ -4,12 +4,12 @@ using RandomizerCore.Logic.StateLogic;
 namespace RandomizerMod.RC.StateVariables
 {
     /*
-     * See documentation for EquipCharmVariable.
+     * Equip logic for Fragile Heart, Greed, and Strength. See documentation for EquipCharmVariable for variable pattern.
     */
     public class FragileCharmVariable : EquipCharmVariable
     {
-        public Term repairTerm;
-        public StateBool breakBool;
+        protected readonly Term RepairTerm;
+        protected readonly StateBool BreakBool;
 
         protected FragileCharmVariable(string name) : base(name) { }
 
@@ -23,31 +23,31 @@ namespace RandomizerMod.RC.StateVariables
 
         public FragileCharmVariable(string name, string charmName, int charmID, LogicManager lm, string repairTermName, string breakBoolName) : base(name, charmName, charmID, lm) 
         {
-            repairTerm = lm.GetTermStrict(repairTermName) ?? throw new ArgumentException($"Error constructing ECV from {name}: {repairTermName} term does not exist?");
-            breakBool = lm.StateManager.GetBoolStrict(breakBoolName) ?? throw new ArgumentException($"Error constructing ECV from {name}: could not find {breakBoolName} state bool.");
+            RepairTerm = lm.GetTermStrict(repairTermName) ?? throw new ArgumentException($"Error constructing ECV from {name}: {repairTermName} term does not exist?");
+            BreakBool = lm.StateManager.GetBoolStrict(breakBoolName) ?? throw new ArgumentException($"Error constructing ECV from {name}: could not find {breakBoolName} state bool.");
         }
 
         public override IEnumerable<Term> GetTerms()
         {
-            return base.GetTerms().Append(repairTerm);
+            return base.GetTerms().Append(RepairTerm);
         }
 
         protected override bool HasStateRequirements<T>(ProgressionManager pm, T state)
         {
-            return base.HasStateRequirements<T>(pm, state) && (pm.Has(charmTerm, 2) || !state.GetBool(breakBool) && pm.Has(repairTerm));
+            return base.HasStateRequirements<T>(pm, state) && (pm.Has(CharmTerm, 2) || !state.GetBool(BreakBool) && pm.Has(RepairTerm));
         }
 
         public void BreakCharm(ProgressionManager pm, ref LazyStateBuilder state)
         {
-            if (pm.Has(charmTerm, 2)) return;
-            if (state.GetBool(charmBool))
+            if (pm.Has(CharmTerm, 2)) return;
+            if (state.GetBool(CharmBool))
             {
-                state.SetBool(charmBool, false);
-                state.Increment(usedNotchesInt, -((RandoModContext)pm.ctx).notchCosts[charmID - 1]);
-                if (state.GetBool(overcharmBool)) state.SetBool(overcharmBool, false);
+                state.SetBool(CharmBool, false);
+                state.Increment(UsedNotchesInt, -((RandoModContext)pm.ctx).notchCosts[CharmID - 1]);
+                if (state.GetBool(OvercharmBool)) state.SetBool(OvercharmBool, false);
             }
-            state.SetBool(anticharmBool, true);
-            state.SetBool(breakBool, true);
+            state.SetBool(AnticharmBool, true);
+            state.SetBool(BreakBool, true);
         }
 
     }

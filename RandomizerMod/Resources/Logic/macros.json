@@ -3,6 +3,11 @@
   "AREARANDO": "MAPAREARANDO | FULLAREARANDO",
   "NONRANDOMELEVATORS": "RANDOMELEVATORS=0",
 
+  // whether selecting benches in Benchwarp can be considered in logic. By default, only warp to start is considered.
+  "INCLUDEBENCHWARPSELECT": "FALSE",
+  // logic for state improvements to bench waypoints when warp select is allowed.
+  "WARPSTARTTOBENCH": "INCLUDEBENCHWARPSELECT + Start_State + $WARPTOBENCH",
+
   // macros for alternate item names
   "LOVE": "Love_Key",
   "GRIMMCHILD": "Grimmchild",

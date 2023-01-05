@@ -10,45 +10,43 @@ namespace RandomizerMod.RC.StateVariables
      *   - a parameter equal to "noDG": indicates that dream gate is not possible after the skip
      *   - a parameter ending in "HITS": the head of the parameter must parse to int, and is the required shade hp. Defaults to 1.
     */
-    public class ShadeStateVariable : StateModifier
+    public class ShadeStateVariable : DGAwareStateModifier
     {
         public override string Name { get; }
-        public Term ShadeskipTerm;
-        public Term DreamgateTerm;
-        public Term EssenceTerm;
-        public Term MaskShardsTerm;
-        public bool canDreamgate;
-        public StateBool UsedShadeBool;
-        public StateBool CannotShadeSkip;
-        public StateBool NoFlower;
-        public StateInt RequiredMaxSoul;
-        public FragileCharmVariable FragileHeartEquip;
-        public int RequiredShadeHealth;
+        protected readonly Term Shadeskips;
+        protected readonly Term MaskShards;
+        protected readonly Term VesselFragments;
+        protected readonly StateBool UsedShadeBool;
+        protected readonly StateBool CannotShadeSkip;
+        protected readonly StateBool NoFlower;
+        protected readonly StateInt RequiredMaxSoul;
+        protected readonly StateInt SpentSoul;
+        protected readonly StateInt SpentReserveSoul;
+        protected readonly StateInt SoulLimiter;
+        protected readonly FragileCharmVariable FragileHeartEquip;
+        protected readonly int RequiredShadeHealth;
         public const string Prefix = "$SHADESKIP";
-        public State dgState;
-
-        protected ShadeStateVariable(string name)
-        {
-            Name = name;
-        }
-
+        
         public ShadeStateVariable(string name, LogicManager lm, bool canDreamgate, int requiredShadeHealth)
+            : base(lm)
         {
             Name = name;
-            this.canDreamgate = canDreamgate;
+            base.CanDreamGate = canDreamgate;
             RequiredShadeHealth = requiredShadeHealth;
             try
             {
-                ShadeskipTerm = lm.GetTermStrict("SHADESKIPS");
-                DreamgateTerm = lm.GetTermStrict("DREAMNAIL");
-                EssenceTerm = lm.GetTermStrict("ESSENCE");
-                MaskShardsTerm = lm.GetTermStrict("MASKSHARDS");
+                Shadeskips = lm.GetTermStrict("SHADESKIPS");
+                MaskShards = lm.GetTermStrict("MASKSHARDS");
+                VesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
                 UsedShadeBool = lm.StateManager.GetBoolStrict("USEDSHADE");
                 CannotShadeSkip = lm.StateManager.GetBoolStrict("CANNOTSHADESKIP");
                 NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
                 RequiredMaxSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
+                SpentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
+                SpentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
+                SoulLimiter = lm.StateManager.GetIntStrict("SOULLIMITER");
+
                 FragileHeartEquip = (FragileCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
-                dgState = lm.StateManager.StartState;
             }
             catch (Exception e)
             {
@@ -73,24 +71,14 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            yield return ShadeskipTerm;
-            yield return DreamgateTerm;
-            yield return EssenceTerm;
-            if (RequiredShadeHealth > 1) yield return MaskShardsTerm;
+            yield return Shadeskips;
+            if (RequiredShadeHealth > 1) yield return MaskShards;
+            foreach (Term t in base.GetTerms()) yield return t;
         }
 
 
-        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        protected override IEnumerable<LazyStateBuilder> ModifyStateInternal(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
-            if (canDreamgate && pm.Has(DreamgateTerm, 2) && pm.Has(EssenceTerm))
-            {
-                LazyStateBuilder dgLSB = new(dgState);
-                if (TryDoShadeSkip(pm, ref dgLSB))
-                {
-                    dgLSB.SetBool(UsedShadeBool, false);
-                    yield return dgLSB;
-                }
-            }
             if (TryDoShadeSkip(pm, ref state))
             {
                 yield return state;
@@ -99,7 +87,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public bool TryDoShadeSkip(ProgressionManager pm, ref LazyStateBuilder state)
         {
-            if (!pm.Has(ShadeskipTerm))
+            if (!pm.Has(Shadeskips))
             {
                 return false;
             }
@@ -109,26 +97,14 @@ namespace RandomizerMod.RC.StateVariables
                 return false;
             }
 
+            PostAdjustSoul(pm, ref state);
+
             if (!state.GetBool(NoFlower))
             {
                 state.SetBool(NoFlower, true); // don't require flower shade skips, also avoids thorny issues with reacquiring flower after setting up the shade.
             }
 
             return true;
-        }
-
-        public bool CheckHealthRequirement(ProgressionManager pm, State state)
-        {
-            if (RequiredShadeHealth == 1)
-            {
-                return true;
-            }
-            else
-            {
-                int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
-                if (hp >= RequiredShadeHealth || RequiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None) return true;
-                return false;
-            }
         }
 
         public bool CheckHealthRequirement(ProgressionManager pm, ref LazyStateBuilder state)
@@ -139,7 +115,7 @@ namespace RandomizerMod.RC.StateVariables
             }
             else
             {
-                int hp = (pm.Get(MaskShardsTerm) / 4) / 2;
+                int hp = (pm.Get(MaskShards) / 4) / 2;
                 if (hp >= RequiredShadeHealth || RequiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None)
                 {
                     FragileHeartEquip.BreakCharm(pm, ref state);
@@ -153,6 +129,29 @@ namespace RandomizerMod.RC.StateVariables
         public bool CheckSoulRequirement<T>(T state) where T : IState
         {
             return state.GetInt(RequiredMaxSoul) <= 66;
+        }
+
+        protected virtual void PostAdjustSoul(ProgressionManager pm, ref LazyStateBuilder state)
+        {
+            int spentSoul = state.GetInt(SpentSoul);
+            if (spentSoul >= 33) return;
+
+            int debit = 33 - spentSoul;
+            int currentReserve = (pm.Get(VesselFragments) / 3) * 33 - state.GetInt(SpentReserveSoul);
+
+            if (currentReserve >= debit)
+            {
+                state.Increment(SpentReserveSoul, debit);
+            }
+            else if (currentReserve > 0)
+            {
+                state.Increment(SpentReserveSoul, currentReserve);
+                state.Increment(SpentSoul, debit - currentReserve);
+            }
+            else
+            {
+                state.Increment(SpentSoul, debit);
+            }
         }
     }
 }

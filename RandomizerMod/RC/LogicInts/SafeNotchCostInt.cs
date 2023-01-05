@@ -5,10 +5,13 @@ namespace RandomizerMod.RC.LogicInts
     /// <summary>
     /// LogicInt which returns 1 less than the number of notches needed to equip the charm without overcharming.
     /// </summary>
+    [Obsolete("Use EquipCharmVariable")]
     public class SafeNotchCostInt : LogicInt
     {
         // the ids should correspond to the 1-40 charm nums (i.e. 1-indexed)
         public readonly int[] charmIDs;
+        public override string Name { get; }
+        public const string Prefix = "$SafeNotchCost";
 
         public SafeNotchCostInt(params int[] charmIDs)
         {
@@ -17,7 +20,17 @@ namespace RandomizerMod.RC.LogicInts
             Name = $"$SafeNotchCost[{string.Join(",", charmIDs)}]";
         }
 
-        public override string Name { get; }
+        public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
+        {
+            if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
+            {
+                int[] charmIDs = parameters.Select(int.Parse).ToArray();
+                variable = new SafeNotchCostInt(charmIDs);
+                return true;
+            }
+            variable = null;
+            return false;
+        }
 
         public override int GetValue(object? sender, ProgressionManager pm)
         {
