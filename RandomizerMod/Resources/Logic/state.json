@@ -11,10 +11,7 @@
       "BROKEGREED",
       "BROKESTRENGTH",
       "NOFLOWER",
-      "MOVEDDREAMGATE",
-      "MOVEDRESPAWN",
       "NOPASSEDCHARMEQUIP",
-      "NOBENCHRESPAWN",
       "CHARM1",
       "CHARM2",
       "CHARM3",
@@ -133,21 +130,10 @@
     },
     "NOFLOWER": {
       "DefaultValue": true,
-      "BenchResetCondition": "NONE",
-      "DreamGateResetCondition": "ANY"
-    },
-    "MOVEDDREAMGATE": {
-      "BenchResetCondition": "NONE"
-    },
-    "MOVEDRESPAWN": {
       "BenchResetCondition": "NONE"
     },
     "NOPASSEDCHARMEQUIP": {
       "DefaultValue": true
-    },
-    "NOBENCHRESPAWN": {
-      "DefaultValue": true,
-      "StartRespawnResetCondition": "ANY"
     },
     "SPENTSOUL": {
       "BenchResetCondition": "Salubra's_Blessing + CANNOTREGAINSOUL=FALSE",
@@ -174,9 +160,7 @@
   "NamedStates": {
     "BenchResetState": {
       "ModifiedBoolFields": {
-        "MOVEDRESPAWN": true,
-        "NOPASSEDCHARMEQUIP": false,
-        "NOBENCHRESPAWN": false
+        "NOPASSEDCHARMEQUIP": false
       }
     },
     "StartRespawnResetState": {},
@@ -185,8 +169,7 @@
         "SPENTALLSOUL": true
       }
     },
-    "HotSpringResetState": {},
-    "DreamGateResetState": {}
+    "HotSpringResetState": {}
   },
   "NamedStateUnions": {}
 }

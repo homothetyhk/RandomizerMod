@@ -8,10 +8,9 @@ namespace RandomizerMod.RC.StateVariables
      * Prefix: $TAKEDAMAGE
      * Required Parameters:
          - If any parameters are provided, the first parameter must parse to int to give the damage amount. If absent, defaults to 1.
-     * Optional Parameters:
-     *   - "noDG": indicates that dream gate after taking damage is not possible.
+     * Optional Parameters: none
     */
-    public class TakeDamageVariable : DGAwareStateModifier
+    public class TakeDamageVariable : StateModifier
     {
         public override string Name { get; }
         protected readonly int Amount; // TODO: properly separate into int[] of amount per hit
@@ -30,12 +29,10 @@ namespace RandomizerMod.RC.StateVariables
 
         public const string Prefix = "$TAKEDAMAGE";
 
-        public TakeDamageVariable(string name, LogicManager lm, int amount, bool canDreamgate)
-            : base(lm)
+        public TakeDamageVariable(string name, LogicManager lm, int amount)
         {
             Name = name;
             this.Amount = amount;
-            base.CanDreamGate = canDreamgate;
             try
             {
                 Overcharmed = lm.StateManager.GetBoolStrict("OVERCHARMED");
@@ -61,8 +58,7 @@ namespace RandomizerMod.RC.StateVariables
             if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
             {
                 int amount = parameters.Length == 0 ? 1 : int.Parse(parameters[0]);
-                bool canDreamgate = !parameters.Contains("noDG");
-                variable = new TakeDamageVariable(term, lm, amount, canDreamgate);
+                variable = new TakeDamageVariable(term, lm, amount);
                 return true;
             }
 
@@ -77,10 +73,9 @@ namespace RandomizerMod.RC.StateVariables
             foreach (Term t in LifebloodCore.GetTerms()) yield return t;
             foreach (Term t in JonisBlessing.GetTerms()) yield return t;
             foreach (Term t in FragileHeart.GetTerms()) yield return t;
-            foreach (Term t in base.GetTerms()) yield return t;
         }
 
-        protected override IEnumerable<LazyStateBuilder> ModifyStateInternal(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             if (state.GetBool(HasTakenDamage) || state.GetBool(NoPassedCharmEquip))
             {

@@ -7,10 +7,9 @@ namespace RandomizerMod.RC.StateVariables
      * Prefix: $SHADESKIP
      * Required Parameters: none
      * Optional Parameters:
-     *   - a parameter equal to "noDG": indicates that dream gate is not possible after the skip
      *   - a parameter ending in "HITS": the head of the parameter must parse to int, and is the required shade hp. Defaults to 1.
     */
-    public class ShadeStateVariable : DGAwareStateModifier
+    public class ShadeStateVariable : StateModifier
     {
         public override string Name { get; }
         protected readonly Term Shadeskips;
@@ -28,10 +27,8 @@ namespace RandomizerMod.RC.StateVariables
         public const string Prefix = "$SHADESKIP";
         
         public ShadeStateVariable(string name, LogicManager lm, bool canDreamgate, int requiredShadeHealth)
-            : base(lm)
         {
             Name = name;
-            base.CanDreamGate = canDreamgate;
             RequiredShadeHealth = requiredShadeHealth;
             try
             {
@@ -73,11 +70,9 @@ namespace RandomizerMod.RC.StateVariables
         {
             yield return Shadeskips;
             if (RequiredShadeHealth > 1) yield return MaskShards;
-            foreach (Term t in base.GetTerms()) yield return t;
         }
 
-
-        protected override IEnumerable<LazyStateBuilder> ModifyStateInternal(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             if (TryDoShadeSkip(pm, ref state))
             {

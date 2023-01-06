@@ -781,7 +781,7 @@
   },
   {
     "name": "Bench-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | WINGS + ANYCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Beast's_Den"
+    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | WINGS + ANYCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Beast's_Den"
   },
   {
     "name": "Bench-Basin_Toll",

@@ -19,7 +19,6 @@ namespace RandomizerMod.RC
             if (TakeDamageVariable.TryMatch(lm, term, out variable)) return true;
             if (StagStateVariable.TryMatch(lm, term, out variable)) return true;
             if (FlowerProviderVariable.TryMatch(lm, term, out variable)) return true;
-            if (DreamGateResetVariable.TryMatch(lm, term, out variable)) return true;
             if (SaveQuitResetVariable.TryMatch(lm, term, out variable)) return true;
             if (StartRespawnResetVariable.TryMatch(lm, term, out variable)) return true;
             if (WarpToStartResetVariable.TryMatch(lm, term, out variable)) return true;

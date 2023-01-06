@@ -11,9 +11,8 @@ namespace RandomizerMod.RC.StateVariables
      *                             If missing, number of casts is new int[]{1}
      *   - a parameter beginning with "before:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available before any spells are cast.
      *   - a parameter beginning with "after:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available after all spells are cast.
-     *   - a parameter equal to "noDG": indicates that dream gate is not possible after the cast.
     */
-    public class CastSpellVariable : DGAwareStateModifier
+    public class CastSpellVariable : StateModifier
     {
         public enum NearbySoul
         {
@@ -44,11 +43,9 @@ namespace RandomizerMod.RC.StateVariables
         public const string Prefix = "$CASTSPELL";
 
         public CastSpellVariable(string name, LogicManager lm, int[] spellCasts, bool canDreamgate, NearbySoul beforeSoul, NearbySoul afterSoul)
-            : base(lm)
         {
             Name = name;
             this.SpellCasts = spellCasts;
-            base.CanDreamGate = canDreamgate;
             this.BeforeSoul = beforeSoul;
             this.AfterSoul = afterSoul;
             try
@@ -121,13 +118,12 @@ namespace RandomizerMod.RC.StateVariables
             yield return AreaRando;
             yield return RoomRando;
             foreach (Term t in EquipSpellTwister.GetTerms()) yield return t;
-            foreach (Term t in base.GetTerms()) yield return t;
         }
 
         /// <summary>
         /// Applies the cast spell transformation without accounting for potential dream gate resets before and after.
         /// </summary>
-        protected override IEnumerable<LazyStateBuilder> ModifyStateInternal(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             int soul;
             int reserves = GetReserves(pm, state);

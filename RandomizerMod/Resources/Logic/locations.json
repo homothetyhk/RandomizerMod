@@ -457,7 +457,7 @@
   },
   {
     "name": "Rancid_Egg-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
   },
   {
     "name": "Rancid_Egg-Dark_Deepnest",
@@ -825,7 +825,7 @@
   },
   {
     "name": "Grub-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
   },
   {
     "name": "Grub-Kingdom's_Edge_Oro",
@@ -1533,23 +1533,23 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Egg",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Egg_Dupe",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[noDG,2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Bottom",
