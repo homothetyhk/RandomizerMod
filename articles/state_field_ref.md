@@ -6,11 +6,11 @@ This article explains the state fields defined in the randomizer. Unless otherwi
 - "OVERCHARMED"
   - If true, the player is overcharmed.
 - "SPENTALLSOUL"
-  - If true, the player should be assumed to have no soul, regardless of other state fields.
+  - If true, the player should be assumed to have no soul, regardless of other state fields. For example, a savequit to a bench without Salubra's Blessing might set this `true`.
 - "CANNOTREGAINSOUL"
   - If true, the state should not be allowed to regain soul.
 - "CANNOTSHADESKIP"
-  - If true, the state cannot shade skip.
+  - If true, the state cannot shade skip. This is available as a separate control from USEDSHADE.
 - "HASTAKENDAMAGE"
   - If true, the player has taken damage. This means that damage-affecting state choices such as overcharming should now be treated as frozen.
 - "BROKEHEART"
@@ -22,6 +22,9 @@ This article explains the state fields defined in the randomizer. Unless otherwi
 - "NOFLOWER"
   - Defaults to `true`
   - If `false`, the path to the current point represented by this state has the unbroken Delicate Flower.
+- "NOPASSEDCHARMEQUIP"
+  - Defaults to `true`
+  - If `false`, the path to the current point contains a place where charms can be equipped.
 - "CHARM1", ..., "CHARM40" and "noCHARM1", ..., "noCHARM40"
   - These fields correspond to the 40 charms, identified by 1-based id number.
   - For example, the charm with id 1 is Gathering Swarm. If "CHARM1" is true, then Gathering Swarm is equipped. If "noCHARM1" is true, then Gathering Swarm is not equipped. Otherwise, "CHARM1" and "noCHARM1" are both false, and the equip state of Gathering Swarm is ambiguous (i.e. a subsequent state modifier can decide to require it to be equipped or unequipped).

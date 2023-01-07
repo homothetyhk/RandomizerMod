@@ -10,14 +10,6 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
   - Optional Parameters: none
   - These LogicInts return the number of notches needed to equip the corresponding combination of charms, minus 1. $NotchCost gives the number allowing for overcharming, while SafeNotchCost gives the number without overcharming. Obsoleted by EquipCharmVariable ($EQUIPCHARM), which has better interoperability.
 
-## StateVariables
-
-- RequireFlowerVariable
-  - Prefix: `$FLOWER`
-  - Required Parameters: none
-  - Optional Parameters: none
-  - Returns true if the input state union contains a state with `NOFLOWER` set to false; in other words, a state with access to the delicate flower.
-
 ## StateProviders
 
 - StartLocationDelta
@@ -29,11 +21,9 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
 - BenchResetVariable
   - Prefix: `$BENCHRESET`
   - Required Parameters: none
-  - Optional Parameters: 
-    - "noDG", if it is not possible to place a dream gate near the bench.
+  - Optional Parameters: none
   - This is a `StateResetter` which applies the effect of resting at a bench.
     - Field-resetting is opt-out, via a "BenchResetCondition" property on the field which provides single-state infix logic that returns true when the field should be resetted.
-    - Also provides the start state, if dream gate can be placed at the bench and the player has dream gate progression.
 
 - CastSpellVariable
   - Prefix: `$CASTSPELL`
@@ -43,15 +33,14 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
       - If missing, number of casts is new int[]{1}
     - a parameter beginning with "before:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available before any spells are cast.
     - a parameter beginning with "after:": tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available after all spells are cast.
-    - a parameter equal to "noDG": indicates that dream gate is not possible after the cast.
   - Represents the effect on soul of casting spells sequentially.
 
-- EquipCharmVariable, FragileCharmVariable
+- EquipCharmVariable, FragileCharmVariable, WhiteFragmentEquipVariable
   - Prefix: `$EQUIPPEDCHARM`
   - Required Parameters:
     - First parameter MUST be either: the name of the charm term (e.g. Gathering_Swarm) or the 1-based charm ID (for Gathering Swarm, 1).
   - Optional Parameters: none
-  - Represents the effect of equipping a charm. Uses `MAXNOTCHCOST` to efficiently overcharm if needed. Cannot overcharm if the player has already taken damage. Fragile charms cannot be equipped if the player does not have the ability to repair them, or if they are broken in the current state.
+  - Represents the effect of equipping a charm. Uses `MAXNOTCHCOST` to efficiently overcharm if needed. Cannot overcharm if the player has already taken damage. Fragile charms cannot be equipped if the player does not have the ability to repair them, or if they are broken in the current state. Charm 36 (Kingsoul/Void Heart) checks that the player at least 2 white fragments, and uses notch cost 0 if the player has 3 white fragments.
 
 - FlowerProviderVariable
   - Prefix: `$FLOWERGET`
@@ -66,11 +55,16 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
   - This is a `StateResetter` which applies the effect of resting in a hot springs.
     - Field-resetting is opt-in, via a "HotSpringResetCondition" property on the field which provides single-state infix logic that returns true when the field should be resetted.
 
+- SaveQuitResetVariable
+  - Required Parameters: none
+  - Optional Parameters: none
+  - This is a `StateResetter` which provides the effect of warping via Benchwarp or savequit, regardless of destination type.
+    - Field-resetting is opt-in, via a "SaveQuitResetCondition" property on the field which provides single-state infix logic that returns true when the field should be resetted.
+
 - ShadeStateVariable
   - `$SHADESKIP`
   - Required Parameters: none
   - Optional Parameters:
-    - "noDG", if it is not possible to dream gate immediately after the skip
     - an integer followed by "HITS" (e.g. "2HITS"), denoting the number of nail hits the shade must be able to survive. Defaults to 1.
   - Represents the effect of dying to set up a shade. If the player has and can dream gate, a second path considers the result of dream gating before and after the shade skip.
   - To succeed, requires:
@@ -79,20 +73,38 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
     - The `USEDSHADE` state bool set to false
     - The state must have enough max HP for the shade health requirement
     - The state must not require more than 66 max soul
-  - Sets `NOFLOWER` true and `USEDSHADE` true. In the dream gate path, `USEDSHADE` is not set. Fragile Heart can be equipped to reach a max HP requirement, and can be broken if its conditions are met.
+  - Sets `NOFLOWER` true and `USEDSHADE` true. Fragile Heart can be equipped to reach a max HP requirement, and can be broken if its conditions are met.
 
 - StagStateVariable
   - Prefix: `$STAGSTATEMODIFIER`
   - Required Parameters: none
   - Optional Parameters: none
-  - Represents the effect of riding a stag. Resets `NOFLOWER`.
+  - Represents the effect of riding a stag. Sets `NOFLOWER` true.
+
+- StartRespawnResetVariable
+  - Prefix: `$STARTRESPAWN`
+  - Required Parameters: none
+  - Optional Parameters: none
+  - This is a `StateResetter` which provides the effect of the start respawn. Typically used via `$WARPTOSTART`.
+    - Field resetting is opt-in, via a "StartRespawnResetCondition" property on the field which provides single-state infix logic that returns true when the field should be resetted.
 
 - TakeDamageVariable
   - Prefix: `$TAKEDAMAGE`
   - Required Parameters:
     - If any parameters are provided, the first should be an int representing the number of 1-damage hits. Defaults to 1.
-  - Optional Parameters:
-    - "noDG", if it is not possible to dream gate immediately after taking damage.
-    - "canRegen", if it is possible to pause to regain health between hits.
-  - This is a state modifier which represents the effect of taking damage. On the first hit, sets `HASTAKENDAMAGE`, and emits all equippable combinations of `CHARM` and `noCHARM` bools for the following charms: Hiveblood, Lifeblood Heart, Lifeblood Core, Joni's Blessing, Fragile Heart. Subsequently, increments `SPENTBLUEHP` and `SPENTHP` accounting for overcharming to handle all damage. If "canRegen" is set, allows Hiveblood recovery between hits.
-  
+  - Optional Parameters: none
+  - This is a state modifier which represents the effect of taking damage. On the first hit, sets `HASTAKENDAMAGE`, and emits all equippable combinations of `CHARM` and `noCHARM` bools for the following charms: Lifeblood Heart, Lifeblood Core, Joni's Blessing, Fragile Heart. Subsequently, increments `SPENTBLUEHP` and `SPENTHP` accounting for overcharming to handle all damage.
+
+- WarpToBenchResetVariable
+  - Prefix: `$WARPTOBENCH`
+  - Required Parameters: none
+  - Optional Parameters: none
+  - Provides the effect of warping to a bench via Benchwarp or savequit. Does not verify whether the player can warp to a bench.
+    - Implemented by applying `$SAVEQUITRESET`, then `$BENCHRESET`.
+
+- WarpToStartResetVariable
+  - Prefix: `$WARPTOSTART`
+  - Required Parameters: none
+  - Optional Parameters: none
+  - Provides the effect of warping to start via Benchwarp or savequit.
+    - Implemented by applying `$SAVEQUITRESET`, then `$STARTRESPAWN`.
