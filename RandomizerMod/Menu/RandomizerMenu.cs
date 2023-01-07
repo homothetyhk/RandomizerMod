@@ -7,6 +7,7 @@ using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
 using RandomizerMod.Settings;
 using RandomizerMod.Settings.Presets;
+using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 using Random = System.Random;
@@ -971,11 +972,39 @@ namespace RandomizerMod.Menu
             OutputLabel.Show();
 
             RandomizerCore.RandoMonitor rm = new();
+            Stopwatch sw = new();
             rm.OnSendEvent += (t, m) =>
             {
-                Log($"Randomizer Event: [{t}]");
-                if (m != null) Log(m);
-                if (t == RandomizerCore.RandoEventType.NewAttempt) ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
+                switch (t)
+                {
+                    case RandomizerCore.RandoEventType.NewAttempt:
+                        ThreadSupport.BeginInvoke(() => AttemptCounter.Incr());
+                        goto default;
+                    case RandomizerCore.RandoEventType.BeginStage:
+                        if (rm.PreviousStage.HasValue && sw.IsRunning)
+                        {
+                            Log($"Finished stage {rc.stages[rm.PreviousStage.Value.StageIndex].label} ({rm.PreviousStage.Value.State}) in: {sw.Elapsed.TotalSeconds}");
+                        }
+                        Log($"Randomizer Event: [{t}] - {m}");
+                        sw.Restart();
+                        break;
+                    case RandomizerCore.RandoEventType.Error:
+                        if (rm.Stage.HasValue && sw.IsRunning)
+                        {
+                            Log($"Stage {rc.stages[rm.Stage.Value.StageIndex].label} ({rm.Stage.Value.State}) terminated in error after: {sw.Elapsed.TotalSeconds}");
+                        }
+                        goto default;
+                    case RandomizerCore.RandoEventType.Validating:
+                        if (rm.Stage.HasValue && sw.IsRunning)
+                        {
+                            Log($"Finished stage {rc.stages[rm.Stage.Value.StageIndex].label} ({rm.Stage.Value.State}) in: {sw.Elapsed.TotalSeconds}");
+                        }
+                        goto default;
+                    default:
+                        Log($"Randomizer Event: [{t}]");
+                        if (m != null) Log(m);
+                        break;
+                }
             };
             rm.OnError += e =>
             {

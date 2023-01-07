@@ -360,8 +360,6 @@ namespace RandomizerMod.Settings
             {
                 onAdd?.Invoke(pm);
             }
-
-            public override void OnRemove(ProgressionManager pm) { }
         }
     }
 }

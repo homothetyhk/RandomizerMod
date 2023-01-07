@@ -357,7 +357,7 @@
   },
   {
     "name": "Pale_Ore-Crystal_Peak",
-    "logic": "Mines_34[bot1] + (LEFTCLAW + (WINGS | RIGHTDASH | RIGHTSUPERDASH | SPIKETUNNELS) | RIGHTCLAW + (WINGS | ENEMYPOGOS + (RIGHTDASH | SPIKETUNNELS)))"
+    "logic": "Mines_34[bot1] + (LEFTCLAW + (WINGS | RIGHTDASH | RIGHTSUPERDASH | SPIKETUNNELS) | RIGHTCLAW + (WINGS | ENEMYPOGOS + (RIGHTDASH | SPIKETUNNELS))) | $StartLocation[Hallownest's Crown]"
   },
   {
     "name": "Pale_Ore-Nosk",
@@ -1213,7 +1213,7 @@
   },
   {
     "name": "Geo_Rock-Broken_Bridge_Lower_Dupe",
-    "logic": "Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))"
+    "logic": "*Geo_Rock-Broken_Bridge_Lower"
   },
   {
     "name": "Geo_Rock-Abyss_1",
@@ -1261,7 +1261,7 @@
   },
   {
     "name": "Geo_Rock-Below_Gorb",
-    "logic": "Cliffs_02"
+    "logic": "*Geo_Rock-Below_Gorb"
   },
   {
     "name": "Geo_Rock-Crossroads_Well",
@@ -1277,11 +1277,11 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Root_Dupe_1",
-    "logic": "Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK"
+    "logic": "*Geo_Rock-Crossroads_Root"
   },
   {
     "name": "Geo_Rock-Crossroads_Root_Dupe_2",
-    "logic": "Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK"
+    "logic": "*Geo_Rock-Crossroads_Root"
   },
   {
     "name": "Geo_Rock-Crossroads_Aspid_Arena",
@@ -1289,11 +1289,11 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Aspid_Arena_Dupe_1",
-    "logic": "Crossroads_08"
+    "logic": "*Geo_Rock-Crossroads_Aspid_Arena"
   },
   {
     "name": "Geo_Rock-Crossroads_Aspid_Arena_Dupe_2",
-    "logic": "Crossroads_08"
+    "logic": "*Geo_Rock-Crossroads_Aspid_Arena"
   },
   {
     "name": "Geo_Rock-Crossroads_Aspid_Arena_Hidden",
@@ -1325,11 +1325,11 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Before_Fungal_Dupe_1",
-    "logic": "Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]"
+    "logic": "*Geo_Rock-Crossroads_Before_Fungal"
   },
   {
     "name": "Geo_Rock-Crossroads_Before_Fungal_Dupe_2",
-    "logic": "Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]"
+    "logic": "*Geo_Rock-Crossroads_Before_Fungal"
   },
   {
     "name": "Geo_Rock-Crossroads_Before_Shops",
@@ -1357,11 +1357,11 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Goam_Damage_Boost",
-    "logic": "(Crossroads_42[left1] | Crossroads_42[right1]) + 2HITS"
+    "logic": "(Crossroads_42[left1] | Crossroads_42[right1]) + $TAKEDAMAGE"
   },
   {
     "name": "Geo_Rock-Crossroads_Tram",
-    "logic": "Crossroads_46[left1] | (Crossroads_46b[right1] + TRAM)"
+    "logic": "Crossroads_46[left1] | Crossroads_46b[right1] + TRAM"
   },
   {
     "name": "Geo_Rock-Crossroads_Goam_Journal",
@@ -1369,7 +1369,7 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Goam_Journal_Dupe",
-    "logic": "Crossroads_52[left1] + Broke_Goam_Entry_Quake_Floor"
+    "logic": "*Geo_Rock-Crossroads_Goam_Journal"
   },
   {
     "name": "Geo_Rock-Ancestral_Mound",
@@ -1377,15 +1377,15 @@
   },
   {
     "name": "Geo_Rock-Ancestral_Mound_Dupe",
-    "logic": "Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)"
+    "logic": "*Geo_Rock-Ancestral_Mound"
   },
   {
     "name": "Geo_Rock-Ancestral_Mound_Tree",
-    "logic": "Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)"
+    "logic": "Crossroads_ShamanTemple[left1] + (WINGS | ENEMYPOGOS + (RIGHTCLAW | COMPLEXSKIPS)) + (UPWALLBREAK | (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)"
   },
   {
     "name": "Geo_Rock-Ancestral_Mound_Tree_Dupe",
-    "logic": "Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)"
+    "logic": "*Geo_Rock-Ancestral_Mound_Tree"
   },
   {
     "name": "Geo_Rock-Moss_Prophet",
@@ -1393,7 +1393,7 @@
   },
   {
     "name": "Geo_Rock-Moss_Prophet_Dupe",
-    "logic": "Deepnest_01"
+    "logic": "*Geo_Rock-Moss_Prophet"
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Mimics",
@@ -1401,7 +1401,7 @@
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Mimics_Dupe",
-    "logic": "Deepnest_02"
+    "logic": "*Geo_Rock-Deepnest_Below_Mimics"
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Spike_Grub",
@@ -1409,7 +1409,7 @@
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Spike_Grub_Dupe",
-    "logic": "Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])"
+    "logic": "*Geo_Rock-Deepnest_Below_Spike_Grub"
   },
   {
     "name": "Geo_Rock-Deepnest_Spike_Grub_Right",
@@ -1421,7 +1421,7 @@
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo_Dupe",
-    "logic": "Deepnest_16[bot1]"
+    "logic": "*Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1",
@@ -1537,7 +1537,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
+    "logic": "*Geo_Rock-Beast's_Den_Above_Trilobite"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Herrah",
@@ -1549,7 +1549,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Egg_Dupe",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
+    "logic": "*Geo_Rock-Beast's_Den_Below_Egg"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Bottom",
@@ -1557,7 +1557,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Bottom_Dupe",
-    "logic": "Deepnest_Spider_Town[left1]"
+    "logic": "*Geo_Rock-Beast's_Den_Bottom"
   },
   {
     "name": "Geo_Rock-Beast's_Den_After_Herrah",
@@ -1585,7 +1585,7 @@
   },
   {
     "name": "Geo_Rock-Greenpath_Second_Skip_Fool_Eater_Dupe",
-    "logic": "Fungus1_03[left1] | Fungus1_03[right1] | Fungus1_03[bot1]"
+    "logic": "*Geo_Rock-Greenpath_Second_Skip_Fool_Eater"
   },
   {
     "name": "Geo_Rock-Greenpath_Second_Skip_Lower",
@@ -1617,7 +1617,7 @@
   },
   {
     "name": "Geo_Rock-Greenpath_After_MMC_Dupe",
-    "logic": "(Fungus1_12[left1] | Fungus1_12[right1])"
+    "logic": "*Geo_Rock-Greenpath_After_MMC"
   },
   {
     "name": "Geo_Rock-Greenpath_Obbles_Fool_Eater",
@@ -1629,11 +1629,11 @@
   },
   {
     "name": "Geo_Rock-Greenpath_Moss_Knights_Dupe_1",
-    "logic": "Fungus1_21"
+    "logic": "*Geo_Rock-Greenpath_Moss_Knights"
   },
   {
     "name": "Geo_Rock-Greenpath_Moss_Knights_Dupe_2",
-    "logic": "Fungus1_21"
+    "logic": "*Geo_Rock-Greenpath_Moss_Knights"
   },
   {
     "name": "Geo_Rock-Greenpath_Below_Stag",
@@ -1665,7 +1665,7 @@
   },
   {
     "name": "Geo_Rock-Greenpath_Toll_Hidden_Dupe",
-    "logic": "Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]"
+    "logic": "*Geo_Rock-Greenpath_Toll_Hidden"
   },
   {
     "name": "Geo_Rock-Fungal_Below_Shrumal_Ogres",
@@ -1685,7 +1685,7 @@
   },
   {
     "name": "Geo_Rock-Fungal_Below_Pilgrim's_Way_Dupe",
-    "logic": "Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]"
+    "logic": "*Geo_Rock-Fungal_Below_Pilgrim's_Way"
   },
   {
     "name": "Geo_Rock-Mantis_Outskirts_Guarded",
@@ -1693,7 +1693,7 @@
   },
   {
     "name": "Geo_Rock-Mantis_Outskirts_Guarded_Dupe",
-    "logic": "Fungus2_13"
+    "logic": "*Geo_Rock-Mantis_Outskirts_Guarded"
   },
   {
     "name": "Geo_Rock-Mantis_Outskirts_Alcove",
@@ -1709,7 +1709,7 @@
   },
   {
     "name": "Geo_Rock-Mantis_Village_Above_Claw_Dupe",
-    "logic": "Fungus2_14 + (COMPLEXSKIPS + ENEMYPOGOS | WINGS | (ANYCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS)))"
+    "logic": "*Geo_Rock-Mantis_Village_Above_Claw"
   },
   {
     "name": "Geo_Rock-Mantis_Village_Below_Lore",
@@ -1733,7 +1733,7 @@
   },
   {
     "name": "Geo_Rock-Fungal_After_Bouncy_Grub_Dupe",
-    "logic": "Fungus2_18[right1]"
+    "logic": "*Geo_Rock-Fungal_After_Bouncy_Grub"
   },
   {
     "name": "Geo_Rock-Fungal_Bouncy_Grub_Lever",
@@ -1789,7 +1789,7 @@
   },
   {
     "name": "Geo_Rock-Love_Key_Dupe",
-    "logic": "Fungus3_39[left1]"
+    "logic": "*Geo_Rock-Love_Key"
   },
   {
     "name": "Geo_Rock-Queen's_Gardens_Above_Marmu",
@@ -1829,7 +1829,7 @@
   },
   {
     "name": "Geo_Rock-Hive_Stash_Dupe",
-    "logic": "Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + FULLDASH) | (RIGHTCLAW + FULLDASH + ENEMYPOGOS)))"
+    "logic": "*Geo_Rock-Hive_Stash"
   },
   {
     "name": "Geo_Rock-Hive_Below_Grub",
@@ -1857,7 +1857,7 @@
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Before_Dark_Room_Dupe",
-    "logic": "Mines_04"
+    "logic": "*Geo_Rock-Crystal_Peak_Before_Dark_Room"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Above_Spike_Grub",
@@ -1873,7 +1873,7 @@
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Dive_Egg_Dupe",
-    "logic": "Mines_20 + Broke_Crystal_Peak_Dive_Egg_Quake_Floor"
+    "logic": "*Geo_Rock-Crystal_Peak_Dive_Egg"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Conga_Line",
@@ -1885,7 +1885,7 @@
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Dive_Dupe",
-    "logic": "((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])) + Broke_Hallownest's_Crown_Quake_Floor"
+    "logic": "*Geo_Rock-Hallownest_Crown_Dive"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden",
@@ -1893,11 +1893,11 @@
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_1",
-    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1] + (ANYCLAW | FIREBALL | SCREAM | CYCLONE))"
+    "logic": "*Geo_Rock-Hallownest_Crown_Hidden"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_2",
-    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1] + (ANYCLAW | FIREBALL | SCREAM | CYCLONE))"
+    "logic": "*Geo_Rock-Hallownest_Crown_Hidden"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Before_Crystal_Heart",
@@ -1909,11 +1909,11 @@
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Entrance_Dupe_1",
-    "logic": "(Mines_33[left1] | Mines_33[right1]) + LANTERN"
+    "logic": "*Geo_Rock-Crystal_Peak_Entrance"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Entrance_Dupe_2",
-    "logic": "(Mines_33[left1] | Mines_33[right1]) + LANTERN"
+    "logic": "*Geo_Rock-Crystal_Peak_Entrance"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Above_Crushers_Lower",
@@ -1929,7 +1929,7 @@
   },
   {
     "name": "Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe",
-    "logic": "RestingGrounds_10 + UPWALLBREAK"
+    "logic": "*Geo_Rock-Resting_Grounds_Catacombs_Left"
   },
   {
     "name": "Geo_Rock-Resting_Grounds_Catacombs_Left",
@@ -1941,7 +1941,7 @@
   },
   {
     "name": "Geo_Rock-Fluke_Hermit_Dupe",
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)"
+    "logic": "*Geo_Rock-Fluke_Hermit"
   },
   {
     "name": "Geo_Rock-Fluke_Hermit",

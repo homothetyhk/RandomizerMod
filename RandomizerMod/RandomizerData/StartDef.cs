@@ -63,7 +63,7 @@ namespace RandomizerMod.RandomizerData
 
         /// <summary>
         /// Returns a sequence of term values which will be treated as setters by the ProgressionInitializer.
-        /// <br/>State-valued terms in the sequence will be treated as full state terms, regardless of the int parameter.
+        /// <br/>State-valued terms in the sequence will be linked to Start_State, regardless of the int parameter.
         /// </summary>
         public virtual IEnumerable<TermValue> GetStartLocationProgression(LogicManager lm)
         {

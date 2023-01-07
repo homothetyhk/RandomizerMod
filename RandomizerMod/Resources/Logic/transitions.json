@@ -2732,7 +2732,7 @@
   {
     "sceneName": "Deepnest_41",
     "gateName": "right1",
-    "logic": "Deepnest_41[right1] | Deepnest_41[left1] + (LANTERN | DARKROOMS) + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS) | LEFTCLAW + ENEMYPOGOS) | Deepnest_41[left2] + (LANTERN | DARKROOMS) + (FULLCLAW | WINGS + (LEFTCLAW + ENEMYPOGOS | RIGHTCLAW))",
+    "logic": "Deepnest_41[right1] | Deepnest_41[left1] + (LANTERN | DARKROOMS) + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS) | LEFTCLAW + ENEMYPOGOS) | Deepnest_41[left2] + (LANTERN | DARKROOMS) + (FULLCLAW | WINGS + (LEFTCLAW + ENEMYPOGOS | RIGHTCLAW | DIFFICULTSKIPS + COMPLEXSKIPS + ENEMYPOGOS + ANYDASH + $SHADESKIP))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_41[right1]"
   },
@@ -2830,7 +2830,7 @@
   {
     "sceneName": "Deepnest_East_01",
     "gateName": "top1",
-    "logic": "Deepnest_East_01[top1] | ((Deepnest_East_01[bot1] + (ANYCLAW | WINGS)) | Deepnest_East_01[right1]) + (RIGHTDASH | LEFTCLAW | WINGS)",
+    "logic": "Deepnest_East_01[top1] | Deepnest_East_01[bot1] + (LEFTCLAW | WINGS | ENEMYPOGOS | RIGHTCLAW + OBSCURESKIPS) | Deepnest_East_01[right1] + (RIGHTDASH | LEFTCLAW | WINGS | ENEMYPOGOS | RIGHTCLAW + OBSCURESKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_01[top1]"
   },
@@ -2851,7 +2851,7 @@
   {
     "sceneName": "Deepnest_East_02",
     "gateName": "top1",
-    "logic": "Deepnest_East_02[top1] + (ANYCLAW | WINGS) | Deepnest_East_02 + (ANYCLAW | WINGS)",
+    "logic": "Deepnest_East_02[top1] + (ANYCLAW | WINGS | ENEMYPOGOS + COMPLEXSKIPS + ANYDASH) | Deepnest_East_02 + (ANYCLAW | WINGS | ENEMYPOGOS + COMPLEXSKIPS + ANYDASH)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_02[top1]"
   },
@@ -3719,7 +3719,7 @@
   {
     "sceneName": "Waterways_01",
     "gateName": "right1",
-    "logic": "Waterways_01[right1] | Waterways_01 + (RIGHTCLAW | WINGS | ENEMYPOGOS)",
+    "logic": "Waterways_01[right1] | Waterways_01 + (RIGHTCLAW | WINGS | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS) | Waterways_01[top1] + RIGHTDASH",
     "oneWayType": "TwoWay",
     "Name": "Waterways_01[right1]"
   },
@@ -5030,7 +5030,7 @@
   {
     "sceneName": "Room_Mansion",
     "gateName": "left1",
-    "logic": "Room_Mansion[left1] + $FLOWERGET",
+    "logic": "Room_Mansion[left1] | Grey_Mourner",
     "oneWayType": "TwoWay",
     "Name": "Room_Mansion[left1]"
   },
@@ -5499,14 +5499,14 @@
   {
     "sceneName": "Mines_34",
     "gateName": "bot2",
-    "logic": "Mines_34[bot2] | Mines_34[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (WINGS | FULLSUPERDASH | FULLDASH)",
+    "logic": "Mines_34[bot2] | Mines_34[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS) + (WINGS | FULLSUPERDASH | FULLDASH) | $StartLocation[Hallownest's Crown]",
     "oneWayType": "OneWayIn",
     "Name": "Mines_34[bot2]"
   },
   {
     "sceneName": "Mines_34",
     "gateName": "left1",
-    "logic": "Mines_34[left1] | (Mines_34[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (WINGS | FULLSUPERDASH | FULLDASH)) + (LEFTSUPERDASH | (WINGS + LEFTDASH))",
+    "logic": "Mines_34[left1] | (Mines_34[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS) + (WINGS | FULLSUPERDASH | FULLDASH) | $StartLocation[Hallownest's Crown]) + (LEFTSUPERDASH | WINGS + LEFTDASH)",
     "oneWayType": "OneWayIn",
     "Name": "Mines_34[left1]"
   },

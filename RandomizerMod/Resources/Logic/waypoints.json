@@ -344,6 +344,10 @@
     "Stateless": true
   },
   {
+    "name": "Grey_Mourner",
+    "logic": "Room_Mansion[left1] + $FLOWERGET"
+  },
+  {
     "name": "Can_Deliver_Flower",
     "logic": "Fungus3_49[right1] + (LEFTDASH | LEFTSUPERDASH + (RIGHTCLAW | WINGS) | WINGS + DIFFICULTSKIPS) + NOFLOWER=FALSE",
     "Stateless": true
@@ -1033,7 +1037,7 @@
   },
   {
     "name": "Deepnest_East_02",
-    "logic": "(Deepnest_East_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + ENEMYPOGOS))) | Deepnest_East_02[top1] | Deepnest_East_02[right1]"
+    "logic": "Deepnest_East_02[bot1] + (LEFTCLAW | WINGS | ENEMYPOGOS + (RIGHTCLAW | ANYDASH + COMPLEXSKIPS)) | Deepnest_East_02[top1] | Deepnest_East_02[right1]"
   },
   {
     "name": "Deepnest_East_03",
