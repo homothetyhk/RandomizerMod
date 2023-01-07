@@ -11,8 +11,6 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly Term RepairTerm;
         protected readonly StateBool BreakBool;
 
-        protected FragileCharmVariable(string name) : base(name) { }
-
         public FragileCharmVariable(string name, string charmName, int charmID, LogicManager lm) : this(name, charmName, charmID, lm, "Can_Repair_Fragile_Charms", charmID switch
         {
             23 => "BROKEHEART",

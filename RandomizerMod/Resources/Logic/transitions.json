@@ -583,7 +583,7 @@
   {
     "sceneName": "Crossroads_21",
     "gateName": "top1",
-    "logic": "Crossroads_21[top1] + (WINGS | ANYCLAW | INFECTED) | Crossroads_21 + (ANYCLAW | WINGS | INFECTED) + (LEFTSUPERDASH | LEFTTUNNEL)",
+    "logic": "Crossroads_21[top1] + (WINGS | ANYCLAW | INFECTED) | Crossroads_21 + (ANYCLAW | WINGS | INFECTED) + (LEFTSUPERDASH | SPIKETUNNELS + LEFTDASH + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL[2,before:ROOMSOUL,after:ROOMSOUL]))",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_21[top1]"
   },
@@ -3383,7 +3383,7 @@
   {
     "sceneName": "Abyss_01",
     "gateName": "left2",
-    "logic": "Abyss_01[left2] | (Abyss_01 + (LEFTTUNNEL | (SPIKETUNNELS + RIGHTCLAW + LEFTDASH))) | (Abyss_01[right2] + LEFTSUPERDASH)",
+    "logic": "Abyss_01[left2] | Abyss_01 + SPIKETUNNELS + (LEFTDASH + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL) | RIGHTCLAW + LEFTDASH) | Abyss_01[right2] + LEFTSUPERDASH",
     "oneWayType": "TwoWay",
     "Name": "Abyss_01[left2]"
   },
@@ -3404,7 +3404,7 @@
   {
     "sceneName": "Abyss_01",
     "gateName": "right2",
-    "logic": "Abyss_01[right2] | (Abyss_01 + (RIGHTTUNNEL | (SPIKETUNNELS + RIGHTCLAW + LEFTDASH + RIGHTSUPERDASH))) | (Abyss_01[left2] + RIGHTSUPERDASH)",
+    "logic": "Abyss_01[right2] | Abyss_01 + SPIKETUNNELS + (RIGHTDASH + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL[2]) | RIGHTCLAW + LEFTDASH + RIGHTSUPERDASH) | Abyss_01[left2] + RIGHTSUPERDASH",
     "oneWayType": "TwoWay",
     "Name": "Abyss_01[right2]"
   },

@@ -7,7 +7,7 @@ namespace RandomizerMod.RC.StateVariables
     */
     public class WhiteFragmentEquipVariable : EquipCharmVariable
     {
-        public WhiteFragmentEquipVariable(string name, LogicManager lm) : base(name, "WHITEFRAGMENTS", 36, lm)
+        public WhiteFragmentEquipVariable(string name, LogicManager lm) : base(name, "WHITEFRAGMENT", 36, lm)
         {
         }
 

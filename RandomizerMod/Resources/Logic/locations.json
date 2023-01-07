@@ -1105,31 +1105,31 @@
   },
   {
     "name": "Grimmkin_Flame-King's_Pass",
-    "logic": "Tutorial_01 + First_Grimmchild_Upgrade"
+    "logic": "Tutorial_01 + First_Grimmchild_Upgrade + GRIMMCHILD"
   },
   {
     "name": "Grimmkin_Flame-Resting_Grounds",
-    "logic": "(RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1]) + First_Grimmchild_Upgrade"
+    "logic": "(RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1]) + First_Grimmchild_Upgrade + GRIMMCHILD"
   },
   {
     "name": "Grimmkin_Flame-Kingdom's_Edge",
-    "logic": "Deepnest_East_03 + First_Grimmchild_Upgrade"
+    "logic": "Deepnest_East_03 + First_Grimmchild_Upgrade + GRIMMCHILD"
   },
   {
     "name": "Grimmkin_Flame-Fungal_Core",
-    "logic": "Fungus2_30[top1] + Second_Grimmchild_Upgrade"
+    "logic": "Fungus2_30[top1] + Second_Grimmchild_Upgrade + GRIMMCHILD"
   },
   {
     "name": "Grimmkin_Flame-Ancient_Basin",
-    "logic": "(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS) + (RIGHTCLAW | WINGS | RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS))) + Second_Grimmchild_Upgrade"
+    "logic": "(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS) + (RIGHTCLAW | WINGS | RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS))) + Second_Grimmchild_Upgrade + GRIMMCHILD"
   },
   {
     "name": "Grimmkin_Flame-Hive",
-    "logic": "(Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (FULLDASH + ENEMYPOGOS)))) + Second_Grimmchild_Upgrade"
+    "logic": "(Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (FULLDASH + ENEMYPOGOS)))) + Second_Grimmchild_Upgrade + GRIMMCHILD"
   },
   {
     "name": "Grimmkin_Flame-Brumm",
-    "logic": "Room_spider_small[left1] + Second_Grimmchild_Upgrade"
+    "logic": "Room_spider_small[left1] + Second_Grimmchild_Upgrade + GRIMMCHILD"
   },
   {
     "name": "Hunter's_Journal",
@@ -1257,11 +1257,11 @@
   },
   {
     "name": "Geo_Rock-Below_Gorb_Dupe",
-    "logic": "Cliffs_02"
+    "logic": "*Geo_Rock-Below_Gorb"
   },
   {
     "name": "Geo_Rock-Below_Gorb",
-    "logic": "*Geo_Rock-Below_Gorb"
+    "logic": "Cliffs_02"
   },
   {
     "name": "Geo_Rock-Crossroads_Well",
@@ -2281,7 +2281,7 @@
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Final",
-    "logic": "White_Palace_20[bot1] + FULLCLAW"
+    "logic": "White_Palace_20[bot1] + (LEFTCLAW + WINGS | RIGHTCLAW)"
   },
   {
     "name": "Soul_Totem-Pale_Lurker",

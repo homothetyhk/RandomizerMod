@@ -364,7 +364,7 @@
   },
   {
     "name": "Nightmare_Lantern_Lit",
-    "logic": "Cliffs_06[left1] + DREAMNAIL | GRIMMCHILD",
+    "logic": "Cliffs_06[left1] + DREAMNAIL | Grimmchild",
     "Stateless": true
   },
   {
@@ -1093,7 +1093,7 @@
   },
   {
     "name": "Abyss_01",
-    "logic": "Abyss_01[left1] | Abyss_01[right1] | (Abyss_01[left3] + (RIGHTCLAW | (LEFTCLAW + WINGS))) | (Abyss_01[left2] + (RIGHTTUNNEL | RIGHTSUPERDASH)) | (Abyss_01[right2] + (LEFTTUNNEL | LEFTSUPERDASH))"
+    "logic": "Abyss_01[left1] | Abyss_01[right1] | Abyss_01[left3] + (RIGHTCLAW | LEFTCLAW + WINGS) | Abyss_01[left2] + (RIGHTSUPERDASH | SPIKETUNNELS + RIGHTDASH + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL)) | Abyss_01[right2] + (LEFTSUPERDASH | SPIKETUNNELS + LEFTDASH + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL[2]))"
   },
   {
     "name": "Waterways_01",
