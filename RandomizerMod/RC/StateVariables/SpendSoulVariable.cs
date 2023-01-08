@@ -76,8 +76,7 @@ namespace RandomizerMod.RC.StateVariables
 
             int soul = GetSoul(pm, state);
             if (soul < amount) return false;
-
-            if (RequiredMaxSoul < amount) state.SetInt(RequiredMaxSoul, amount);
+            
             int reserveSoul = GetReserveSoul(pm, state);
             if (reserveSoul >= amount)
             {
@@ -88,6 +87,11 @@ namespace RandomizerMod.RC.StateVariables
                 state.Increment(SpentReserveSoul, reserveSoul);
                 state.Increment(SpentSoul, amount - reserveSoul);
             }
+
+            int requiredMaxSoul = state.GetInt(RequiredMaxSoul);
+            int altReq = Math.Max(amount, state.GetInt(SpentSoul));
+            if (altReq > requiredMaxSoul) state.SetInt(RequiredMaxSoul, altReq);
+
             return true;
         }
 

@@ -18,6 +18,7 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly StateBool Overcharmed;
         protected readonly StateBool HasTakenDamage;
         protected readonly StateBool HasTakenDoubleDamage;
+        protected readonly StateBool HasAlmostDied;
         protected readonly StateBool NoFlower;
         protected readonly StateBool NoPassedCharmEquip;
         protected readonly StateInt SpentHP;
@@ -42,6 +43,7 @@ namespace RandomizerMod.RC.StateVariables
                 Overcharmed = lm.StateManager.GetBoolStrict("OVERCHARMED");
                 HasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
                 HasTakenDoubleDamage = lm.StateManager.GetBoolStrict("HASTAKENDOUBLEDAMAGE");
+                HasAlmostDied = lm.StateManager.GetBoolStrict("HASALMOSTDIED");
                 NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
                 NoPassedCharmEquip = lm.StateManager.GetBoolStrict("NOPASSEDCHARMEQUIP");
                 SpentHP = lm.StateManager.GetIntStrict("SPENTHP");
@@ -163,12 +165,19 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (!state.GetBool(HasTakenDoubleDamage))
             {
-                foreach (LazyStateBuilder lsb in GenerateBlueStates(pm, state))
+                if (state.GetBool(HasAlmostDied)) // already handled in GenerateDesperationStates
                 {
-                    lsb.SetBool(HasTakenDoubleDamage, true);
-                    foreach (LazyStateBuilder lsb2 in ModifyStateDoubleDamage(CalculateAmount(pm, lsb), pm, lsb)) yield return lsb2;
+                    state.SetBool(HasTakenDoubleDamage, true);
                 }
-                yield break;
+                else
+                {
+                    foreach (LazyStateBuilder lsb in GenerateBlueStates(pm, state))
+                    {
+                        lsb.SetBool(HasTakenDoubleDamage, true);
+                        foreach (LazyStateBuilder lsb2 in ModifyStateDoubleDamage(CalculateAmount(pm, lsb), pm, lsb)) yield return lsb2;
+                    }
+                    yield break;
+                }
             }
 
             int blueHP = GetBlueHP(pm, state);
@@ -248,8 +257,9 @@ namespace RandomizerMod.RC.StateVariables
 
         private IEnumerable<LazyStateBuilder> GenerateGreedyCharmLayouts(ProgressionManager pm, LazyStateBuilder state)
         {
-            if (Hiveblood.TryEquip(null, pm, in state, out LazyStateBuilder hbState))
+            if (!Hiveblood.IsEquipped(state) && Hiveblood.TryEquip(null, pm, in state, out LazyStateBuilder hbState))
             {
+                Hiveblood.SetUnequippable(ref state);
                 yield return hbState;
             }
             yield return state;
@@ -259,54 +269,106 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (state.GetBool(NoPassedCharmEquip) || Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage))
             {
+                LifebloodHeart.SetUnequippable(ref state);
+                LifebloodCore.SetUnequippable(ref state);
                 yield return state;
                 yield break;
             }
+
             LazyStateBuilder current = new(state);
+            LifebloodHeart.SetUnequippable(ref state);
+            LifebloodCore.SetUnequippable(ref state);
             yield return current;
+            
             current = new(state);
             if (LifebloodHeart.TryEquip(null, pm, ref current))
             {
                 if (LifebloodCore.TryEquip(null, pm, ref current))
                 {
-                    RebalanceHP(pm, ref current);
+                    RebalanceHPAfterCharmChange(pm, ref current);
                     yield return current;
+
                     current = new(state);
                     LifebloodHeart.TryEquip(null, pm, ref current);
-                    RebalanceHP(pm, ref current);
+                    LifebloodCore.SetUnequippable(ref current);
+                    RebalanceHPAfterCharmChange(pm, ref current);
                     yield return current;
+
                     current = state;
                     LifebloodCore.TryEquip(null, pm, ref current);
-                    RebalanceHP(pm, ref current);
+                    LifebloodHeart.SetUnequippable(ref current);
+                    RebalanceHPAfterCharmChange(pm, ref current);
                     yield return current;
                 }
                 else
                 {
-                    RebalanceHP(pm, ref current);
+                    LifebloodCore.SetUnequippable(ref current);
+                    RebalanceHPAfterCharmChange(pm, ref current);
                     yield return current; 
                 }
             }
             else if (LifebloodCore.TryEquip(null, pm, ref current))
             {
-                RebalanceHP(pm, ref current);
+                LifebloodHeart.SetUnequippable(ref current);
+                RebalanceHPAfterCharmChange(pm, ref current);
                 yield return current;
             }
         }
 
         private IEnumerable<LazyStateBuilder> GenerateDesperationStates(ProgressionManager pm, LazyStateBuilder state)
         {
-            if (state.GetBool(NoPassedCharmEquip))
+            bool previouslyEntered = !state.TrySetBoolTrue(HasAlmostDied);
+            if (previouslyEntered)
             {
                 yield return state;
                 yield break;
             }
 
             List<int> steps = new();
-            if (CanAdd(LifebloodHeart) && !Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage)) steps.Add(0);
-            if (CanAdd(LifebloodCore) && !Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage)) steps.Add(1);
-            if (CanAdd(FragileHeart)) steps.Add(2);
-            if (CanAdd(JonisBlessing)) steps.Add(3);
-            if (pm.Has(Focus) && CanAdd(DeepFocus)) steps.Add(4);
+            if (CanAdd(LifebloodHeart) && !Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage))
+            {
+                steps.Add(0);
+            }
+            else if (!LifebloodHeart.IsEquipped(state))
+            {
+                LifebloodHeart.SetUnequippable(ref state); // set unequippable so that result states are incomparable and we can short circuit future GenerateDesperationStates calls
+            }
+
+            if (CanAdd(LifebloodCore) && !Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage))
+            {
+                steps.Add(1);
+            }
+            else if (!LifebloodCore.IsEquipped(state))
+            {
+                LifebloodCore.SetUnequippable(ref state);
+            }
+
+            if (CanAdd(FragileHeart))
+            {
+                steps.Add(2);
+            }
+            else if (!FragileHeart.IsEquipped(state))
+            {
+                FragileHeart.SetUnequippable(ref state);
+            }
+
+            if (CanAdd(JonisBlessing))
+            {
+                steps.Add(3);
+            }
+            else if (!JonisBlessing.IsEquipped(state))
+            {
+                JonisBlessing.SetUnequippable(ref state);
+            }
+
+            if (pm.Has(Focus) && CanAdd(DeepFocus))
+            {
+                steps.Add(4);
+            }
+            else if (!DeepFocus.IsEquipped(state))
+            {
+                DeepFocus.SetUnequippable(ref state);
+            }
 
             int pow = 1 << steps.Count;
             for (int i = 0; i < pow; i++)
@@ -335,8 +397,34 @@ namespace RandomizerMod.RC.StateVariables
                                 break;
                         }
                     }
+                    else
+                    {
+                        switch (steps[j])
+                        {
+                            case 0:
+                                LifebloodHeart.SetUnequippable(ref state);
+                                break;
+                            case 1:
+                                LifebloodCore.SetUnequippable(ref state);
+                                break;
+                            case 2:
+                                FragileHeart.SetUnequippable(ref state);
+                                break;
+                            case 3:
+                                JonisBlessing.SetUnequippable(ref state);
+                                break;
+                            case 4:
+                                DeepFocus.SetUnequippable(ref state);
+                                break;
+                        }
+                    }
                 }
-                RebalanceHP(pm, ref next);
+                if (next.GetBool(Overcharmed)
+                    && (next.GetBool(HasTakenDoubleDamage) || next.GetBool(HasTakenDamage) && Hiveblood.IsEquipped(next)))
+                {
+                    continue; // can't reconstruct damage history
+                }
+                RebalanceHPAfterCharmChange(pm, ref next);
                 yield return next;
                 CONTINUE_OUTER: continue;
             }
@@ -347,19 +435,38 @@ namespace RandomizerMod.RC.StateVariables
             }
         }
 
-        private void RebalanceHP(ProgressionManager pm, ref LazyStateBuilder lsb)
+        private void RebalanceHPAfterCharmChange(ProgressionManager pm, ref LazyStateBuilder lsb)
         {
             int blueHP = GetBlueHP(pm, lsb);
             int spentHP = lsb.GetInt(SpentHP);
+
             if (spentHP > blueHP)
             {
                 lsb.Increment(SpentHP, -blueHP);
+                spentHP -= blueHP;
                 lsb.Increment(SpentBlueHP, blueHP);
+                blueHP += spentHP;
             }
             else
             {
                 lsb.Increment(SpentHP, -spentHP);
+                spentHP = 0;
                 lsb.Increment(SpentBlueHP, spentHP);
+                blueHP += spentHP;
+            }
+            if (lsb.GetBool(Overcharmed)) // we assume HasTakenDoubleDamage was false before entering, and that there has been no opportunities to heal through Focus/Hiveblood
+            {
+                int spentBlueHP = lsb.GetInt(SpentBlueHP);
+                if (blueHP >= spentBlueHP)
+                {
+                    lsb.Increment(SpentBlueHP, spentBlueHP); // double blue damage taken
+                }
+                else
+                {
+                    lsb.Increment(SpentBlueHP, blueHP); // set blue health to 0
+                    lsb.Increment(SpentHP, spentBlueHP - blueHP / 2); // take remainder in white health, next step will handle doubling damage
+                }
+                lsb.Increment(SpentHP, spentHP); // double white health damage taken
             }
         }
     }

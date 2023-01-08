@@ -48,6 +48,11 @@ namespace RandomizerMod.RC.StateVariables
             return Enumerable.Empty<Term>();
         }
 
+        public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)
+        {
+            return Enumerable.Empty<LazyStateBuilder>();
+        }
+
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             state.SetBool(NoFlower, false);
