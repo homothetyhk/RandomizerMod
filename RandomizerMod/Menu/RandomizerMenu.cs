@@ -487,69 +487,69 @@ namespace RandomizerMod.Menu
         private void MakePanels()
         {
             StartGIP = new GridItemPanel(StartPage, new Vector2(0, 450), 2, 125, 960, true, PresetButtons);
-
+            
             PoolSubpage = new Subpage(AdvancedSettingsPage, "Randomized Items");
-            poolGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 4, 50f, 400f, false, poolMEF.Elements);
+            poolGIP = new GridItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 4, SpaceParameters.VSPACE_SMALL, SpaceParameters.HSPACE_SMALL, false, poolMEF.Elements);
             PoolSubpage.Add(poolGIP);
 
             SkipSubpage = new Subpage(AdvancedSettingsPage, "Required Skips");
-            skipPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 800f,  false, skipMEF.Elements);
+            skipPanel = new GridItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 2, SpaceParameters.VSPACE_SMALL, SpaceParameters.HSPACE_LARGE,  false, skipMEF.Elements);
             SkipSubpage.Add(skipPanel);
 
             NoveltySubpage = new Subpage(AdvancedSettingsPage, "Novelties");
-            novVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, novMEF.Elements.ToArray());
+            novVIP = new VerticalItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, SpaceParameters.VSPACE_SMALL, false, novMEF.Elements.ToArray());
             NoveltySubpage.Add(novVIP);
 
             CostSubpage = new Subpage(AdvancedSettingsPage, "Cost Randomization");
-            costGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 3, 200f, 400f, false, costMEF.Elements.ToArray());
+            costGIP = new GridItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 3, 200f, SpaceParameters.HSPACE_SMALL, false, costMEF.Elements.ToArray());
             CostSubpage.Add(costGIP);
 
             LongLocationSubpage = new Subpage(AdvancedSettingsPage, "Long Location Options");
-            longLocationPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 900f, false, longLocationMEF.Elements);
+            longLocationPanel = new GridItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 2, SpaceParameters.VSPACE_SMALL, 900f, false, longLocationMEF.Elements);
             LongLocationSubpage.Add(longLocationPanel);
 
             StartLocationSubpage = new Subpage(AdvancedSettingsPage, "Start Location");
             if (StartDefs.Count <= 33)
             {
-                startLocationPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, 50f, 600f, false, startLocationSwitch.Elements);
+                startLocationPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 150), 3, SpaceParameters.VSPACE_SMALL, 600f, false, startLocationSwitch.Elements);
             }
             else
             {
                 // will this actually work? let's hope we never find out
-                startLocationPanel = new MultiGridItemPanel(AdvancedSettingsPage, 3, 10, 50f, 600f, new Vector2(0, 150), new(-600f, -350f), new(0f, 350f), new(600f, 350f), startLocationSwitch.Elements);
+                startLocationPanel = new MultiGridItemPanel(AdvancedSettingsPage, 3, 10, SpaceParameters.VSPACE_SMALL, 600f, new Vector2(0, 150), new(-600f, -350f), new(0f, 350f), new(600f, 350f), startLocationSwitch.Elements);
             }
 
-            startLocationVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, startLocationTypeSwitch, randomFixedStartButton, startLocationPanel);
+            startLocationVIP = new VerticalItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, SpaceParameters.VSPACE_MEDIUM, false, startLocationTypeSwitch, randomFixedStartButton, startLocationPanel);
             StartLocationSubpage.Add(startLocationVIP);
 
             StartItemSubpage = new Subpage(AdvancedSettingsPage, "Start Items");
-            startItemGIP = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 150f, 800f, false, startItemMEF.Elements);
+            startItemGIP = new GridItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 2,  SpaceParameters.VSPACE_LARGE, SpaceParameters.HSPACE_LARGE, false, startItemMEF.Elements);
             StartItemSubpage.Add(startItemGIP);
 
             MiscSubpage = new Subpage(AdvancedSettingsPage, "Miscellaneous");
-            miscVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, miscMEF.Elements);
+            miscVIP = new VerticalItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, SpaceParameters.VSPACE_MEDIUM, false, miscMEF.Elements);
             MiscSubpage.Add(miscVIP);
 
             CursedSubpage = new Subpage(AdvancedSettingsPage, "Curse Options");
-            cursedVIP = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 75f, false, cursedMEF.Elements);
+            cursedVIP = new VerticalItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, SpaceParameters.VSPACE_MEDIUM, false, cursedMEF.Elements);
             CursedSubpage.Add(cursedVIP);
 
             TransitionSubpage = new Subpage(AdvancedSettingsPage, "Transition Randomizer");
-            transitionPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 50f, false, transitionMEF.Elements);
+            transitionPanel = new VerticalItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, SpaceParameters.VSPACE_SMALL, false, transitionMEF.Elements);
             TransitionSubpage.Add(transitionPanel);
 
             ProgressionDepthSubpage = new Subpage(AdvancedSettingsPage, "Progression Depth");
-            progressionDepthPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 75f, false, progressionDepthMEF.Elements.Prepend<IMenuElement>(ProgressionDepthPreset).ToArray());
+            progressionDepthPanel = new VerticalItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, SpaceParameters.VSPACE_MEDIUM, false, progressionDepthMEF.Elements.Prepend<IMenuElement>(ProgressionDepthPreset).ToArray());
             ProgressionDepthSubpage.Add(progressionDepthPanel);
 
             DuplicateItemSubpage = new Subpage(AdvancedSettingsPage, "Duplicate Items");
-            duplicateItemPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0, 300), 2, 50f, 800f, false, duplicateItemMEF.Elements);
+            duplicateItemPanel = new GridItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 2, SpaceParameters.VSPACE_SMALL, SpaceParameters.HSPACE_LARGE, false, duplicateItemMEF.Elements);
             DuplicateItemSubpage.Add(duplicateItemPanel);
 
             SplitGroupSubpage = new Subpage(AdvancedSettingsPage, "Split Group Randomizer");
-            splitGroupInnerPanel = new GridItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 4, 75f, 400f, false, splitGroupMEF.Elements.Skip(1).ToArray());
+            splitGroupInnerPanel = new GridItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 4, SpaceParameters.VSPACE_MEDIUM, SpaceParameters.HSPACE_SMALL, false, splitGroupMEF.Elements.Skip(1).ToArray());
             splitGroupRandomizeButton = new SmallButton(AdvancedSettingsPage, "Randomize Now");
-            splitGroupOuterPanel = new VerticalItemPanel(AdvancedSettingsPage, new Vector2(0f, 300f), 75f, false,
+            splitGroupOuterPanel = new VerticalItemPanel(AdvancedSettingsPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, SpaceParameters.VSPACE_MEDIUM, false,
                 splitGroupRandomizeButton, splitGroupMEF.ElementLookup[nameof(SplitGroupSettings.RandomizeOnStart)], splitGroupInnerPanel);
             SplitGroupSubpage.Add(splitGroupOuterPanel);
 
@@ -567,28 +567,28 @@ namespace RandomizerMod.Menu
                 };
                 return b;
             }).ToArray();
-            JumpPanel = new GridItemPanel(JumpPage, new Vector2(0, 300), 2, 60f, 800f, true, JumpButtons);
-            SubJumpPanel = new GridItemPanel(JumpPage, new Vector2(0f, -300f), 2, 60f, 800f, true, SubJumpElements);
+            JumpPanel = new GridItemPanel(JumpPage, SpaceParameters.TOP_CENTER_UNDER_TITLE, 2, 60f, SpaceParameters.HSPACE_LARGE, true, JumpButtons);
+            SubJumpPanel = new GridItemPanel(JumpPage, new Vector2(0f, -300f), 2, 60f, SpaceParameters.HSPACE_LARGE, true, SubJumpElements);
 
-            StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), 50f, false, StartCornerButtons);
+            StartCornerVIP = new VerticalItemPanel(StartPage, new Vector2(-650, -350), SpaceParameters.VSPACE_SMALL, false, StartCornerButtons);
 
             emptyConnectionsPanelLabel = new MenuLabel(ConnectionsPage, "This page is currently empty. " +
                 "Mods connected to the randomizer can link menus here.", MenuLabel.Style.Title);
             emptyConnectionsPanelLabel.MoveTo(new(0, 400));
-            connectionsPanel = new MultiGridItemPanel(ConnectionsPage, 5, 3, 60f, 650f, new(0, 300), Array.Empty<IMenuElement>());
+            connectionsPanel = new MultiGridItemPanel(ConnectionsPage, 9, 3, SpaceParameters.VSPACE_MEDIUM, SpaceParameters.HSPACE_MEDIUM, SpaceParameters.TOP_CENTER_UNDER_TITLE, Array.Empty<IMenuElement>());
             // note - connection entries are constructed after menu construction!
 
             CodeVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(-400, 300), 100, true, CodeElements);
             ProfileVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(400, 300), 100, true, ProfileElements);
 
-            generationInfoVIP = new VerticalItemPanel(FinalPage, new Vector2(-400, 300), 50, true, InfoElements);
-            HashVIP = new VerticalItemPanel(FinalPage, new Vector2(400, 300), 50, true, HashLabels);
+            generationInfoVIP = new VerticalItemPanel(FinalPage, new Vector2(-400, 300), 50f, true, InfoElements);
+            HashVIP = new VerticalItemPanel(FinalPage, new Vector2(400, 300), SpaceParameters.VSPACE_SMALL, true, HashLabels);
             HashVIP.Hide();
 
-            postGenerationRedirectPanel = new MultiGridItemPanel(PostGenerationRedirectPage, 5, 3, 150f, 650f, new Vector2(0, 300), Array.Empty<IMenuElement>());
+            postGenerationRedirectPanel = new MultiGridItemPanel(PostGenerationRedirectPage, 5, 3,  SpaceParameters.VSPACE_LARGE, SpaceParameters.HSPACE_MEDIUM, SpaceParameters.TOP_CENTER_UNDER_TITLE, Array.Empty<IMenuElement>());
 
             ResumePage.AddToNavigationControl(resumeButton);
-            resumePanel = new VerticalItemPanel(ResumePage, new(-720f, 50f), 50f, true, resumeElements);
+            resumePanel = new VerticalItemPanel(ResumePage, new(-720f, 50f), SpaceParameters.VSPACE_SMALL, true, resumeElements);
         }
 
         private void AddEvents()

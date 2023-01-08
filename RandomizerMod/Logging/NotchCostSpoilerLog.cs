@@ -51,10 +51,10 @@ namespace RandomizerMod.Logging
         public override void Log(LogArguments args)
         {
             List<int> notchCosts = args.ctx.notchCosts;
-            if (notchCosts is null) return;
+            if (notchCosts is null || notchCosts.Count < 40) return;
 
             Dictionary<string, int> costLookup = new(40);
-            for (int i = 0; i < notchCosts.Count; i++)
+            for (int i = 0; i < 40; i++)
             {
                 costLookup[_charmNames[i]] = notchCosts[i];
             }
