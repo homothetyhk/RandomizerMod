@@ -32,8 +32,8 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly StateInt SoulLimiter;
         protected readonly StateInt MaxRequiredSoul;
         protected readonly StateInt UsedNotches;
-        protected readonly StateBool UsedShade;
         protected readonly StateBool CannotRegainSoul;
+        protected readonly StateBool SpentAllSoul;
         protected readonly Term VesselFragments;
         protected readonly Term ItemRando;
         protected readonly Term MapAreaRando;
@@ -55,8 +55,8 @@ namespace RandomizerMod.RC.StateVariables
                 SoulLimiter = lm.StateManager.GetIntStrict("SOULLIMITER");
                 MaxRequiredSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
                 UsedNotches = lm.StateManager.GetIntStrict("USEDNOTCHES");
-                UsedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
                 CannotRegainSoul = lm.StateManager.GetBoolStrict("CANNOTREGAINSOUL");
+                SpentAllSoul = lm.StateManager.GetBoolStrict("SPENTALLSOUL");
                 VesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
                 ItemRando = lm.GetTermStrict("ITEMRANDO");
                 MapAreaRando = lm.GetTermStrict("MAPAREARANDO");
@@ -126,16 +126,23 @@ namespace RandomizerMod.RC.StateVariables
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             int soul;
-            int reserves = GetReserves(pm, state);
+            int reserves;
             int maxSoul = GetMaxSoul(state);
-            
+
             if (!state.GetBool(CannotRegainSoul) && NearbySoulToBool(BeforeSoul, pm))
             {
                 soul = GetMaxSoul(state);
+                reserves = GetReserves(pm, state);
+            }
+            else if (state.GetBool(SpentAllSoul))
+            {
+                soul = 0;
+                reserves = 0;
             }
             else
             {
                 soul = GetSoul(state);
+                reserves = GetReserves(pm, state);
             }
 
             if (EquipSpellTwister.GetCurrentEquipStatus(state) == EquipCharmVariable.EquipResult.None && TryCastAll(33, maxSoul, reserves, soul))

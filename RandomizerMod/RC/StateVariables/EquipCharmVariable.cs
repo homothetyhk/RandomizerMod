@@ -220,6 +220,50 @@ namespace RandomizerMod.RC.StateVariables
             }
         }
 
+        public virtual bool TryEquip(object? sender, ProgressionManager pm, in LazyStateBuilder state, out LazyStateBuilder newState)
+        {
+            if (state.GetBool(CharmBool))
+            {
+                return true;
+            }
+
+            if (!HasCharmProgression(pm) || !HasStateRequirements(pm, state))
+            {
+                return false;
+            }
+
+            int notchCost = GetNotchCost(pm, state);
+            if (notchCost <= 0)
+            {
+                newState = new(state);
+                DoEquipCharm(pm, notchCost, ref newState);
+                return true;
+            }
+
+            int netNotches = pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt);
+
+            if (netNotches <= 0)
+            {
+                int oldMaxNotch = state.GetInt(MaxNotchCost);
+                if (oldMaxNotch > notchCost && netNotches + oldMaxNotch > 0)
+                {
+                    newState = new(state);
+                    DoEquipCharm(pm, notchCost, ref newState);
+                }
+                return false;
+            }
+            else
+            {
+                if (netNotches < notchCost && state.GetBool(HasTakenDamage))
+                {
+                    return false; // state cannot overcharm!
+                }
+                newState = new(state);
+                DoEquipCharm(pm, notchCost, ref newState);
+                return true;
+            }
+        }
+
         private void DoEquipCharm(ProgressionManager pm, int notchCost, ref LazyStateBuilder state)
         {
             state.Increment(UsedNotchesInt, notchCost);

@@ -13,6 +13,8 @@ namespace RandomizerMod.RC
             if (StartLocationDelta.TryMatch(lm, term, out variable)) return true;
             if (BenchResetVariable.TryMatch(lm, term, out variable)) return true;
             if (CastSpellVariable.TryMatch(lm, term, out variable)) return true;
+            if (SpendSoulVariable.TryMatch(lm, term, out variable)) return true;
+            if (RegainSoulVariable.TryMatch(lm, term, out variable)) return true;
             if (EquipCharmVariable.TryMatch(lm, term, out variable)) return true;
             if (HotSpringResetVariable.TryMatch(lm, term, out variable)) return true;
             if (ShadeStateVariable.TryMatch(lm, term, out variable)) return true;

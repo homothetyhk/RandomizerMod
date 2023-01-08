@@ -5,7 +5,6 @@ using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
 using RandomizerCore.Extensions;
 using RandomizerCore.Logic;
-using System.Text.RegularExpressions;
 using RandomizerCore.Randomization;
 
 namespace RandomizerMod.RC
@@ -76,6 +75,7 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(100f, ApplyConnectAreasPostPermuteEvent);
             OnUpdate.Subscribe(100f, ApplyAreaConstraint);
             OnUpdate.Subscribe(100f, ApplyDerangedConstraint);
+            OnUpdate.Subscribe(100f, ApplyDupeShopConstraint);
         }
 
         public static bool SelectStart(Random rng, GenerationSettings gs, SettingsPM pm, out RandomizerData.StartDef def)
@@ -1578,8 +1578,8 @@ namespace RandomizerMod.RC
 
                         if (dupePenalty && items[i] is PlaceholderItem)
                         {
-                            // make dupes more likely to be placed immediately after progression, into late locations
-                            items[i].Priority -= 0.8f;
+                            // avoid very early dupes
+                            if (items[i].Priority < 0.4f) items[i].Priority += 0.2f;
                         }
                     }
                 }
@@ -1761,6 +1761,31 @@ namespace RandomizerMod.RC
                 {
                     dgps.Constraints += NotVanillaLocation;
                 }
+            }
+        }
+
+        public static void ApplyDupeShopConstraint(RequestBuilder rb)
+        {
+            if (rb.gs.ProgressionDepthSettings.DuplicateItemPenalty && rb.gs.ProgressionDepthSettings.MultiLocationPenalty)
+            {
+                foreach (ItemGroupBuilder igb in rb.EnumerateItemGroups())
+                {
+                    if (igb.strategy is DefaultGroupPlacementStrategy dgps)
+                    {
+                        dgps.Constraints += PreventDupesInShops;
+                    }
+                }
+            }
+
+            static bool PreventDupesInShops(IRandoItem ri, IRandoLocation rl)
+            {
+                if (ri is PlaceholderItem
+                    && rl is RandoModLocation rml 
+                    && rml.LocationDef?.AdditionalProgressionPenalty == true && rml.Priority >= 1f)
+                {
+                    return false;
+                }
+                return true;
             }
         }
     }
