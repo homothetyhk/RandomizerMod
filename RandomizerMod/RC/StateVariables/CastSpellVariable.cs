@@ -145,7 +145,7 @@ namespace RandomizerMod.RC.StateVariables
                 reserves = GetReserves(pm, state);
             }
 
-            if (EquipSpellTwister.GetCurrentEquipStatus(state) == EquipCharmVariable.EquipResult.None && TryCastAll(33, maxSoul, reserves, soul))
+            if (EquipSpellTwister.IsEquipped(state) && TryCastAll(33, maxSoul, reserves, soul))
             {
                 LazyStateBuilder state33 = new(state);
                 DoAllCasts(33, reserves, ref state33);
