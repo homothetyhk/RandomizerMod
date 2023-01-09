@@ -6,15 +6,19 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
 
 - NotchCostInt, SafeNotchCostInt
   - Prefix: `$NotchCost`, `$SafeNotchCost`
-  - Required Parameters: a sequence of comma-separated integers, representing 1-based charm ids.
+  - Required Parameters: 
+    - A sequence of comma-separated integers, representing 1-based charm ids.
   - Optional Parameters: none
   - These LogicInts return the number of notches needed to equip the corresponding combination of charms, minus 1. $NotchCost gives the number allowing for overcharming, while SafeNotchCost gives the number without overcharming. Obsoleted by EquipCharmVariable ($EQUIPCHARM), which has better interoperability.
 
 ## StateProviders
 
 - StartLocationDelta
-  - Syntax: `$StartLocation[NAME]` where `NAME` is the name of a start def. For example, for the King's Pass start, `NAME` is `King's Pass`.
-  - This is a `LogicInt` which is `TRUE` exactly when the current start def matches its argument, and otherwise is false. It provides the default state (`StateManager.StartStateSingleton`) when it is the first state providing term or variable in an expression.
+  - Prefix: `$StartLocation`
+  - Required Parameters: 
+    - The first parameter should be the exact name of a start def. For example, for the King's Pass start, `NAME` is `King's Pass`.
+  - Optional Parameters: none
+  - This is a `LogicInt` which is `TRUE` exactly when the current start def matches its argument, and otherwise is false. It provides the start state (the state of the `Start_State` waypoint) when it is the first state providing term or variable in an expression.
 
 ## StateModifiers
 
@@ -46,7 +50,7 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
   - Prefix: `$FLOWERGET`
   - Required Parameters: none
   - Optional Parameters: none
-  - Sets `NOFLOWER` false, representing the effect of receiving the delicate flower.
+  - Sets `NOFLOWER` false, representing the effect of receiving the delicate flower. Always succeeds.
 
 - HotSpringResetVariable
   - Prefix: `$HOTSPRINGRESET`
@@ -55,14 +59,22 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
   - This is a `StateResetter` which applies the effect of resting in a hot springs.
     - Field-resetting is opt-in, via a "HotSpringResetCondition" property on the field which provides single-state infix logic that returns true when the field should be resetted.
 
+- RegainSoulVariable
+  - Prefix: `$REGAINSOUL`
+  - Required Parameters:
+    - The first parameter must be an int representing the amount of soul to be regained.
+  - Optional Parameters: none
+  - Represents the effect of regaining a certain amount of soul. Always succeeds.
+
 - SaveQuitResetVariable
+  - Prefix: `$SAVEQUITRESET`
   - Required Parameters: none
   - Optional Parameters: none
   - This is a `StateResetter` which provides the effect of warping via Benchwarp or savequit, regardless of destination type.
     - Field-resetting is opt-in, via a "SaveQuitResetCondition" property on the field which provides single-state infix logic that returns true when the field should be resetted.
 
 - ShadeStateVariable
-  - `$SHADESKIP`
+  - Prefix: `$SHADESKIP`
   - Required Parameters: none
   - Optional Parameters:
     - an integer followed by "HITS" (e.g. "2HITS"), denoting the number of nail hits the shade must be able to survive. Defaults to 1.
@@ -73,13 +85,20 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
     - The `USEDSHADE` state bool set to false
     - The state must have enough max HP for the shade health requirement
     - The state must not require more than 66 max soul
-  - Sets `NOFLOWER` true and `USEDSHADE` true. Fragile Heart can be equipped to reach a max HP requirement, and can be broken if its conditions are met.
+  - Sets `NOFLOWER` true and `USEDSHADE` true. Adjusts soul relative to limiter. Fragile Heart can be equipped to reach a max HP requirement, and can be broken if its conditions are met.
+
+- SpendSoulVariable
+  - Prefix: `$SPENDSOUL`
+  - Required Parameters:
+    - The first parameter must be an int representing the amount of soul to be spent.
+  - Optional Parameters: none
+  - Represents the effect of spending a certain amount of soul. Succeeds only if enough soul can be spent.
 
 - StagStateVariable
   - Prefix: `$STAGSTATEMODIFIER`
   - Required Parameters: none
   - Optional Parameters: none
-  - Represents the effect of riding a stag. Sets `NOFLOWER` true.
+  - Represents the effect of riding a stag. Sets `NOFLOWER` true. Always succeeds.
 
 - StartRespawnResetVariable
   - Prefix: `$STARTRESPAWN`
@@ -91,9 +110,12 @@ Unless otherwise indicated, all variables in this section have the syntax `PREFI
 - TakeDamageVariable
   - Prefix: `$TAKEDAMAGE`
   - Required Parameters:
-    - If any parameters are provided, the first should be an int representing the number of 1-damage hits. Defaults to 1.
+    - If any parameters are provided, the first should be an int representing the amount of damage. Defaults to 1.
   - Optional Parameters: none
-  - This is a state modifier which represents the effect of taking damage. On the first hit, sets `HASTAKENDAMAGE`, and emits all equippable combinations of `CHARM` and `noCHARM` bools for the following charms: Lifeblood Heart, Lifeblood Core, Joni's Blessing, Fragile Heart. Subsequently, increments `SPENTBLUEHP` and `SPENTHP` accounting for overcharming to handle all damage.
+  - This is a state modifier which represents the effect of taking a single hit of specified damage. Assumes that the player has time to heal before taking the hit, and time to regen with Hiveblood after taking the hit.
+    - On the first time damage is taken, tries to emit a second state with Hiveblood equipped.
+    - On the first time double damage is taken, tries to emit states with all combinations of Lifeblood Heart and Lifeblood Core equipped.
+    - When damage that would kill is taken, tries to emit all combinations of Lifeblood Heart, Lifeblood Core, Joni's Blessing, Fragile Heart, and Deep Focus, and attempts to heal with Focus to survive.
 
 - WarpToBenchResetVariable
   - Prefix: `$WARPTOBENCH`

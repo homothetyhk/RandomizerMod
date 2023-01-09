@@ -13,6 +13,10 @@ This article explains the state fields defined in the randomizer. Unless otherwi
   - If true, the state cannot shade skip. This is available as a separate control from USEDSHADE.
 - "HASTAKENDAMAGE"
   - If true, the player has taken damage. This means that damage-affecting state choices such as overcharming should now be treated as frozen.
+- "HASTAKENDOUBLEDAMAGE"
+  - If true, the player has taken a hit which dealt 2 or more damage. This means that state choices which affect blue health such as equipping Lifeblood Heart or Lifeblood Core should now be treated as frozen.
+- "HASALMOSTDIED"
+  - Used by $TAKEDAMAGE to track state decisions which are only made if a hit would otherwise kill.
 - "BROKEHEART"
   - If true, the path to the current point represented by this state requires an intermediate death with Fragile Heart equipped. Breaking fragile charms should only be required in logic if fragile charm repair is accessible. Though fragile charm repair is reachable via benchwarp in standard randomizer, it should not be assumed to be trivially reachable in general, so the fact that charms have been broken should be propagated along paths.
 - "BROKEGREED"
