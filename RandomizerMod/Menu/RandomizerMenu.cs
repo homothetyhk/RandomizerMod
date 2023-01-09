@@ -68,7 +68,7 @@ namespace RandomizerMod.Menu
         readonly Dictionary<string, StartDef> StartDefs;
 
         readonly MenuPage ModePage;
-        readonly SettingsPM pm;
+        public readonly SettingsPM pm;
         readonly Random rng = new();
             
         #region Start
@@ -1215,7 +1215,7 @@ namespace RandomizerMod.Menu
                 switch (w.NativeErrorCode)
                 {
                     case 2:
-                        LogError($"Error opening Logic Readme: File {fileName} was not found.");
+                        LogError($"Error opening file: File {fileName} was not found.");
                         break;
                     default:
                         LogError(w.ToString());
