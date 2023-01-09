@@ -66,15 +66,14 @@ namespace RandomizerMod.IC
             TrackerData td = TD;
             TrackerData tdwsb = TD_WSB;
 
-
             sb.AppendLine("UNCHECKED REACHABLE LOCATIONS");
-            foreach (string s in TD.uncheckedReachableLocations
+            foreach (string s in td.uncheckedReachableLocations
                 .Where(s => tdwsb.uncheckedReachableLocations.Contains(s)).OrderBy(s => s)) // alphabetical. The locations are permuted after rando, but order could still give info regarding multi loc frequencies
             {
                 sb.Append(' ', 2);
                 sb.AppendLine(s);
             }
-            foreach (string s in TD.uncheckedReachableLocations
+            foreach (string s in td.uncheckedReachableLocations
                 .Where(s => !tdwsb.uncheckedReachableLocations.Contains(s)).OrderBy(s => s))
             {
                 sb.Append(' ', 2);
@@ -83,11 +82,11 @@ namespace RandomizerMod.IC
             }
             sb.AppendLine();
 
-            var previewLookup = Enumerable.Range(0, TD.ctx.itemPlacements.Count)
-                .Where(i => !TD.obtainedItems.Contains(i) && TD.previewedLocations.Contains(TD.ctx.itemPlacements[i].Location.Name))
-                .ToLookup(i => TD.ctx.itemPlacements[i].Location.Name);
+            var previewLookup = Enumerable.Range(0, td.ctx.itemPlacements.Count)
+                .Where(i => !td.obtainedItems.Contains(i) && td.previewedLocations.Contains(td.ctx.itemPlacements[i].Location.Name))
+                .ToLookup(i => td.ctx.itemPlacements[i].Location.Name);
             sb.AppendLine("PREVIEWED LOCATIONS");
-            foreach (string s in TD.previewedLocations)
+            foreach (string s in td.previewedLocations)
             {
                 sb.Append(' ', 2);
                 sb.AppendLine(s);
@@ -114,17 +113,17 @@ namespace RandomizerMod.IC
             }
             sb.AppendLine();
 
-            if (TD.ctx.transitionPlacements?.Any() ?? false)
+            if (td.ctx.transitionPlacements?.Any() ?? false)
             {
                 sb.AppendLine("UNCHECKED REACHABLE TRANSITIONS");
-                foreach (string s in TD.uncheckedReachableTransitions
-                    .Where(s => TD_WSB.uncheckedReachableTransitions.Contains(s)))
+                foreach (string s in td.uncheckedReachableTransitions
+                    .Where(s => tdwsb.uncheckedReachableTransitions.Contains(s)))
                 {
                     sb.Append(' ', 2);
                     sb.AppendLine(s);
                 }
-                foreach (string s in TD.uncheckedReachableTransitions
-                    .Where(s => !TD_WSB.uncheckedReachableTransitions.Contains(s)))
+                foreach (string s in td.uncheckedReachableTransitions
+                    .Where(s => !tdwsb.uncheckedReachableTransitions.Contains(s)))
                 {
                     sb.Append(' ', 2);
                     sb.Append('*'); // sequence broken transition
@@ -133,23 +132,23 @@ namespace RandomizerMod.IC
                 sb.AppendLine();
 
                 sb.AppendLine("CHECKED TRANSITIONS");
-                foreach (var kvp in TD.visitedTransitions)
+                foreach (var kvp in td.visitedTransitions)
                 {
                     sb.Append(' ', 2);
-                    if (TD_WSB.outOfLogicVisitedTransitions.Contains(kvp.Key)) sb.Append('*'); // sequence broken transition
+                    if (tdwsb.outOfLogicVisitedTransitions.Contains(kvp.Key)) sb.Append('*'); // sequence broken transition
                     sb.AppendLine($"{kvp.Key}  -->  {kvp.Value}");
                 }
                 sb.AppendLine();
             }
 
-            List<int> persistentItems = TD.obtainedItems.Where(i => IsPersistent(i)).ToList();
+            List<int> persistentItems = td.obtainedItems.Where(i => IsPersistent(i)).ToList();
             if (persistentItems.Count != 0)
             {
                 sb.AppendLine("RESPAWNING ITEMS");
                 foreach (int i in persistentItems)
                 {
                     sb.Append(' ', 2);
-                    sb.Append(TD.ctx.itemPlacements[i].Location.Name);
+                    sb.Append(td.ctx.itemPlacements[i].Location.Name);
                     sb.Append(" - ");
                     sb.AppendLine(GetItemPreviewName(i));
                 }

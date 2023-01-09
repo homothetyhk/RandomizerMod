@@ -36,8 +36,7 @@ namespace RandomizerMod.RC
                 }
                 catch (Exception e)
                 {
-                    LogError("Error invoking logic override event:\n" + e);
-                    throw;
+                    throw new InvalidOperationException("Error invoking logic override event", e);
                 }
             }
 

@@ -50,7 +50,7 @@ namespace RandomizerMod.RC
             }
             catch (Exception e)
             {
-                LogError($"Error invoking OnCreateProgressionInitializer:\n{e}");
+                throw new InvalidOperationException("Error invoking OnCreateProgressionInitializer", e);
             }
         }
 
