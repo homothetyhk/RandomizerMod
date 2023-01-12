@@ -13,15 +13,15 @@ namespace RandomizerMod.RC.StateVariables
 
         public override bool HasCharmProgression(ProgressionManager pm)
         {
-            return pm.Has(CharmTerm, 3);
+            return pm.Has(CharmTerm, 2);
         }
 
         public override int GetNotchCost<T>(ProgressionManager pm, T state)
         {
             return pm.Get(CharmTerm) switch
             {
-                <= 3 => base.GetNotchCost(pm, state),
-                > 3 => 0,
+                <= 2 => base.GetNotchCost(pm, state),
+                > 2 => 0,
             };
         }
     }

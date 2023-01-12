@@ -44,7 +44,7 @@ namespace RandomizerMod.RC
                     Items = t2s.ToArray<IRandoItem>(),
                     Locations = t1s.ToArray<IRandoLocation>(),
                     Label = reverseLabel,
-                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
+                    Strategy = strategy?.Clone() ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                     Validator = new WeakTransitionValidator(),
                 };
                 g1.Dual = g2;
@@ -67,7 +67,7 @@ namespace RandomizerMod.RC
                     Items = t2s.ToArray<IRandoItem>(),
                     Locations = t1s.ToArray<IRandoLocation>(),
                     Label = reverseLabel,
-                    Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
+                    Strategy = strategy?.Clone() ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
 
                 groups.Add(g1);
