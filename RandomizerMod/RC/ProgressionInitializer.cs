@@ -65,7 +65,7 @@ namespace RandomizerMod.RC
         {
             foreach (TermValue tv in Setters) pm.Set(tv);
             foreach (TermValue tv in Increments) pm.Incr(tv);
-            if (StartStateTerm is not null)
+            if (StartStateTerm is not null && !pm.mu.HasCustomLongTermRevertPoint)
             {
                 foreach (Term t in StartStateLinkedTerms) pm.mu.LinkState(StartStateTerm, t);
             }

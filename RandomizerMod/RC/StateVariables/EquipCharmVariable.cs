@@ -110,6 +110,7 @@ namespace RandomizerMod.RC.StateVariables
         public override IEnumerable<Term> GetTerms()
         {
             yield return CharmTerm;
+            yield return NotchesTerm;
         }
 
         public enum EquipResult
