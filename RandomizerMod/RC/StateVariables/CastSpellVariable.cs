@@ -145,9 +145,10 @@ namespace RandomizerMod.RC.StateVariables
                 reserves = GetReserves(pm, state);
             }
 
-            if (EquipSpellTwister.IsEquipped(state) && TryCastAll(33, maxSoul, reserves, soul))
+            if (!EquipSpellTwister.IsEquipped(state) && TryCastAll(33, maxSoul, reserves, soul))
             {
                 LazyStateBuilder state33 = new(state);
+                EquipSpellTwister.SetUnequippable(ref state33);
                 DoAllCasts(33, reserves, ref state33);
                 if (!state33.GetBool(CannotRegainSoul) && NearbySoulToBool(AfterSoul, pm))
                 {
