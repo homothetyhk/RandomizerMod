@@ -47,10 +47,32 @@ namespace RandomizerMod.RC
         public void Run()
         {
             gs.Clamp();
+
+            rm.OnNewAttempt += () => Profiling.Revert();
+
+            Profiling.Revert();
             rb = new(gs, pm, rm);
             rb.Run(out stages, out ctx);
+            Profiling.Commit();
+
             randomizer = new(new Random(gs.Seed), ctx, stages, rm);
-            stagedPlacements = randomizer.Run();
+            try
+            {
+                stagedPlacements = randomizer.Run();
+            }
+            catch
+            {
+                Profiling.Revert();
+                LogDebug("Randomization failed. Profiling results for all attempts:");
+                Profiling.Log(true);
+                throw;
+            }
+
+            Profiling.Commit();
+            LogDebug("Randomization completed successfully. Profiling results for succeeded attempts:");
+            Profiling.Log();
+            LogDebug("Profiling results for all attempts:");
+            Profiling.Log(true);
             for (int i = 0; i < stagedPlacements.Count; i++)
             {
                 for (int j = 0; j < stagedPlacements[i].Length; j++)
