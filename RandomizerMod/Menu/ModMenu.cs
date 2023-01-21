@@ -11,6 +11,9 @@ namespace RandomizerMod.Menu
             builder.AddButton(Localize("Open Log Folder"), null, () => RandomizerMenu.OpenFile(null, string.Empty, DirectoryOptions.RecentLogFolder));
             builder.AddButton(Localize("Open Helper Log"), null, () => RandomizerMenu.OpenFile(null, "HelperLog.txt", DirectoryOptions.RecentLogFolder));
             builder.AddButton(Localize("Open Tracker Log"), null, () => RandomizerMenu.OpenFile(null, "TrackerLog.txt", DirectoryOptions.RecentLogFolder));
+#if DEBUG
+            builder.AddButton(Localize("Reset Profiling Data"), null, () => RandomizerCore.Profiling.Reset());
+#endif
             return builder.CreateMenuScreen();
         }
     }
