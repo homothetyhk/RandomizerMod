@@ -41,7 +41,7 @@
   },
   {
     "name": "Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | FULLCLAW + COMBAT[Left_Devout]) + DREAMNAIL + (COMBAT[Right_Devout] | Herrah)"
+    "logic": "Deepnest_Spider_Town[left1] + DREAMNAIL + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | FULLCLAW + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout]))"
   },
   {
     "name": "World_Sense",
@@ -397,7 +397,7 @@
   },
   {
     "name": "Geo_Chest-Weavers_Den",
-    "logic": "Deepnest_45_v02[left1] + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS))) + ((LEFTDASH + WINGS) | LEFTSUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM)"
+    "logic": "Deepnest_45_v02[left1] + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS)) + (LEFTDASH + WINGS | LEFTSUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL])"
   },
   {
     "name": "Geo_Chest-Junk_Pit_1",
@@ -853,7 +853,7 @@
   },
   {
     "name": "Grub-Waterways_Main",
-    "logic": "Waterways_04[right1] + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM) | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM) | Waterways_04[left2] + (SWIM | RIGHTSKIPACID)"
+    "logic": "Waterways_04[right1] + (RIGHTCLAW | SWIM | CYCLONE | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL]) | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + (RIGHTCLAW | SWIM | CYCLONE | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL]) | Waterways_04[left2] + (SWIM | RIGHTSKIPACID)"
   },
   {
     "name": "Grub-Isma's_Grove",
@@ -1561,7 +1561,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_After_Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | FULLCLAW + COMBAT[Left_Devout]) + DREAMNAIL + (COMBAT[Right_Devout] | Herrah)"
+    "logic": "Deepnest_Spider_Town[left1] + DREAMNAIL + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | FULLCLAW + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout]))"
   },
   {
     "name": "Geo_Rock-Greenpath_Entrance",
@@ -1889,7 +1889,7 @@
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden",
-    "logic": "(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1] + (ANYCLAW | FIREBALL | SCREAM | CYCLONE))"
+    "logic": "Mines_25[left1] + (FULLCLAW | WINGS + ANYCLAW) | Mines_25[top1] + (ANYCLAW | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL] | CYCLONE)"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_1",

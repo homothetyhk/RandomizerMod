@@ -227,7 +227,7 @@
   },
   {
     "name": "Defeated_Marmu",
-    "logic": "(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | (RIGHTCLAW + LEFTSUPERDASH) | WINGS | LEFTDASH))) + DREAMNAIL + COMBAT[Marmu]",
+    "logic": "(Fungus3_40[top1] | Fungus3_40[right1] + (LEFTCLAW | RIGHTCLAW + LEFTSUPERDASH | WINGS | LEFTDASH)) + DREAMNAIL + COMBAT[Marmu]",
     "Stateless": true
   },
   {
@@ -247,7 +247,7 @@
   },
   {
     "name": "Defeated_Failed_Champion",
-    "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight + (ANYCLAW + (WINGS | LEFTDASH | LEFTSUPERDASH)) + DREAMNAIL + COMBAT[Failed_Champion]",
+    "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight + ANYCLAW + (WINGS | LEFTDASH | LEFTSUPERDASH) + DREAMNAIL + COMBAT[Failed_Champion]",
     "Stateless": true
   },
   {
@@ -761,7 +761,7 @@
   },
   {
     "name": "Bench-Waterways",
-    "logic": "(Waterways_02[top3] + QUAKE | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW))) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Waterways"
+    "logic": "(Waterways_02[top3] + Broke_Waterways_Bench_Quake_Floor_3 | Waterways_02 + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + DANGEROUSSKIPS + (WINGS | RIGHTCLAW))) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Waterways"
   },
   {
     "name": "Bench-Godhome_Atrium",
@@ -961,7 +961,7 @@
   },
   {
     "name": "Fungus2_14",
-    "logic": "Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (LEFTDASH | LEFTCLAW | WINGS | LEFTSUPERDASH | ACID))"
+    "logic": "Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1] + (LEFTDASH | LEFTCLAW + (RIGHTCLAW | PRECISEMOVEMENT) | WINGS | LEFTSUPERDASH | ACID)"
   },
   {
     "name": "Fungus2_17",
