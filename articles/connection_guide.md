@@ -22,6 +22,7 @@ This is done with MonoMod.ModInterop - copy over the file from [here](https://gi
   - Colour the menu button according to whether the settings are active ([example](https://github.com/homothetyhk/BenchRando/blob/a5d1d9fa95aed08f1d7500e319369f21350a9ffb/BenchRando/Rando/ConnectionMenu.cs#L42)).
   - Interop with [Rando Settings Manager](https://badmagic100.github.io/RandoSettingsManager/) to allow players to share and manage settings more easily ([example](https://github.com/BadMagic100/TheRealJournalRando/blob/6890f9e6b5ae30777c0043139302b4f2762da9ae/TheRealJournalRando/Rando/RandoInterop.cs#L20-L23)).
   - Add settings to the settings log ([simple example](https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/c016cfc93dc37c5f4b16dd279c16a2f6fe0d9c66/RandomizableLevers/Rando/RandoInterop.cs#L23)) ([complex example](https://github.com/dplochcoder/HollowKnight.MoreDoors/blob/582b56a6093fbaf1ad43022e5a6b4d1c2411fbb6/MoreDoors/Rando/RandoInterop.cs#L27-L28)).
+  - Explicitly modify the hash if making changes that should be noted but don't affect placements ([example](https://github.com/BadMagic100/MajorItemByAreaTracker/blob/994891502230c91d23cbdc78c6cc567c7a3eb0eb/SemiSpoilerLogger/MajorItemByAreaTracker.cs#L46)).
 * Do any other things you need to in order to make your stuff work!
 
 ## Defining Custom Items
