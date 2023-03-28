@@ -102,13 +102,16 @@ namespace RandomizerMod.RC
 
         public static void AssignNotchCosts(RequestBuilder rb)
         {
-            if (!rb.gs.MiscSettings.RandomizeNotchCosts)
+            if (rb.ctx.notchCosts.Count == 0)
             {
-                rb.ctx.notchCosts = Enumerable.Range(1, 40).Select(i => CharmNotchCosts.GetVanillaCost(i)).ToList();
-            }
-            else
-            {
-                rb.ctx.notchCosts = CharmNotchCosts.GetUniformlyRandomCosts(rb.rng, rb.gs.MiscSettings.MinRandomNotchTotal, rb.gs.MiscSettings.MaxRandomNotchTotal).ToList();
+                if (!rb.gs.MiscSettings.RandomizeNotchCosts)
+                {
+                    rb.ctx.notchCosts.AddRange(Enumerable.Range(1, 40).Select(CharmNotchCosts.GetVanillaCost));
+                }
+                else
+                {
+                    rb.ctx.notchCosts.AddRange(CharmNotchCosts.GetUniformlyRandomCosts(rb.rng, rb.gs.MiscSettings.MinRandomNotchTotal, rb.gs.MiscSettings.MaxRandomNotchTotal));
+                }
             }
         }
 

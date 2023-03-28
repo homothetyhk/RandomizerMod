@@ -113,7 +113,7 @@ namespace RandomizerMod.IC
             }
             sb.AppendLine();
 
-            if (td.ctx.transitionPlacements?.Any() ?? false)
+            if (td.ctx.transitionPlacements.Count > 0)
             {
                 sb.AppendLine("UNCHECKED REACHABLE TRANSITIONS");
                 foreach (string s in td.uncheckedReachableTransitions

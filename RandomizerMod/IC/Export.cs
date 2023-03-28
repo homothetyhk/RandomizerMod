@@ -39,8 +39,8 @@ namespace RandomizerMod.IC
                 ItemChangerMod.Modules.Add<ItemChanger.Modules.AutoSalubraNotches>();
             }
 
-            HashSet<string> sourceNames = new(ctx.transitionPlacements?.Select(x => x.Source.Name) ?? Enumerable.Empty<string>());
-            HashSet<string> targetNames = new(ctx.transitionPlacements?.Select(x => x.Target.Name) ?? Enumerable.Empty<string>());
+            HashSet<string> sourceNames = new(ctx.transitionPlacements.Select(x => x.Source.Name));
+            HashSet<string> targetNames = new(ctx.transitionPlacements.Select(x => x.Target.Name));
             if (targetNames.Contains($"{SceneNames.White_Palace_18}[top1]")
                 || targetNames.Contains($"{SceneNames.White_Palace_17}[right1]")
                 || targetNames.Contains($"{SceneNames.White_Palace_19}[top1]"))
@@ -49,10 +49,8 @@ namespace RandomizerMod.IC
             }
 
             var pde = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.PlayerDataEditModule>();
-            if (ctx.notchCosts != null)
-            {
-                for (int i = 0; i < ctx.notchCosts.Count; i++) pde.AddPDEdit($"charmCost_{i + 1}", ctx.notchCosts[i]);
-            }
+
+            for (int i = 0; i < ctx.notchCosts.Count; i++) pde.AddPDEdit($"charmCost_{i + 1}", ctx.notchCosts[i]);
             if (gs.CursedSettings.CursedNotches > 0)
             {
                 pde.AddPDEdit(nameof(PlayerData.charmSlots), 3 - gs.CursedSettings.CursedNotches);

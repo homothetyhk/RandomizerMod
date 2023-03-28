@@ -10,7 +10,7 @@ namespace RandomizerMod.IC
             RandoItemTag.AfterRandoItemGive += AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged += OnRandoPlacementVisitStateChanged;
             Events.OnTransitionOverride += OnTransitionOverride;
-            transitionLookup ??= TD.ctx.transitionPlacements?.ToDictionary(p => p.Source.Name, p => p.Target.Name) ?? new();
+            transitionLookup ??= TD.ctx.transitionPlacements.ToDictionary(p => p.Source.Name, p => p.Target.Name);
         }
 
         public override void Unload()

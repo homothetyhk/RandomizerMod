@@ -107,16 +107,8 @@ namespace RandomizerMod.Settings
                     pm.Add(ilw.GetReachableEffect());
                 }
             })));
-            if (ctx.itemPlacements != null)
-            {
-                mu.AddEntries(ctx.itemPlacements.Select((p, id) => new DelegateUpdateEntry(p.Location.logic, OnCanGetLocation(id))));
-            }
-
-            if (ctx.transitionPlacements != null)
-            {
-                mu.AddEntries(ctx.transitionPlacements.Select((p, id) => new DelegateUpdateEntry(p.Source, OnCanGetTransition(id))));
-            }
-
+            mu.AddEntries(ctx.itemPlacements.Select((p, id) => new DelegateUpdateEntry(p.Location.logic, OnCanGetLocation(id))));
+            mu.AddEntries(ctx.transitionPlacements.Select((p, id) => new DelegateUpdateEntry(p.Source, OnCanGetTransition(id))));
             mu.StartUpdating(); // automatically handle tracking reachable unobtained locations/transitions and adding vanilla progression to pm
 
             foreach (int i in obtainedItems)

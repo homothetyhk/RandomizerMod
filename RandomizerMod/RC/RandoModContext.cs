@@ -1,4 +1,5 @@
-﻿using RandomizerCore;
+﻿using Newtonsoft.Json;
+using RandomizerCore;
 using RandomizerCore.Logic;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
@@ -16,19 +17,31 @@ namespace RandomizerMod.RC
             this.StartDef = startDef;
         }
 
+        public RandoModContext(RandoModContext ctx) : base(ctx.LM)
+        {
+            notchCosts = ctx.notchCosts.ToList();
+            itemPlacements = ctx.itemPlacements.ToList();
+            transitionPlacements = ctx.transitionPlacements.ToList();
+            StartDef = ctx.StartDef;
+            InitialProgression = ctx.InitialProgression;
+            Vanilla = ctx.Vanilla.ToList();
+            GenerationSettings = ctx.GenerationSettings;
+        }
+
         public GenerationSettings GenerationSettings { get; init; }
         public StartDef StartDef { get; init; }
 
-        public List<GeneralizedPlacement> Vanilla;
-        public List<ItemPlacement> itemPlacements;
-        public List<TransitionPlacement> transitionPlacements;
-        public List<int> notchCosts;
+        public List<GeneralizedPlacement> Vanilla = new();
+        public List<ItemPlacement> itemPlacements = new();
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public List<TransitionPlacement> transitionPlacements = new();
+        public List<int> notchCosts = new();
 
         public override IEnumerable<GeneralizedPlacement> EnumerateExistingPlacements()
         {
-            if (Vanilla != null) foreach (GeneralizedPlacement p in Vanilla) yield return p;
-            if (itemPlacements != null) foreach (ItemPlacement p in itemPlacements) yield return p;
-            if (transitionPlacements != null) foreach (TransitionPlacement p in transitionPlacements) yield return p;
+            foreach (GeneralizedPlacement p in Vanilla) yield return p;
+            foreach (ItemPlacement p in itemPlacements) yield return p;
+            foreach (TransitionPlacement p in transitionPlacements) yield return p;
         }
 
     }

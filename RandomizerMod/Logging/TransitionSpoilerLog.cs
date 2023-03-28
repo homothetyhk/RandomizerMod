@@ -19,7 +19,7 @@ namespace RandomizerMod.Logging
 
         public override void Log(LogArguments args)
         {
-            string contents = RandomizerData.JsonUtil.Serialize(args.ctx.transitionPlacements?.Select(p => new SpoilerEntry(p))?.ToList() ?? new());
+            string contents = RandomizerData.JsonUtil.Serialize(args.ctx.transitionPlacements.Select(p => new SpoilerEntry(p)).ToList());
             LogManager.Write(contents, "TransitionSpoilerLog.json");
         }
     }

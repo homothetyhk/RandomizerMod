@@ -116,7 +116,6 @@ namespace RandomizerMod.RC
                         }
                         else if (placement.Item is RandoModTransition target && placement.Location is RandoModTransition source)
                         {
-                            ctx.transitionPlacements ??= new();
                             target.info?.onRandomizerFinish?.Invoke(placement);
                             source.info?.onRandomizerFinish?.Invoke(placement);
                             ctx.transitionPlacements.Add(new(target, source));
@@ -130,16 +129,7 @@ namespace RandomizerMod.RC
             }
             args = new()
             {
-                ctx = new RandoModContext(ctx.LM) // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export
-                {
-                    notchCosts = ctx.notchCosts?.ToList(),
-                    itemPlacements = ctx.itemPlacements?.ToList(),
-                    transitionPlacements = ctx.transitionPlacements?.ToList(),
-                    StartDef = ctx.StartDef,
-                    InitialProgression = ctx.InitialProgression,
-                    Vanilla = ctx.Vanilla.ToList(),
-                    GenerationSettings = ctx.GenerationSettings,
-                },
+                ctx = new RandoModContext(ctx), // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export,
                 gs = gs,
                 randomizer = randomizer,
             };
@@ -159,14 +149,9 @@ namespace RandomizerMod.RC
 
             js.Serialize(sw, gs);
 
-            if (ctx.notchCosts != null) js.Serialize(sw, ctx.notchCosts);
-            else sw.Write("\"notchCosts\": null,");
-
-            if (ctx.itemPlacements != null) js.Serialize(sw, ctx.itemPlacements);
-            else sw.Write("\"itemPlacements\": null,");
-
-            if (ctx.transitionPlacements != null) js.Serialize(sw, ctx.transitionPlacements);
-            else sw.Write("\"transitionPlacements\": null,");
+            js.Serialize(sw, ctx.notchCosts);
+            js.Serialize(sw, ctx.itemPlacements);
+            js.Serialize(sw, ctx.transitionPlacements);
 
             StringBuilder sb = sw.GetStringBuilder();
             sb.Replace("\r", string.Empty);
@@ -203,15 +188,9 @@ namespace RandomizerMod.RC
 
         public void Save()
         {
-            if (ctx.itemPlacements != null)
-            {
-                rng.PermuteInPlace(ctx.itemPlacements);
-                for (int i = 0; i < ctx.itemPlacements.Count; i++) ctx.itemPlacements[i] = ctx.itemPlacements[i] with { Index = i };
-            }
-            if (ctx.transitionPlacements != null)
-            {
-                rng.PermuteInPlace(ctx.transitionPlacements);
-            }
+            rng.PermuteInPlace(ctx.itemPlacements);
+            for (int i = 0; i < ctx.itemPlacements.Count; i++) ctx.itemPlacements[i] = ctx.itemPlacements[i] with { Index = i };
+            rng.PermuteInPlace(ctx.transitionPlacements);
 
             RandomizerMod.RS = new()
             {
@@ -224,8 +203,8 @@ namespace RandomizerMod.RC
 
             Export.BeginExport(gs, ctx);
             Export.ExportStart(gs, ctx);
-            if (ctx.itemPlacements != null) Export.ExportItemPlacements(rb, ctx.itemPlacements);
-            if (ctx.transitionPlacements != null) Export.ExportTransitionPlacements(rb, ctx.transitionPlacements);
+            Export.ExportItemPlacements(rb, ctx.itemPlacements);
+            Export.ExportTransitionPlacements(rb, ctx.transitionPlacements);
 
             try
             {

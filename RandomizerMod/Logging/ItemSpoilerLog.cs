@@ -28,7 +28,7 @@ namespace RandomizerMod.Logging
                 Formatting = Formatting.Indented,
             };
             using StringWriter sw = new();
-            js.Serialize(sw, args.ctx.itemPlacements?.Select(p => new SpoilerEntry(p))?.ToList() ?? new());
+            js.Serialize(sw, args.ctx.itemPlacements.Select(p => new SpoilerEntry(p)).ToList());
             LogManager.Write(sw.ToString(), "ItemSpoilerLog.json");
         }
     }
