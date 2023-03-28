@@ -29,9 +29,18 @@ namespace RandomizerMod.RC
 
             ctx = this.ctx;
             ctx.Vanilla.AddRange(Vanilla.Values.SelectMany(v => v).Select(factory.MakeVanillaPlacement));
-            ctx.itemPlacements = StartItems.EnumerateWithMultiplicity()
-                .Select((i, j) => new ItemPlacement(factory.MakeItem(i), factory.MakeLocation(LocationNames.Start)) { Index = j })
-                .ToList();
+            ctx.itemPlacements.AddRange(StartItems.EnumerateWithMultiplicity().Select(factory.MakeStartPlacement));
+            foreach (var kvp in Preplaced)
+            {
+                if (lm.TransitionLookup.ContainsKey(kvp.Key))
+                {
+                    ctx.transitionPlacements.AddRange(kvp.Value.Select(factory.MakeTransitionPlacement));
+                }
+                else
+                {
+                    ctx.itemPlacements.AddRange(kvp.Value.Select(factory.MakeItemPlacement));
+                }
+            }
         }
 
 
@@ -84,6 +93,10 @@ namespace RandomizerMod.RC
         /// List of vanilla requests, with indexing for fast lookup by location/source transition name.
         /// </summary>
         public readonly Dictionary<string, List<VanillaDef>> Vanilla = new();
+        /// <summary>
+        /// List of preplaced requests, with indexing for fast lookup by location/source transition name.
+        /// </summary>
+        public readonly Dictionary<string, List<VanillaDef>> Preplaced = new();
 
         public readonly GenerationSettings gs;
         public readonly SettingsPM pm;
@@ -679,6 +692,56 @@ namespace RandomizerMod.RC
         public bool IsAtStart(string item)
         {
             return StartItems.GetCount(item) > 0;
+        }
+
+        public void AddToPreplaced(string item, string location)
+        {
+            if (!Preplaced.TryGetValue(location, out List<VanillaDef> defs))
+            {
+                Preplaced.Add(location, defs = new(1));
+            }
+
+            defs.Add(new VanillaDef(item, location));
+        }
+
+        public void AddToPreplaced(VanillaDef def)
+        {
+            if (!Preplaced.TryGetValue(def.Location, out List<VanillaDef> defs))
+            {
+                Preplaced.Add(def.Location, defs = new(1));
+            }
+
+            defs.Add(def);
+        }
+
+        /// <summary>
+        /// Removes all preplaced placements for the specified location or source transition.
+        /// </summary>
+        public void RemoveFromPreplaced(string location)
+        {
+            Preplaced.Remove(location);
+        }
+
+        /// <summary>
+        /// Removes all preplaced placements for the specified location or source transition, matching the specified item or target transition.
+        /// </summary>
+        public void RemoveFromPreplaced(string location, string item)
+        {
+            if (Preplaced.TryGetValue(location, out List<VanillaDef> defs))
+            {
+                defs.RemoveAll(def => def.Item == item);
+            }
+        }
+
+        /// <summary>
+        /// Removes all preplaced placements matching the defined location, item, and cost list (compared sequentially).
+        /// </summary>
+        public void RemoveFromPreplaced(VanillaDef def)
+        {
+            if (Preplaced.TryGetValue(def.Location, out List<VanillaDef> defs))
+            {
+                defs.RemoveAll(def1 => def1.Equals(def));
+            }
         }
 
         private void RemoveFromBucket(Bucket<string> bucket, Func<string, bool> selector)

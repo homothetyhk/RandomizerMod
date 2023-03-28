@@ -110,6 +110,36 @@ namespace RandomizerMod.RC
             return rl;
         }
 
+        public ItemPlacement MakeStartPlacement(string item)
+        {
+            return new(MakeItem(item), MakeLocation("Start"));
+        }
+
+        public ItemPlacement MakeItemPlacement(VanillaDef def)
+        {
+            RandoModItem ri = MakeItem(def.Item);
+            RandoModLocation rl = MakeLocation(def.Location);
+
+            if (def.Costs is null && Data.TryGetCost(def.Location, out CostDef baseCost))
+            {
+                rl.AddCost(baseCost.ToLogicCost(lm));
+            }
+            if (def.Costs is not null)
+            {
+                foreach (CostDef cost in def.Costs)
+                {
+                    rl.AddCost(cost.ToLogicCost(lm));
+                }
+            }
+
+            return new(ri, rl);
+        }
+
+        public TransitionPlacement MakeTransitionPlacement(VanillaDef def)
+        {
+            return new((RandoModTransition)MakeTransition(def.Item), (RandoModTransition)MakeTransition(def.Location));
+        }
+
         public GeneralizedPlacement MakeVanillaPlacement(VanillaDef def)
         {
             if (lm.TransitionLookup.TryGetValue(def.Item, out LogicTransition target))
@@ -120,28 +150,16 @@ namespace RandomizerMod.RC
 
             LogicItem li = lm.GetItemStrict(def.Item);
             RandoLocation rl = new() { logic = lm.GetLogicDefStrict(def.Location) };
-            void ApplyCost(CostDef cost)
-            {
-                switch (cost.Term)
-                {
-                    case "GEO":
-                        rl.AddCost(new LogicGeoCost(lm, cost.Amount));
-                        break;
-                    default:
-                        rl.AddCost(new SimpleCost(lm.GetTermStrict(cost.Term), cost.Amount));
-                        break;
-                }
-            }
 
-            if (Data.TryGetCost(def.Location, out CostDef baseCost))
+            if (def.Costs is null && Data.TryGetCost(def.Location, out CostDef baseCost))
             {
-                ApplyCost(baseCost);
+                rl.AddCost(baseCost.ToLogicCost(lm));
             }
-            if (def.Costs != null)
+            if (def.Costs is not null)
             {
                 foreach (CostDef cost in def.Costs)
                 {
-                    ApplyCost(cost);
+                    rl.AddCost(cost.ToLogicCost(lm));
                 }
             }
 
