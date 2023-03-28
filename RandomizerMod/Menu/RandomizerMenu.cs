@@ -959,8 +959,8 @@ namespace RandomizerMod.Menu
         }
 
 
-        Thread RandomizerThread;
-        RandoController rc;
+        Thread? RandomizerThread;
+        RandoController? rc;
         
         private void Randomize()
         {
@@ -1099,6 +1099,9 @@ namespace RandomizerMod.Menu
         {
             RandomizerThread?.Abort();
             RandomizerThread?.Join();
+            RandomizerThread = null;
+            rc?.Abort();
+            rc = null;
             ThreadSupport.BeginInvoke(ResetOutputLabel); // the thread will schedule ThreadSupport to send an error to the label
             HashVIP.Hide();
             CopyHashButton.Hide();

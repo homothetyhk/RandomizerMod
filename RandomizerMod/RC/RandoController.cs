@@ -13,32 +13,45 @@ namespace RandomizerMod.RC
 {
     public class RandoController
     {
-        public RandoModContext ctx;
-        public RequestBuilder rb;
+        public RandoModContext? ctx;
+        public RequestBuilder? rb;
         public readonly GenerationSettings gs;
         public readonly RandoMonitor rm;
         public readonly SettingsPM pm;
         public readonly Random rng;
-        public LogArguments args;
-        public RandomizationStage[] stages;
-        public List<List<RandoPlacement>[]> stagedPlacements;
-        public Randomizer randomizer;
+        public LogArguments? args;
+        public RandomizationStage[]? stages;
+        public List<List<RandoPlacement>[]>? stagedPlacements;
+        public Randomizer? randomizer;
 
         /// <summary>
         /// Event invoked on the RandoController immediately after sending all data to ItemChanger, but before printing logs and activating tracker data.
         /// </summary>
-        public static event Action<RandoController> OnExportCompleted;
+        public static event Action<RandoController>? OnExportCompleted;
         /// <summary>
         /// Event which allows external subscribers to modify the hash. Each subscriber is invoked separately, and the results are combined into the hash seed.
         /// <br/>Return values of 0 are ignored, and do not modify the hash.
         /// <br/>The second argument is the base hash seed, depending only on the generation settings and the placement data.
         /// </summary>
-        public static event Func<RandoController, int, int> OnCalculateHash;
+        public static event Func<RandoController, int, int>? OnCalculateHash;
+        /// <summary>
+        /// Event invoked at the start of <see cref="Run"/>.
+        /// </summary>
+        public static event Action<RandoController>? OnBeginRun;
+        /// <summary>
+        /// Event invoked if the RandoController is discarded after beginning a <see cref="Run"/>.
+        /// </summary>
+        public static event Action<RandoController>? OnAbort;
+        /// <summary>
+        /// Event invoked after running the RequestBuilder.
+        /// </summary>
+        public static event Action<RandoController>? OnRequestBuilt;
 
 
         public RandoController(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
         {
             this.gs = gs.Clone() as GenerationSettings;
+            this.gs.Clamp();
             this.rm = rm;
             this.pm = pm;
             rng = new Random(gs.Seed + 4);
@@ -46,7 +59,14 @@ namespace RandomizerMod.RC
 
         public void Run()
         {
-            gs.Clamp();
+            try
+            {
+                OnBeginRun?.Invoke(this);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error invoking OnBeginRun", e);
+            }
 
             rm.OnNewAttempt += () => Profiling.Revert();
 
@@ -54,6 +74,15 @@ namespace RandomizerMod.RC
             rb = new(gs, pm, rm);
             rb.Run(out stages, out ctx);
             Profiling.Commit();
+
+            try
+            {
+                OnRequestBuilt?.Invoke(this);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error invoking OnRequestBuilt", e);
+            }
 
             randomizer = new(new Random(gs.Seed), ctx, stages, rm);
             try
@@ -163,8 +192,7 @@ namespace RandomizerMod.RC
                     }
                     catch (Exception e)
                     {
-                        LogError($"Error invoking delegate {f.Method.Name} in OnCalculateHash:\n{e}");
-                        continue;
+                        throw new InvalidOperationException($"Error invoking delegate {f.Method.Name} in OnCalculateHash", e);
                     }
                 }
                 seed += modSeed << 16; // preserve the lower 16 bits from the original hash. If all results are 0, then modSeed is 0 and seed is unmodified.
@@ -205,7 +233,7 @@ namespace RandomizerMod.RC
             }
             catch (Exception e)
             {
-                LogError($"Error invoking OnExportCompleted:\n{e}");
+                throw new InvalidOperationException("Error invoking OnExportCompleted", e);
             }
 
             LogManager.WriteLogs(args);
@@ -223,6 +251,18 @@ namespace RandomizerMod.RC
                 JsonUtil._js.Serialize(jtr, ctx);
                 Log($"Printed raw spoiler in {sw.Elapsed.TotalSeconds} seconds.");
             }, "RawSpoiler.json");
+        }
+
+        public void Abort()
+        {
+            try
+            {
+                OnAbort?.Invoke(this);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error invoking OnAbort", e);
+            }
         }
     }
 }
