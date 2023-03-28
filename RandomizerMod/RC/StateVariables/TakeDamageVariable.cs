@@ -325,7 +325,7 @@ namespace RandomizerMod.RC.StateVariables
             }
 
             List<int> steps = new();
-            if (CanAdd(LifebloodHeart) && !Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage))
+            if (CanAdd(LifebloodHeart) && !(Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage)))
             {
                 steps.Add(0);
             }
@@ -334,7 +334,7 @@ namespace RandomizerMod.RC.StateVariables
                 LifebloodHeart.SetUnequippable(ref state); // set unequippable so that result states are incomparable and we can short circuit future GenerateDesperationStates calls
             }
 
-            if (CanAdd(LifebloodCore) && !Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage))
+            if (CanAdd(LifebloodCore) && !(Hiveblood.IsEquipped(state) && state.GetBool(HasTakenDamage)))
             {
                 steps.Add(1);
             }
@@ -402,19 +402,19 @@ namespace RandomizerMod.RC.StateVariables
                         switch (steps[j])
                         {
                             case 0:
-                                LifebloodHeart.SetUnequippable(ref state);
+                                LifebloodHeart.SetUnequippable(ref next);
                                 break;
                             case 1:
-                                LifebloodCore.SetUnequippable(ref state);
+                                LifebloodCore.SetUnequippable(ref next);
                                 break;
                             case 2:
-                                FragileHeart.SetUnequippable(ref state);
+                                FragileHeart.SetUnequippable(ref next);
                                 break;
                             case 3:
-                                JonisBlessing.SetUnequippable(ref state);
+                                JonisBlessing.SetUnequippable(ref next);
                                 break;
                             case 4:
-                                DeepFocus.SetUnequippable(ref state);
+                                DeepFocus.SetUnequippable(ref next);
                                 break;
                         }
                     }
