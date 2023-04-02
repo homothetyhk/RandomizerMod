@@ -28,6 +28,7 @@ namespace RandomizerMod.RC
                 };
                 g.Dual = g;
                 groups.Add(g);
+                OnCreateGroup?.Invoke(g);
             }
             else
             {
@@ -39,6 +40,7 @@ namespace RandomizerMod.RC
                     Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
                 };
                 groups.Add(g);
+                OnCreateGroup?.Invoke(g);
             }
         }
     }

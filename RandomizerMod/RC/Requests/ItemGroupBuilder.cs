@@ -9,8 +9,8 @@ namespace RandomizerMod.RC
 
         public delegate IEnumerable<IRandoItem> ItemPaddingHandler(RandoFactory factory, int count);
         public delegate IEnumerable<IRandoLocation> LocationPaddingHandler(RandoFactory factory, int count);
-        public ItemPaddingHandler ItemPadder;
-        public LocationPaddingHandler LocationPadder;
+        public ItemPaddingHandler? ItemPadder;
+        public LocationPaddingHandler? LocationPadder;
         
         public readonly Bucket<string> Items = new();
         public readonly Bucket<string> Locations = new();
@@ -49,8 +49,8 @@ namespace RandomizerMod.RC
                 Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetItemPlacementStrategy(),
             };
             group.OnPermute += onPermute;
-
             groups.Add(group);
+            OnCreateGroup?.Invoke(group);
         }
     }
 }

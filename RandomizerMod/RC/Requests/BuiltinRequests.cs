@@ -1,11 +1,12 @@
-﻿using RandomizerCore;
-using ItemChanger;
-using static RandomizerMod.RC.RequestBuilder;
-using RandomizerMod.RandomizerData;
-using RandomizerMod.Settings;
+﻿using ItemChanger;
+using RandomizerCore;
+using RandomizerCore.Collections;
 using RandomizerCore.Extensions;
 using RandomizerCore.Logic;
 using RandomizerCore.Randomization;
+using RandomizerMod.RandomizerData;
+using RandomizerMod.Settings;
+using static RandomizerMod.RC.RequestBuilder;
 
 namespace RandomizerMod.RC
 {
@@ -76,6 +77,7 @@ namespace RandomizerMod.RC
             OnUpdate.Subscribe(100f, ApplyAreaConstraint);
             OnUpdate.Subscribe(100f, ApplyDerangedConstraint);
             OnUpdate.Subscribe(100f, ApplyDupeShopConstraint);
+            OnUpdate.Subscribe(100f, ApplyMultiLocationPenalty);
         }
 
         public static bool SelectStart(Random rng, GenerationSettings gs, SettingsPM pm, out RandomizerData.StartDef def)
@@ -307,7 +309,7 @@ namespace RandomizerMod.RC
 
                         return t1.Direction != TransitionDirection.Door || t2.Direction != TransitionDirection.Door;
                     }
-                    ((DefaultGroupPlacementStrategy)horizontal.strategy).Constraints += NotDoorToDoor;
+                    ((DefaultGroupPlacementStrategy)horizontal.strategy).ConstraintList.Add(new(NotDoorToDoor, null, "RM Not Door to Door"));
                 }
 
                 sb.Add(oneWays);
@@ -1555,12 +1557,49 @@ namespace RandomizerMod.RC
             for (int i = 0; i < rb.gs.CursedSettings.CursedNotches; i++) rb.AddItemByName(ItemNames.Charm_Notch);
         }
 
+        public static void ApplyMultiLocationPenalty(RequestBuilder rb)
+        {
+            if (!rb.gs.ProgressionDepthSettings.MultiLocationPenalty) return;
+
+            foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
+            {
+                gb.OnCreateGroup += OnCreateGroup;
+            }
+
+            static void OnCreateGroup(RandomizationGroup g)
+            {
+                if (g.Strategy is not DefaultGroupPlacementStrategy dgps) return;
+
+                HashSet<string> shops = new();
+                HashSet<IRandoLocation> shopRef = new(ReferenceEqualityComparer<IRandoLocation>.Instance);
+
+                g.OnPermute += OnPermute;
+                dgps.ConstraintList.Add(new(Constraint, null, "RM Multi Location Penalty"));
+
+                void OnPermute(Random rng, RandomizationGroup g)
+                {
+                    shops.Clear();
+                    shopRef.Clear();
+
+                    for (int i = 0; i < g.Locations.Length; i++)
+                    {
+                        if (g.Locations[i] is not RandoModLocation rl) continue;
+                        if (rl.LocationDef?.AdditionalProgressionPenalty == true && shops.Add(rl.Name)) shopRef.Add(rl);
+                    }
+                }
+
+                bool Constraint(IRandoItem ri, IRandoLocation rl)
+                {
+                    return !ri.Required || !shops.Contains(rl.Name) || shopRef.Contains(rl);
+                }
+            }
+        }
+
         public static void ApplyItemPostPermuteEvents(RequestBuilder rb)
         {
             foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
             {
                 if (gb.onPermute == null) gb.onPermute = PostPermute;
-                // is it a good idea to put this on every item group?
             }
 
             void PostPermute(Random rng, RandomizationGroup group)
@@ -1583,22 +1622,6 @@ namespace RandomizerMod.RC
                         {
                             // avoid very early dupes
                             if (items[i].Priority < 0.4f) items[i].Priority += 0.2f;
-                        }
-                    }
-                }
-
-                bool shopPenalty = rb.gs.ProgressionDepthSettings.MultiLocationPenalty;
-
-                if (shopPenalty)
-                {
-                    HashSet<string> shops = new();
-                    for (int i = 0; i < locations.Count; i++)
-                    {
-                        if (locations[i] is not RandoModLocation rl) continue;
-                        if (rl.LocationDef is not null && rl.LocationDef.AdditionalProgressionPenalty)
-                        {
-                            // shops keep their lowest priority slot, but all other slots are moved to the end.
-                            if (!shops.Add(locations[i].Name)) locations[i].Priority = Math.Max(locations[i].Priority, 1f);
                         }
                     }
                 }
@@ -1720,7 +1743,7 @@ namespace RandomizerMod.RC
                     gb.strategy ??= rb.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy();
                     if (gb.strategy is DefaultGroupPlacementStrategy s)
                     {
-                        s.Constraints += AreasMatch;
+                        s.ConstraintList.Add(new(AreasMatch, null, "RM Area Constraint"));
                     }
                     else throw new InvalidOperationException("Connected areas conflict with transition group placement strategy!");
                 }
@@ -1755,14 +1778,14 @@ namespace RandomizerMod.RC
             {
                 if (gb.strategy is DefaultGroupPlacementStrategy dgps)
                 {
-                    dgps.Constraints += NotVanillaTransition;
+                    dgps.ConstraintList.Add(new(NotVanillaTransition, null, "RM Deranged Transition"));
                 }
             }
             foreach (ItemGroupBuilder gb in rb.EnumerateItemGroups())
             {
                 if (gb.strategy is DefaultGroupPlacementStrategy dgps)
                 {
-                    dgps.Constraints += NotVanillaLocation;
+                    dgps.ConstraintList.Add(new(NotVanillaLocation, null, "RM Deranged Item"));
                 }
             }
         }
@@ -1775,7 +1798,7 @@ namespace RandomizerMod.RC
                 {
                     if (igb.strategy is DefaultGroupPlacementStrategy dgps)
                     {
-                        dgps.Constraints += PreventDupesInShops;
+                        dgps.ConstraintList.Add(new(PreventDupesInShops, null, "RM Dupe Shop Constraint"));
                     }
                 }
             }

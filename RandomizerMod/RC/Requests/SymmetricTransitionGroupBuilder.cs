@@ -52,6 +52,8 @@ namespace RandomizerMod.RC
 
                 groups.Add(g1);
                 groups.Add(g2);
+                OnCreateGroup?.Invoke(g1);
+                OnCreateGroup?.Invoke(g2);
             }
             else
             {
@@ -72,6 +74,8 @@ namespace RandomizerMod.RC
 
                 groups.Add(g1);
                 groups.Add(g2);
+                OnCreateGroup?.Invoke(g1);
+                OnCreateGroup?.Invoke(g2);
             }
         }
     }

@@ -27,13 +27,15 @@ namespace RandomizerMod.RC
                 items.Add(factory.MakeTransition(s));
             }
 
-            groups.Add(new RandomizationGroup
+            RandomizationGroup g = new()
             {
                 Label = label,
                 Items = items.ToArray<IRandoItem>(),
                 Locations = locations.ToArray<IRandoLocation>(),
                 Strategy = strategy ?? factory.gs.ProgressionDepthSettings.GetTransitionPlacementStrategy(),
-            });
+            };
+            groups.Add(g);
+            OnCreateGroup?.Invoke(g);
         }
     }
 }
