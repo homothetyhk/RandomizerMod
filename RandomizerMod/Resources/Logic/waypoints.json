@@ -404,7 +404,7 @@
   },
   {
     "name": "Opened_Shaman_Pillar",
-    "logic": "Crossroads_06[left1] | Crossroads_06[door1] | Crossroads_06[right1] | DREAMER",
+    "logic": "Crossroads_06[left1] | Crossroads_06[door1] | Crossroads_06[right1] | INFECTION",
     "Stateless": true
   },
   {

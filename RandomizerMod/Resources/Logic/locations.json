@@ -1561,7 +1561,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_After_Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + DREAMNAIL + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | FULLCLAW + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout]))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | FULLCLAW + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout]))"
   },
   {
     "name": "Geo_Rock-Greenpath_Entrance",
@@ -1941,11 +1941,18 @@
   },
   {
     "name": "Geo_Rock-Fluke_Hermit_Dupe",
-    "logic": "*Geo_Rock-Fluke_Hermit"
+    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (LEFTDASH + WINGS | LEFTSUPERDASH + WINGS | SWIM | LEFTSUPERDASH + LEFTDASH + LEFTCLAW + PRECISEMOVEMENT) + (RIGHTCLAW + (RIGHTDASH | WINGS | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS)) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT))"
   },
   {
     "name": "Geo_Rock-Fluke_Hermit",
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT) + (ANYCLAW | WINGS + ENEMYPOGOS)"
+    // A  to first ledge: (LEFTCLAW + WINGS | RIGHTCLAW)
+    // B  up from first ledge without crossing pool: RIGHTCLAW + WINGS
+    // C  to left side of pool: LEFTDASH + WINGS | LEFTSUPERDASH + WINGS | SWIM | LEFTSUPERDASH + LEFTDASH + LEFTCLAW + PRECISEMOVEMENT
+    // D  up from left side with right claw: RIGHTCLAW + (RIGHTDASH | WINGS | LEFTCLAW + RIGHTSUPERDASH | LEFTCLAW + ENEMYPOGOS)
+    // E  up from left side without right claw: LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT
+    // F  up to geo rock from dupe geo rock: ANYCLAW | WINGS + ENEMYPOGOS
+    // Room_GG_Shortcut[left1] + A + (B | C + (D | E)) + F
+    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (LEFTDASH + WINGS | LEFTSUPERDASH + WINGS | SWIM | LEFTSUPERDASH + LEFTDASH + LEFTCLAW + PRECISEMOVEMENT) + (RIGHTCLAW + (RIGHTDASH | WINGS | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS)) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (ANYCLAW | WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Pleasure_House",
