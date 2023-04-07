@@ -3103,14 +3103,14 @@
   {
     "sceneName": "Deepnest_East_14",
     "gateName": "left1",
-    "logic": "Deepnest_East_14[left1] | Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS) + (LEFTDASH | SPIKETUNNELS) | Deepnest_East_14[door1] + (LEFTDASH | SPIKETUNNELS)",
+    "logic": "Deepnest_East_14[left1] | Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS | FULLDASH + DAMAGEBOOSTS + ENEMYPOGOS + COMPLEXSKIPS + $TAKEDAMAGE + $TAKEDAMAGE) + (LEFTDASH | SPIKETUNNELS) | Deepnest_East_14[door1] + (LEFTDASH | SPIKETUNNELS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_14[left1]"
   },
   {
     "sceneName": "Deepnest_East_14",
     "gateName": "door1",
-    "logic": "Deepnest_East_14[door1] | Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS) + (RIGHTDASH | PRECISEMOVEMENT) | Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS)",
+    "logic": "Deepnest_East_14[door1] | Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS | FULLDASH + DAMAGEBOOSTS + ENEMYPOGOS + COMPLEXSKIPS + $TAKEDAMAGE + $TAKEDAMAGE) + (RIGHTDASH | PRECISEMOVEMENT) | Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_14[door1]"
   },
@@ -5002,7 +5002,7 @@
   {
     "sceneName": "RestingGrounds_10",
     "gateName": "top2",
-    "logic": "RestingGrounds_10[top2] + (LEFTCLAW | WINGS + (RIGHTCLAW | PRECISEMOVEMENT)) | RestingGrounds_10 + (LEFTCLAW | (WINGS + RIGHTCLAW)) + UPWALLBREAK",
+    "logic": "RestingGrounds_10[top2] + (LEFTCLAW | WINGS + (RIGHTCLAW | PRECISEMOVEMENT)) | RestingGrounds_10 + (LEFTCLAW | WINGS + RIGHTCLAW | $SHADESKIP + WINGS | $SHADESKIP[2HITS] + DAMAGEBOOSTS + $TAKEDAMAGE + (ANYDASH | SPELLAIRSTALL + $CASTSPELL)) + UPWALLBREAK",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_10[top2]"
   },

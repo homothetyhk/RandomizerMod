@@ -469,7 +469,7 @@
   },
   {
     "name": "Rancid_Egg-Near_Quick_Slash",
-    "logic": "Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS)"
+    "logic": "Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS | FULLDASH + DAMAGEBOOSTS + ENEMYPOGOS + COMPLEXSKIPS + $TAKEDAMAGE + $TAKEDAMAGE) | (Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS) | Deepnest_East_14[door1] + (LEFTDASH | PRECISEMOVEMENT)) + RIGHTCLAW + WINGS + (LEFTDASH | ENEMYPOGOS)"
   },
   {
     "name": "Rancid_Egg-Upper_Kingdom's_Edge",
@@ -829,11 +829,11 @@
   },
   {
     "name": "Grub-Kingdom's_Edge_Oro",
-    "logic": "(Deepnest_East_14[door1] | Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS) + (RIGHTDASH | PRECISEMOVEMENT) | Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS)) + (ANYCLAW | WINGS | $SHADESKIP[2HITS] + ENEMYPOGOS + (ANYDASH | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]))"
+    "logic": "(Deepnest_East_14[door1] | Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + Broke_Oro_Quake_Floor_3 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS | FULLDASH + DAMAGEBOOSTS + ENEMYPOGOS + COMPLEXSKIPS + $TAKEDAMAGE + $TAKEDAMAGE) + (RIGHTDASH | PRECISEMOVEMENT) | Deepnest_East_14[left1] + (RIGHTDASH | SPIKETUNNELS)) + (ANYCLAW | WINGS | $SHADESKIP[2HITS] + ENEMYPOGOS + (ANYDASH | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]))"
   },
   {
     "name": "Grub-Kingdom's_Edge_Camp",
-    "logic": "Deepnest_East_11 + (ANYCLAW | WINGS | (PRECISEMOVEMENT + LEFTDASH))"
+    "logic": "Deepnest_East_11 + (ANYCLAW | WINGS | PRECISEMOVEMENT + (LEFTDASH | DAMAGEBOOSTS + $TAKEDAMAGE))"
   },
   {
     "name": "Grub-Hive_External",
@@ -969,7 +969,7 @@
   },
   {
     "name": "Fog_Canyon_Map",
-    "logic": "((Fungus3_25[left1] + RIGHTSHADOWDASH) | Fungus3_25[right1]) + ((LEFTCLAW + LEFTDASH + ENEMYPOGOS) | WINGS) | $StartLocation[East Fog Canyon] + LEFTDASH + LEFTCLAW"
+    "logic": "(Fungus3_25[left1] + RIGHTSHADOWDASH | Fungus3_25[right1]) + (WINGS | ENEMYPOGOS + (LEFTCLAW + LEFTDASH | COMPLEXSKIPS + FULLDASH)) | $StartLocation[East Fog Canyon] + LEFTDASH + LEFTCLAW"
   },
   {
     "name": "Fungal_Wastes_Map",
@@ -1141,7 +1141,7 @@
   },
   {
     "name": "Journal_Entry-Charged_Lumafly",
-    "logic": "Fungus3_archive_02[top1] + Defeated_Uumuu + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (FULLSUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))"
+    "logic": "Fungus3_archive_02[top1] + (ANYSUPERDASH | ACID | ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS) + Defeated_Uumuu + (RIGHTCLAW + (ACID | RIGHTSUPERDASH | RIGHTDASH + WINGS | RIGHTSHARPSHADOW + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL]) | LEFTCLAW + WINGS + (ACID | RIGHTSUPERDASH | RIGHTDASH + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL]))"
   },
   {
     "name": "Journal_Entry-Goam",
@@ -2132,7 +2132,7 @@
   },
   {
     "name": "Soul_Totem-Oro_Dive_2",
-    "logic": "Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS)"
+    "logic": "Deepnest_East_14[top2] + Broke_Oro_Quake_Floor_2 + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS | FULLDASH + DAMAGEBOOSTS + ENEMYPOGOS + COMPLEXSKIPS + $TAKEDAMAGE + $TAKEDAMAGE)"
   },
   {
     "name": "Soul_Totem-Oro_Dive_1",
@@ -2360,7 +2360,7 @@
   },
   {
     "name": "Lore_Tablet-Greenpath_QG",
-    "logic": "Fungus1_13[left1] + (SIDESLASH | CYCLONE | GREATSLASH | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH)) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + $TAKEDAMAGE) + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + (SIDESLASH | CYCLONE | GREATSLASH | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + $TAKEDAMAGE) + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",
