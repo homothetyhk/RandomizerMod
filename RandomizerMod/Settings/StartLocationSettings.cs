@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RandomizerMod.RandomizerData;
+﻿using RandomizerMod.RandomizerData;
 
 namespace RandomizerMod.Settings
 {

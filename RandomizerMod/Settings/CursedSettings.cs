@@ -1,6 +1,6 @@
-﻿using System.Text;
-using MenuChanger.Attributes;
+﻿using MenuChanger.Attributes;
 using RandomizerCore.Extensions;
+using System.Text;
 
 namespace RandomizerMod.Settings
 {
@@ -21,7 +21,7 @@ namespace RandomizerMod.Settings
 
         public string ToMultiline()
         {
-            StringBuilder sb = new StringBuilder("Curses");
+            StringBuilder sb = new("Curses");
             foreach (var field in Util.GetFieldNames(typeof(CursedSettings)))
             {
                 sb.AppendLine($"{field.FromCamelCase()}: {Util.Get(this, field)}");

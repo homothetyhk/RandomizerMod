@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace RandomizerMod.Settings.Presets
+﻿namespace RandomizerMod.Settings.Presets
 {
     public static class StartItemPresetData
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MenuChanger.Attributes;
+﻿using MenuChanger.Attributes;
 
 namespace RandomizerMod.Settings
 {

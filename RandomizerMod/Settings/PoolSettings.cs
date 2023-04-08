@@ -1,8 +1,4 @@
-﻿using System.Text;
-using System.Reflection;
-using RandomizerCore.Extensions;
-
-namespace RandomizerMod.Settings
+﻿namespace RandomizerMod.Settings
 {
     public class PoolSettings : SettingsModule
     {
@@ -31,40 +27,5 @@ namespace RandomizerMod.Settings
 
         public bool JournalEntries;
         public bool JunkPitChests;
-
-
-        private static Dictionary<string, FieldInfo> fields = typeof(PoolSettings)
-            .GetFields(BindingFlags.Public | BindingFlags.Instance)
-            .ToDictionary(f => f.Name, f => f);
-        public static string[] FieldNames => fields.Keys.ToArray();
-
-        public bool GetFieldByName(string fieldName)
-        {
-            if (fields.TryGetValue(fieldName, out FieldInfo field))
-            {
-                return (bool)field.GetValue(this);
-            }
-            return false;
-        }
-
-        public void SetFieldByName(string fieldName, object value)
-        {
-            if (fields.TryGetValue(fieldName, out FieldInfo field))
-            {
-                field.SetValue(this, value);
-            }
-        }
-
-        public string ToMultiline()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Pool Settings");
-            foreach (var kvp in fields)
-            {
-                sb.AppendLine($"{kvp.Key.FromCamelCase()}: {kvp.Value.GetValue(this)}");
-            }
-
-            return sb.ToString();
-        }
     }
 }
