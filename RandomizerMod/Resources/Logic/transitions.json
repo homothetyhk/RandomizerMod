@@ -2354,7 +2354,7 @@
   {
     "sceneName": "Deepnest_03",
     "gateName": "left2",
-    "logic": "Deepnest_03[left2] | Deepnest_03 + (LEFTSUPERDASH | WINGS | LEFTCLAW + $SHADESKIP)",
+    "logic": "Deepnest_03[left2] | Deepnest_03 + (LEFTSUPERDASH | WINGS | LEFTCLAW + ($SHADESKIP | $SLOPEBALL[before:ROOMSOUL]))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_03[left2]"
   },
@@ -3488,7 +3488,7 @@
   {
     "sceneName": "Abyss_04",
     "gateName": "right1",
-    "logic": "Abyss_04[right1] | Abyss_04 + ANYCLAW + WINGS",
+    "logic": "Abyss_04[right1] | Abyss_04 + (ANYCLAW + WINGS | (ANYCLAW | WINGS) + $SLOPEBALL)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_04[right1]"
   },
@@ -3628,7 +3628,7 @@
   {
     "sceneName": "Abyss_18",
     "gateName": "left1",
-    "logic": "Abyss_18[left1] | Abyss_18[right1] + (WINGS | LEFTSUPERDASH)",
+    "logic": "Abyss_18[left1] | Abyss_18[right1] + (WINGS | LEFTSUPERDASH | $SLOPEBALL[before:AREASOUL,after:AREASOUL] + LEFTDASH + LEFTCLAW)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_18[left1]"
   },
@@ -4048,7 +4048,7 @@
   {
     "sceneName": "Ruins1_03",
     "gateName": "top1",
-    "logic": "Ruins1_03[top1] + (ANYCLAW | WINGS) | Ruins1_03 + (ANYCLAW | WINGS | ENEMYPOGOS)",
+    "logic": "Ruins1_03[top1] + (ANYCLAW | WINGS) | Ruins1_03 + (ANYCLAW | WINGS | ENEMYPOGOS + COMPLEXSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_03[top1]"
   },
@@ -4363,7 +4363,7 @@
   {
     "sceneName": "Ruins1_27",
     "gateName": "right1",
-    "logic": "Ruins1_27[right1] | Ruins1_27[left1] + RIGHTCLAW + WINGS",
+    "logic": "Ruins1_27[right1] | Ruins1_27[left1] + RIGHTCLAW + (WINGS | $SLOPEBALL[before:AREASOUL,after:ROOMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_27[right1]"
   },
@@ -6171,7 +6171,7 @@
   {
     "sceneName": "White_Palace_15",
     "gateName": "right1",
-    "logic": "White_Palace_15[right1]",
+    "logic": "White_Palace_15[right1] | (White_Palace_15[left1] | White_Palace_15[right1]) + WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW + LEFTDASH) + $SLOPEBALL[before:AREASOUL,after:ROOMSOUL]",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_15[right1]"
   },

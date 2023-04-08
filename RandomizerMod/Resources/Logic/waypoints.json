@@ -885,7 +885,7 @@
   },
   {
     "name": "Crossroads_18",
-    "logic": "Crossroads_18[right1] + (LEFTDASH | WINGS | INFECTED | LEFTCLAW + SPELLAIRSTALL + $CASTSPELL[2,before:AREASOUL,after:ITEMSOUL]) | Crossroads_18[bot1] | Crossroads_18[right2]"
+    "logic": "Crossroads_18[right1] + (LEFTDASH | WINGS | INFECTED | LEFTCLAW + SPELLAIRSTALL + $CASTSPELL[2,before:AREASOUL,after:ITEMSOUL] | $SLOPEBALL[before:AREASOUL,after:ITEMSOUL]) | Crossroads_18[bot1] | Crossroads_18[right2]"
   },
   {
     "name": "Crossroads_19",

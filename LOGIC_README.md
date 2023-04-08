@@ -126,6 +126,7 @@ This file serves to document the randomizer logic.
   - A slopeball to reach Palace Grounds from Ancient Basin with only claw or wings
   - A slopeball to cross the long spike tunnel in Ancient Basin with only claw and dash
   - A slopeball to cross from left City of Tears into right City of Tears with only claw
+- Note: some slopeballs are only possible with nail range extensions, or with Shaman Stone to change the spell hitbox. The slopeballs currently in logic do not require any charms.
 
 ### Shriek Pogos
 - Shriek Pogos are skips where the player casts Abyss Shriek, then immediately does a double jump as the cast finishes. With the right timing, the shriek can be pogoed, cutting off the double jump into a smaller pogo, but with the benefit of refreshing the player's ability to dash or double jump. To be precise, there is a 4 frame window to press double jump, and a 6 frame window to press downslash, starting when the player regains control at the end of the cast, in order to perform a shriek pogo. The height gained from the pogo is maximized when double jump is pressed as early as possible, and nail is pressed as late as possible.

@@ -845,7 +845,7 @@
   },
   {
     "name": "Grub-Basin_Requires_Wings",
-    "logic": "Abyss_19 + WINGS + (ANYCLAW | ENEMYPOGOS)"
+    "logic": "Abyss_19 + (WINGS + (ANYCLAW | ENEMYPOGOS) | ANYCLAW + ENEMYPOGOS + BACKGROUNDPOGOS + $SLOPEBALL[before:ROOMSOUL])"
   },
   {
     "name": "Grub-Basin_Requires_Dive",
