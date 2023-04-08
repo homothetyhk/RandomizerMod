@@ -58,7 +58,7 @@ This file serves to document the randomizer logic.
 - Generally, shade skips which require shade fireballs are not in logic, due to their RNG-dependence and relative obscurity.
 - Some shade skips are only conditionally in logic, depending on the transition randomizer setting. Limitations of the randomizer make it infeasible to calculate bench accessibility for setting up shade skips in every location.
 - With Void Heart, shade skips (and Sibling pogos) require unequipping Void Heart, which causes the enemies to become hostile again. Void Tendrils are not currently affected by unequipping Void Heart.
-- In logic, Shade Skips are indicated with the **SHADESKIPS** token. More commonly, the **ITEMSHADESKIPS**, **AREASHADESKIPS**, or **ROOMSHADESKIPS** macros are used.
+- In logic, Shade Skips are indicated with the **SHADESKIPS** token. More commonly, the **$SHADESKIP** state modifier is used, sometimes with arguments such as "2HITS", indicating that the player must be able to die with at least 4 masks so that the shade can take 2 nail hits.
 - Examples include:
     - Pogoing the shade in a number of places to gain extra height. Most notably, shade skips can be used to reach Salubra with no items, or Blue Lake with vertical movement.
     
@@ -73,7 +73,7 @@ This file serves to document the randomizer logic.
 ### Fireball Skips
 - Fireball Skips are skips which use Vengeful Spirit or Howling Wraiths (or their upgrades) to reset fall speed midair.
 - Generally, Fireball Skips in logic require at most 3 consecutive casts of a spell, meaning that Spell Twister skips are not in logic.
-- In logic, Fireball Skips are indicated with the **FIREBALLSKIPS** token. More commonly, the **AIRSTALL** macro is used.
+- In logic, Fireball Skips are indicated with the **FIREBALLSKIPS** token. More commonly, the **SPELLAIRSTALL** macro is used.
 - Examples include:
     - Using airstall to reach Salubra after Gruz Mother with no other movement.
 	- Using airstall to cross Queen's Station from left to right with no other movement.
@@ -86,7 +86,7 @@ This file serves to document the randomizer logic.
     
 ### Spike Tunnels
 - Spike Tunnels are skips which involve crossing through a narrow passage lined with spikes.
-- In logic, Spike Tunnels are indicated with the **SPIKETUNNELS** token. More commonly, the **LEFTTUNNEL** or **RIGHTTUNNEL** macros are used.
+- In logic, Spike Tunnels are indicated with the **SPIKETUNNELS** token.
 - Examples include:
     - Crossing the spike tunnel on the way to Glowing Womb with dash and airstall or Dashmaster.
 	- Entering the spike tunnels in the Waterways broken elevator shaft, using several possible item combinations.
@@ -117,6 +117,20 @@ This file serves to document the randomizer logic.
 	- Pogoing up the Quick Slash room (Deepnest_East_14b) without items (logic for *Quick_Slash*, *Deepnest_East_14b[top1]*).
 	- Various Hwurmp and/or Flukefey pogos in *Waterways_04b* (Waterways Mask Shard room).
 	- Pogoing the Flukefey to cross the water with right dash and no swim in *Waterways_02*.
+
+### Slopeballs
+- Slopeballs are skips which involving casting Vengeful Spirit into a curved surface. If the surface has the right curve, and the cast is from the right position, the fireball will be curved by the collision, and slowed enough for the player to pogo it.
+- In logic, Slopeballs are indicated with the **SLOPEBALLSKIPS** token. More commonly, the **$SLOPEBALL** state modifier is used, sometimes with various arguments related to tracking soul usage.
+- Examples include:
+  - A slopeball to reach Fungal Wastes from Forgotten Crossroads with no other items
+  - A slopeball to reach Palace Grounds from Ancient Basin with only claw or wings
+  - A slopeball to cross the long spike tunnel in Ancient Basin with only claw and dash
+  - A slopeball to cross from left City of Tears into right City of Tears with only claw
+
+### Shriek Pogos
+- Shriek Pogos are skips where the player casts Abyss Shriek, then immediately does a double jump as the cast finishes. With the right timing, the shriek can be pogoed, cutting off the double jump into a smaller pogo, but with the benefit of refreshing the player's ability to dash or double jump. To be precise, there is a 4 frame window to press double jump, and a 6 frame window to press downslash, starting when the player regains control at the end of the cast, in order to perform a shriek pogo. The height gained from the pogo is maximized when double jump is pressed as early as possible, and nail is pressed as late as possible.
+- In logic, Shriek Pogos are indicated with the **SHRIEKPOGOSKIPS** token. More commonly, the **$SHRIEKPOGO** state modifier is used, sometimes with various arguments related to tracking soul usage.
+- Examples are typically along the lines of either: using shriek pogos to gain extra horizontal movement by refreshing dash midair, or using shriek pogos to gain minor extra vertical movement in situations where wings alone are not sufficient. For example, 3 shriek pogos can be used to enter Fungal Core without claw.
 
 ### Complex Skips
 - Complex Skips are skips which have extended setup time or are obscure even by the standards of advanced skips.

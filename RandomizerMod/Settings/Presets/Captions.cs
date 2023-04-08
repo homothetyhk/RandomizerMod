@@ -343,6 +343,15 @@ namespace RandomizerMod.Settings.Presets
             {
                 sb.Append(Localize("Steel soul mode will be enabled. "));
             }
+            switch (ms.FireballUpgrade)
+            {
+                case MiscSettings.ToggleableFireballSetting.Deferred:
+                    sb.Append(Localize("Once obtained, the Shade Soul upgrade will be deferred until activated from the inventory. "));
+                    break;
+                case MiscSettings.ToggleableFireballSetting.Toggleable:
+                    sb.Append(Localize("Once obtained, the Shade Soul upgrade can be toggled freely from the inventory. "));
+                    break;
+            }
 
             return sb.ToString();
         }

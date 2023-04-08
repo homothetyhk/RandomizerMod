@@ -26,6 +26,8 @@
                 DamageBoosts = false,
                 DangerousSkips = false,
                 DarkRooms = false,
+                Slopeballs = false,
+                ShriekPogos = false,
                 ComplexSkips = false,
                 DifficultSkips = false,
             };
@@ -45,6 +47,8 @@
                 DamageBoosts = false,
                 DangerousSkips = false,
                 DarkRooms = false,
+                Slopeballs = false,
+                ShriekPogos = false,
                 ComplexSkips = false,
                 DifficultSkips = false,
             };
@@ -64,6 +68,8 @@
                 DamageBoosts = false,
                 DangerousSkips = false,
                 DarkRooms = false,
+                Slopeballs = false,
+                ShriekPogos = false,
                 ComplexSkips = false,
                 DifficultSkips = false,
             };
@@ -83,6 +89,8 @@
                 DamageBoosts = true,
                 DangerousSkips = true,
                 DarkRooms = false,
+                Slopeballs = false,
+                ShriekPogos = false,
                 ComplexSkips = false,
                 DifficultSkips = false,
             };
@@ -102,6 +110,8 @@
                 DamageBoosts = true,
                 DangerousSkips = true,
                 DarkRooms = true,
+                Slopeballs = true,
+                ShriekPogos = true,
                 ComplexSkips = true,
                 DifficultSkips = true,
             };

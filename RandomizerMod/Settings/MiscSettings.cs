@@ -12,6 +12,7 @@ namespace RandomizerMod.Settings
         public MaskShardType MaskShards;
         public VesselFragmentType VesselFragments;
         public bool SteelSoul;
+        public ToggleableFireballSetting FireballUpgrade;
 
         public enum MaskShardType
         {
@@ -35,10 +36,11 @@ namespace RandomizerMod.Settings
             AutoGivenAtCharmThreshold
         }
 
-        public override void Clamp(GenerationSettings gs)
+        public enum ToggleableFireballSetting
         {
-            base.Clamp(gs);
-            if (SteelSoul) gs.SkipSettings.ShadeSkips = false;
+            Normal,
+            Deferred,
+            Toggleable
         }
     }
 }

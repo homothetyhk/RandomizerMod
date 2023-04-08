@@ -647,6 +647,15 @@ namespace RandomizerMod.Menu
                 }
             };
 
+            skipMEF.ElementLookup[nameof(SkipSettings.Slopeballs)].SelfChanged += (e) => RefreshSlopeballLock();
+            MiscPreset.OnSetPreset += (s) =>
+            {
+                if (s.FireballUpgrade != MiscSettings.ToggleableFireballSetting.Toggleable && Settings.SkipSettings.Slopeballs)
+                {
+                    Settings.MiscSettings.FireballUpgrade = MiscSettings.ToggleableFireballSetting.Toggleable;
+                }
+            };
+
             splitGroupRandomizeButton.OnClick += () =>
             {
                 Settings.SplitGroupSettings.Randomize(rng);
@@ -930,6 +939,25 @@ namespace RandomizerMod.Menu
                     shadeSkips.SetValue(false);
                 }
                 shadeSkips.Lock();
+            }
+        }
+
+        public void RefreshSlopeballLock()
+        {
+            ToggleButton slopeballs = (ToggleButton)skipMEF.ElementLookup[nameof(SkipSettings.Slopeballs)];
+            MenuEnum<MiscSettings.ToggleableFireballSetting> fireballUpgrade = (MenuEnum<MiscSettings.ToggleableFireballSetting>)miscMEF.ElementLookup[nameof(MiscSettings.FireballUpgrade)];
+            if (!slopeballs.Value)
+            {
+                fireballUpgrade.Unlock();
+            }
+            else
+            {
+                if (fireballUpgrade.Value != MiscSettings.ToggleableFireballSetting.Toggleable)
+                {
+                    if (fireballUpgrade.Locked) fireballUpgrade.Unlock();
+                    fireballUpgrade.SetValue(MiscSettings.ToggleableFireballSetting.Toggleable);
+                }
+                fireballUpgrade.Lock();
             }
         }
 

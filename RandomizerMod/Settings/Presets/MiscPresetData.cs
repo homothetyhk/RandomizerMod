@@ -1,4 +1,4 @@
-namespace RandomizerMod.Settings.Presets
+﻿namespace RandomizerMod.Settings.Presets
 {
     public static class MiscPresetData
     {
@@ -19,6 +19,7 @@ namespace RandomizerMod.Settings.Presets
                 ExtraPlatforms = true,
                 SalubraNotches = MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool,
                 SteelSoul = false,
+                FireballUpgrade = MiscSettings.ToggleableFireballSetting.Normal,
             };
 
             Classic = new MiscSettings
@@ -31,6 +32,7 @@ namespace RandomizerMod.Settings.Presets
                 ExtraPlatforms = true,
                 SalubraNotches = MiscSettings.SalubraNotchesSetting.AutoGivenAtCharmThreshold,
                 SteelSoul = false,
+                FireballUpgrade = MiscSettings.ToggleableFireballSetting.Normal,
             };
 
             ConsolidatedItems = new MiscSettings
@@ -43,6 +45,7 @@ namespace RandomizerMod.Settings.Presets
                 ExtraPlatforms = true,
                 SalubraNotches = MiscSettings.SalubraNotchesSetting.GroupedWithCharmNotchesPool,
                 SteelSoul = false,
+                FireballUpgrade = MiscSettings.ToggleableFireballSetting.Normal,
             };
 
             MiscPresets = new Dictionary<string, MiscSettings>

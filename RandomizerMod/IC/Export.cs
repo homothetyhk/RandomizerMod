@@ -64,6 +64,18 @@ namespace RandomizerMod.IC
             {
                 pde.AddPDEdit(nameof(PlayerData.permadeathMode), 1);
             }
+            if (gs.MiscSettings.FireballUpgrade == MiscSettings.ToggleableFireballSetting.Deferred)
+            {
+                var tf = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.ToggleableFireball>();
+                tf.isDeferred = true;
+                tf.onewayToggle = true;
+            }
+            if (gs.MiscSettings.FireballUpgrade == MiscSettings.ToggleableFireballSetting.Toggleable)
+            {
+                var tf = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.ToggleableFireball>();
+                tf.isDeferred = false;
+                tf.onewayToggle = false;
+            }
         }
 
 

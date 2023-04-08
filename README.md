@@ -151,7 +151,7 @@ Settings which do not fit into the other classifications.
 - Vessel Fragments: Allows replacing randomized vessel fragments with double or triple fragments, adding up to the same number of vessels.
     - These last two settings may be desired to reduce the number of items, particularly in opposition to Duplicate Items.
 - Steel Soul: if enabled, starts the game in Steel Soul (perma-death) mode. The Shade Skips setting will be automatically disabled.
-
+- Fireball Upgrade: this setting controls whether the upgrade from Vengeful Spirit can be deferred or reversed. If the setting is "Deferred", then after obtaining Shade Soul, the game will still act as though the player has Vengeful Spirit until the player presses attack while selecting the Vengeful Spirit icon in the inventory, which will irreversibly upgrade Vengeful Spirit to Shade Soul. If the setting is "Toggleable", then after obtaining Shade Soul, the player may freely swap between the two spells using the same method in the inventory. Certain skips, mainly involving slopeballs, require base Vengeful Spirit and are not possible with Shade Soul. If the Slopeballs skip setting is active, this setting is locked to "Toggleable".
 
 ### Cursed Settings
 
