@@ -46,6 +46,10 @@ namespace RandomizerMod.RC
         /// Event invoked after running the RequestBuilder.
         /// </summary>
         public static event Action<RandoController>? OnRequestBuilt;
+        /// <summary>
+        /// Event for adding properties to log arguments before export and logging.
+        /// </summary>
+        public static event Action<LogArguments>? OnCreateLogArguments;
 
 
         public RandoController(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)
@@ -127,12 +131,6 @@ namespace RandomizerMod.RC
                     }
                 }
             }
-            args = new()
-            {
-                ctx = new RandoModContext(ctx), // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export,
-                gs = gs,
-                randomizer = randomizer,
-            };
         }
 
         public int Hash()
@@ -188,6 +186,21 @@ namespace RandomizerMod.RC
 
         public void Save()
         {
+            args = new()
+            {
+                ctx = new RandoModContext(ctx), // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export,
+                gs = gs,
+                randomizer = randomizer,
+            };
+            try
+            {
+                OnCreateLogArguments?.Invoke(args);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Error invoking OnCreateLogArguments", e);
+            }
+
             rng.PermuteInPlace(ctx.itemPlacements);
             for (int i = 0; i < ctx.itemPlacements.Count; i++) ctx.itemPlacements[i] = ctx.itemPlacements[i] with { Index = i };
             rng.PermuteInPlace(ctx.transitionPlacements);
@@ -215,8 +228,10 @@ namespace RandomizerMod.RC
                 throw new InvalidOperationException("Error invoking OnExportCompleted", e);
             }
 
+            LogManager.InitDirectory();
+            WriteRawSpoiler(gs, ctx); // write it here and not in LogManager so that it uses the permuted context
             LogManager.WriteLogs(args);
-            WriteRawSpoiler(gs, ctx); // write it here and not in LogManager so that it uses the permuted context // write it after LogManager so it doesn't get deleted
+            
             RandomizerMod.RS.TrackerData.Setup(gs, ctx);
             RandomizerMod.RS.TrackerDataWithoutSequenceBreaks.Setup(gs, ctx);
         }

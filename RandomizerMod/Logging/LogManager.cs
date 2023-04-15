@@ -70,6 +70,9 @@ namespace RandomizerMod.Logging
         private static readonly BlockingCollection<Action> logRequests = new();
         private static Thread logRequestConsumer;
 
+        /// <summary>
+        /// Enqueues an operation on the logging thread to write to the specified file in the log directories.
+        /// </summary>
         public static void Write(string contents, string fileName)
         {
             void WriteLog()
@@ -99,6 +102,9 @@ namespace RandomizerMod.Logging
             logRequests.Add(WriteLog);
         }
 
+        /// <summary>
+        /// Enqueues the operation on the logging thread to write to the specified file in the log directories.
+        /// </summary>
         public static void Write(Action<TextWriter> a, string fileName)
         {
             void WriteLog()
@@ -125,6 +131,9 @@ namespace RandomizerMod.Logging
             logRequests.Add(WriteLog);
         }
 
+        /// <summary>
+        /// Enqueues an operation on the logging thread to append the contents to the specified file in the log directories.
+        /// </summary>
         public static void Append(string contents, string fileName)
         {
             void AppendLog()
@@ -154,7 +163,15 @@ namespace RandomizerMod.Logging
             logRequests.Add(AppendLog);
         }
 
-        internal static void WriteLogs(LogArguments args)
+        /// <summary>
+        /// Enqueues an action on the logging thread.
+        /// </summary>
+        public static void Do(Action a)
+        {
+            logRequests.Add(a);
+        }
+
+        internal static void InitDirectory()
         {
             DirectoryInfo userDI;
             try
@@ -185,7 +202,10 @@ namespace RandomizerMod.Logging
                 LogError($"Error initializing recent logging directory:\n{e}");
                 return;
             }
+        }
 
+        internal static void WriteLogs(LogArguments args)
+        {
             System.Diagnostics.Stopwatch sw = new();
             sw.Start();
             foreach (var rl in loggers) logRequests.Add(() => rl.DoLog(args));
