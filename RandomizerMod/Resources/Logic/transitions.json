@@ -23,7 +23,7 @@
   {
     "sceneName": "Tutorial_01",
     "gateName": "top2",
-    "logic": "Tutorial_01[top2] | (ANYCLAW | (WINGS + COMPLEXSKIPS)) + Tutorial_01",
+    "logic": "Tutorial_01[top2] | (ANYCLAW | WINGS + COMPLEXSKIPS + ENEMYPOGOS | $SHRIEKPOGO[1,2]) + Tutorial_01",
     "oneWayType": "TwoWay",
     "Name": "Tutorial_01[top2]"
   },
@@ -275,7 +275,7 @@
   {
     "sceneName": "Crossroads_04",
     "gateName": "right1",
-    "logic": "Crossroads_04[right1] | (Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW + WINGS | LEFTCLAW + RIGHTSUPERDASH | INFECTED | $SHADESKIP + (RIGHTCLAW | WINGS) | COMPLEXSKIPS + SPELLAIRSTALL + DAMAGEBOOSTS + $SHADESKIP[2HITS] + $TAKEDAMAGE + $CASTSPELL[2,before:ROOMSOUL] + (DIFFICULTSKIPS | RIGHTDASH))",
+    "logic": "Crossroads_04[right1] | (Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | (Crossroads_04[left1] | Crossroads_04[top1]) + Defeated_Gruz_Mother) + (RIGHTCLAW + WINGS | LEFTCLAW + RIGHTSUPERDASH | INFECTED | $SHADESKIP + (RIGHTCLAW | WINGS) | COMPLEXSKIPS + SPELLAIRSTALL + DAMAGEBOOSTS + $SHADESKIP[2HITS] + $TAKEDAMAGE + $CASTSPELL[2,before:ROOMSOUL] + (DIFFICULTSKIPS | RIGHTDASH) | $SHRIEKPOGO[2,before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_04[right1]"
   },
@@ -695,7 +695,7 @@
   {
     "sceneName": "Crossroads_35",
     "gateName": "right1",
-    "logic": "Crossroads_35[right1] | Crossroads_35[bot1] + RIGHTCLAW + (ACID | (((LEFTSUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS))",
+    "logic": "Crossroads_35[right1] | Crossroads_35[bot1] + (RIGHTCLAW + (ACID | ACIDSKIPS + (LEFTSUPERDASH + LEFTCLAW | WINGS + LEFTDASH)) | ACID + $SHRIEKPOGO[1,2,before:ITEMSOUL] | ACIDSKIPS + LEFTDASH + $SHRIEKPOGO[1,2,1,before:ITEMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_35[right1]"
   },
@@ -1045,14 +1045,14 @@
   {
     "sceneName": "Fungus1_09",
     "gateName": "left1",
-    "logic": "Fungus1_09[left1] | Fungus1_09[right1] + ((LEFTCLAW + ((LEFTSUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + LEFTDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + LEFTSUPERDASH + DANGEROUSSKIPS + PRECISEMOVEMENT))",
+    "logic": "Fungus1_09[left1] | Fungus1_09[right1] + (LEFTCLAW + (LEFTSUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS) | WINGS + LEFTDASH) | RIGHTCLAW + LEFTDASH + WINGS + LEFTSUPERDASH + DANGEROUSSKIPS + PRECISEMOVEMENT | LEFTDASH + (RIGHTCLAW + $SHRIEKPOGO[1,1,1,before:AREASOUL,after:AREASOUL] | $SHRIEKPOGO[1,1,1,1,1,1,before:AREASOUL,after:AREASOUL]) | LEFTCLAW + (RIGHTCLAW | DIFFICULTSKIPS) + $SHRIEKPOGO[2,before:AREASOUL,after:AREASOUL,NOSTALL])",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_09[left1]"
   },
   {
     "sceneName": "Fungus1_09",
     "gateName": "right1",
-    "logic": "Fungus1_09[right1] | Fungus1_09[left1] + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (SIDESLASH | GREATSLASH | CYCLONE | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS)",
+    "logic": "Fungus1_09[right1] | Fungus1_09[left1] + ((LEFTCLAW | RIGHTCLAW + WINGS | WINGS + $SHADESKIP | $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL]) + (SIDESLASH | GREATSLASH | CYCLONE | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | FULLCLAW + RIGHTDASH + $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_09[right1]"
   },
@@ -1150,7 +1150,7 @@
   {
     "sceneName": "Fungus1_15",
     "gateName": "door1",
-    "logic": "Fungus1_15[door1] | Fungus1_15[right1] + (RIGHTCLAW + WINGS | RIGHTSUPERDASH + (LEFTCLAW | WINGS | $SHADESKIP[2HITS] + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[3HITS]) | RIGHTDASH + (LEFTCLAW | WINGS | RIGHTCLAW + (DAMAGEBOOSTS + $TAKEDAMAGE | PRECISEMOVEMENT + OBSCURESKIPS) | $SHADESKIP + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[2HITS])) | Bench-Sheo",
+    "logic": "Fungus1_15[door1] | Fungus1_15[right1] + (RIGHTCLAW + WINGS | RIGHTSUPERDASH + (LEFTCLAW | WINGS | $SHADESKIP[2HITS] + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[3HITS]) | RIGHTDASH + (LEFTCLAW | WINGS | RIGHTCLAW + (DAMAGEBOOSTS + $TAKEDAMAGE | PRECISEMOVEMENT + OBSCURESKIPS) | $SHADESKIP + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHADESKIP[2HITS]) | $SHRIEKPOGO[1,1]) | Bench-Sheo",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_15[door1]"
   },
@@ -1311,28 +1311,28 @@
   {
     "sceneName": "Fungus1_26",
     "gateName": "right1",
-    "logic": "Fungus1_26[right1] | (Fungus1_26[left1] + (ACID | ACIDSKIPS + LEFTCLAW + WINGS + RIGHTSUPERDASH)) | Fungus1_26[door_SlugShrine]",
+    "logic": "Fungus1_26[right1] | Fungus1_26[door_SlugShrine] | Fungus1_26[left1] + (ACID | ACIDSKIPS + LEFTCLAW + WINGS + RIGHTSUPERDASH | COMPLEXSKIPS + ACIDSKIPS + LEFTCLAW + RIGHTDASH + ENEMYPOGOS + (FIREBALL + FIREBALLSKIPS + $CASTSPELL[2] | RIGHTSHARPSHADOW | $SHRIEKPOGO))",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_26[right1]"
   },
   {
     "sceneName": "Fungus1_26",
     "gateName": "left1",
-    "logic": "Fungus1_26[left1] | (Fungus1_26[right1] | Fungus1_26[door_SlugShrine]) + (ACID | COMPLEXSKIPS + ACIDSKIPS + WINGS + LEFTSUPERDASH + LEFTDASH + (FIREBALL + FIREBALLSKIPS + $CASTSPELL[2] | LEFTSHARPSHADOW)) + (ANYCLAW | WINGS)",
+    "logic": "Fungus1_26[left1] | (Fungus1_26[right1] | Fungus1_26[door_SlugShrine]) + (ACID | COMPLEXSKIPS + ACIDSKIPS + WINGS + (LEFTSUPERDASH | ENEMYPOGOS + LEFTCLAW + SPELLAIRSTALL + $CASTSPELL) + LEFTDASH + (FIREBALL + FIREBALLSKIPS + $CASTSPELL[2] | LEFTSHARPSHADOW | $SHRIEKPOGO) | RIGHTSKIPACID + $SHRIEKPOGO[2]) + (ANYCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_26[left1]"
   },
   {
     "sceneName": "Fungus1_26",
     "gateName": "door_SlugShrine",
-    "logic": "Fungus1_26[door_SlugShrine] | (Fungus1_26[left1] + (ACID | (ACIDSKIPS + LEFTCLAW + WINGS + RIGHTSUPERDASH))) | Fungus1_26[right1]",
+    "logic": "Fungus1_26[door_SlugShrine] | Fungus1_26[right1] | Fungus1_26[left1] + (ACID | ACIDSKIPS + LEFTCLAW + WINGS + RIGHTSUPERDASH | COMPLEXSKIPS + ACIDSKIPS + LEFTCLAW + RIGHTDASH + ENEMYPOGOS + (FIREBALL + FIREBALLSKIPS + $CASTSPELL[2] | RIGHTSHARPSHADOW | $SHRIEKPOGO))",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_26[door_SlugShrine]"
   },
   {
     "sceneName": "Fungus1_28",
     "gateName": "left1",
-    "logic": "Fungus1_28[left1] | Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + Defeated_Right_Cliffs_Baldur) | (WINGS + LEFTCLAW) | WINGS + (ANYDASH | SPELLAIRSTALL + $CASTSPELL[2,before:ITEMSOUL,after:AREASOUL]) + DIFFICULTSKIPS + $SHADESKIP[2HITS])",
+    "logic": "Fungus1_28[left1] | Fungus1_28[left2] + ((FULLCLAW | WINGS + ANYCLAW) + Defeated_Right_Cliffs_Baldur | WINGS + LEFTCLAW | WINGS + (ANYDASH | SPELLAIRSTALL + $CASTSPELL[2,before:ITEMSOUL,after:AREASOUL]) + DIFFICULTSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[6,before:ITEMSOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Fungus1_28[left1]"
   },
@@ -1696,7 +1696,7 @@
   {
     "sceneName": "Fungus3_44",
     "gateName": "door1",
-    "logic": "Fungus3_44[door1] | Fungus3_44 + (ANYCLAW | (WINGS + ENEMYPOGOS))",
+    "logic": "Fungus3_44[door1] | Fungus3_44 + (ANYCLAW | WINGS + ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_44[door1]"
   },
@@ -2032,7 +2032,7 @@
   {
     "sceneName": "Fungus2_14",
     "gateName": "top1",
-    "logic": "Fungus2_14[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Fungus2_14 + (LEFTCLAW | WINGS + RIGHTCLAW | RIGHTCLAW + ENEMYPOGOS)",
+    "logic": "Fungus2_14[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Fungus2_14 + (LEFTCLAW | WINGS + RIGHTCLAW | $SHRIEKPOGO[1,1,before:ROOMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_14[top1]"
   },
@@ -2046,21 +2046,21 @@
   {
     "sceneName": "Fungus2_14",
     "gateName": "bot3",
-    "logic": "Fungus2_14[bot3] | (Fungus2_14 + (LEFTDASH | LEFTSUPERDASH | WINGS | FULLCLAW | ENEMYPOGOS) + (LEFTCLAW | WINGS + RIGHTCLAW | RIGHTCLAW + ENEMYPOGOS) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | BACKGROUNDPOGOS))",
+    "logic": "Fungus2_14[bot3] | Fungus2_14[top1] + (RIGHTCLAW | WINGS | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | BACKGROUNDPOGOS)) | Fungus2_14 + WINGS + ENEMYPOGOS + OBSCURESKIPS",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_14[bot3]"
   },
   {
     "sceneName": "Fungus2_15",
     "gateName": "top3",
-    "logic": "Fungus2_15[top3] | ((Fungus2_15[right1] | Fungus2_15[left1] + RIGHTCLAW) + (RIGHTCLAW + (LEFTCLAW | RIGHTDASH | ENEMYPOGOS) | WINGS))",
+    "logic": "Fungus2_15[top3] | Fungus2_15 + (ANYCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_15[top3]"
   },
   {
     "sceneName": "Fungus2_15",
     "gateName": "right1",
-    "logic": "Fungus2_15[right1] | Fungus2_15[top3] + (ANYCLAW | WINGS + ENEMYPOGOS) | Fungus2_15[left1] + RIGHTCLAW",
+    "logic": "Fungus2_15[right1] | Fungus2_15 + (ANYCLAW | WINGS + ENEMYPOGOS | $SHRIEKPOGO[2,before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_15[right1]"
   },
@@ -2123,7 +2123,7 @@
   {
     "sceneName": "Fungus2_19",
     "gateName": "left1",
-    "logic": "Fungus2_19[left1] | Fungus2_19[top1] + (LEFTCLAW | (WINGS + LEFTDASH))",
+    "logic": "Fungus2_19[left1] | Fungus2_19[top1] + (LEFTCLAW | WINGS + LEFTDASH | $SHRIEKPOGO[before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_19[left1]"
   },
@@ -2151,7 +2151,7 @@
   {
     "sceneName": "Fungus2_21",
     "gateName": "left1",
-    "logic": "Fungus2_21[left1] | Fungus2_21[right1] + ((FULLCLAW + (LEFTDASH | LEFTSUPERDASH)) | (ANYCLAW + WINGS)) + Broke_Pilgrim's_Way_Quake_Floor",
+    "logic": "Fungus2_21[left1] | Fungus2_21[right1] + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH) | ANYCLAW + WINGS | $SHRIEKPOGO[7,before:ITEMSOUL]) + Broke_Pilgrim's_Way_Quake_Floor",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_21[left1]"
   },
@@ -2200,7 +2200,7 @@
   {
     "sceneName": "Fungus2_29",
     "gateName": "bot1",
-    "logic": "Fungus2_29[bot1] | Fungus2_29[right1] + ANYCLAW + WINGS",
+    "logic": "Fungus2_29[bot1] | Fungus2_29[right1] + (ANYCLAW + WINGS | $SHRIEKPOGO[3,before:MAPAREASOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_29[bot1]"
   },
@@ -2277,7 +2277,7 @@
   {
     "sceneName": "Deepnest_01b",
     "gateName": "top1",
-    "logic": "Deepnest_01b[top1] + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS) | Deepnest_01b + (ANYCLAW + WINGS | (ANYCLAW | WINGS) + $SHADESKIP | Deepnest_01b[right1] + (ANYCLAW | (WINGS + ENEMYPOGOS + DANGEROUSSKIPS)))",
+    "logic": "Deepnest_01b[top1] + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS) | Deepnest_01b + (ANYCLAW + WINGS | (ANYCLAW | WINGS) + $SHADESKIP | $SHRIEKPOGO[1,1,before:ROOMSOUL,after:ROOMSOUL]) | Deepnest_01b[right1] + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS | $SHRIEKPOGO[1,before:ROOMSOUL,after:ROOMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_01b[top1]"
   },
@@ -2312,7 +2312,7 @@
   {
     "sceneName": "Deepnest_02",
     "gateName": "left1",
-    "logic": "Deepnest_02[left1] | Deepnest_02 + ANYCLAW",
+    "logic": "Deepnest_02[left1] | Deepnest_02 + (ANYCLAW | $SHRIEKPOGO[3,before:ROOMSOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_02[left1]"
   },
@@ -2445,7 +2445,7 @@
   {
     "sceneName": "Deepnest_16",
     "gateName": "left1",
-    "logic": "Deepnest_16[left1] | Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))",
+    "logic": "Deepnest_16[left1] | Deepnest_16[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[6])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_16[left1]"
   },
@@ -2571,14 +2571,14 @@
   {
     "sceneName": "Deepnest_31",
     "gateName": "right1",
-    "logic": "Deepnest_31[right1] | Deepnest_31[right2] + (RIGHTCLAW | WINGS | (LEFTCLAW + RIGHTDASH))",
+    "logic": "Deepnest_31[right1] | Deepnest_31[right2] + (RIGHTCLAW | WINGS | LEFTCLAW + RIGHTDASH)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_31[right1]"
   },
   {
     "sceneName": "Deepnest_31",
     "gateName": "right2",
-    "logic": "Deepnest_31[right2] | Deepnest_31[right1] + ANYCLAW",
+    "logic": "Deepnest_31[right2] | Deepnest_31[right1] + (ANYCLAW | $SHRIEKPOGO[3,before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_31[right2]"
   },
@@ -2627,7 +2627,7 @@
   {
     "sceneName": "Deepnest_34",
     "gateName": "top1",
-    "logic": "Deepnest_34[top1] + (RIGHTCLAW | WINGS) | Deepnest_34 + (FULLCLAW | (WINGS + (LEFTCLAW | (RIGHTCLAW + LEFTDASH))))",
+    "logic": "Deepnest_34[top1] + (RIGHTCLAW | WINGS) | Deepnest_34 + (FULLCLAW | WINGS + (LEFTCLAW | RIGHTCLAW + LEFTDASH) | RIGHTCLAW + $SHRIEKPOGO[before:ROOMSOUL,after:ROOMSOUL] | $SHRIEKPOGO[5,2,before:AREASOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_34[top1]"
   },
@@ -2781,14 +2781,14 @@
   {
     "sceneName": "Deepnest_43",
     "gateName": "left1",
-    "logic": "Deepnest_43[left1] | Deepnest_43[right1] | (Deepnest_43[bot1] + (FULLCLAW | (WINGS + ANYCLAW)))",
+    "logic": "Deepnest_43[left1] | Deepnest_43[right1] | Deepnest_43[bot1] + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[2,before:ITEMSOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_43[left1]"
   },
   {
     "sceneName": "Deepnest_43",
     "gateName": "right1",
-    "logic": "Deepnest_43[right1] | Deepnest_43[left1] | (Deepnest_43[bot1] + (FULLCLAW | (WINGS + ANYCLAW)))",
+    "logic": "Deepnest_43[left1] | Deepnest_43[right1] | Deepnest_43[bot1] + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[2,before:ITEMSOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_43[right1]"
   },
@@ -2879,7 +2879,7 @@
   {
     "sceneName": "Deepnest_East_03",
     "gateName": "top1",
-    "logic": "Deepnest_East_03[top1] + (LEFTCLAW | WINGS) | Deepnest_East_03 + (UPWALLBREAK | RIGHTSUPERDASH + OBSCURESKIPS) + (LEFTCLAW | RIGHTCLAW + WINGS + $SHADESKIP[2HITS])",
+    "logic": "Deepnest_East_03[top1] + (LEFTCLAW | WINGS) | Deepnest_East_03 + (UPWALLBREAK | RIGHTSUPERDASH + OBSCURESKIPS) + (LEFTCLAW | RIGHTCLAW + WINGS + $SHADESKIP[2HITS] | RIGHTCLAW + $SHRIEKPOGO[3,before:AREASOUL,NORIGHTSTALL] | $SHRIEKPOGO[3,before:AREASOUL,NORIGHTSTALL] + $SHRIEKPOGO[5])",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_03[top1]"
   },
@@ -2907,21 +2907,21 @@
   {
     "sceneName": "Deepnest_East_04",
     "gateName": "left1",
-    "logic": "Deepnest_East_04[left1] | Deepnest_East_04 + ACID",
+    "logic": "Deepnest_East_04[left1] | Deepnest_East_04 + (ACID | ACIDSKIPS + LEFTDASH + ($CASTSPELL[3,before:ROOMSOUL,after:AREASOUL] | $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL]))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_04[left1]"
   },
   {
     "sceneName": "Deepnest_East_04",
     "gateName": "left2",
-    "logic": "Deepnest_East_04[left2] | Deepnest_East_04 + (LEFTCLAW | WINGS | ENEMYPOGOS | Deepnest_East_04[right2])",
+    "logic": "Deepnest_East_04[left2] | Deepnest_East_04 + (LEFTCLAW | WINGS | ENEMYPOGOS) | Deepnest_East_04[right2]",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_04[left2]"
   },
   {
     "sceneName": "Deepnest_East_04",
     "gateName": "right2",
-    "logic": "Deepnest_East_04[right2] | Deepnest_East_04 + (LEFTCLAW | WINGS | ENEMYPOGOS | Deepnest_East_04[left2]) + (WINGS | (ANYCLAW + ENEMYPOGOS))",
+    "logic": "Deepnest_East_04[right2] | (Deepnest_East_04 + (LEFTCLAW | WINGS | ENEMYPOGOS) | Deepnest_East_04[left2]) + (WINGS | ANYCLAW + ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_04[right2]"
   },
@@ -3348,14 +3348,14 @@
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top1",
-    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top2] + ANYCLAW | Bench-Colosseum + ANYCLAW",
+    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | (Room_Colosseum_02[top2] | Bench-Colosseum) + (ANYCLAW | $SHRIEKPOGO[2])",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top1]"
   },
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top2",
-    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Room_Colosseum_02[top1] + ANYCLAW | Bench-Colosseum + ANYCLAW",
+    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | (Room_Colosseum_02[top1] | Bench-Colosseum) + (ANYCLAW | $SHRIEKPOGO[2])",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top2]"
   },
@@ -3397,7 +3397,7 @@
   {
     "sceneName": "Abyss_01",
     "gateName": "right1",
-    "logic": "Abyss_01[right1] | (Abyss_01 + ((FULLCLAW + (RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + (WINGS | FULLDASH)) | (WINGS + ENEMYPOGOS))) | (Abyss_01[left1] + LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))",
+    "logic": "Abyss_01[right1] | Abyss_01 + (FULLCLAW + (RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS) | RIGHTCLAW + WINGS | LEFTCLAW + (WINGS | FULLDASH) | WINGS + ENEMYPOGOS) | Abyss_01[left1] + LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_01[right1]"
   },
@@ -3551,14 +3551,14 @@
   {
     "sceneName": "Abyss_09",
     "gateName": "right1",
-    "logic": "Abyss_09[right1] | Abyss_09 + (Lit_Abyss_Lighthouse | VOIDHEART) + (SWIM | RIGHTSUPERDASH)",
+    "logic": "Abyss_09[right1] | Abyss_09 + (Lit_Abyss_Lighthouse | VOIDHEART) + (SWIM | RIGHTSUPERDASH | RIGHTSHARPSHADOW + $SHRIEKPOGO[1,1,1,1,1,1,1])",
     "oneWayType": "TwoWay",
     "Name": "Abyss_09[right1]"
   },
   {
     "sceneName": "Abyss_09",
     "gateName": "right2",
-    "logic": "Abyss_09[right2] | Abyss_09 + ((FULLCLAW + FULLDASH) | WINGS)",
+    "logic": "Abyss_09[right2] | Abyss_09 + (FULLCLAW + FULLDASH | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_09[right2]"
   },
@@ -3586,7 +3586,7 @@
   {
     "sceneName": "Abyss_10",
     "gateName": "left2",
-    "logic": "Abyss_10[left2] | Abyss_10[left1] + LEFTSHADOWDASH + (RIGHTCLAW | WINGS + $SHADESKIP | (WINGS | LEFTCLAW) + (RIGHTSHADOWDASH | VOIDHEART))",
+    "logic": "Abyss_10[left2] | Abyss_10[left1] + LEFTSHADOWDASH + (RIGHTCLAW | (WINGS | LEFTCLAW) + (RIGHTSHADOWDASH | VOIDHEART) | WINGS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2])",
     "oneWayType": "TwoWay",
     "Name": "Abyss_10[left2]"
   },
@@ -3677,7 +3677,7 @@
   {
     "sceneName": "Abyss_20",
     "gateName": "top2",
-    "logic": "Abyss_20[top2] | Abyss_20[top1] + RIGHTCLAW",
+    "logic": "Abyss_20[top2] | Abyss_20[top1] + (RIGHTCLAW | $SHRIEKPOGO[1,1,before:AREASOUL,after:AREASOUL] | COMPLEXSKIPS + WINGS + ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_20[top2]"
   },
@@ -3705,7 +3705,7 @@
   {
     "sceneName": "Waterways_01",
     "gateName": "top1",
-    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_01 + Opened_Waterways_Manhole + ANYCLAW",
+    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_01 + Opened_Waterways_Manhole + (ANYCLAW | WINGS + $SHADESKIP[2HITS] | WINGS + $SHRIEKPOGO[2,before:ROOMSOUL,after:ITEMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_01[top1]"
   },
@@ -3733,14 +3733,14 @@
   {
     "sceneName": "Waterways_02",
     "gateName": "top1",
-    "logic": "Waterways_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_02 + (ANYCLAW | (ENEMYPOGOS + WINGS))",
+    "logic": "Waterways_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_02 + (ANYCLAW | ENEMYPOGOS + WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_02[top1]"
   },
   {
     "sceneName": "Waterways_02",
     "gateName": "top2",
-    "logic": "Waterways_02[top2] + (ANYCLAW | WINGS) | Waterways_02 + (RIGHTCLAW | (LEFTCLAW + WINGS) | ((WINGS | LEFTCLAW) + ENEMYPOGOS))",
+    "logic": "Waterways_02[top2] + (ANYCLAW | WINGS) | Waterways_02 + (RIGHTCLAW | LEFTCLAW + WINGS | (WINGS | LEFTCLAW) + ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_02[top2]"
   },
@@ -3775,28 +3775,28 @@
   {
     "sceneName": "Waterways_04",
     "gateName": "bot1",
-    "logic": "Waterways_04[bot1] | (Waterways_04[right1] | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) | Waterways_04[left2] + (RIGHTCLAW | WINGS + ENEMYPOGOS) + (SWIM | RIGHTSKIPACID)) + Broke_Waterways_Bench_Quake_Floor_1 + Broke_Waterways_Bench_Quake_Floor_2",
+    "logic": "Waterways_04[bot1] | Waterways_04 + Broke_Waterways_Bench_Quake_Floor_1 + Broke_Waterways_Bench_Quake_Floor_2",
     "oneWayType": "TwoWay",
     "Name": "Waterways_04[bot1]"
   },
   {
     "sceneName": "Waterways_04",
     "gateName": "right1",
-    "logic": "Waterways_04[right1] | Waterways_04[left1] + (RIGHTCLAW | WINGS) | Waterways_04[left2] + (RIGHTCLAW | WINGS + ENEMYPOGOS) + (SWIM | RIGHTSKIPACID)",
+    "logic": "Waterways_04[right1] | Waterways_04 + (RIGHTCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_04[right1]"
   },
   {
     "sceneName": "Waterways_04",
     "gateName": "left1",
-    "logic": "Waterways_04[left1] | Waterways_04[right1] + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | WINGS)) | (WINGS + ENEMYPOGOS)) | Waterways_04[left2] + (SWIM | RIGHTSKIPACID) + (FULLCLAW | (WINGS + ENEMYPOGOS))",
+    "logic": "Waterways_04[left1] | Waterways_04 + (LEFTCLAW | RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | WINGS) | WINGS + ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_04[left1]"
   },
   {
     "sceneName": "Waterways_04",
     "gateName": "left2",
-    "logic": "Waterways_04[left2] | Waterways_04[right1] + (SWIM | LEFTSKIPACID) | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + (SWIM | LEFTSKIPACID)",
+    "logic": "Waterways_04[left2] | Waterways_04 + (SWIM | LEFTSKIPACID | RIGHTCLAW + $SHRIEKPOGO[1,1] | $SHRIEKPOGO[1,1,1])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_04[left2]"
   },
@@ -3845,42 +3845,42 @@
   {
     "sceneName": "Waterways_06",
     "gateName": "right1",
-    "logic": "Waterways_06[right1] | Waterways_06[top1] + (ACID | RIGHTSUPERDASH)",
+    "logic": "Waterways_06[right1] | Waterways_06[top1] + (ACID | RIGHTSUPERDASH | RIGHTDASH + $SHRIEKPOGO[1,1,before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_06[right1]"
   },
   {
     "sceneName": "Waterways_06",
     "gateName": "top1",
-    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH) + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW + PRECISEMOVEMENT)) | WINGS)",
+    "logic": "Waterways_06[top1] + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS) | Waterways_06[right1] + (ACID | LEFTSUPERDASH | $SHRIEKPOGO[1,1,after:AREASOUL]) + (ENEMYPOGOS + DANGEROUSSKIPS | (LEFTCLAW + (LEFTDASH | ENEMYPOGOS | RIGHTCLAW + PRECISEMOVEMENT)) | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_06[top1]"
   },
   {
     "sceneName": "Waterways_07",
     "gateName": "right1",
-    "logic": "Waterways_07[right1] | Lever-Dung_Defender + ((Waterways_07 + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[top1]) + (ANYCLAW | WINGS)))",
+    "logic": "Waterways_07[right1] | (Waterways_07 + (ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[before:ROOMSOUL]) | (Waterways_07[door1] | Waterways_07[top1]) + (ANYCLAW | WINGS)) + Lever-Dung_Defender",
     "oneWayType": "TwoWay",
     "Name": "Waterways_07[right1]"
   },
   {
     "sceneName": "Waterways_07",
     "gateName": "right2",
-    "logic": "Waterways_07[right2] | Waterways_07 + (ACID | RIGHTSKIPACID)",
+    "logic": "Waterways_07[right2] | Waterways_07 + (ACID | RIGHTSKIPACID | ACIDSKIPS + RIGHTDASH + $SHRIEKPOGO[before:ROOMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_07[right2]"
   },
   {
     "sceneName": "Waterways_07",
     "gateName": "left1",
-    "logic": "Waterways_07[left1] | Waterways_07 + (FULLCLAW | (LEFTCLAW + (ACID | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH | LEFTSUPERDASH))) + (LEFTSUPERDASH | (ACID + WINGS))",
+    "logic": "Waterways_07[left1] | Waterways_07 + (FULLCLAW + LEFTSUPERDASH | ANYCLAW + ACID + WINGS | LEFTCLAW + ACID + LEFTSUPERDASH | LEFTCLAW + LEFTDASH + WINGS | RIGHTCLAW + WINGS + LEFTDASH | RIGHTCLAW + WINGS + LEFTSUPERDASH | LEFTDASH + $SHRIEKPOGO[1,1])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_07[left1]"
   },
   {
     "sceneName": "Waterways_07",
     "gateName": "door1",
-    "logic": "Waterways_07[door1] | (Waterways_07 + ANYCLAW) | (Waterways_07[top1] + WINGS)",
+    "logic": "Waterways_07[door1] | Waterways_07 + ANYCLAW | Waterways_07[top1] + WINGS | (Waterways_07 + ENEMYPOGOS + $SHRIEKPOGO[1,1,before:ROOMSOUL] | Waterways_07[right1]) + $SHRIEKPOGO[4]",
     "oneWayType": "TwoWay",
     "Name": "Waterways_07[door1]"
   },
@@ -3936,28 +3936,28 @@
   {
     "sceneName": "Waterways_13",
     "gateName": "left1",
-    "logic": "Waterways_13[left1] | Waterways_13[left2] + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (ACID | FULLSKIPACID)",
+    "logic": "Waterways_13[left1] | Waterways_13 + (RIGHTCLAW | LEFTCLAW + WINGS) + (ACID | FULLSKIPACID)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_13[left1]"
   },
   {
     "sceneName": "Waterways_13",
     "gateName": "left2",
-    "logic": "Waterways_13[left2] | Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | ENEMYPOGOS)) | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH))) + (ACID | LEFTSKIPACID)",
+    "logic": "Waterways_13[left2] | Waterways_13 + (ACID | LEFTSKIPACID | ACIDSKIPS + LEFTDASH + $SHRIEKPOGO[1])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_13[left2]"
   },
   {
     "sceneName": "Waterways_14",
     "gateName": "bot1",
-    "logic": "Waterways_14[bot1] | Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (ACID | LEFTSUPERDASH)",
+    "logic": "Waterways_14[bot1] | Waterways_14[bot2] + (RIGHTCLAW | WINGS + LEFTCLAW | $SHRIEKPOGO[before:ITEMSOUL]) + (ACID | LEFTSUPERDASH)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_14[bot1]"
   },
   {
     "sceneName": "Waterways_14",
     "gateName": "bot2",
-    "logic": "Waterways_14[bot2] | Waterways_14[bot1] + ANYCLAW + (ACID | RIGHTSUPERDASH)",
+    "logic": "Waterways_14[bot2] | Waterways_14[bot1] + (ANYCLAW | $SHRIEKPOGO[2]) + (ACID | RIGHTSUPERDASH)",
     "oneWayType": "TwoWay",
     "Name": "Waterways_14[bot2]"
   },
@@ -3992,7 +3992,7 @@
   {
     "sceneName": "GG_Waterways",
     "gateName": "door1",
-    "logic": "GG_Waterways[door1] | GG_Waterways + (LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH + RIGHTCLAW) | WINGS + RIGHTCLAW + PRECISEMOVEMENT | FULLCLAW + SPELLAIRSTALL + $CASTSPELL) | GG_Waterways[right1] + WINGS + RIGHTDASH + RIGHTCLAW + DIFFICULTSKIPS",
+    "logic": "GG_Waterways[door1] | GG_Waterways + (LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH + RIGHTCLAW) | WINGS + RIGHTCLAW + PRECISEMOVEMENT | FULLCLAW + SPELLAIRSTALL + $CASTSPELL | $SHRIEKPOGO[2]) | GG_Waterways[right1] + WINGS + RIGHTDASH + RIGHTCLAW + DIFFICULTSKIPS",
     "oneWayType": "TwoWay",
     "Name": "GG_Waterways[door1]"
   },
@@ -4006,7 +4006,7 @@
   {
     "sceneName": "Room_GG_Shortcut",
     "gateName": "top1",
-    "logic": "Room_GG_Shortcut[top1] + (WINGS | LEFTCLAW) | Room_GG_Shortcut[left1]  + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (WINGS + LEFTDASH | WINGS + LEFTSUPERDASH | SWIM) + (RIGHTCLAW + (RIGHTDASH | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS))) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT) + (LEFTCLAW | RIGHTCLAW + WINGS)",
+    "logic": "Room_GG_Shortcut[top1] + (WINGS | LEFTCLAW) | Room_GG_Shortcut + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[2])",
     "oneWayType": "TwoWay",
     "Name": "Room_GG_Shortcut[top1]"
   },
@@ -4139,7 +4139,7 @@
   {
     "sceneName": "Ruins1_05c",
     "gateName": "top1",
-    "logic": "Ruins1_05c[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Ruins1_05c + ((WINGS + (ANYCLAW | ENEMYPOGOS + DIFFICULTSKIPS)) | (FULLCLAW + (FULLDASH | WINGS | FULLSUPERDASH | ENEMYPOGOS | Ruins1_05c[top2])))",
+    "logic": "Ruins1_05c[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Ruins1_05c + (WINGS + (ANYCLAW | ENEMYPOGOS + (DIFFICULTSKIPS | $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL])) | FULLCLAW + (FULLDASH | WINGS | FULLSUPERDASH | ENEMYPOGOS)) | Ruins1_05c[top2] + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05c[top1]"
   },
@@ -4153,7 +4153,7 @@
   {
     "sceneName": "Ruins1_05c",
     "gateName": "top3",
-    "logic": "Ruins1_05c[top3] + (RIGHTCLAW | WINGS) | Ruins1_05c[top2] + (RIGHTCLAW | WINGS | (LEFTCLAW + ENEMYPOGOS))",
+    "logic": "Ruins1_05c[top3] + (RIGHTCLAW | WINGS) | Ruins1_05c[top2] + (RIGHTCLAW | WINGS | LEFTCLAW + ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05c[top3]"
   },
@@ -4167,7 +4167,7 @@
   {
     "sceneName": "Ruins1_05",
     "gateName": "bot2",
-    "logic": "Ruins1_05[bot2] | Ruins1_05[bot1] + (FULLCLAW | (WINGS + (ANYCLAW | ENEMYPOGOS)))",
+    "logic": "Ruins1_05[bot2] | Ruins1_05[bot1] + (FULLCLAW | WINGS + (ANYCLAW | ENEMYPOGOS))",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05[bot2]"
   },
@@ -4195,7 +4195,7 @@
   {
     "sceneName": "Ruins1_05",
     "gateName": "top1",
-    "logic": "Ruins1_05[top1] + (RIGHTCLAW | WINGS + (ANYCLAW | PRECISEMOVEMENT)) | Ruins1_05 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | LEFTCLAW | Ruins1_05[right1])",
+    "logic": "Ruins1_05[top1] + (RIGHTCLAW | WINGS + (ANYCLAW | PRECISEMOVEMENT)) | (Ruins1_05 + (LEFTCLAW | WINGS + BACKGROUNDPOGOS) | Ruins1_05[right1]) + (RIGHTCLAW | WINGS + LEFTCLAW | $SHADESKIP + WINGS | $SHADESKIP + LEFTCLAW | ENEMYPOGOS + $SHRIEKPOGO[2,before:MAPAREASOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_05[top1]"
   },
@@ -4363,7 +4363,7 @@
   {
     "sceneName": "Ruins1_27",
     "gateName": "right1",
-    "logic": "Ruins1_27[right1] | Ruins1_27[left1] + RIGHTCLAW + (WINGS | $SLOPEBALL[before:AREASOUL,after:ROOMSOUL])",
+    "logic": "Ruins1_27[right1] | Ruins1_27[left1] + Lever-City_Fountain",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_27[right1]"
   },
@@ -4440,7 +4440,7 @@
   {
     "sceneName": "Ruins1_31",
     "gateName": "left2",
-    "logic": "Ruins1_31[left2] | Ruins1_31 + Lever-Shade_Soul + ANYCLAW + WINGS + (RIGHTCLAW | RIGHTDASH | RIGHTSUPERDASH)",
+    "logic": "Ruins1_31[left2] | Ruins1_31 + Lever-Shade_Soul + (ANYCLAW + WINGS + (RIGHTCLAW | RIGHTDASH | RIGHTSUPERDASH) | LEFTCLAW + $SHRIEKPOGO[before:AREASOUL] | $SHRIEKPOGO[3,before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_31[left2]"
   },
@@ -4482,7 +4482,7 @@
   {
     "sceneName": "Ruins1_32",
     "gateName": "right2",
-    "logic": "Ruins1_32[right2] | Ruins1_32[right1] + ANYCLAW + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2 + Broke_Quake_Floor_After_Soul_Master_3 + Broke_Quake_Floor_After_Soul_Master_4",
+    "logic": "Ruins1_32[right2] | Ruins1_32[right1] + (ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[before:AREASOUL,after:ROOMSOUL]) + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2 + Broke_Quake_Floor_After_Soul_Master_3 + Broke_Quake_Floor_After_Soul_Master_4",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_32[right2]"
   },
@@ -4496,7 +4496,7 @@
   {
     "sceneName": "Ruins2_01",
     "gateName": "top1",
-    "logic": "Ruins2_01[top1] | Ruins2_01 + ((Ruins2_01[left2] + (ANYCLAW | WINGS)) | (FULLCLAW + (LEFTDASH | LEFTSUPERDASH)) | (ANYCLAW + (WINGS | ENEMYPOGOS)) | (WINGS + ENEMYPOGOS + DIFFICULTSKIPS))",
+    "logic": "Ruins2_01[top1] | Ruins2_01[left2] + (ANYCLAW | WINGS) | Ruins2_01 + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH) | ANYCLAW + (WINGS | ENEMYPOGOS) | WINGS + ENEMYPOGOS + DIFFICULTSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_01[top1]"
   },
@@ -4510,14 +4510,14 @@
   {
     "sceneName": "Ruins2_01",
     "gateName": "left2",
-    "logic": "Ruins2_01[left2] | Ruins2_01 + (Ruins2_01[top1] | (FULLCLAW + (LEFTDASH | LEFTSUPERDASH)) | (ANYCLAW + (WINGS | ENEMYPOGOS)) | (WINGS + ENEMYPOGOS + DIFFICULTSKIPS))",
+    "logic": "Ruins2_01[left2] | Ruins2_01[top1] | Ruins2_01 + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH) | ANYCLAW + (WINGS | ENEMYPOGOS) | WINGS + ENEMYPOGOS + DIFFICULTSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_01[left2]"
   },
   {
     "sceneName": "Ruins2_01_b",
     "gateName": "top1",
-    "logic": "Ruins2_01_b[top1] | Ruins2_01_b + ((LEFTCLAW + BACKGROUNDPOGOS) | WINGS)",
+    "logic": "Ruins2_01_b[top1] | Ruins2_01_b + (LEFTCLAW + BACKGROUNDPOGOS | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_01_b[top1]"
   },
@@ -4701,21 +4701,21 @@
   {
     "sceneName": "Ruins2_07",
     "gateName": "right1",
-    "logic": "Ruins2_07[right1] | Ruins2_07[left1] + (SWIM | RIGHTSKIPACID | (DIFFICULTSKIPS + ACIDSKIPS + RIGHTDASH + RIGHTCLAW + WINGS + (SPELLAIRSTALL + $CASTSPELL[3] | RIGHTSHARPSHADOW))) | Ruins2_07[right1] | Ruins2_07[top1]",
+    "logic": "Ruins2_07[right1] | Ruins2_07[left1] + (SWIM | RIGHTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + RIGHTDASH + WINGS + (SPELLAIRSTALL + $CASTSPELL | RIGHTSHARPSHADOW))) | Ruins2_07[right1] | Ruins2_07[top1]",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_07[right1]"
   },
   {
     "sceneName": "Ruins2_07",
     "gateName": "left1",
-    "logic": "Ruins2_07[left1] | Ruins2_07[right1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (SPELLAIRSTALL + $CASTSPELL[3] | LEFTSHARPSHADOW))) | Ruins2_07[top1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (SPELLAIRSTALL + $CASTSPELL[3] | LEFTSHARPSHADOW)))",
+    "logic": "Ruins2_07[left1] | Ruins2_07[right1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + WINGS + (SPELLAIRSTALL + (RIGHTCLAW + $CASTSPELL | LEFTCLAW + $CASTSPELL[2] | ANYCLAW + LEFTSHARPSHADOW)))) | Ruins2_07[top1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (SPELLAIRSTALL + $CASTSPELL[3] | LEFTSHARPSHADOW)))",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_07[left1]"
   },
   {
     "sceneName": "Ruins2_07",
     "gateName": "top1",
-    "logic": "Ruins2_07[top1] + (ANYCLAW | WINGS) | Ruins2_07[left1] + (SWIM | RIGHTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + RIGHTDASH + RIGHTCLAW + WINGS + (SPELLAIRSTALL + $CASTSPELL[3] | RIGHTSHARPSHADOW))) + (ANYCLAW | WINGS) | Ruins2_07[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (SWIM | LEFTDASH))) | Ruins2_07[top1] + (ANYCLAW | WINGS)",
+    "logic": "Ruins2_07[top1] + (ANYCLAW | WINGS) | Ruins2_07[left1] + (SWIM | RIGHTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + RIGHTDASH + WINGS + (SPELLAIRSTALL + $CASTSPELL | RIGHTSHARPSHADOW))) + (ANYCLAW | WINGS) | Ruins2_07[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (SWIM | LEFTDASH))) | Ruins2_07[top1] + (ANYCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_07[top1]"
   },
@@ -5002,7 +5002,7 @@
   {
     "sceneName": "RestingGrounds_10",
     "gateName": "top2",
-    "logic": "RestingGrounds_10[top2] + (LEFTCLAW | WINGS + (RIGHTCLAW | PRECISEMOVEMENT)) | RestingGrounds_10 + (LEFTCLAW | WINGS + RIGHTCLAW | $SHADESKIP + WINGS | $SHADESKIP[2HITS] + DAMAGEBOOSTS + $TAKEDAMAGE + (ANYDASH | SPELLAIRSTALL + $CASTSPELL)) + UPWALLBREAK",
+    "logic": "RestingGrounds_10[top2] + (LEFTCLAW | WINGS + (RIGHTCLAW | PRECISEMOVEMENT)) | RestingGrounds_10 + (LEFTCLAW | WINGS + RIGHTCLAW | $SHADESKIP + WINGS | $SHADESKIP[2HITS] + DAMAGEBOOSTS + $TAKEDAMAGE + (ANYDASH | SPELLAIRSTALL + $CASTSPELL) | $SHRIEKPOGO[before:ROOMSOUL]) + UPWALLBREAK",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_10[top2]"
   },
@@ -5177,7 +5177,7 @@
   {
     "sceneName": "Mines_06",
     "gateName": "left1",
-    "logic": "Mines_06[left1] | Mines_06[right1] + ((LEFTSUPERDASH + (ANYCLAW | WINGS)) | (WINGS + LEFTDASH + BACKGROUNDPOGOS + PRECISEMOVEMENT + COMPLEXSKIPS))",
+    "logic": "Mines_06[left1] | Mines_06[right1] + (LEFTSUPERDASH + (ANYCLAW | WINGS) | WINGS + LEFTDASH + BACKGROUNDPOGOS + (LEFTCLAW | PRECISEMOVEMENT | DAMAGEBOOSTS + $TAKEDAMAGE | SPELLAIRSTALL + $CASTSPELL) | BACKGROUNDPOGOS + $SHRIEKPOGO[1,2,NOSTALL])",
     "oneWayType": "TwoWay",
     "Name": "Mines_06[left1]"
   },
@@ -5198,21 +5198,21 @@
   {
     "sceneName": "Mines_10",
     "gateName": "right1",
-    "logic": "Mines_10[right1] | Mines_10 + RIGHTCLAW + RIGHTSUPERDASH + (LEFTCLAW | (RIGHTDASH + WINGS))",
+    "logic": "Mines_10[right1] | Mines_10[bot1] + (RIGHTCLAW + RIGHTSUPERDASH + (LEFTCLAW | RIGHTDASH + WINGS) | RIGHTDASH + $SHRIEKPOGO[3,1] | RIGHTSUPERDASH + $SHRIEKPOGO[3,2] | COMPLEXSKIPS + WINGS + RIGHTDASH + RIGHTSUPERDASH + SPELLAIRSTALL + $SHADESKIP[2HITS] + $CASTSPELL[2])",
     "oneWayType": "TwoWay",
     "Name": "Mines_10[right1]"
   },
   {
     "sceneName": "Mines_10",
     "gateName": "left1",
-    "logic": "Mines_10[left1] | Mines_10",
+    "logic": "Mines_10[left1] | Mines_10[bot1] + (LEFTSUPERDASH | WINGS | LEFTDASH)",
     "oneWayType": "TwoWay",
     "Name": "Mines_10[left1]"
   },
   {
     "sceneName": "Mines_10",
     "gateName": "bot1",
-    "logic": "Mines_10[bot1] | Mines_10",
+    "logic": "Mines_10[bot1] | Mines_10[left1] + (RIGHTSUPERDASH | WINGS + RIGHTDASH | WINGS + LEFTCLAW | FULLCLAW + RIGHTDASH | OBSCURESKIPS + RIGHTSHARPSHADOW + (RIGHTCLAW | SPELLAIRSTALL + $CASTSPELL[2]) | RIGHTCLAW + (RIGHTDASH | WINGS) + SPELLAIRSTALL + $CASTSPELL[2] | $SHRIEKPOGO | COMPLEXSKIPS + DAMAGEBOOSTS + RIGHTDASH + $SHADESKIP + (LEFTCLAW | RIGHTSHARPSHADOW | SPELLAIRSTALL + $CASTSPELL[2]) + $TAKEDAMAGE) | Mines_10[right1] + (LEFTSUPERDASH | WINGS + LEFTDASH + (LEFTCLAW + (SPELLAIRSTALL + $CASTSPELL[2] | OBSCURESKIPS + LEFTSHARPSHADOW) | $SHRIEKPOGO)) + (LEFTCLAW + (LEFTSUPERDASH | WINGS + LEFTDASH) | (LEFTDASH | LEFTSUPERDASH) + $SHRIEKPOGO) + (LEFTSUPERDASH + RIGHTCLAW | WINGS + LEFTDASH)",
     "oneWayType": "TwoWay",
     "Name": "Mines_10[bot1]"
   },
@@ -5282,7 +5282,7 @@
   {
     "sceneName": "Mines_18",
     "gateName": "top1",
-    "logic": "Mines_18[top1] + (ANYCLAW | WINGS) | Mines_18 + ANYCLAW + WINGS",
+    "logic": "Mines_18[top1] + (ANYCLAW | WINGS) | Mines_18 + (ANYCLAW + WINGS | $SHRIEKPOGO[before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Mines_18[top1]"
   },
@@ -5401,14 +5401,14 @@
   {
     "sceneName": "Mines_25",
     "gateName": "top1",
-    "logic": "Mines_25[top1] + (WINGS + (ANYCLAW | PRECISEMOVEMENT) | ANYCLAW + ENEMYPOGOS + COMPLEXSKIPS) | Mines_25[left1] + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (WINGS | ENEMYPOGOS + COMPLEXSKIPS)",
+    "logic": "Mines_25[top1] + (WINGS + (ANYCLAW | PRECISEMOVEMENT) | ANYCLAW + ENEMYPOGOS + COMPLEXSKIPS) | Mines_25[left1] + (LEFTCLAW | WINGS + RIGHTCLAW | ENEMYPOGOS + BACKGROUNDPOGOS + $SHRIEKPOGO[5]) + (WINGS | ENEMYPOGOS + COMPLEXSKIPS)",
     "oneWayType": "TwoWay",
     "Name": "Mines_25[top1]"
   },
   {
     "sceneName": "Mines_28",
     "gateName": "left1",
-    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | WINGS + LEFTDASH | FULLCLAW + LEFTDASH + PRECISEMOVEMENT | SPELLAIRSTALL + (WINGS + $CASTSPELL | LEFTDASH + $CASTSPELL[2]))",
+    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | WINGS + LEFTDASH | FULLCLAW + LEFTDASH + PRECISEMOVEMENT | SPELLAIRSTALL + (WINGS + $CASTSPELL | LEFTDASH + $CASTSPELL[2]) | $SHRIEKPOGO)",
     "oneWayType": "TwoWay",
     "Name": "Mines_28[left1]"
   },
@@ -5422,7 +5422,7 @@
   {
     "sceneName": "Mines_28",
     "gateName": "door1",
-    "logic": "Mines_28[door1] | Mines_28[left1] + (RIGHTSUPERDASH | WINGS + RIGHTDASH | SPELLAIRSTALL + (WINGS + $CASTSPELL | RIGHTDASH + $CASTSPELL[2]))",
+    "logic": "Mines_28[door1] | Mines_28[left1] + (RIGHTSUPERDASH | WINGS + RIGHTDASH | SPELLAIRSTALL + (WINGS + $CASTSPELL[before:AREASOUL] | RIGHTDASH + $CASTSPELL[2,before:AREASOUL]) | $SHRIEKPOGO[before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Mines_28[door1]"
   },
@@ -5499,14 +5499,14 @@
   {
     "sceneName": "Mines_34",
     "gateName": "bot2",
-    "logic": "Mines_34[bot2] | Mines_34[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS) + (WINGS | FULLSUPERDASH | FULLDASH) | $StartLocation[Hallownest's Crown]",
+    "logic": "Mines_34[bot2] | Mines_34[bot1] + ((LEFTCLAW | RIGHTCLAW + WINGS) + (WINGS | FULLSUPERDASH | FULLDASH) | $SHRIEKPOGO[before:AREASOUL]) | $StartLocation[Hallownest's Crown]",
     "oneWayType": "OneWayIn",
     "Name": "Mines_34[bot2]"
   },
   {
     "sceneName": "Mines_34",
     "gateName": "left1",
-    "logic": "Mines_34[left1] | (Mines_34[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS) + (WINGS | FULLSUPERDASH | FULLDASH) | $StartLocation[Hallownest's Crown]) + (LEFTSUPERDASH | WINGS + LEFTDASH)",
+    "logic": "Mines_34[left1] | Mines_34[bot1] + ((LEFTCLAW | RIGHTCLAW + WINGS) + (WINGS | FULLSUPERDASH | FULLDASH) + (LEFTSUPERDASH | WINGS + LEFTDASH) | $SHRIEKPOGO[1,2,before:AREASOUL,NOSTALL]) | $StartLocation[Hallownest's Crown] + (LEFTSUPERDASH | WINGS + LEFTDASH | $SHRIEKPOGO[2,NOSTALL])",
     "oneWayType": "OneWayIn",
     "Name": "Mines_34[left1]"
   },
@@ -5534,7 +5534,7 @@
   {
     "sceneName": "Mines_37",
     "gateName": "top1",
-    "logic": "Mines_37[top1] | Mines_37[bot1] + ANYCLAW",
+    "logic": "Mines_37[top1] | Mines_37[bot1] + (ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Mines_37[top1]"
   },
@@ -5856,7 +5856,7 @@
   {
     "sceneName": "Cliffs_02",
     "gateName": "right1",
-    "logic": "Cliffs_02[right1] | Cliffs_02 + (RIGHTSUPERDASH | (WINGS + RIGHTDASH))",
+    "logic": "Cliffs_02[right1] | Cliffs_02 + (RIGHTSUPERDASH | WINGS + RIGHTDASH | $SHRIEKPOGO[2,before:ROOMSOUL,NOSTALL])",
     "oneWayType": "OneWayIn",
     "Name": "Cliffs_02[right1]"
   },
@@ -6003,7 +6003,7 @@
   {
     "sceneName": "White_Palace_04",
     "gateName": "top1",
-    "logic": "White_Palace_04[top1] + (ANYCLAW | WINGS) | White_Palace_04[right2] + LEFTCLAW + FULLDASH + WINGS",
+    "logic": "White_Palace_04[top1] + (ANYCLAW | WINGS) | White_Palace_04[right2] + LEFTDASH + WINGS + (ANYCLAW | PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_04[top1]"
   },
@@ -6052,7 +6052,7 @@
   {
     "sceneName": "White_Palace_06",
     "gateName": "top1",
-    "logic": "White_Palace_06[top1] | (White_Palace_06[left1] | White_Palace_06[bot1] | Warp-Path_of_Pain_Complete) + (RIGHTCLAW + (WINGS | LEFTCLAW)) | Bench-Palace_Balcony + (LEFTCLAW | WINGS)",
+    "logic": "White_Palace_06[top1] | (White_Palace_06[left1] | White_Palace_06[bot1] | Warp-Path_of_Pain_Complete) + (RIGHTCLAW + (WINGS | LEFTCLAW) | LEFTCLAW + $SHRIEKPOGO[before:ROOMSOUL] | $SHRIEKPOGO[2,before:ROOMSOUL,NOLEFTSTALL]) | Bench-Palace_Balcony + (LEFTCLAW | WINGS)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_06[top1]"
   },
@@ -6066,7 +6066,7 @@
   {
     "sceneName": "White_Palace_07",
     "gateName": "top1",
-    "logic": "White_Palace_07[top1] | White_Palace_07[bot1] + (RIGHTCLAW | (LEFTCLAW + FULLDASH)) + WINGS",
+    "logic": "White_Palace_07[top1] | White_Palace_07[bot1] + ((RIGHTCLAW | LEFTCLAW + FULLDASH) + WINGS | $SHRIEKPOGO[2] + BACKGROUNDPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_07[top1]"
   },
@@ -6087,7 +6087,7 @@
   {
     "sceneName": "White_Palace_08",
     "gateName": "right1",
-    "logic": "White_Palace_08[right1] | White_Palace_08[left1] + ANYCLAW + WINGS",
+    "logic": "White_Palace_08[right1] | White_Palace_08[left1] + (ANYCLAW + WINGS | $SHRIEKPOGO[before:AREASOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_08[right1]"
   },
@@ -6122,14 +6122,14 @@
   {
     "sceneName": "White_Palace_13",
     "gateName": "right1",
-    "logic": "White_Palace_13[right1] | (White_Palace_13 | White_Palace_13[left1]) + RIGHTSUPERDASH + (WINGS | (FULLDASH + RIGHTCLAW))",
+    "logic": "White_Palace_13[right1] | (White_Palace_13 | White_Palace_13[left1]) + (RIGHTSUPERDASH | SPIKETUNNELS + RIGHTDASH + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL)) + (WINGS | FULLDASH + RIGHTCLAW)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_13[right1]"
   },
   {
     "sceneName": "White_Palace_13",
     "gateName": "left1",
-    "logic": "White_Palace_13[left1] | White_Palace_13 + RIGHTCLAW + FULLSUPERDASH",
+    "logic": "White_Palace_13[left1] | White_Palace_13 + (FULLSUPERDASH + (RIGHTCLAW | LEFTCLAW + $SHRIEKPOGO[before:ROOMSOUL] | LEFTDASH + $SHRIEKPOGO[1,2,before:ROOMSOUL] | $SHRIEKPOGO[1,3,before:ROOMSOUL]))",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_13[left1]"
   },
@@ -6150,7 +6150,7 @@
   {
     "sceneName": "White_Palace_14",
     "gateName": "bot1",
-    "logic": "White_Palace_14[bot1] | White_Palace_14[right1] + FULLCLAW + FULLDASH",
+    "logic": "White_Palace_14[bot1] | White_Palace_14[right1] + (FULLCLAW + FULLDASH | FULLDASH + $SHRIEKPOGO[before:ROOMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_14[bot1]"
   },
@@ -6164,21 +6164,21 @@
   {
     "sceneName": "White_Palace_15",
     "gateName": "left1",
-    "logic": "White_Palace_15[left1] | White_Palace_15[right1] | ((LEFTCLAW | WINGS + RIGHTCLAW) + White_Palace_15[right2])",
+    "logic": "White_Palace_15[left1] | White_Palace_15[right1] | White_Palace_15[right2] + (LEFTCLAW | WINGS + RIGHTCLAW | $SHRIEKPOGO)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_15[left1]"
   },
   {
     "sceneName": "White_Palace_15",
     "gateName": "right1",
-    "logic": "White_Palace_15[right1] | (White_Palace_15[left1] | White_Palace_15[right1]) + WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW + LEFTDASH) + $SLOPEBALL[before:AREASOUL,after:ROOMSOUL]",
+    "logic": "White_Palace_15[right1] | (White_Palace_15[left1] | White_Palace_15[right1]) + (WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW + LEFTDASH) + $SLOPEBALL[before:AREASOUL,after:ROOMSOUL] | ANYCLAW + $SHRIEKPOGO[2,before:AREASOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_15[right1]"
   },
   {
     "sceneName": "White_Palace_15",
     "gateName": "right2",
-    "logic": "White_Palace_15[right2] | White_Palace_15[right1] | (ANYCLAW + White_Palace_15[left1])",
+    "logic": "White_Palace_15[right2] | White_Palace_15[right1] | White_Palace_15[left1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_15[right2]"
   },
@@ -6199,7 +6199,7 @@
   {
     "sceneName": "White_Palace_17",
     "gateName": "right1",
-    "logic": "White_Palace_17[right1] | White_Palace_17[bot1] + FULLDASH + FULLCLAW + WINGS + FULLSUPERDASH",
+    "logic": "White_Palace_17[right1] | White_Palace_17[bot1] + Lever-Path_of_Pain",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_17[right1]"
   },

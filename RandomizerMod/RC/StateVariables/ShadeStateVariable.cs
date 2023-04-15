@@ -23,6 +23,7 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly StateInt SpentReserveSoul;
         protected readonly StateInt SoulLimiter;
         protected readonly FragileCharmVariable FragileHeartEquip;
+        protected readonly EquipCharmVariable VoidHeartEquip;
         protected readonly int RequiredShadeHealth;
         public const string Prefix = "$SHADESKIP";
         
@@ -44,6 +45,7 @@ namespace RandomizerMod.RC.StateVariables
                 SoulLimiter = lm.StateManager.GetIntStrict("SOULLIMITER");
 
                 FragileHeartEquip = (FragileCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
+                VoidHeartEquip = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Kingsoul")); // we have to check against either Kingsoul or Void Heart equipped to ensure monotonicity
             }
             catch (Exception e)
             {
@@ -87,12 +89,18 @@ namespace RandomizerMod.RC.StateVariables
                 return false;
             }
 
+            if (VoidHeartEquip.IsEquipped(state))
+            {
+                return false;
+            }
+
             if (state.GetBool(CannotShadeSkip) || !CheckSoulRequirement(state) || !CheckHealthRequirement(pm, ref state) || !state.TrySetBoolTrue(UsedShadeBool))
             {
                 return false;
             }
 
             PostAdjustSoul(pm, ref state);
+            VoidHeartEquip.SetUnequippable(ref state);
 
             if (!state.GetBool(NoFlower))
             {

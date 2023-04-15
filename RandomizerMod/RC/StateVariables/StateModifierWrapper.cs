@@ -17,7 +17,17 @@ namespace RandomizerMod.RC.StateVariables
             Name = name;
             try
             {
-                string innerName = name.IndexOf('[') is int i && i >= 0 ? $"{InnerPrefix}{name.Substring(i)}" : InnerPrefix;
+                int i = name.IndexOf('[');
+                string innerName;
+                if (i >= 0 && VariableResolver.TryMatchPrefix(name.Substring(0, i), name, out string[] parameters))
+                {
+                    if (parameters.Length > 0) parameters = parameters.Where(p => !Consume(p)).ToArray();
+                    innerName = parameters.Length > 0 ? $"{InnerPrefix}[{string.Join(",", parameters)}]" : InnerPrefix;
+                }
+                else
+                {
+                    innerName = InnerPrefix;
+                }
                 InnerVariable = (T)lm.GetVariableStrict(innerName);
             }
             catch (Exception e)
@@ -25,5 +35,10 @@ namespace RandomizerMod.RC.StateVariables
                 throw new InvalidOperationException("Error constructing " + GetType().Name, e);
             }
         }
+
+        /// <summary>
+        /// Indicates that the parameter should not be passed to the inner variable.
+        /// </summary>
+        protected virtual bool Consume(string parameter) => false;
     }
 }

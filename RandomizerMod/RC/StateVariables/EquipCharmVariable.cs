@@ -92,7 +92,7 @@ namespace RandomizerMod.RC.StateVariables
                 }
                 else if (charmID == 36)
                 {
-                    ecv = new WhiteFragmentEquipVariable(term, lm);
+                    ecv = new WhiteFragmentEquipVariable(term, charmName, lm);
                 }
                 else 
                 {

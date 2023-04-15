@@ -12,7 +12,7 @@ Randomizer 4 requires the following to run:
 - The RandomizerCore library.
 
 Additionally, the following mods are strongly recommended:
-- Benchwarp, which can be required by randomizer logic for warping to the start location. Also, in transition randomizer only, the "deploy bench" feature may be required to complete Flower Quest.
+- Benchwarp, which can be required by randomizer logic for warping to the start location.
 - QoL, which can be required to restore skips expected in certain modes.
 
 ## Tips

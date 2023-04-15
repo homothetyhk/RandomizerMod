@@ -24,7 +24,7 @@ namespace RandomizerMod.RC.StateVariables
         }
 
         public override string Name { get; }
-        protected readonly int[] SpellCasts;
+        public readonly int[] SpellCasts;
         protected readonly NearbySoul BeforeSoul;
         protected readonly NearbySoul AfterSoul;
         protected readonly StateInt SpentSoul;

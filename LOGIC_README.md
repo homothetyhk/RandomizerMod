@@ -130,7 +130,8 @@ This file serves to document the randomizer logic.
 
 ### Shriek Pogos
 - Shriek Pogos are skips where the player casts Abyss Shriek, then immediately does a double jump as the cast finishes. With the right timing, the shriek can be pogoed, cutting off the double jump into a smaller pogo, but with the benefit of refreshing the player's ability to dash or double jump. To be precise, there is a 4 frame window to press double jump, and a 6 frame window to press downslash, starting when the player regains control at the end of the cast, in order to perform a shriek pogo. The height gained from the pogo is maximized when double jump is pressed as early as possible, and nail is pressed as late as possible.
-- In logic, Shriek Pogos are indicated with the **SHRIEKPOGOSKIPS** token. More commonly, the **$SHRIEKPOGO** state modifier is used, sometimes with various arguments related to tracking soul usage.
+- In logic, Shriek Pogos are indicated with the **SHRIEKPOGOSKIPS** token. More commonly, the **$SHRIEKPOGO** state modifier is used, sometimes with various arguments related to the number of shriek pogos required and other soul usage tracking.
+- With **$SHRIEKPOGO**, a **DIFFICULTSKIP** requirement is automatically added to chains of 4 or more shriek pogos. In general, when more than 1 shriek pogo is chained, **$SHRIEKPOGO** may require using dash between casts to stall out the soul meter long enough for it to refill.
 - Examples are typically along the lines of either: using shriek pogos to gain extra horizontal movement by refreshing dash midair, or using shriek pogos to gain minor extra vertical movement in situations where wings alone are not sufficient. For example, 3 shriek pogos can be used to enter Fungal Core without claw.
 
 ### Complex Skips
@@ -158,7 +159,7 @@ This file serves to document the randomizer logic.
 ## Geo Logic
 Since geo is a consumable resource that can be used or lost in many ways (and is not available from randomized items, with some cursed settings), the randomizer does not track exact numbers of geo or relics in logic. However, any location which requires geo has logic to ensure that the player can farm geo off of respawning enemies. Additionally,
 - The mid-expensive locations *Dash_Slash*, *Unbreakable_Heart*, *Unbreakable_Greed*, and *Unbreakable_Strength* also have logic to require the ability to visit Lemm, to reduce the odds of required farming.
-- The most expensive location *Vessel_Fragment-Basin* has logic to require the ability to visit Lemm, one vertical movement item, **and** the ability to complete the first colosseum trial. Thus, the logic guarantees the ability to farm large amounts of geo through the colosseum, while the other requirements reduce the likelihood that this is necessary.
+- The most expensive location *Vessel_Fragment-Basin* has logic to require the ability to visit Lemm **and** the ability to complete the second colosseum trial. Thus, the logic guarantees the ability to farm large amounts of geo through the colosseum, as well as possibly geo through relics.
 
 ## Terminal Logic and Nonterminal Logic
 - Briefly, logic is terminal if it represents a goal which has a permanently saved effect. In other words, after achieving that, the player could return to start and fully reset before continuing. Terminal logic includes:

@@ -37,11 +37,11 @@
   },
   {
     "name": "Monomon",
-    "logic": "Fungus3_archive_02[top1] + DREAMNAIL + Defeated_Uumuu + (ACID + LEFTCLAW | ACID + RIGHTCLAW + WINGS | LEFTSUPERDASH + FULLCLAW | LEFTSUPERDASH + RIGHTCLAW + WINGS | RIGHTSUPERDASH + LEFTCLAW + WINGS | FULLCLAW + WINGS + FULLSHARPSHADOW + FIREBALL + FIREBALLSKIPS + ACIDSKIPS + COMPLEXSKIPS)"
+    "logic": "Uumuu_Arena + Defeated_Uumuu + DREAMNAIL + (ACID + LEFTCLAW | ACID + RIGHTCLAW + WINGS | LEFTSUPERDASH + FULLCLAW | LEFTSUPERDASH + RIGHTCLAW + WINGS | RIGHTSUPERDASH + LEFTCLAW + WINGS | ACID + $SHRIEKPOGO[3,before:ROOMSOUL] | LEFTDASH + ANYCLAW + ACIDSKIPS + $SHRIEKPOGO[2,before:ROOMSOUL] | LEFTDASH + ACIDSKIPS + COMPLEXSKIPS + $SHRIEKPOGO[5] | FULLCLAW + WINGS + FULLSHARPSHADOW + FIREBALL + FIREBALLSKIPS + ACIDSKIPS + COMPLEXSKIPS)"
   },
   {
     "name": "Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + DREAMNAIL + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | FULLCLAW + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout]))"
+    "logic": "Deepnest_Spider_Town[left1] + DREAMNAIL + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | (FULLCLAW | ENEMYPOGOS + $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[3,before:ROOMSOUL]) + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout])) | Bench-Beast's_Den + $SHRIEKPOGO[1,2,2] + $SHRIEKPOGO[3,before:ROOMSOUL] + (Herrah | COMBAT[Left_Devout])"
   },
   {
     "name": "World_Sense",
@@ -53,11 +53,11 @@
   },
   {
     "name": "Mantis_Claw",
-    "logic": "Fungus2_14 + (LEFTDASH | WINGS | (LEFTSUPERDASH + ANYCLAW) | ENEMYPOGOS)"
+    "logic": "Fungus2_14 + (LEFTDASH | WINGS | LEFTSUPERDASH + ANYCLAW | $SHADESKIP[2HITS] + ENEMYPOGOS | SPELLAIRSTALL + $CASTSPELL[1,1,before:ROOMSOUL])"
   },
   {
     "name": "Crystal_Heart",
-    "logic": "Mines_31[left1] + (RIGHTSUPERDASH | LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2,1]) | WINGS + $SHADESKIP[2HITS])"
+    "logic": "Mines_31[left1] + (RIGHTSUPERDASH | LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2,1]) | WINGS + $SHADESKIP[2HITS] | $SHRIEKPOGO[4,before:AREASOUL])"
   },
   {
     "name": "Monarch_Wings",
@@ -65,11 +65,11 @@
   },
   {
     "name": "Shade_Cloak",
-    "logic": "(Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTCLAW | WINGS + $SHADESKIP[2HITS])) + (WINGS | RIGHTSUPERDASH | RIGHTDASH + (LEFTCLAW | PRECISEMOVEMENT | BACKGROUNDPOGOS)) | (Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1]) + (RIGHTSHADOWDASH | VOIDHEART + (RIGHTDASH | RIGHTSUPERDASH | SWIM | WINGS | FULLCLAW)) + (WINGS | LEFTCLAW + RIGHTSUPERDASH | LEFTCLAW + RIGHTDASH | BACKGROUNDPOGOS + RIGHTDASH)"
+    "logic": "(Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTCLAW | WINGS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2])) + (WINGS | RIGHTSUPERDASH | RIGHTDASH + (LEFTCLAW | PRECISEMOVEMENT | BACKGROUNDPOGOS)) | (Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1]) + (RIGHTSHADOWDASH | VOIDHEART + (RIGHTDASH | RIGHTSUPERDASH | SWIM | WINGS | FULLCLAW)) + (WINGS | LEFTCLAW + RIGHTSUPERDASH | LEFTCLAW + RIGHTDASH | BACKGROUNDPOGOS + RIGHTDASH)"
   },
   {
     "name": "Isma's_Tear",
-    "logic": "(Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | ENEMYPOGOS)) | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)))) | (Waterways_13[left2] + ((ACID + (RIGHTCLAW | WINGS | ENEMYPOGOS)) | (ACIDSKIPS + LEFTCLAW + RIGHTSUPERDASH + (WINGS | RIGHTCLAW))))"
+    "logic": "Waterways_13"
   },
   {
     "name": "Dream_Nail",
@@ -89,7 +89,7 @@
   },
   {
     "name": "Descending_Dark",
-    "logic": "Mines_35[left1] + Broke_Crystallized_Mound_Quake_Floor + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS + OBSCURESKIPS)"
+    "logic": "Mines_35[left1] + Broke_Crystallized_Mound_Quake_Floor + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS + DIFFICULTSKIPS) | WINGS + OBSCURESKIPS | $SHRIEKPOGO[2])"
   },
   {
     "name": "Howling_Wraiths",
@@ -133,11 +133,11 @@
   },
   {
     "name": "Flukenest",
-    "logic": "Waterways_12[right1] + (SWIM | LEFTSUPERDASH) + Defeated_Flukemarm"
+    "logic": "Waterways_12[right1] + (SWIM | LEFTSUPERDASH | LEFTDASH + $SHRIEKPOGO[4]) + Defeated_Flukemarm"
   },
   {
     "name": "Thorns_of_Agony",
-    "logic": "Fungus1_14[left1] + (RIGHTDASH | (LEFTCLAW + RIGHTSUPERDASH))"
+    "logic": "Fungus1_14[left1] + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH)"
   },
   {
     "name": "Mark_of_Pride",
@@ -149,11 +149,11 @@
   },
   {
     "name": "Spore_Shroom",
-    "logic": "(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTCLAW | WINGS) + (ACID | RIGHTDASH | (LEFTCLAW + RIGHTSUPERDASH))"
+    "logic": "(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTCLAW | WINGS) + (ACID | RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | $SHRIEKPOGO[2,before:AREASOUL])"
   },
   {
     "name": "Soul_Catcher",
-    "logic": "Crossroads_ShamanTemple[left1] + (ANYCLAW | Defeated_Ancestral_Mound_Baldur | WINGS + $SHADESKIP) + (UPWALLBREAK | Defeated_Ancestral_Mound_Baldur + (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS)"
+    "logic": "Crossroads_ShamanTemple[left1] + (Defeated_Ancestral_Mound_Baldur + (UPWALLBREAK | (LEFTSUPERDASH + RIGHTCLAW | RIGHTSUPERDASH + LEFTCLAW) + OBSCURESKIPS) | (ANYCLAW | WINGS + $SHADESKIP | $SHRIEKPOGO[2,before:ROOMSOUL]) + UPWALLBREAK)"
   },
   {
     "name": "Soul_Eater",
@@ -173,7 +173,7 @@
   },
   {
     "name": "Shape_of_Unn",
-    "logic": "Fungus1_Slug[right1] + (ACID | FULLSKIPACID)"
+    "logic": "Fungus1_Slug[right1] + (ACID | FULLSKIPACID | ACIDSKIPS + FULLDASH + $SHRIEKPOGO[1,1])"
   },
   {
     "name": "Hiveblood",
@@ -201,7 +201,7 @@
   },
   {
     "name": "King_Fragment",
-    "logic": "White_Palace_09[right1] + LEFTSUPERDASH + (FULLCLAW | WINGS)"
+    "logic": "White_Palace_09[right1] + (LEFTSUPERDASH + (FULLCLAW | WINGS) | RIGHTCLAW + LEFTDASH + OBSCURESKIPS + PRECISEMOVEMENT + ($SHRIEKPOGO[1,1,1,1,1] | LEFTSHARPSHADOW + $SHRIEKPOGO[1,1,1,1]))"
   },
   {
     "name": "Void_Heart",
@@ -213,7 +213,7 @@
   },
   {
     "name": "Weaversong",
-    "logic": "Deepnest_45_v02[left1] + (RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + ENEMYPOGOS))"
+    "logic": "Deepnest_45_v02[left1] + (RIGHTCLAW | LEFTCLAW + WINGS | WINGS + ENEMYPOGOS | $SHRIEKPOGO[3,before:AREASOUL])"
   },
   {
     "name": "Grimmchild",
@@ -257,7 +257,7 @@
   },
   {
     "name": "Love_Key",
-    "logic": "Fungus3_39[left1] + (ACID | RIGHTSKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL])) | (COMPLEXSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))"
+    "logic": "Fungus3_39[left1] + (ACID | RIGHTSKIPACID | ACIDSKIPS + (RIGHTCLAW + RIGHTDASH + WINGS + (DASHMASTER | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]) | RIGHTDASH + $SHRIEKPOGO[before:ROOMSOUL] | COMPLEXSKIPS + RIGHTSHARPSHADOW + WINGS))"
   },
   {
     "name": "King's_Brand",
@@ -269,7 +269,7 @@
   },
   {
     "name": "Collector's_Map",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS | $SHRIEKPOGO[5,before:AREASOUL]) + Defeated_Collector"
   },
   {
     "name": "Mask_Shard-Brooding_Mawlek",
@@ -293,7 +293,7 @@
   },
   {
     "name": "Mask_Shard-Waterways",
-    "logic": "Waterways_04b[left1] + (SWIM | (LEFTCLAW + LEFTDASH)) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + (SWIM | (LEFTCLAW + LEFTDASH)) | Waterways_04b[right2] + (SWIM | LEFTSKIPACID)"
+    "logic": "Waterways_04b[left1] + (SWIM | LEFTDASH + (LEFTCLAW | $SHRIEKPOGO[before:ROOMSOUL])) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH) + (SWIM | LEFTDASH + (LEFTCLAW | $SHRIEKPOGO[before:ROOMSOUL])) | Waterways_04b[right2] + (SWIM | LEFTSKIPACID)"
   },
   {
     "name": "Mask_Shard-Enraged_Guardian",
@@ -313,7 +313,7 @@
   },
   {
     "name": "Vessel_Fragment-Greenpath",
-    "logic": "Fungus1_13[right1] + (LEFTCLAW | (DAMAGEBOOSTS + $TAKEDAMAGE + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH))) | $StartLocation[Lower Greenpath]"
+    "logic": "Fungus1_13[right1] + (LEFTCLAW | DAMAGEBOOSTS + $TAKEDAMAGE + WINGS + ENEMYPOGOS | WINGS + RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH) | ENEMYPOGOS + $SHRIEKPOGO[2,before:AREASOUL]) | $StartLocation[Lower Greenpath]"
   },
   {
     "name": "Vessel_Fragment-City",
@@ -325,7 +325,7 @@
   },
   {
     "name": "Vessel_Fragment-Basin",
-    "logic": "Abyss_04 + (FULLCLAW | (WINGS + (Abyss_04[top1] | ENEMYPOGOS))) + Can_Visit_Lemm + Defeated_Colosseum_1"
+    "logic": "(Abyss_04 + (ANYCLAW | WINGS + ENEMYPOGOS) | Abyss_04[top1]) + Can_Visit_Lemm + Defeated_Colosseum_2"
   },
   {
     "name": "Vessel_Fragment-Deepnest",
@@ -357,7 +357,7 @@
   },
   {
     "name": "Pale_Ore-Crystal_Peak",
-    "logic": "Mines_34[bot1] + (LEFTCLAW + (WINGS | RIGHTDASH | RIGHTSUPERDASH | SPIKETUNNELS) | RIGHTCLAW + (WINGS | ENEMYPOGOS + (RIGHTDASH | SPIKETUNNELS))) | $StartLocation[Hallownest's Crown]"
+    "logic": "Mines_34[bot1] + (LEFTCLAW + (WINGS | RIGHTDASH | RIGHTSUPERDASH | SPIKETUNNELS) | RIGHTCLAW + (WINGS | ENEMYPOGOS + (RIGHTDASH | SPIKETUNNELS)) | $SHRIEKPOGO[before:ROOMSOUL]) | $StartLocation[Hallownest's Crown]"
   },
   {
     "name": "Pale_Ore-Nosk",
@@ -373,11 +373,11 @@
   },
   {
     "name": "Geo_Chest-Soul_Master",
-    "logic": "Ruins1_32[right1] + ANYCLAW"
+    "logic": "Ruins1_32[right1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL])"
   },
   {
     "name": "Geo_Chest-Watcher_Knights",
-    "logic": "Ruins2_03[top1] | (ANYCLAW + Defeated_Watcher_Knights + Ruins2_03[bot1])"
+    "logic": "Ruins2_03[top1] | Ruins2_03[bot1] + Defeated_Watcher_Knights + (ANYCLAW | $SHRIEKPOGO[8,before:AREASOUL])"
   },
   {
     "name": "Geo_Chest-Greenpath",
@@ -393,11 +393,11 @@
   },
   {
     "name": "Geo_Chest-Crystal_Peak",
-    "logic": "(ANYCLAW | (WINGS + GRUBBERFLYSELEGY + (Mines_37[bot1] | NOTCHES>$NotchCost[31,35,37]) + LEFTSLASH + $SHADESKIP + COMPLEXSKIPS) | (WINGS + GLOWINGWOMB + (Mines_37[bot1] | NOTCHES>$NotchCost[22,31,37]) + $SHADESKIP[2HITS] + COMPLEXSKIPS)) + ((Mines_37[top1] + (FULLDASH | FULLSUPERDASH + RIGHTCLAW + OBSCURESKIPS + PRECISEMOVEMENT | DASHSPRINT + OBSCURESKIPS)) | Mines_37[bot1])"
+    "logic": "Mines_37[bot1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL]) | Mines_37[bot1] + WINGS + GLOWINGWOMB + $SHADESKIP[2HITS] + COMPLEXSKIPS | Mines_37[top1] + WINGS + GRUBBERFLYSELEGY + LEFTSLASH + $SHADESKIP + COMPLEXSKIPS + (FULLDASH | FULLSUPERDASH + RIGHTCLAW + OBSCURESKIPS + PRECISEMOVEMENT | DASHSPRINT + OBSCURESKIPS)"
   },
   {
     "name": "Geo_Chest-Weavers_Den",
-    "logic": "Deepnest_45_v02[left1] + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS)) + (LEFTDASH + WINGS | LEFTSUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL])"
+    "logic": "Deepnest_45_v02[left1] + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS)) + (LEFTDASH + WINGS | LEFTSUPERDASH | $SHRIEKPOGO[3,before:AREASOUL]) + (LEFTDASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL])"
   },
   {
     "name": "Geo_Chest-Junk_Pit_1",
@@ -425,7 +425,7 @@
   },
   {
     "name": "Rancid_Egg-Fungal_Core",
-    "logic": "(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))"
+    "logic": "Fungus2_29[right1] + (ANYCLAW + WINGS | $SHRIEKPOGO[3,before:MAPAREASOUL]) | Fungus2_29[bot1] + (LEFTCLAW | WINGS | $SHRIEKPOGO[3,before:ROOMSOUL])"
   },
   {
     "name": "Rancid_Egg-Queen's_Gardens",
@@ -433,11 +433,11 @@
   },
   {
     "name": "Rancid_Egg-Blue_Lake",
-    "logic": "(Crossroads_50[left1] + RIGHTSUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + SWIM + WINGS + ENEMYPOGOS)"
+    "logic": "Crossroads_50[left1] + (RIGHTSUPERDASH | RIGHTDASH + $SHRIEKPOGO[1,1]) | (Crossroads_50[left1] | Crossroads_50[right1]) + SWIM + (WINGS + ENEMYPOGOS | $SHRIEKPOGO[2,before:MAPAREASOUL]) | Crossroads_50[right1] + LEFTSUPERDASH + COMPLEXSKIPS + $SHRIEKPOGO[3,before:MAPAREASOUL]"
   },
   {
     "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
-    "logic": "Mines_01[left1] + Broke_Crystal_Peak_Entrance_Quake_Floor + (RIGHTDASH | WINGS | LEFTCLAW + RIGHTSUPERDASH | RIGHTCLAW + SPELLAIRSTALL + $CASTSPELL[3,before:ITEMSOUL,after:AREASOUL]) | Mines_01[bot1] + (ANYCLAW + WINGS | FULLCLAW + FULLSUPERDASH | LEFTCLAW + FULLDASH + BACKGROUNDPOGOS | LEFTCLAW + WINGS + (RIGHTDASH | RIGHTSUPERDASH))"
+    "logic": "Mines_01[left1] + Broke_Crystal_Peak_Entrance_Quake_Floor + (RIGHTDASH | WINGS | LEFTCLAW + RIGHTSUPERDASH | RIGHTCLAW + SPELLAIRSTALL + $CASTSPELL[3,before:ITEMSOUL,after:AREASOUL]) | Mines_01[bot1] + (ANYCLAW + WINGS | FULLCLAW + FULLSUPERDASH | LEFTCLAW + FULLDASH + BACKGROUNDPOGOS | LEFTCLAW + WINGS + (RIGHTDASH | RIGHTSUPERDASH) | BACKGROUNDPOGOS + RIGHTDASH + $SHRIEKPOGO[5,before:AREASOUL])"
   },
   {
     "name": "Rancid_Egg-Crystal_Peak_Dark_Room",
@@ -457,11 +457,11 @@
   },
   {
     "name": "Rancid_Egg-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout])"
   },
   {
     "name": "Rancid_Egg-Dark_Deepnest",
-    "logic": "(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1] | (Deepnest_39[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | ((WINGS | RIGHTCLAW) + ENEMYPOGOS))))"
+    "logic": "(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1] | (Deepnest_39[right1] + (LEFTCLAW | WINGS + RIGHTCLAW | WINGS + ENEMYPOGOS | RIGHTCLAW + ENEMYPOGOS)))"
   },
   {
     "name": "Rancid_Egg-Weaver's_Den",
@@ -485,11 +485,11 @@
   },
   {
     "name": "Rancid_Egg-Waterways_West_Bluggsac",
-    "logic": "Waterways_04[right1] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | ENEMYPOGOS)) | (LEFTSKIPACID + WINGS) | (COMPLEXSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS)) | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | ENEMYPOGOS)) | (LEFTSKIPACID + WINGS) | (COMPLEXSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS)) | Waterways_04[left2] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | ENEMYPOGOS)) | (RIGHTSKIPACID + WINGS))"
+    "logic": "(Waterways_04 | Waterways_04[left2]) + SWIM + (ANYCLAW | WINGS | RIGHTDASH | ENEMYPOGOS) | Waterways_04 + (LEFTSKIPACID + WINGS | COMPLEXSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS | ACIDSKIPS + LEFTDASH + ($SHRIEKPOGO[1,before:ROOMSOUL] + (RIGHTCLAW | ENEMYPOGOS) | $SHRIEKPOGO[2,before:ROOMSOUL])) | Waterways_04[left2] + (RIGHTSKIPACID + WINGS | ACIDSKIPS + RIGHTDASH + ($SHRIEKPOGO + ANYCLAW | $SHRIEKPOGO[2]))"
   },
   {
     "name": "Rancid_Egg-Waterways_West_Pickup",
-    "logic": "Waterways_04b[left1] + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS)"
+    "logic": "Waterways_04b[left1] + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS | $SHRIEKPOGO[5,before:AREASOUL])"
   },
   {
     "name": "Rancid_Egg-Tuk_Defender's_Crest",
@@ -505,15 +505,15 @@
   },
   {
     "name": "Wanderer's_Journal-Greenpath_Lower",
-    "logic": "Fungus1_11 + ANYCLAW"
+    "logic": "Fungus1_11 + (ANYCLAW | $SHRIEKPOGO[3,before:AREASOUL])"
   },
   {
     "name": "Wanderer's_Journal-Fungal_Wastes_Thorns_Gauntlet",
-    "logic": "Fungus2_04 + (LEFTCLAW + WINGS | RIGHTCLAW + (WINGS | RIGHTDASH | RIGHTSUPERDASH + LEFTCLAW | SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL]))"
+    "logic": "Fungus2_04 + (LEFTCLAW + WINGS | RIGHTCLAW + (WINGS | RIGHTDASH | RIGHTSUPERDASH + LEFTCLAW | SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL]) | ($SHRIEKPOGO[4,before:AREASOUL,NOSTALL] | ($SHRIEKPOGO[3,1,before:AREASOUL,NOSTALL] + LEFTDASH | $SHRIEKPOGO[3,before:AREASOUL,NOSTALL] + RIGHTDASH) + COMPLEXSKIPS))"
   },
   {
     "name": "Wanderer's_Journal-Above_Mantis_Village",
-    "logic": "Fungus2_17 + ANYCLAW"
+    "logic": "Fungus2_17 + (ANYCLAW | $SHRIEKPOGO[5,before:AREASOUL])"
   },
   {
     "name": "Wanderer's_Journal-Crystal_Peak_Crawlers",
@@ -553,11 +553,11 @@
   },
   {
     "name": "Hallownest_Seal-Crossroads_Well",
-    "logic": "(Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]) + (ANYCLAW | WINGS + (INFECTED | ($SHADESKIP + (ANYDASH | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]) | $SHADESKIP[2HITS])) | INFECTED + ANYDASH + DAMAGEBOOSTS + $TAKEDAMAGE[3])"
+    "logic": "(Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]) + (ANYCLAW | WINGS + (INFECTED | ($SHADESKIP + (ANYDASH | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]) | $SHADESKIP[2HITS])) | INFECTED + ANYDASH + DAMAGEBOOSTS + $TAKEDAMAGE[3] | $SHRIEKPOGO[5,before:AREASOUL])"
   },
   {
     "name": "Hallownest_Seal-Greenpath",
-    "logic": "(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]) | (LEFTDASH + (SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL] | DASHMASTER + OBSCURESKIPS | WINGS | LEFTCLAW)) | LEFTSUPERDASH)"
+    "logic": "(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | WINGS + SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL] | LEFTDASH + (SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL] | DASHMASTER + OBSCURESKIPS | WINGS | LEFTCLAW) | LEFTSUPERDASH)"
   },
   {
     "name": "Hallownest_Seal-Fog_Canyon_West",
@@ -593,15 +593,15 @@
   },
   {
     "name": "Hallownest_Seal-Soul_Sanctum",
-    "logic": "Ruins1_32[right1] + ANYCLAW + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2"
+    "logic": "Ruins1_32[right1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL]) + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2"
   },
   {
     "name": "Hallownest_Seal-Watcher_Knight",
-    "logic": "(Ruins2_03[top1] | (Ruins2_03[bot1] + ANYCLAW + Defeated_Watcher_Knights)) + (RIGHTCLAW | WINGS | (LEFTCLAW + RIGHTSUPERDASH) | (RIGHTDASH + BACKGROUNDPOGOS))"
+    "logic": "(Ruins2_03[top1] | Ruins2_03[bot1] + Defeated_Watcher_Knights + (ANYCLAW | $SHRIEKPOGO[8,before:AREASOUL])) + (RIGHTCLAW | WINGS | LEFTCLAW + RIGHTSUPERDASH | RIGHTDASH + BACKGROUNDPOGOS)"
   },
   {
     "name": "Hallownest_Seal-Deepnest_By_Mantis_Lords",
-    "logic": "Deepnest_16[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS)"
+    "logic": "Deepnest_16[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[6])"
   },
   {
     "name": "Hallownest_Seal-Beast's_Den",
@@ -617,11 +617,11 @@
   },
   {
     "name": "King's_Idol-Crystal_Peak",
-    "logic": "(Mines_30[right1] | (RIGHTSUPERDASH + Mines_30[left1])) + (RIGHTCLAW + RIGHTDASH + BACKGROUNDPOGOS | WINGS)"
+    "logic": "(Mines_30[right1] | Mines_30[left1] + RIGHTSUPERDASH) + (RIGHTCLAW + RIGHTDASH + BACKGROUNDPOGOS | WINGS)"
   },
   {
     "name": "King's_Idol-Glade_of_Hope",
-    "logic": "RestingGrounds_08[left1] + ((SWIM + LEFTCLAW) | (SWIM + WINGS + ANYCLAW) | (RIGHTSUPERDASH + FULLCLAW) | (RIGHTSUPERDASH + WINGS + ANYCLAW) | (WINGS + RIGHTDASH) | (RIGHTCLAW + RIGHTDASH + DIFFICULTSKIPS + (SWIM | RIGHTSUPERDASH)))"
+    "logic": "RestingGrounds_08[left1] + (SWIM + LEFTCLAW | SWIM + WINGS + ANYCLAW | RIGHTSUPERDASH + FULLCLAW | RIGHTSUPERDASH + WINGS + ANYCLAW | WINGS + RIGHTDASH | RIGHTCLAW + RIGHTDASH + DIFFICULTSKIPS + (SWIM | RIGHTSUPERDASH) | $SHRIEKPOGO[1,1] | $SHRIEKPOGO + (SWIM | RIGHTDASH | RIGHTSUPERDASH))"
   },
   {
     "name": "King's_Idol-Dung_Defender",
@@ -645,7 +645,7 @@
   },
   {
     "name": "Arcane_Egg-Shade_Cloak",
-    "logic": "Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTSHADOWDASH | VOIDHEART + (SWIM | RIGHTDASH | RIGHTSUPERDASH | FULLCLAW | WINGS) | (RIGHTCLAW | WINGS + $SHADESKIP[2HITS]) + (LEFTSHADOWDASH | VOIDHEART + (LEFTDASH | LEFTSUPERDASH)))"
+    "logic": "Abyss_10[left2] + RIGHTSHADOWDASH | Abyss_10[left1] + (RIGHTSHADOWDASH | VOIDHEART + (SWIM | RIGHTDASH | RIGHTSUPERDASH | FULLCLAW | WINGS) | (RIGHTCLAW | WINGS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2]) + (LEFTSHADOWDASH | VOIDHEART + (LEFTDASH | LEFTSUPERDASH)))"
   },
   {
     "name": "Arcane_Egg-Birthplace",
@@ -653,11 +653,11 @@
   },
   {
     "name": "Whispering_Root-Crossroads",
-    "logic": "Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | FULLSUPERDASH | ANYDASH | INFECTED) + DREAMNAIL + UPWALLBREAK"
+    "logic": "Crossroads_07 + (RIGHTCLAW | WINGS + LEFTCLAW | $SHRIEKPOGO[5,before:AREASOUL]) + (WINGS | FULLSUPERDASH | ANYDASH | INFECTED) + DREAMNAIL + UPWALLBREAK"
   },
   {
     "name": "Whispering_Root-Greenpath",
-    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE)) + DREAMNAIL + (SIDESLASH | GREATSLASH | CYCLONE | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHRIEKPOGO[2] + ENEMYPOGOS) + DREAMNAIL + (SIDESLASH | GREATSLASH | CYCLONE | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Whispering_Root-Leg_Eater",
@@ -665,11 +665,11 @@
   },
   {
     "name": "Whispering_Root-Mantis_Village",
-    "logic": "Fungus2_17 + ANYCLAW + DREAMNAIL"
+    "logic": "Fungus2_17 + (ANYCLAW | $SHRIEKPOGO[5,before:AREASOUL] + ENEMYPOGOS) + DREAMNAIL"
   },
   {
     "name": "Whispering_Root-Deepnest",
-    "logic": "Deepnest_39 + (LANTERN | DARKROOMS) + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + ENEMYPOGOS)) + DREAMNAIL"
+    "logic": "Deepnest_39 + (LANTERN | DARKROOMS) + (FULLCLAW | WINGS + ANYCLAW | WINGS + ENEMYPOGOS) + DREAMNAIL"
   },
   {
     "name": "Whispering_Root-Queens_Gardens",
@@ -681,7 +681,7 @@
   },
   {
     "name": "Whispering_Root-Waterways",
-    "logic": "Abyss_01[left3] + ((FULLCLAW + (FULLDASH | WINGS | RIGHTSUPERDASH | ENEMYPOGOS)) | (WINGS + ANYCLAW)) + DREAMNAIL"
+    "logic": "Abyss_01[left3] + (FULLCLAW + (FULLDASH | WINGS | RIGHTSUPERDASH | ENEMYPOGOS) | WINGS + ANYCLAW | $SHRIEKPOGO[2]) + DREAMNAIL"
   },
   {
     "name": "Whispering_Root-City",
@@ -693,7 +693,7 @@
   },
   {
     "name": "Whispering_Root-Spirits_Glade",
-    "logic": "RestingGrounds_08[left1] + DREAMNAIL + ((WINGS + ((SWIM + ANYCLAW) | (RIGHTDASH + ANYCLAW) | (RIGHTSUPERDASH + ANYCLAW) | FULLDASH)) | (LEFTCLAW + SWIM + RIGHTDASH) | (FULLCLAW + RIGHTSUPERDASH + RIGHTDASH) | (RIGHTCLAW + RIGHTDASH + DIFFICULTSKIPS + (SWIM | RIGHTSUPERDASH)))"
+    "logic": "RestingGrounds_08[left1] + DREAMNAIL + (WINGS + (SWIM + ANYCLAW | RIGHTDASH + ANYCLAW | RIGHTSUPERDASH + ANYCLAW | FULLDASH) | LEFTCLAW + SWIM + RIGHTDASH | FULLCLAW + RIGHTSUPERDASH + RIGHTDASH | RIGHTCLAW + RIGHTDASH + DIFFICULTSKIPS + (SWIM | RIGHTSUPERDASH) | $SHRIEKPOGO[1,1] | $SHRIEKPOGO + (SWIM | RIGHTDASH | RIGHTSUPERDASH))"
   },
   {
     "name": "Whispering_Root-Crystal_Peak",
@@ -705,11 +705,11 @@
   },
   {
     "name": "Whispering_Root-Ancestral_Mound",
-    "logic": "Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + ENEMYPOGOS)) + (ANYCLAW | Defeated_Ancestral_Mound_Baldur) + DREAMNAIL + UPWALLBREAK"
+    "logic": "Crossroads_ShamanTemple[left1] + (WINGS | FULLCLAW + ENEMYPOGOS) + (ANYCLAW | Defeated_Ancestral_Mound_Baldur | $SHRIEKPOGO[2,before:ROOMSOUL]) + DREAMNAIL + UPWALLBREAK"
   },
   {
     "name": "Whispering_Root-Hive",
-    "logic": "(Hive_02[left1] | Hive_02[left2] | Hive_02[left3]) + (RIGHTCLAW | WINGS | (FULLDASH + LEFTCLAW)) + DREAMNAIL"
+    "logic": "(Hive_02[left1] | Hive_02[left2] | Hive_02[left3]) + (RIGHTCLAW | WINGS | FULLDASH + LEFTCLAW) + DREAMNAIL"
   },
   {
     "name": "Boss_Essence-Elder_Hu",
@@ -741,7 +741,7 @@
   },
   {
     "name": "Boss_Essence-Failed_Champion",
-    "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight + Defeated_Failed_Champion + (ANYCLAW | WINGS + INFECTED) + DREAMNAIL"
+    "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight + Defeated_Failed_Champion + (ANYCLAW | WINGS + INFECTED | $SHRIEKPOGO[2,before:AREASOUL]) + DREAMNAIL"
   },
   {
     "name": "Boss_Essence-Soul_Tyrant",
@@ -761,7 +761,7 @@
   },
   {
     "name": "Grub-Crossroads_Acid",
-    "logic": "Crossroads_35[right1] | (Crossroads_35[bot1] + RIGHTCLAW + (ACID | (((LEFTSUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS)))"
+    "logic": "Crossroads_35[right1]"
   },
   {
     "name": "Grub-Crossroads_Center",
@@ -797,7 +797,7 @@
   },
   {
     "name": "Grub-Fog_Canyon",
-    "logic": "LEFTSUPERDASH + Fungus3_47"
+    "logic": "Fungus3_47 + (LEFTSUPERDASH | $SHRIEKPOGO[2,before:AREASOUL])"
   },
   {
     "name": "Grub-Fungal_Bouncy",
@@ -813,19 +813,19 @@
   },
   {
     "name": "Grub-Deepnest_Nosk",
-    "logic": "Deepnest_31[right1] | (Deepnest_31[right2] + (ANYCLAW | WINGS))"
+    "logic": "Deepnest_31[right1] | Deepnest_31[right2] + (ANYCLAW | WINGS)"
   },
   {
     "name": "Grub-Deepnest_Spike",
-    "logic": "Deepnest_03 + (FULLCLAW | WINGS | (LEFTCLAW + Deepnest_03[top1]))"
+    "logic": "Deepnest_03 + (FULLCLAW | WINGS) | Deepnest_03[top1] + LEFTCLAW"
   },
   {
     "name": "Grub-Dark_Deepnest",
-    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))"
+    "logic": "(LANTERN | DARKROOMS) + (Deepnest_39 + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS)) | Deepnest_39[top1] | Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH))"
   },
   {
     "name": "Grub-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout])"
   },
   {
     "name": "Grub-Kingdom's_Edge_Oro",
@@ -853,27 +853,27 @@
   },
   {
     "name": "Grub-Waterways_Main",
-    "logic": "Waterways_04[right1] + (RIGHTCLAW | SWIM | CYCLONE | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL]) | Waterways_04[left1] + (RIGHTCLAW | WINGS | ENEMYPOGOS) + (RIGHTCLAW | SWIM | CYCLONE | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL]) | Waterways_04[left2] + (SWIM | RIGHTSKIPACID)"
+    "logic": "Waterways_04 + (RIGHTCLAW | SWIM | CYCLONE | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL]) | Waterways_04[left2] + (SWIM | RIGHTSKIPACID)"
   },
   {
     "name": "Grub-Isma's_Grove",
-    "logic": "((Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | ENEMYPOGOS)) | (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH)))) | (Waterways_13[left2] + (RIGHTCLAW | ((WINGS | ENEMYPOGOS) + LEFTCLAW)))) + (ACID | RIGHTSKIPACID)"
+    "logic": "Waterways_13 + (ACID | RIGHTSKIPACID) + ANYCLAW | Waterways_13[left1] + (FULLCLAW | ANYCLAW + (WINGS | ENEMYPOGOS) | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH) | $SHRIEKPOGO[5] + ENEMYPOGOS) + (ACID | RIGHTSKIPACID | RIGHTDASH + ACIDSKIPS + $SHRIEKPOGO)"
   },
   {
     "name": "Grub-Waterways_Requires_Tram",
-    "logic": "Waterways_14[bot1] + ANYCLAW + ((RIGHTSUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + ENEMYPOGOS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS)))) | Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + ((LEFTSUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + ENEMYPOGOS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))"
+    "logic": "Waterways_14[bot1] + (ANYCLAW | $SHRIEKPOGO[2]) + (RIGHTSUPERDASH + WINGS + (RIGHTCLAW | LEFTCLAW + ENEMYPOGOS | ENEMYPOGOS + DANGEROUSSKIPS) | ACID + (RIGHTCLAW | LEFTCLAW + WINGS | WINGS + ENEMYPOGOS + DANGEROUSSKIPS)) | Waterways_14[bot2] + (RIGHTCLAW | WINGS + LEFTCLAW | $SHRIEKPOGO[before:ITEMSOUL]) + (LEFTSUPERDASH + WINGS + (RIGHTCLAW | LEFTCLAW + ENEMYPOGOS | ENEMYPOGOS + DANGEROUSSKIPS) | ACID + (RIGHTCLAW | LEFTCLAW + WINGS | WINGS + ENEMYPOGOS + DANGEROUSSKIPS))"
   },
   {
     "name": "Grub-City_of_Tears_Left",
-    "logic": "(Ruins1_05[top1] | Ruins1_05[right1] | Ruins1_05 + (LEFTCLAW | WINGS + (RIGHTCLAW | BACKGROUNDPOGOS))) + (RIGHTCLAW | WINGS | LEFTCLAW + BACKGROUNDPOGOS | ENEMYPOGOS)"
+    "logic": "(Ruins1_05[top1] | Ruins1_05[right1] | Ruins1_05 + (LEFTCLAW | WINGS + (RIGHTCLAW | BACKGROUNDPOGOS) | $SHRIEKPOGO[2,before:AREASOUL])) + (RIGHTCLAW | WINGS | LEFTCLAW + BACKGROUNDPOGOS | ENEMYPOGOS)"
   },
   {
     "name": "Grub-Soul_Sanctum",
-    "logic": "Ruins1_32[right1] + ANYCLAW + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2 + Broke_Quake_Floor_After_Soul_Master_3"
+    "logic": "Ruins1_32[right1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL]) + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2 + Broke_Quake_Floor_After_Soul_Master_3"
   },
   {
     "name": "Grub-Watcher's_Spire",
-    "logic": "Ruins2_03[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW))"
+    "logic": "Ruins2_03[bot2] + (RIGHTCLAW | WINGS + LEFTCLAW | $SHRIEKPOGO[5,before:AREASOUL])"
   },
   {
     "name": "Grub-City_of_Tears_Guarded",
@@ -881,7 +881,7 @@
   },
   {
     "name": "Grub-King's_Station",
-    "logic": "(Ruins2_07[left1] + (SWIM | RIGHTSKIPACID) | Ruins2_07[top1] | Ruins2_07[right1] + (LEFTDASH | SWIM | LEFTCLAW | WINGS)) + (LEFTDASH | SWIM | RIGHTCLAW + LEFTSUPERDASH | WINGS + LEFTSUPERDASH | RIGHTCLAW + WINGS + PRECISEMOVEMENT | WINGS + SPELLAIRSTALL + $CASTSPELL[3])"
+    "logic": "(Ruins2_07[left1] + (SWIM | RIGHTSKIPACID) | Ruins2_07[top1] | Ruins2_07[right1] + (LEFTDASH | SWIM | LEFTCLAW | WINGS)) + (LEFTDASH | SWIM | RIGHTCLAW + LEFTSUPERDASH | WINGS + LEFTSUPERDASH | RIGHTCLAW + WINGS + PRECISEMOVEMENT | WINGS + SPELLAIRSTALL + $CASTSPELL[3] | $SHRIEKPOGO)"
   },
   {
     "name": "Grub-Resting_Grounds",
@@ -905,11 +905,11 @@
   },
   {
     "name": "Grub-Crystal_Peak_Crushers",
-    "logic": "(Mines_19[left1] + Mines_19[right1]) + LEFTDASH + (ANYCLAW | WINGS)"
+    "logic": "(Mines_19[left1] | Mines_19[right1]) + LEFTDASH + (ANYCLAW | WINGS)"
   },
   {
     "name": "Grub-Crystal_Heart",
-    "logic": "Mines_31[left1] + (LEFTCLAW + RIGHTSUPERDASH | WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW | BACKGROUNDPOGOS) | FULLCLAW + RIGHTDASH + SPELLAIRSTALL + $CASTSPELL[3])"
+    "logic": "Mines_31[left1] + (LEFTCLAW + RIGHTSUPERDASH | WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW | BACKGROUNDPOGOS) | FULLCLAW + RIGHTDASH + SPELLAIRSTALL + $CASTSPELL[3] | $SHRIEKPOGO[2,before:AREASOUL])"
   },
   {
     "name": "Grub-Hallownest_Crown",
@@ -917,31 +917,31 @@
   },
   {
     "name": "Grub-Howling_Cliffs",
-    "logic": "Fungus1_28[left1] | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + Defeated_Right_Cliffs_Baldur) | (WINGS + LEFTCLAW)))"
+    "logic": "Fungus1_28[left1]"
   },
   {
     "name": "Grub-Queen's_Gardens_Stag",
-    "logic": "(Fungus3_10[bot1] + (WINGS | FULLDASH) + Defeated_West_Queen's_Gardens_Arena) | Fungus3_10[top1]"
+    "logic": "Fungus3_10[bot1] + (WINGS | FULLDASH) + Defeated_West_Queen's_Gardens_Arena | Fungus3_10[top1]"
   },
   {
     "name": "Grub-Queen's_Gardens_Marmu",
-    "logic": "(Fungus3_48[bot1] | Fungus3_48[right2]) + (FULLCLAW | (WINGS + ANYCLAW))"
+    "logic": "(Fungus3_48[bot1] | Fungus3_48[right2]) + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[2,before:ROOMSOUL])"
   },
   {
     "name": "Grub-Queen's_Gardens_Top",
-    "logic": "Fungus3_22 + (FULLCLAW + LEFTSUPERDASH + (RIGHTSUPERDASH | WINGS) | COMPLEXSKIPS + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL] + WINGS + LEFTCLAW + (RIGHTCLAW + LEFTSHARPSHADOW | RIGHTCLAW + LEFTDASH + DIFFICULTSKIPS | LEFTSHARPSHADOW + DIFFICULTSKIPS))"
+    "logic": "Fungus3_22 + (FULLCLAW + LEFTSUPERDASH + (RIGHTSUPERDASH | WINGS) | COMPLEXSKIPS + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL] + WINGS + LEFTCLAW + (RIGHTCLAW + LEFTSHARPSHADOW | RIGHTCLAW + LEFTDASH + DIFFICULTSKIPS | LEFTSHARPSHADOW + DIFFICULTSKIPS) | LEFTDASH + LEFTCLAW + ($SHRIEKPOGO[2,before:ROOMSOUL] + ENEMYPOGOS + COMPLEXSKIPS | $SHRIEKPOGO[before:ROOMSOUL] + RIGHTCLAW) | RIGHTCLAW + (FULLDASH + $SHRIEKPOGO[5,before:AREASOUL] | LEFTSUPERDASH + $SHRIEKPOGO[4,before:AREASOUL]))"
   },
   {
     "name": "Grub-Collector_1",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
+    "logic": "*Collector's_Map"
   },
   {
     "name": "Grub-Collector_2",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
+    "logic": "*Collector's_Map"
   },
   {
     "name": "Grub-Collector_3",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS) + Defeated_Collector"
+    "logic": "*Collector's_Map"
   },
   {
     "name": "Mimic_Grub-Deepnest_1",
@@ -981,11 +981,11 @@
   },
   {
     "name": "Deepnest_Map-Right",
-    "logic": "(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + ANYCLAW"
+    "logic": "(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | $SHRIEKPOGO)"
   },
   {
     "name": "Ancient_Basin_Map",
-    "logic": "(Abyss_04[top1] + (RIGHTDASH | ANYCLAW | WINGS | RIGHTSUPERDASH | PRECISEMOVEMENT)) | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (ANYCLAW | (WINGS + ENEMYPOGOS)))"
+    "logic": "Abyss_04[top1] + (RIGHTDASH | ANYCLAW | WINGS | RIGHTSUPERDASH | PRECISEMOVEMENT) | (Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (ANYCLAW | WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Kingdom's_Edge_Map",
@@ -1077,7 +1077,7 @@
   },
   {
     "name": "Lifeblood_Cocoon-Mantis_Village",
-    "logic": "(Fungus2_15[top3] | Fungus2_15[right1] | Fungus2_15[left1]) + (LEFTCLAW + WINGS | RIGHTCLAW + LEFTSUPERDASH)"
+    "logic": "(Fungus2_15[top3] | Fungus2_15[right1] | Fungus2_15[left1]) + (LEFTCLAW + WINGS | RIGHTCLAW + LEFTSUPERDASH | $SHRIEKPOGO[4])"
   },
   {
     "name": "Lifeblood_Cocoon-Failed_Tramway",
@@ -1085,7 +1085,7 @@
   },
   {
     "name": "Lifeblood_Cocoon-Galien",
-    "logic": "Deepnest_40[right1] + (RIGHTCLAW | (WINGS + LEFTCLAW))"
+    "logic": "Deepnest_40[right1] + (RIGHTCLAW | WINGS + LEFTCLAW | $SHRIEKPOGO[2,2,before:AREASOUL])"
   },
   {
     "name": "Lifeblood_Cocoon-Kingdom's_Edge",
@@ -1101,7 +1101,7 @@
   },
   {
     "name": "Grimmkin_Flame-Crystal_Peak",
-    "logic": "((Mines_10[left1] | Mines_10[bot1]) + (WINGS + RIGHTDASH + RIGHTCLAW + SPELLAIRSTALL + $CASTSPELL[2] | WINGS + RIGHTDASH + RIGHTSUPERDASH + $SHADESKIP[2HITS] + SPELLAIRSTALL + $CASTSPELL[3] | FULLCLAW + RIGHTSUPERDASH) | Mines_10[right1] + (LEFTSUPERDASH | LEFTDASH + WINGS + FULLCLAW + SPELLAIRSTALL + $CASTSPELL[2])) + GRIMMCHILD"
+    "logic": "(Mines_10[bot1] + (RIGHTCLAW + RIGHTSUPERDASH + (LEFTCLAW | RIGHTDASH + WINGS) | RIGHTDASH + $SHRIEKPOGO[3,1] | RIGHTSUPERDASH + $SHRIEKPOGO[3,2] | COMPLEXSKIPS + WINGS + RIGHTDASH + SPELLAIRSTALL + $SHADESKIP[2HITS] + $CASTSPELL[2]) | Mines_10[right1] + (LEFTSUPERDASH | WINGS + LEFTDASH + (LEFTCLAW + (SPELLAIRSTALL + $CASTSPELL[2] | OBSCURESKIPS + LEFTSHARPSHADOW) | $SHRIEKPOGO))) + GRIMMCHILD"
   },
   {
     "name": "Grimmkin_Flame-King's_Pass",
@@ -1141,7 +1141,7 @@
   },
   {
     "name": "Journal_Entry-Charged_Lumafly",
-    "logic": "Fungus3_archive_02[top1] + (ANYSUPERDASH | ACID | ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS) + Defeated_Uumuu + (RIGHTCLAW + (ACID | RIGHTSUPERDASH | RIGHTDASH + WINGS | RIGHTSHARPSHADOW + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL]) | LEFTCLAW + WINGS + (ACID | RIGHTSUPERDASH | RIGHTDASH + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL]))"
+    "logic": "Uumuu_Arena + Defeated_Uumuu + (RIGHTCLAW + (ACID | RIGHTSUPERDASH | RIGHTDASH + WINGS | RIGHTSHARPSHADOW + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL]) | LEFTCLAW + WINGS + (ACID | RIGHTSUPERDASH | RIGHTDASH + SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL]) | ACIDSKIPS + (RIGHTSUPERDASH + $SHRIEKPOGO[4,1,before:AREASOUL,NORIGHTSTALL] | ACID + $SHRIEKPOGO[3,1,before:AREASOUL,NORIGHTSTALL] | RIGHTDASH + $CASTSPELL[1,3,1,before:AREASOUL] | RIGHTCLAW + $SHRIEKPOGO[2,1,before:ROOMSOUL] | LEFTCLAW + $SHRIEKPOGO[3,before:ROOMSOUL] | RIGHTDASH + LEFTCLAW + $SHRIEKPOGO[before:ROOMSOUL]))"
   },
   {
     "name": "Journal_Entry-Goam",
@@ -1161,19 +1161,19 @@
   },
   {
     "name": "Split_Mothwing_Cloak",
-    "logic": "Fungus1_04[right1] + Defeated_Hornet_1"
+    "logic": "*Mothwing_Cloak"
   },
   {
     "name": "Left_Mantis_Claw",
-    "logic": "Fungus2_14 + (LEFTDASH | WINGS | (LEFTSUPERDASH + ANYCLAW) | ENEMYPOGOS)"
+    "logic": "*Mantis_Claw"
   },
   {
     "name": "Right_Mantis_Claw",
-    "logic": "Fungus2_14 + (LEFTDASH | WINGS | (LEFTSUPERDASH + ANYCLAW) | ENEMYPOGOS)"
+    "logic": "*Mantis_Claw"
   },
   {
     "name": "Split_Crystal_Heart",
-    "logic": "Mines_31[left1] + (RIGHTSUPERDASH | LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2,1]) | WINGS + $SHADESKIP[2HITS])"
+    "logic": "Mines_31[left1] + (RIGHTSUPERDASH | LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2,1,before:AREASOUL]) | WINGS + $SHADESKIP[2HITS] | $SHRIEKPOGO[4,before:AREASOUL])"
   },
   {
     "name": "Leftslash",
@@ -1273,7 +1273,7 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Root",
-    "logic": "Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK"
+    "logic": "Crossroads_07 + (RIGHTCLAW | WINGS + LEFTCLAW | $SHRIEKPOGO[5,before:AREASOUL]) + UPWALLBREAK"
   },
   {
     "name": "Geo_Rock-Crossroads_Root_Dupe_1",
@@ -1301,7 +1301,7 @@
   },
   {
     "name": "Geo_Rock-Crossroads_Above_False_Knight",
-    "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight + ANYCLAW"
+    "logic": "(Crossroads_10[left1] | Crossroads_10[right1]) + Defeated_False_Knight + (ANYCLAW | WINGS + INFECTED | $SHRIEKPOGO[2,before:AREASOUL])"
   },
   {
     "name": "Geo_Rock-Crossroads_Before_Acid_Grub",
@@ -1425,15 +1425,15 @@
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1",
-    "logic": "Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))"
+    "logic": "Deepnest_16[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[6])"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_2",
-    "logic": "Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))"
+    "logic": "Deepnest_16[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[6])"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_3",
-    "logic": "Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))"
+    "logic": "Deepnest_16[bot1] + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[6])"
   },
   {
     "name": "Geo_Rock-Deepnest_Nosk_1",
@@ -1445,15 +1445,15 @@
   },
   {
     "name": "Geo_Rock-Deepnest_Nosk_3",
-    "logic": "Deepnest_31[right2] | (Deepnest_31[right1] + ANYCLAW)"
+    "logic": "Deepnest_31[right2] | Deepnest_31[right1] + (ANYCLAW | $SHRIEKPOGO[3,before:AREASOUL])"
   },
   {
     "name": "Geo_Rock-Deepnest_Above_Galien",
-    "logic": "(LANTERN | DARKROOMS) + (Deepnest_35[top1] | (Deepnest_35 + ANYCLAW))"
+    "logic": "(LANTERN | DARKROOMS) + (Deepnest_35[top1] | Deepnest_35 + (ANYCLAW | $SHRIEKPOGO[8,before:AREASOUL]))"
   },
   {
     "name": "Geo_Rock-Deepnest_Galien_Spike",
-    "logic": "Deepnest_35 + (RIGHTCLAW | (WINGS + LEFTCLAW))"
+    "logic": "Deepnest_35 + (RIGHTCLAW | WINGS + LEFTCLAW | $SHRIEKPOGO[3,before:AREASOUL])"
   },
   {
     "name": "Geo_Rock-Deepnest_Garpede_1",
@@ -1465,11 +1465,11 @@
   },
   {
     "name": "Geo_Rock-Dark_Deepnest_Above_Grub_1",
-    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))"
+    "logic": "(LANTERN | DARKROOMS) + (Deepnest_39 + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS)) | Deepnest_39[top1] | Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH))"
   },
   {
     "name": "Geo_Rock-Dark_Deepnest_Above_Grub_2",
-    "logic": "(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))"
+    "logic": "*Geo_Rock-Dark_Deepnest_Above_Grub_1"
   },
   {
     "name": "Geo_Rock-Dark_Deepnest_Bottom_Left",
@@ -1505,11 +1505,11 @@
   },
   {
     "name": "Geo_Rock-Kingdom's_Edge_Oro_Far_Left",
-    "logic": "(Deepnest_East_06[left1] | Deepnest_East_06[top1] | (Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (LEFTCLAW | WINGS + ENEMYPOGOS)) + (RIGHTCLAW | WINGS + LEFTCLAW + ENEMYPOGOS | WINGS + $SHADESKIP)"
+    "logic": "(Deepnest_East_06[left1] | Deepnest_East_06[top1] | (Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (LEFTCLAW | WINGS + ENEMYPOGOS)) + (RIGHTCLAW | WINGS + LEFTCLAW + ENEMYPOGOS | WINGS + $SHADESKIP | WINGS + $SHRIEKPOGO[2,before:ROOMSOUL])"
   },
   {
     "name": "Geo_Rock-Kingdom's_Edge_Oro_Middle_Left",
-    "logic": "Deepnest_East_06[top1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (LEFTCLAW | (WINGS + ENEMYPOGOS))"
+    "logic": "Deepnest_East_06[top1] | Deepnest_East_06[left1] + (RIGHTCLAW | WINGS + BACKGROUNDPOGOS) | (Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (LEFTCLAW | WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Kingdom's_Edge_Above_Root",
@@ -1533,7 +1533,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS)"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[1,2,2])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
@@ -1541,11 +1541,11 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + $SHRIEKPOGO[1,2,2]"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Egg",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS]) + COMBAT[Left_Devout])"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + $SHRIEKPOGO[1,2,2]"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Below_Egg_Dupe",
@@ -1561,7 +1561,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_After_Herrah",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | FULLCLAW + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout]))"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW + (Herrah | COMBAT[Right_Devout]) | (FULLCLAW | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[3,before:ROOMSOUL]) + (Herrah + COMBAT[Left_Devout] | COMBAT[Any_Devout])) | Bench-Beast's_Den + $SHRIEKPOGO[1,2,2] + $SHRIEKPOGO[3,before:ROOMSOUL] + (Herrah | COMBAT[Left_Devout])"
   },
   {
     "name": "Geo_Rock-Greenpath_Entrance",
@@ -1713,19 +1713,19 @@
   },
   {
     "name": "Geo_Rock-Mantis_Village_Below_Lore",
-    "logic": "Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | LEFTSUPERDASH | FULLCLAW | ENEMYPOGOS) + ((RIGHTCLAW + (WINGS | ENEMYPOGOS)) | LEFTCLAW))"
+    "logic": "Fungus2_14[top1] | Fungus2_14 + (WINGS | LEFTDASH | LEFTSUPERDASH | FULLCLAW | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]) + (LEFTCLAW | RIGHTCLAW + WINGS | (RIGHTCLAW | WINGS) + OBSCURESKIPS + ENEMYPOGOS | $SHRIEKPOGO[before:ROOMSOUL])"
   },
   {
     "name": "Geo_Rock-Mantis_Village_Above_Lever",
-    "logic": "(Fungus2_14[top1] | (Fungus2_14 + (LEFTDASH | RIGHTSUPERDASH | WINGS | FULLCLAW | ENEMYPOGOS) + ((RIGHTCLAW + (WINGS | ENEMYPOGOS)) | LEFTCLAW))) + ((LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | BACKGROUNDPOGOS)) | WINGS | RIGHTCLAW)"
+    "logic": "(Fungus2_14[top1] | Fungus2_14 + (WINGS | LEFTDASH | LEFTSUPERDASH | FULLCLAW | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]) + (LEFTCLAW | RIGHTCLAW + WINGS | (RIGHTCLAW | WINGS) + OBSCURESKIPS + ENEMYPOGOS | $SHRIEKPOGO[before:ROOMSOUL])) + (LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | BACKGROUNDPOGOS) | WINGS | RIGHTCLAW)"
   },
   {
     "name": "Geo_Rock-Above_Mantis_Lords_1",
-    "logic": "(Fungus2_15[top3] | Fungus2_15[right1] | Fungus2_15[left1] + RIGHTCLAW) + (ANYCLAW | WINGS | RIGHTDASH | RIGHTSUPERDASH)"
+    "logic": "Fungus2_15 + (ANYCLAW | WINGS | RIGHTDASH | RIGHTSUPERDASH | SPELLAIRSTALL + $CASTSPELL)"
   },
   {
     "name": "Geo_Rock-Above_Mantis_Lords_2",
-    "logic": "Fungus2_15[top3] | Fungus2_15[right1] | Fungus2_15[left1] + RIGHTCLAW"
+    "logic": "Fungus2_15"
   },
   {
     "name": "Geo_Rock-Fungal_After_Bouncy_Grub",
@@ -1745,23 +1745,23 @@
   },
   {
     "name": "Geo_Rock-Fungal_Above_City_Entrance",
-    "logic": "Fungus2_21[right1] + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[before:ITEMSOUL] | PRECISEMOVEMENT + OBSCURESKIPS) | ANYCLAW + WINGS)"
+    "logic": "Fungus2_21[right1] + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[before:ITEMSOUL] | PRECISEMOVEMENT + OBSCURESKIPS) | ANYCLAW + WINGS | $SHRIEKPOGO[7,before:ITEMSOUL])"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_1",
-    "logic": "Fungus2_25[top1] | ((Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | WINGS))"
+    "logic": "Fungus2_25[top1] | (Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | WINGS)"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_2",
-    "logic": "Fungus2_25[top1] | ((Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | WINGS))"
+    "logic": "Fungus2_25[top1] | (Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | WINGS)"
   },
   {
     "name": "Geo_Rock-Deepnest_Lower_Cornifer",
-    "logic": "(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + ANYCLAW"
+    "logic": "(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | $SHRIEKPOGO)"
   },
   {
     "name": "Geo_Rock-Fungal_Core_Entrance",
-    "logic": "Fungus2_29[right1] + ANYCLAW + WINGS | Fungus2_29[bot1] + (LEFTCLAW | WINGS + ENEMYPOGOS)"
+    "logic": "Fungus2_29[right1] + (ANYCLAW + WINGS | $SHRIEKPOGO[3,before:MAPAREASOUL]) | Fungus2_29[bot1] + (LEFTCLAW | WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Fungal_Core_Hidden",
@@ -1773,7 +1773,7 @@
   },
   {
     "name": "Geo_Rock-Queen's_Gardens_Acid_Entrance",
-    "logic": "Fungus3_03[right1] + (RIGHTCLAW | WINGS + $SHADESKIP)"
+    "logic": "Fungus3_03[right1] + (RIGHTCLAW | WINGS + $SHADESKIP | $SHRIEKPOGO[before:AREASOUL])"
   },
   {
     "name": "Geo_Rock-Queen's_Gardens_Below_Stag",
@@ -1797,7 +1797,7 @@
   },
   {
     "name": "Geo_Rock-Pale_Lurker",
-    "logic": "GG_Lurker[left1] + RIGHTCLAW + (WINGS | (RIGHTSUPERDASH + LEFTCLAW))"
+    "logic": "GG_Lurker[left1] + (RIGHTCLAW + (WINGS + (RIGHTDASH | BACKGROUNDPOGOS) | RIGHTSUPERDASH + LEFTCLAW) | $SHRIEKPOGO[3] + BACKGROUNDPOGOS)"
   },
   {
     "name": "Geo_Rock-Godhome_Pipeway",
@@ -1881,7 +1881,7 @@
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Dive",
-    "logic": "((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])) + Broke_Hallownest's_Crown_Quake_Floor"
+    "logic": "(Mines_25[left1] + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + BACKGROUNDPOGOS + $SHRIEKPOGO[5]) | Mines_25[top1]) + Broke_Hallownest's_Crown_Quake_Floor"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Dive_Dupe",
@@ -1889,7 +1889,7 @@
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden",
-    "logic": "Mines_25[left1] + (FULLCLAW | WINGS + ANYCLAW) | Mines_25[top1] + (ANYCLAW | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL] | CYCLONE)"
+    "logic": "Mines_25[left1] + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + BACKGROUNDPOGOS + $SHRIEKPOGO[5]) | Mines_25[top1] + (ANYCLAW | (FIREBALL | SCREAM) + $CASTSPELL[before:ROOMSOUL] | CYCLONE)"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Hidden_Dupe_1",
@@ -1917,11 +1917,11 @@
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Above_Crushers_Lower",
-    "logic": "(Mines_37[top1] | Mines_37[bot1]) + (ANYCLAW | WINGS + $SHADESKIP)"
+    "logic": "Mines_37[top1] + (ANYCLAW | WINGS + $SHADESKIP | $SHRIEKPOGO[before:AREASOUL])"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Above_Crushers_Higher",
-    "logic": "(Mines_37[top1] | Mines_37[bot1]) + (LEFTCLAW | (WINGS + RIGHTCLAW))"
+    "logic": "Mines_37[top1] + (LEFTCLAW | WINGS + RIGHTCLAW | $SHRIEKPOGO[1,5,before:AREASOUL])"
   },
   {
     "name": "Geo_Rock-Resting_Grounds_Catacombs_Grub",
@@ -1941,18 +1941,11 @@
   },
   {
     "name": "Geo_Rock-Fluke_Hermit_Dupe",
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (LEFTDASH + WINGS | LEFTSUPERDASH + WINGS | SWIM | LEFTSUPERDASH + LEFTDASH + LEFTCLAW + PRECISEMOVEMENT) + (RIGHTCLAW + (RIGHTDASH | WINGS | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS)) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT))"
+    "logic": "Room_GG_Shortcut"
   },
   {
     "name": "Geo_Rock-Fluke_Hermit",
-    // A  to first ledge: (LEFTCLAW + WINGS | RIGHTCLAW)
-    // B  up from first ledge without crossing pool: RIGHTCLAW + WINGS
-    // C  to left side of pool: LEFTDASH + WINGS | LEFTSUPERDASH + WINGS | SWIM | LEFTSUPERDASH + LEFTDASH + LEFTCLAW + PRECISEMOVEMENT
-    // D  up from left side with right claw: RIGHTCLAW + (RIGHTDASH | WINGS | LEFTCLAW + RIGHTSUPERDASH | LEFTCLAW + ENEMYPOGOS)
-    // E  up from left side without right claw: LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT
-    // F  up to geo rock from dupe geo rock: ANYCLAW | WINGS + ENEMYPOGOS
-    // Room_GG_Shortcut[left1] + A + (B | C + (D | E)) + F
-    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut[left1] + (LEFTCLAW + WINGS | RIGHTCLAW) + (RIGHTCLAW + WINGS | (LEFTDASH + WINGS | LEFTSUPERDASH + WINGS | SWIM | LEFTSUPERDASH + LEFTDASH + LEFTCLAW + PRECISEMOVEMENT) + (RIGHTCLAW + (RIGHTDASH | WINGS | LEFTCLAW + (RIGHTSUPERDASH | ENEMYPOGOS)) | LEFTCLAW + RIGHTDASH + WINGS + PRECISEMOVEMENT)) + (ANYCLAW | WINGS + ENEMYPOGOS)"
+    "logic": "Room_GG_Shortcut[top1] | Room_GG_Shortcut + (ANYCLAW | WINGS + ENEMYPOGOS)"
   },
   {
     "name": "Geo_Rock-Pleasure_House",
@@ -1972,7 +1965,7 @@
   },
   {
     "name": "Geo_Rock-Soul_Sanctum",
-    "logic": "Ruins1_32[right1] + ANYCLAW + Broke_Sanctum_Geo_Rock_Quake_Floor"
+    "logic": "Ruins1_32[right1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL]) + Broke_Sanctum_Geo_Rock_Quake_Floor"
   },
   {
     "name": "Geo_Rock-Watcher's_Spire",
@@ -1984,7 +1977,7 @@
   },
   {
     "name": "Geo_Rock-King's_Station",
-    "logic": "(Ruins2_06[left1] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2]) + (RIGHTCLAW | ((WINGS | LEFTCLAW) + $SHADESKIP) | (WINGS + (LEFTCLAW | ENEMYPOGOS))) | Ruins2_06[left2] + (RIGHTSUPERDASH | WINGS | SWIM | (RIGHTCLAW + RIGHTDASH + PRECISEMOVEMENT)) + (RIGHTCLAW | (WINGS + (LEFTCLAW | ENEMYPOGOS)))"
+    "logic": "(Ruins2_06[left1] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2]) + (RIGHTCLAW | (WINGS | LEFTCLAW) + $SHADESKIP | WINGS + (LEFTCLAW | ENEMYPOGOS)) | Ruins2_06[left2] + (RIGHTSUPERDASH | WINGS | SWIM | RIGHTCLAW + RIGHTDASH + PRECISEMOVEMENT) + (RIGHTCLAW | WINGS + (LEFTCLAW | ENEMYPOGOS))"
   },
   {
     "name": "Geo_Rock-King's_Pass_Left",
@@ -2020,7 +2013,7 @@
   },
   {
     "name": "Geo_Rock-Waterways_East",
-    "logic": "Waterways_07[top1] | Waterways_07[door1] | (Waterways_07 + ANYCLAW)"
+    "logic": "Waterways_07[top1] | Waterways_07[door1] | Waterways_07 + (ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[2,before:ROOMSOUL])"
   },
   {
     "name": "Geo_Rock-Waterways_Flukemarm",
@@ -2168,11 +2161,11 @@
   },
   {
     "name": "Soul_Totem-Pilgrim's_Way",
-    "logic": "(Fungus2_21[left1] + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (RIGHTDASH | RIGHTSUPERDASH | ACID)) | (Fungus2_21[right1] + ((FULLCLAW + (LEFTDASH | LEFTSUPERDASH)) | (ANYCLAW + WINGS)) + Broke_Pilgrim's_Way_Quake_Floor)"
+    "logic": "Fungus2_21[left1] + ((RIGHTCLAW | LEFTCLAW + WINGS) + (RIGHTDASH | RIGHTSUPERDASH | ACID) | RIGHTDASH + $SHRIEKPOGO[1,1,before:AREASOUL] | (RIGHTSUPERDASH | ACID) + ($SHRIEKPOGO[2,before:AREASOUL] | LEFTDASH + $SHRIEKPOGO[1,before:AREASOUL]))"
   },
   {
     "name": "Soul_Totem-Fungal_Core",
-    "logic": "(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))"
+    "logic": "Fungus2_29[right1] + (ANYCLAW + WINGS | $SHRIEKPOGO[3,before:MAPAREASOUL]) | Fungus2_29[bot1] + (LEFTCLAW | WINGS | $SHRIEKPOGO[3,before:ROOMSOUL])"
   },
   {
     "name": "Soul_Totem-Top_Left_Queen's_Gardens",
@@ -2184,27 +2177,27 @@
   },
   {
     "name": "Soul_Totem-Upper_Crystal_Peak",
-    "logic": "Mines_20 | Mines_20[left2] | ((Mines_20[left3] | Mines_20[bot1]) + ANYCLAW)"
+    "logic": "Mines_20 | Mines_20[left2] | (Mines_20[left3] | Mines_20[bot1]) + (ANYCLAW | $SHRIEKPOGO[3,before:AREASOUL])"
   },
   {
     "name": "Soul_Totem-Hallownest_Crown",
-    "logic": "((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])) + Broke_Hallownest's_Crown_Quake_Floor"
+    "logic": "(Mines_25[left1] + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + BACKGROUNDPOGOS + $SHRIEKPOGO[5]) | Mines_25[top1]) + Broke_Hallownest's_Crown_Quake_Floor"
   },
   {
     "name": "Soul_Totem-Outside_Crystallized_Mound",
-    "logic": "Mines_28[door1] | Mines_28[left1] + (WINGS + RIGHTDASH | RIGHTSUPERDASH | (WINGS | RIGHTDASH) + SPELLAIRSTALL + $CASTSPELL[2])"
+    "logic": "Mines_28[door1]"
   },
   {
     "name": "Soul_Totem-Crystal_Heart_1",
-    "logic": "Mines_31[left1] + (LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2] | RIGHTSUPERDASH + PRECISEMOVEMENT) | (RIGHTCLAW + RIGHTSUPERDASH + RIGHTDASH + WINGS) | (WINGS + $SHADESKIP[2HITS]))"
+    "logic": "Mines_31[left1] + (LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2] | RIGHTSUPERDASH + PRECISEMOVEMENT) | RIGHTCLAW + RIGHTSUPERDASH + RIGHTDASH + WINGS | WINGS + $SHADESKIP[2HITS] | $SHRIEKPOGO[4,before:AREASOUL])"
   },
   {
     "name": "Soul_Totem-Crystal_Heart_2",
-    "logic": "Mines_31[left1] + ((LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2,1]))  | (RIGHTCLAW + RIGHTSUPERDASH + FULLDASH + WINGS) | (WINGS + $SHADESKIP[2HITS]))"
+    "logic": "Mines_31[left1] + (LEFTCLAW + (RIGHTDASH | WINGS | SPELLAIRSTALL + $CASTSPELL[2,1])  | RIGHTCLAW + RIGHTSUPERDASH + FULLDASH + WINGS | WINGS + $SHADESKIP[2HITS] | $SHRIEKPOGO[4,before:AREASOUL])"
   },
   {
     "name": "Soul_Totem-Crystallized_Mound",
-    "logic": "Mines_35[left1] + Broke_Crystallized_Mound_Quake_Floor + (LEFTCLAW | (RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS)) | WINGS) + (WINGS | LEFTDASH | BACKGROUNDPOGOS)"
+    "logic": "Mines_35[left1] + Broke_Crystallized_Mound_Quake_Floor + (LEFTCLAW | RIGHTCLAW + PRECISEMOVEMENT + (RIGHTDASH | OBSCURESKIPS) | WINGS) + (WINGS | LEFTDASH | BACKGROUNDPOGOS)"
   },
   {
     "name": "Soul_Totem-Resting_Grounds",
@@ -2220,11 +2213,11 @@
   },
   {
     "name": "Soul_Totem-Sanctum_Below_Chest",
-    "logic": "Ruins1_32[right1] + ANYCLAW"
+    "logic": "Ruins1_32[right1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL])"
   },
   {
     "name": "Soul_Totem-Sanctum_Above_Grub",
-    "logic": "Ruins1_32[right1] + ANYCLAW + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2"
+    "logic": "Ruins1_32[right1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL]) + Broke_Quake_Floor_After_Soul_Master_1 + Broke_Quake_Floor_After_Soul_Master_2"
   },
   {
     "name": "Soul_Totem-Waterways_Entrance",
@@ -2232,11 +2225,11 @@
   },
   {
     "name": "Soul_Totem-Top_Left_Waterways",
-    "logic": "Waterways_04b[left1] + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH) + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS) | Waterways_04b[right2] + (WINGS | LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | LEFTSUPERDASH + RIGHTCLAW) + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS)"
+    "logic": "Waterways_04b[left1] + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS | $SHRIEKPOGO[5,before:AREASOUL]) | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH) + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS) | Waterways_04b[right2] + (WINGS | LEFTCLAW + ENEMYPOGOS + DANGEROUSSKIPS) + (LEFTCLAW | ENEMYPOGOS) + (SWIM | LEFTSUPERDASH + RIGHTCLAW) + (ANYCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS)"
   },
   {
     "name": "Soul_Totem-Waterways_East",
-    "logic": "Waterways_07 + ((LEFTCLAW + (LEFTDASH | WINGS | LEFTSUPERDASH | (SPELLAIRSTALL + $CASTSPELL[2,before:ROOMSOUL] + RIGHTCLAW) | ENEMYPOGOS)) | (RIGHTCLAW + WINGS))"
+    "logic": "Waterways_07 + (LEFTCLAW + (LEFTDASH | WINGS | LEFTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[2,before:ROOMSOUL] + RIGHTCLAW | ENEMYPOGOS) | RIGHTCLAW + WINGS | LEFTDASH + $SHRIEKPOGO[2] | $SHRIEKPOGO[2,NORIGHTSTALL] + $SHRIEKPOGO[2])"
   },
   {
     "name": "Soul_Totem-Waterways_Flukemarm",
@@ -2244,7 +2237,7 @@
   },
   {
     "name": "Soul_Totem-White_Palace_Entrance",
-    "logic": "White_Palace_02[left1] + ((LEFTCLAW + WINGS) | (RIGHTCLAW + FULLDASH + LEFTSUPERDASH))"
+    "logic": "White_Palace_02[left1] + (LEFTCLAW + WINGS | RIGHTCLAW + FULLDASH + LEFTSUPERDASH | LEFTDASH + $SHRIEKPOGO[4] | LEFTSUPERDASH + $SHRIEKPOGO)"
   },
   {
     "name": "Soul_Totem-White_Palace_Hub",
@@ -2252,11 +2245,11 @@
   },
   {
     "name": "Soul_Totem-White_Palace_Left",
-    "logic": "(White_Palace_04[right2] + FULLDASH + ANYCLAW + WINGS) | White_Palace_04[top1]"
+    "logic": "White_Palace_04[right2] + LEFTDASH + WINGS + (ANYCLAW | PRECISEMOVEMENT) | White_Palace_04[top1]"
   },
   {
     "name": "Soul_Totem-White_Palace_Final",
-    "logic": "White_Palace_09[right1] + (FULLCLAW | WINGS) + LEFTSUPERDASH"
+    "logic": "*King_Fragment"
   },
   {
     "name": "Soul_Totem-White_Palace_Right",
@@ -2264,11 +2257,11 @@
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Below_Lever",
-    "logic": "White_Palace_17[bot1] + FULLCLAW + WINGS"
+    "logic": "White_Palace_17[bot1] + (RIGHTCLAW + WINGS | $SHRIEKPOGO[1,1,1,1,1,1,1,1] + FULLDASH | LEFTCLAW + $SHRIEKPOGO[1,2,NOSTALL])"
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Left_of_Lever",
-    "logic": "White_Palace_17[bot1] + FULLDASH + FULLCLAW + WINGS"
+    "logic": "White_Palace_17[bot1] + FULLDASH + (FULLCLAW + WINGS | RIGHTCLAW + $SHRIEKPOGO[2,NOSTALL] | LEFTCLAW + $SHRIEKPOGO[1,2,NOSTALL])"
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Entrance",
@@ -2288,7 +2281,7 @@
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Final",
-    "logic": "White_Palace_20[bot1] + (LEFTCLAW + WINGS | RIGHTCLAW)"
+    "logic": "White_Palace_20[bot1] + (LEFTCLAW + WINGS | RIGHTCLAW | $SHRIEKPOGO)"
   },
   {
     "name": "Soul_Totem-Pale_Lurker",
@@ -2308,7 +2301,7 @@
   },
   {
     "name": "Lore_Tablet-Sanctum_Past_Soul_Master",
-    "logic": "Ruins1_32[right1] + ANYCLAW + Broke_Sanctum_Geo_Rock_Quake_Floor"
+    "logic": "Ruins1_32[right1] + (ANYCLAW | $SHRIEKPOGO[before:AREASOUL]) + Broke_Sanctum_Geo_Rock_Quake_Floor"
   },
   {
     "name": "Lore_Tablet-Watcher's_Spire",
@@ -2320,11 +2313,11 @@
   },
   {
     "name": "Lore_Tablet-Archives_Left",
-    "logic": "Fungus3_archive_02[top1] + Defeated_Uumuu + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (FULLSUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))"
+    "logic": "*Journal_Entry-Charged_Lumafly + (ANYCLAW | WINGS | $SHRIEKPOGO[2])"
   },
   {
     "name": "Lore_Tablet-Archives_Right",
-    "logic": "Fungus3_archive_02[top1] + Defeated_Uumuu + (ANYSUPERDASH | ACID | ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS)"
+    "logic": "Uumuu_Arena + Defeated_Uumuu + (ANYSUPERDASH | ACID | ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS)"
   },
   {
     "name": "Lore_Tablet-Pilgrim's_Way_1",
@@ -2332,7 +2325,7 @@
   },
   {
     "name": "Lore_Tablet-Pilgrim's_Way_2",
-    "logic": "Fungus2_21[left1] | Fungus2_21[right1] + Broke_Pilgrim's_Way_Quake_Floor + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH) | ANYCLAW + WINGS)"
+    "logic": "Fungus2_21[left1]"
   },
   {
     "name": "Lore_Tablet-Mantis_Outskirts",
@@ -2340,7 +2333,7 @@
   },
   {
     "name": "Lore_Tablet-Mantis_Village",
-    "logic": "Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | LEFTSUPERDASH | FULLCLAW | ENEMYPOGOS) + ((RIGHTCLAW + (WINGS | ENEMYPOGOS)) | LEFTCLAW))"
+    "logic": "Fungus2_14[top1] | Fungus2_14 + (WINGS | LEFTDASH | LEFTSUPERDASH | FULLCLAW | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL]) + (LEFTCLAW | RIGHTCLAW + WINGS | (RIGHTCLAW | WINGS) + OBSCURESKIPS + ENEMYPOGOS | $SHRIEKPOGO[before:ROOMSOUL])"
   },
   {
     "name": "Lore_Tablet-Greenpath_Upper_Hidden",
@@ -2360,7 +2353,7 @@
   },
   {
     "name": "Lore_Tablet-Greenpath_QG",
-    "logic": "Fungus1_13[left1] + (SIDESLASH | CYCLONE | GREATSLASH | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + $TAKEDAMAGE) + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + (SIDESLASH | CYCLONE | GREATSLASH | RIGHTDASHSLASH | LEFTDASHSLASH + DASHMASTER + OBSCURESKIPS) | Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH) | (WINGS | LEFTSUPERDASH) + DAMAGEBOOSTS + $TAKEDAMAGE | $SHRIEKPOGOS[2,before:AREASOUL]) + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)  | $StartLocation[Lower Greenpath] + (SIDESLASH | CYCLONE | GREATSLASH | LEFTDASHSLASH | RIGHTDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",
@@ -2368,7 +2361,7 @@
   },
   {
     "name": "Lore_Tablet-Dung_Defender",
-    "logic": "(Waterways_07 + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[top1] | Waterways_07[right1]) + (ANYCLAW | WINGS))"
+    "logic": "Waterways_07 + (ANYCLAW | ENEMYPOGOS + $SHRIEKPOGO[before:ROOMSOUL]) | (Waterways_07[door1] | Waterways_07[top1] | Waterways_07[right1]) + (ANYCLAW | WINGS)"
   },
   {
     "name": "Lore_Tablet-Spore_Shroom",
@@ -2416,11 +2409,11 @@
   },
   {
     "name": "Lore_Tablet-Palace_Workshop",
-    "logic": "White_Palace_08[right1] | White_Palace_08[left1] + ANYCLAW + WINGS"
+    "logic": "White_Palace_08[right1] | White_Palace_08[left1] + (ANYCLAW + WINGS | $SHRIEKPOGO)"
   },
   {
     "name": "Lore_Tablet-Palace_Throne",
-    "logic": "White_Palace_09[right1] + FULLSUPERDASH + (FULLCLAW | WINGS)"
+    "logic": "*King_Fragment"
   },
   {
     "name": "Lore_Tablet-Path_of_Pain_Entrance",
