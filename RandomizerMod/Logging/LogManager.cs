@@ -53,6 +53,21 @@ namespace RandomizerMod.Logging
             Modding.ModHooks.ApplicationQuitHook += CloseLogRequests;
         }
 
+        internal static void WaitForQueue()
+        {
+            if (logRequests.Count == 0 || logRequestConsumer is null || !logRequestConsumer.IsAlive) return;
+
+            EventWaitHandle h = new(false, EventResetMode.AutoReset);
+            Do(EmptyQueue);
+            h.WaitOne();
+
+            void EmptyQueue()
+            {
+                if (logRequests.Count == 0) h.Set();
+                else Do(EmptyQueue);
+            }
+        }
+
         private static void CloseLogRequests()
         {
             try

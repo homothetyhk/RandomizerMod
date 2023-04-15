@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using Modding;
+﻿using Modding;
 using RandomizerMod.Extensions;
-using RandomizerMod.RC;
+using RandomizerMod.Logging;
 using RandomizerMod.Settings;
+using System.Reflection;
 
 namespace RandomizerMod
 {
@@ -69,6 +64,7 @@ namespace RandomizerMod
 
         public void OnLoadLocal(RandomizerSettings s)
         {
+            LogManager.WaitForQueue();
             RS = s;
             RS?.Setup();
         }
