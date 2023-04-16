@@ -42,10 +42,9 @@ namespace RandomizerMod.RC.StateVariables
 
                 if (InnerVariable.SpellCasts.Any(i => i > 1) && (!noLeftStall || !noRightStall))
                 {
-                    VariableResolver.TryMatchPrefix(name, Prefix, out string[] ps);
                     stalledCasts = (CastSpellVariable)lm.GetVariableStrict(
                         CastSpellVariable.Prefix + 
-                        '[' + string.Join(",", ps.SelectMany(p => int.TryParse(p, out int i) ? Enumerable.Repeat("1", i) : Enumerable.Repeat(p, 1))) + ']'
+                        '[' + string.Join(",", InnerParameters.SelectMany(p => int.TryParse(p, out int i) ? Enumerable.Repeat("1", i) : Enumerable.Repeat(p, 1))) + ']'
                         );
                     if (!noLeftStall) leftDash = lm.GetTermStrict("LEFTDASH");
                     if (!noRightStall) rightDash = lm.GetTermStrict("RIGHTDASH");

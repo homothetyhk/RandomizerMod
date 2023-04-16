@@ -450,9 +450,9 @@ namespace RandomizerMod.RC.StateVariables
             else
             {
                 lsb.Increment(SpentHP, -spentHP);
-                spentHP = 0;
                 lsb.Increment(SpentBlueHP, spentHP);
                 blueHP += spentHP;
+                spentHP = 0;
             }
             if (lsb.GetBool(Overcharmed)) // we assume HasTakenDoubleDamage was false before entering, and that there has been no opportunities to heal through Focus/Hiveblood
             {

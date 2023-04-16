@@ -1,5 +1,6 @@
 ﻿using RandomizerCore.Logic;
 using RandomizerCore.Logic.StateLogic;
+using System.Security.Cryptography;
 
 namespace RandomizerMod.RC.StateVariables
 {
@@ -8,9 +9,13 @@ namespace RandomizerMod.RC.StateVariables
     /// </summary>
     public abstract class StateModifierWrapper<T> : StateModifier where T : StateModifier
     {
-        protected readonly T InnerVariable;
+        public readonly T InnerVariable;
         public override string Name { get; }
         protected abstract string InnerPrefix { get; }
+        /// <summary>
+        /// The parameters which were not consumed, and thus were passed to the inner variable.
+        /// </summary>
+        protected readonly string[] InnerParameters;
 
         protected StateModifierWrapper(string name, LogicManager lm) 
         {
@@ -19,13 +24,14 @@ namespace RandomizerMod.RC.StateVariables
             {
                 int i = name.IndexOf('[');
                 string innerName;
-                if (i >= 0 && VariableResolver.TryMatchPrefix(name.Substring(0, i), name, out string[] parameters))
+                if (i >= 0 && VariableResolver.TryMatchPrefix(name, name.Substring(0, i), out string[] parameters))
                 {
-                    if (parameters.Length > 0) parameters = parameters.Where(p => !Consume(p)).ToArray();
-                    innerName = parameters.Length > 0 ? $"{InnerPrefix}[{string.Join(",", parameters)}]" : InnerPrefix;
+                    InnerParameters = parameters.Where(p => !Consume(p)).ToArray();
+                    innerName = InnerParameters.Length > 0 ? $"{InnerPrefix}[{string.Join(",", InnerParameters)}]" : InnerPrefix;
                 }
                 else
                 {
+                    InnerParameters = Array.Empty<string>();
                     innerName = InnerPrefix;
                 }
                 InnerVariable = (T)lm.GetVariableStrict(innerName);
