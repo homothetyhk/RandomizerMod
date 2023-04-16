@@ -1524,7 +1524,7 @@ namespace RandomizerMod.RC
 
                 bool TryMatchGroup(RequestBuilder builder, string item, ElementType type, out GroupBuilder group)
                 {
-                    if (item == ItemNames.Grub || item == ItemNames.Mimic_Grub)
+                    if (item == ItemNames.Grub || item == ItemNames.Mimic_Grub || gb.Locations.GetCount(item) > 0)
                     {
                         group = gb;
                         return true;
