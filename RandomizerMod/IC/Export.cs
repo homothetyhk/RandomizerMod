@@ -66,13 +66,13 @@ namespace RandomizerMod.IC
             }
             if (gs.MiscSettings.FireballUpgrade == MiscSettings.ToggleableFireballSetting.Deferred)
             {
-                var tf = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.ToggleableFireball>();
+                var tf = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.ToggleableFireballUpgrade>();
                 tf.isDeferred = true;
                 tf.onewayToggle = true;
             }
             if (gs.MiscSettings.FireballUpgrade == MiscSettings.ToggleableFireballSetting.Toggleable)
             {
-                var tf = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.ToggleableFireball>();
+                var tf = ItemChangerMod.Modules.GetOrAdd<ItemChanger.Modules.ToggleableFireballUpgrade>();
                 tf.isDeferred = false;
                 tf.onewayToggle = false;
             }
