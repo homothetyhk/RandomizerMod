@@ -249,7 +249,7 @@
   },
   {
     "name": "Simple_Key-Lurker",
-    "logic": "GG_Lurker[left1] + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + RIGHTSUPERDASH)) + RIGHTCLAW + Defeated_Pale_Lurker"
+    "logic": "GG_Lurker[left1] + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + SUPERDASH)) + RIGHTCLAW + Defeated_Pale_Lurker"
   },
   {
     "name": "Shopkeeper's_Key",
