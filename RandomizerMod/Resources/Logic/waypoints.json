@@ -226,7 +226,7 @@
   },
   {
     "name": "Defeated_Pale_Lurker",
-    "logic": "GG_Lurker[left1] + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + SUPERDASH)) + RIGHTCLAW + COMBAT[Pale_Lurker]",
+    "logic": "GG_Lurker[left1] + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + FULLSUPERDASH)) + RIGHTCLAW + COMBAT[Pale_Lurker]",
     "Stateless": true
   },
   {
