@@ -2907,7 +2907,7 @@
   {
     "sceneName": "Deepnest_East_04",
     "gateName": "left1",
-    "logic": "Deepnest_East_04[left1] | Deepnest_East_04 + (ACID | ACIDSKIPS + LEFTDASH + ($CASTSPELL[3,before:ROOMSOUL,after:AREASOUL] | $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL]))",
+    "logic": "Deepnest_East_04[left1] | Deepnest_East_04 + (ACID | ACIDSKIPS + LEFTDASH + (SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL,after:AREASOUL] | $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL]))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_04[left1]"
   },
@@ -4708,7 +4708,7 @@
   {
     "sceneName": "Ruins2_07",
     "gateName": "left1",
-    "logic": "Ruins2_07[left1] | Ruins2_07[right1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + WINGS + (SPELLAIRSTALL + (RIGHTCLAW + $CASTSPELL | LEFTCLAW + $CASTSPELL[2] | ANYCLAW + LEFTSHARPSHADOW)))) | Ruins2_07[top1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (SPELLAIRSTALL + $CASTSPELL[3] | LEFTSHARPSHADOW)))",
+    "logic": "Ruins2_07[left1] | Ruins2_07[right1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + WINGS + (SPELLAIRSTALL + (RIGHTCLAW + $CASTSPELL | LEFTCLAW + $CASTSPELL[2]) | ANYCLAW + LEFTSHARPSHADOW))) | Ruins2_07[top1] + (SWIM | LEFTSKIPACID | (COMPLEXSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (SPELLAIRSTALL + $CASTSPELL[3] | LEFTSHARPSHADOW)))",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_07[left1]"
   },
