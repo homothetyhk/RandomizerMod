@@ -1,7 +1,7 @@
 ﻿[
   {
     "name": "Start_State",
-    "logic": "$DEFAULTSTATE | Can_Bench + $WARPTOSTART"
+    "logic": "$DEFAULTSTATE | Can_Bench + $WARPTOSTART + WARPTOSTARTFLOWERHANDLING"
   },
   {
     "name": "Can_Replenish_Geo",
@@ -399,6 +399,11 @@
   {
     "name": "Opened_Resting_Grounds_Floor",
     "logic": "(RestingGrounds_06[left1] | RestingGrounds_06[right1]) + (LEFTDASH | LEFTCLAW | WINGS | ENEMYPOGOS) | RestingGrounds_06[top1]",
+    "Stateless": true
+  },
+  {
+    "name": "Broke_Crypts_One_Way_Floor",
+    "logic": "RestingGrounds_10[top1]",
     "Stateless": true
   },
   {

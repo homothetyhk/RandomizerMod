@@ -4995,7 +4995,7 @@
   {
     "sceneName": "RestingGrounds_10",
     "gateName": "top1",
-    "logic": "RestingGrounds_10[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT)",
+    "logic": "RestingGrounds_10[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | RestingGrounds_10 + Broke_Crypts_One_Way_Floor + ANYCLAW",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_10[top1]"
   },

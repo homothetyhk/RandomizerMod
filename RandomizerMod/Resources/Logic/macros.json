@@ -3,8 +3,10 @@
   "AREARANDO": "MAPAREARANDO | FULLAREARANDO",
   "NONRANDOMELEVATORS": "RANDOMELEVATORS=0",
 
-  // whether selecting benches in Benchwarp can be considered in logic. By default, only warp to start is considered.
+  // whether selecting benches in Benchwarp can be considered in logic. By default, only warp to start is considered. Overwrite macro to TRUE to allow.
   "INCLUDEBENCHWARPSELECT": "FALSE",
+  // whether warping to start can be required for flower quest. By default, it is not required. Overwrite macro to TRUE to allow.
+  "WARPTOSTARTFLOWERHANDLING": "$STAGSTATEMODIFIER",
   // logic for state improvements to bench waypoints when warp select is allowed.
   "WARPSTARTTOBENCH": "INCLUDEBENCHWARPSELECT + Start_State + $WARPTOBENCH",
 

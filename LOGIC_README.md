@@ -56,7 +56,6 @@ This file serves to document the randomizer logic.
 ### Shade Skips
 - Shade Skips are skips which utilize the shade, often by pogoing it or using it for damage boosts.
 - Generally, shade skips which require shade fireballs are not in logic, due to their RNG-dependence and relative obscurity.
-- Some shade skips are only conditionally in logic, depending on the transition randomizer setting. Limitations of the randomizer make it infeasible to calculate bench accessibility for setting up shade skips in every location.
 - With Void Heart, shade skips (and Sibling pogos) require unequipping Void Heart, which causes the enemies to become hostile again. Void Tendrils are not currently affected by unequipping Void Heart.
 - In logic, Shade Skips are indicated with the **SHADESKIPS** token. More commonly, the **$SHADESKIP** state modifier is used, sometimes with arguments such as "2HITS", indicating that the player must be able to die with at least 4 masks so that the shade can take 2 nail hits.
 - Examples include:
@@ -171,7 +170,3 @@ Since geo is a consumable resource that can be used or lost in many ways (and is
 - As of version 4.1.0, the randomizer now tracks conditional logic access through state logic. State encompasses the ability to shade skip, the number of charm slots available, the amount of soul left, and similar resources. As a result, it is now possible that nonterminal logic can require the player to expend such resources (e.g. cast spells, etc). There are a few limitations of this system:
   - The ability to refill soul by killing enemies in general is not taken into account. However, where logic requires cast spells, and there are nearby enemies to refill soul, that soul may be taken into account.
   - The ability to reset state by using dream gate is generally not taken into account. This is both for consistency and to avoid requiring the player to expend too much essence using this method.
-		- Charms:
-			- In item or area randomizers, Sharp Shadow can be required for the right to left King's Station swim skip. The player is expected to bench afterward at the King's Station Stag.
-			- In item randomizer, Sharp Shadow can be required for the left to right King's Station swim skip. The player is expected to bench afterward at Oro.
-			- In item or area randomizers, Sharp Shadow can be required for the right to left Lake of Unn acid skip. Any skips which require other charms in Unn's room will adjust logic accordingly.
