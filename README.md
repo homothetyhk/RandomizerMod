@@ -51,6 +51,14 @@ Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduc
 
 ## Settings
 
+There are many settings available to customize the randomizer, and even more settings can be added by installing connection mods, which integrate with the randomizer. Information about the types of settings included with the base randomizer can be found in the subsections below.
+
+Settings presets can be selected from the first menu page of the randomizer. To edit individual settings, click "More Randomizer Settings" in the bottom left for base randomizer settings, or "Connections" in the bottom left for connection mod settings.
+
+To manage settings and settings profiles, from the first menu page, click "More Randomizer Settings" in the bottom left, then "Manage Settings Profiles" in the bottom right of the next page. On this page, you can create a shareable code for the current settings, and save/load settings profiles.
+- Both the code and the settings profiles only modify base randomizer settings. Connection mod settings must be entered by hand. The code is linked to the randomizer version and will not be accepted if a different version of the mod is installed.
+- The RandoSettingsManager mod can be used to synchronize randomizer settings and most connection mod settings. Controls can again be found under "Manage Settings Profiles". Note that RandoSettingsManager codes require an internet connection to use, and may expire.
+
 ### Pool Settings
 
 These settings control which items are randomized.

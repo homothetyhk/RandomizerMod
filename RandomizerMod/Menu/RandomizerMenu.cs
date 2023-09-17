@@ -179,6 +179,7 @@ namespace RandomizerMod.Menu
             ProfileNameField,
         };
         VerticalItemPanel ProfileVIP;
+        MenuLabel CodeWarningLabel;
 
         #endregion
 
@@ -449,6 +450,12 @@ namespace RandomizerMod.Menu
             ApplyProfileButton = new SmallButton(ManageSettingsPage, "Apply Profile");
             ProfileNameField = new TextEntryField(ManageSettingsPage, "Profile Name");
 
+            CodeWarningLabel = new MenuLabel(ManageSettingsPage, 
+                "Only base randomizer settings are synced by the settings code." + "\n" + 
+                "Sync connection mod settings manually or use the RandoSettingsManager mod.", 
+                MenuLabel.Style.Body);
+            CodeWarningLabel.Text.alignment = TextAnchor.UpperCenter;
+
             // Final Page
             InfoPanelTitle = new MenuLabel(FinalPage, Localize("Randomizer Progress"));
             AttemptCounter = new CounterLabel(FinalPage, Localize("Attempts"));
@@ -580,6 +587,7 @@ namespace RandomizerMod.Menu
 
             CodeVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(-400, 300), 100, true, CodeElements);
             ProfileVIP = new VerticalItemPanel(ManageSettingsPage, new Vector2(400, 300), 100, true, ProfileElements);
+            CodeWarningLabel.MoveTo(new(0f, -300f));
 
             generationInfoVIP = new VerticalItemPanel(FinalPage, new Vector2(-400, 300), 50f, true, InfoElements);
             HashVIP = new VerticalItemPanel(FinalPage, new Vector2(400, 300), SpaceParameters.VSPACE_SMALL, true, HashLabels);
@@ -834,6 +842,7 @@ namespace RandomizerMod.Menu
             Localize(SaveAsNewProfileButton);
             Localize(ApplyProfileButton);
             Localize(ProfileNameField);
+            Localize(CodeWarningLabel);
 
             Localize(emptyConnectionsPanelLabel);
 
