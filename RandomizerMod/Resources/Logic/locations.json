@@ -549,7 +549,7 @@
   },
   {
     "name": "Wanderer's_Journal-Kingdom's_Edge_Requires_Dive",
-    "logic": "Deepnest_East_18 + (ANYCLAW | WINGS | Deepnest_East_18[top1]) + Broke_Edge_Journal_Quake_Floor"
+    "logic": "(Deepnest_East_18 + (ANYCLAW | WINGS) | Deepnest_East_18[top1]) + Broke_Edge_Journal_Quake_Floor"
   },
   {
     "name": "Hallownest_Seal-Crossroads_Well",
@@ -657,7 +657,7 @@
   },
   {
     "name": "Whispering_Root-Greenpath",
-    "logic": "Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHRIEKPOGO[2] + ENEMYPOGOS) + DREAMNAIL + (SIDESLASH | GREATSLASH | CYCLONE | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
+    "logic": "Fungus1_13[left1] + Fungus1_13[right1]/ + (LEFTCLAW | RIGHTCLAW + WINGS + (LEFTDASH | LEFTSUPERDASH | DAMAGEBOOSTS + $TAKEDAMAGE) | $SHRIEKPOGO[2] + ENEMYPOGOS) + DREAMNAIL + (SIDESLASH | GREATSLASH | CYCLONE | FULLDASHSLASH | ANYDASHSLASH + DASHMASTER + OBSCURESKIPS)"
   },
   {
     "name": "Whispering_Root-Leg_Eater",
@@ -717,7 +717,7 @@
   },
   {
     "name": "Boss_Essence-Xero",
-    "logic": "RestingGrounds_02 + (RestingGrounds_02[top1] | ANYCLAW | WINGS | RIGHTSUPERDASH | BACKGROUNDPOGOS) + DREAMNAIL + Defeated_Xero"
+    "logic": "(RestingGrounds_02[top1] | RestingGrounds_02 + (ANYCLAW | WINGS | RIGHTSUPERDASH | BACKGROUNDPOGOS)) + DREAMNAIL + Defeated_Xero"
   },
   {
     "name": "Boss_Essence-Gorb",
@@ -1001,7 +1001,7 @@
   },
   {
     "name": "Howling_Cliffs_Map",
-    "logic": "Cliffs_01 + ((FULLDASH + ENEMYPOGOS) | ANYCLAW | WINGS | Cliffs_01[right1] | Cliffs_01[right2])"
+    "logic": "Cliffs_01[right1] | Cliffs_01[right2] | Cliffs_01 + (FULLDASH + ENEMYPOGOS | ANYCLAW | WINGS)"
   },
   {
     "name": "Crystal_Peak_Map",
@@ -1013,7 +1013,7 @@
   },
   {
     "name": "Resting_Grounds_Map",
-    "logic": "RestingGrounds_09[left1] | (Resting_Grounds_Stag + Can_Stag)"
+    "logic": "RestingGrounds_09[left1] | Resting_Grounds_Stag + Can_Stag"
   },
   {
     "name": "Dirtmouth_Stag",
@@ -1021,15 +1021,15 @@
   },
   {
     "name": "Crossroads_Stag",
-    "logic": "Crossroads_47[right1] | (Crossroads_Stag + Can_Stag)"
+    "logic": "Crossroads_47[right1] | Crossroads_Stag + Can_Stag"
   },
   {
     "name": "Greenpath_Stag",
-    "logic": "Fungus1_16_alt[right1] | (Greenpath_Stag + Can_Stag)"
+    "logic": "Fungus1_16_alt[right1] | Greenpath_Stag + Can_Stag"
   },
   {
     "name": "Queen's_Station_Stag",
-    "logic": "Fungus2_02[right1] | (Queen's_Station_Stag + Can_Stag)"
+    "logic": "Fungus2_02[right1] | Queen's_Station_Stag + Can_Stag"
   },
   {
     "name": "Queen's_Gardens_Stag",
@@ -1037,27 +1037,27 @@
   },
   {
     "name": "City_Storerooms_Stag",
-    "logic": "Ruins1_29[left1] | (City_Storerooms_Stag + Can_Stag)"
+    "logic": "Ruins1_29[left1] | City_Storerooms_Stag + Can_Stag"
   },
   {
     "name": "King's_Station_Stag",
-    "logic": "Ruins2_08[left1] | (King's_Station_Stag + Can_Stag)"
+    "logic": "Ruins2_08[left1] | King's_Station_Stag + Can_Stag"
   },
   {
     "name": "Resting_Grounds_Stag",
-    "logic": "RestingGrounds_09[left1] | (Resting_Grounds_Stag + Can_Stag)"
+    "logic": "RestingGrounds_09[left1] | Resting_Grounds_Stag + Can_Stag"
   },
   {
     "name": "Distant_Village_Stag",
-    "logic": "Deepnest_09[left1] | (Distant_Village_Stag + Can_Stag)"
+    "logic": "Deepnest_09[left1] | Distant_Village_Stag + Can_Stag"
   },
   {
     "name": "Hidden_Station_Stag",
-    "logic": "Abyss_22[left1] | (Hidden_Station_Stag + Can_Stag)"
+    "logic": "Abyss_22[left1] | Hidden_Station_Stag + Can_Stag"
   },
   {
     "name": "Stag_Nest_Stag",
-    "logic": "Cliffs_03[right1] | (ALLSTAGS + Can_Stag)"
+    "logic": "Cliffs_03[right1] | ALLSTAGS + Can_Stag"
   },
   {
     "name": "Lifeblood_Cocoon-King's_Pass",
@@ -1405,7 +1405,7 @@
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Spike_Grub",
-    "logic": "Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])"
+    "logic": "Deepnest_03[top1] | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS)"
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Spike_Grub_Dupe",
@@ -1413,7 +1413,7 @@
   },
   {
     "name": "Geo_Rock-Deepnest_Spike_Grub_Right",
-    "logic": "Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])"
+    "logic": "Deepnest_03[top1] | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS)"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo",
@@ -1841,7 +1841,7 @@
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Lower_Middle",
-    "logic": "Mines_02 + (RIGHTCLAW | WINGS | Mines_02[top2])"
+    "logic": "Mines_02[top2] | Mines_02 + (RIGHTCLAW | WINGS)"
   },
   {
     "name": "Geo_Rock-Crystal_Peak_Lower_Conveyer_1",
@@ -1881,7 +1881,7 @@
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Dive",
-    "logic": "(Mines_25[left1] + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + BACKGROUNDPOGOS + $SHRIEKPOGO[5]) | Mines_25[top1]) + Broke_Hallownest's_Crown_Quake_Floor"
+    "logic": "(Mines_25[top1] | Mines_25[left1] + (FULLCLAW | WINGS + ANYCLAW | ENEMYPOGOS + BACKGROUNDPOGOS + $SHRIEKPOGO[5])) + Broke_Hallownest's_Crown_Quake_Floor"
   },
   {
     "name": "Geo_Rock-Hallownest_Crown_Dive_Dupe",
@@ -2117,7 +2117,7 @@
   },
   {
     "name": "Soul_Totem-Upper_Kingdom's_Edge",
-    "logic": "Deepnest_East_07 + (ANYCLAW | WINGS | Deepnest_East_07[left1])"
+    "logic": "Deepnest_East_07[left1] | Deepnest_East_07 + (ANYCLAW | WINGS)"
   },
   {
     "name": "Soul_Totem-Kingdom's_Edge_Camp",
@@ -2241,7 +2241,7 @@
   },
   {
     "name": "Soul_Totem-White_Palace_Hub",
-    "logic": "White_Palace_03_hub + (LEFTDASH | FULLCLAW | WINGS | White_Palace_03_hub[left1])"
+    "logic": "White_Palace_03_hub[left1] | White_Palace_03_hub + (LEFTDASH | FULLCLAW | WINGS)"
   },
   {
     "name": "Soul_Totem-White_Palace_Left",

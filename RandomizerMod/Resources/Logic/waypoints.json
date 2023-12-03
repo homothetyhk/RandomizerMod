@@ -5,7 +5,7 @@
   },
   {
     "name": "Can_Replenish_Geo",
-    "logic": "Tutorial_01 | Can_Replenish_Geo-Crossroads | Fungus1_01[right1] | Fungus2_03[left1] | Fungus2_06[top1] | Fungus2_12[left1] | Fungus2_14[top1] | Deepnest_41[left1] + (DARKROOMS | LANTERN) | Ruins1_01[left1] | Ruins1_17[right1] | Ruins2_04[right2] | Ruins2_06[right2] | Abyss_04[left1] | Abyss_12[right1] | Fungus3_40[top1] | Mines_02[left1] | Cliffs_02[left1] | Deepnest_East_01[bot1] | Deepnest_East_03[left1] | Deepnest_East_07[left2] | Deepnest_East_08[top1] | Waterways_02[top1] | Waterways_01[right1] | Waterways_04b[left1]",
+    "logic": "Tutorial_01 | $ANY + Can_Replenish_Geo-Crossroads | Fungus1_01[right1] | Fungus2_03[left1] | Fungus2_06[top1] | Fungus2_12[left1] | Fungus2_14[top1] | Deepnest_41[left1] + (DARKROOMS | LANTERN) | Ruins1_01[left1] | Ruins1_17[right1] | Ruins2_04[right2] | Ruins2_06[right2] | Abyss_04[left1] | Abyss_12[right1] | Fungus3_40[top1] | Mines_02[left1] | Cliffs_02[left1] | Deepnest_East_01[bot1] | Deepnest_East_03[left1] | Deepnest_East_07[left2] | Deepnest_East_08[top1] | Waterways_02[top1] | Waterways_01[right1] | Waterways_04b[left1]",
     "Stateless": true
   },
   {
@@ -93,7 +93,7 @@
   },
   {
     "name": "Left_Elevator",
-    "logic": "(Crossroads_49[left1] | Crossroads_49[right1] | Crossroads_49b[right1]) + (Crossroads_49b[right1] + NONRANDOMELEVATORS | Elevator_Pass)"
+    "logic": "(Crossroads_49[left1] | Crossroads_49[right1] | Crossroads_49b[right1]) + (Crossroads_49b[right1]/ + NONRANDOMELEVATORS | Elevator_Pass)"
   },
   {
     "name": "Right_Elevator",
@@ -336,16 +336,16 @@
   },
   {
     "name": "Can_Bench",
-    "logic": "Bench-Dirtmouth | Bench-Mato | Bench-Crossroads_Hot_Springs | Bench-Crossroads_Stag | Bench-Salubra | Bench-Black_Egg_Temple | Bench-Waterfall | Bench-Stone_Sanctuary | Bench-Greenpath_Toll | Bench-Greenpath_Stag | Bench-Lake_of_Unn | Bench-Sheo | Bench-Archives | Bench-Queen's_Station | Bench-Leg_Eater | Bench-Bretta | Bench-Mantis_Village | Bench-Quirrel | Bench-City_Toll | Bench-City_Storerooms | Bench-Watcher's_Spire | Bench-King's_Station | Bench-Pleasure_House | Bench-Waterways | Bench-Godhome_Atrium | Bench-Godhome_Roof | Bench-Hall_of_Gods | Bench-Deepnest_Hot_Springs | Bench-Failed_Tramway | Bench-Basin_Toll | Bench-Hidden_Station | Bench-Oro | Bench-Camp | Bench-Colosseum | Bench-Hive | Bench-Peak_Dark_Room | Bench-Crystal_Guardian | Bench-Grounds_Stag | Bench-Grey_Mourner | Bench-Gardens_Cornifer | Bench-Gardens_Toll | Bench-Gardens_Stag | Can_Warp_To_DG_Bench | Bench-Ancestral_Mound | Bench-Beast's_Den | Bench-Palace_Entrance | Bench-Palace_Atrium | Bench-Palace_Balcony | Bench-Upper_Tram | Bench-Lower_Tram"
+    "logic": "Bench-Dirtmouth | Bench-Mato | Bench-Crossroads_Hot_Springs | Bench-Crossroads_Stag | Bench-Salubra | Bench-Black_Egg_Temple | Bench-Waterfall | Bench-Stone_Sanctuary | Bench-Greenpath_Toll | Bench-Greenpath_Stag | Bench-Lake_of_Unn | Bench-Sheo | Bench-Archives | Bench-Queen's_Station | Bench-Leg_Eater | Bench-Bretta | Bench-Mantis_Village | Bench-Quirrel | Bench-City_Toll | Bench-City_Storerooms | Bench-Watcher's_Spire | Bench-King's_Station | Bench-Pleasure_House | Bench-Waterways | Bench-Godhome_Atrium | Bench-Godhome_Roof | Bench-Hall_of_Gods | Bench-Deepnest_Hot_Springs | Bench-Failed_Tramway | Bench-Basin_Toll | Bench-Hidden_Station | Bench-Oro | Bench-Camp | Bench-Colosseum | Bench-Hive | Bench-Peak_Dark_Room | Bench-Crystal_Guardian | Bench-Grounds_Stag | Bench-Grey_Mourner | Bench-Gardens_Cornifer | Bench-Gardens_Toll | Bench-Gardens_Stag | Bench-Ancestral_Mound | Bench-Beast's_Den | Bench-Palace_Entrance | Bench-Palace_Atrium | Bench-Palace_Balcony | Bench-Upper_Tram | Bench-Lower_Tram"
   },
   {
     "name": "Can_Warp_To_DG_Bench",
-    "logic": "INCLUDEBENCHWARPSELECT + (Bench-Dirtmouth | Bench-Mato | Bench-Crossroads_Hot_Springs | Bench-Crossroads_Stag | Bench-Salubra | Bench-Black_Egg_Temple | Bench-Waterfall | Bench-Stone_Sanctuary | Bench-Greenpath_Toll | Bench-Greenpath_Stag | Bench-Lake_of_Unn | Bench-Sheo | Bench-Archives | Bench-Queen's_Station | Bench-Leg_Eater | Bench-Bretta | Bench-Mantis_Village | Bench-Quirrel | Bench-City_Toll | Bench-City_Storerooms | Bench-Watcher's_Spire | Bench-King's_Station | Bench-Pleasure_House | Bench-Waterways | Bench-Godhome_Atrium | Bench-Godhome_Roof | Bench-Hall_of_Gods | Bench-Deepnest_Hot_Springs | Bench-Failed_Tramway | Bench-Basin_Toll | Bench-Hidden_Station | Bench-Oro | Bench-Camp | Bench-Colosseum | Bench-Hive | Bench-Peak_Dark_Room | Bench-Crystal_Guardian | Bench-Grounds_Stag | Bench-Grey_Mourner | Bench-Gardens_Cornifer | Bench-Gardens_Toll | Bench-Gardens_Stag)",
+    "logic": "INCLUDEBENCHWARPSELECT + (Bench-Dirtmouth/ | Bench-Mato/ | Bench-Crossroads_Hot_Springs/ | Bench-Crossroads_Stag/ | Bench-Salubra/ | Bench-Black_Egg_Temple/ | Bench-Waterfall/ | Bench-Stone_Sanctuary/ | Bench-Greenpath_Toll/ | Bench-Greenpath_Stag/ | Bench-Lake_of_Unn/ | Bench-Sheo/ | Bench-Archives/ | Bench-Queen's_Station/ | Bench-Leg_Eater/ | Bench-Bretta/ | Bench-Mantis_Village/ | Bench-Quirrel/ | Bench-City_Toll/ | Bench-City_Storerooms/ | Bench-Watcher's_Spire/ | Bench-King's_Station/ | Bench-Pleasure_House/ | Bench-Waterways/ | Bench-Godhome_Atrium/ | Bench-Godhome_Roof/ | Bench-Hall_of_Gods/ | Bench-Deepnest_Hot_Springs/ | Bench-Failed_Tramway/ | Bench-Basin_Toll/ | Bench-Hidden_Station/ | Bench-Oro/ | Bench-Camp/ | Bench-Colosseum/ | Bench-Hive/ | Bench-Peak_Dark_Room/ | Bench-Crystal_Guardian/ | Bench-Grounds_Stag/ | Bench-Grey_Mourner/ | Bench-Gardens_Cornifer/ | Bench-Gardens_Toll/ | Bench-Gardens_Stag/)",
     "Stateless": true
   },
   {
     "name": "Can_Warp_To_Bench",
-    "logic": "INCLUDEBENCHWARPSELECT + (Can_Warp_To_DG_Bench | Bench-Ancestral_Mound | Bench-Beast's_Den | Bench-Palace_Entrance | Bench-Palace_Atrium | Bench-Palace_Balcony | Bench-Upper_Tram | Bench-Lower_Tram)",
+    "logic": "INCLUDEBENCHWARPSELECT + (Can_Warp_To_DG_Bench | Bench-Ancestral_Mound/ | Bench-Beast's_Den/ | Bench-Palace_Entrance/ | Bench-Palace_Atrium/ | Bench-Palace_Balcony/ | Bench-Upper_Tram/ | Bench-Lower_Tram/)",
     "Stateless": true
   },
   {
@@ -354,7 +354,7 @@
   },
   {
     "name": "Can_Visit_Lemm",
-    "logic": "Ruins1_05b[top1] + Ruins1_27[left1]",
+    "logic": "Ruins1_05b[top1] + Ruins1_27[left1]/",
     "Stateless": true
   },
   {
@@ -383,7 +383,7 @@
   },
   {
     "name": "Nightmare_Lantern_Lit",
-    "logic": "Cliffs_06[left1] + DREAMNAIL | Grimmchild",
+    "logic": "Cliffs_06[left1]/ + DREAMNAIL | Grimmchild",
     "Stateless": true
   },
   {
@@ -428,7 +428,7 @@
   },
   {
     "name": "Opened_Shaman_Pillar",
-    "logic": "Crossroads_06[left1] | Crossroads_06[door1] | Crossroads_06[right1] | INFECTION",
+    "logic": "Crossroads_06[left1]/ | Crossroads_06[door1]/ | Crossroads_06[right1]/ | INFECTION",
     "Stateless": true
   },
   {
@@ -633,7 +633,7 @@
   },
   {
     "name": "Broke_Edge_Journal_Quake_Floor",
-    "logic": "Deepnest_East_18 + (ANYCLAW | WINGS | Deepnest_East_18[top1]) + QUAKE + $CASTSPELL",
+    "logic": "(Deepnest_East_18 + (ANYCLAW | WINGS) | Deepnest_East_18[top1]) + QUAKE + $CASTSPELL",
     "Stateless": true
   },
   {
@@ -1259,7 +1259,7 @@
   },
   {
     "name": "Mines_10", // deprecated
-    "logic": "Mines_10[left1] + Mines_10[bot1] | Mines_10[bot1] + Mines_10[left1]"
+    "logic": "Mines_10[left1] + Mines_10[bot1]/ | Mines_10[bot1] + Mines_10[left1]/"
   },
   {
     "name": "Mines_11",
@@ -1275,7 +1275,7 @@
   },
   {
     "name": "Mines_23",
-    "logic": "(FULLDASH | WINGS | FULLCLAW + FULLSUPERDASH | Mines_23[right1]) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])"
+    "logic": "(FULLDASH | WINGS | FULLCLAW + FULLSUPERDASH) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right2]) | Mines_23[right1]"
   },
   {
     "name": "Fungus3_04",

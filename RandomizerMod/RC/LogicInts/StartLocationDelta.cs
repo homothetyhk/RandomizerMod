@@ -35,7 +35,7 @@ namespace RandomizerMod.RC.LogicInts
 
         public override StateUnion? GetInputState(object? sender, ProgressionManager pm)
         {
-            return pm.GetState(StartStateTerm);
+            return StartStateTerm is not null ? pm.GetState(StartStateTerm) : StateUnion.Empty; // StartStateTerm may be null in files generated before state logic, in which case we can return anything nonnull.
         }
 
         public override IEnumerable<Term> GetTerms()
