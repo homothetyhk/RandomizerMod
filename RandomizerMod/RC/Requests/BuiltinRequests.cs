@@ -1350,13 +1350,21 @@ namespace RandomizerMod.RC
         {
             if (rb.gs.NoveltySettings.SplitCloak)
             {
+                const string Left_Biased_Shade_Cloak = "Left_Biased_Shade_Cloak";
+                const string Right_Biased_Shade_Cloak = "Right_Biased_Shade_Cloak";
+
                 rb.EditItemRequest(ItemNames.Split_Shade_Cloak, info =>
                 {
                     info.randoItemCreator = factory =>
                     {
+                        bool leftBiased = factory.rng.NextBool();
+                        
+
                         return new RandoModItem
                         {
-                            item = ((SplitCloakItem)factory.lm.GetItem(ItemNames.Split_Shade_Cloak)) with { LeftBiased = rb.rng.NextBool() }
+                            item = leftBiased
+                            ? factory.lm.GetItemStrict(ItemNames.Left_Mothwing_Cloak) with { Name = Left_Biased_Shade_Cloak }
+                            : factory.lm.GetItemStrict(ItemNames.Right_Mothwing_Cloak) with { Name = Right_Biased_Shade_Cloak }
                         };
                     };
                     info.realItemCreator = (factory, next) =>
@@ -1364,13 +1372,15 @@ namespace RandomizerMod.RC
                         AbstractItem item = factory.MakeItem(ItemNames.Split_Shade_Cloak);
 
                         RandoModItem ri = (RandoModItem)next.Item;
-                        if (ri is PlaceholderItem pi) ri = pi.innerItem;
+                        while (ri is PlaceholderItem pi) ri = pi.innerItem;
 
-                        bool leftBiased;
-                        if (ri.item is SplitCloakItem cloak) leftBiased = cloak.LeftBiased;
-                        else leftBiased = factory.rb.rng.NextBool();
+                        bool leftBiased = ri.Name switch
+                        {
+                            ItemNames.Right_Mothwing_Cloak or Right_Biased_Shade_Cloak => false,
+                            _ or ItemNames.Left_Mothwing_Cloak or Left_Biased_Shade_Cloak => true,
+                        };
 
-                        item.GetTag<ItemChanger.Tags.ItemTreeTag>().predecessors = leftBiased ? new[] { ItemNames.Left_Mothwing_Cloak } : new[] { ItemNames.Right_Mothwing_Cloak };
+                        item.GetTag<ItemChanger.Tags.ItemTreeTag>().predecessors = leftBiased ? [ItemNames.Left_Mothwing_Cloak] : [ItemNames.Right_Mothwing_Cloak];
                         return item;
                     };
                 });

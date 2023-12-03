@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RandomizerCore;
+﻿using RandomizerCore;
 using RandomizerCore.Logic;
-using RandomizerCore.LogicItems;
 
 namespace RandomizerMod.RC
 {
+    [Obsolete("Use StringItem for split cloak items")]
     public record SplitCloakItem(string Name, bool LeftBiased, Term LeftDashTerm, Term RightDashTerm) : LogicItem(Name)
     {
         public override void AddTo(ProgressionManager pm)

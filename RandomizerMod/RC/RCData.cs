@@ -12,7 +12,7 @@ namespace RandomizerMod.RC
             (LogicManagerBuilder.JsonType.Waypoints, "waypoints"),
             (LogicManagerBuilder.JsonType.Transitions, "transitions"),
             (LogicManagerBuilder.JsonType.Locations, "locations"),
-            (LogicManagerBuilder.JsonType.Items, "items"),
+            (LogicManagerBuilder.JsonType.ItemStrings, "items"),
             (LogicManagerBuilder.JsonType.StateData, "state"),
         };
 

@@ -1,2885 +1,998 @@
 [
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Lurien",
-      "logic": "DREAMER>2"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Lurien",
-        "Value": 1
-      },
-      "Name": "Lurien"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "DREAMER",
-          "Value": 1
-        },
-        {
-          "Term": "Lurien",
-          "Value": 1
-        }
-      ],
-      "Name": "Lurien"
-    },
+    "Effect": "DREAMER++ >> Lurien++",
     "Name": "Lurien"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Monomon",
-      "logic": "DREAMER>2"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Monomon",
-        "Value": 1
-      },
-      "Name": "Monomon"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "DREAMER",
-          "Value": 1
-        },
-        {
-          "Term": "Monomon",
-          "Value": 1
-        }
-      ],
-      "Name": "Monomon"
-    },
+    "Effect": "DREAMER++ >> Monomon++",
     "Name": "Monomon"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Herrah",
-      "logic": "DREAMER>2"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Herrah",
-        "Value": 1
-      },
-      "Name": "Herrah"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "DREAMER",
-          "Value": 1
-        },
-        {
-          "Term": "Herrah",
-          "Value": 1
-        }
-      ],
-      "Name": "Herrah"
-    },
+    "Effect": "DREAMER++ >> Herrah++",
     "Name": "Herrah"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "World_Sense",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "World_Sense",
-      "Value": 1
-    },
+    "Effect": "World_Sense++",
     "Name": "World_Sense"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "DREAMER",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "DREAMER",
-      "Value": 3
-    },
+    "Effect": "DREAMER++",
     "Name": "Dreamer"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "LEFTDASH",
-        "Value": 1
-      },
-      {
-        "Term": "RIGHTDASH",
-        "Value": 1
-      }
-    ],
+    "Effect": "LEFTDASH++ >> RIGHTDASH++",
     "Name": "Mothwing_Cloak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "LEFTCLAW",
-        "Value": 1
-      },
-      {
-        "Term": "RIGHTCLAW",
-        "Value": 1
-      }
-    ],
+    "Effect": "LEFTCLAW++ >> RIGHTCLAW++",
     "Name": "Mantis_Claw"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "LEFTSUPERDASH",
-        "Value": 1
-      },
-      {
-        "Term": "RIGHTSUPERDASH",
-        "Value": 1
-      }
-    ],
+    "Effect": "LEFTSUPERDASH++ >> RIGHTSUPERDASH++",
     "Name": "Crystal_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "WINGS",
-      "Value": 1
-    },
+    "Effect": "WINGS++",
     "Name": "Monarch_Wings"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "LEFTDASH",
-        "Value": 1
-      },
-      {
-        "Term": "RIGHTDASH",
-        "Value": 1
-      }
-    ],
+    "Effect": "*Mothwing_Cloak",
     "Name": "Shade_Cloak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "ACID",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "ACID",
-      "Value": 1
-    },
+    "Effect": "ACID++",
     "Name": "Isma's_Tear"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "DREAMNAIL",
-      "Value": 1
-    },
+    "Effect": "DREAMNAIL++",
     "Name": "Dream_Nail"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "DREAMNAIL",
-      "Value": 1
-    },
+    "Effect": "DREAMNAIL++",
     "Name": "Dream_Gate"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "DREAMNAIL",
-      "Value": 1
-    },
+    "Effect": "DREAMNAIL++",
     "Name": "Awoken_Dream_Nail"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "FIREBALL",
-        "Value": 1
-      },
-      {
-        "Term": "SPELLS",
-        "Value": 1
-      }
-    ],
+    "Effect": "FIREBALL++ >> SPELLS++",
     "Name": "Vengeful_Spirit"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "FIREBALL",
-        "Value": 1
-      },
-      {
-        "Term": "SPELLS",
-        "Value": 1
-      }
-    ],
+    "Effect": "*Vengeful_Spirit",
     "Name": "Shade_Soul"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "QUAKE",
-        "Value": 1
-      },
-      {
-        "Term": "SPELLS",
-        "Value": 1
-      }
-    ],
+    "Effect": "QUAKE++ >> SPELLS++",
     "Name": "Desolate_Dive"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "QUAKE",
-        "Value": 1
-      },
-      {
-        "Term": "SPELLS",
-        "Value": 1
-      }
-    ],
+    "Effect": "*Desolate_Dive",
     "Name": "Descending_Dark"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "SCREAM",
-        "Value": 1
-      },
-      {
-        "Term": "SPELLS",
-        "Value": 1
-      }
-    ],
+    "Effect": "SCREAM++ >> SPELLS++",
     "Name": "Howling_Wraiths"
   },
   {
-    "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "SCREAM",
-        "Value": 1
-      },
-      {
-        "Term": "SPELLS",
-        "Value": 1
-      }
-    ],
+    "Effect": "*Howling_Wraiths",
     "Name": "Abyss_Shriek"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Cyclone_Slash",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Cyclone_Slash",
-      "Value": 1
-    },
+    "Effect": "Cyclone_Slash++",
     "Name": "Cyclone_Slash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Dash_Slash",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Dash_Slash",
-      "Value": 1
-    },
+    "Effect": "Dash_Slash++",
     "Name": "Dash_Slash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Great_Slash",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Great_Slash",
-      "Value": 1
-    },
+    "Effect": "Great_Slash++",
     "Name": "Great_Slash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "FOCUS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "FOCUS",
-      "Value": 1
-    },
+    "Effect": "FOCUS++",
     "Name": "Focus"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "SWIM",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "SWIM",
-      "Value": 1
-    },
+    "Effect": "SWIM++",
     "Name": "Swim"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Gathering_Swarm",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Gathering_Swarm",
-      "Value": 1
-    },
+    "Effect": "`Gathering_Swarm<1` => CHARMS++ >> Gathering_Swarm++",
     "Name": "Gathering_Swarm"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Wayward_Compass",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Wayward_Compass",
-      "Value": 1
-    },
+    "Effect": "`Wayward_Compass<1` => CHARMS++ >> Wayward_Compass++",
     "Name": "Wayward_Compass"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Grubsong",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Grubsong",
-      "Value": 1
-    },
+    "Effect": "`Grubsong<1` => CHARMS++ >> Grubsong++",
     "Name": "Grubsong"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Stalwart_Shell",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Stalwart_Shell",
-      "Value": 1
-    },
+    "Effect": "`Stalwart_Shell<1` => CHARMS++ >> Stalwart_Shell++",
     "Name": "Stalwart_Shell"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Baldur_Shell",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Baldur_Shell",
-      "Value": 1
-    },
+    "Effect": "`Baldur_Shell<1` => CHARMS++ >> Baldur_Shell++",
     "Name": "Baldur_Shell"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Fury_of_the_Fallen",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Fury_of_the_Fallen",
-      "Value": 1
-    },
+    "Effect": "`Fury_of_the_Fallen<1` => CHARMS++ >> Fury_of_the_Fallen++",
     "Name": "Fury_of_the_Fallen"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Quick_Focus",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Quick_Focus",
-      "Value": 1
-    },
+    "Effect": "`Quick_Focus<1` => CHARMS++ >> Quick_Focus++",
     "Name": "Quick_Focus"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Lifeblood_Heart",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Lifeblood_Heart",
-      "Value": 1
-    },
+    "Effect": "`Lifeblood_Heart<1` => CHARMS++ >> Lifeblood_Heart++",
     "Name": "Lifeblood_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Lifeblood_Core",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Lifeblood_Core",
-      "Value": 1
-    },
+    "Effect": "`Lifeblood_Core<1` => CHARMS++ >> Lifeblood_Core++",
     "Name": "Lifeblood_Core"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Defender's_Crest",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Defender's_Crest",
-      "Value": 1
-    },
+    "Effect": "`Defender's_Crest<1` => CHARMS++ >> Defender's_Crest++",
     "Name": "Defender's_Crest"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Flukenest",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Flukenest",
-      "Value": 1
-    },
+    "Effect": "`Flukenest<1` => CHARMS++ >> Flukenest++",
     "Name": "Flukenest"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Thorns_of_Agony",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Thorns_of_Agony",
-      "Value": 1
-    },
+    "Effect": "`Thorns_of_Agony<1` => CHARMS++ >> Thorns_of_Agony++",
     "Name": "Thorns_of_Agony"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Mark_of_Pride",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Mark_of_Pride",
-      "Value": 1
-    },
+    "Effect": "`Mark_of_Pride<1` => CHARMS++ >> Mark_of_Pride++",
     "Name": "Mark_of_Pride"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Steady_Body",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Steady_Body",
-      "Value": 1
-    },
+    "Effect": "`Steady_Body<1` => CHARMS++ >> Steady_Body++",
     "Name": "Steady_Body"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Heavy_Blow",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Heavy_Blow",
-      "Value": 1
-    },
+    "Effect": "`Heavy_Blow<1` => CHARMS++ >> Heavy_Blow++",
     "Name": "Heavy_Blow"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Sharp_Shadow",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Sharp_Shadow",
-      "Value": 1
-    },
+    "Effect": "`Sharp_Shadow<1` => CHARMS++ >> Sharp_Shadow++",
     "Name": "Sharp_Shadow"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Spore_Shroom",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Spore_Shroom",
-      "Value": 1
-    },
+    "Effect": "`Spore_Shroom<1` => CHARMS++ >> Spore_Shroom++",
     "Name": "Spore_Shroom"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Longnail",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Longnail",
-      "Value": 1
-    },
+    "Effect": "`Longnail<1` => CHARMS++ >> Longnail++",
     "Name": "Longnail"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Shaman_Stone",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Shaman_Stone",
-      "Value": 1
-    },
+    "Effect": "`Shaman_Stone<1` => CHARMS++ >> Shaman_Stone++",
     "Name": "Shaman_Stone"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Soul_Catcher",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Soul_Catcher",
-      "Value": 1
-    },
+    "Effect": "`Soul_Catcher<1` => CHARMS++ >> Soul_Catcher++",
     "Name": "Soul_Catcher"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Soul_Eater",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Soul_Eater",
-      "Value": 1
-    },
+    "Effect": "`Soul_Eater<1` => CHARMS++ >> Soul_Eater++",
     "Name": "Soul_Eater"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Glowing_Womb",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Glowing_Womb",
-      "Value": 1
-    },
+    "Effect": "`Glowing_Womb<1` => CHARMS++ >> Glowing_Womb++",
     "Name": "Glowing_Womb"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Fragile_Heart",
-      "logic": "Fragile_Heart"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "Fragile_Heart",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Fragile_Heart"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Fragile_Heart",
-        "Value": 1
-      },
-      "Name": "Fragile_Heart"
-    },
+    "Effect": "`Fragile_Heart<1` => CHARMS++ >> Fragile_Heart++",
     "Name": "Fragile_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Unbreakable_Heart",
-      "logic": "Fragile_Heart"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "Fragile_Heart",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Unbreakable_Heart"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Fragile_Heart",
-        "Value": 1
-      },
-      "Name": "Unbreakable_Heart"
-    },
+    "Effect": "*Fragile_Heart",
     "Name": "Unbreakable_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Fragile_Greed",
-      "logic": "Fragile_Greed"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "Fragile_Greed",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Fragile_Greed"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Fragile_Greed",
-        "Value": 1
-      },
-      "Name": "Fragile_Greed"
-    },
+    "Effect": "`Fragile_Greed<1` => CHARMS++ >> Fragile_Greed++",
     "Name": "Fragile_Greed"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Unbreakable_Greed",
-      "logic": "Fragile_Greed"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "Fragile_Greed",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Unbreakable_Greed"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Fragile_Greed",
-        "Value": 1
-      },
-      "Name": "Unbreakable_Greed"
-    },
+    "Effect": "*Fragile_Greed",
     "Name": "Unbreakable_Greed"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Fragile_Strength",
-      "logic": "Fragile_Strength"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "Fragile_Strength",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Fragile_Strength"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Fragile_Strength",
-        "Value": 1
-      },
-      "Name": "Fragile_Strength"
-    },
+    "Effect": "`Fragile_Strength<1` => CHARMS++ >> Fragile_Strength++",
     "Name": "Fragile_Strength"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Unbreakable_Strength",
-      "logic": "Fragile_Strength"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "Fragile_Strength",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Unbreakable_Strength"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "Fragile_Strength",
-        "Value": 1
-      },
-      "Name": "Unbreakable_Strength"
-    },
+    "Effect": "*Fragile_Strength",
     "Name": "Unbreakable_Strength"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Nailmaster's_Glory",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Nailmaster's_Glory",
-      "Value": 1
-    },
+    "Effect": "`Nailmaster's_Glory<1` => CHARMS++ >> Nailmaster's_Glory++",
     "Name": "Nailmaster's_Glory"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Joni's_Blessing",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Joni's_Blessing",
-      "Value": 1
-    },
+    "Effect": "`Joni's_Blessing<1` => CHARMS++ >> Joni's_Blessing++",
     "Name": "Joni's_Blessing"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Shape_of_Unn",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Shape_of_Unn",
-      "Value": 1
-    },
+    "Effect": "`Shape_of_Unn<1` => CHARMS++ >> Shape_of_Unn++",
     "Name": "Shape_of_Unn"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Hiveblood",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Hiveblood",
-      "Value": 1
-    },
+    "Effect": "`Hiveblood<1` => CHARMS++ >> Hiveblood++",
     "Name": "Hiveblood"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Dream_Wielder",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Dream_Wielder",
-      "Value": 1
-    },
+    "Effect": "`Dream_Wielder<1` => CHARMS++ >> Dream_Wielder++",
     "Name": "Dream_Wielder"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Dashmaster",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Dashmaster",
-      "Value": 1
-    },
+    "Effect": "`Dashmaster<1` => CHARMS++ >> Dashmaster++",
     "Name": "Dashmaster"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Quick_Slash",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Quick_Slash",
-      "Value": 1
-    },
+    "Effect": "`Quick_Slash<1` => CHARMS++ >> Quick_Slash++",
     "Name": "Quick_Slash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Spell_Twister",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Spell_Twister",
-      "Value": 1
-    },
+    "Effect": "`Spell_Twister<1` => CHARMS++ >> Spell_Twister++",
     "Name": "Spell_Twister"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Deep_Focus",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Deep_Focus",
-      "Value": 1
-    },
+    "Effect": "`Deep_Focus<1` => CHARMS++ >> Deep_Focus++",
     "Name": "Deep_Focus"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Grubberfly's_Elegy",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Grubberfly's_Elegy",
-      "Value": 1
-    },
+    "Effect": "`Grubberfly's_Elegy<1` => CHARMS++ >> Grubberfly's_Elegy++",
     "Name": "Grubberfly's_Elegy"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Queen_Fragment",
-      "logic": "WHITEFRAGMENT=1"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "WHITEFRAGMENT",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Queen_Fragment"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "WHITEFRAGMENT",
-          "Value": 1
-        }
-      ],
-      "Cap": {
-        "Term": "WHITEFRAGMENT",
-        "Value": 3
-      },
-      "Name": "Queen_Fragment"
-    },
+    "Effect": "`WHITEFRAGMENT=1` => CHARMS++ >> WHITEFRAGMENT++",
     "Name": "Queen_Fragment"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "King_Fragment",
-      "logic": "WHITEFRAGMENT=1"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "WHITEFRAGMENT",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "King_Fragment"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "WHITEFRAGMENT",
-          "Value": 1
-        }
-      ],
-      "Cap": {
-        "Term": "WHITEFRAGMENT",
-        "Value": 3
-      },
-      "Name": "King_Fragment"
-    },
+    "Effect": "*Queen_Fragment",
     "Name": "King_Fragment"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Void_Heart",
-      "logic": "WHITEFRAGMENT=1"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.MultiItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "WHITEFRAGMENT",
-          "Value": 1
-        },
-        {
-          "Term": "CHARMS",
-          "Value": 1
-        }
-      ],
-      "Name": "Void_Heart"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-      "Effects": [
-        {
-          "Term": "WHITEFRAGMENT",
-          "Value": 1
-        }
-      ],
-      "Cap": {
-        "Term": "WHITEFRAGMENT",
-        "Value": 3
-      },
-      "Name": "Void_Heart"
-    },
+    "Effect": "*Queen_Fragment",
     "Name": "Void_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Sprintmaster",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Sprintmaster",
-      "Value": 1
-    },
+    "Effect": "`Sprintmaster<1` => CHARMS++ >> Sprintmaster++",
     "Name": "Sprintmaster"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Dreamshield",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Dreamshield",
-      "Value": 1
-    },
+    "Effect": "`Dreamshield<1` => CHARMS++ >> Dreamshield++",
     "Name": "Dreamshield"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Weaversong",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Weaversong",
-      "Value": 1
-    },
+    "Effect": "`Weaversong<1` => CHARMS++ >> Weaversong++",
     "Name": "Weaversong"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Grimmchild",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Grimmchild",
-      "Value": 1
-    },
+    "Effect": "`Grimmchild<1` => CHARMS++ >> Grimmchild++",
     "Name": "Grimmchild1"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Grimmchild",
-        "Value": 1
-      },
-      {
-        "Term": "CHARMS",
-        "Value": 1
-      },
-      {
-        "Term": "FLAMES",
-        "Value": 6
-      },
-      {
-        "Term": "First_Grimmchild_Upgrade",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Grimmchild",
-      "Value": 1
-    },
+    "Effect": "`Grimmchild<1` => (CHARMS++ >> FLAMES += 6 >> First_Grimmchild_Upgrade++) >> Grimmchild++",
     "Name": "Grimmchild2"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "CREST",
-      "Value": 1
-    },
+    "Effect": "CREST++",
     "Name": "City_Crest"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "LANTERN",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "LANTERN",
-      "Value": 1
-    },
+    "Effect": "LANTERN++",
     "Name": "Lumafly_Lantern"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "TRAM",
-      "Value": 1
-    },
+    "Effect": "TRAM++",
     "Name": "Tram_Pass"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "SIMPLE",
-      "Value": 1
-    },
+    "Effect": "SIMPLE++",
     "Name": "Simple_Key"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "SHOPKEY",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "SHOPKEY",
-      "Value": 1
-    },
+    "Effect": "SHOPKEY++",
     "Name": "Shopkeeper's_Key"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ELEGANT",
-      "Value": 1
-    },
+    "Effect": "ELEGANT++",
     "Name": "Elegant_Key"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Love_Key",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Love_Key",
-      "Value": 1
-    },
+    "Effect": "Love_Key++",
     "Name": "Love_Key"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "King's_Brand",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "King's_Brand",
-      "Value": 1
-    },
+    "Effect": "King's_Brand++",
     "Name": "King's_Brand"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Godtuner",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Godtuner",
-      "Value": 1
-    },
+    "Effect": "Godtuner++",
     "Name": "Godtuner"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Collector's_Map",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Collector's_Map",
-      "Value": 1
-    },
+    "Effect": "Collector's_Map++",
     "Name": "Collector's_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "MASKSHARDS",
-      "Value": 1
-    },
+    "Effect": "MASKSHARDS++",
     "Name": "Mask_Shard"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "MASKSHARDS",
-      "Value": 2
-    },
+    "Effect": "MASKSHARDS += 2",
     "Name": "Double_Mask_Shard"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "MASKSHARDS",
-      "Value": 4
-    },
+    "Effect": "MASKSHARDS += 4",
     "Name": "Full_Mask"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "VESSELFRAGMENTS",
-      "Value": 1
-    },
+    "Effect": "VESSELFRAGMENTS++",
     "Name": "Vessel_Fragment"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "VESSELFRAGMENTS",
-      "Value": 2
-    },
+    "Effect": "VESSELFRAGMENTS += 2",
     "Name": "Double_Vessel_Fragment"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "VESSELFRAGMENTS",
-      "Value": 3
-    },
+    "Effect": "VESSELFRAGMENTS += 3",
     "Name": "Full_Soul_Vessel"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "NOTCHES",
-      "Value": 1
-    },
+    "Effect": "NOTCHES++",
     "Name": "Charm_Notch"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "Salubra's_Blessing",
-      "Value": 1
-    },
+    "Effect": "Salubra's_Blessing++",
     "Name": "Salubra's_Blessing"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "PALEORE",
-      "Value": 1
-    },
+    "Effect": "PALEORE++",
     "Name": "Pale_Ore"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 200
-    },
+    "Effect": "GEO += 200",
     "Name": "Geo_Chest-False_Knight"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 380
-    },
+    "Effect": "GEO += 380",
     "Name": "Geo_Chest-Soul_Master"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 655
-    },
+    "Effect": "GEO += 655",
     "Name": "Geo_Chest-Watcher_Knights"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 85
-    },
+    "Effect": "GEO += 85",
     "Name": "Geo_Chest-Greenpath"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 620
-    },
+    "Effect": "GEO += 620",
     "Name": "Geo_Chest-Mantis_Lords"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 150
-    },
+    "Effect": "GEO += 150",
     "Name": "Geo_Chest-Resting_Grounds"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 80
-    },
+    "Effect": "GEO += 80",
     "Name": "Geo_Chest-Crystal_Peak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 160
-    },
+    "Effect": "GEO += 160",
     "Name": "Geo_Chest-Weavers_Den"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 8
-    },
+    "Effect": "GEO += 8",
     "Name": "Geo_Chest-Junk_Pit_1"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 8
-    },
+    "Effect": "GEO += 8",
     "Name": "Geo_Chest-Junk_Pit_2"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 25
-    },
+    "Effect": "GEO += 25",
     "Name": "Geo_Chest-Junk_Pit_3"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 10
-    },
+    "Effect": "GEO += 10",
     "Name": "Geo_Chest-Junk_Pit_5"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lumafly_Escape"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 1
-    },
+    "Effect": "GEO++",
     "Name": "One_Geo"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "RANCIDEGGS",
-      "Value": 1
-    },
+    "Effect": "RANCIDEGGS++",
     "Name": "Rancid_Egg"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "WANDERERSJOURNALS",
-      "Value": 1
-    },
+    "Effect": "WANDERERSJOURNALS++",
     "Name": "Wanderer's_Journal"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "HALLOWNESTSEALS",
-      "Value": 1
-    },
+    "Effect": "HALLOWNESTSEALS++",
     "Name": "Hallownest_Seal"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "KINGSIDOLS",
-      "Value": 1
-    },
+    "Effect": "KINGSIDOLS++",
     "Name": "King's_Idol"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ARCANEEGGS",
-      "Value": 1
-    },
+    "Effect": "ARCANEEGGS++",
     "Name": "Arcane_Egg"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 29
-    },
+    "Effect": "ESSENCE += 29",
     "Name": "Whispering_Root-Crossroads"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 44
-    },
+    "Effect": "ESSENCE += 44",
     "Name": "Whispering_Root-Greenpath"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 20
-    },
+    "Effect": "ESSENCE += 20",
     "Name": "Whispering_Root-Leg_Eater"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 18
-    },
+    "Effect": "ESSENCE += 18",
     "Name": "Whispering_Root-Mantis_Village"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 45
-    },
+    "Effect": "ESSENCE += 45",
     "Name": "Whispering_Root-Deepnest"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 29
-    },
+    "Effect": "ESSENCE += 29",
     "Name": "Whispering_Root-Queens_Gardens"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 51
-    },
+    "Effect": "ESSENCE += 51",
     "Name": "Whispering_Root-Kingdoms_Edge"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 35
-    },
+    "Effect": "ESSENCE += 35",
     "Name": "Whispering_Root-Waterways"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 28
-    },
+    "Effect": "ESSENCE += 28",
     "Name": "Whispering_Root-City"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 20
-    },
+    "Effect": "ESSENCE += 20",
     "Name": "Whispering_Root-Resting_Grounds"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 34
-    },
+    "Effect": "ESSENCE += 34",
     "Name": "Whispering_Root-Spirits_Glade"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 21
-    },
+    "Effect": "ESSENCE += 21",
     "Name": "Whispering_Root-Crystal_Peak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 46
-    },
+    "Effect": "ESSENCE += 46",
     "Name": "Whispering_Root-Howling_Cliffs"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 42
-    },
+    "Effect": "ESSENCE += 42",
     "Name": "Whispering_Root-Ancestral_Mound"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 20
-    },
+    "Effect": "ESSENCE += 20",
     "Name": "Whispering_Root-Hive"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 100
-    },
+    "Effect": "ESSENCE += 100",
     "Name": "Boss_Essence-Elder_Hu"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 100
-    },
+    "Effect": "ESSENCE += 100",
     "Name": "Boss_Essence-Xero"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 100
-    },
+    "Effect": "ESSENCE += 100",
     "Name": "Boss_Essence-Gorb"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 150
-    },
+    "Effect": "ESSENCE += 150",
     "Name": "Boss_Essence-Marmu"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 200
-    },
+    "Effect": "ESSENCE += 200",
     "Name": "Boss_Essence-No_Eyes"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 200
-    },
+    "Effect": "ESSENCE += 200",
     "Name": "Boss_Essence-Galien"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 250
-    },
+    "Effect": "ESSENCE += 250",
     "Name": "Boss_Essence-Markoth"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 300
-    },
+    "Effect": "ESSENCE += 300",
     "Name": "Boss_Essence-Failed_Champion"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 300
-    },
+    "Effect": "ESSENCE += 300",
     "Name": "Boss_Essence-Soul_Tyrant"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 400
-    },
+    "Effect": "ESSENCE += 400",
     "Name": "Boss_Essence-Lost_Kin"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 300
-    },
+    "Effect": "ESSENCE += 300",
     "Name": "Boss_Essence-White_Defender"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "ESSENCE",
-      "Value": 300
-    },
+    "Effect": "ESSENCE += 300",
     "Name": "Boss_Essence-Grey_Prince_Zote"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GRUBS",
-      "Value": 1
-    },
+    "Effect": "GRUBS++",
     "Name": "Grub"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Mimic_Grub"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "QUILL",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "QUILL",
-      "Value": 1
-    },
+    "Effect": "QUILL++",
     "Name": "Quill"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Crossroads_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Crossroads_Map",
-      "Value": 1
-    },
+    "Effect": "`Crossroads_Map<1` => MAPS++ >> Crossroads_Map++",
     "Name": "Crossroads_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Greenpath_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Greenpath_Map",
-      "Value": 1
-    },
+    "Effect": "`Greenpath_Map<1` => MAPS++ >> Greenpath_Map++",
     "Name": "Greenpath_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Fog_Canyon_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Fog_Canyon_Map",
-      "Value": 1
-    },
+    "Effect": "`Fog_Canyon_Map<1` => MAPS++ >> Fog_Canyon_Map++",
     "Name": "Fog_Canyon_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Fungal_Wastes_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Fungal_Wastes_Map",
-      "Value": 1
-    },
+    "Effect": "`Fungal_Wastes_Map<1` => MAPS++ >> Fungal_Wastes_Map++",
     "Name": "Fungal_Wastes_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Deepnest_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Deepnest_Map",
-      "Value": 1
-    },
+    "Effect": "`Deepnest_Map<1` => MAPS++ >> Deepnest_Map++",
     "Name": "Deepnest_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Ancient_Basin_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Ancient_Basin_Map",
-      "Value": 1
-    },
+    "Effect": "`Ancient_Basin_Map<1` => MAPS++ >> Ancient_Basin_Map++",
     "Name": "Ancient_Basin_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Kingdom's_Edge_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Kingdom's_Edge_Map",
-      "Value": 1
-    },
+    "Effect": "`Kingdom's_Edge_Map<1` => MAPS++ >> Kingdom's_Edge_Map++",
     "Name": "Kingdom's_Edge_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "City_of_Tears_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "City_of_Tears_Map",
-      "Value": 1
-    },
+    "Effect": "`City_of_Tears_Map<1` => MAPS++ >> City_of_Tears_Map++",
     "Name": "City_of_Tears_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Royal_Waterways_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Royal_Waterways_Map",
-      "Value": 1
-    },
+    "Effect": "`Royal_Waterways_Map<1` => MAPS++ >> Royal_Waterways_Map++",
     "Name": "Royal_Waterways_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Howling_Cliffs_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Howling_Cliffs_Map",
-      "Value": 1
-    },
+    "Effect": "`Howling_Cliffs_Map<1` => MAPS++ >> Howling_Cliffs_Map++",
     "Name": "Howling_Cliffs_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Crystal_Peak_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Crystal_Peak_Map",
-      "Value": 1
-    },
+    "Effect": "`Crystal_Peak_Map<1` => MAPS++ >> Crystal_Peak_Map++",
     "Name": "Crystal_Peak_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Queen's_Gardens_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Queen's_Gardens_Map",
-      "Value": 1
-    },
+    "Effect": "`Queen's_Gardens_Map<1` => MAPS++ >> Queen's_Gardens_Map++",
     "Name": "Queen's_Gardens_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Resting_Grounds_Map",
-        "Value": 1
-      },
-      {
-        "Term": "MAPS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Resting_Grounds_Map",
-      "Value": 1
-    },
+    "Effect": "`Resting_Grounds_Map<1` => MAPS++ >> Resting_Grounds_Map++",
     "Name": "Resting_Grounds_Map"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Dirtmouth_Stag",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Dirtmouth_Stag",
-      "Value": 1
-    },
+    "Effect": "Dirtmouth_Stag++",
     "Name": "Dirtmouth_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Crossroads_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Crossroads_Stag",
-      "Value": 1
-    },
+    "Effect": "`Crossroads_Stag<1` => STAGS++ >> Crossroads_Stag++",
     "Name": "Crossroads_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Greenpath_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Greenpath_Stag",
-      "Value": 1
-    },
+    "Effect": "`Greenpath_Stag<1` => STAGS++ >> Greenpath_Stag++",
     "Name": "Greenpath_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Queen's_Station_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Queen's_Station_Stag",
-      "Value": 1
-    },
+    "Effect": "`Queen's_Station_Stag<1` => STAGS++ >> Queen's_Station_Stag++",
     "Name": "Queen's_Station_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Queen's_Gardens_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Queen's_Gardens_Stag",
-      "Value": 1
-    },
+    "Effect": "`Queen's_Gardens_Stag<1` => STAGS++ >> Queen's_Gardens_Stag++",
     "Name": "Queen's_Gardens_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "City_Storerooms_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "City_Storerooms_Stag",
-      "Value": 1
-    },
+    "Effect": "`City_Storerooms_Stag<1` => STAGS++ >> City_Storerooms_Stag++",
     "Name": "City_Storerooms_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "King's_Station_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "King's_Station_Stag",
-      "Value": 1
-    },
+    "Effect": "`King's_Station_Stag<1` => STAGS++ >> King's_Station_Stag++",
     "Name": "King's_Station_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Resting_Grounds_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Resting_Grounds_Stag",
-      "Value": 1
-    },
+    "Effect": "`Resting_Grounds_Stag<1` => STAGS++ >> Resting_Grounds_Stag++",
     "Name": "Resting_Grounds_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Distant_Village_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Distant_Village_Stag",
-      "Value": 1
-    },
+    "Effect": "`Distant_Village_Stag<1` => STAGS++ >> Distant_Village_Stag++",
     "Name": "Distant_Village_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Hidden_Station_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Hidden_Station_Stag",
-      "Value": 1
-    },
+    "Effect": "`Hidden_Station_Stag<1` => STAGS++ >> Hidden_Station_Stag++",
     "Name": "Hidden_Station_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "Stag_Nest_Stag",
-        "Value": 1
-      },
-      {
-        "Term": "STAGS",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "Stag_Nest_Stag",
-      "Value": 1
-    },
+    "Effect": "`Stag_Nest_Stag<1` => STAGS++ >> Stag_Nest_Stag++",
     "Name": "Stag_Nest_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lifeblood_Cocoon_Small"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lifeblood_Cocoon_Large"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "FLAMES",
-      "Value": 1
-    },
+    "Effect": "FLAMES++",
     "Name": "Grimmkin_Flame"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "JOURNAL",
-      "Value": 1
-    },
+    "Effect": "JOURNAL++",
     "Name": "Hunter's_Journal"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Journal_Entry-Void_Tendrils"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Journal_Entry-Charged_Lumafly"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Journal_Entry-Goam"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Journal_Entry-Garpede"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Journal_Entry-Seal_of_Binding"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "Elevator_Pass",
-      "Value": 1
-    },
+    "Effect": "Elevator_Pass++",
     "Name": "Elevator_Pass"
   },
   {
-    "$type": "RandomizerMod.RC.SplitCloakItem, RandomizerMod",
-    "LeftBiased": true,
-    "LeftDashTerm": "LEFTDASH",
-    "RightDashTerm": "RIGHTDASH",
+    "Effect": "`LEFTDASH<1 | RIGHTDASH<1 | LEFTDASH<2 + RIGHTDASH<2` => (`LEFTDASH + RIGHTDASH` => (LEFTDASH++ >> RIGHTDASH++) >|> `LEFTDASH<1 + RIGHTDASH>1` => LEFTDASH += 2 >|> LEFTDASH++)",
     "Name": "Left_Mothwing_Cloak"
   },
   {
-    "$type": "RandomizerMod.RC.SplitCloakItem, RandomizerMod",
-    "LeftBiased": false,
-    "LeftDashTerm": "LEFTDASH",
-    "RightDashTerm": "RIGHTDASH",
+    "Effect": "`LEFTDASH<1 | RIGHTDASH<1 | LEFTDASH<2 + RIGHTDASH<2` => (`LEFTDASH + RIGHTDASH` => (LEFTDASH++ >> RIGHTDASH++) >|> `RIGHTDASH<1 + LEFTDASH>1` => RIGHTDASH += 2 >|> RIGHTDASH++)",
     "Name": "Right_Mothwing_Cloak"
   },
   {
-    "$type": "RandomizerMod.RC.SplitCloakItem, RandomizerMod",
-    "LeftBiased": true,
-    "LeftDashTerm": "LEFTDASH",
-    "RightDashTerm": "RIGHTDASH",
+    "Effect": "*Left_Mothwing_Cloak", // left-right bias is randomized in BuiltinRequests if SplitCloak is active
     "Name": "Split_Shade_Cloak"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Left_Mantis_Claw_Item",
-      "logic": "LEFTCLAW<1"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "LEFTCLAW",
-        "Value": 1
-      },
-      "Name": "Left_Mantis_Claw"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "RIGHTCLAW",
-        "Value": 1
-      },
-      "Name": "Right_Mantis_Claw"
-    },
+    "Effect": "`LEFTCLAW<1` => LEFTCLAW++ >|> RIGHTCLAW++",
     "Name": "Left_Mantis_Claw"
   },
   {
-    "$type": "RandomizerCore.LogicItems.BranchedItem, RandomizerCore",
-    "Logic": {
-      "name": "Right_Mantis_Claw_Item",
-      "logic": "RIGHTCLAW<1"
-    },
-    "TrueItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "RIGHTCLAW",
-        "Value": 1
-      },
-      "Name": "Right_Mantis_Claw"
-    },
-    "FalseItem": {
-      "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-      "Effect": {
-        "Term": "LEFTCLAW",
-        "Value": 1
-      },
-      "Name": "Left_Mantis_Claw"
-    },
+    "Effect": "`RIGHTCLAW<1` => RIGHTCLAW++ >|> LEFTCLAW++",
     "Name": "Right_Mantis_Claw"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "LEFTSLASH",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "LEFTSLASH",
-      "Value": 1
-    },
+    "Effect": "LEFTSLASH++",
     "Name": "Leftslash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "RIGHTSLASH",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "RIGHTSLASH",
-      "Value": 1
-    },
+    "Effect": "RIGHTSLASH++",
     "Name": "Rightslash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "UPSLASH",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "UPSLASH",
-      "Value": 1
-    },
+    "Effect": "UPSLASH++",
     "Name": "Upslash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.CappedItem, RandomizerCore",
-    "Effects": [
-      {
-        "Term": "DOWNSLASH",
-        "Value": 1
-      }
-    ],
-    "Cap": {
-      "Term": "DOWNSLASH",
-      "Value": 1
-    },
+    "Effect": "DOWNSLASH++",
     "Name": "Downslash"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "LEFTSUPERDASH",
-      "Value": 1
-    },
+    "Effect": "LEFTSUPERDASH++",
     "Name": "Left_Crystal_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "RIGHTSUPERDASH",
-      "Value": 1
-    },
+    "Effect": "RIGHTSUPERDASH++",
     "Name": "Right_Crystal_Heart"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 15
-    },
+    "Effect": "GEO += 15",
     "Name": "Geo_Rock-Default"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 15
-    },
+    "Effect": "GEO += 15",
     "Name": "Geo_Rock-Deepnest"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 35
-    },
+    "Effect": "GEO += 35",
     "Name": "Geo_Rock-Abyss"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 26
-    },
+    "Effect": "GEO += 26",
     "Name": "Geo_Rock-GreenPath01"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 44
-    },
+    "Effect": "GEO += 44",
     "Name": "Geo_Rock-Outskirts"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 420
-    },
+    "Effect": "GEO += 420",
     "Name": "Geo_Rock-Outskirts420"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 30
-    },
+    "Effect": "GEO += 30",
     "Name": "Geo_Rock-GreenPath02"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 22
-    },
+    "Effect": "GEO += 22",
     "Name": "Geo_Rock-Fung01"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 17
-    },
+    "Effect": "GEO += 17",
     "Name": "Geo_Rock-Fung02"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 30
-    },
+    "Effect": "GEO += 30",
     "Name": "Geo_Rock-City"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 56
-    },
+    "Effect": "GEO += 56",
     "Name": "Geo_Rock-Hive"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 24
-    },
+    "Effect": "GEO += 24",
     "Name": "Geo_Rock-Mine"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 25
-    },
+    "Effect": "GEO += 25",
     "Name": "Geo_Rock-Grave02"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 25
-    },
+    "Effect": "GEO += 25",
     "Name": "Geo_Rock-Grave01"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 300
-    },
+    "Effect": "GEO += 300",
     "Name": "Boss_Geo-Massive_Moss_Charger"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 420
-    },
+    "Effect": "GEO += 420",
     "Name": "Boss_Geo-Gorgeous_Husk"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 200
-    },
+    "Effect": "GEO += 200",
     "Name": "Boss_Geo-Sanctum_Soul_Warrior"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 200
-    },
+    "Effect": "GEO += 200",
     "Name": "Boss_Geo-Elegant_Soul_Warrior"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 385
-    },
+    "Effect": "GEO += 385",
     "Name": "Boss_Geo-Crystal_Guardian"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 550
-    },
+    "Effect": "GEO += 550",
     "Name": "Boss_Geo-Enraged_Guardian"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 50
-    },
+    "Effect": "GEO += 50",
     "Name": "Boss_Geo-Gruz_Mother"
   },
   {
-    "$type": "RandomizerCore.LogicItems.SingleItem, RandomizerCore",
-    "Effect": {
-      "Term": "GEO",
-      "Value": 65
-    },
+    "Effect": "GEO += 65",
     "Name": "Boss_Geo-Vengefly_King"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Refill"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-A"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-B"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-C"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-D"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-E"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-F"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-G"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-Palace"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Soul_Totem-Path_of_Pain"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-City_Entrance"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Pleasure_House"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Sanctum_Entrance"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Sanctum_Past_Soul_Master"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Watcher's_Spire"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Archives_Upper"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Archives_Left"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Archives_Right"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Pilgrim's_Way_1"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Pilgrim's_Way_2"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Mantis_Outskirts"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Mantis_Village"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Greenpath_Upper_Hidden"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Greenpath_Below_Toll"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Greenpath_Lifeblood"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Greenpath_Stag"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Greenpath_QG"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Greenpath_Lower_Hidden"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Dung_Defender"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Spore_Shroom"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Fungal_Wastes_Hidden"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Fungal_Core"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Ancient_Basin"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-King's_Pass_Focus"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-King's_Pass_Fury"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-King's_Pass_Exit"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-World_Sense"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Howling_Cliffs"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Kingdom's_Edge"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Palace_Workshop"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Palace_Throne"
   },
   {
-    "$type": "RandomizerCore.LogicItems.EmptyItem, RandomizerCore",
+    "Effect": "_",
     "Name": "Lore_Tablet-Path_of_Pain_Entrance"
   }
 ]
