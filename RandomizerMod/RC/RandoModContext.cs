@@ -36,6 +36,10 @@ namespace RandomizerMod.RC
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<TransitionPlacement> transitionPlacements = new();
         public List<int> notchCosts = new();
+        /// <summary>
+        /// Additional data needed for logic; e.g. parameters for LogicVariables like notch costs, etc.
+        /// </summary>
+        public Dictionary<string, object> Properties { get; } = [];
 
         public override IEnumerable<GeneralizedPlacement> EnumerateExistingPlacements()
         {

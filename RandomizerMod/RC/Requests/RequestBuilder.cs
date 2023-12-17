@@ -104,6 +104,11 @@ namespace RandomizerMod.RC
         public readonly Random rng;
         public readonly RandoMonitor rm;
         public readonly RandoModContext ctx;
+        /// <summary>
+        /// Properties that will be passed the LogArguments, and subsequently to RandoLoggers, if randomization succeeds.
+        /// <br/>Properties needed for logic should be stored on the ctx. Properties that do not need to be serialized should be stored here.
+        /// </summary>
+        public readonly Dictionary<string, object> logProperties = [];
 
         private static readonly List<string> _set = new(); // used as a utility for several methods
 

@@ -191,6 +191,7 @@ namespace RandomizerMod.RC
                 ctx = new RandoModContext(ctx), // we clone the context for the loggers so that we can obfuscate progression on the ctx used for Export,
                 gs = gs,
                 randomizer = randomizer,
+                properties = new(rb.logProperties),
             };
             try
             {
