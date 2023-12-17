@@ -681,7 +681,7 @@
   },
   {
     "name": "Whispering_Root-Waterways",
-    "logic": "Abyss_01[left3] + (FULLCLAW + (FULLDASH | WINGS | RIGHTSUPERDASH | ENEMYPOGOS) | WINGS + ANYCLAW | $SHRIEKPOGO[2]) + DREAMNAIL"
+    "logic": "Abyss_01[left3] + (FULLCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH | ENEMYPOGOS) | WINGS + ANYCLAW | $SHRIEKPOGO[2]) + DREAMNAIL"
   },
   {
     "name": "Whispering_Root-City",

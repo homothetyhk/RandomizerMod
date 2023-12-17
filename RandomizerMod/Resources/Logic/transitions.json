@@ -2774,7 +2774,7 @@
   {
     "sceneName": "Deepnest_43",
     "gateName": "bot1",
-    "logic": "Deepnest_43[bot1] | (Deepnest_43[left1] | Deepnest_43[right1]) + (ANYCLAW | WINGS)",
+    "logic": "Deepnest_43[bot1] | (Deepnest_43[left1] | Deepnest_43[right1]) + (ANYCLAW | WINGS | ENEMYPOGOS + DANGEROUSSKIPS + LEFTDASH)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_43[bot1]"
   },
@@ -2907,7 +2907,7 @@
   {
     "sceneName": "Deepnest_East_04",
     "gateName": "left1",
-    "logic": "Deepnest_East_04[left1] | Deepnest_East_04 + (ACID | ACIDSKIPS + LEFTDASH + (SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL,after:AREASOUL] | $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL]))",
+    "logic": "Deepnest_East_04[left1] | Deepnest_East_04 + (ACID | ACIDSKIPS + LEFTDASH + WINGS + (SPELLAIRSTALL + $CASTSPELL[3,before:ROOMSOUL,after:AREASOUL] | $SHRIEKPOGO[before:ROOMSOUL,after:AREASOUL]))",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_East_04[left1]"
   },
