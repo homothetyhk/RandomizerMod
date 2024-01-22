@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using RandomizerCore;
 using RandomizerCore.Json;
 using RandomizerMod.RC;
 
@@ -30,7 +29,7 @@ namespace RandomizerMod.Settings
                 using JsonTextReader jtr = new(sr);
                 try
                 {
-                    Context = JsonUtil.Deserialize<RandoModContext>(jtr);
+                    Context = JsonUtil.DeserializeFromReader<RandoModContext>(jtr);
                 }
                 catch (Exception e)
                 {

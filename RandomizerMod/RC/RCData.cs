@@ -1,19 +1,20 @@
-﻿using RandomizerCore.Logic;
+﻿using RandomizerCore.Json;
+using RandomizerCore.Logic;
 using RandomizerMod.Settings;
 
 namespace RandomizerMod.RC
 {
     public static class RCData
     {
-        private static readonly (LogicManagerBuilder.JsonType type, string fileName)[] files = new[]
+        private static readonly (LogicFileType type, string fileName)[] files = new[]
         {
-            (LogicManagerBuilder.JsonType.Terms, "terms"),
-            (LogicManagerBuilder.JsonType.Macros, "macros"),
-            (LogicManagerBuilder.JsonType.Waypoints, "waypoints"),
-            (LogicManagerBuilder.JsonType.Transitions, "transitions"),
-            (LogicManagerBuilder.JsonType.Locations, "locations"),
-            (LogicManagerBuilder.JsonType.ItemStrings, "items"),
-            (LogicManagerBuilder.JsonType.StateData, "state"),
+            (LogicFileType.Terms, "terms"),
+            (LogicFileType.Macros, "macros"),
+            (LogicFileType.Waypoints, "waypoints"),
+            (LogicFileType.Transitions, "transitions"),
+            (LogicFileType.Locations, "locations"),
+            (LogicFileType.ItemStrings, "items"),
+            (LogicFileType.StateData, "state"),
         };
 
         /// <summary>
@@ -22,10 +23,11 @@ namespace RandomizerMod.RC
         public static LogicManager GetNewLogicManager(GenerationSettings gs)
         {
             LogicManagerBuilder lmb = new() { VariableResolver = new RandoVariableResolver() };
+            ILogicFormat fmt = new JsonLogicFormat();
 
-            foreach ((LogicManagerBuilder.JsonType type, string fileName) in files)
+            foreach ((LogicFileType type, string fileName) in files)
             {
-                lmb.DeserializeJson(type, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Logic.{fileName}.json"));
+                lmb.DeserializeFile(type, fmt, RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Logic.{fileName}.json"));
             }
 
             foreach (var a in _runtimeLogicOverrideOwner.GetSubscribers())

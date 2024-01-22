@@ -3,10 +3,10 @@ using System.Text;
 using Newtonsoft.Json;
 using RandomizerCore;
 using RandomizerCore.Extensions;
+using RandomizerCore.Json;
 using RandomizerCore.Randomization;
 using RandomizerMod.IC;
 using RandomizerMod.Logging;
-using RandomizerMod.RandomizerData;
 using RandomizerMod.Settings;
 
 namespace RandomizerMod.RC
@@ -143,7 +143,7 @@ namespace RandomizerMod.RC
                 Formatting = Formatting.None,
                 TypeNameHandling = TypeNameHandling.Auto,
             };
-            js.Converters.Add(new RandomizerCore.Json.TermConverter() { Terms = ctx.LM.Terms });
+            js.Converters.Add(new RandomizerCore.Json.Converters.TermConverter() { Terms = ctx.LM.Terms });
 
             js.Serialize(sw, gs);
 
@@ -242,8 +242,7 @@ namespace RandomizerMod.RC
             Stopwatch sw = Stopwatch.StartNew();
             LogManager.Write((tw) =>
             {
-                using JsonTextWriter jtr = new(tw);
-                JsonUtil._js.Serialize(jtr, ctx);
+                JsonUtil.GetNonLogicSerializer().Serialize(tw, ctx);
                 Log($"Printed raw spoiler in {sw.Elapsed.TotalSeconds} seconds.");
             }, "RawSpoiler.json");
         }
