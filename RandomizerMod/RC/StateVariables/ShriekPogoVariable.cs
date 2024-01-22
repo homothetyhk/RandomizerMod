@@ -22,7 +22,8 @@ namespace RandomizerMod.RC.StateVariables
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
         {
-            if (term.StartsWith(Prefix))
+            if (VariableResolver.TryMatchPrefix(term, Prefix, out _)
+                || VariableResolver.TryMatchPrefix(term, Prefix + 'S', out _)) // typo $SHRIEKPOGOS used in logic in an old version
             {
                 variable = new ShriekPogoVariable(term, lm);
                 return true;

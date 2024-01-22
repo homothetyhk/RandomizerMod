@@ -23,7 +23,7 @@
   {
     "sceneName": "Tutorial_01",
     "gateName": "top2",
-    "logic": "Tutorial_01[top2] | (ANYCLAW | WINGS + COMPLEXSKIPS + ENEMYPOGOS | $SHRIEKPOGO[1,2]) + Tutorial_01",
+    "logic": "Tutorial_01[top2] | Tutorial_01 + (ANYCLAW | WINGS + COMPLEXSKIPS + ENEMYPOGOS | $SHRIEKPOGO[1,2])",
     "oneWayType": "TwoWay",
     "Name": "Tutorial_01[top2]"
   },
@@ -639,7 +639,7 @@
   {
     "sceneName": "Crossroads_30",
     "gateName": "left1",
-    "logic": "Crossroads_30[left1] | Bench-Crossroads_Hot_Springs",
+    "logic": "Crossroads_30[left1] | Bench-Crossroads_Hot_Springs | Crossroads_Hot_Spring",
     "oneWayType": "TwoWay",
     "Name": "Crossroads_30[left1]"
   },
@@ -2550,7 +2550,7 @@
   {
     "sceneName": "Deepnest_30",
     "gateName": "left1",
-    "logic": "Deepnest_30[left1] | Deepnest_30[right1] | Deepnest_30[top1] + (ANYCLAW | WINGS) | Bench-Deepnest_Hot_Springs",
+    "logic": "Deepnest_30[left1] | Deepnest_30[right1] | Deepnest_30[top1] + (ANYCLAW | WINGS) | Bench-Deepnest_Hot_Springs | Deepnest_Hot_Spring",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_30[left1]"
   },
@@ -3348,14 +3348,14 @@
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top1",
-    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | (Room_Colosseum_02[top2] | Bench-Colosseum) + (ANYCLAW | $SHRIEKPOGO[2])",
+    "logic": "Room_Colosseum_02[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | (Room_Colosseum_02[top2] | Bench-Colosseum | Colosseum_Hot_Spring) + (ANYCLAW | $SHRIEKPOGO[2])",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top1]"
   },
   {
     "sceneName": "Room_Colosseum_02",
     "gateName": "top2",
-    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | (Room_Colosseum_02[top1] | Bench-Colosseum) + (ANYCLAW | $SHRIEKPOGO[2])",
+    "logic": "Room_Colosseum_02[top2] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | (Room_Colosseum_02[top1] | Bench-Colosseum | Colosseum_Hot_Spring) + (ANYCLAW | $SHRIEKPOGO[2])",
     "oneWayType": "TwoWay",
     "Name": "Room_Colosseum_02[top2]"
   },
@@ -4848,7 +4848,7 @@
   {
     "sceneName": "Ruins_Bathhouse",
     "gateName": "door1",
-    "logic": "Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1] | Bench-Pleasure_House",
+    "logic": "Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1] | Bench-Pleasure_House | Pleasure_House_Hot_Spring",
     "oneWayType": "TwoWay",
     "Name": "Ruins_Bathhouse[door1]"
   },

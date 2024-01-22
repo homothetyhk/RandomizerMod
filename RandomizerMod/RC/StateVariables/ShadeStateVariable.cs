@@ -24,10 +24,11 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly StateInt SoulLimiter;
         protected readonly FragileCharmVariable FragileHeartEquip;
         protected readonly EquipCharmVariable VoidHeartEquip;
+        protected readonly EquipCharmVariable JoniEquip;
         protected readonly int RequiredShadeHealth;
         public const string Prefix = "$SHADESKIP";
         
-        public ShadeStateVariable(string name, LogicManager lm, bool canDreamgate, int requiredShadeHealth)
+        public ShadeStateVariable(string name, LogicManager lm, int requiredShadeHealth)
         {
             Name = name;
             RequiredShadeHealth = requiredShadeHealth;
@@ -46,6 +47,7 @@ namespace RandomizerMod.RC.StateVariables
 
                 FragileHeartEquip = (FragileCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
                 VoidHeartEquip = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Kingsoul")); // we have to check against either Kingsoul or Void Heart equipped to ensure monotonicity
+                JoniEquip = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Joni's_Blessing"));
             }
             catch (Exception e)
             {
@@ -57,11 +59,10 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (VariableResolver.TryMatchPrefix(term, Prefix, out string[] parameters))
             {
-                bool canDreamgate = !parameters.Contains("noDG");
                 int requiredShadeHealth = 1;
                 for (int i = 0; i < parameters.Length; i++) if (parameters[i].EndsWith("HITS")) requiredShadeHealth = int.Parse(parameters[i].Substring(0, parameters[i].Length - 4));
 
-                variable = new ShadeStateVariable(term, lm, canDreamgate, requiredShadeHealth);
+                variable = new ShadeStateVariable(term, lm, requiredShadeHealth);
                 return true;
             }
             variable = null;
@@ -118,6 +119,9 @@ namespace RandomizerMod.RC.StateVariables
             }
             else
             {
+                if (JoniEquip.IsEquipped(state)) return false;
+                JoniEquip.SetUnequippable(ref state);
+
                 int hp = (pm.Get(MaskShards) / 4) / 2;
                 if (hp >= RequiredShadeHealth || RequiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None)
                 {
