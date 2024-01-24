@@ -3845,7 +3845,7 @@
   {
     "sceneName": "Waterways_06",
     "gateName": "right1",
-    "logic": "Waterways_06[right1] | Waterways_06[top1] + (ACID | RIGHTSUPERDASH | RIGHTDASH + $SHRIEKPOGO[1,1,before:AREASOUL])",
+    "logic": "Waterways_06[right1] | Waterways_06[top1] + (ACID + (WINGS | RIGHTCLAW | OBSCURESKIPS) | RIGHTSUPERDASH | RIGHTDASH + $SHRIEKPOGO[1,1,before:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_06[right1]"
   },
@@ -3880,7 +3880,7 @@
   {
     "sceneName": "Waterways_07",
     "gateName": "door1",
-    "logic": "Waterways_07[door1] | Waterways_07 + ANYCLAW | Waterways_07[top1] + WINGS | (Waterways_07 + ENEMYPOGOS + $SHRIEKPOGO[1,1,before:ROOMSOUL] | Waterways_07[right1]) + $SHRIEKPOGO[4]",
+    "logic": "Waterways_07[door1] | Waterways_07 + ANYCLAW | Waterways_07[top1] + (ANYCLAW | WINGS | BACKGROUNDPOGOS) | (Waterways_07 + ENEMYPOGOS + $SHRIEKPOGO[1,1,before:ROOMSOUL] | Waterways_07[right1]) + $SHRIEKPOGO[4]",
     "oneWayType": "TwoWay",
     "Name": "Waterways_07[door1]"
   },
