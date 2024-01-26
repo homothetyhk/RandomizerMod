@@ -856,7 +856,7 @@
   },
   {
     "name": "Bench-Gardens_Stag",
-    "logic": "Fungus3_40[right1] | Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL,after:ROOMSOUL]) | Can_Stag + Queen's_Gardens_Stag | WARPSTARTTOBENCH + Bench-Queen's_Gardens_Stag/"
+    "logic": "Fungus3_40[right1] | Fungus3_40[top1] + (RIGHTDASH | WINGS | RIGHTCLAW | LEFTCLAW + RIGHTSUPERDASH | ENEMYPOGOS | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL,after:ROOMSOUL]) | Can_Stag + Queen's_Gardens_Stag | WARPSTARTTOBENCH + Bench-Gardens_Stag/"
   },
   {
     "name": "Bench-Palace_Entrance",
