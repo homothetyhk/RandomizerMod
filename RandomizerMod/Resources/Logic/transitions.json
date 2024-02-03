@@ -3705,7 +3705,7 @@
   {
     "sceneName": "Waterways_01",
     "gateName": "top1",
-    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_01 + Opened_Waterways_Manhole + (ANYCLAW | WINGS + $SHADESKIP[2HITS] | WINGS + $SHRIEKPOGO[2,before:ROOMSOUL,after:ITEMSOUL])",
+    "logic": "Waterways_01[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | Waterways_01 + Opened_Waterways_Manhole + (LEFTCLAW | RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS) | WINGS + $SHADESKIP[2HITS] | WINGS + $SHRIEKPOGO[2,before:ROOMSOUL,after:ITEMSOUL])",
     "oneWayType": "TwoWay",
     "Name": "Waterways_01[top1]"
   },

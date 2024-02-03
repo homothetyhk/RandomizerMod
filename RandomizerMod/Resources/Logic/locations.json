@@ -2221,7 +2221,7 @@
   },
   {
     "name": "Soul_Totem-Waterways_Entrance",
-    "logic": "Waterways_01 + (ANYCLAW | WINGS) | (Waterways_01[top1] | Waterways_01[right1]) + (LEFTDASH | ENEMYPOGOS | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL] | $SHADESKIP)"
+    "logic": "Waterways_01 + (LEFTCLAW | WINGS | RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH | ENEMYPOGOS)) | (Waterways_01[top1] | Waterways_01[right1]) + (LEFTDASH | ENEMYPOGOS | SPELLAIRSTALL + $CASTSPELL[before:ROOMSOUL] | $SHADESKIP)"
   },
   {
     "name": "Soul_Totem-Top_Left_Waterways",
