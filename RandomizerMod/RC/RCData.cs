@@ -38,7 +38,7 @@ namespace RandomizerMod.RC
                 }
                 catch (Exception e)
                 {
-                    throw new InvalidOperationException("Error invoking logic override event", e);
+                    throw new InvalidOperationException($"Error invoking logic override event from {a?.Method?.DeclaringType?.AssemblyQualifiedName ?? "unknown source"}", e);
                 }
             }
 
