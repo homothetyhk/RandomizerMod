@@ -9,7 +9,7 @@ If you are new to the randomizer community, please consider joining the Hollow K
 Randomizer 4 requires the following to run:
 - The Hollow Knight Modding API for the latest patch (1.5+). Randomizer 4 is not compatible with patches 1.4.3.2 or earlier.
 - The MenuChanger and ItemChanger mods.
-- The RandomizerCore library.
+- The RandomizerCore and RandomizerCore.Json libraries.
 
 Additionally, the following mods are strongly recommended:
 - Benchwarp, which can be required by randomizer logic for warping to the start location.
