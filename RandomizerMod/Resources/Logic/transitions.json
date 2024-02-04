@@ -4638,7 +4638,7 @@
   {
     "sceneName": "Ruins2_04",
     "gateName": "door_Ruin_Elevator",
-    "logic": "Ruins2_04[door_Ruin_Elevator] | Ruins2_04[right1] | Ruins2_04[door_Ruin_House_02] | Ruins2_04 + PLEASUREHOUSEUNLOCK + (((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | WINGS)",
+    "logic": "Ruins2_04[door_Ruin_Elevator] | (Ruins2_04[right1] | Ruins2_04[door_Ruin_House_02] | Ruins2_04 + ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW) | WINGS)) + PLEASUREHOUSEUNLOCK",
     "oneWayType": "TwoWay",
     "Name": "Ruins2_04[door_Ruin_Elevator]"
   },
