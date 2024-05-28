@@ -1655,7 +1655,8 @@ namespace RandomizerMod.RC
                 HashSet<string> multiSet = new();
                 foreach (string l in gb.Locations.EnumerateDistinct())
                 {
-                    if (Data.GetLocationDef(l) is LocationDef def && def.FlexibleCount) multiSet.Add(l);
+                    LocationDef def = new();
+                    if (rb.TryGetLocationDef(l, out def) && def.FlexibleCount) multiSet.Add(l);
                 }
                 if (multiSet.Count == 0) multiSet.Add(LocationNames.Sly);
                 string[] multi = multiSet.OrderBy(s => s).ToArray();
