@@ -169,7 +169,7 @@
   "COMBAT[Watcher_Knights]": "BOSS",
   "COMBAT[Uumuu]": "AERIALMINIBOSS",
   "COMBAT[Nosk]": "BOSS",
-  "COMBAT[Traitor_Lord]": "BOSS",
+  "COMBAT[Traitor_Lord]": "BOSS + (FULLSHADOWDASH | QUAKE + PROFICIENTCOMBAT)",
   "COMBAT[Grimm]": "BOSS",
   "COMBAT[Collector]": "BOSS",
   "COMBAT[Hive_Knight]": "BOSS",
