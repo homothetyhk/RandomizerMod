@@ -269,7 +269,7 @@
   },
   {
     "name": "Collector's_Map",
-    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS | $SHRIEKPOGO[5,before:AREASOUL]) + Defeated_Collector"
+    "logic": "Ruins2_11[right1] + (LEFTCLAW | RIGHTCLAW + (WINGS | RIGHTDASH | PRECISEMOVEMENT) | WINGS + COMPLEXSKIPS + ENEMYPOGOS | $SHRIEKPOGO[5,before:AREASOUL]) + Defeated_Collector"
   },
   {
     "name": "Mask_Shard-Brooding_Mawlek",
