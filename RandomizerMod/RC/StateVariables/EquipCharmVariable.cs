@@ -136,39 +136,66 @@ namespace RandomizerMod.RC.StateVariables
             return true;
         }
 
+        /// <summary>
+        /// Determines whether the charm can be equipped with or without overcharming for the given state. Does not check progression or state requirements.
+        /// </summary>
+        protected EquipResult HasNotchRequirements<T>(ProgressionManager pm, T state) where T : IState
+        {
+            if (IsEquipped(state))
+            {
+                return state.GetBool(OvercharmBool) ? EquipResult.Overcharm : EquipResult.Nonovercharm; // Already equipped
+            }
+
+            int notchCost = GetNotchCost(pm, state);
+
+            if (notchCost <= 0)
+            {
+                return state.GetBool(OvercharmBool) ? EquipResult.Overcharm : EquipResult.Nonovercharm; // free to equip
+            }
+
+            int netNotches = pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt) - notchCost;
+
+            if (netNotches >= 0)
+            {
+                return EquipResult.Nonovercharm;
+            }
+
+            int overcharmSave = Math.Max(state.GetInt(MaxNotchCost), notchCost);
+            
+            if (netNotches + overcharmSave > 0)
+            {
+                return EquipResult.Overcharm; // charm is not 0 notches, so it requires an open notch to overcharm
+            }
+
+            return EquipResult.None;
+        }
+
         public bool CanEquipNonovercharm<T>(ProgressionManager pm, T state) where T : IState
         {
-            if (HasStateRequirements(pm, state))
-            {
-                if (state.GetBool(CharmBool)) return !state.GetBool(OvercharmBool);
-                if (state.GetInt(UsedNotchesInt) + GetNotchCost(pm, state) <= pm.Get(NotchesTerm)) return true;
-            }
-            return false;
+            return HasCharmProgression(pm) && HasStateRequirements(pm, state) && HasNotchRequirements(pm, state) == EquipResult.Nonovercharm;
         }
 
         public bool CanEquipOvercharm<T>(ProgressionManager pm, T state) where T : IState
         {
-            if (HasStateRequirements(pm, state))
-            {
-                if (state.GetBool(CharmBool)) return true;
-                if (state.GetInt(UsedNotchesInt) < pm.Get(NotchesTerm)) return true;
-            }
-            return false;
+            return HasCharmProgression(pm) && HasStateRequirements(pm, state) && HasNotchRequirements(pm, state) != EquipResult.None;
         }
 
         public EquipResult CanEquip(ProgressionManager pm, StateUnion? localState)
         {
             if (localState is null || !HasCharmProgression(pm)) return EquipResult.None;
+            bool overcharm = false;
             for (int i = 0; i < localState.Count; i++)
             {
-                if (CanEquipNonovercharm(pm, localState[i])) return EquipResult.Nonovercharm;
-            }
-            for (int i = 0; i < localState.Count; i++)
-            {
-                if (CanEquipOvercharm(pm, localState[i])) return EquipResult.Overcharm;
+                if (!HasStateRequirements(pm, localState[i])) continue;
+                switch (HasNotchRequirements(pm, localState[i]))
+                {
+                    case EquipResult.None: continue;
+                    case EquipResult.Overcharm: overcharm = true; continue;
+                    case EquipResult.Nonovercharm: return EquipResult.Nonovercharm;
+                }
             }
 
-            return EquipResult.None;
+            return overcharm ? EquipResult.Overcharm : EquipResult.None;
         }
 
         /// <summary>
@@ -177,9 +204,7 @@ namespace RandomizerMod.RC.StateVariables
         public EquipResult CanEquip<T>(ProgressionManager pm, T state) where T : IState
         {
             if (!HasCharmProgression(pm) || !HasStateRequirements(pm, state)) return EquipResult.None;
-            if (CanEquipNonovercharm(pm, state)) return EquipResult.Nonovercharm;
-            if (CanEquipOvercharm(pm, state)) return EquipResult.Overcharm;
-            return EquipResult.None;
+            return HasNotchRequirements(pm, state);
         }
 
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
@@ -194,38 +219,12 @@ namespace RandomizerMod.RC.StateVariables
                 return true;
             }
 
-            if (!HasCharmProgression(pm) || !HasStateRequirements(pm, state))
+            if (CanEquip(pm, state) != EquipResult.None)
             {
-                return false;
-            }
-
-            int notchCost = GetNotchCost(pm, state);
-            if (notchCost <= 0)
-            {
-                DoEquipCharm(pm, notchCost, ref state);
+                DoEquipCharm(pm, GetNotchCost(pm, state), ref state);
                 return true;
             }
-
-            int netNotches = pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt);
-
-            if (netNotches <= 0)
-            {
-                int oldMaxNotch = state.GetInt(MaxNotchCost);
-                if (oldMaxNotch > notchCost && netNotches + oldMaxNotch > 0)
-                {
-                    DoEquipCharm(pm, notchCost, ref state);
-                }
-                return false;
-            }
-            else
-            {
-                if (netNotches < notchCost && state.GetBool(HasTakenDamage))
-                {
-                    return false; // state cannot overcharm!
-                }
-                DoEquipCharm(pm, notchCost, ref state);
-                return true;
-            }
+            return false;
         }
 
         public bool TryEquip(object? sender, ProgressionManager pm, in LazyStateBuilder state, out LazyStateBuilder newState)
@@ -235,41 +234,13 @@ namespace RandomizerMod.RC.StateVariables
                 return true;
             }
 
-            if (!HasCharmProgression(pm) || !HasStateRequirements(pm, state))
-            {
-                return false;
-            }
-
-            int notchCost = GetNotchCost(pm, state);
-            if (notchCost <= 0)
+            if (CanEquip(pm, state) != EquipResult.None)
             {
                 newState = new(state);
-                DoEquipCharm(pm, notchCost, ref newState);
+                DoEquipCharm(pm, GetNotchCost(pm, state), ref newState);
                 return true;
             }
-
-            int netNotches = pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt);
-
-            if (netNotches <= 0)
-            {
-                int oldMaxNotch = state.GetInt(MaxNotchCost);
-                if (oldMaxNotch > notchCost && netNotches + oldMaxNotch > 0)
-                {
-                    newState = new(state);
-                    DoEquipCharm(pm, notchCost, ref newState);
-                }
-                return false;
-            }
-            else
-            {
-                if (netNotches < notchCost && state.GetBool(HasTakenDamage))
-                {
-                    return false; // state cannot overcharm!
-                }
-                newState = new(state);
-                DoEquipCharm(pm, notchCost, ref newState);
-                return true;
-            }
+            return false;
         }
 
         protected virtual void DoEquipCharm(ProgressionManager pm, int notchCost, ref LazyStateBuilder state)
@@ -280,8 +251,9 @@ namespace RandomizerMod.RC.StateVariables
             if (state.GetInt(UsedNotchesInt) > pm.Get(NotchesTerm)) state.SetBool(OvercharmBool, true);
         }
 
-        public virtual bool IsEquipped(LazyStateBuilder state) => state.GetBool(CharmBool);
-        public virtual void SetUnequippable(ref LazyStateBuilder state) => state.SetBool(AnticharmBool, true);
+        public bool IsEquipped(LazyStateBuilder state) => state.GetBool(CharmBool);
+        public bool IsEquipped<T>(T state) where T : IState => state.GetBool(CharmBool);
+        public void SetUnequippable(ref LazyStateBuilder state) => state.SetBool(AnticharmBool, true);
         public int GetAvailableNotches(ProgressionManager pm, LazyStateBuilder state)
         {
             return pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt);

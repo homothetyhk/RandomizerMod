@@ -8,7 +8,8 @@ namespace RandomizerModTests
     public class LogicFixture
     {
         public LogicManager LM { get; }
-        public RandoModContext Default_CTX { get; }
+
+        private RandoModContext Default_CTX { get; }
 
         public LogicFixture()
         {
@@ -18,9 +19,14 @@ namespace RandomizerModTests
             LM = Default_CTX.LM;
         }
 
+        public RandoModContext GetContext()
+        {
+            return new(Default_CTX);
+        }
+
         public ProgressionManager GetProgressionManager(Dictionary<string, int> pmFieldValues)
         {
-            ProgressionManager pm = new(LM, Default_CTX);
+            ProgressionManager pm = new(LM, new RandoModContext(Default_CTX));
             foreach (var kvp in pmFieldValues) pm.Set(kvp.Key, kvp.Value);
             return pm;
         }
