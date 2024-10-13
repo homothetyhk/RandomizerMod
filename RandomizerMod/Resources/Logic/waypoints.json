@@ -231,7 +231,7 @@
   },
   {
     "name": "Defeated_Xero",
-    "logic": "RestingGrounds_02 + DREAMNAIL + COMBAT[Xero]",
+    "logic": "(RestingGrounds_02[top1] | RestingGrounds_02 + (ANYCLAW | WINGS | RIGHTSUPERDASH | BACKGROUNDPOGOS)) + DREAMNAIL + COMBAT[Xero]",
     "Stateless": true
   },
   {
@@ -804,7 +804,7 @@
   },
   {
     "name": "Bench-Beast's_Den",
-    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | WINGS + ANYCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | ENEMYPOGOS + $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL] + COMBAT[Left_Devout]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Beast's_Den/"
+    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | ENEMYPOGOS + $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout]) + $BENCHRESET | WARPSTARTTOBENCH + Bench-Beast's_Den/"
   },
   {
     "name": "Bench-Basin_Toll",
