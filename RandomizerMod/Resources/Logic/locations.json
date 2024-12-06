@@ -2405,7 +2405,7 @@
   },
   {
     "name": "Lore_Tablet-Kingdom's_Edge",
-    "logic": "Deepnest_East_17[left1] + Broke_420_Rock_Quake_Floor_1 + Broke_420_Rock_Quake_Floor_2 + Broke_420_Rock_Quake_Floor_3 + Broke_420_Rock_Quake_Floor_4 + SPORESHROOM"
+    "logic": "Deepnest_East_17[left1] + Broke_420_Rock_Quake_Floor_1 + Broke_420_Rock_Quake_Floor_2 + Broke_420_Rock_Quake_Floor_3 + Broke_420_Rock_Quake_Floor_4 + Broke_420_Rock_Quake_Floor_5 + SPORESHROOM"
   },
   {
     "name": "Lore_Tablet-Palace_Workshop",
