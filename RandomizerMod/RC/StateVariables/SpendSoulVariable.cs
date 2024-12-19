@@ -67,6 +67,9 @@ namespace RandomizerMod.RC.StateVariables
             if (TryModifySingle(Amount, pm, ref state)) yield return state;
         }
 
+        /// <summary>
+        /// Checks whether the state can spend the given amount of soul. If true, modifies the state in place. If false, does not modify the state.
+        /// </summary>
         public virtual bool TryModifySingle(int amount, ProgressionManager pm, ref LazyStateBuilder state)
         {
             if (state.GetBool(SpentAllSoul))
@@ -94,6 +97,42 @@ namespace RandomizerMod.RC.StateVariables
 
             return true;
         }
+
+        /// <summary>
+        /// Checks whether the state can spend the given amount of soul, for the given number of iterations, assuming enough time between expenditures for reserves. 
+        /// <br/>If true, modifies the state in place. If false, does not modify the state.
+        /// </summary>
+        public virtual bool TryModifySingle(int amountPerIteration, int iterations, ProgressionManager pm, ref LazyStateBuilder state)
+        {
+            if (state.GetBool(SpentAllSoul))
+            {
+                return false;
+            }
+
+            int soul = GetSoul(pm, state);
+            if (soul < amountPerIteration) return false;
+
+            int reserveSoul = GetReserveSoul(pm, state);
+            int totalAmount = amountPerIteration * iterations;
+            if (soul + reserveSoul < totalAmount) return false;
+
+            if (reserveSoul >= totalAmount)
+            {
+                state.Increment(SpentReserveSoul, totalAmount);
+            }
+            else
+            {
+                state.Increment(SpentReserveSoul, reserveSoul);
+                state.Increment(SpentSoul, totalAmount - reserveSoul);
+            }
+
+            int requiredMaxSoul = state.GetInt(RequiredMaxSoul);
+            int altReq = Math.Max(amountPerIteration, state.GetInt(SpentSoul));
+            if (altReq > requiredMaxSoul) state.SetInt(RequiredMaxSoul, altReq);
+
+            return true;
+        }
+
 
         protected virtual int GetSoul(ProgressionManager pm, LazyStateBuilder state)
         {

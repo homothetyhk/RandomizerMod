@@ -20,7 +20,6 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly StateBool NoPassedCharmEquip;
         protected readonly Term NotchesTerm;
         protected readonly StateBool CharmBool;
-        protected readonly StateBool HasTakenDamage;
         protected readonly StateInt UsedNotchesInt;
         protected readonly StateInt MaxNotchCost;
 
@@ -33,7 +32,6 @@ namespace RandomizerMod.RC.StateVariables
             {
                 NotchesTerm = lm.GetTermStrict("NOTCHES");
                 NoPassedCharmEquip = lm.StateManager.GetBoolStrict("NOPASSEDCHARMEQUIP");
-                HasTakenDamage = lm.StateManager.GetBoolStrict("HASTAKENDAMAGE");
                 OvercharmBool = lm.StateManager.GetBoolStrict("OVERCHARMED");
                 UsedNotchesInt = lm.StateManager.GetIntStrict("USEDNOTCHES");
                 MaxNotchCost = lm.StateManager.GetIntStrict("MAXNOTCHCOST");
@@ -130,7 +128,7 @@ namespace RandomizerMod.RC.StateVariables
         /// <summary>
         /// Given that pm.HasCharmProgression returned true, this should determine whether the particular state supports equipping the charm, ignoring notch cost.
         /// </summary>
-        protected virtual bool HasStateRequirements<T>(ProgressionManager pm, T state) where T : IState
+        public virtual bool HasStateRequirements<T>(ProgressionManager pm, T state) where T : IState
         {
             if (state.GetBool(NoPassedCharmEquip) || state.GetBool(AnticharmBool)) return false;
             return true;
@@ -139,7 +137,7 @@ namespace RandomizerMod.RC.StateVariables
         /// <summary>
         /// Determines whether the charm can be equipped with or without overcharming for the given state. Does not check progression or state requirements.
         /// </summary>
-        protected EquipResult HasNotchRequirements<T>(ProgressionManager pm, T state) where T : IState
+        public EquipResult HasNotchRequirements<T>(ProgressionManager pm, T state) where T : IState
         {
             if (IsEquipped(state))
             {
@@ -254,9 +252,76 @@ namespace RandomizerMod.RC.StateVariables
         public bool IsEquipped(LazyStateBuilder state) => state.GetBool(CharmBool);
         public bool IsEquipped<T>(T state) where T : IState => state.GetBool(CharmBool);
         public void SetUnequippable(ref LazyStateBuilder state) => state.SetBool(AnticharmBool, true);
+        public bool IsDetermined<T>(T state) where T : IState => state.GetBool(CharmBool) || state.GetBool(AnticharmBool);
         public int GetAvailableNotches(ProgressionManager pm, LazyStateBuilder state)
         {
             return pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt);
+        }
+
+        public IEnumerable<LazyStateBuilder> DecideCharm(ProgressionManager pm, LazyStateBuilder state)
+        {
+            if (IsDetermined(state))
+            {
+                yield return state;
+                yield break;
+            }
+            else
+            {
+                LazyStateBuilder lsb = new(state);
+                SetUnequippable(ref lsb);
+                yield return lsb;
+                if (TryEquip(null, pm, ref state))
+                {
+                    yield return state;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Enumerates states for all equippable subsets of the provided set of charms.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if length of charm list is greater than 30.</exception>
+        public static IEnumerable<LazyStateBuilder> GenerateCharmCombinations(ProgressionManager pm, LazyStateBuilder state, IEnumerable<EquipCharmVariable> charmList)
+        {
+            EquipCharmVariable[] charms = charmList.Where(c =>
+                !c.IsDetermined(state)
+                && c.HasCharmProgression(pm)
+                && c.HasStateRequirements(pm, state)
+                && c.HasNotchRequirements(pm, state) != EquipResult.None)
+                .ToArray();
+            int len = charms.Length;
+            if (len == 0)
+            {
+                yield return state;
+                yield break;
+            }
+            else if (len > 30)
+            {
+                throw new ArgumentOutOfRangeException(nameof(charmList));
+            }
+
+            int p = 1 << len;
+            for (int i = 0; i < p; i++)
+            {
+                LazyStateBuilder next = new(state);
+                for (int j = 0; j < len; j++)
+                {
+                    int f = 1 << j;
+                    if ((i & f) == f) // equip
+                    {
+                        if (!charms[j].TryEquip(null, pm, ref next)) // should only fail due to out of notches
+                        {
+                            goto end_of_outer_loop;
+                        }
+                    }
+                    else // do not equip
+                    {
+                        charms[j].SetUnequippable(ref next);
+                    }
+                }
+                yield return next;
+            end_of_outer_loop: continue;
+            }
         }
     }
 }
