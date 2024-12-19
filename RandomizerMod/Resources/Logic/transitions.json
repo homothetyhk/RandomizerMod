@@ -1864,7 +1864,7 @@
   {
     "sceneName": "Fungus2_06",
     "gateName": "top1",
-    "logic": "Fungus2_06[top1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | RIGHTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL,after:ROOMSOUL]) | Fungus2_06[right1]",
+    "logic": "Fungus2_06[top1] | Fungus2_06[right1]",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_06[top1]"
   },
