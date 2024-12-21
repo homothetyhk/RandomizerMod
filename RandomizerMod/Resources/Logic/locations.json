@@ -1533,7 +1533,7 @@
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite",
-    "logic": "Deepnest_Spider_Town[left1] + (WINGS + ANYCLAW | (FULLCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout]) | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[1,2,2])"
+    "logic": "Deepnest_Spider_Town[left1] + (FULLCLAW | WINGS + ANYCLAW | WINGS + COMPLEXSKIPS + $SHADESKIP[2HITS] | $SHRIEKPOGO[2,before:ROOMSOUL] + $SHRIEKPOGO[2,before:ROOMSOUL]) + COMBAT[Left_Devout] | Bench-Beast's_Den + (LEFTCLAW | RIGHTCLAW + WINGS | $SHRIEKPOGO[1,2,2])"
   },
   {
     "name": "Geo_Rock-Beast's_Den_Above_Trilobite_Dupe",
