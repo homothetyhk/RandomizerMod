@@ -49,14 +49,12 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
-            yield return ResetSingle(pm, state);
+            return SaveQuitReset.ModifyState(sender, pm, state).SelectMany(s => StartRespawnReset.ModifyState(sender, pm, s));
         }
 
         public override IEnumerable<Term> GetTerms()
         {
             return SaveQuitReset.GetTerms().Concat(StartRespawnReset.GetTerms());
         }
-
-        public LazyStateBuilder ResetSingle(ProgressionManager pm, LazyStateBuilder state) => StartRespawnReset.ResetSingle(pm, SaveQuitReset.ResetSingle(pm, state));
     }
 }

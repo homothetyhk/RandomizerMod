@@ -8,25 +8,31 @@ namespace RandomizerMod.RC.StateVariables
      * Required Parameters: none
      * Optiional Parameters: none
     */
-    public class HotSpringResetVariable : StateResetter
+    public class HotSpringResetVariable : StateModifier
     {
         public override string Name { get; }
-        protected override State ResetState { get; }
-        protected override string? ResetLogicProperty => "HotSpringResetCondition";
-        protected override bool OptIn => true;
+        protected readonly ISoulStateManager SSM;
+        protected readonly IHPStateManager HPSM;
         public const string Prefix = "$HOTSPRINGRESET";
 
-        public HotSpringResetVariable(string name, LogicManager lm) : base(lm)
+        public HotSpringResetVariable(string name, LogicManager lm)
         {
             Name = name;
             try
             {
-                ResetState = lm.StateManager.GetNamedStateStrict("HotSpringResetState");
+                SSM = (ISoulStateManager)lm.GetVariableStrict(SoulStateManager.Prefix);
+                HPSM = (IHPStateManager)lm.GetVariableStrict(HPStateManager.Prefix);
             }
             catch (Exception e)
             {
                 throw new InvalidOperationException("Error constructing HotSpringResetVariable", e);
             }
+        }
+
+        public override IEnumerable<Term> GetTerms()
+        {
+            foreach (Term t in SSM.GetTerms()) yield return t;
+            foreach (Term t in HPSM.GetTerms()) yield return t;
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -38,6 +44,17 @@ namespace RandomizerMod.RC.StateVariables
             }
             variable = default;
             return false;
+        }
+
+        public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)
+        {
+            return [];
+        }
+
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        {
+            SSM.TryRestoreAllSoul(pm, ref state, restoreReserves: true);
+            return HPSM.RestoreAllHealth(pm, state, restoreBlueHealth: false);
         }
     }
 }

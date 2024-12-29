@@ -14,17 +14,13 @@ namespace RandomizerMod.RC.StateVariables
         public override string Name { get; }
         protected readonly Term Shadeskips;
         protected readonly Term MaskShards;
-        protected readonly Term VesselFragments;
         protected readonly StateBool UsedShadeBool;
         protected readonly StateBool CannotShadeSkip;
         protected readonly StateBool NoFlower;
-        protected readonly StateInt RequiredMaxSoul;
-        protected readonly StateInt SpentSoul;
-        protected readonly StateInt SpentReserveSoul;
-        protected readonly StateInt SoulLimiter;
         protected readonly FragileCharmVariable FragileHeartEquip;
         protected readonly EquipCharmVariable VoidHeartEquip;
         protected readonly EquipCharmVariable JoniEquip;
+        protected readonly ISoulStateManager SSM;
         protected readonly int RequiredShadeHealth;
         public const string Prefix = "$SHADESKIP";
         
@@ -36,18 +32,14 @@ namespace RandomizerMod.RC.StateVariables
             {
                 Shadeskips = lm.GetTermStrict("SHADESKIPS");
                 MaskShards = lm.GetTermStrict("MASKSHARDS");
-                VesselFragments = lm.GetTermStrict("VESSELFRAGMENTS");
                 UsedShadeBool = lm.StateManager.GetBoolStrict("USEDSHADE");
                 CannotShadeSkip = lm.StateManager.GetBoolStrict("CANNOTSHADESKIP");
                 NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
-                RequiredMaxSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
-                SpentSoul = lm.StateManager.GetIntStrict("SPENTSOUL");
-                SpentReserveSoul = lm.StateManager.GetIntStrict("SPENTRESERVESOUL");
-                SoulLimiter = lm.StateManager.GetIntStrict("SOULLIMITER");
 
                 FragileHeartEquip = (FragileCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
                 VoidHeartEquip = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Kingsoul")); // we have to check against either Kingsoul or Void Heart equipped to ensure monotonicity
                 JoniEquip = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Joni's_Blessing"));
+                SSM = (ISoulStateManager)lm.GetVariableStrict(SoulStateManager.Prefix);
             }
             catch (Exception e)
             {
@@ -77,32 +69,43 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
-            if (TryDoShadeSkip(pm, ref state))
+            if (DoShadeSkip(pm, ref state))
             {
                 yield return state;
             }
         }
 
-        public bool TryDoShadeSkip(ProgressionManager pm, ref LazyStateBuilder state)
+        // rem: this reports success, but does not attempt to avoid mutation in the case of failure
+        private bool DoShadeSkip(ProgressionManager pm, ref LazyStateBuilder state)
         {
             if (!pm.Has(Shadeskips))
             {
                 return false;
             }
 
-            if (VoidHeartEquip.IsEquipped(state))
+            if (VoidHeartEquip.IsEquipped(state) || state.GetBool(CannotShadeSkip) || state.GetBool(UsedShadeBool))
             {
                 return false;
             }
-
-            if (state.GetBool(CannotShadeSkip) || !CheckSoulRequirement(state) || !CheckHealthRequirement(pm, ref state) || !state.TrySetBoolTrue(UsedShadeBool))
-            {
-                return false;
-            }
-
-            PostAdjustSoul(pm, ref state);
             VoidHeartEquip.SetUnequippable(ref state);
+            state.SetBool(UsedShadeBool, true);
 
+            if (!SSM.TrySetSoulLimit(pm, ref state, limiter: 33, appliesToPriorPath: true) || !SSM.TrySetSoulLimit(pm, ref state, 0, false))
+            {
+                /*
+                 * Setting up a shade imposes a soul cap on the path up to the shade. After killing the shade, the soul cap is removed.
+                 * Thus, if the pre skip state had more than 66 soul in its meter, the post skip state will have soul reduced accordingly.
+                 * Additionally, if the state path previously spent soul, the shade skip may fail if those soul expenditures were not possible with the soul cap.
+                 */
+                return false;
+            }
+
+            if (!CheckHealthRequirement(pm, ref state))
+            {
+                // ref, in order to manage Joni and FHeart as needed
+                return false;
+            }
+            
             if (!state.GetBool(NoFlower))
             {
                 state.SetBool(NoFlower, true); // don't require flower shade skips, also avoids thorny issues with reacquiring flower after setting up the shade.
@@ -122,6 +125,7 @@ namespace RandomizerMod.RC.StateVariables
                 if (JoniEquip.IsEquipped(state)) return false;
                 JoniEquip.SetUnequippable(ref state);
 
+                // this probably doesn't need to run through HPSM since analyzing max hp is less complicated.
                 int hp = (pm.Get(MaskShards) / 4) / 2;
                 if (hp >= RequiredShadeHealth || RequiredShadeHealth == hp + 1 && FragileHeartEquip.CanEquip(pm, state) != EquipCharmVariable.EquipResult.None)
                 {
@@ -130,34 +134,6 @@ namespace RandomizerMod.RC.StateVariables
                 }
 
                 return false;
-            }
-        }
-
-        public bool CheckSoulRequirement<T>(T state) where T : IState
-        {
-            return state.GetInt(RequiredMaxSoul) <= 66;
-        }
-
-        protected virtual void PostAdjustSoul(ProgressionManager pm, ref LazyStateBuilder state)
-        {
-            int spentSoul = state.GetInt(SpentSoul);
-            if (spentSoul >= 33) return;
-
-            int debit = 33 - spentSoul;
-            int currentReserve = (pm.Get(VesselFragments) / 3) * 33 - state.GetInt(SpentReserveSoul);
-
-            if (currentReserve >= debit)
-            {
-                state.Increment(SpentReserveSoul, debit);
-            }
-            else if (currentReserve > 0)
-            {
-                state.Increment(SpentReserveSoul, currentReserve);
-                state.Increment(SpentSoul, debit - currentReserve);
-            }
-            else
-            {
-                state.Increment(SpentSoul, debit);
             }
         }
     }

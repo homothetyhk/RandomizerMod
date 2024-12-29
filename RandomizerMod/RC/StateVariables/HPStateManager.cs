@@ -4,14 +4,13 @@ using static RandomizerMod.RC.StateVariables.IHPStateManager;
 
 namespace RandomizerMod.RC.StateVariables
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>This interface only uses <see cref="IEnumerable{T}"/> return values, rather than the ref <see cref="LazyStateBuilder"/> pattern.
+    /// This is because many hp operations may require branching to fully account for how their effects interact with the hp state model.</remarks>
     public interface IHPStateManager : ILogicVariable
     {
-        /// <summary>
-        /// Determines whether the state is overcharmed. That is:
-        /// <br/>If the input has undetermined overcharm/nonovercharm status, yields each valid overcharm/nonovercharm state from the input.
-        /// <br/>If the input has determined overcharm/nonovercharm status, returns a singleton containing the input.
-        /// </summary>
-        IEnumerable<LazyStateBuilder> DecideOvercharm(ProgressionManager pm, LazyStateBuilder state);
         /// <summary>
         /// Applies the effect of taking a single hit of the specified amount (preovercharm).
         /// </summary>
@@ -19,9 +18,9 @@ namespace RandomizerMod.RC.StateVariables
         /// <summary>
         /// Applies the effect of taking a sequence of hits of the specified amounts (preovercharm), with insufficient time between hits to focus or proc hiveblood.
         /// </summary>
-        IEnumerable<LazyStateBuilder> TakeDamageSequence(ProgressionManager pm, LazyStateBuilder state, params IEnumerable<int> amounts);
+        IEnumerable<LazyStateBuilder> TakeDamageSequence(ProgressionManager pm, LazyStateBuilder state, params int[] amounts);
         /// <summary>
-        /// Attempts to focus once. Returns true if successful. Deducts soul without healing if Joni is equipped.
+        /// Attempts to focus once. Returns true if successful. Deducts soul without healing if Joni is equipped. Does not modify the input on failure.
         /// <br/>Automatically fails if used when any focus charm (Joni, Deep Focus) is not determined.
         /// <br/>Automatically fails if used with indeterminate hp. See <see cref="IsHPDetermined(LazyStateBuilder)"/>.
         /// </summary>
@@ -41,6 +40,7 @@ namespace RandomizerMod.RC.StateVariables
         IEnumerable<LazyStateBuilder> GiveHealth(ProgressionManager pm, LazyStateBuilder state, int amount);
         /// <summary>
         /// Applies the effect of restoring all health. Can optionally also restore health from lifeblood charms.
+        /// <br/>If <paramref name="restoreBlueHealth"/> is true, any masks from lifeblood cocoons are removed.
         /// </summary>
         IEnumerable<LazyStateBuilder> RestoreAllHealth(ProgressionManager pm, LazyStateBuilder state, bool restoreBlueHealth);
         /// <summary>
@@ -125,6 +125,8 @@ namespace RandomizerMod.RC.StateVariables
         protected EquipCharmVariable[] BeforeDeathCharms;
         protected EquipCharmVariable[] FocusCharms;
         protected readonly ILogicVariable[] Subvariables;
+        protected readonly LogicManager lm;
+        protected ISoulStateManager SSM { get => field ?? (ISoulStateManager)lm.GetVariableStrict(name: SoulStateManager.Prefix); set; } = null!;
 
         public HPStateManager(string name, LogicManager lm)
         {
@@ -166,24 +168,6 @@ namespace RandomizerMod.RC.StateVariables
             }
             variable = default;
             return false;
-        }
-
-        public IEnumerable<LazyStateBuilder> DecideOvercharm(ProgressionManager pm, LazyStateBuilder state)
-        {
-            if (state.GetBool(CannotOvercharm) || state.GetBool(Overcharmed))
-            {
-                yield return state;
-                yield break;
-            }
-            else
-            {
-                LazyStateBuilder oc = new(state);
-                state.SetBool(CannotOvercharm, true);
-                oc.SetBool(Overcharmed, true);
-                yield return state;
-                yield return oc;
-                yield break;
-            }
         }
 
         public IEnumerable<LazyStateBuilder> GiveBlueHealth(ProgressionManager pm, LazyStateBuilder state, int amount)
@@ -246,7 +230,7 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (!pm.Has(Focus) || !IsHPDetermined(state)) return false;
             foreach (EquipCharmVariable ecv in FocusCharms) if (!ecv.IsDetermined(state)) return false;
-            if (!SpendSoul33.TryModifySingle(33, pm, ref state)) return false;
+            if (!SSM.TrySpendSoul(pm, ref state, 33)) return false;
             int healAmt = GetHealAmount(pm, state);
 
             if (state.GetInt(SpentHP) > 0) state.SetInt(SpentHP, Math.Max(0, state.GetInt(SpentHP) - healAmt));
@@ -264,7 +248,7 @@ namespace RandomizerMod.RC.StateVariables
             {
                 return EquipCharmVariable.GenerateCharmCombinations(pm, state, FocusCharms).SelectMany(s => DoFocus(pm, s, amount));
             }
-            if (!SpendSoul33.TryModifySingle(33, amount, pm, ref state)) return [];
+            if (!SSM.TrySpendSoul(pm, ref state, 33)) return [];
 
             int spentHP = state.GetInt(SpentHP);
             int healAmt = GetHealAmount(pm, state);
@@ -302,6 +286,24 @@ namespace RandomizerMod.RC.StateVariables
             return lsbs;
         }
 
+        protected IEnumerable<LazyStateBuilder> DecideOvercharm(ProgressionManager pm, LazyStateBuilder state)
+        {
+            if (state.GetBool(CannotOvercharm) || state.GetBool(Overcharmed))
+            {
+                yield return state;
+                yield break;
+            }
+            else
+            {
+                LazyStateBuilder oc = new(state);
+                state.SetBool(CannotOvercharm, true);
+                oc.SetBool(Overcharmed, true);
+                yield return state;
+                yield return oc;
+                yield break;
+            }
+        }
+
         public StrictHPInfo GetHPInfo(ProgressionManager pm, LazyStateBuilder state)
         {
             if (!IsHPDetermined(state))
@@ -323,15 +325,21 @@ namespace RandomizerMod.RC.StateVariables
 
         protected readonly record struct HitInfo(int Amount, int BlueHPDamage, int WhiteHPDamage, bool WaitAfterHit)
         {
+            public bool Survives { get; }
+
             public HitInfo(StrictHPInfo info, int Amount, bool WaitAfterHit) : this(Amount,
                 info.CurrentBlueHP >= Amount ? Amount : info.CurrentBlueHP,
                 info.CurrentBlueHP >= Amount ? 0 : Amount,
                 WaitAfterHit)
-            { }
+            {
+                Survives = info.CurrentBlueHP >= Amount || info.CurrentWhiteHP > Amount;
+            }
         }
 
         protected virtual void DoHit(ref LazyStateBuilder state, HitInfo hit)
         {
+            if (!hit.Survives) throw new InvalidOperationException("DoHit called on lethal hit.");
+
             if (hit.BlueHPDamage > 0)
             {
                 state.Increment(SpentBlueHP, hit.BlueHPDamage);
@@ -370,15 +378,17 @@ namespace RandomizerMod.RC.StateVariables
             }
         }
 
-        public IEnumerable<LazyStateBuilder> TakeDamageSequence(ProgressionManager pm, LazyStateBuilder state, params IEnumerable<int> amounts)
+        public IEnumerable<LazyStateBuilder> TakeDamageSequence(ProgressionManager pm, LazyStateBuilder state, params int[] amounts)
         {
             if (!IsHPDetermined(state)) return DetermineHP(pm, state).SelectMany(s => TakeDamageSequence(pm, s, amounts));
 
             IEnumerable<LazyStateBuilder> states = [state];
 
-            foreach (int amount in amounts)
+            for (int i = 0; i < amounts.Length; i++)
             {
-                states = states.SelectMany(s => TakeDamageStrict(pm, s, amount, waitAfterHit: false));
+                int amount = amounts[i];
+                bool waitAfterHit = i == amounts.Length - 1;
+                states = states.SelectMany(s => TakeDamageStrict(pm, s, amount, waitAfterHit));
             }
             return states;
         }
@@ -407,7 +417,7 @@ namespace RandomizerMod.RC.StateVariables
 
             StrictHPInfo info = GetHPInfo(pm, state);
             HitInfo hit = new(info, adjAmount, waitAfterHit);
-            if (hit.WhiteHPDamage < info.CurrentWhiteHP)
+            if (hit.Survives)
             {
                 DoHit(ref state, hit);
                 return [state];
@@ -429,18 +439,36 @@ namespace RandomizerMod.RC.StateVariables
             int adjAmount = overcharmed ? 2 * amount : amount;
 
             int deficit = adjAmount - info.CurrentWhiteHP;
-            int healAmt = GetHealAmount(pm, state);
-
-            if (waitAfterHit && deficit > 0 && info.MaxWhiteHP - info.CurrentWhiteHP >= deficit && healAmt > 0)
+            IEnumerable<LazyStateBuilder> states;
+            if (deficit >= 0)
             {
-                while (deficit > 0 && TryFocus(pm, ref state)) deficit-= healAmt;
+                if (waitAfterHit)
+                {
+                    int healAmt = GetHealAmount(pm, state);
+                    int healAvail = info.MaxWhiteHP - info.CurrentWhiteHP;
+                    int healReq = 1 + deficit;
+                    if (healAmt > 0 && healAvail >= healReq)
+                    {
+                        states = DoFocus(pm, state, healReq);
+                    }
+                    else yield break;
+                }
+                else yield break;
             }
-            if (deficit > 0) return [];
-
-            info = GetHPInfo(pm, state);
-            HitInfo hit = new(info, adjAmount, true);
-            DoHit(ref state, hit);
-            return [state];
+            else
+            {
+                states = [state];
+            }
+            
+            foreach (LazyStateBuilder lsb in states)
+            {
+                state = lsb;
+                info = GetHPInfo(pm, state);
+                HitInfo hit = new(info, adjAmount, true);
+                if (!hit.Survives) continue;
+                DoHit(ref state, hit);
+                yield return state;
+            }
         }
 
         #endregion

@@ -30,7 +30,7 @@ namespace RandomizerMod.RC.StateVariables
             return base.GetTerms().Append(RepairTerm);
         }
 
-        protected override bool HasStateRequirements<T>(ProgressionManager pm, T state)
+        public override bool HasStateRequirements<T>(ProgressionManager pm, T state)
         {
             return base.HasStateRequirements<T>(pm, state) && (pm.Has(CharmTerm, 2) || !state.GetBool(BreakBool) && pm.Has(RepairTerm));
         }

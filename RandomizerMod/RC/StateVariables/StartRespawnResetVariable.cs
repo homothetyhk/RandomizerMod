@@ -9,25 +9,29 @@ namespace RandomizerMod.RC.StateVariables
      * Optional Parameters: none
      * Provides the effect of the start respawn. Typically applied in sequence after $SAVEQUITRESET as part of $WARPTOSTART.
     */
-    public class StartRespawnResetVariable : StateResetter
+    public class StartRespawnResetVariable : StateModifier
     {
         public override string Name { get; }
         public const string Prefix = "$STARTRESPAWN";
-        protected override State ResetState { get; }
-        protected override string? ResetLogicProperty => "StartRespawnResetCondition";
-        protected override bool OptIn => true;
 
-        public StartRespawnResetVariable(string term, LogicManager lm) : base(lm)
+        protected readonly ISoulStateManager SSM;
+
+        public StartRespawnResetVariable(string term, LogicManager lm)
         {
             Name = term;
             try
             {
-                ResetState = lm.StateManager.GetNamedStateStrict("StartRespawnResetState");
+                SSM = (ISoulStateManager)lm.GetVariableStrict(SoulStateManager.Prefix);
             }
             catch (Exception e)
             {
                 throw new InvalidOperationException("Error constructing StartRespawnResetVariable", e);
             }
+        }
+
+        public override IEnumerable<Term> GetTerms()
+        {
+            return [];
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -41,6 +45,14 @@ namespace RandomizerMod.RC.StateVariables
             return false;
         }
 
-        new public LazyStateBuilder ResetSingle(ProgressionManager pm, LazyStateBuilder state) => base.ResetSingle(pm, state);
+        public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)
+        {
+            return [];
+        }
+
+        public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
+        {
+            return SSM.RestoreAllSoul(pm, state, true);
+        }
     }
 }
