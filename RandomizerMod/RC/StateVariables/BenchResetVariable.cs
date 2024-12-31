@@ -16,7 +16,7 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly List<StateBool> AnticharmBools;
         protected readonly StateBool NoPassedCharmEquip;
         protected readonly StateBool UsedShade;
-        protected readonly StateInt MaxRequiredSoul; 
+        protected readonly StateInt RequiredMaxSoul; 
         // technically, MaxRequiredSoul should be reset at the start of the path leading to where a soul limit is applied. Since currently the only consumer is ShadeStateVariable, paths start at benches.
         // we don't reset SoulLimiter, since the only current consumer is ShadeStateVariable, which sets and resets it already (and there is no natural reason to think benches should reset this)
         protected readonly ISoulStateManager SSM;
@@ -34,7 +34,7 @@ namespace RandomizerMod.RC.StateVariables
                 AnticharmBools = lm.StateManager.Bools.Where(sb => sb.Name.StartsWith("noCHARM")).ToList();
                 NoPassedCharmEquip = lm.StateManager.GetBoolStrict("NOPASSEDCHARMEQUIP");
                 UsedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
-                MaxRequiredSoul = lm.StateManager.GetIntStrict("MAXREQUIREDSOUL");
+                RequiredMaxSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
                 SSM = (ISoulStateManager)lm.GetVariableStrict(SoulStateManager.Prefix);
                 HPSM = (IHPStateManager)lm.GetVariableStrict(HPStateManager.Prefix);
                 SalubrasBlessing = lm.GetTermStrict("Salubra's_Blessing");
@@ -79,7 +79,7 @@ namespace RandomizerMod.RC.StateVariables
                 state.SetBool(sb, false);
             }
             if (pm.Has(SalubrasBlessing)) SSM.TryRestoreAllSoul(pm, ref state, true);
-            state.SetInt(MaxRequiredSoul, 0);
+            state.SetInt(RequiredMaxSoul, 0);
             state.SetBool(NoPassedCharmEquip, false);
             state.SetBool(UsedShade, false);
             return HPSM.RestoreAllHealth(pm, state, true);

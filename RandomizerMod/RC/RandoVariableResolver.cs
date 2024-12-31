@@ -15,6 +15,7 @@ namespace RandomizerMod.RC
             if (CastSpellVariable.TryMatch(lm, term, out variable)) return true;
             if (SlopeballVariable.TryMatch(lm, term, out variable)) return true;
             if (ShriekPogoVariable.TryMatch(lm, term, out variable)) return true;
+            if (SoulStateManager.TryMatch(lm, term, out variable)) return true;
             if (SpendSoulVariable.TryMatch(lm, term, out variable)) return true;
             if (RegainSoulVariable.TryMatch(lm, term, out variable)) return true;
             if (EquipCharmVariable.TryMatch(lm, term, out variable)) return true;
@@ -22,6 +23,7 @@ namespace RandomizerMod.RC
             if (ShadeStateVariable.TryMatch(lm, term, out variable)) return true;
             if (TakeDamageVariable.TryMatch(lm, term, out variable)) return true;
             if (HPStateManager.TryMatch(lm, term, out variable)) return true;
+            if (LifebloodCountVariable.TryMatch(lm, term, out variable)) return true;
             if (StagStateVariable.TryMatch(lm, term, out variable)) return true;
             if (FlowerProviderVariable.TryMatch(lm, term, out variable)) return true;
             if (SaveQuitResetVariable.TryMatch(lm, term, out variable)) return true;

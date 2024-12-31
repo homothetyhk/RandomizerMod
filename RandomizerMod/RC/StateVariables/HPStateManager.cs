@@ -99,7 +99,8 @@ namespace RandomizerMod.RC.StateVariables
         {
             yield return MaskShards;
             yield return Focus;
-            foreach (ILogicVariable variable in Subvariables)
+            foreach (ILogicVariable variable in 
+                (ILogicVariable[])[Hiveblood, LifebloodHeart, LifebloodCore, FragileHeart, JonisBlessing, DeepFocus, SSM])
             {
                 foreach (Term t in variable.GetTerms()) yield return t;
             }
@@ -120,20 +121,20 @@ namespace RandomizerMod.RC.StateVariables
         protected readonly EquipCharmVariable Hiveblood;
         protected readonly EquipCharmVariable DeepFocus;
         // not supported: grubsong
-        protected readonly SpendSoulVariable SpendSoul33;
         protected EquipCharmVariable[] DetermineHPCharms;
         protected EquipCharmVariable[] BeforeDeathCharms;
         protected EquipCharmVariable[] FocusCharms;
-        protected readonly ILogicVariable[] Subvariables;
         protected readonly LogicManager lm;
         protected ISoulStateManager SSM { get => field ?? (ISoulStateManager)lm.GetVariableStrict(name: SoulStateManager.Prefix); set; } = null!;
 
         public HPStateManager(string name, LogicManager lm)
         {
             Name = name;
+            this.lm = lm;
             try
             {
                 Overcharmed = lm.StateManager.GetBoolStrict("OVERCHARMED");
+                CannotOvercharm = lm.StateManager.GetBoolStrict("CANNOTOVERCHARM");
                 NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
                 SpentHP = lm.StateManager.GetIntStrict("SPENTHP");
                 SpentBlueHP = lm.StateManager.GetIntStrict("SPENTBLUEHP");
@@ -146,12 +147,10 @@ namespace RandomizerMod.RC.StateVariables
                 FragileHeart = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Fragile_Heart"));
                 Hiveblood = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Hiveblood"));
                 DeepFocus = (EquipCharmVariable)lm.GetVariableStrict(EquipCharmVariable.GetName("Deep_Focus"));
-                SpendSoul33 = (SpendSoulVariable)lm.GetVariableStrict(SpendSoulVariable.Prefix + "[33]");
 
                 DetermineHPCharms = [Hiveblood, LifebloodHeart, LifebloodCore, FragileHeart, JonisBlessing];
                 FocusCharms = [DeepFocus, JonisBlessing];
                 BeforeDeathCharms = [Hiveblood, LifebloodHeart, LifebloodCore, FragileHeart, JonisBlessing, DeepFocus];
-                Subvariables = [Hiveblood, LifebloodHeart, LifebloodCore, FragileHeart, JonisBlessing, DeepFocus, SpendSoul33];
             }
             catch (Exception e)
             {
@@ -281,7 +280,7 @@ namespace RandomizerMod.RC.StateVariables
 
             for (int i = 0; i < lazySpentHP; i++)
             {
-                lsbs = lsbs.SelectMany(l => TakeDamage(pm, state, 1));
+                lsbs = lsbs.SelectMany(l => TakeDamage(pm, l, 1));
             }
             return lsbs;
         }

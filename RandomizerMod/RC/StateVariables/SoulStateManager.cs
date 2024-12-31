@@ -84,7 +84,7 @@ namespace RandomizerMod.RC.StateVariables
         public readonly record struct SoulInfo(int Soul, int MaxSoul, int ReserveSoul, int MaxReserveSoul);
     }
 
-    internal class SoulStateManager : LogicVariable, ISoulStateManager
+    public class SoulStateManager : LogicVariable, ISoulStateManager
     {
         public override string Name { get; }
         public const string Prefix = "$SSM";
@@ -199,6 +199,7 @@ namespace RandomizerMod.RC.StateVariables
         {
             SoulInfo info = GetSoulInfo(pm, state);
             state.SetInt(SpentSoul, info.MaxSoul);
+            state.SetInt(MaxRequiredSoul, info.MaxSoul);
             state.SetInt(SpentReserveSoul, info.MaxReserveSoul);
             return true;
         }
@@ -250,10 +251,18 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (appliesToPriorPath && state.GetInt(MaxRequiredSoul) > limiter) return false;
 
-            if (limiter > state.GetInt(SoulLimiter))
+            int current = state.GetInt(SoulLimiter);
+
+            if (limiter > current)
             {
                 state.SetInt(SoulLimiter, limiter);
             }
+            else if (limiter < current)
+            {
+                state.SetInt(SoulLimiter, limiter);
+                TrySpendSoul(pm, ref state, current - limiter);
+            }
+
             return true;
         }
 
@@ -269,7 +278,7 @@ namespace RandomizerMod.RC.StateVariables
         protected void SpendWithoutRebalance(int amount, ref SoulInfo soul, ref LazyStateBuilder state)
         {
             state.Increment(SpentSoul, amount);
-            if (amount > state.GetInt(MaxRequiredSoul)) state.SetInt(MaxRequiredSoul, amount);
+            state.TrySetIntToValue(MaxRequiredSoul, state.GetInt(SpentSoul));
             soul = soul with { Soul = soul.Soul - amount };
         }
 

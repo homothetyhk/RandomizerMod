@@ -16,7 +16,7 @@ namespace RandomizerMod.RC.StateVariables
 
         protected readonly StateBool NoFlower;
         protected readonly StateBool UsedShade;
-        protected readonly StateInt MaxRequiredSoul;
+        protected readonly StateInt RequiredMaxSoul;
         protected readonly ISoulStateManager SSM;
         protected readonly IHPStateManager HPSM;
 
@@ -27,7 +27,7 @@ namespace RandomizerMod.RC.StateVariables
             {
                 NoFlower = lm.StateManager.GetBoolStrict("NOFLOWER");
                 UsedShade = lm.StateManager.GetBoolStrict("USEDSHADE");
-                MaxRequiredSoul = lm.StateManager.GetIntStrict("MAXREQUIREDSOUL");
+                RequiredMaxSoul = lm.StateManager.GetIntStrict("REQUIREDMAXSOUL");
 
                 SSM = (ISoulStateManager)lm.GetVariableStrict(SoulStateManager.Prefix);
                 HPSM = (IHPStateManager)lm.GetVariableStrict(HPStateManager.Prefix);
@@ -65,7 +65,7 @@ namespace RandomizerMod.RC.StateVariables
             state.SetBool(NoFlower, true); // not game accurate, but we do this to prevent warps from being required for flower quest.
             SSM.TrySpendAllSoul(pm, ref state); // zero out soul. A subsequent modifier will handle bench / start respawn soul effects.
             state.SetBool(UsedShade, false); // not necessary to reset shade variables for typical use, but in the case of warping to a non-start hard respawn, it would be correct to reset them here.
-            state.SetInt(MaxRequiredSoul, 0);
+            state.SetInt(RequiredMaxSoul, 0);
             return HPSM.RestoreAllHealth(pm, state, restoreBlueHealth: false);
         }
     }

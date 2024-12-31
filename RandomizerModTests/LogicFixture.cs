@@ -24,9 +24,14 @@ namespace RandomizerModTests
             return new(Default_CTX);
         }
 
+        public ProgressionManager GetProgressionManager()
+        {
+            return new(LM, new RandoModContext(Default_CTX));
+        }
+
         public ProgressionManager GetProgressionManager(Dictionary<string, int> pmFieldValues)
         {
-            ProgressionManager pm = new(LM, new RandoModContext(Default_CTX));
+            ProgressionManager pm = GetProgressionManager();
             foreach (var kvp in pmFieldValues) pm.Set(kvp.Key, kvp.Value);
             return pm;
         }
@@ -42,6 +47,8 @@ namespace RandomizerModTests
             }
             return lsb;
         }
+
+        public LazyStateBuilder GetStateP(params (string, int)[] vals) => GetState(vals.ToDictionary(p => p.Item1, p => p.Item2));
 
     }
 

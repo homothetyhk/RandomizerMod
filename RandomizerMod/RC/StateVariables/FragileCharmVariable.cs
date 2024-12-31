@@ -42,7 +42,7 @@ namespace RandomizerMod.RC.StateVariables
             {
                 state.SetBool(CharmBool, false);
                 state.Increment(UsedNotchesInt, -((RandoModContext)pm.ctx).notchCosts[CharmID - 1]);
-                if (state.GetBool(OvercharmBool)) state.SetBool(OvercharmBool, false);
+                if (state.GetBool(Overcharmed)) state.SetBool(Overcharmed, false);
             }
             state.SetBool(AnticharmBool, true);
             state.SetBool(BreakBool, true);

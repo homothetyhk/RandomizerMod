@@ -3,6 +3,7 @@
     "Bool": [
       "USEDSHADE",
       "OVERCHARMED",
+      "CANNOTOVERCHARM",
       "CANNOTREGAINSOUL",
       "CANNOTSHADESKIP",
       "BROKEHEART",

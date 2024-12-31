@@ -4,15 +4,8 @@ using RandomizerCore.Logic.StateLogic;
 namespace RandomizerModTests.StateVariables
 {
     [Collection("Logic Collection")]
-    public class TakeDamageVariableTests
+    public class TakeDamageVariableTests(LogicFixture Fix)
     {
-        LogicFixture Fix { get; }
-
-        public TakeDamageVariableTests(LogicFixture fix)
-        {
-            Fix = fix;
-        }
-
         public Dictionary<string, int> CharmStateBase => new() { ["NOPASSEDCHARMEQUIP"] = 0 };
 
         [Fact]

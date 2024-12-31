@@ -14,12 +14,13 @@ namespace RandomizerMod.RC.StateVariables
         public override string Name { get; }
         protected int CharmID;
         protected Term CharmTerm;
-        protected StateBool AnticharmBool;
-        protected StateBool OvercharmBool;
+        protected readonly StateBool Overcharmed;
+        protected readonly StateBool CannotOvercharm;
 
         protected readonly StateBool NoPassedCharmEquip;
         protected readonly Term NotchesTerm;
         protected readonly StateBool CharmBool;
+        protected readonly StateBool AnticharmBool;
         protected readonly StateInt UsedNotchesInt;
         protected readonly StateInt MaxNotchCost;
 
@@ -32,7 +33,8 @@ namespace RandomizerMod.RC.StateVariables
             {
                 NotchesTerm = lm.GetTermStrict("NOTCHES");
                 NoPassedCharmEquip = lm.StateManager.GetBoolStrict("NOPASSEDCHARMEQUIP");
-                OvercharmBool = lm.StateManager.GetBoolStrict("OVERCHARMED");
+                Overcharmed = lm.StateManager.GetBoolStrict("OVERCHARMED");
+                CannotOvercharm = lm.StateManager.GetBoolStrict("CANNOTOVERCHARM");
                 UsedNotchesInt = lm.StateManager.GetIntStrict("USEDNOTCHES");
                 MaxNotchCost = lm.StateManager.GetIntStrict("MAXNOTCHCOST");
             }
@@ -141,14 +143,14 @@ namespace RandomizerMod.RC.StateVariables
         {
             if (IsEquipped(state))
             {
-                return state.GetBool(OvercharmBool) ? EquipResult.Overcharm : EquipResult.Nonovercharm; // Already equipped
+                return state.GetBool(Overcharmed) ? EquipResult.Overcharm : EquipResult.Nonovercharm; // Already equipped
             }
 
             int notchCost = GetNotchCost(pm, state);
 
             if (notchCost <= 0)
             {
-                return state.GetBool(OvercharmBool) ? EquipResult.Overcharm : EquipResult.Nonovercharm; // free to equip
+                return state.GetBool(Overcharmed) ? EquipResult.Overcharm : EquipResult.Nonovercharm; // free to equip
             }
 
             int netNotches = pm.Get(NotchesTerm) - state.GetInt(UsedNotchesInt) - notchCost;
@@ -160,7 +162,7 @@ namespace RandomizerMod.RC.StateVariables
 
             int overcharmSave = Math.Max(state.GetInt(MaxNotchCost), notchCost);
             
-            if (netNotches + overcharmSave > 0)
+            if (netNotches + overcharmSave > 0 && !state.GetBool(CannotOvercharm))
             {
                 return EquipResult.Overcharm; // charm is not 0 notches, so it requires an open notch to overcharm
             }
@@ -246,7 +248,7 @@ namespace RandomizerMod.RC.StateVariables
             state.Increment(UsedNotchesInt, notchCost);
             state.SetBool(CharmBool, true);
             state.SetInt(MaxNotchCost, Math.Max(state.GetInt(MaxNotchCost), notchCost));
-            if (state.GetInt(UsedNotchesInt) > pm.Get(NotchesTerm)) state.SetBool(OvercharmBool, true);
+            if (state.GetInt(UsedNotchesInt) > pm.Get(NotchesTerm)) state.SetBool(Overcharmed, true);
         }
 
         public bool IsEquipped(LazyStateBuilder state) => state.GetBool(CharmBool);
@@ -279,17 +281,28 @@ namespace RandomizerMod.RC.StateVariables
 
         /// <summary>
         /// Enumerates states for all equippable subsets of the provided set of charms.
+        /// <br/>Guarantees that <see cref="IsDetermined{T}(T)"/> returns true for all provided ECVs on all output states.
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if length of charm list is greater than 30.</exception>
         public static IEnumerable<LazyStateBuilder> GenerateCharmCombinations(ProgressionManager pm, LazyStateBuilder state, IEnumerable<EquipCharmVariable> charmList)
         {
-            EquipCharmVariable[] charms = charmList.Where(c =>
-                !c.IsDetermined(state)
-                && c.HasCharmProgression(pm)
-                && c.HasStateRequirements(pm, state)
-                && c.HasNotchRequirements(pm, state) != EquipResult.None)
-                .ToArray();
-            int len = charms.Length;
+            List<EquipCharmVariable> charms = [];
+            foreach (EquipCharmVariable c in charmList)
+            {
+                if (!c.IsDetermined(state))
+                {
+                    if (!c.HasCharmProgression(pm) || !c.HasStateRequirements(pm, state) || c.HasNotchRequirements(pm, state) == EquipResult.None)
+                    {
+                        c.SetUnequippable(ref state);
+                    }
+                    else
+                    {
+                        charms.Add(c);
+                    }
+                }
+            }
+
+            int len = charms.Count;
             if (len == 0)
             {
                 yield return state;
@@ -320,7 +333,7 @@ namespace RandomizerMod.RC.StateVariables
                     }
                 }
                 yield return next;
-            end_of_outer_loop: continue;
+            end_of_outer_loop: continue; // failed to equip requested charms, so we discard next.
             }
         }
     }

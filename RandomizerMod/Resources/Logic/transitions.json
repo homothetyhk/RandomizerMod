@@ -3516,7 +3516,7 @@
   {
     "sceneName": "Abyss_06_Core",
     "gateName": "left1",
-    "logic": "Abyss_06_Core[left1] | Warp-Lifeblood_Core_to_Abyss | (Abyss_06_Core[top1] + BRAND | Abyss_06_Core + (LEFTCLAW + (PRECISEMOVEMENT | RIGHTCLAW) + FULLDASH | WINGS)) + LIFEBLOOD",
+    "logic": "Abyss_06_Core[left1] | Warp-Lifeblood_Core_to_Abyss | (Abyss_06_Core[top1] + BRAND | Abyss_06_Core + (LEFTCLAW + (PRECISEMOVEMENT | RIGHTCLAW) + FULLDASH | WINGS)) + $LIFEBLOOD",
     "oneWayType": "TwoWay",
     "Name": "Abyss_06_Core[left1]"
   },
