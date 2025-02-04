@@ -69,7 +69,7 @@ namespace RandomizerMod.Settings
             if (MaximumEssenceCost < MinimumEssenceCost) MaximumEssenceCost = MinimumEssenceCost;
 
             if (MaximumEggCost < MinimumEggCost) MaximumEggCost = MinimumEggCost;
-            if (EggTolerance + MaximumEggCost > 20) EggTolerance = 20 - MaximumEggCost;
+            if (EggTolerance + MaximumEggCost > 21) EggTolerance = 21 - MaximumEggCost;
 
             if (MaximumCharmCost < MinimumCharmCost) MaximumCharmCost = MinimumCharmCost;
             if (CharmTolerance + MaximumCharmCost > 40) CharmTolerance = 40 - MaximumCharmCost;

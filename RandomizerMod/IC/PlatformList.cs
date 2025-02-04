@@ -43,7 +43,10 @@ namespace RandomizerMod.IC
             }
 
             // Platform to climb out of Abyss with only wings
-            plats.Add(new() { SceneName = SceneNames.Abyss_06_Core, X = 88.6f, Y = 263f, Test = lacksLeftClaw });
+            if (gs.TransitionSettings.Mode == TransitionSettings.TransitionMode.None || gs.TransitionSettings.Coupled)
+            {
+                plats.Add(new() { SceneName = SceneNames.Abyss_06_Core, X = 88.6f, Y = 263f, Test = lacksLeftClaw });
+            }
 
             // Platforms to climb back up from pale ore with no items
             plats.Add(new() { SceneName = SceneNames.Abyss_17, X = 164.7f, Y = 30f, Test = lacksRightVertical });
