@@ -6,6 +6,7 @@ using RandomizerCore.Updater;
 using RandomizerMod.Logging;
 using RandomizerMod.RC;
 using TrackerUpdate = RandomizerMod.IC.TrackerUpdate;
+using TrackerLogModule = RandomizerMod.IC.TrackerLogModule;
 
 namespace RandomizerMod.Settings
 {
@@ -53,6 +54,12 @@ namespace RandomizerMod.Settings
         /// </summary>
         public HashSet<string> outOfLogicVisitedTransitions = new();
         /// <summary>
+        /// A list which tracks vanilla placements which are reachable with current items. ID corresponds to ctx index.
+        /// Note: TD does not have access to which vanilla placements have been obtained. It assumes all reachable vanilla placements are obtained.
+        /// </summary>
+        public List<int> reachableVanillaPlacements = new();
+
+        /// <summary>
         /// The ProgressionManager for the current state, with the information available to the player.
         /// </summary>
         [JsonIgnore] public ProgressionManager pm;
@@ -98,10 +105,13 @@ namespace RandomizerMod.Settings
 
             mu.AddWaypoints(lm.Waypoints);
             mu.AddTransitions(lm.TransitionLookup.Values);
-            mu.AddEntries(ctx.Vanilla.Select(v => new DelegateUpdateEntry(v.Location, pm =>
+
+            reachableVanillaPlacements.Clear();
+            mu.AddEntries(ctx.Vanilla.Select((v,i) => new DelegateUpdateEntry(v.Location, pm =>
             {
                 AppendVanillaToDebug(v);
                 pm.Add(v.Item, v.Location);
+                reachableVanillaPlacements.Add(i);
                 if (v.Location is ILocationWaypoint ilw)
                 {
                     pm.Add(ilw.GetReachableEffect());
@@ -172,6 +182,7 @@ namespace RandomizerMod.Settings
                 }
                 if (outOfLogicObtainedItems.Remove(id))
                 {
+                    ItemChanger.ItemChangerMod.Modules.Get<TrackerLogModule>()?.TrackItemOOLEnd(id, item.Name, location.Name);
                     AppendRandoItemToDebug(item, location);
                     pm.Add(item, location);
                 }
@@ -197,6 +208,7 @@ namespace RandomizerMod.Settings
                 
                 if (outOfLogicVisitedTransitions.Remove(source.Name))
                 {
+                    ItemChanger.ItemChangerMod.Modules.Get<TrackerLogModule>()?.TrackTransitionOOLEnd(source.Name, target.Name);
                     AppendTransitionTargetToDebug(target.lt, source.lt);
                     pm.Add(target, source);
                 }

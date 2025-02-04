@@ -8,6 +8,8 @@ namespace RandomizerMod.IC
 {
     public class HelperLogModule : Module
     {
+        public override ModuleHandlingFlags ModuleHandlingProperties { get; set; } = ModuleHandlingFlags.AllowDeserializationFailure;
+
         private void PrintHelper()
         {
             if (!ready) return;
@@ -25,6 +27,7 @@ namespace RandomizerMod.IC
 
         public override void Initialize()
         {
+            if (RandomizerMod.RS is null || TD is null || TD_WSB is null) throw new InvalidOperationException("Missing randomizer data.");
             RandomizerModule.OnLoadComplete += SetUpLog;
             TrackerUpdate.OnFinishedUpdate += PrintHelper;
         }
@@ -153,6 +156,19 @@ namespace RandomizerMod.IC
                     sb.AppendLine(GetItemPreviewName(i));
                 }
                 sb.AppendLine();
+            }
+
+            if (td.reachableVanillaPlacements.Count != 0)
+            {
+                sb.AppendLine("REACHABLE VANILLA PLACEMENTS");
+                foreach (int id in td.reachableVanillaPlacements)
+                {
+                    sb.Append(' ', 2);
+                    if (!tdwsb.reachableVanillaPlacements.Contains(id)) sb.Append('*');
+                    string locationName = td.ctx.Vanilla[id].Location.Name;
+                    string itemName = td.ctx.Vanilla[id].Item.Name;
+                    sb.Append(itemName).Append(" at ").Append(locationName).AppendLine();
+                }
             }
 
             return sb.ToString();

@@ -10,7 +10,7 @@ namespace RandomizerMod.IC
             RandoItemTag.AfterRandoItemGive += AfterRandoItemGive;
             RandoPlacementTag.OnRandoPlacementVisitStateChanged += OnRandoPlacementVisitStateChanged;
             Events.OnTransitionOverride += OnTransitionOverride;
-            transitionLookup ??= TD.ctx.transitionPlacements.ToDictionary(p => p.Source.Name, p => p.Target.Name);
+            transitionLookup ??= TD?.ctx?.transitionPlacements?.ToDictionary(p => p.Source.Name, p => p.Target.Name) ?? [];
         }
 
         public override void Unload()
@@ -88,7 +88,7 @@ namespace RandomizerMod.IC
             if (transitionLookup.TryGetValue(sourceName, out string targetName) && !TD.HasVisited(sourceName))
             {
                 OnTransitionVisited?.Invoke(sourceName, targetName);
-                if (RandomizerMod.RS.GenerationSettings.TransitionSettings.Coupled && transitionLookup.ContainsKey(targetName))
+                if (RandomizerMod.RS.GenerationSettings is GenerationSettings gs && gs.TransitionSettings.Coupled && transitionLookup.ContainsKey(targetName))
                 {
                     OnTransitionVisited?.Invoke(targetName, sourceName);
                 }

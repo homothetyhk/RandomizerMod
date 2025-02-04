@@ -90,6 +90,12 @@ namespace RandomizerMod.IC
         {
             Settings.GenerationSettings gs = RandomizerMod.RS.GenerationSettings;
 
+            if (gs is null)
+            {
+                LogWarn("Failed to toggle RandomizerModule scene hooks due to missing randomizer data.");
+                return;
+            }
+
             switch (gs.StartLocationSettings.StartLocation)
             {
                 case "Ancestral Mound":
