@@ -20,6 +20,7 @@ Additionally, the following mods are strongly recommended:
 - Several items can be used to kill baldurs, including: Vengeful Spirit (or upgrades), Desolate Dive (or upgrades), Grubberfly's Elegy, Glowing Womb, Dash Slash with Dash, Weaversong, Spore Shroom, Cyclone Slash, Mark of Pride, and even just Dash on its own!
     - With default skip settings, only Vengeful Spirit, Desolate Dive, Grubberfly's Elegy, and Glowing Womb can be required in logic.
 Baldur HP is reduced to 5 to make slower baldur kills less tedious, and to reduce RNG.
+- Pogos may be required (for example, with standard settings Garpedes must be pogoed to collect the vessel fragment in Deepnest). Pogos which damage enemies are only required with the Enemy Pogos skip setting, and pogos which break background objects are only required with the Background Object Pogos skip setting. See the LOGIC README for more details.
 - Several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. For such items, any of the pickups in the family may be forced by randomizer logic. The families this pertains to are:
     - Dream Nail, Dream Gate, Awoken Dream Nail
     - Mothwing Cloak, Shade Cloak

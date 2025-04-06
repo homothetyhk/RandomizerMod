@@ -38,7 +38,7 @@ This file serves to document the randomizer logic.
     
 ### Enemy Pogos
 - Enemy Pogos are skips which require pogoing killable enemies or their projectiles.
-- Pogoing spikes, Garpedes, or Wingsmoulds is not considered a skip. Pogoing the shade or its projectiles is classified under Shade Skips, and not Enemy Pogos.
+- Pogoing spikes, saws, or enemies which do not take damage (Goams, Garpedes, Durandoos, Crystal Crawlers, Wingsmoulds, etc) is not considered a skip. Pogoing the shade or its projectiles is classified under Shade Skips, and not Enemy Pogos.
 - In logic, Enemy Pogos are indicated with the **ENEMYPOGOS** token.
 - Examples include:
     - Pogoing a Vengefly in Blue Lake to reach the rancid egg with wings.

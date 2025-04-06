@@ -1885,7 +1885,8 @@
   {
     "sceneName": "Fungus2_06",
     "gateName": "right1",
-    "logic": "Fungus2_06[right1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW + PRECISEMOVEMENT | RIGHTSUPERDASH | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL,after:ROOMSOUL]) | Fungus2_06[top1]",
+    "logic": "Fungus2_06[right1] | Fungus2_06 + (ACID | RIGHTDASH | WINGS | RIGHTCLAW + PRECISEMOVEMENT | RIGHTSUPERDASH | $SHADESKIP | SPELLAIRSTALL + $CASTSPELL[before:AREASOUL,after:ROOMSOUL]) | Fungus2_06[top1]",
+    // the shadeskip is technically missable since it is not possible to die with isma. this should be ok since isma still provides access with strictly better state.
     "oneWayType": "TwoWay",
     "Name": "Fungus2_06[right1]"
   },
@@ -2144,14 +2145,14 @@
   {
     "sceneName": "Fungus2_21",
     "gateName": "right1",
-    "logic": "Fungus2_21[right1] | Fungus2_21[left1] + (RIGHTCLAW + (RIGHTDASH | WINGS + SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL,after:ITEMSOUL]) | RIGHTSUPERDASH | ACID) + CREST",
+    "logic": "Fungus2_21[right1] | Fungus2_21 + CREST",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_21[right1]"
   },
   {
     "sceneName": "Fungus2_21",
     "gateName": "left1",
-    "logic": "Fungus2_21[left1] | Fungus2_21[right1] + (FULLCLAW + (LEFTDASH | LEFTSUPERDASH) | ANYCLAW + WINGS | $SHRIEKPOGO[7,before:ITEMSOUL]) + Broke_Pilgrim's_Way_Quake_Floor",
+    "logic": "Fungus2_21[left1] | Fungus2_21",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_21[left1]"
   },
@@ -2193,14 +2194,14 @@
   {
     "sceneName": "Fungus2_29",
     "gateName": "right1",
-    "logic": "Fungus2_29[right1] | Fungus2_29[bot1] + (FULLCLAW | WINGS)",
+    "logic": "Fungus2_29[right1] | Fungus2_29[bot1] + (ANYCLAW | WINGS) | Fungus2_29",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_29[right1]"
   },
   {
     "sceneName": "Fungus2_29",
     "gateName": "bot1",
-    "logic": "Fungus2_29[bot1] | Fungus2_29[right1] + (ANYCLAW + WINGS | $SHRIEKPOGO[3,before:MAPAREASOUL,after:AREASOUL])",
+    "logic": "Fungus2_29[bot1] | Fungus2_29",
     "oneWayType": "TwoWay",
     "Name": "Fungus2_29[bot1]"
   },
@@ -3257,7 +3258,9 @@
   {
     "sceneName": "Hive_03_c",
     "gateName": "left1",
-    "logic": "Hive_03_c[left1] | Hive_03_c + (RIGHTCLAW | WINGS)",
+    "logic": "Hive_03_c[left1] | Hive_03_c + (RIGHTCLAW | WINGS | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS) | ENEMYPOGOS + COMPLEXSKIPS)",
+    // enemypogos: using hiveling
+    // complex enemypogos: luring hive solider and pogoing multiple times
     "oneWayType": "TwoWay",
     "Name": "Hive_03_c[left1]"
   },
@@ -3558,7 +3561,7 @@
   {
     "sceneName": "Abyss_09",
     "gateName": "right2",
-    "logic": "Abyss_09[right2] | Abyss_09 + (FULLCLAW + FULLDASH | WINGS)",
+    "logic": "Abyss_09[right2] | Abyss_09 + (FULLCLAW + LEFTDASH | WINGS | (LEFTCLAW + RIGHTDASH | RIGHTCLAW + LEFTDASH) + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "Abyss_09[right2]"
   },
@@ -4995,7 +4998,7 @@
   {
     "sceneName": "RestingGrounds_10",
     "gateName": "top1",
-    "logic": "RestingGrounds_10[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | RestingGrounds_10 + Broke_Crypts_One_Way_Floor + ANYCLAW",
+    "logic": "RestingGrounds_10[top1] + (ANYCLAW | WINGS + PRECISEMOVEMENT) | RestingGrounds_10 + Broke_Crypts_One_Way_Floor + (RIGHTCLAW | LEFTCLAW + (WINGS | PRECISEMOVEMENT))",
     "oneWayType": "TwoWay",
     "Name": "RestingGrounds_10[top1]"
   },
@@ -5226,7 +5229,7 @@
   {
     "sceneName": "Mines_11",
     "gateName": "top1",
-    "logic": "Mines_11[top1] | Mines_11",
+    "logic": "Mines_11[top1] | Mines_11 + (ANYCLAW | WINGS | ENEMYPOGOS)",
     "oneWayType": "TwoWay",
     "Name": "Mines_11[top1]"
   },
@@ -5408,7 +5411,7 @@
   {
     "sceneName": "Mines_28",
     "gateName": "left1",
-    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | WINGS + LEFTDASH | FULLCLAW + LEFTDASH + PRECISEMOVEMENT | SPELLAIRSTALL + (WINGS + $CASTSPELL | LEFTDASH + $CASTSPELL[2]) | $SHRIEKPOGO)",
+    "logic": "Mines_28[left1] | Mines_28[door1] + (LEFTSUPERDASH | WINGS + LEFTDASH | LEFTCLAW + LEFTDASH + PRECISEMOVEMENT + (RIGHTCLAW | LEFTSLASH + DIFFICULTSKIPS) | SPELLAIRSTALL + (WINGS + $CASTSPELL | LEFTDASH + $CASTSPELL[2]) | $SHRIEKPOGO)",
     "oneWayType": "TwoWay",
     "Name": "Mines_28[left1]"
   },
@@ -5737,7 +5740,7 @@
   {
     "sceneName": "Fungus3_34",
     "gateName": "left1",
-    "logic": "Fungus3_34[left1] | Fungus3_34 + (LEFTDASH | WINGS | (RIGHTCLAW + (LEFTSUPERDASH | BACKGROUNDPOGOS | ENEMYPOGOS)))",
+    "logic": "Fungus3_34[left1] | Fungus3_34 + (LEFTDASH | WINGS | RIGHTCLAW + (LEFTSUPERDASH | BACKGROUNDPOGOS | ENEMYPOGOS) | $SHADESKIP)",
     "oneWayType": "TwoWay",
     "Name": "Fungus3_34[left1]"
   },
@@ -5947,14 +5950,14 @@
   {
     "sceneName": "White_Palace_01",
     "gateName": "right1",
-    "logic": "White_Palace_01[right1] | White_Palace_01 + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | WINGS) | White_Palace_01[top1] + Palace_Entrance_Lantern_Lit",
+    "logic": "White_Palace_01[right1] | White_Palace_01 + (RIGHTDASH | ANYCLAW + RIGHTSUPERDASH | WINGS) | White_Palace_01[top1] + Palace_Entrance_Lantern_Lit",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_01[right1]"
   },
   {
     "sceneName": "White_Palace_01",
     "gateName": "top1",
-    "logic": "White_Palace_01[top1] | White_Palace_01 + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | WINGS) + Palace_Entrance_Lantern_Lit + (LEFTCLAW | RIGHTCLAW + WINGS)",
+    "logic": "White_Palace_01[top1] | White_Palace_01 + (RIGHTDASH | ANYCLAW + RIGHTSUPERDASH | WINGS) + Palace_Entrance_Lantern_Lit + (LEFTCLAW | RIGHTCLAW + WINGS)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_01[top1]"
   },
@@ -6003,21 +6006,21 @@
   {
     "sceneName": "White_Palace_04",
     "gateName": "top1",
-    "logic": "White_Palace_04[top1] + (ANYCLAW | WINGS) | White_Palace_04[right2] + LEFTDASH + WINGS + (ANYCLAW | PRECISEMOVEMENT)",
+    "logic": "White_Palace_04[top1] + (ANYCLAW | WINGS) | White_Palace_04[right2] + (LEFTDASH | LEFTSUPERDASH + PRECISEMOVEMENT | OBSCURESKIPS + SPRINT) + (WINGS + (ANYCLAW | PRECISEMOVEMENT) | OBSCURESKIPS + FULLCLAW + RIGHTDASH + FULLSUPERDASH)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_04[top1]"
   },
   {
     "sceneName": "White_Palace_04",
     "gateName": "right2",
-    "logic": "White_Palace_04[right2] | White_Palace_04[top1] + RIGHTDASH + WINGS",
+    "logic": "White_Palace_04[right2] | White_Palace_04[top1] + WINGS + (RIGHTDASH | RIGHTSUPERDASH | OBSCURESKIPS + SPRINT)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_04[right2]"
   },
   {
     "sceneName": "White_Palace_05",
     "gateName": "left1",
-    "logic": "White_Palace_05[left1] | White_Palace_05[right1] + ((FULLCLAW | WINGS) + FULLDASH | (RIGHTCLAW | WINGS) + PRECISEMOVEMENT)",
+    "logic": "White_Palace_05[left1] | White_Palace_05[right1] + ((LEFTDASH | WINGS) + (ANYCLAW + WINGS | FULLCLAW) | (RIGHTCLAW | WINGS) + PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_05[left1]"
   },
@@ -6031,7 +6034,7 @@
   {
     "sceneName": "White_Palace_05",
     "gateName": "right1",
-    "logic": "White_Palace_05[right1] | White_Palace_05[left1] + (LEFTCLAW | WINGS) + (FULLDASH | PRECISEMOVEMENT)",
+    "logic": "White_Palace_05[right1] | White_Palace_05[left1] + (RIGHTDASH | WINGS | PRECISEMOVEMENT)",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_05[right1]"
   },
@@ -6150,14 +6153,18 @@
   {
     "sceneName": "White_Palace_14",
     "gateName": "bot1",
-    "logic": "White_Palace_14[bot1] | White_Palace_14[right1] + (FULLCLAW + FULLDASH | FULLDASH + $SHRIEKPOGO[before:ROOMSOUL])",
+    "logic": "White_Palace_14[bot1] | White_Palace_14[right1] + ((LEFTDASH | LEFTSUPERDASH | WINGS) + (LEFTCLAW | WINGS + RIGHTCLAW) + (LEFTDASH | DANGEROUSSKIPS + DIFFICULTSKIPS) + (LEFTDASH | LEFTSUPERDASH | OBSCURESKIPS + DASHSPRINT) | FULLDASH + $SHRIEKPOGO[before:ROOMSOUL])",
+    // dangerous + difficult: it is possible to pogo past the large moving saw. Right-to-left, there is no wall to superdash.
+    // shriek pogo goes through the top route. all others take the lower route.
     "oneWayType": "TwoWay",
     "Name": "White_Palace_14[bot1]"
   },
   {
     "sceneName": "White_Palace_14",
     "gateName": "right1",
-    "logic": "White_Palace_14[right1] | White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + FULLDASH",
+    "logic": "White_Palace_14[right1] | White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + (RIGHTDASH | RIGHTSUPERDASH | OBSCURESKIPS + DASHSPRINT) + (RIGHTDASH | LEFTCLAW + RIGHTSUPERDASH | DANGEROUSSKIPS + DIFFICULTSKIPS) + (WINGS | ANYCLAW + RIGHTSUPERDASH | RIGHTCLAW + RIGHTDASH | RIGHTCLAW + SPELLAIRSTALL + $CASTSPELL[3,before:AREASOUL,after:AREASOUL])",
+    // dangerous + difficult: it is possible to pogo past the large moving saw.
+    // the required airstalls with dashsprint can be reduced by one by taking the top path, but this is considerably harder.
     "oneWayType": "TwoWay",
     "Name": "White_Palace_14[right1]"
   },
@@ -6171,7 +6178,7 @@
   {
     "sceneName": "White_Palace_15",
     "gateName": "right1",
-    "logic": "White_Palace_15[right1] | (White_Palace_15[left1] | White_Palace_15[right1]) + (WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW + LEFTDASH) + $SLOPEBALL[before:AREASOUL,after:ROOMSOUL] | ANYCLAW + $SHRIEKPOGO[2,before:AREASOUL,after:AREASOUL])",
+    "logic": "White_Palace_15[right1] | (White_Palace_15[left1] | White_Palace_15[right2]) + (WINGS + (LEFTCLAW + RIGHTDASH | RIGHTCLAW + LEFTDASH) + $SLOPEBALL[before:AREASOUL,after:ROOMSOUL] | ANYCLAW + $SHRIEKPOGO[2,before:AREASOUL,after:AREASOUL])",
     "oneWayType": "TwoWay",
     "Name": "White_Palace_15[right1]"
   },

@@ -71,6 +71,7 @@
   "SHARPSHADOW": "FULLSHARPSHADOW",
   "KINGSOUL": "$EQUIPPEDCHARM[Kingsoul]",
   "VOIDHEART": "$EQUIPPEDCHARM[Void_Heart]",
+  "SPRINT": "$EQUIPPEDCHARM[Sprintmaster]",
   "DASHSPRINT": "$EQUIPPEDCHARM[Dashmaster] + $EQUIPPEDCHARM[Sprintmaster]",
   // deprecated, see LifebloodCountVariable for definition of $LIFEBLOOD
   "LIFEBLOOD": "$EQUIPPEDCHARM[Lifeblood_Heart] | $EQUIPPEDCHARM[Lifeblood_Core] | $EQUIPPEDCHARM[Joni's_Blessing]",
