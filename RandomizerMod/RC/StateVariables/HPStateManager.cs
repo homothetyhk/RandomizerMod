@@ -177,7 +177,7 @@ namespace RandomizerMod.RC.StateVariables
             }
             else
             {
-                state.SetInt(SpentBlueHP, state.GetInt(SpentBlueHP + amount));
+                state.SetInt(SpentBlueHP, state.GetInt(SpentBlueHP) - amount);
                 return [state];
             }
         }

@@ -54,10 +54,10 @@ namespace RandomizerMod.Settings
         /// </summary>
         public HashSet<string> outOfLogicVisitedTransitions = new();
         /// <summary>
-        /// A list which tracks vanilla placements which are reachable with current items. ID corresponds to ctx index.
+        /// Tracks vanilla placements which are reachable with current items. ID corresponds to ctx index.
         /// Note: TD does not have access to which vanilla placements have been obtained. It assumes all reachable vanilla placements are obtained.
         /// </summary>
-        public List<int> reachableVanillaPlacements = new();
+        public HashSet<int> reachableVanillaPlacements = new();
 
         /// <summary>
         /// The ProgressionManager for the current state, with the information available to the player.
