@@ -38,6 +38,10 @@ namespace RandomizerMod.IC
             {
                 ItemChangerMod.Modules.Add<ItemChanger.Modules.AutoSalubraNotches>();
             }
+            if (gs.SkipSettings.EnemyPogos)
+            {
+                ItemChangerMod.Modules.Add<NailUpgradeWarningModule>();
+            }
 
             HashSet<string> sourceNames = new(ctx.transitionPlacements.Select(x => x.Source.Name));
             HashSet<string> targetNames = new(ctx.transitionPlacements.Select(x => x.Target.Name));
