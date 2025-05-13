@@ -2029,7 +2029,7 @@
   },
   {
     "name": "Boss_Geo-Sanctum_Soul_Warrior",
-    "logic": "Ruins1_23[top1] | (Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + BACKGROUNDPOGOS)))"
+    "logic": "Ruins1_23[top1] | (Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + (ENEMYPOGOS | BACKGROUNDPOGOS))))"
   },
   {
     "name": "Boss_Geo-Elegant_Soul_Warrior",
@@ -2298,7 +2298,7 @@
   },
   {
     "name": "Lore_Tablet-Sanctum_Entrance",
-    "logic": "(Ruins1_23[left1] | Ruins1_23[bot1] | Ruins1_23[right2]) + (LEFTCLAW | WINGS | (RIGHTCLAW + ENEMYPOGOS))"
+    "logic": "Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + (ENEMYPOGOS | BACKGROUNDPOGOS)))"
   },
   {
     "name": "Lore_Tablet-Sanctum_Past_Soul_Master",
