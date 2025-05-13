@@ -2348,7 +2348,7 @@
   {
     "sceneName": "Deepnest_03",
     "gateName": "top1",
-    "logic": "Deepnest_03[top1] + (ANYCLAW | WINGS) | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS | RIGHTCLAW + OBSCURESKIPS | LEFTCLAW + $SHADESKIP)",
+    "logic": "Deepnest_03[top1] + (ANYCLAW | WINGS) | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS | RIGHTCLAW + OBSCURESKIPS + (ENEMYPOGOS | RIGHTDASH) + DAMAGEBOOSTS + $TAKEDAMAGE | LEFTCLAW + $SHADESKIP)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_03[top1]"
   },
