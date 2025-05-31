@@ -1,0 +1,3033 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RequestBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RequestBuilder
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RandomizerMod.RC.RequestBuilder">
+  
+  
+  <h1 id="RandomizerMod_RC_RequestBuilder" data-uid="RandomizerMod.RC.RequestBuilder" class="text-break">Class RequestBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Class used to build the request that is passed to the randomizer. The OnUpdate event allows modification of the request as it is built.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">RequestBuilder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RandomizerMod.RC.html">RandomizerMod.RC</a></h6>
+  <h6><strong>Assembly</strong>: RandomizerMod.dll</h6>
+  <h5 id="RandomizerMod_RC_RequestBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RequestBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder__ctor_RandomizerMod_Settings_GenerationSettings_RandomizerMod_Settings_SettingsPM_RandoMonitor_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.%23ctor(RandomizerMod.Settings.GenerationSettings%2CRandomizerMod.Settings.SettingsPM%2CRandoMonitor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L115">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder__ctor_" data-uid="RandomizerMod.RC.RequestBuilder.#ctor*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder__ctor_RandomizerMod_Settings_GenerationSettings_RandomizerMod_Settings_SettingsPM_RandoMonitor_" data-uid="RandomizerMod.RC.RequestBuilder.#ctor(RandomizerMod.Settings.GenerationSettings,RandomizerMod.Settings.SettingsPM,RandoMonitor)">RequestBuilder(GenerationSettings, SettingsPM, RandoMonitor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RequestBuilder(GenerationSettings gs, SettingsPM pm, RandoMonitor rm)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.Settings.GenerationSettings.html">GenerationSettings</a></td>
+        <td><span class="parametername">gs</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.Settings.SettingsPM.html">SettingsPM</a></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">RandoMonitor</span></td>
+        <td><span class="parametername">rm</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_CostConverters.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.CostConverters%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L791">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_CostConverters" data-uid="RandomizerMod.RC.RequestBuilder.CostConverters">CostConverters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly PriorityEvent&lt;RequestBuilder.CostConverter&gt; CostConverters</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.PriorityEvent-1.html">PriorityEvent</a>&lt;<a class="xref" href="RandomizerMod.RC.RequestBuilder.CostConverter.html">RequestBuilder.CostConverter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ctx.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ctx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L106">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ctx" data-uid="RandomizerMod.RC.RequestBuilder.ctx">ctx</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly RandoModContext ctx</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.RandoModContext.html">RandoModContext</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_gs.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.gs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L101">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_gs" data-uid="RandomizerMod.RC.RequestBuilder.gs">gs</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly GenerationSettings gs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.Settings.GenerationSettings.html">GenerationSettings</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ItemMatchers.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ItemMatchers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L82">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ItemMatchers" data-uid="RandomizerMod.RC.RequestBuilder.ItemMatchers">ItemMatchers</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly List&lt;ItemMatchHandler&gt; ItemMatchers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="RandomizerMod.RC.ItemMatchHandler.html">ItemMatchHandler</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ItemRequests.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ItemRequests%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L81">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ItemRequests" data-uid="RandomizerMod.RC.RequestBuilder.ItemRequests">ItemRequests</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Dictionary&lt;string, ItemRequestInfo&gt; ItemRequests</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="RandomizerMod.RC.ItemRequestInfo.html">ItemRequestInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_lm.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.lm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L103">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_lm" data-uid="RandomizerMod.RC.RequestBuilder.lm">lm</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly LogicManager lm</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LogicManager</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_LocationMatchers.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.LocationMatchers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L85">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_LocationMatchers" data-uid="RandomizerMod.RC.RequestBuilder.LocationMatchers">LocationMatchers</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly List&lt;LocationMatchHandler&gt; LocationMatchers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="RandomizerMod.RC.LocationMatchHandler.html">LocationMatchHandler</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_LocationRequests.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.LocationRequests%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L84">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_LocationRequests" data-uid="RandomizerMod.RC.RequestBuilder.LocationRequests">LocationRequests</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Dictionary&lt;string, LocationRequestInfo&gt; LocationRequests</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="RandomizerMod.RC.LocationRequestInfo.html">LocationRequestInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_logProperties.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.logProperties%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L111">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_logProperties" data-uid="RandomizerMod.RC.RequestBuilder.logProperties">logProperties</h4>
+  <div class="markdown level1 summary"><p>Properties that will be passed the LogArguments, and subsequently to RandoLoggers, if randomization succeeds.
+<br>Properties needed for logic should be stored on the ctx. Properties that do not need to be serialized should be stored here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Dictionary&lt;string, object&gt; logProperties</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_MainItemGroup.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.MainItemGroup%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L50">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_MainItemGroup" data-uid="RandomizerMod.RC.RequestBuilder.MainItemGroup">MainItemGroup</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ItemGroupBuilder MainItemGroup</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.ItemGroupBuilder.html">ItemGroupBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_MainItemStage.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.MainItemStage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L49">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_MainItemStage" data-uid="RandomizerMod.RC.RequestBuilder.MainItemStage">MainItemStage</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly StageBuilder MainItemStage</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StageBuilder.html">StageBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_OnGetGroupFor.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.OnGetGroupFor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L769">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_OnGetGroupFor" data-uid="RandomizerMod.RC.RequestBuilder.OnGetGroupFor">OnGetGroupFor</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly PriorityEvent&lt;RequestBuilder.GroupResolver&gt; OnGetGroupFor</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.PriorityEvent-1.html">PriorityEvent</a>&lt;<a class="xref" href="RandomizerMod.RC.RequestBuilder.GroupResolver.html">RequestBuilder.GroupResolver</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_OnSelectStart.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.OnSelectStart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L773">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_OnSelectStart" data-uid="RandomizerMod.RC.RequestBuilder.OnSelectStart">OnSelectStart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly PriorityEvent&lt;RequestBuilder.StartResolver&gt; OnSelectStart</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.PriorityEvent-1.html">PriorityEvent</a>&lt;<a class="xref" href="RandomizerMod.RC.RequestBuilder.StartResolver.html">RequestBuilder.StartResolver</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_OnUpdate.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.OnUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L805">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_OnUpdate" data-uid="RandomizerMod.RC.RequestBuilder.OnUpdate">OnUpdate</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly PriorityEvent&lt;RequestBuilder.RequestBuilderUpdateHandler&gt; OnUpdate</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.PriorityEvent-1.html">PriorityEvent</a>&lt;<a class="xref" href="RandomizerMod.RC.RequestBuilder.RequestBuilderUpdateHandler.html">RequestBuilder.RequestBuilderUpdateHandler</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_pm.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.pm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L102">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_pm" data-uid="RandomizerMod.RC.RequestBuilder.pm">pm</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly SettingsPM pm</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.Settings.SettingsPM.html">SettingsPM</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_Preplaced.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.Preplaced%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L99">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_Preplaced" data-uid="RandomizerMod.RC.RequestBuilder.Preplaced">Preplaced</h4>
+  <div class="markdown level1 summary"><p>List of preplaced requests, with indexing for fast lookup by location/source transition name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Dictionary&lt;string, List&lt;VanillaDef&gt;&gt; Preplaced</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">List</span>&lt;<a class="xref" href="RandomizerMod.RandomizerData.VanillaDef.html">VanillaDef</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_rm.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.rm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L105">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_rm" data-uid="RandomizerMod.RC.RequestBuilder.rm">rm</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly RandoMonitor rm</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RandoMonitor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_rng.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.rng%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L104">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_rng" data-uid="RandomizerMod.RC.RequestBuilder.rng">rng</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Random rng</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Random</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_Stages.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.Stages%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L48">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_Stages" data-uid="RandomizerMod.RC.RequestBuilder.Stages">Stages</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ReadOnlyCollection&lt;StageBuilder&gt; Stages</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.ObjectModel.ReadOnlyCollection</span>&lt;<a class="xref" href="RandomizerMod.RC.StageBuilder.html">StageBuilder</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_StartItems.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.StartItems%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L90">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_StartItems" data-uid="RandomizerMod.RC.RequestBuilder.StartItems">StartItems</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Bucket&lt;string&gt; StartItems</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.Bucket-1.html">Bucket</a>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TransitionMatchers.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TransitionMatchers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L88">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TransitionMatchers" data-uid="RandomizerMod.RC.RequestBuilder.TransitionMatchers">TransitionMatchers</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly List&lt;TransitionMatchHandler&gt; TransitionMatchers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="RandomizerMod.RC.TransitionMatchHandler.html">TransitionMatchHandler</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TransitionRequests.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TransitionRequests%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L87">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TransitionRequests" data-uid="RandomizerMod.RC.RequestBuilder.TransitionRequests">TransitionRequests</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Dictionary&lt;string, TransitionRequestInfo&gt; TransitionRequests</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="RandomizerMod.RC.TransitionRequestInfo.html">TransitionRequestInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_Vanilla.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.Vanilla%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L95">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_RequestBuilder_Vanilla" data-uid="RandomizerMod.RC.RequestBuilder.Vanilla">Vanilla</h4>
+  <div class="markdown level1 summary"><p>List of vanilla requests, with indexing for fast lookup by location/source transition name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Dictionary&lt;string, List&lt;VanillaDef&gt;&gt; Vanilla</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">List</span>&lt;<a class="xref" href="RandomizerMod.RandomizerData.VanillaDef.html">VanillaDef</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddItemByName_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddItemByName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L244">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddItemByName_" data-uid="RandomizerMod.RC.RequestBuilder.AddItemByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddItemByName_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.AddItemByName(System.String)">AddItemByName(String)</h4>
+  <div class="markdown level1 summary"><p>Adds one copy of the named item to the group returned by GetItemGroupFor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddItemByName(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddItemByName_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddItemByName(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L252">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddItemByName_" data-uid="RandomizerMod.RC.RequestBuilder.AddItemByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddItemByName_System_String_System_Int32_" data-uid="RandomizerMod.RC.RequestBuilder.AddItemByName(System.String,System.Int32)">AddItemByName(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds the requested number of copies of the named item to the group returned by GetItemGroupFor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddItemByName(string name, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddLocationByName_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddLocationByName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L307">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddLocationByName_" data-uid="RandomizerMod.RC.RequestBuilder.AddLocationByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddLocationByName_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.AddLocationByName(System.String)">AddLocationByName(String)</h4>
+  <div class="markdown level1 summary"><p>Adds one copy of the named location to the group returned by GetLocationGroupFor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLocationByName(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddLocationByName_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddLocationByName(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L315">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddLocationByName_" data-uid="RandomizerMod.RC.RequestBuilder.AddLocationByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddLocationByName_System_String_System_Int32_" data-uid="RandomizerMod.RC.RequestBuilder.AddLocationByName(System.String,System.Int32)">AddLocationByName(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds the requested number of copies of the named location to the group returned by GetLocationGroupFor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLocationByName(string name, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddStage_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddStage(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L151">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddStage_" data-uid="RandomizerMod.RC.RequestBuilder.AddStage*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddStage_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.AddStage(System.String)">AddStage(String)</h4>
+  <div class="markdown level1 summary"><p>Adds a stage with the given label after all existing stages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StageBuilder AddStage(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StageBuilder.html">StageBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddToPreplaced_RandomizerMod_RandomizerData_VanillaDef_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddToPreplaced(RandomizerMod.RandomizerData.VanillaDef)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L712">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddToPreplaced_" data-uid="RandomizerMod.RC.RequestBuilder.AddToPreplaced*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddToPreplaced_RandomizerMod_RandomizerData_VanillaDef_" data-uid="RandomizerMod.RC.RequestBuilder.AddToPreplaced(RandomizerMod.RandomizerData.VanillaDef)">AddToPreplaced(VanillaDef)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddToPreplaced(VanillaDef def)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.VanillaDef.html">VanillaDef</a></td>
+        <td><span class="parametername">def</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddToPreplaced_System_String_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddToPreplaced(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L702">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddToPreplaced_" data-uid="RandomizerMod.RC.RequestBuilder.AddToPreplaced*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddToPreplaced_System_String_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.AddToPreplaced(System.String,System.String)">AddToPreplaced(String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddToPreplaced(string item, string location)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddToStart_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddToStart(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L682">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddToStart_" data-uid="RandomizerMod.RC.RequestBuilder.AddToStart*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddToStart_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.AddToStart(System.String)">AddToStart(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddToStart(string item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddToStart_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddToStart(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L687">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddToStart_" data-uid="RandomizerMod.RC.RequestBuilder.AddToStart*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddToStart_System_String_System_Int32_" data-uid="RandomizerMod.RC.RequestBuilder.AddToStart(System.String,System.Int32)">AddToStart(String, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddToStart(string item, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddToVanilla_RandomizerMod_RandomizerData_VanillaDef_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddToVanilla(RandomizerMod.RandomizerData.VanillaDef)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L621">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddToVanilla_" data-uid="RandomizerMod.RC.RequestBuilder.AddToVanilla*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddToVanilla_RandomizerMod_RandomizerData_VanillaDef_" data-uid="RandomizerMod.RC.RequestBuilder.AddToVanilla(RandomizerMod.RandomizerData.VanillaDef)">AddToVanilla(VanillaDef)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddToVanilla(VanillaDef def)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.VanillaDef.html">VanillaDef</a></td>
+        <td><span class="parametername">def</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_AddToVanilla_System_String_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.AddToVanilla(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L611">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_AddToVanilla_" data-uid="RandomizerMod.RC.RequestBuilder.AddToVanilla*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_AddToVanilla_System_String_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.AddToVanilla(System.String,System.String)">AddToVanilla(String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddToVanilla(string item, string location)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_EditItemRequest_System_String_Action_RandomizerMod_RC_ItemRequestInfo__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.EditItemRequest(System.String%2CAction%7BRandomizerMod.RC.ItemRequestInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L286">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_EditItemRequest_" data-uid="RandomizerMod.RC.RequestBuilder.EditItemRequest*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_EditItemRequest_System_String_Action_RandomizerMod_RC_ItemRequestInfo__" data-uid="RandomizerMod.RC.RequestBuilder.EditItemRequest(System.String,Action{RandomizerMod.RC.ItemRequestInfo})">EditItemRequest(String, Action&lt;ItemRequestInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EditItemRequest(string name, Action&lt;ItemRequestInfo&gt; edit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="RandomizerMod.RC.ItemRequestInfo.html">ItemRequestInfo</a>&gt;</td>
+        <td><span class="parametername">edit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_EditLocationRequest_System_String_Action_RandomizerMod_RC_LocationRequestInfo__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.EditLocationRequest(System.String%2CAction%7BRandomizerMod.RC.LocationRequestInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L357">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_EditLocationRequest_" data-uid="RandomizerMod.RC.RequestBuilder.EditLocationRequest*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_EditLocationRequest_System_String_Action_RandomizerMod_RC_LocationRequestInfo__" data-uid="RandomizerMod.RC.RequestBuilder.EditLocationRequest(System.String,Action{RandomizerMod.RC.LocationRequestInfo})">EditLocationRequest(String, Action&lt;LocationRequestInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EditLocationRequest(string name, Action&lt;LocationRequestInfo&gt; edit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="RandomizerMod.RC.LocationRequestInfo.html">LocationRequestInfo</a>&gt;</td>
+        <td><span class="parametername">edit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_EditTransitionRequest_System_String_Action_RandomizerMod_RC_TransitionRequestInfo__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.EditTransitionRequest(System.String%2CAction%7BRandomizerMod.RC.TransitionRequestInfo%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L504">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_EditTransitionRequest_" data-uid="RandomizerMod.RC.RequestBuilder.EditTransitionRequest*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_EditTransitionRequest_System_String_Action_RandomizerMod_RC_TransitionRequestInfo__" data-uid="RandomizerMod.RC.RequestBuilder.EditTransitionRequest(System.String,Action{RandomizerMod.RC.TransitionRequestInfo})">EditTransitionRequest(String, Action&lt;TransitionRequestInfo&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EditTransitionRequest(string name, Action&lt;TransitionRequestInfo&gt; edit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="RandomizerMod.RC.TransitionRequestInfo.html">TransitionRequestInfo</a>&gt;</td>
+        <td><span class="parametername">edit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_EnsureVanillaSourceTransition_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.EnsureVanillaSourceTransition(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L636">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_EnsureVanillaSourceTransition_" data-uid="RandomizerMod.RC.RequestBuilder.EnsureVanillaSourceTransition*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_EnsureVanillaSourceTransition_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.EnsureVanillaSourceTransition(System.String)">EnsureVanillaSourceTransition(String)</h4>
+  <div class="markdown level1 summary"><p>Ensures that the Vanilla bucket contains the placement of the transition's VanillaTarget at the transition.
+<br>Has no effect on a transition without a VanillaTarget, such as a OneWayOut transition.
+<br>Only ensures one side of a coupled transition is vanilla.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnsureVanillaSourceTransition(string source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_EnumerateItemGroups.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.EnumerateItemGroups%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L55">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_EnumerateItemGroups_" data-uid="RandomizerMod.RC.RequestBuilder.EnumerateItemGroups*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_EnumerateItemGroups" data-uid="RandomizerMod.RC.RequestBuilder.EnumerateItemGroups">EnumerateItemGroups()</h4>
+  <div class="markdown level1 summary"><p>Enumerates the GroupBuilders of type ItemGroupBuilder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ItemGroupBuilder&gt; EnumerateItemGroups()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="RandomizerMod.RC.ItemGroupBuilder.html">ItemGroupBuilder</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_EnumerateTransitionGroups.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.EnumerateTransitionGroups%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L69">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_EnumerateTransitionGroups_" data-uid="RandomizerMod.RC.RequestBuilder.EnumerateTransitionGroups*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_EnumerateTransitionGroups" data-uid="RandomizerMod.RC.RequestBuilder.EnumerateTransitionGroups">EnumerateTransitionGroups()</h4>
+  <div class="markdown level1 summary"><p>Enumerates the GroupBuilers not of type ItemGroupBuilder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;GroupBuilder&gt; EnumerateTransitionGroups()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="RandomizerMod.RC.GroupBuilder.html">GroupBuilder</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_GetGroupFor_System_String_RandomizerMod_RC_RequestBuilder_ElementType_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.GetGroupFor(System.String%2CRandomizerMod.RC.RequestBuilder.ElementType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L208">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_GetGroupFor_" data-uid="RandomizerMod.RC.RequestBuilder.GetGroupFor*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_GetGroupFor_System_String_RandomizerMod_RC_RequestBuilder_ElementType_" data-uid="RandomizerMod.RC.RequestBuilder.GetGroupFor(System.String,RandomizerMod.RC.RequestBuilder.ElementType)">GetGroupFor(String, RequestBuilder.ElementType)</h4>
+  <div class="markdown level1 summary"><p>Searches for the appropriate group for the named item, location, or transition, using the OnGetGroupFor event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GroupBuilder GetGroupFor(string name, RequestBuilder.ElementType type = RequestBuilder.ElementType.Unknown)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.RequestBuilder.ElementType.html">RequestBuilder.ElementType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.GroupBuilder.html">GroupBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_GetItemGroupFor_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.GetItemGroupFor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L226">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_GetItemGroupFor_" data-uid="RandomizerMod.RC.RequestBuilder.GetItemGroupFor*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_GetItemGroupFor_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.GetItemGroupFor(System.String)">GetItemGroupFor(String)</h4>
+  <div class="markdown level1 summary"><p>Searches for the appropriate item group for the named item, using the OnGetGroupFor event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemGroupBuilder GetItemGroupFor(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.ItemGroupBuilder.html">ItemGroupBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_GetLocationGroupFor_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.GetLocationGroupFor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L235">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_GetLocationGroupFor_" data-uid="RandomizerMod.RC.RequestBuilder.GetLocationGroupFor*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_GetLocationGroupFor_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.GetLocationGroupFor(System.String)">GetLocationGroupFor(String)</h4>
+  <div class="markdown level1 summary"><p>Searches for the appropriate item group for the named location, using the OnGetGroupFor event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ItemGroupBuilder GetLocationGroupFor(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.ItemGroupBuilder.html">ItemGroupBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_HandleUpdateEvents.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.HandleUpdateEvents%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L808">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_HandleUpdateEvents_" data-uid="RandomizerMod.RC.RequestBuilder.HandleUpdateEvents*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_HandleUpdateEvents" data-uid="RandomizerMod.RC.RequestBuilder.HandleUpdateEvents">HandleUpdateEvents()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void HandleUpdateEvents()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_InsertStage_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.InsertStage(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L160">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_InsertStage_" data-uid="RandomizerMod.RC.RequestBuilder.InsertStage*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_InsertStage_System_Int32_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.InsertStage(System.Int32,System.String)">InsertStage(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a StageBuilder at the specified index with the given label.
+<br>Throws an exception if the index is out of range or the label is already in use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StageBuilder InsertStage(int index, string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StageBuilder.html">StageBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_IsAtStart_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.IsAtStart(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L697">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_IsAtStart_" data-uid="RandomizerMod.RC.RequestBuilder.IsAtStart*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_IsAtStart_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.IsAtStart(System.String)">IsAtStart(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAtStart(string item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_MoveStage_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.MoveStage(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L175">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_MoveStage_" data-uid="RandomizerMod.RC.RequestBuilder.MoveStage*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_MoveStage_System_Int32_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.MoveStage(System.Int32,System.String)">MoveStage(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Moves the stage with the given label to the given index.
+<br>Throws an exception if the index is out of range or the stage with the given label is not found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveStage(int destinationIndex, string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">destinationIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_RandomizerMod_RandomizerData_VanillaDef_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced(RandomizerMod.RandomizerData.VanillaDef)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L744">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_RandomizerMod_RandomizerData_VanillaDef_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced(RandomizerMod.RandomizerData.VanillaDef)">RemoveFromPreplaced(VanillaDef)</h4>
+  <div class="markdown level1 summary"><p>Removes all preplaced placements matching the defined location, item, and cost list (compared sequentially).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromPreplaced(VanillaDef def)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.VanillaDef.html">VanillaDef</a></td>
+        <td><span class="parametername">def</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L725">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced(System.String)">RemoveFromPreplaced(String)</h4>
+  <div class="markdown level1 summary"><p>Removes all preplaced placements for the specified location or source transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromPreplaced(string location)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_System_String_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L733">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveFromPreplaced_System_String_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromPreplaced(System.String,System.String)">RemoveFromPreplaced(String, String)</h4>
+  <div class="markdown level1 summary"><p>Removes all preplaced placements for the specified location or source transition, matching the specified item or target transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromPreplaced(string location, string item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveFromStart_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveFromStart(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L692">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveFromStart_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromStart*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveFromStart_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromStart(System.String)">RemoveFromStart(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromStart(string item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_RandomizerMod_RandomizerData_VanillaDef_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveFromVanilla(RandomizerMod.RandomizerData.VanillaDef)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L674">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromVanilla*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_RandomizerMod_RandomizerData_VanillaDef_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromVanilla(RandomizerMod.RandomizerData.VanillaDef)">RemoveFromVanilla(VanillaDef)</h4>
+  <div class="markdown level1 summary"><p>Removes all vanilla placements matching the defined location, item, and cost list (compared sequentially).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromVanilla(VanillaDef def)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.VanillaDef.html">VanillaDef</a></td>
+        <td><span class="parametername">def</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveFromVanilla(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L655">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromVanilla*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromVanilla(System.String)">RemoveFromVanilla(String)</h4>
+  <div class="markdown level1 summary"><p>Removes all vanilla placements for the specified location or source transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromVanilla(string location)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_System_String_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveFromVanilla(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L663">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromVanilla*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveFromVanilla_System_String_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveFromVanilla(System.String,System.String)">RemoveFromVanilla(String, String)</h4>
+  <div class="markdown level1 summary"><p>Removes all vanilla placements for the specified location or source transition, matching the specified item or target transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromVanilla(string location, string item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveItemByName_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveItemByName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L260">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveItemByName_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveItemByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveItemByName_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveItemByName(System.String)">RemoveItemByName(String)</h4>
+  <div class="markdown level1 summary"><p>Removes all copies of the named item from all item groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveItemByName(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveItemsWhere_Predicate_System_String__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveItemsWhere(Predicate%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L377">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveItemsWhere_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveItemsWhere*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveItemsWhere_Predicate_System_String__" data-uid="RandomizerMod.RC.RequestBuilder.RemoveItemsWhere(Predicate{System.String})">RemoveItemsWhere(Predicate&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes all copies of all items in any item groups for which the predicate returns true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveItemsWhere(Predicate&lt;string&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Predicate</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveLocationByName_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveLocationByName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L323">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveLocationByName_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveLocationByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveLocationByName_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveLocationByName(System.String)">RemoveLocationByName(String)</h4>
+  <div class="markdown level1 summary"><p>Removes all copies of the named location from all item groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveLocationByName(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveLocationByName_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveLocationByName(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L331">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveLocationByName_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveLocationByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveLocationByName_System_String_System_Int32_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveLocationByName(System.String,System.Int32)">RemoveLocationByName(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the requested number of copies of the named location from the group returned by GetLocationGroupFor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveLocationByName(string name, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveLocationsWhere_Predicate_System_String__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveLocationsWhere(Predicate%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L433">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveLocationsWhere_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveLocationsWhere*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveLocationsWhere_Predicate_System_String__" data-uid="RandomizerMod.RC.RequestBuilder.RemoveLocationsWhere(Predicate{System.String})">RemoveLocationsWhere(Predicate&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes all copies of all locations in any item groups for which the predicate returns true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveLocationsWhere(Predicate&lt;string&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Predicate</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveTransitionByName_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveTransitionByName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L525">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveTransitionByName_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveTransitionByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveTransitionByName_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveTransitionByName(System.String)">RemoveTransitionByName(String)</h4>
+  <div class="markdown level1 summary"><p>Removes the transition by name from all transition groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTransitionByName(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_RemoveTransitionsWhere_Func_System_String_System_Boolean__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.RemoveTransitionsWhere(Func%7BSystem.String%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L549">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_RemoveTransitionsWhere_" data-uid="RandomizerMod.RC.RequestBuilder.RemoveTransitionsWhere*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_RemoveTransitionsWhere_Func_System_String_System_Boolean__" data-uid="RandomizerMod.RC.RequestBuilder.RemoveTransitionsWhere(Func{System.String,System.Boolean})">RemoveTransitionsWhere(Func&lt;String, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes all copies of all transitions in any transition groups where the selector returns true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTransitionsWhere(Func&lt;string, bool&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ReplaceItem_Predicate_System_String__Func_System_String_System_Int32_IEnumerable_System_String___.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ReplaceItem(Predicate%7BSystem.String%7D%2CFunc%7BSystem.String%2CSystem.Int32%2CIEnumerable%7BSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L410">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_ReplaceItem_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceItem*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ReplaceItem_Predicate_System_String__Func_System_String_System_Int32_IEnumerable_System_String___" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceItem(Predicate{System.String},Func{System.String,System.Int32,IEnumerable{System.String}})">ReplaceItem(Predicate&lt;String&gt;, Func&lt;String, Int32, IEnumerable&lt;String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplaceItem(Predicate&lt;string&gt; selector, Func&lt;string, int, IEnumerable&lt;string&gt;&gt; replacer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Predicate</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Int32</span>, <span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">replacer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ReplaceItem_System_String_Func_System_Int32_IEnumerable_System_String___.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ReplaceItem(System.String%2CFunc%7BSystem.Int32%2CIEnumerable%7BSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L402">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_ReplaceItem_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceItem*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ReplaceItem_System_String_Func_System_Int32_IEnumerable_System_String___" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceItem(System.String,Func{System.Int32,IEnumerable{System.String}})">ReplaceItem(String, Func&lt;Int32, IEnumerable&lt;String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplaceItem(string name, Func&lt;int, IEnumerable&lt;string&gt;&gt; replacer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">replacer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ReplaceItem_System_String_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ReplaceItem(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L394">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_ReplaceItem_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceItem*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ReplaceItem_System_String_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceItem(System.String,System.String)">ReplaceItem(String, String)</h4>
+  <div class="markdown level1 summary"><p>Replaces each copy of the named item in each item group with the replacement string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplaceItem(string name, string replaceWith)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">replaceWith</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ReplaceLocation_Predicate_System_String__Func_System_String_System_Int32_IEnumerable_System_String___.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ReplaceLocation(Predicate%7BSystem.String%7D%2CFunc%7BSystem.String%2CSystem.Int32%2CIEnumerable%7BSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L463">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_ReplaceLocation_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceLocation*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ReplaceLocation_Predicate_System_String__Func_System_String_System_Int32_IEnumerable_System_String___" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceLocation(Predicate{System.String},Func{System.String,System.Int32,IEnumerable{System.String}})">ReplaceLocation(Predicate&lt;String&gt;, Func&lt;String, Int32, IEnumerable&lt;String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplaceLocation(Predicate&lt;string&gt; selector, Func&lt;string, int, IEnumerable&lt;string&gt;&gt; replacer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Predicate</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Int32</span>, <span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">replacer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ReplaceLocation_System_String_Func_System_Int32_IEnumerable_System_String___.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ReplaceLocation(System.String%2CFunc%7BSystem.Int32%2CIEnumerable%7BSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L455">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_ReplaceLocation_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceLocation*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ReplaceLocation_System_String_Func_System_Int32_IEnumerable_System_String___" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceLocation(System.String,Func{System.Int32,IEnumerable{System.String}})">ReplaceLocation(String, Func&lt;Int32, IEnumerable&lt;String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplaceLocation(string name, Func&lt;int, IEnumerable&lt;string&gt;&gt; replacer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">replacer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_ReplaceLocation_System_String_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.ReplaceLocation(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L447">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_ReplaceLocation_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceLocation*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_ReplaceLocation_System_String_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.ReplaceLocation(System.String,System.String)">ReplaceLocation(String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplaceLocation(string name, string replaceWith)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">replaceWith</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_Run_RandomizationStage____RandomizerMod_RC_RandoModContext__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.Run(RandomizationStage%5B%5D%40%2CRandomizerMod.RC.RandoModContext%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L22">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_Run_" data-uid="RandomizerMod.RC.RequestBuilder.Run*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_Run_RandomizationStage____RandomizerMod_RC_RandoModContext__" data-uid="RandomizerMod.RC.RequestBuilder.Run(RandomizationStage[]@,RandomizerMod.RC.RandoModContext@)">Run(out RandomizationStage[], out RandoModContext)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Run(out RandomizationStage[] stages, out RandoModContext ctx)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RandomizationStage</span>[]</td>
+        <td><span class="parametername">stages</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.RandoModContext.html">RandoModContext</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_SelectStart.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.SelectStart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L776">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_SelectStart_" data-uid="RandomizerMod.RC.RequestBuilder.SelectStart*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_SelectStart" data-uid="RandomizerMod.RC.RequestBuilder.SelectStart">SelectStart()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected StartDef SelectStart()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.StartDef.html">StartDef</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryConvertCost_LogicCost_Cost__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryConvertCost(LogicCost%2CCost%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L794">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryConvertCost_" data-uid="RandomizerMod.RC.RequestBuilder.TryConvertCost*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryConvertCost_LogicCost_Cost__" data-uid="RandomizerMod.RC.RequestBuilder.TryConvertCost(LogicCost,Cost@)">TryConvertCost(LogicCost, out Cost)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryConvertCost(LogicCost logicCost, out Cost cost)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LogicCost</span></td>
+        <td><span class="parametername">logicCost</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Cost</span></td>
+        <td><span class="parametername">cost</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryGetItemDef_System_String_RandomizerMod_RandomizerData_ItemDef__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryGetItemDef(System.String%2CRandomizerMod.RandomizerData.ItemDef%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L296">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryGetItemDef_" data-uid="RandomizerMod.RC.RequestBuilder.TryGetItemDef*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryGetItemDef_System_String_RandomizerMod_RandomizerData_ItemDef__" data-uid="RandomizerMod.RC.RequestBuilder.TryGetItemDef(System.String,RandomizerMod.RandomizerData.ItemDef@)">TryGetItemDef(String, out ItemDef)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetItemDef(string name, out ItemDef def)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.ItemDef.html">ItemDef</a></td>
+        <td><span class="parametername">def</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryGetItemRequest_System_String_RandomizerMod_RC_ItemRequestInfo__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryGetItemRequest(System.String%2CRandomizerMod.RC.ItemRequestInfo%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L265">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryGetItemRequest_" data-uid="RandomizerMod.RC.RequestBuilder.TryGetItemRequest*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryGetItemRequest_System_String_RandomizerMod_RC_ItemRequestInfo__" data-uid="RandomizerMod.RC.RequestBuilder.TryGetItemRequest(System.String,RandomizerMod.RC.ItemRequestInfo@)">TryGetItemRequest(String, out ItemRequestInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetItemRequest(string name, out ItemRequestInfo info)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.ItemRequestInfo.html">ItemRequestInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryGetLocationDef_System_String_RandomizerMod_RandomizerData_LocationDef__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryGetLocationDef(System.String%2CRandomizerMod.RandomizerData.LocationDef%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L366">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryGetLocationDef_" data-uid="RandomizerMod.RC.RequestBuilder.TryGetLocationDef*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryGetLocationDef_System_String_RandomizerMod_RandomizerData_LocationDef__" data-uid="RandomizerMod.RC.RequestBuilder.TryGetLocationDef(System.String,RandomizerMod.RandomizerData.LocationDef@)">TryGetLocationDef(String, out LocationDef)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetLocationDef(string name, out LocationDef def)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.LocationDef.html">LocationDef</a></td>
+        <td><span class="parametername">def</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryGetLocationRequest_System_String_RandomizerMod_RC_LocationRequestInfo__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryGetLocationRequest(System.String%2CRandomizerMod.RC.LocationRequestInfo%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L336">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryGetLocationRequest_" data-uid="RandomizerMod.RC.RequestBuilder.TryGetLocationRequest*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryGetLocationRequest_System_String_RandomizerMod_RC_LocationRequestInfo__" data-uid="RandomizerMod.RC.RequestBuilder.TryGetLocationRequest(System.String,RandomizerMod.RC.LocationRequestInfo@)">TryGetLocationRequest(String, out LocationRequestInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetLocationRequest(string name, out LocationRequestInfo info)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.LocationRequestInfo.html">LocationRequestInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryGetStage_System_String_RandomizerMod_RC_StageBuilder__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryGetStage(System.String%2CRandomizerMod.RC.StageBuilder%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L190">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryGetStage_" data-uid="RandomizerMod.RC.RequestBuilder.TryGetStage*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryGetStage_System_String_RandomizerMod_RC_StageBuilder__" data-uid="RandomizerMod.RC.RequestBuilder.TryGetStage(System.String,RandomizerMod.RC.StageBuilder@)">TryGetStage(String, out StageBuilder)</h4>
+  <div class="markdown level1 summary"><p>Searches for a StageBuilder with the given label and returns it if found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetStage(string name, out StageBuilder sb)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StageBuilder.html">StageBuilder</a></td>
+        <td><span class="parametername">sb</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryGetTransitionDef_System_String_RandomizerMod_RandomizerData_TransitionDef__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryGetTransitionDef(System.String%2CRandomizerMod.RandomizerData.TransitionDef%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L513">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryGetTransitionDef_" data-uid="RandomizerMod.RC.RequestBuilder.TryGetTransitionDef*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryGetTransitionDef_System_String_RandomizerMod_RandomizerData_TransitionDef__" data-uid="RandomizerMod.RC.RequestBuilder.TryGetTransitionDef(System.String,RandomizerMod.RandomizerData.TransitionDef@)">TryGetTransitionDef(String, out TransitionDef)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetTransitionDef(string name, out TransitionDef def)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RandomizerData.TransitionDef.html">TransitionDef</a></td>
+        <td><span class="parametername">def</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_TryGetTransitionRequest_System_String_RandomizerMod_RC_TransitionRequestInfo__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.TryGetTransitionRequest(System.String%2CRandomizerMod.RC.TransitionRequestInfo%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L483">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_TryGetTransitionRequest_" data-uid="RandomizerMod.RC.RequestBuilder.TryGetTransitionRequest*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_TryGetTransitionRequest_System_String_RandomizerMod_RC_TransitionRequestInfo__" data-uid="RandomizerMod.RC.RequestBuilder.TryGetTransitionRequest(System.String,RandomizerMod.RC.TransitionRequestInfo@)">TryGetTransitionRequest(String, out TransitionRequestInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetTransitionRequest(string name, out TransitionRequestInfo info)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.TransitionRequestInfo.html">TransitionRequestInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_UnrandomizeTransitionByName_System_String_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.UnrandomizeTransitionByName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L573">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_UnrandomizeTransitionByName_" data-uid="RandomizerMod.RC.RequestBuilder.UnrandomizeTransitionByName*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_UnrandomizeTransitionByName_System_String_" data-uid="RandomizerMod.RC.RequestBuilder.UnrandomizeTransitionByName(System.String)">UnrandomizeTransitionByName(String)</h4>
+  <div class="markdown level1 summary"><p>Identical to RemoveTransitionByName, but if the transition is a source, it is ensured to be in Vanilla with its VanillaTarget.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnrandomizeTransitionByName(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder_UnrandomizeTransitionsWhere_Func_System_String_System_Boolean__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder.UnrandomizeTransitionsWhere(Func%7BSystem.String%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L582">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_RequestBuilder_UnrandomizeTransitionsWhere_" data-uid="RandomizerMod.RC.RequestBuilder.UnrandomizeTransitionsWhere*"></a>
+  <h4 id="RandomizerMod_RC_RequestBuilder_UnrandomizeTransitionsWhere_Func_System_String_System_Boolean__" data-uid="RandomizerMod.RC.RequestBuilder.UnrandomizeTransitionsWhere(Func{System.String,System.Boolean})">UnrandomizeTransitionsWhere(Func&lt;String, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Identical to RemoveTransitionsWhere, but each removed source transition is ensured to be in Vanilla with its VanillaTarget.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnrandomizeTransitionsWhere(Func&lt;string, bool&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_RequestBuilder.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.RequestBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/Requests/RequestBuilder.cs/#L20" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

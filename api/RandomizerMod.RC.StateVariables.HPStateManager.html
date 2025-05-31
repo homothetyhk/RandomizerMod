@@ -1,0 +1,1587 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class HPStateManager
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class HPStateManager
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RandomizerMod.RC.StateVariables.HPStateManager">
+  
+  
+  <h1 id="RandomizerMod_RC_StateVariables_HPStateManager" data-uid="RandomizerMod.RC.StateVariables.HPStateManager" class="text-break">Class HPStateManager
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">HPStateManager</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="RandomizerMod.RC.StateVariables.IHPStateManager.html">IHPStateManager</a></div>
+    <div><span class="xref">ILogicVariable</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RandomizerMod.RC.StateVariables.html">RandomizerMod.RC.StateVariables</a></h6>
+  <h6><strong>Assembly</strong>: RandomizerMod.dll</h6>
+  <h5 id="RandomizerMod_RC_StateVariables_HPStateManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class HPStateManager : LogicVariable, IHPStateManager</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager__ctor_RandomizerMod_RC_StateVariables_IHPStateManager_StrictHPInfo_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.%23ctor(RandomizerMod.RC.StateVariables.IHPStateManager.StrictHPInfo%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L385">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager__ctor_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.#ctor*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager__ctor_RandomizerMod_RC_StateVariables_IHPStateManager_StrictHPInfo_System_Int32_System_Boolean_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.#ctor(RandomizerMod.RC.StateVariables.IHPStateManager.StrictHPInfo,System.Int32,System.Boolean)">HPStateManager(IHPStateManager.StrictHPInfo, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HPStateManager(IHPStateManager.StrictHPInfo info, int Amount, bool WaitAfterHit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.IHPStateManager.StrictHPInfo.html">IHPStateManager.StrictHPInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">Amount</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">WaitAfterHit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager__ctor_System_String_LogicManager_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.%23ctor(System.String%2CLogicManager)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L173">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager__ctor_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.#ctor*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager__ctor_System_String_LogicManager_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.#ctor(System.String,LogicManager)">HPStateManager(String, LogicManager)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HPStateManager(string name, LogicManager lm)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LogicManager</span></td>
+        <td><span class="parametername">lm</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_BeforeDeathCharms.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.BeforeDeathCharms%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L168">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_BeforeDeathCharms" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.BeforeDeathCharms">BeforeDeathCharms</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EquipCharmVariable[] BeforeDeathCharms</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_CannotOvercharm.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.CannotOvercharm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L153">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_CannotOvercharm" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.CannotOvercharm">CannotOvercharm</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly StateBool CannotOvercharm</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StateBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_DeepFocus.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.DeepFocus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L165">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_DeepFocus" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DeepFocus">DeepFocus</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EquipCharmVariable DeepFocus</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_DetermineHPCharms.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.DetermineHPCharms%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L167">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_DetermineHPCharms" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DetermineHPCharms">DetermineHPCharms</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EquipCharmVariable[] DetermineHPCharms</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_Focus.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.Focus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L159">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_Focus" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Focus">Focus</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly Term Focus</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Term</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_FocusCharms.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.FocusCharms%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L169">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_FocusCharms" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.FocusCharms">FocusCharms</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EquipCharmVariable[] FocusCharms</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_FragileHeart.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.FragileHeart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L163">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_FragileHeart" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.FragileHeart">FragileHeart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EquipCharmVariable FragileHeart</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_Hiveblood.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.Hiveblood%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L164">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_Hiveblood" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Hiveblood">Hiveblood</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EquipCharmVariable Hiveblood</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_JonisBlessing.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.JonisBlessing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L162">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_JonisBlessing" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.JonisBlessing">JonisBlessing</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EquipCharmVariable JonisBlessing</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_LazySpentHP.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.LazySpentHP%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L157">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_LazySpentHP" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.LazySpentHP">LazySpentHP</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly StateInt LazySpentHP</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StateInt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_LifebloodCore.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.LifebloodCore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L161">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_LifebloodCore" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.LifebloodCore">LifebloodCore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EquipCharmVariable LifebloodCore</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_LifebloodHeart.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.LifebloodHeart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L160">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_LifebloodHeart" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.LifebloodHeart">LifebloodHeart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EquipCharmVariable LifebloodHeart</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.EquipCharmVariable.html">EquipCharmVariable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_lm.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.lm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L170">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_lm" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.lm">lm</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly LogicManager lm</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LogicManager</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_MaskShards.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.MaskShards%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L158">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_MaskShards" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.MaskShards">MaskShards</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly Term MaskShards</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Term</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_NoFlower.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.NoFlower%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L154">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_NoFlower" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.NoFlower">NoFlower</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly StateBool NoFlower</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StateBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_Overcharmed.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.Overcharmed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L152">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_Overcharmed" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Overcharmed">Overcharmed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly StateBool Overcharmed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StateBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_Prefix.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.Prefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L116">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_Prefix" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Prefix">Prefix</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Prefix = &quot;$HPSM&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_SpentBlueHP.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.SpentBlueHP%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L156">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_SpentBlueHP" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.SpentBlueHP">SpentBlueHP</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly StateInt SpentBlueHP</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StateInt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_SpentHP.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.SpentHP%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L155">View Source</a>
+  </span>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_SpentHP" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.SpentHP">SpentHP</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly StateInt SpentHP</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StateInt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_Name.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L115">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_Name_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Name*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_Name" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_SSM.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.SSM%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L171">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_SSM_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.SSM*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_SSM" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.SSM">SSM</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISoulStateManager SSM { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.ISoulStateManager.html">ISoulStateManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_Survives.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.Survives%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L383">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_Survives_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Survives*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_Survives" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.Survives">Survives</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Survives { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_DecideOvercharm_ProgressionManager_LazyStateBuilder_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.DecideOvercharm(ProgressionManager%2CLazyStateBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L344">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_DecideOvercharm_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DecideOvercharm*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_DecideOvercharm_ProgressionManager_LazyStateBuilder_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DecideOvercharm(ProgressionManager,LazyStateBuilder)">DecideOvercharm(ProgressionManager, LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IEnumerable&lt;LazyStateBuilder&gt; DecideOvercharm(ProgressionManager pm, LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">LazyStateBuilder</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_DetermineHP_ProgressionManager_LazyStateBuilder_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.DetermineHP(ProgressionManager%2CLazyStateBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L324">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_DetermineHP_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DetermineHP*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_DetermineHP_ProgressionManager_LazyStateBuilder_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DetermineHP(ProgressionManager,LazyStateBuilder)">DetermineHP(ProgressionManager, LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;LazyStateBuilder&gt; DetermineHP(ProgressionManager pm, LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">LazyStateBuilder</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_DoFocus_ProgressionManager_LazyStateBuilder_System_Int32_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.DoFocus(ProgressionManager%2CLazyStateBuilder%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L295">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_DoFocus_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DoFocus*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_DoFocus_ProgressionManager_LazyStateBuilder_System_Int32_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.DoFocus(ProgressionManager,LazyStateBuilder,System.Int32)">DoFocus(ProgressionManager, LazyStateBuilder, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;LazyStateBuilder&gt; DoFocus(ProgressionManager pm, LazyStateBuilder state, int amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">LazyStateBuilder</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_GetHealAmount_ProgressionManager_LazyStateBuilder_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.GetHealAmount(ProgressionManager%2CLazyStateBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L314">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_GetHealAmount_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetHealAmount*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_GetHealAmount_ProgressionManager_LazyStateBuilder_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetHealAmount(ProgressionManager,LazyStateBuilder)">GetHealAmount(ProgressionManager, LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int GetHealAmount(ProgressionManager pm, LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_GetHPInfo_ProgressionManager_LazyStateBuilder_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.GetHPInfo(ProgressionManager%2CLazyStateBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L362">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_GetHPInfo_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetHPInfo*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_GetHPInfo_ProgressionManager_LazyStateBuilder_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetHPInfo(ProgressionManager,LazyStateBuilder)">GetHPInfo(ProgressionManager, LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHPStateManager.StrictHPInfo GetHPInfo(ProgressionManager pm, LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.IHPStateManager.StrictHPInfo.html">IHPStateManager.StrictHPInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_GetTerms.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.GetTerms%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L118">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_GetTerms_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetTerms*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_GetTerms" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetTerms">GetTerms()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Term&gt; GetTerms()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Term</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_GetTerms_RandomizerMod_RC_StateVariables_IHPStateManager_HPSMOperation_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.GetTerms(RandomizerMod.RC.StateVariables.IHPStateManager.HPSMOperation)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L129">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_GetTerms_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetTerms*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_GetTerms_RandomizerMod_RC_StateVariables_IHPStateManager_HPSMOperation_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GetTerms(RandomizerMod.RC.StateVariables.IHPStateManager.HPSMOperation)">GetTerms(IHPStateManager.HPSMOperation)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Term&gt; GetTerms(IHPStateManager.HPSMOperation op)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RandomizerMod.RC.StateVariables.IHPStateManager.HPSMOperation.html">IHPStateManager.HPSMOperation</a></td>
+        <td><span class="parametername">op</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Term</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_GiveBlueHealth_ProgressionManager_LazyStateBuilder_System_Int32_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.GiveBlueHealth(ProgressionManager%2CLazyStateBuilder%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L215">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_GiveBlueHealth_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GiveBlueHealth*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_GiveBlueHealth_ProgressionManager_LazyStateBuilder_System_Int32_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GiveBlueHealth(ProgressionManager,LazyStateBuilder,System.Int32)">GiveBlueHealth(ProgressionManager, LazyStateBuilder, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;LazyStateBuilder&gt; GiveBlueHealth(ProgressionManager pm, LazyStateBuilder state, int amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">LazyStateBuilder</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_GiveHealth_ProgressionManager_LazyStateBuilder_System_Int32_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.GiveHealth(ProgressionManager%2CLazyStateBuilder%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L228">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_GiveHealth_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GiveHealth*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_GiveHealth_ProgressionManager_LazyStateBuilder_System_Int32_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.GiveHealth(ProgressionManager,LazyStateBuilder,System.Int32)">GiveHealth(ProgressionManager, LazyStateBuilder, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;LazyStateBuilder&gt; GiveHealth(ProgressionManager pm, LazyStateBuilder state, int amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">LazyStateBuilder</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_IsHPDetermined_LazyStateBuilder_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.IsHPDetermined(LazyStateBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L319">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_IsHPDetermined_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.IsHPDetermined*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_IsHPDetermined_LazyStateBuilder_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.IsHPDetermined(LazyStateBuilder)">IsHPDetermined(LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsHPDetermined(LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_RestoreAllHealth_ProgressionManager_LazyStateBuilder_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.RestoreAllHealth(ProgressionManager%2CLazyStateBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L269">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_RestoreAllHealth_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.RestoreAllHealth*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_RestoreAllHealth_ProgressionManager_LazyStateBuilder_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.RestoreAllHealth(ProgressionManager,LazyStateBuilder)">RestoreAllHealth(ProgressionManager, LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;LazyStateBuilder&gt; RestoreAllHealth(ProgressionManager pm, LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">LazyStateBuilder</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_RestoreWhiteHealth_ProgressionManager_LazyStateBuilder_.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.RestoreWhiteHealth(ProgressionManager%2CLazyStateBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L249">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_RestoreWhiteHealth_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.RestoreWhiteHealth*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_RestoreWhiteHealth_ProgressionManager_LazyStateBuilder_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.RestoreWhiteHealth(ProgressionManager,LazyStateBuilder)">RestoreWhiteHealth(ProgressionManager, LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;LazyStateBuilder&gt; RestoreWhiteHealth(ProgressionManager pm, LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">LazyStateBuilder</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_TryFocus_ProgressionManager_LazyStateBuilder__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.TryFocus(ProgressionManager%2CLazyStateBuilder%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L284">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_TryFocus_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.TryFocus*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_TryFocus_ProgressionManager_LazyStateBuilder__" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.TryFocus(ProgressionManager,LazyStateBuilder@)">TryFocus(ProgressionManager, ref LazyStateBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryFocus(ProgressionManager pm, ref LazyStateBuilder state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ProgressionManager</span></td>
+        <td><span class="parametername">pm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LazyStateBuilder</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager_TryMatch_LogicManager_System_String_LogicVariable__.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager.TryMatch(LogicManager%2CSystem.String%2CLogicVariable%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L204">View Source</a>
+  </span>
+  <a id="RandomizerMod_RC_StateVariables_HPStateManager_TryMatch_" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.TryMatch*"></a>
+  <h4 id="RandomizerMod_RC_StateVariables_HPStateManager_TryMatch_LogicManager_System_String_LogicVariable__" data-uid="RandomizerMod.RC.StateVariables.HPStateManager.TryMatch(LogicManager,System.String,LogicVariable@)">TryMatch(LogicManager, String, out LogicVariable)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LogicManager</span></td>
+        <td><span class="parametername">lm</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">term</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">LogicVariable</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="RandomizerMod.RC.StateVariables.IHPStateManager.html">IHPStateManager</a>
+  </div>
+  <div>
+      <span class="xref">ILogicVariable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/RandomizerMod/new/master/apiSpec/new?filename=RandomizerMod_RC_StateVariables_HPStateManager.md&amp;value=---%0Auid%3A%20RandomizerMod.RC.StateVariables.HPStateManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/RC/StateVariables/HPStateManager.cs/#L113" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

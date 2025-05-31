@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>The Checklist </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="The Checklist ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>A connection is a mod which integrates with rando to add new features, such as logic edits, custom items and locations, or special randomization requirements.</p>
+<h2 id="the-checklist">The Checklist</h2>
+<p>This section contains a checklist of steps to create a connection mod. Additional details on the options for each step are given in subsequent sections.</p>
+<ul>
+<li><p>Define any added <a href="#defining-custom-items">items</a> and <a href="#defining-custom-locations">locations</a> in ItemChanger and Randomizer.</p>
+<ul>
+<li>Add the items and locations to the randomization request (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/c016cfc93dc37c5f4b16dd279c16a2f6fe0d9c66/RandomizableLevers/Rando/RequestModifier.cs#L163-L167">example</a>).
+In particular, this is how to inform <a href="https://github.com/syyePhenomenol/RandoMapMod/blob/master/RandoMapMod/Pins/InteropProperties.cs">RandoMapMod</a> of the locations (<a href="https://github.com/flibber-hk/HollowKnight.RandoPlus/blob/95305e4642bdd2535d683f33438180f701be6254/RandoPlus/GhostEssence/ICInterop.cs#L45-L49">example</a>).</li>
+<li>Add metadata to items to be read by <a href="https://github.com/BadMagic100/ConnectionMetadataInjector">CMICore</a> and its consumers (<a href="https://github.com/flibber-hk/HollowKnight.RandoPlus/blob/95305e4642bdd2535d683f33438180f701be6254/RandoPlus/MrMushroom/ICInterop.cs#L27">example</a>).</li>
+<li>Apply a group resolver for the randomized items and locations (<a href="https://github.com/flibber-hk/HollowKnight.RandoPlus/blob/95305e4642bdd2535d683f33438180f701be6254/RandoPlus/MrMushroom/RequestMaker.cs#L118-L134">easy example</a>) (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/c016cfc93dc37c5f4b16dd279c16a2f6fe0d9c66/RandomizableLevers/Rando/RequestModifier.cs#L96-L113">complex example</a>).</li>
+<li>Make added items/locations respect base rando settings (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/c016cfc93dc37c5f4b16dd279c16a2f6fe0d9c66/RandomizableLevers/Rando/RequestModifier.cs#L27-L40">example</a>).
+At time of writing, the only settings treated specially are WP rando and Deranged.</li>
+<li>Add important items/locations to the condensed spoiler logger (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/c016cfc93dc37c5f4b16dd279c16a2f6fe0d9c66/RandomizableLevers/Rando/RandoInterop.cs#L26-L28">example</a>).
+This is done with MonoMod.ModInterop - copy over the file from <a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/main/RandomizableLevers/Rando/CondensedSpoilerLogImport.cs">here</a> to safely do this, so as to not take on a runtime dependency on condensed spoiler logger.</li>
+<li>Add an option to define the items/locations in logic without randomizing them, for use with mods such as the <a href="https://github.com/homothetyhk/CustomPoolInjector">CustomPoolInjector</a> (<a href="https://github.com/BadMagic100/TheRealJournalRando/blob/6890f9e6b5ae30777c0043139302b4f2762da9ae/TheRealJournalRando/Rando/RequestModifier.cs#L213-L214">example</a>).</li>
+<li>Write changes by checking for randomized items/locations rather than settings to support Custom Pools (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/05436bc87d955acd1e5d4488d1f535628b7392dc/RandomizableLevers/Rando/MiscRandoChanges.cs#L112-L114">example</a>).</li>
+<li>Interop with <a href="https://github.com/syyePhenomenol/HollowKnight.RandoVanillaTracker">RandoVanillaTracker</a> to allow the user to track vanilla placed items (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/c016cfc93dc37c5f4b16dd279c16a2f6fe0d9c66/RandomizableLevers/Rando/RandoInterop.cs#L35">example</a>).</li>
+</ul>
+</li>
+<li><p>Change any <a href="#editing-existing-logic">existing logic</a> that conflicts with your connection.</p>
+</li>
+<li><p>Create a menu page to allow the player to manage settings (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/3f509d51de4758a9b21c5effa573762dc126a3a5/RandomizableLevers/Rando/RandoMenuPage.cs#L26">simple example</a>) (<a href="https://github.com/BadMagic100/TheRealJournalRando/blob/6890f9e6b5ae30777c0043139302b4f2762da9ae/TheRealJournalRando/Rando/ConnectionMenu.cs">complex example</a>).</p>
+<ul>
+<li>For other ways to construct the menu, look at examples from <a href="https://github.com/homothetyhk/RandomizerMod/blob/master/RandomizerMod/Menu/RandomizerMenu.cs">base rando</a> and the <a href="https://github.com/homothetyhk/HollowKnight.MenuChanger">MenuChanger documentation</a>.</li>
+<li>Colour the menu button according to whether the settings are active (<a href="https://github.com/homothetyhk/BenchRando/blob/a5d1d9fa95aed08f1d7500e319369f21350a9ffb/BenchRando/Rando/ConnectionMenu.cs#L42">example</a>).</li>
+<li>Interop with <a href="https://badmagic100.github.io/RandoSettingsManager/">Rando Settings Manager</a> to allow players to share and manage settings more easily (<a href="https://github.com/BadMagic100/TheRealJournalRando/blob/6890f9e6b5ae30777c0043139302b4f2762da9ae/TheRealJournalRando/Rando/RandoInterop.cs#L20-L23">example</a>).</li>
+<li>Add settings to the settings log (<a href="https://github.com/flibber-hk/HollowKnight.RandomizableLevers/blob/c016cfc93dc37c5f4b16dd279c16a2f6fe0d9c66/RandomizableLevers/Rando/RandoInterop.cs#L23">simple example</a>) (<a href="https://github.com/dplochcoder/HollowKnight.MoreDoors/blob/582b56a6093fbaf1ad43022e5a6b4d1c2411fbb6/MoreDoors/Rando/RandoInterop.cs#L27-L28">complex example</a>).</li>
+<li>Explicitly modify the hash if making changes that should be noted but don't affect placements (<a href="https://github.com/BadMagic100/MajorItemByAreaTracker/blob/994891502230c91d23cbdc78c6cc567c7a3eb0eb/SemiSpoilerLogger/MajorItemByAreaTracker.cs#L46">example</a>).</li>
+</ul>
+</li>
+<li><p>Do any other things you need to in order to make your stuff work!</p>
+</li>
+</ul>
+<h2 id="defining-custom-items">Defining Custom Items</h2>
+<p>Items need to be defined in logic for the randomizer to use, and in ItemChanger to be given in game. This step is <strong>mandatory</strong> if custom items will be used.</p>
+<h3 id="defining-items-in-itemchanger">Defining Items in ItemChanger</h3>
+<p>The easiest way to define a custom item in ItemChanger is to use <code>ItemChanger.Finder.DefineCustomItem</code> (<a href="https://github.com/flibber-hk/HollowKnight.RandoPlus/blob/main/RandoPlus/MrMushroom/ICInterop.cs">Example</a>). This works as long as</p>
+<ul>
+<li>You know the names of the items you need in advance.</li>
+<li>The IC implementation of the item is always the same.</li>
+<li>The names of the items in IC are the same as the names of the items as used by the randomizer.</li>
+</ul>
+<p>If these conditions do not all hold, there are two options:</p>
+<ul>
+<li>Subscribe to <code>ItemChanger.Finder.GetItemOverride</code> with a delegate which constructs the correct item from its name.</li>
+<li>Edit the <code>realItemCreator</code> delegate on the <code>ItemRequestInfo</code> defined in the <code>RequestBuilder</code> for the item.</li>
+</ul>
+<h3 id="defining-items-in-randomizermod">Defining Items in RandomizerMod</h3>
+<p>The easiest way to define a custom item in RandomizerMod is to subscribe to <code>RCData.RuntimeLogicOverride</code>, and add the item to the LogicManagerBuilder via <code>lmb.AddItem</code>. To provide additional metadata or instance-specific information, edit the <code>ItemRequestInfo</code> defined in the <code>RequestBuilder</code> for the item.</p>
+<h2 id="defining-custom-locations">Defining Custom Locations</h2>
+<p>Locations need to be defined in logic for the randomizer to use, and in ItemChanger to place items in game. This step is <strong>mandatory</strong> if custom locations will be used.</p>
+<h3 id="defining-locations-in-itemchanger">Defining Locations in ItemChanger</h3>
+<p>The easiest way to define a custom location in ItemChanger is to use <code>ItemChanger.Finder.DefineCustomLocation</code> (<a href="https://github.com/flibber-hk/HollowKnight.RandoPlus/blob/main/RandoPlus/MrMushroom/ICInterop.cs">Example</a>). This works as long as</p>
+<ul>
+<li>You know the names of the locations you need in advance.</li>
+<li>The IC implementation of the location and the placement constructed from the location is always the same.</li>
+<li>The names of the locations in IC are the same as the names of the locations as used by the randomizer.</li>
+</ul>
+<p>If these conditions do not all hold, there are two options:</p>
+<ul>
+<li>Subscribe to <code>ItemChanger.Finder.GetLocationOverride</code> with a delegate which constructs the correct location from its name.</li>
+<li>Edit the <code>customPlacementFetch</code>, <code>onPlacementFetch</code>, or <code>customAddToPlacement</code> delegates on the <code>LocationRequestInfo</code> defined in the <code>RequestBuilder</code> for the location.</li>
+</ul>
+<h3 id="defining-locations-in-randomizermod">Defining Locations in RandomizerMod</h3>
+<p>The easiest way to define a custom location in RandomizerMod is to subscribe to <code>RCData.RuntimeLogicOverride</code>, and add the location to the LogicManagerBuilder via <code>lmb.AddLogicDef</code>. To provide additional metadata or instance-specific information, edit the <code>LocationRequestInfo</code> defined in the <code>RequestBuilder</code> for the item.</p>
+<p>If you have a json file of locations, in the same format as the RM locations.json, you can define all logic defs simultaneously through <code>lmb.DeserializeJson</code>.</p>
+<h2 id="editing-existing-logic">Editing Existing Logic</h2>
+<p>There are two easy ways to edit logic. For both, you will need to subscribe to <code>RandomizerMod.RC.RCData.RuntimeLogicOverride</code> to access the <code>LogicManagerBuilder</code> (<code>lmb</code>).</p>
+<ul>
+<li>Call <code>lmb.DoLogicEdit</code> to edit logic for locations, transitions, and waypoints. Call <code>lmb.DoMacroEdit</code> to edit logic for macros. If you have a json file containing your logic edits, you can provide the file to the <code>lmb</code> instead with <code>lmb.DeserializeJson</code>.
+<ul>
+<li>For editing existing logic, you can use the <code>ORIG</code> token similarly to a macro. When the logic edit is performed, each instance of <code>ORIG</code> will be replaced with the previous logic. A very common pattern for logic edits is to take the form <code>ORIG | NEWOPTION</code> where <code>NEWOPTION</code> is replaced by an expression containing alternate ways to reach the location added by the connection. This form of edits is highly preferred, since it works well for allowing multiple connections to make edits in a compatible way.</li>
+<li>Sometimes, on the other hand, you may need to make logic more restrictive or to change something deeply nested within logic. For this, you can use <code>lmb.DoLogicSubst</code> or provide a json file of logic substitutions. A substitution replaces a specified token with an expression. You can substitute in constant tokens (<code>TRUE</code> and <code>FALSE</code>) to delete terms or branches of logic.</li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/RandomizerMod/blob/docs-source/articles/connection_guide.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
