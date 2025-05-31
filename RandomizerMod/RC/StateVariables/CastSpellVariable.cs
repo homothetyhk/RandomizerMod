@@ -103,7 +103,7 @@ namespace RandomizerMod.RC.StateVariables
             yield return AreaRando;
             yield return RoomRando;
             foreach (Term t in EquipSpellTwister.GetTerms()) yield return t;
-            foreach (Term t in SSM.GetTerms()) yield return t;
+            foreach (Term t in SSM.GetTerms(ISoulStateManager.SSMOperation.SpendSoul)) yield return t;
         }
 
         /// <summary>

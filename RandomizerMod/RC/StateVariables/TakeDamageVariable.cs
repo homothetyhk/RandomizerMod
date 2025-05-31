@@ -45,7 +45,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            return HPSM.GetTerms();
+            return HPSM.GetTerms(IHPStateManager.HPSMOperation.TakeDamage);
         }
 
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)

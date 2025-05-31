@@ -52,7 +52,7 @@ namespace RandomizerMod.RC.StateVariables
         public override IEnumerable<Term> GetTerms()
         {
             foreach (Term t in SSM.GetTerms()) yield return t;
-            foreach (Term t in HPSM.GetTerms()) yield return t;
+            foreach (Term t in HPSM.GetTerms(IHPStateManager.HPSMOperation.RestoreWhiteHealth)) yield return t;
         }
 
         public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)
@@ -66,7 +66,7 @@ namespace RandomizerMod.RC.StateVariables
             SSM.TrySpendAllSoul(pm, ref state); // zero out soul. A subsequent modifier will handle bench / start respawn soul effects.
             state.SetBool(UsedShade, false); // not necessary to reset shade variables for typical use, but in the case of warping to a non-start hard respawn, it would be correct to reset them here.
             state.SetInt(RequiredMaxSoul, 0);
-            return HPSM.RestoreAllHealth(pm, state, restoreBlueHealth: false);
+            return HPSM.RestoreWhiteHealth(pm, state); // bad to chain this into a cheaper restore on the bench...
         }
     }
 }

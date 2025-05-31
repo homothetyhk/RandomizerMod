@@ -49,7 +49,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            return SSM.GetTerms();
+            return SSM.GetTerms(ISoulStateManager.SSMOperation.SpendSoul);
         }
 
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)

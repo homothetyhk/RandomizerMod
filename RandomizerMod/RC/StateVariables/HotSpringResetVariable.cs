@@ -31,8 +31,8 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            foreach (Term t in SSM.GetTerms()) yield return t;
-            foreach (Term t in HPSM.GetTerms()) yield return t;
+            foreach (Term t in SSM.GetTerms(ISoulStateManager.SSMOperation.RestoreSoul)) yield return t;
+            foreach (Term t in HPSM.GetTerms(IHPStateManager.HPSMOperation.RestoreWhiteHealth)) yield return t;
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -54,7 +54,7 @@ namespace RandomizerMod.RC.StateVariables
         public override IEnumerable<LazyStateBuilder> ModifyState(object? sender, ProgressionManager pm, LazyStateBuilder state)
         {
             SSM.TryRestoreAllSoul(pm, ref state, restoreReserves: true);
-            return HPSM.RestoreAllHealth(pm, state, restoreBlueHealth: false);
+            return HPSM.RestoreWhiteHealth(pm, state);
         }
     }
 }

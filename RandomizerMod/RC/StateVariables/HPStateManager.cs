@@ -39,10 +39,13 @@ namespace RandomizerMod.RC.StateVariables
         /// </summary>
         IEnumerable<LazyStateBuilder> GiveHealth(ProgressionManager pm, LazyStateBuilder state, int amount);
         /// <summary>
-        /// Applies the effect of restoring all health. Can optionally also restore health from lifeblood charms.
-        /// <br/>If <paramref name="restoreBlueHealth"/> is true, any masks from lifeblood cocoons are removed.
+        /// Applies the effect of restoring all white health.
         /// </summary>
-        IEnumerable<LazyStateBuilder> RestoreAllHealth(ProgressionManager pm, LazyStateBuilder state, bool restoreBlueHealth);
+        IEnumerable<LazyStateBuilder> RestoreWhiteHealth(ProgressionManager pm, LazyStateBuilder state);
+        /// <summary>
+        /// Applies the effect of restoring all health. Resets blue health similarly to a bench.
+        /// </summary>
+        IEnumerable<LazyStateBuilder> RestoreAllHealth(ProgressionManager pm, LazyStateBuilder state);
         /// <summary>
         /// Returns true if the state can be queried for specific hp info (hp remaining, etc).
         /// If false, <see cref="DetermineHP(ProgressionManager, LazyStateBuilder)"/> must be used before querying.
@@ -62,6 +65,23 @@ namespace RandomizerMod.RC.StateVariables
         /// <br/>For the purpose of this data, Joni HP is treated as white, rather than blue.
         /// </summary>
         public readonly record struct StrictHPInfo(int CurrentWhiteHP, int CurrentBlueHP, int MaxWhiteHP);
+
+        IEnumerable<Term> GetTerms(HPSMOperation operation);
+
+        public enum HPSMOperation
+        {
+            TakeDamage,
+            TakeDamageSequence,
+            TryFocus,
+            DoFocus,
+            GiveBlueHealth,
+            GiveHealth,
+            RestoreWhiteHealth,
+            RestoreAllHealth,
+            IsHPDetermined,
+            DetermineHP,
+            GetHPInfo,
+        }
     }
 
     /*
@@ -103,6 +123,29 @@ namespace RandomizerMod.RC.StateVariables
                 (ILogicVariable[])[Hiveblood, LifebloodHeart, LifebloodCore, FragileHeart, JonisBlessing, DeepFocus, SSM])
             {
                 foreach (Term t in variable.GetTerms()) yield return t;
+            }
+        }
+
+        public IEnumerable<Term> GetTerms(HPSMOperation op)
+        {
+            switch (op)
+            {
+                case HPSMOperation.TryFocus:
+                    return FocusCharms.SelectMany(c => c.GetTerms()).Append(Focus).Concat(SSM.GetTerms());
+                case HPSMOperation.RestoreAllHealth:
+                case HPSMOperation.IsHPDetermined:
+                    return [];
+                case HPSMOperation.TakeDamage:
+                case HPSMOperation.TakeDamageSequence:
+                case HPSMOperation.DoFocus:
+                case HPSMOperation.GiveBlueHealth:
+                case HPSMOperation.GiveHealth:
+                case HPSMOperation.RestoreWhiteHealth:
+                case HPSMOperation.DetermineHP:
+                case HPSMOperation.GetHPInfo:
+                    return GetTerms();
+                default:
+                    throw new NotImplementedException();
             }
         }
 
@@ -203,24 +246,37 @@ namespace RandomizerMod.RC.StateVariables
             }
         }
 
-        public IEnumerable<LazyStateBuilder> RestoreAllHealth(ProgressionManager pm, LazyStateBuilder state, bool restoreBlueHealth)
+        public IEnumerable<LazyStateBuilder> RestoreWhiteHealth(ProgressionManager pm, LazyStateBuilder state)
         {
             if (!IsHPDetermined(state))
             {
-                if (state.GetInt(LazySpentHP) > 0 || restoreBlueHealth)
+                if (state.GetInt(LazySpentHP) == 0)
                 {
-                    state.SetInt(LazySpentHP, 0);
                     return [state];
                 }
                 else
                 {
-                    return DetermineHP(pm, state).SelectMany(l => RestoreAllHealth(pm, l, restoreBlueHealth));
+                    return DetermineHP(pm, state).SelectMany(l => RestoreWhiteHealth(pm, l));
                 }
             }
             else
             {
                 state.SetInt(SpentHP, 0);
-                if (restoreBlueHealth) state.SetInt(SpentBlueHP, 0);
+                return [state];
+            }
+        }
+
+        public IEnumerable<LazyStateBuilder> RestoreAllHealth(ProgressionManager pm, LazyStateBuilder state)
+        {
+            if (!IsHPDetermined(state))
+            {
+                state.SetInt(LazySpentHP, 0);
+                return [state];
+            }
+            else
+            {
+                state.SetInt(SpentHP, 0);
+                state.SetInt(SpentBlueHP, 0);
                 return [state];
             }
         }

@@ -56,7 +56,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            return SSM.GetTerms();
+            return SSM.GetTerms(ISoulStateManager.SSMOperation.RestoreSoul);
         }
 
         public override IEnumerable<LazyStateBuilder>? ProvideState(object? sender, ProgressionManager pm)

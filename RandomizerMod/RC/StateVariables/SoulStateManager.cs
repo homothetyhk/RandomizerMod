@@ -82,6 +82,16 @@ namespace RandomizerMod.RC.StateVariables
         IEnumerable<LazyStateBuilder> LimitSoul(ProgressionManager pm, LazyStateBuilder state, int limiter, bool appliesToPriorPath);
 
         public readonly record struct SoulInfo(int Soul, int MaxSoul, int ReserveSoul, int MaxReserveSoul);
+
+        IEnumerable<Term> GetTerms(SSMOperation operation);
+
+        public enum SSMOperation
+        {
+            SpendSoul,
+            RestoreSoul,
+            LimitSoul,
+            GetSoulInfo,
+        }
     }
 
     public class SoulStateManager : LogicVariable, ISoulStateManager
@@ -119,6 +129,22 @@ namespace RandomizerMod.RC.StateVariables
         public override IEnumerable<Term> GetTerms()
         {
             return [VesselFragments];
+        }
+
+        public IEnumerable<Term> GetTerms(SSMOperation op)
+        {
+            switch (op)
+            {
+                case SSMOperation.SpendSoul:
+                case SSMOperation.LimitSoul:
+                case SSMOperation.GetSoulInfo:
+                    return GetTerms();
+                case SSMOperation.RestoreSoul:
+                    return []; // after vessel fragments, the input state to a restore operation should change, since more reserves and less soul were spent.
+                               // But the effect of restore on a properly soul-balanced state shouldn't change.
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)

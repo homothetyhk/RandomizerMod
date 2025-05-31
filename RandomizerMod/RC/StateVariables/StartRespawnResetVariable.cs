@@ -31,7 +31,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            return [];
+            return SSM.GetTerms(ISoulStateManager.SSMOperation.RestoreSoul);
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)

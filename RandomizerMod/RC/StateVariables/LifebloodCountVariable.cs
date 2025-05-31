@@ -37,7 +37,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public override IEnumerable<Term> GetTerms()
         {
-            return HPSM.GetTerms();
+            return HPSM.GetTerms(IHPStateManager.HPSMOperation.GetHPInfo);
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)

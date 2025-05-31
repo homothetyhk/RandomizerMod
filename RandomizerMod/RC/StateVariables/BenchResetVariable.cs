@@ -48,8 +48,8 @@ namespace RandomizerMod.RC.StateVariables
         public override IEnumerable<Term> GetTerms()
         {
             // TODO: enum version of GetTerms
-            foreach (Term t in SSM.GetTerms()) yield return t;
-            foreach (Term t in HPSM.GetTerms()) yield return t;
+            foreach (Term t in SSM.GetTerms(ISoulStateManager.SSMOperation.RestoreSoul)) yield return t;
+            foreach (Term t in HPSM.GetTerms(IHPStateManager.HPSMOperation.RestoreAllHealth)) yield return t;
         }
 
         public static bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
@@ -82,7 +82,7 @@ namespace RandomizerMod.RC.StateVariables
             state.SetInt(RequiredMaxSoul, 0);
             state.SetBool(NoPassedCharmEquip, false);
             state.SetBool(UsedShade, false);
-            return HPSM.RestoreAllHealth(pm, state, true);
+            return HPSM.RestoreAllHealth(pm, state);
         }
     }
 }
