@@ -817,7 +817,7 @@
   },
   {
     "name": "Grub-Deepnest_Spike",
-    "logic": "Deepnest_03 + (FULLCLAW | WINGS) | Deepnest_03[top1] + LEFTCLAW"
+    "logic": "Deepnest_03[top1] + LEFTCLAW | Deepnest_03 + (FULLCLAW | WINGS | LEFTCLAW + $SHADESKIP | RIGHTCLAW + ENEMYPOGOS + (COMPLEXSKIPS | Deepnest_03[left1]/) + (RIGHTDASH | DANGEROUSSKIPS))"
   },
   {
     "name": "Grub-Dark_Deepnest",
@@ -1405,7 +1405,7 @@
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Spike_Grub",
-    "logic": "Deepnest_03[top1] | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS)"
+    "logic": "Deepnest_03[top1] | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS | LEFTCLAW + $SHADESKIP | RIGHTCLAW + ENEMYPOGOS + COMPLEXSKIPS)"
   },
   {
     "name": "Geo_Rock-Deepnest_Below_Spike_Grub_Dupe",
@@ -1413,7 +1413,7 @@
   },
   {
     "name": "Geo_Rock-Deepnest_Spike_Grub_Right",
-    "logic": "Deepnest_03[top1] | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS)"
+    "logic": "Deepnest_03[top1] | Deepnest_03[right1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS | LEFTCLAW + $SHADESKIP | RIGHTCLAW + ENEMYPOGOS + COMPLEXSKIPS)"
   },
   {
     "name": "Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo",
@@ -2029,7 +2029,7 @@
   },
   {
     "name": "Boss_Geo-Sanctum_Soul_Warrior",
-    "logic": "Ruins1_23[top1] | (Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + BACKGROUNDPOGOS)))"
+    "logic": "Ruins1_23[top1] | Ruins1_23 + (LEFTCLAW | WINGS | RIGHTCLAW + LEFTSUPERDASH + (BACKGROUNDPOGOS | OBSCURESKIPS))"
   },
   {
     "name": "Boss_Geo-Elegant_Soul_Warrior",
@@ -2298,7 +2298,7 @@
   },
   {
     "name": "Lore_Tablet-Sanctum_Entrance",
-    "logic": "(Ruins1_23[left1] | Ruins1_23[bot1] | Ruins1_23[right2]) + (LEFTCLAW | WINGS | (RIGHTCLAW + ENEMYPOGOS))"
+    "logic": "Ruins1_23 + (LEFTCLAW | WINGS | RIGHTCLAW + (BACKGROUNDPOGOS | OBSCURESKIPS))"
   },
   {
     "name": "Lore_Tablet-Sanctum_Past_Soul_Master",

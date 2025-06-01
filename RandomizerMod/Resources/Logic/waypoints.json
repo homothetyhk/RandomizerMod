@@ -137,7 +137,7 @@
   },
   {
     "name": "Defeated_Sanctum_Warrior",
-    "logic": "((Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + ENEMYPOGOS))) | Ruins1_23[top1]) + COMBAT[Sanctum_Warrior]",
+    "logic": "(Ruins1_23[top1] | Ruins1_23 + (LEFTCLAW | WINGS | RIGHTCLAW + LEFTSUPERDASH + (BACKGROUNDPOGOS | OBSCURESKIPS))) + COMBAT[Sanctum_Warrior]",
     "Stateless": true
   },
   {

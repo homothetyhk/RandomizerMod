@@ -2341,14 +2341,14 @@
   {
     "sceneName": "Deepnest_03",
     "gateName": "left1",
-    "logic": "Deepnest_03[left1] | Deepnest_03[top1] | Deepnest_03 + (LEFTCLAW | WINGS | RIGHTCLAW + OBSCURESKIPS)",
+    "logic": "Deepnest_03[left1] | Deepnest_03[top1] | Deepnest_03 + (LEFTCLAW | WINGS | RIGHTCLAW + ENEMYPOGOS + COMPLEXSKIPS)", // marked as complex due to randomness in corpse spawn. Damage boost and background pogo alternatives also exist, but are intentionally omitted.
     "oneWayType": "TwoWay",
     "Name": "Deepnest_03[left1]"
   },
   {
     "sceneName": "Deepnest_03",
     "gateName": "top1",
-    "logic": "Deepnest_03[top1] + (ANYCLAW | WINGS) | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS | RIGHTCLAW + OBSCURESKIPS | LEFTCLAW + $SHADESKIP)",
+    "logic": "Deepnest_03[top1] + (ANYCLAW | WINGS) | Deepnest_03[left1] + RIGHTCLAW | Deepnest_03 + (FULLCLAW | WINGS | RIGHTCLAW + ENEMYPOGOS + COMPLEXSKIPS | LEFTCLAW + $SHADESKIP)",
     "oneWayType": "TwoWay",
     "Name": "Deepnest_03[top1]"
   },
@@ -4282,7 +4282,7 @@
   {
     "sceneName": "Ruins1_23",
     "gateName": "right1",
-    "logic": "Ruins1_23[right1] | ((Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTSUPERDASH + ENEMYPOGOS))) | Ruins1_23[top1]) + Defeated_Sanctum_Warrior",
+    "logic": "Ruins1_23[right1] | (Ruins1_23[top1] | Ruins1_23 + (LEFTCLAW | WINGS | RIGHTCLAW + LEFTSUPERDASH + (BACKGROUNDPOGOS | OBSCURESKIPS))) + Defeated_Sanctum_Warrior",
     "oneWayType": "TwoWay",
     "Name": "Ruins1_23[right1]"
   },

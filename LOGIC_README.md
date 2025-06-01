@@ -45,7 +45,7 @@ This file serves to document the randomizer logic.
     
 ### Obscure Skips
 - Obscure Skips are progression paths which are subjectively determined to be too obscure for a new randomizer player to be expected to know.
-- Advanced skips with other modifiers generally do not include the Obscure Skips modifier.
+- Advanced skips with other modifiers generally do not include the Obscure Skips modifier. Inversely, where Obscure Skips appears, any other required skips will be noted.
 - In logic, Obscure Skips are indicated with the **OBSCURESKIPS** token.
 - Examples include:
     - Destroying horizontal planks in Ancestral Mound or Kingdom's Edge using Crystal Heart.
