@@ -1,0 +1,2588 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/RandomizerMod/RandomizerMod/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Extensions.ICExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Extensions.ICExtensions.html",
+          "hash": "Gm/xEb2F+bBV+TyhvmBFjLdP6cQC8BKRLWNU69Qmzj4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Extensions.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Extensions.StringExtensions.html",
+          "hash": "zAvw0fHw5Tor44Fstd6/wPA956/hvNEoIoVaG0URDGQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Extensions.html",
+          "hash": "0A7CR7CBs4JTHxQWo3+bDjzZY70YMK8pCqTXFGpEaA8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.CostConversion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.CostConversion.html",
+          "hash": "a+N2bIh7qYQyxL1QeJFQSPX40oEoMC8jEJRBro+maPw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.DupeUIDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.DupeUIDef.html",
+          "hash": "T47DErr2smaDdUKAu5UQuPxnKursJ7BxHVR4H9CTzE8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.Export.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.Export.html",
+          "hash": "/Kq0BK/MQ8YbSa8lF6KV3Vvmsrq3oYeItiAuF9pkCCY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.GSComparison-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.GSComparison-1.html",
+          "hash": "z/bl1JR5P26+UyeD0pKDsP9ByAYLd+M6JbqjMGDeN64="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.Grubfather.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.Grubfather.html",
+          "hash": "K0uHfTwJafkAMkgfHci+hhky+NQJt0fvlnDdPz4jN3w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.HelperLogModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.HelperLogModule.html",
+          "hash": "wC7sfPD3HxFhIGcLO3wYqxHOhy8KTCt8x2MwrkxLPgs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.NailUpgradeWarningModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.NailUpgradeWarningModule.html",
+          "hash": "sWDaQGE2V2T0ikoo36dB1TmgBhL7EliEuzgaM8lESoc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.PlatformList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.PlatformList.html",
+          "hash": "rby6tGM+PVBI7ZVt6HdxZzZG3ozNtMNJhNmOiEi3HXg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.RandoItemTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.RandoItemTag.html",
+          "hash": "7gofGagxiOminm3LFR4ozk27Q0TmrJky7jx6z0ZJaMY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.RandoPlacementTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.RandoPlacementTag.html",
+          "hash": "xKllKiO+OR3X0krUqpfkLi7bWxDD5V6FKiL4Bm9BUkk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.RandomizerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.RandomizerModule.html",
+          "hash": "0Y3tpHy1Vc/Ybyb+0rkNOGcoVGo6TNLAM7XemrDJUSY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.Seer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.Seer.html",
+          "hash": "ltE0WZwoHPAKhysdAwMX+Av2/xK+qSFGHKK89DFKv8U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.Shops.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.Shops.html",
+          "hash": "KRLK4nul9lHLYl+fT7VypBZWIe89xkf6Q+IyG5TRcxE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.TrackerLogModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.TrackerLogModule.html",
+          "hash": "Ka/uGPio3qiPUOhkRJAVrcg6kaobc9tj9bkIpQu6x0I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.TrackerUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.TrackerUpdate.html",
+          "hash": "lJLmGbuca8JkH/Z4MOSWOojJowRYdWE4aBi/m30YGWU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.IC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.IC.html",
+          "hash": "CNcM5hqQFEG58gHjjU4EN+5pAg82urlWrwIeTczvRA0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Localization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Localization.html",
+          "hash": "+E3xHyqHK5r3jJ4+/xIx9VtyKy9/UMTRkM8GWhhEK0A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.LocalizationData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.LocalizationData.html",
+          "hash": "OfQDL0OE4TmRKSvjL4VmSkw3onBrRJnm9sL41Ky29qI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.LocalizedMenuItemFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.LocalizedMenuItemFormatter.html",
+          "hash": "bx6n7H+WTbyzbK1IQS9yZDL2FxaozJCFHdSE8ry3S9o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.LogHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.LogHelper.html",
+          "hash": "YnCPevsM3l9ODmuj8KPZcecRgA3vNknPviIvnt55GIo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Logging.LogArguments.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Logging.LogArguments.html",
+          "hash": "SiiAXFJRqgegAx07grbLe9Y5F+8wzbHoL3w4nryCdgo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Logging.LogManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Logging.LogManager.html",
+          "hash": "vqeuwrl+pYXO5FB/SoAjAaG9Byb4FKE1XClC8oDutM0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Logging.RandoLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Logging.RandoLogger.html",
+          "hash": "iXd8gd9zJgR7/wqrQeJnePUZEpISh1Xnd36hE55rdfo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Logging.SettingsLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Logging.SettingsLog.html",
+          "hash": "9Um2+f4KievIXdDOBkcC5NXzVl/lU9/VREo8M78r4kY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Logging.html",
+          "hash": "af6Z3dPbv5ERlixtGVmBZNTObpGtBtfdpy9TpQs+mMU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.Hash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.Hash.html",
+          "hash": "Lx0Z8NCN0/bth0R725gfqaQL/OwJfYBmSEYb9loUe9U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.ModMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.ModMenu.html",
+          "hash": "UnzcUvwEHXqfFhoU6+LDjf1N5Fm/PaeWtBnJ3lBvk5w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.OnRandomizerMenuConstructionHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.OnRandomizerMenuConstructionHandler.html",
+          "hash": "UZZ1mtxPl7SfpfgxSqREh8xaEIER0Ye6kERym7RYw0A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.OverrideRandomizerStartHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.OverrideRandomizerStartHandler.html",
+          "hash": "u0J4G4PiOUsTxv2reidZgZGQ8YxS8jU3ay+M0PIAuFE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.RandomizerMenu.DirectoryOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.RandomizerMenu.DirectoryOptions.html",
+          "hash": "GcBkOO7p2w6VnkBtglwSbFJW8qouqu3MdqkYmyHurJ4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.RandomizerMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.RandomizerMenu.html",
+          "hash": "iBpopLB7AExUZKDD1OzspBUqNb/wpN+rxvth7fUMoVo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.RandomizerMenuAPI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.RandomizerMenuAPI.html",
+          "hash": "dB7GU3A+zorcvXB+pkTWcZpdgW+MB+8RcYXqQD1GGWk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.RandomizerMenuConstructor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.RandomizerMenuConstructor.html",
+          "hash": "dbWXoWM7HhJ5z+aE6tIuKFKhYJ+M6UPVlDMfXnJM7ng="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.StartLocationDictModifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.StartLocationDictModifier.html",
+          "hash": "2hWT09Egc7+hlMsq/Co+XE8ypS7wMv16CtqJ/EFr9SI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.TryGetMenuButtonHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.TryGetMenuButtonHandler.html",
+          "hash": "cQx3exvCf6wcUgJdxCcxW47s1fdgMa5h8EgN78Z+qP4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Menu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Menu.html",
+          "hash": "yRwCWehM/D0g8z+ahCxB46I8Cjd+BFW/6NAGzXAhXxE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.PriorityEvent-1..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.PriorityEvent-1..html",
+          "hash": "7zToU+aEymdibZywu3UUkD/Nz480n3tZKq8kTFXycys="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.PriorityEvent-1.IPriorityEventOwner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.PriorityEvent-1.IPriorityEventOwner.html",
+          "hash": "U/i04lDiUtUSLtjk878giYEIbWRPMfltkRi5hambZrs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.PriorityEvent-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.PriorityEvent-1.html",
+          "hash": "AqWqTGUpEoRc/vTzO2XDSDfZsmaqFAW3lxu+K9tBE9s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC..html",
+          "hash": "vbT5bFIsD8c1KCDElD14GVfa3SA1sEv8mKK/mL9IOs8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.Bucket-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.Bucket-1.html",
+          "hash": "fWhdcYhhOSYr+cmRm5ByYf+pCuAHX4rDNkuzxW085QM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.BuiltinRequests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.BuiltinRequests.html",
+          "hash": "24JO4rt8sLjetzCvVT+pBP26yYH9P2GUV2X7YQbDfW8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.CDFWeightedArray-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.CDFWeightedArray-1.html",
+          "hash": "89VR5Iu8y6b9jHEz4FWX04v15Q8rwWHjO44LWIzgVyY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.CharmNotchCosts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.CharmNotchCosts.html",
+          "hash": "CVRX9r6Ig2Tbq6YHu6D6LhDMK0YgLp+CovBXFBoQSoA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.CustomGeoItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.CustomGeoItem.html",
+          "hash": "hlvaN1K5Qk4qUxKLLP4p90Q8Ulll59bdw/SYrAdM/KM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.GroupBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.GroupBuilder.html",
+          "hash": "EBzIkIfFLwH71aqKJ2aXMyAFUp7K30MF7KLEmwjyuJc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.ICFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.ICFactory.html",
+          "hash": "4zpfwrbibGdtWLlMvC0bQYLBJBKWT+b5Uq6XLVJ5OnY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.ItemGroupBuilder.ItemPaddingHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.ItemGroupBuilder.ItemPaddingHandler.html",
+          "hash": "cXejAd9eeOLTBze0TvqRgxeVP9rjTwk7IGM/Rxp3Bjw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.ItemGroupBuilder.LocationPaddingHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.ItemGroupBuilder.LocationPaddingHandler.html",
+          "hash": "I/eECax+Wesw5ZZ/nVU7lG9TErhSzQ/BihDpTmk/ipQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.ItemGroupBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.ItemGroupBuilder.html",
+          "hash": "UGDZTYInwYCzJa/l1rEzV9UHHTMJ7mWaudsxSWS783w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.ItemMatchHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.ItemMatchHandler.html",
+          "hash": "SSOVKP6mV+eJXuOBPNh5P6Er2tcO7ueRJEZ+UBLUnB8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.ItemRequestInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.ItemRequestInfo.html",
+          "hash": "VObJ3ZOM8nFKiWxdiY72n2cvMtg8q3RUCDEmHoGOtDU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LocationMatchHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LocationMatchHandler.html",
+          "hash": "vR6f/sXLeeVhG90ZJDKK6GhVr8T/5ypN7UmoSJ6U0+M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LocationRequestInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LocationRequestInfo.html",
+          "hash": "hRSnYxCktRYlLxIwREUSkt1he5DB4cvmOUQ3HoxrKNA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LogicConstUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LogicConstUtil.html",
+          "hash": "WrBy/yCGOBqlvBQqyAGCtGHShHqt0JPcOVxHIBog9/I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LogicGeoCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LogicGeoCost.html",
+          "hash": "Z5a2kqg5ce6sMs/kfyvKYHvD+6nzP9ipdRY3tnV9O+Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LogicInts.NotchCostInt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LogicInts.NotchCostInt.html",
+          "hash": "0o4a96xBcpLH3BF8duOk0NmU/tFe2QI56qvho2+zP3Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LogicInts.SafeNotchCostInt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LogicInts.SafeNotchCostInt.html",
+          "hash": "9hrXT2mc0TVMzcD2qtiH+1q06wWGE6rEvo7XKDDbfxA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LogicInts.StartLocationDelta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LogicInts.StartLocationDelta.html",
+          "hash": "5z+1DCcdXpYRRwgSq5/qJFRtpWgDN8pDCTPVTpl4vVU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.LogicInts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.LogicInts.html",
+          "hash": "OuUD44SwQR+mcs+cP5q0z9VRb5uCEs5/oxZcfu2BiZ8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.PlaceholderItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.PlaceholderItem.html",
+          "hash": "4NcTzaFzrwWY0d84pIEhCkEOsrjsjRjfftTT24ehoiw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.ProgressionInitializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.ProgressionInitializer.html",
+          "hash": "XkGt2vWwjjuuSxG6ztSOxmoQdSBna0fJzBS3djnvS/E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RBConsts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RBConsts.html",
+          "hash": "ghKgqijKX2jvXF06ZxjV3MVMeW+4qkrFY+xL9GM9wL4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RCData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RCData.html",
+          "hash": "zSTqwhqpEbYOGuWuCo0fKNnb4iwZdaviY87AGVO1hig="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RandoController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RandoController.html",
+          "hash": "13CKQEbVUQN/m4NopNc5KVo/lkxgbQOwooQsXPd4/zU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RandoFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RandoFactory.html",
+          "hash": "jVVuqzFndkOQqfXTVnWB7CC0HOwyenLAbkUAK6KWLyU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RandoModContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RandoModContext.html",
+          "hash": "vceTOXXGEw7BLfZ1RLusZJwGgfuHA3c/bIhuBBs+WAg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RandoModItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RandoModItem.html",
+          "hash": "fb4L/yvjr7bmZklQIqLEwDe08ZlvtVbQ4kGGR1VHBuo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RandoModLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RandoModLocation.html",
+          "hash": "Jz6GOGioY+r2NaraKSbPbbkBi1y5qJeL8QRcnQVMaRE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RandoModTransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RandoModTransition.html",
+          "hash": "oj5HjNaOTthp6L31gyHVuAWSpCKymXHtCxlu9cuuW2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RandoVariableResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RandoVariableResolver.html",
+          "hash": "7OmjtD3aWVw17+v6Wg0g1brkdEYnb9dTEqPTD8Mf5SE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RequestBuilder.CostConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RequestBuilder.CostConverter.html",
+          "hash": "3CtS/Xdde9Xn8d+T0usZ4XpGFKRKAYnpi/nv+KEUxEw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RequestBuilder.ElementType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RequestBuilder.ElementType.html",
+          "hash": "93WlorcQK/gE+PeUnlPatDITd3bJnnmm7jI4AwB5hno="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RequestBuilder.GroupResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RequestBuilder.GroupResolver.html",
+          "hash": "moBzMErIIKRpfAV31FGyzmsYhdyLWdbBG5/ij/vmR+g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RequestBuilder.RequestBuilderUpdateHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RequestBuilder.RequestBuilderUpdateHandler.html",
+          "hash": "h6m0uYyKCLvd1UI3gGuWelNa2rlobbOqNha5WN9x6mw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RequestBuilder.StartResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RequestBuilder.StartResolver.html",
+          "hash": "Mz8rJ3htfr6JRH6zAyA3c/+Ma37xZM1G2wVZA6R/Vkc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.RequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.RequestBuilder.html",
+          "hash": "lizNDv5Qy9UqVJdgSDMb4PFlWlypozAv0JM2238RP/w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.SelfDualTransitionGroupBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.SelfDualTransitionGroupBuilder.html",
+          "hash": "Ng5YsYonGEk7qowYoNuHs8Dc5pfIvLqzLLsbdlD+ds0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.SplitCloakItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.SplitCloakItem.html",
+          "hash": "SoB4yDMwbqQ96JmMU/Vkb7YfRkhmmLcGMy2D/mLO3cA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StageBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StageBuilder.html",
+          "hash": "Mu9+2R+m4mSm6KqFqDr4ELGrmkxylWIasg9O9SpYdEA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.BenchResetVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.BenchResetVariable.html",
+          "hash": "GAuNMc5nd3xMsR4LdSfXhA1TF/42SIGeNl1Lxc5m7VA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.CastSpellVariable.NearbySoul.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.CastSpellVariable.NearbySoul.html",
+          "hash": "vRP0s8r8Iibevt+4r+Vr1pBVKR4AAEKGEzKkYOF/XmU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.CastSpellVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.CastSpellVariable.html",
+          "hash": "wMXydyWnI08P3TvylG9p8lm4TN6EKPVlye+DABbxDhc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.EquipCharmVariable.EquipResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.EquipCharmVariable.EquipResult.html",
+          "hash": "xeo2vCr7gez2fJjyRhjpsCE4twrJ9h/dHmNwMqD2Uf8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.EquipCharmVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.EquipCharmVariable.html",
+          "hash": "Z8hrZXfuUJ1upYYDzHzdf43wRa2BiSTh+13GuRAQ2Vg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.FlowerProviderVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.FlowerProviderVariable.html",
+          "hash": "ihaOPsOrCkCGify9+mezQ3zqGo0XUuZyjxbNXPpPi98="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.FragileCharmVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.FragileCharmVariable.html",
+          "hash": "zjd7hkTu4a867UPogbHGiTbOjTTehAq2b2qXm+Ze/Cs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.HPStateManager..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.HPStateManager..html",
+          "hash": "KygFVkWRFWMlRi45FU++CVVTbDoyNF41KvJvxSL9JE8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.HPStateManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.HPStateManager.html",
+          "hash": "aRvQomrH5J0QzbvocFZMZnQcL6U9EswHbNFw82EsYmU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.HotSpringResetVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.HotSpringResetVariable.html",
+          "hash": "NOTAlZNtlVPZ/NFhyWcY6DT6c4/r1GStxDc+L0fqgds="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager..html",
+          "hash": "qlIzQdsR0Qxz3ATBiTEIeQjcRzJgqh1rViYirUGm2/A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager.HPSMOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager.HPSMOperation.html",
+          "hash": "BR5irG0RUSL/b3SK31poXa6YbJSaBa8utOObEigmIyo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager.StrictHPInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager.StrictHPInfo.html",
+          "hash": "RnVeYklNz2s2vdFGvv/W2ikHGQGz3gUHcKK2qnuLMXw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.IHPStateManager.html",
+          "hash": "detwrBjS64nBY3TRjYl2SxXKMF0U68RDBhb4C5C6WEE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager..html",
+          "hash": "ZzmX50PJkvQM78/5axb7T8ZV75sdCoUG9cPT//qvIU8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager.SSMOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager.SSMOperation.html",
+          "hash": "i8Iw7Az/odhBjL9y4yMQBrJQ1FJrHWuCh60p4i32YTk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager.SoulInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager.SoulInfo.html",
+          "hash": "f1MDDQ/YKHF3vsjVlB6IPEViAlmLAsOtEmy9FOo6EXg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.ISoulStateManager.html",
+          "hash": "piaviJA+JROy//GJLmlBA9kkY00yKeBWgXkzijYT1w4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.LifebloodCountVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.LifebloodCountVariable.html",
+          "hash": "xe+KBuvLzePFn+1FslHRPkZdM7/I7hpKN6aaonOWySs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.RegainSoulVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.RegainSoulVariable.html",
+          "hash": "sWt6Cxhi0CAGlM22DF6qU/Ddc4wA6wrbMoIpUfzVstI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.SaveQuitResetVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.SaveQuitResetVariable.html",
+          "hash": "g92Wxd+W9Bp733jm67FnqOU3SH6uqIZwdqh6oResIa4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.ShadeStateVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.ShadeStateVariable.html",
+          "hash": "IGx7zuIzPpSBtsCZcJitfJz4z0KCOoYJe32C480h6xc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.ShriekPogoVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.ShriekPogoVariable.html",
+          "hash": "dxok/WwKcM5HTg7+dTPINYrWSkffu8SrzQh4lRnwz3Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.SlopeballVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.SlopeballVariable.html",
+          "hash": "/btLcyFB43p9dmsCSPPP/zp3R1wo08Td7/iaoBYAy24="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.SoulStateManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.SoulStateManager.html",
+          "hash": "TQXJXhaplGBwMIOUBy1OB48DmjnkfwxNa7kKX3Gsf6k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.SpendSoulVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.SpendSoulVariable.html",
+          "hash": "9z5L8dsB2TuXoRc0S7m1MbyvvJsd3vq1YJFJaliTPVc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.StagStateVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.StagStateVariable.html",
+          "hash": "YwP7puibpGTJEDklSQAVqLeQhQqTPhm0RNB66gsPdys="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.StartRespawnResetVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.StartRespawnResetVariable.html",
+          "hash": "BKcJdJp0uQvjc/qwYyZ/C794lqOwUXTIDQEcu2/41mg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.StateModifierWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.StateModifierWrapper-1.html",
+          "hash": "FT9iy4YQcp6RD+JaQV1/cO36deqvVsqZQzgtz9gQz+s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.TakeDamageVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.TakeDamageVariable.html",
+          "hash": "SOI8Y3bWJTZXYalQuc5CVfvsteNiFb584UawpFWR2f4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.WarpToBenchResetVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.WarpToBenchResetVariable.html",
+          "hash": "jttVUAUe84272bT2Cmpbb0JoN206+qf5YTdIMdp8+GU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.WarpToStartResetVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.WarpToStartResetVariable.html",
+          "hash": "kSHUjDKZmb042OBMFKGBCAWGfR1/wgfZg2a4pI6/QsQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.WhiteFragmentEquipVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.WhiteFragmentEquipVariable.html",
+          "hash": "Dh1ZbUVHbPWXjXJUFGuM7XBMC8lvW6ZgxB9+FoaoDT4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.StateVariables.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.StateVariables.html",
+          "hash": "u5oTEe3mCoxl7Hu7BG20tWUcSDxIh7iBGPttbcgN3xY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.SymmetricTransitionGroupBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.SymmetricTransitionGroupBuilder.html",
+          "hash": "FJo+zUv/YpK8VJ7lU7gi6eZWouv0kT3S0kTIl1w2OJs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.TransitionGroupBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.TransitionGroupBuilder.html",
+          "hash": "WkFW4XwcH4GE3DfZCe+R+bAgwMC3Q5ZVvWh2Z1mKL8M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.TransitionMatchHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.TransitionMatchHandler.html",
+          "hash": "axEYo6sy5hlwy9GNHEI8ElFRjESk9dqmD7yQojmCN5c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.TransitionRequestInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.TransitionRequestInfo.html",
+          "hash": "+CrpZKqJM0Ui8tFTwmCquggXqq9Ms4hRA8Y6OUhF6qg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RC.html",
+          "hash": "Rr7TZ33yMno0+6vaWwA8kZ4UZxh9fiYG++3tUVJTOtg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.CostDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.CostDef.html",
+          "hash": "clpugvWjFT3qbnA7aBB4/yUuU5nlbeo0zKUp7rtvusg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.Data.html",
+          "hash": "FAxsChDKgrNP63fcVwCWW6W2X75nHsbI1irPaaHftfU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.ItemDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.ItemDef.html",
+          "hash": "sxQb5Y+VaBtJTzDw2FVAsSFq95gNTKZMnOUZCusXZ/I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.JsonUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.JsonUtil.html",
+          "hash": "lS4p+PP1F+OdBagU8LDsudKf3Fki5wqnj1+aZS9JIc4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.LocationDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.LocationDef.html",
+          "hash": "dVSvBrXyXkZ3AUiRahJpqcdh5wgu5pSqzOaunP0nhM0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.PoolDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.PoolDef.html",
+          "hash": "Alqefo8cGvS0OUVou0AJt5x+8RSYHBZ1adh+/1bwF78="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.PoolNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.PoolNames.html",
+          "hash": "i+xlducB9XTaI0dwhhzpmwZfjnqfAwfQjpIjPY0iQJI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.RoomDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.RoomDef.html",
+          "hash": "t50SN7BrYZ4a+/87e7/G1XmKQIU8vL1VeDSlDPKTkSY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.StartDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.StartDef.html",
+          "hash": "2VSrBsr26/9Rbo3xl46SXb8qGqLoFej2jneiRw8t08g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.TransitionDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.TransitionDef.html",
+          "hash": "ZvfyGwq39mr0g5fH5cs4xFn5yO6SXLc5XNM9eJAWyqc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.TransitionDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.TransitionDirection.html",
+          "hash": "5oTCFKAYw6DLuh909IXVyNLMek0yhEAceI5Nhliv4kY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.TransitionSides.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.TransitionSides.html",
+          "hash": "EtQzvTVMLZShfVFTdbk18sAz5ifVLqu0Rhs5WC5XODU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.VanillaDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.VanillaDef.html",
+          "hash": "e5BhFl6UJreiQHOR7CFt4NB7z3dmeBi1DpE4peB6ofY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.WaypointDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.WaypointDef.html",
+          "hash": "kDOkFcSee04SQowA1fAjoOMj3bdL19vvgAzBzpIv1os="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerData.html",
+          "hash": "xp6V8Zo0Gu9nPqcWR3oFp4JsEca22inzx6kTzDTjE3k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.RandomizerMod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.RandomizerMod.html",
+          "hash": "3BVKhSESmp87pYQaDgHANNjlQlQP+8mPkpeTDO6PCWQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.BinaryFormatting.ReflectionData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.BinaryFormatting.ReflectionData.html",
+          "hash": "5hL7Ldc1qCEQKegszxUXN9BnuHNOcgQlq+Yd125aurw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.BinaryFormatting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.BinaryFormatting.html",
+          "hash": "L0P1Qx9qeNd1QIcWBR7zK1ryrJtx8Munwcv8Wt3FrbY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.ConstrainedIntField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.ConstrainedIntField.html",
+          "hash": "n4bdegedhn+CUjk64c6WcqzKGDBcQMDekB3MfQZrUSM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.CostSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.CostSettings.html",
+          "hash": "pwoybwgy4rIfCMlyuReHjF+yvRURvxOuyeQgQPjWs3w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.CursedSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.CursedSettings.html",
+          "hash": "6MaytIoQk4AvIWSCudJuBTvuxFWcTskCwt5Zplkgg1s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.DuplicateItemSettings.SimpleKeySetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.DuplicateItemSettings.SimpleKeySetting.html",
+          "hash": "pDV9S1Dt9vfFicHZOWukFsYiz+2L0pXEEudhOlE/M7U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.DuplicateItemSettings.SplitItemSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.DuplicateItemSettings.SplitItemSetting.html",
+          "hash": "ojtLZ6CQFD+guRVN/58FmNVE9C1aMxHpX5i+buEHGws="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.DuplicateItemSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.DuplicateItemSettings.html",
+          "hash": "F6Ibi67XaQN3zBDu2ghI1WMAaGnzRxzzucUS2ZJLz2k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.GenerationSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.GenerationSettings.html",
+          "hash": "18WbfFAiOUUte+yQ2Qr5PcI6wPmYm+4iM5ZNj2EoGeM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.GlobalSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.GlobalSettings.html",
+          "hash": "vN9pJ6Y5C4Ydw9irl1dI4ok1FiJAyzrVQjmlSj7CiNI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.LongLocationSettings.BossEssenceSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.LongLocationSettings.BossEssenceSetting.html",
+          "hash": "0dKxyBuVdwwuHzCm35MrrUygAZR/Tul8+bKnju0yZnc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.LongLocationSettings.CostItemHintSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.LongLocationSettings.CostItemHintSettings.html",
+          "hash": "pZIzO/aaTtKRpDaHb9KGUKsnC/oiBmUybIX0bAjHUf4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.LongLocationSettings.WPSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.LongLocationSettings.WPSetting.html",
+          "hash": "1Sy9DJMflUfKSpgCZrsrzogmeBfKh23RJ5mH488libo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.LongLocationSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.LongLocationSettings.html",
+          "hash": "bsh32vX9n1lrdST+RCQ9p5uoEXYhK8NHxz33zmu43aU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MaxValueAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MaxValueAttribute.html",
+          "hash": "drn5bYMemP21c0V8gvJB/Vs2BURSR7eIIj1wPsDmCxk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MenuProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MenuProfile.html",
+          "hash": "1XqQksCMB3cxgmOYjZ15F5vmL+XFuEGi6cHBmkx1pfs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MinValueAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MinValueAttribute.html",
+          "hash": "hL5oaqXamDNUFM9q8eI5QfKAZ9wH9an30+AsFDTTa3U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MiscSettings.MaskShardType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MiscSettings.MaskShardType.html",
+          "hash": "inNg4dDtgyKk06ha8GvAu+rZkt9NchT4ExgvYV7fi2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MiscSettings.SalubraNotchesSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MiscSettings.SalubraNotchesSetting.html",
+          "hash": "8G6foeflccrq3291b2lmGc9l7FTVZcrx7bd3zDIqBpQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MiscSettings.ToggleableFireballSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MiscSettings.ToggleableFireballSetting.html",
+          "hash": "9LplQFu85GJaqMboPYSRvLEDFLqYLC5fj0gh9JxI1gg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MiscSettings.VesselFragmentType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MiscSettings.VesselFragmentType.html",
+          "hash": "p82Di6QFQ1+2oJAmfoMMVg8Icfoc/wnWruhTb3lr7/E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.MiscSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.MiscSettings.html",
+          "hash": "7K/yDljhIM6QLaJhpUlbYKH8AstNf3t5nmemPamsloQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.NoveltySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.NoveltySettings.html",
+          "hash": "zqrRtwS9/7OaST7fAXKCc5zrtM0rttCGHO6KbgIhT2Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.PoolSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.PoolSettings.html",
+          "hash": "IjYZlWl2aV9Wv1BVb68s8ZWEdqYr+G/z7Bz6m5WAVkk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.Captions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.Captions.html",
+          "hash": "DmdDhTDpZuI2wm3aTTt3mbpm1Apkvv8rf4Wy2vpitw0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.CostPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.CostPresetData.html",
+          "hash": "w1c7ywfVuCf6ab14JDr5RrxMN9HJOfN6ctcdFGJf/X4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.CursePresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.CursePresetData.html",
+          "hash": "fkYiVItr3TAwyR+AH35kD42XsZiGkCOo8uDtULla6DQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.DuplicateItemPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.DuplicateItemPresetData.html",
+          "hash": "e2qFBcQbs5ylVpdTDp2srxt+tJAZQFbONTWXZ653q1E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.LongLocationPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.LongLocationPresetData.html",
+          "hash": "CojFXyQdx48MBVZ26Y7INJNz6ActYgc+S59zRinYoNA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.MiscPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.MiscPresetData.html",
+          "hash": "8aZXB+RN0aAn/ukC5cfVb2cx3judkRl6Yg373Kk9HTQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.NoveltyPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.NoveltyPresetData.html",
+          "hash": "5jBdeoYlJ6OU0VGWSoGPiS/LUn62yKp2p+8R8Tpa+os="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.PoolPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.PoolPresetData.html",
+          "hash": "JR44pdCU0G0sc3rFpFFG+0xrrDX3Yq5btl+gHJRYBTQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.ProgressionDepthPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.ProgressionDepthPresetData.html",
+          "hash": "ZimxTRo9643x+vy7sRlEMGuhF1OFSIx0/ZAq78yxLQ8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.SkipPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.SkipPresetData.html",
+          "hash": "Q6z8Qpn2BGlmAbXrZ68zrTzOryta3JanL8l9bxQGyXc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.SplitGroupPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.SplitGroupPresetData.html",
+          "hash": "UE7R9X8qrE7M6fg0OfMn4O8FZqYnRMPcuncDyrmmrao="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.StartItemPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.StartItemPresetData.html",
+          "hash": "59Ht0Ag7MvNbOZMbA6sh+1+Q5HZhhH4oTk/NukKX+Rs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.StartLocationPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.StartLocationPresetData.html",
+          "hash": "enQQuBrO+YQDHTBrAxs/IpKyE9GYn7d/hv4WvVNg5nA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.TransitionPresetData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.TransitionPresetData.html",
+          "hash": "pdm6RYxXmro0zX4+OsEKsjLjgkKUJPonL4ONGNkM4Yc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Presets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Presets.html",
+          "hash": "wOMAu4B9ZElBMnQp75cP85QEBvFqsawf4R3CEw06/UM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.ProgressionDepthSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.ProgressionDepthSettings.html",
+          "hash": "+T6KU37OW/SJG3Dyl1rtpBYTX562xYy6R+i+8pUovZ0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.RandomizerSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.RandomizerSettings.html",
+          "hash": "uugLBuGHXCkjPL2sec/YqITvYZYvPYCI+M2PxSLMbTo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.SettingsModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.SettingsModule.html",
+          "hash": "WSlYm4RZjrNMy5oCuMt4yKQUfYPAUDwYU0JqELSTqNk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.SettingsPM.BoolTermResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.SettingsPM.BoolTermResolver.html",
+          "hash": "BNm2qQArQi6cDkjdfDyPwFfEO6Es4DBHKx7Hfxwu9FU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.SettingsPM.IntTermResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.SettingsPM.IntTermResolver.html",
+          "hash": "L3BimnXzolC56C/aPBEFkG3tZB3QWpxiKd8QXUAVkIE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.SettingsPM.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.SettingsPM.html",
+          "hash": "zAQUvd/674tIlL9o5dKn5RUN9D0auSisW7CzpvE8c/s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.SkipSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.SkipSettings.html",
+          "hash": "B0OexHYZdgr+kus+ZHb7QnjgLdljP1buFsnjiyoS8a8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.SplitGroupSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.SplitGroupSettings.html",
+          "hash": "Fgb77fb0ZAmwdWtb4CYn3gN+SgzNwRq3TTSAoO6Rezk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartCharmType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartCharmType.html",
+          "hash": "OxLwlJEPNGOgQ5RI8sqbMZVOaOYF9YrL8aqKBbVozTc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartHorizontalType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartHorizontalType.html",
+          "hash": "Jmpnld/7eB4fON5lat3v3FOp1pg9rX/i7RuYgrBIg1Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartMiscItems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartMiscItems.html",
+          "hash": "k/9VRqLxXVzklKxkTqf2OKg3lBMPaAxPZBEQvdEIiq8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartStagType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartStagType.html",
+          "hash": "sYyAXDbVJpjjEhSUo+NQlbxtd+/TdOxQb5xo9hlG2kI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartVerticalType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartItemSettings.StartVerticalType.html",
+          "hash": "Oqf0QN/aQUcfRvS+XRl4AkEuQQbEdmfPVBvAvsPTLgc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartItemSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartItemSettings.html",
+          "hash": "zZZWWszgZdW5MtjHaMwiU0dRAqmwZzbPQ5wk52DObgs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartLocationSettings.RandomizeStartLocationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartLocationSettings.RandomizeStartLocationType.html",
+          "hash": "kadEBUfpZmEbGTHAeEZUChC8yibYBYHlgMFqbCCAuoQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.StartLocationSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.StartLocationSettings.html",
+          "hash": "+ix64D3aJBkfFd30cJKsFQxpLJAQsMV/knpqIbTMnzA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.TrackerData.DelegateUpdateEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.TrackerData.DelegateUpdateEntry.html",
+          "hash": "edeA1TRNY9O+1kX354zjFAir3mGiA1YP6EPgyg+Jr1o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.TrackerData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.TrackerData.html",
+          "hash": "4tzVm9Xv3FvNmgq98LBJObihYAVn2yQEV6JrXPkE6bE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.TransitionSettings.AreaConstraintSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.TransitionSettings.AreaConstraintSetting.html",
+          "hash": "ID7P5H8zWoeaTqUdQvp9aN9veDBgflB5dNCMPcFmqRA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.TransitionSettings.TransitionMatchingSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.TransitionSettings.TransitionMatchingSetting.html",
+          "hash": "/1PIPZlgEuI9UoFHiyNKaOCjJagxbLYHi+zRAUSk1YY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.TransitionSettings.TransitionMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.TransitionSettings.TransitionMode.html",
+          "hash": "D9mCAkY63k4v0mN4ir03EwRo7UuB1CJJdzZa9UySYRE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.TransitionSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.TransitionSettings.html",
+          "hash": "ga6OPVLFWEdYftUtUBat9lSTJYaJiz0fR1msvwXxHc8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.Util.html",
+          "hash": "NEG60CO0iSrZmQCVXH7I6bvmCXRmVJBcFi3dSx7CO6A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.Settings.html",
+          "hash": "Qub6qyX6GkHtez8mQMFMKyt7gLB6wkT4JgM+AbXZ5Zk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RandomizerMod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RandomizerMod.html",
+          "hash": "ipIiIfWpg7g9ssAhmS8yrkm0jOYL6rXizzAl5AUfxds="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "qptEs7oLx6G6FQyKkiWDdw7OaJaXDEedWmcwymVZpbM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/connection_guide.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/connection_guide.html",
+          "hash": "hAhJmmp73ZKUrakVYij5VEOwwCJ798RvhaXT1gD1u0c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "ghwpjG3+FpNrUaWExDAUUBQv6F8+oH02iuZ5q9C8a24="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/logic_variable_ref.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/logic_variable_ref.html",
+          "hash": "PkIZ0ZNi6vA1btJNZq5drtzEEv4mXsz7dzz9588b4oA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/request_builder.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/request_builder.html",
+          "hash": "ROC+VeXRo0/F1DPkcKzA7KTIV218xzWUu7A3tiUr+Zo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/state_field_ref.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/state_field_ref.html",
+          "hash": "s1/1BiTL4qpl+AoFmQnt7nPnYVANd+mQChLHtNUXD7s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "PUjcRuEUQeByx5ssIIHYj1VxixI/IvsTfZCnO+yhtFM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "utveiVvntfrcbAHVDnUpILeSeyIJmN1xDGmPYz/ouoA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "i1KNr9SgROl7GBVk/vBNPGI4mGGHmYU6SoA3KfCodGg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 6,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 202,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
