@@ -13,8 +13,8 @@ namespace RandomizerMod.RC
             (LogicFileType.Waypoints, "waypoints"),
             (LogicFileType.Transitions, "transitions"),
             (LogicFileType.Locations, "locations"),
-            (LogicFileType.ItemStrings, "items"),
-            (LogicFileType.StateData, "state"),
+            (LogicFileType.ItemStrings, "items")
+            // state.json is loaded in RandoVariableResolver.cs
         };
 
         /// <summary>

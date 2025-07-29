@@ -1,4 +1,5 @@
 ﻿using RandomizerCore.Logic;
+using RandomizerCore.Logic.StateLogic;
 using RandomizerMod.RC.LogicInts;
 using RandomizerMod.RC.StateVariables;
 
@@ -6,6 +7,15 @@ namespace RandomizerMod.RC
 {
     public class RandoVariableResolver : VariableResolver
     {
+        public override StateManagerBuilder GetStateModel()
+        {
+            StateManagerBuilder smb = base.GetStateModel();
+            RawStateData rsd = new RandomizerCore.Json.JsonLogicFormat()
+                .LoadStateData(RandomizerMod.Assembly.GetManifestResourceStream($"RandomizerMod.Resources.Logic.state.json"));
+            smb.AppendRawStateData(rsd);
+            return smb;
+        }
+
         public override bool TryMatch(LogicManager lm, string term, out LogicVariable variable)
         {
             if (base.TryMatch(lm, term, out variable)) return true;
