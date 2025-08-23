@@ -99,10 +99,9 @@ namespace RandomizerModTests.StateVariables
 
             pm.Add(Fix.LM.GetItemStrict("Spell_Twister"));
             pm.Set("NOTCHES", 6);
-            pm.Set("DIFFICULTSKIPS", 1);
 
             IEnumerable<LazyStateBuilder> result = sm.ModifyState(null, pm, lsb);
-            Assert.NotEmpty(result);
+            Assert.Empty(result);
         }
 
         [Fact]
