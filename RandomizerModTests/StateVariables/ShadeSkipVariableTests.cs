@@ -31,7 +31,7 @@ namespace RandomizerModTests.StateVariables
         public void CannotShadeSkipWithUsedState()
         {
             StateModifier sm = (StateModifier)Fix.LM.GetVariableStrict("$SHADESKIP");
-            ProgressionManager pm = Fix.GetProgressionManager(new());
+            ProgressionManager pm = Fix.GetProgressionManager(ShadeskipPMBase);
             LazyStateBuilder lsb = Fix.GetState(new() { ["USEDSHADE"] = 1 });
 
             IEnumerable<LazyStateBuilder> result = sm.ModifyState(null, pm, lsb);
@@ -39,10 +39,10 @@ namespace RandomizerModTests.StateVariables
         }
 
         [Fact]
-        public void CannotShadeSkipWithCharm36()
+        public void CannotShadeSkipWithVoidHeartEquipped()
         {
             StateModifier sm = (StateModifier)Fix.LM.GetVariableStrict("$SHADESKIP");
-            ProgressionManager pm = Fix.GetProgressionManager(new());
+            ProgressionManager pm = Fix.GetProgressionManager(ShadeskipPMBase);
             LazyStateBuilder lsb = Fix.GetState(new() { ["CHARM36"] = 1 });
 
             IEnumerable<LazyStateBuilder> result = sm.ModifyState(null, pm, lsb);
@@ -53,7 +53,7 @@ namespace RandomizerModTests.StateVariables
         public void CannotShadeSkipWithMaxSoulRequirement()
         {
             StateModifier sm = (StateModifier)Fix.LM.GetVariableStrict("$SHADESKIP");
-            ProgressionManager pm = Fix.GetProgressionManager(new());
+            ProgressionManager pm = Fix.GetProgressionManager(ShadeskipPMBase);
             LazyStateBuilder lsb = Fix.GetState(new() { ["REQUIREDMAXSOUL"] = 67 });
 
             IEnumerable<LazyStateBuilder> result = sm.ModifyState(null, pm, lsb);
