@@ -16,6 +16,8 @@ namespace RandomizerModTests.StateVariables
         public StateInt LazySpentHP => SM.GetIntStrict("LAZYSPENTHP");
         public StateInt SpentHP => SM.GetIntStrict("SPENTHP");
         public StateInt SpentBlueHP => SM.GetIntStrict("SPENTBLUEHP");
+        public StateBool Overcharmed => SM.GetBoolStrict("OVERCHARMED");
+        public StateBool CannotOvercharm => SM.GetBoolStrict("CANNOTOVERCHARM");
 
 
         [Fact]
@@ -23,10 +25,19 @@ namespace RandomizerModTests.StateVariables
         {
             ProgressionManager pm = Fix.GetProgressionManager([]);
             List<LazyStateBuilder> states = HPSM.DetermineHP(pm, Default).ToList();
-            foreach (LazyStateBuilder s in states) Output.WriteLine(Fix.LM.StateManager.PrettyPrint(s));
-            states = states.SelectMany(s => HPSM.TakeDamage(pm, s, 1)).ToList();
-            Output.WriteLine("Hit!");
-            foreach (LazyStateBuilder s in states) Output.WriteLine(Fix.LM.StateManager.PrettyPrint(s));
+            states.Should().HaveCount(2).And.AllSatisfy(s => HPSM.IsHPDetermined(s));
+
+            LazyStateBuilder oc = states.First(s => s.GetBool(Overcharmed));
+            LazyStateBuilder noc = states.First(s => s.GetBool(CannotOvercharm));
+            oc.GetBool(CannotOvercharm).Should().BeFalse();
+            noc.GetBool(Overcharmed).Should().BeFalse();
+
+            List<LazyStateBuilder> oc_damage = HPSM.TakeDamage(pm, oc, 1).ToList();
+            List<LazyStateBuilder> noc_damage = HPSM.TakeDamage(pm, noc, 1).ToList();
+            oc_damage.Should().ContainSingle()
+                .Subject.GetInt(SpentHP).Should().Be(2);
+            noc_damage.Should().ContainSingle()
+                .Subject.GetInt(SpentHP).Should().Be(1);
         }
 
         [Fact]
