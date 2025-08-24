@@ -146,7 +146,7 @@ namespace RandomizerModTests.StateVariables
             LazyStateBuilder lsb = Fix.GetState(CharmStateBase);
 
             pm.Set("MASKSHARDS", 4);
-            pm.Add(Fix.LM.GetItemStrict("Lifeblood_Heart"));
+            pm.Add(Fix.LM.GetItemStrict("Lifeblood_Core"));
             pm.Set("NOTCHES", 6);
 
             IEnumerable<LazyStateBuilder> result = sm.ModifyState(null, pm, lsb).SelectMany(s => sm.ModifyState(null, pm, s));
@@ -161,11 +161,11 @@ namespace RandomizerModTests.StateVariables
             LazyStateBuilder lsb = Fix.GetState(CharmStateBase);
 
             pm.Set("MASKSHARDS", 4);
-            pm.Add(Fix.LM.GetItemStrict("Lifeblood_Heart"));
+            pm.Add(Fix.LM.GetItemStrict("Lifeblood_Core"));
             pm.Set("NOTCHES", 1);
 
             IEnumerable<LazyStateBuilder> result = sm.ModifyState(null, pm, lsb).SelectMany(s => sm.ModifyState(null, pm, s));
-            Assert.Empty(result);
+            Assert.NotEmpty(result);
         }
 
         [Fact]
