@@ -202,7 +202,7 @@ namespace RandomizerMod.RC.StateVariables
             {
                 int groupTotal = num * amount;
                 if (soul.Soul < groupTotal) return false;
-                SpendAndRebalance(groupTotal, ref soul, ref state);
+                SpendAndRebalance(groupTotal, ref soul, ref operand);
             }
             state = operand;
             return true;
@@ -215,7 +215,7 @@ namespace RandomizerMod.RC.StateVariables
             for (int i = 0; i < casts; i++)
             {
                 if (soul.Soul < amount) return false;
-                SpendAndRebalance(amount, ref soul, ref state);
+                SpendAndRebalance(amount, ref soul, ref operand);
             }
             state = operand;
             return true;
