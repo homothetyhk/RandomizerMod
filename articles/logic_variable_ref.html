@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>LogicInts </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="LogicInts ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>This article explains the logic variables defined in the randomizer. Variables are organized by type.</p>
+<p>Unless otherwise indicated, all variables in this section have the syntax <code>PREFIX[P1,P2,...,PN]</code> where <code>PREFIX</code> is a fixed string and <code>P1</code> through <code>PN</code> are parameters. If there are no parameters, the square brackets can be omitted.</p>
+<h2 id="logicints">LogicInts</h2>
+<ul>
+<li>NotchCostInt, SafeNotchCostInt
+<ul>
+<li>Prefix: <code>$NotchCost</code>, <code>$SafeNotchCost</code></li>
+<li>Required Parameters:
+<ul>
+<li>A sequence of comma-separated integers, representing 1-based charm ids.</li>
+</ul>
+</li>
+<li>Optional Parameters: none</li>
+<li>These LogicInts return the number of notches needed to equip the corresponding combination of charms, minus 1. $NotchCost gives the number allowing for overcharming, while SafeNotchCost gives the number without overcharming. Obsoleted by EquipCharmVariable ($EQUIPCHARM), which has better interoperability.</li>
+</ul>
+</li>
+</ul>
+<h2 id="stateproviders">StateProviders</h2>
+<ul>
+<li>StartLocationDelta
+<ul>
+<li>Prefix: <code>$StartLocation</code></li>
+<li>Required Parameters:
+<ul>
+<li>The first parameter should be the exact name of a start def. For example, for the King's Pass start, <code>NAME</code> is <code>King's Pass</code>.</li>
+</ul>
+</li>
+<li>Optional Parameters: none</li>
+<li>This is a <code>LogicInt</code> which is <code>TRUE</code> exactly when the current start def matches its argument, and otherwise is false. It provides the start state (the state of the <code>Start_State</code> waypoint) when it is the first state providing term or variable in an expression.</li>
+</ul>
+</li>
+</ul>
+<h2 id="statemodifiers">StateModifiers</h2>
+<ul>
+<li><p>BenchResetVariable</p>
+<ul>
+<li>Prefix: <code>$BENCHRESET</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>This is a <code>StateResetter</code> which applies the effect of resting at a bench.
+<ul>
+<li>Field-resetting is opt-out, via a &quot;BenchResetCondition&quot; property on the field which provides single-state infix logic that returns true when the field should be resetted.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CastSpellVariable</p>
+<ul>
+<li>Prefix: <code>$CASTSPELL</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters:
+<ul>
+<li>any integer parameters: parses to an array of ints, which represent number of spell casts, where time passes between different entries of the array (i.e. soul reserves can refill, etc).
+<ul>
+<li>If missing, number of casts is new int[]{1}</li>
+</ul>
+</li>
+<li>a parameter beginning with &quot;before:&quot;: tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available before any spells are cast.</li>
+<li>a parameter beginning with &quot;after:&quot;: tries to convert the tail of the parameter to the NearbySoul enum (either by string or int parsing). Represents soul available after all spells are cast.</li>
+</ul>
+</li>
+<li>Represents the effect on soul of casting spells sequentially.</li>
+</ul>
+</li>
+<li><p>EquipCharmVariable, FragileCharmVariable, WhiteFragmentEquipVariable</p>
+<ul>
+<li>Prefix: <code>$EQUIPPEDCHARM</code></li>
+<li>Required Parameters:
+<ul>
+<li>First parameter MUST be either: the name of the charm term (e.g. Gathering_Swarm) or the 1-based charm ID (for Gathering Swarm, 1).</li>
+</ul>
+</li>
+<li>Optional Parameters: none</li>
+<li>Represents the effect of equipping a charm. Uses <code>MAXNOTCHCOST</code> to efficiently overcharm if needed. Cannot overcharm if the player has already taken damage. Fragile charms cannot be equipped if the player does not have the ability to repair them, or if they are broken in the current state. Charm 36 (Kingsoul/Void Heart) checks that the player at least 2 white fragments, and uses notch cost 0 if the player has 3 white fragments.</li>
+</ul>
+</li>
+<li><p>FlowerProviderVariable</p>
+<ul>
+<li>Prefix: <code>$FLOWERGET</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>Sets <code>NOFLOWER</code> false, representing the effect of receiving the delicate flower. Always succeeds.</li>
+</ul>
+</li>
+<li><p>HotSpringResetVariable</p>
+<ul>
+<li>Prefix: <code>$HOTSPRINGRESET</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>This is a <code>StateResetter</code> which applies the effect of resting in a hot springs.
+<ul>
+<li>Field-resetting is opt-in, via a &quot;HotSpringResetCondition&quot; property on the field which provides single-state infix logic that returns true when the field should be resetted.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>RegainSoulVariable</p>
+<ul>
+<li>Prefix: <code>$REGAINSOUL</code></li>
+<li>Required Parameters:
+<ul>
+<li>The first parameter must be an int representing the amount of soul to be regained.</li>
+</ul>
+</li>
+<li>Optional Parameters: none</li>
+<li>Represents the effect of regaining a certain amount of soul. Always succeeds.</li>
+</ul>
+</li>
+<li><p>SaveQuitResetVariable</p>
+<ul>
+<li>Prefix: <code>$SAVEQUITRESET</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>This is a <code>StateResetter</code> which provides the effect of warping via Benchwarp or savequit, regardless of destination type.
+<ul>
+<li>Field-resetting is opt-in, via a &quot;SaveQuitResetCondition&quot; property on the field which provides single-state infix logic that returns true when the field should be resetted.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ShadeStateVariable</p>
+<ul>
+<li>Prefix: <code>$SHADESKIP</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters:
+<ul>
+<li>an integer followed by &quot;HITS&quot; (e.g. &quot;2HITS&quot;), denoting the number of nail hits the shade must be able to survive. Defaults to 1.</li>
+</ul>
+</li>
+<li>Represents the effect of dying to set up a shade. If the player has and can dream gate, a second path considers the result of dream gating before and after the shade skip.</li>
+<li>To succeed, requires:
+<ul>
+<li>The <code>SHADESKIPS</code> setting enabled</li>
+<li>The <code>CANNOTSHADESKIP</code> state bool set to false</li>
+<li>The <code>USEDSHADE</code> state bool set to false</li>
+<li>The state must have enough max HP for the shade health requirement</li>
+<li>The state must not require more than 66 max soul</li>
+</ul>
+</li>
+<li>Sets <code>NOFLOWER</code> true and <code>USEDSHADE</code> true. Adjusts soul relative to limiter. Fragile Heart can be equipped to reach a max HP requirement, and can be broken if its conditions are met.</li>
+</ul>
+</li>
+<li><p>SpendSoulVariable</p>
+<ul>
+<li>Prefix: <code>$SPENDSOUL</code></li>
+<li>Required Parameters:
+<ul>
+<li>The first parameter must be an int representing the amount of soul to be spent.</li>
+</ul>
+</li>
+<li>Optional Parameters: none</li>
+<li>Represents the effect of spending a certain amount of soul. Succeeds only if enough soul can be spent.</li>
+</ul>
+</li>
+<li><p>StagStateVariable</p>
+<ul>
+<li>Prefix: <code>$STAGSTATEMODIFIER</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>Represents the effect of riding a stag. Sets <code>NOFLOWER</code> true. Always succeeds.</li>
+</ul>
+</li>
+<li><p>StartRespawnResetVariable</p>
+<ul>
+<li>Prefix: <code>$STARTRESPAWN</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>This is a <code>StateResetter</code> which provides the effect of the start respawn. Typically used via <code>$WARPTOSTART</code>.
+<ul>
+<li>Field resetting is opt-in, via a &quot;StartRespawnResetCondition&quot; property on the field which provides single-state infix logic that returns true when the field should be resetted.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TakeDamageVariable</p>
+<ul>
+<li>Prefix: <code>$TAKEDAMAGE</code></li>
+<li>Required Parameters:
+<ul>
+<li>If any parameters are provided, the first should be an int representing the amount of damage. Defaults to 1.</li>
+</ul>
+</li>
+<li>Optional Parameters: none</li>
+<li>This is a state modifier which represents the effect of taking a single hit of specified damage. Assumes that the player has time to heal before taking the hit, and time to regen with Hiveblood after taking the hit.
+<ul>
+<li>On the first time damage is taken, tries to emit a second state with Hiveblood equipped.</li>
+<li>On the first time double damage is taken, tries to emit states with all combinations of Lifeblood Heart and Lifeblood Core equipped.</li>
+<li>When damage that would kill is taken, tries to emit all combinations of Lifeblood Heart, Lifeblood Core, Joni's Blessing, Fragile Heart, and Deep Focus, and attempts to heal with Focus to survive.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>WarpToBenchResetVariable</p>
+<ul>
+<li>Prefix: <code>$WARPTOBENCH</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>Provides the effect of warping to a bench via Benchwarp or savequit. Does not verify whether the player can warp to a bench.
+<ul>
+<li>Implemented by applying <code>$SAVEQUITRESET</code>, then <code>$BENCHRESET</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>WarpToStartResetVariable</p>
+<ul>
+<li>Prefix: <code>$WARPTOSTART</code></li>
+<li>Required Parameters: none</li>
+<li>Optional Parameters: none</li>
+<li>Provides the effect of warping to start via Benchwarp or savequit.
+<ul>
+<li>Implemented by applying <code>$SAVEQUITRESET</code>, then <code>$STARTRESPAWN</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/RandomizerMod/blob/docs-source/articles/logic_variable_ref.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

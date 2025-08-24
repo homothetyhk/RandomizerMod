@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Bool Fields </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Bool Fields ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>This article explains the state fields defined in the randomizer. Unless otherwise noted, all fields default to <code>false</code> or <code>0</code>. For detail on more specific properties, see the state.json field in the randomizer resources.</p>
+<h2 id="bool-fields">Bool Fields</h2>
+<ul>
+<li>&quot;USEDSHADE&quot;
+<ul>
+<li>If true, the path to the current point represented by this state requires an intermediate death without any subsequent bench/dream gate.</li>
+</ul>
+</li>
+<li>&quot;OVERCHARMED&quot;
+<ul>
+<li>If true, the player is overcharmed.</li>
+</ul>
+</li>
+<li>&quot;SPENTALLSOUL&quot;
+<ul>
+<li>If true, the player should be assumed to have no soul, regardless of other state fields. For example, a savequit to a bench without Salubra's Blessing might set this <code>true</code>.</li>
+</ul>
+</li>
+<li>&quot;CANNOTREGAINSOUL&quot;
+<ul>
+<li>If true, the state should not be allowed to regain soul.</li>
+</ul>
+</li>
+<li>&quot;CANNOTSHADESKIP&quot;
+<ul>
+<li>If true, the state cannot shade skip. This is available as a separate control from USEDSHADE.</li>
+</ul>
+</li>
+<li>&quot;HASTAKENDAMAGE&quot;
+<ul>
+<li>If true, the player has taken damage. This means that damage-affecting state choices such as overcharming should now be treated as frozen.</li>
+</ul>
+</li>
+<li>&quot;HASTAKENDOUBLEDAMAGE&quot;
+<ul>
+<li>If true, the player has taken a hit which dealt 2 or more damage. This means that state choices which affect blue health such as equipping Lifeblood Heart or Lifeblood Core should now be treated as frozen.</li>
+</ul>
+</li>
+<li>&quot;HASALMOSTDIED&quot;
+<ul>
+<li>Used by $TAKEDAMAGE to track state decisions which are only made if a hit would otherwise kill.</li>
+</ul>
+</li>
+<li>&quot;BROKEHEART&quot;
+<ul>
+<li>If true, the path to the current point represented by this state requires an intermediate death with Fragile Heart equipped. Breaking fragile charms should only be required in logic if fragile charm repair is accessible. Though fragile charm repair is reachable via benchwarp in standard randomizer, it should not be assumed to be trivially reachable in general, so the fact that charms have been broken should be propagated along paths.</li>
+</ul>
+</li>
+<li>&quot;BROKEGREED&quot;
+<ul>
+<li>If true, the path to the current point represented by this state requires an intermediate death with Fragile Greed equipped. Breaking fragile charms should only be required in logic if fragile charm repair is accessible. Though fragile charm repair is reachable via benchwarp in standard randomizer, it should not be assumed to be trivially reachable in general, so the fact that charms have been broken should be propagated along paths.</li>
+</ul>
+</li>
+<li>&quot;BROKESTRENGTH&quot;
+<ul>
+<li>If true, the path to the current point represented by this state requires an intermediate death with Fragile Strength equipped. Breaking fragile charms should only be required in logic if fragile charm repair is accessible. Though fragile charm repair is reachable via benchwarp in standard randomizer, it should not be assumed to be trivially reachable in general, so the fact that charms have been broken should be propagated along paths.</li>
+</ul>
+</li>
+<li>&quot;NOFLOWER&quot;
+<ul>
+<li>Defaults to <code>true</code></li>
+<li>If <code>false</code>, the path to the current point represented by this state has the unbroken Delicate Flower.</li>
+</ul>
+</li>
+<li>&quot;NOPASSEDCHARMEQUIP&quot;
+<ul>
+<li>Defaults to <code>true</code></li>
+<li>If <code>false</code>, the path to the current point contains a place where charms can be equipped.</li>
+</ul>
+</li>
+<li>&quot;CHARM1&quot;, ..., &quot;CHARM40&quot; and &quot;noCHARM1&quot;, ..., &quot;noCHARM40&quot;
+<ul>
+<li>These fields correspond to the 40 charms, identified by 1-based id number.</li>
+<li>For example, the charm with id 1 is Gathering Swarm. If &quot;CHARM1&quot; is true, then Gathering Swarm is equipped. If &quot;noCHARM1&quot; is true, then Gathering Swarm is not equipped. Otherwise, &quot;CHARM1&quot; and &quot;noCHARM1&quot; are both false, and the equip state of Gathering Swarm is ambiguous (i.e. a subsequent state modifier can decide to require it to be equipped or unequipped).</li>
+</ul>
+</li>
+</ul>
+<h2 id="int-fields">Int Fields</h2>
+<ul>
+<li>&quot;SPENTSOUL&quot;
+<ul>
+<li>Indicates the amount of soul that has been spent from the soul meter relative to the soul meter's maximum soul.</li>
+</ul>
+</li>
+<li>&quot;SPENTRESERVESOUL&quot;
+<ul>
+<li>Indicates the aount of soul that has been spent from the soul vessels relative to the soul vessel's combined maximum soul.</li>
+</ul>
+</li>
+<li>&quot;SOULLIMITER&quot;
+<ul>
+<li>Indicates an offset for the soul meter's maximum soul. For example, after dying, this is set to 33, to indicate that the maximum soul is now 99 - 33 = 66.</li>
+</ul>
+</li>
+<li>&quot;REQUIREDMAXSOUL&quot;
+<ul>
+<li>Indicates that the soul meter's maximum soul cannot drop below a certain number. For example, if the path contains a triple fireball skip, then this is set to 99, to indicate that the player must be able to cast 3 spells consecutively. Then the path cannot subsequently shade skip, since the preceding fireball skip would no longer be possible.</li>
+</ul>
+</li>
+<li>&quot;SPENTHP&quot;
+<ul>
+<li>Indicates the number of masks lost, relative to the current total.</li>
+</ul>
+</li>
+<li>&quot;SPENTBLUEHP&quot;
+<ul>
+<li>Indicates the number of blue masks lost, relative to the number given by charms.</li>
+</ul>
+</li>
+<li>&quot;USEDNOTCHES&quot;
+<ul>
+<li>Indicates the number of notches currently in use for charms.</li>
+</ul>
+</li>
+<li>&quot;MAXNOTCHCOST&quot;
+<ul>
+<li>Indicates the largest notch cost among all equipped charms. Used to determine the optimal overcharming configuration.</li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/RandomizerMod/blob/docs-source/articles/state_field_ref.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
