@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <AssemblyTitle>RandomizerMod</AssemblyTitle>
     <RootNamespace>RandomizerMod</RootNamespace>
-    <VersionPrefix>4.1.6</VersionPrefix>
+    <VersionPrefix>4.1.7</VersionPrefix>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>preview</LangVersion>
     <Deterministic>true</Deterministic>
