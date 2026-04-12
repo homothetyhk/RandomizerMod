@@ -275,7 +275,7 @@ namespace RandomizerMod.RC.StateVariables
 
         public bool TrySetSoulLimit(ProgressionManager pm, ref LazyStateBuilder state, int limiter, bool appliesToPriorPath)
         {
-            if (appliesToPriorPath && state.GetInt(MaxRequiredSoul) > limiter) return false;
+            if (appliesToPriorPath && state.GetInt(MaxRequiredSoul) > 99 - limiter) return false;
 
             int current = state.GetInt(SoulLimiter);
 
