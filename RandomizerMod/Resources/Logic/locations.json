@@ -2266,11 +2266,11 @@
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Entrance",
-    "logic": "(White_Palace_18[right1] + ((FULLDASH + WINGS) | LEFTSUPERDASH)) | (White_Palace_18[top1] + FULLDASH + FULLCLAW + WINGS + FULLSUPERDASH)"
+    "logic": "(White_Palace_18[right1] + (LEFTDASH | WINGS | LEFTSUPERDASH)) | (White_Palace_18[top1] + FULLDASH + FULLCLAW + WINGS + FULLSUPERDASH)"
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Second",
-    "logic": "(White_Palace_18[right1] + FULLDASH + FULLCLAW + WINGS) | (White_Palace_18[top1] + FULLDASH + FULLCLAW + WINGS + FULLSUPERDASH)"
+    "logic": "(White_Palace_18[right1] + LEFTDASH + FULLCLAW + WINGS) | (White_Palace_18[top1] + FULLCLAW + WINGS + RIGHTSUPERDASH)"
   },
   {
     "name": "Soul_Totem-Path_of_Pain_Hidden",
